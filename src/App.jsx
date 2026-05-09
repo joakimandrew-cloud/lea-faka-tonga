@@ -31,7 +31,7 @@ import DrillsMenu from './pages/DrillsMenu'
 export default function App() {
   return (
     <ChapterProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/chapters" element={<ChapterBrowser />} />
