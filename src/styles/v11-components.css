@@ -1,0 +1,748 @@
+/* ── v11 component styles ─────────────────────────────────────────────── */
+/* Scoped redesign for Flip Cards, Quizzes, and Reference Charts.         */
+/* Do NOT put anything here that could affect Chapters or global layout.  */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap');
+
+/* ── Shared tokens (light-mode defaults) ─────────────────────────────── */
+.flip-cards,
+.quiz,
+.ref {
+  --fc-red:        #c1272d;
+  --fc-red-dark:   #8b1a1f;
+  --fc-red-light:  #e85a5f;
+  --fc-surface-0:  #f5f0e6;
+  --fc-surface-1:  #ffffff;
+  --fc-surface-2:  #ebe5d8;
+  --fc-border:     #d8d4cc;
+  --fc-text:       #0a0a0a;
+  --fc-text-mid:   #7a7570;
+}
+
+/* ── Dark-mode overrides ─────────────────────────────────────────────── */
+.dark .flip-cards,
+.dark .quiz,
+.dark .ref {
+  --fc-surface-0:  #111111;
+  --fc-surface-1:  #1c1c1c;
+  --fc-surface-2:  #1e1e1e;
+  --fc-border:     #2a2a2a;
+  --fc-text:       #f5f0e6;
+  --fc-text-mid:   #7a7570;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §4  Reference Charts                                                   */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.ref {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--fc-text);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────── */
+.ref-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.ref-tab {
+  padding: 5px 12px;
+  background: var(--fc-surface-1);
+  border: 1px solid var(--fc-border);
+  border-radius: 3px;
+  color: var(--fc-text-mid);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.ref-tab.is-active {
+  background: var(--fc-red);
+  border-color: var(--fc-red);
+  color: #fff;
+}
+
+/* ── Chart content ────────────────────────────────────────────────────── */
+.ref-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ref-chart-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--fc-text);
+  margin: 0;
+}
+
+.ref-chart-desc {
+  font-size: 13px;
+  color: var(--fc-text-mid);
+  line-height: 1.5;
+  margin: -8px 0 0;
+}
+
+/* ── Table groups ─────────────────────────────────────────────────────── */
+.ref-table-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ref-sublabel {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fc-red);
+}
+
+.ref-sublabel-hint {
+  font-size: 11px;
+  color: var(--fc-text-mid);
+  margin-top: 1px;
+}
+
+/* ── Table ─────────────────────────────────────────────────────────────── */
+.ref-table-wrap {
+  overflow-x: auto;
+}
+
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+.ref-table th {
+  text-align: left;
+  padding: 8px 10px;
+  background: var(--fc-surface-1);
+  border-bottom: 1px solid var(--fc-border);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fc-text-mid);
+}
+
+.ref-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--fc-surface-2);
+  color: var(--fc-text);
+}
+
+.ref-table td:first-child {
+  color: var(--fc-red-dark);
+  font-weight: 500;
+}
+.dark .ref .ref-table td:first-child {
+  color: var(--fc-red-light);
+}
+
+.ref-table td.is-empty {
+  color: var(--fc-text-mid);
+}
+
+.ref-table tr:hover td {
+  background: rgba(193, 39, 45, 0.06);
+}
+
+/* ── Notes ─────────────────────────────────────────────────────────────── */
+.ref-notes {
+  font-size: 13px;
+  color: var(--fc-text-mid);
+  border-top: 1px solid var(--fc-border);
+  padding-top: 12px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Smooth theme transitions ─────────────────────────────────────────── */
+.ref,
+.ref-tab,
+.ref-chart-title,
+.ref-chart-desc,
+.ref-sublabel,
+.ref-sublabel-hint,
+.ref-table th,
+.ref-table td,
+.ref-notes {
+  transition: background-color 0.55s ease, color 0.55s ease, border-color 0.55s ease;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §3  Quizzes                                                            */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--fc-text);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Override the global .font-tongan inside quizzes so Tongan words render
+   in Inter italic instead of falling back to Times New Roman. */
+.quiz .font-tongan {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  color: inherit;
+}
+
+/* ── Meta row ─────────────────────────────────────────────────────────── */
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fc-text-mid);
+  margin-bottom: 2px;
+}
+
+.quiz-count {
+  color: var(--fc-text);
+  font-weight: 600;
+}
+
+/* ── Progress bar ─────────────────────────────────────────────────────── */
+.quiz-progress {
+  height: 3px;
+  background: var(--fc-surface-2);
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-progress > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--fc-red-dark), var(--fc-red));
+}
+
+/* ── Chapter eyebrow ──────────────────────────────────────────────────── */
+.quiz-eyebrow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--fc-border);
+  margin-bottom: 6px;
+}
+
+.quiz-eyebrow-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fc-text-mid);
+}
+
+.quiz-eyebrow-link {
+  font-size: 13px;
+  color: var(--fc-red-light);
+  text-decoration: none;
+}
+.quiz-eyebrow-link:hover {
+  text-decoration: underline;
+}
+.dark .quiz .quiz-eyebrow-link {
+  color: var(--fc-red-light);
+}
+
+/* ── Question ─────────────────────────────────────────────────────────── */
+.quiz-question {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--fc-text);
+  margin: 0 0 10px;
+}
+
+/* ── Options ──────────────────────────────────────────────────────────── */
+.quiz-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--fc-surface-1);
+  border: 1px solid var(--fc-border);
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--fc-text);
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+.quiz-option:not(:disabled):hover {
+  border-color: var(--fc-red);
+}
+
+.quiz-option:disabled {
+  cursor: default;
+}
+
+.quiz-letter {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--fc-surface-2);
+  color: var(--fc-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.quiz-option-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.quiz-option-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.quiz-check {
+  margin-left: auto;
+  color: #4caf50;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.quiz-wrong {
+  margin-left: auto;
+  color: var(--fc-red);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Correct state */
+.quiz-option.is-correct {
+  border-color: #2e7d32;
+  background: rgba(46, 125, 50, 0.10);
+}
+.dark .quiz .quiz-option.is-correct {
+  background: rgba(46, 125, 50, 0.12);
+}
+.quiz-option.is-correct .quiz-letter {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* Wrong state */
+.quiz-option.is-wrong {
+  border-color: var(--fc-red);
+  background: rgba(193, 39, 45, 0.10);
+}
+.dark .quiz .quiz-option.is-wrong {
+  background: rgba(193, 39, 45, 0.12);
+}
+.quiz-option.is-wrong .quiz-letter {
+  background: var(--fc-red);
+  color: #fff;
+}
+
+/* ── Explanation (inside option, shown after answer) ──────────────────── */
+.quiz-explanation {
+  margin-top: 8px;
+}
+
+.quiz-feedback {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.quiz-feedback.is-correct {
+  color: #4caf50;
+}
+.quiz-feedback.is-wrong {
+  color: var(--fc-red);
+}
+
+.quiz-explanation-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fc-text-mid);
+}
+
+/* ── Footer nav ───────────────────────────────────────────────────────── */
+.quiz-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--fc-border);
+}
+
+.quiz-nav-btn {
+  padding: 6px 14px;
+  border-radius: 3px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  color: var(--fc-text);
+  border: 1px solid var(--fc-border);
+}
+.quiz-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.quiz-nav-btn.is-primary {
+  background: var(--fc-red);
+  border-color: var(--fc-red);
+  color: #fff;
+}
+
+/* ── Finish screen ────────────────────────────────────────────────────── */
+.quiz-finish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.quiz-finish-score {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--fc-text);
+}
+
+.quiz-finish-message {
+  font-size: 14px;
+  color: var(--fc-text-mid);
+  margin-bottom: 16px;
+}
+
+.quiz-finish-btn {
+  padding: 8px 20px;
+  background: var(--fc-red);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ── Smooth theme transitions ─────────────────────────────────────────── */
+.quiz,
+.quiz-meta,
+.quiz-count,
+.quiz-progress,
+.quiz-eyebrow,
+.quiz-question,
+.quiz-option,
+.quiz-letter,
+.quiz-nav,
+.quiz-nav-btn,
+.quiz-finish,
+.quiz-finish-score {
+  transition: background-color 0.55s ease, color 0.55s ease, border-color 0.55s ease;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+/* §2  Flip Cards                                                         */
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+.flip-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--fc-text);
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+/* ── Toolbar (single consolidated row) ────────────────────────────────── */
+.fc-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fc-text-mid);
+}
+
+.fc-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.fc-chip {
+  padding: 4px 10px;
+  background: var(--fc-surface-1);
+  border: 1px solid var(--fc-border);
+  border-radius: 3px;
+  color: var(--fc-text-mid);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.fc-chip.is-active {
+  background: var(--fc-red);
+  border-color: var(--fc-red);
+  color: #fff;
+}
+
+.fc-counter {
+  font-weight: 600;
+  color: var(--fc-text);
+  letter-spacing: 0.18em;
+  flex-shrink: 0;
+}
+
+.fc-select {
+  padding: 4px 10px;
+  background: var(--fc-surface-1);
+  border: 1px solid var(--fc-border);
+  border-radius: 3px;
+  color: var(--fc-text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.fc-btn {
+  padding: 5px 12px;
+  background: var(--fc-surface-1);
+  border: 1px solid var(--fc-border);
+  border-radius: 3px;
+  color: var(--fc-text-mid);
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.fc-btn.is-active {
+  background: var(--fc-red);
+  border-color: var(--fc-red);
+  color: #fff;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────── */
+.fc-card-scene {
+  perspective: 1000px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+}
+
+.fc-card-inner {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 5;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.fc-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.fc-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  background: var(--fc-surface-0);
+  border: 1px solid var(--fc-red);
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(193, 39, 45, 0.20);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.fc-card-face.is-back {
+  transform: rotateY(180deg);
+}
+
+.fc-cat {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fc-text-mid);
+}
+
+.fc-face-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fc-text-mid);
+  margin-bottom: 16px;
+}
+
+.fc-word {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 80px;
+  color: var(--fc-text);
+  text-align: center;
+  line-height: 0.95;
+  word-break: break-word;
+}
+
+.fc-meaning {
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--fc-text);
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.fc-pos {
+  font-size: 15px;
+  color: var(--fc-red);
+}
+
+.fc-card-notes {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--fc-text-mid);
+  text-align: center;
+}
+
+.fc-flip {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--fc-red-light);
+}
+
+/* ── Controls row ─────────────────────────────────────────────────────── */
+.fc-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.fc-btn-nav {
+  padding: 10px 24px;
+  background: var(--fc-red);
+  border: 1px solid var(--fc-red);
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.fc-btn-nav:hover {
+  background: var(--fc-red-light);
+  border-color: var(--fc-red-light);
+}
+
+/* ── Keyboard hint ────────────────────────────────────────────────────── */
+.fc-hint {
+  font-size: 9px;
+  color: var(--fc-text-mid);
+  text-align: center;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+
+/* ── Empty state ──────────────────────────────────────────────────────── */
+.fc-empty {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--fc-text-mid);
+  font-size: 13px;
+}
+
+/* ── Smooth theme transitions ─────────────────────────────────────────── */
+.flip-cards,
+.fc-chip,
+.fc-select,
+.fc-btn,
+.fc-btn-nav,
+.fc-card-face,
+.fc-cat,
+.fc-face-label,
+.fc-word,
+.fc-meaning,
+.fc-pos,
+.fc-card-notes,
+.fc-counter,
+.fc-hint {
+  transition: background-color 0.55s ease, color 0.55s ease, border-color 0.55s ease;
+}

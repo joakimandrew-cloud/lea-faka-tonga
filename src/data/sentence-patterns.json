@@ -1,0 +1,3506 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Slot-based sentence patterns for Lea Faka-Tonga interactive builder",
+    "source": "Transformed from section-map-v3 + grammar-graph.json + s01-s05.json",
+    "total_patterns": 38,
+    "complete_patterns": 38,
+    "pending_patterns": 0,
+    "note": "s32 (Social Formulas) dropped from builder — moved to flip cards"
+  },
+  "patterns": [
+    {
+      "id": "s01",
+      "data_status": "complete",
+      "category": "Statements",
+      "subcategory": null,
+      "title": "Simple Sentence — Tense + Pronoun + Verb",
+      "label_en": "I eat. / She sang. / We will sleep.",
+      "label_to": "TM + Pronoun + Verb",
+      "book_chapters": [
+        1,
+        2,
+        3
+      ],
+      "min_chapter": 1,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive",
+            "verbs_stative"
+          ]
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Short pronoun follows tense marker directly. Questions formed by rising intonation with 2nd-person pronouns."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ou kai.",
+          "english": "I eat."
+        },
+        {
+          "tongan": "Naʻa ku mohe.",
+          "english": "I slept."
+        },
+        {
+          "tongan": "Te u ʻalu.",
+          "english": "I will go."
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "data_status": "complete",
+      "category": "Statements",
+      "subcategory": null,
+      "title": "With Modifier — How You Did It",
+      "label_en": "I worked hard. / They ate a lot. / I am very tired.",
+      "label_to": "TM + Pronoun + Verb + Modifier",
+      "book_chapters": [
+        3
+      ],
+      "min_chapter": 3,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive",
+            "verbs_stative"
+          ]
+        },
+        {
+          "id": "modifier",
+          "type": "modifier",
+          "label": "Modifier",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "modifiers"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Modifier follows verb directly. ʻaupito (very) always goes last; can combine: lahi ʻaupito."
+      },
+      "examples": [
+        {
+          "tongan": "Naʻa ku ngāue mālohi.",
+          "english": "I worked hard."
+        },
+        {
+          "tongan": "ʻOku ou helaʻia ʻaupito.",
+          "english": "I am very tired."
+        },
+        {
+          "tongan": "Te u kai lahi.",
+          "english": "I will eat a lot."
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "data_status": "complete",
+      "category": "Statements",
+      "subcategory": null,
+      "title": "With Object — What You Did",
+      "label_en": "I ate bread. / I want some taro. / Did you eat the fish?",
+      "label_to": "TM + Pronoun + Verb + Object",
+      "book_chapters": [
+        3,
+        8
+      ],
+      "min_chapter": 3,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "verbs_transitive"
+        },
+        {
+          "id": "object",
+          "type": "object",
+          "label": "Object",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "depends_on": "verb",
+          "options_source": "objects"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Three object types: bare noun (indefinite compound), ha + noun (indefinite with article), e + noun (definite)."
+      },
+      "examples": [
+        {
+          "tongan": "Naʻa ku kai mā.",
+          "english": "I ate bread."
+        },
+        {
+          "tongan": "ʻOku ou fiemaʻu ha talo.",
+          "english": "I want some taro."
+        },
+        {
+          "tongan": "Naʻa ke kai e ika.",
+          "english": "Did you eat the fish?"
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "data_status": "complete",
+      "category": "Statements",
+      "subcategory": null,
+      "title": "With Time Word — When It Happened",
+      "label_en": "I ate fish last night. / She will go tomorrow.",
+      "label_to": "TM + Pronoun + Verb + (Object) + Time Word",
+      "book_chapters": [
+        4,
+        8
+      ],
+      "min_chapter": 4,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive"
+          ]
+        },
+        {
+          "id": "object",
+          "type": "object",
+          "label": "Object",
+          "required": false,
+          "locked": false,
+          "position": 3,
+          "depends_on": "verb",
+          "condition": {
+            "type": "verb_has_tag",
+            "tag": "transitive"
+          },
+          "options_source": "objects"
+        },
+        {
+          "id": "time",
+          "type": "time_phrase",
+          "label": "Time Word",
+          "required": true,
+          "locked": false,
+          "position": 4,
+          "options_source": "time_phrases"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Time word always goes last. Object slot is optional. Past time words pair with naʻa; future time words pair with te."
+      },
+      "examples": [
+        {
+          "tongan": "Naʻa ku kai ika ʻanepō.",
+          "english": "I ate fish last night."
+        },
+        {
+          "tongan": "Te ke ʻalu ʻapongipongi.",
+          "english": "Will you go tomorrow?"
+        },
+        {
+          "tongan": "ʻOku ou kai mā ʻaho ni.",
+          "english": "I am eating bread today."
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "data_status": "complete",
+      "category": "Location and Direction",
+      "subcategory": null,
+      "title": "Being Somewhere — I am at home",
+      "label_en": "I am at home. / Where were you last night?",
+      "label_to": "TM + Pronoun + ʻi + Place",
+      "book_chapters": [
+        6,
+        40
+      ],
+      "min_chapter": 6,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "preposition",
+          "type": "preposition",
+          "label": "Preposition",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻi",
+            "english": "at/in"
+          },
+          "position": 2,
+          "options_source": null
+        },
+        {
+          "id": "place",
+          "type": "location",
+          "label": "Place",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "locations"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Location as predicate — no action verb. ʻi + place implies 'to be at.' Demonstratives heni/hena/hē can fill the place slot."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ou ʻi ʻapi.",
+          "english": "I am at home."
+        },
+        {
+          "tongan": "Naʻa ke ʻi kolo.",
+          "english": "Were you in town?"
+        },
+        {
+          "tongan": "Naʻa ne ʻi Tonga.",
+          "english": "He/she was in Tonga."
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "data_status": "complete",
+      "category": "Location and Direction",
+      "subcategory": null,
+      "title": "Action at a Place — I live in Tonga",
+      "label_en": "I live in Tonga. / I went to town. / I came from Fiji.",
+      "label_to": "TM + Pronoun + Verb + Prep + Place",
+      "book_chapters": [
+        6,
+        7,
+        26,
+        40
+      ],
+      "min_chapter": 6,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "verbs_intransitive"
+        },
+        {
+          "id": "preposition",
+          "type": "preposition",
+          "label": "Preposition",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "prepositions"
+        },
+        {
+          "id": "place",
+          "type": "location",
+          "label": "Place",
+          "required": true,
+          "locked": false,
+          "position": 4,
+          "options_source": "locations"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Preposition dropdown: ʻi (in/at), ki (to/toward), mei (from). Preposition choice interacts with verb semantics."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ou nofo ʻi Tonga.",
+          "english": "I live in Tonga."
+        },
+        {
+          "tongan": "Naʻa ku ʻalu ki kolo.",
+          "english": "I went to town."
+        },
+        {
+          "tongan": "Naʻa ne haʻu mei Fisi.",
+          "english": "He/she came from Fiji."
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "data_status": "complete",
+      "category": "Location and Direction",
+      "subcategory": null,
+      "title": "With Someone — I went with John",
+      "label_en": "I went with John. / She came with Mary.",
+      "label_to": "TM + Pronoun + Verb + mo + Companion",
+      "book_chapters": [
+        10
+      ],
+      "min_chapter": 10,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "verbs_intransitive"
+        },
+        {
+          "id": "comitative",
+          "type": "comitative",
+          "label": "With",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "mo",
+            "english": "with"
+          },
+          "position": 3,
+          "options_source": null
+        },
+        {
+          "id": "companion",
+          "type": "companion",
+          "label": "Companion",
+          "required": true,
+          "locked": false,
+          "position": 4,
+          "options_source": "companions"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "mo = with (accompaniment). Companion slot uses proper names."
+      },
+      "examples": [
+        {
+          "tongan": "Naʻa ku ʻalu mo Sione.",
+          "english": "I went with John."
+        },
+        {
+          "tongan": "Naʻa ne haʻu mo Mele.",
+          "english": "He/she came with Mary."
+        },
+        {
+          "tongan": "ʻOku ou nofo mo Pita.",
+          "english": "I live with Peter."
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "data_status": "complete",
+      "category": "Commands and Requests",
+      "subcategory": null,
+      "title": "Singular Command — Eat!",
+      "label_en": "Eat! / Please come! / Go — you!",
+      "label_to": "Verb (+ muʻa / + koe)",
+      "book_chapters": [
+        5
+      ],
+      "min_chapter": 5,
+      "slots": [
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "command_verbs_singular"
+        },
+        {
+          "id": "postposed_pronoun",
+          "type": "postposed_pronoun",
+          "label": "Postposed Pronoun",
+          "required": false,
+          "locked": false,
+          "position": 1,
+          "options_source": "postposed_pronouns_singular_command"
+        },
+        {
+          "id": "polite_particle",
+          "type": "polite_particle",
+          "label": "Polite Particle",
+          "required": false,
+          "locked": false,
+          "position": 2,
+          "options_source": "polite_particles"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "command",
+        "notes": "No tense marker, no pronoun. Bare verb = command to one person. muʻa (please) is optional postposed polite particle."
+      },
+      "examples": [
+        {
+          "tongan": "Kai!",
+          "english": "Eat!"
+        },
+        {
+          "tongan": "Haʻu muʻa!",
+          "english": "Please come!"
+        },
+        {
+          "tongan": "ʻAlu koe!",
+          "english": "Go — you!"
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "data_status": "complete",
+      "category": "Commands and Requests",
+      "subcategory": null,
+      "title": "Plural Command — Go, all of you!",
+      "label_en": "Eat, all of you! / Go, all of you!",
+      "label_to": "mou + Verb",
+      "book_chapters": [
+        5,
+        10
+      ],
+      "min_chapter": 5,
+      "slots": [
+        {
+          "id": "imperative_marker",
+          "type": "imperative_marker",
+          "label": "Imperative Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Mou",
+            "english": "command (group)"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "command_verbs_plural"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "command",
+        "notes": "Command to 3+ people. Plural verb forms: ʻalu becomes ō (go), haʻu becomes ō mai (come). Dual variant (Ch 10): Mo + verb commands exactly two people (Mo hopo! = Jump, you two!). Prohibitions for two: ʻoua te mo + verb."
+      },
+      "examples": [
+        {
+          "tongan": "Mou kai!",
+          "english": "Eat, all of you!"
+        },
+        {
+          "tongan": "Mou ō!",
+          "english": "Go, all of you!"
+        },
+        {
+          "tongan": "Mou ō mai!",
+          "english": "Come, all of you!"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "data_status": "complete",
+      "category": "Commands and Requests",
+      "subcategory": null,
+      "title": "Prohibition — Don't eat!",
+      "label_en": "Don't eat! / Don't sleep, all of you!",
+      "label_to": "ʻoua te + Pronoun + Verb",
+      "book_chapters": [
+        5
+      ],
+      "min_chapter": 5,
+      "slots": [
+        {
+          "id": "prohibition_marker",
+          "type": "prohibition_marker",
+          "label": "Prohibition Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻOua te",
+            "english": "don't"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "prohibition_pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "prohibition_verbs"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "prohibition",
+        "notes": "Pronoun set: ke for singular, mou for plural. No tense variation. Verbs are lowercase (not sentence-initial)."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOua te ke kai!",
+          "english": "Don't eat!"
+        },
+        {
+          "tongan": "ʻOua te mou ʻalu!",
+          "english": "Don't go, all of you!"
+        },
+        {
+          "tongan": "ʻOua te ke mohe!",
+          "english": "Don't sleep!"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "data_status": "complete",
+      "category": "Commands and Requests",
+      "subcategory": null,
+      "title": "Suggestion — Let's eat",
+      "label_en": "Let's eat. / Shall we sing? / Shall we two go?",
+      "label_to": "tau/ta + Verb",
+      "book_chapters": [
+        2
+      ],
+      "min_chapter": 2,
+      "slots": [
+        {
+          "id": "suggestion_pronoun",
+          "type": "suggestion_pronoun",
+          "label": "Suggestion Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "suggestion_pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive",
+            "verbs_stative"
+          ]
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "suggestion",
+        "notes": "tau (inclusive plural: let's, all of us) and ta (inclusive dual: let's, us two) without a tense marker = suggestion."
+      },
+      "examples": [
+        {
+          "tongan": "Tau kai!",
+          "english": "Let's eat!"
+        },
+        {
+          "tongan": "Ta ʻalu!",
+          "english": "Let's go (us two)!"
+        },
+        {
+          "tongan": "Tau hiva!",
+          "english": "Let's sing!"
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "data_status": "complete",
+      "category": "Negation",
+      "subcategory": null,
+      "title": "Verbal Negation — I am not hungry",
+      "label_en": "I am not angry. / They did not eat. / I will not go.",
+      "label_to": "TM-neg + ʻikai + te + Pronoun + Verb",
+      "book_chapters": [
+        9
+      ],
+      "min_chapter": 9,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers_negation"
+        },
+        {
+          "id": "negation",
+          "type": "negation",
+          "label": "Negation",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻikai",
+            "english": "not"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "neg_connector",
+          "type": "neg_connector",
+          "label": "Connector",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "te",
+            "english": "(connector)"
+          },
+          "position": 2,
+          "options_source": null
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 4,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive",
+            "verbs_stative"
+          ]
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "negation",
+        "notes": "TM dropdown: ʻOku (present), Naʻe (past), ʻE (future). 1sg is always u in negation regardless of TM. Negation uses naʻe (not naʻa) for past and ʻe (not te) for future."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ʻikai te u ʻita.",
+          "english": "I am not angry."
+        },
+        {
+          "tongan": "Naʻe ʻikai te nau kai.",
+          "english": "They did not eat."
+        },
+        {
+          "tongan": "ʻE ʻikai te u ʻalu.",
+          "english": "I will not go."
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "data_status": "complete",
+      "category": "Negation",
+      "subcategory": null,
+      "title": "Ko Negation — I am not a teacher",
+      "label_en": "I am not a teacher. / He is not a farmer.",
+      "label_to": "ʻoku ʻikai ko e + Noun + Subject",
+      "book_chapters": [
+        12
+      ],
+      "min_chapter": 12,
+      "slots": [
+        {
+          "id": "negation_prefix",
+          "type": "negation_prefix",
+          "label": "Ko Negation Prefix",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻOku ʻikai ko e",
+            "english": "it is not a"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "predicate_noun",
+          "type": "predicate_noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "ko_nouns"
+        },
+        {
+          "id": "subject",
+          "type": "subject",
+          "label": "Subject",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "demonstratives"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "negation",
+        "notes": "Negates ko equational sentences. Fixed prefix ʻoku ʻikai ko e. Subject slot: demonstrative or postposed pronoun."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ʻikai ko e hele ʻeni.",
+          "english": "This is not a knife."
+        },
+        {
+          "tongan": "ʻOku ʻikai ko e faiako ia.",
+          "english": "He/she is not a teacher."
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "data_status": "complete",
+      "category": "Questions",
+      "subcategory": null,
+      "title": "Verbal Questions — Where? When? How?",
+      "label_en": "Where did you sleep? / When will you go? / How are you?",
+      "label_to": "TM + Pronoun + Verb + Question Word",
+      "book_chapters": [
+        6,
+        7,
+        11
+      ],
+      "min_chapter": 6,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive"
+          ]
+        },
+        {
+          "id": "question_word",
+          "type": "question_word",
+          "label": "Question Word",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "question_words"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "question",
+        "notes": "Question word follows verb. ʻanefē pairs with past TMs only; ʻafē pairs with future TMs only. Location question words work with any tense."
+      },
+      "examples": [
+        {
+          "tongan": "Naʻa ke mohe ʻi fē?",
+          "english": "Where did you sleep?"
+        },
+        {
+          "tongan": "Te ke ʻalu ʻafē?",
+          "english": "When will you go?"
+        },
+        {
+          "tongan": "ʻOku ke fēfē?",
+          "english": "How are you?"
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "data_status": "complete",
+      "category": "Questions",
+      "subcategory": null,
+      "title": "Who? — ko hai",
+      "label_en": "Who is coming? / Who sang?",
+      "label_to": "ko hai + TM + Verb",
+      "book_chapters": [
+        13
+      ],
+      "min_chapter": 13,
+      "slots": [
+        {
+          "id": "ko_question",
+          "type": "ko_question",
+          "label": "ko hai",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko hai",
+            "english": "who"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "tense_markers_noun_subject"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive"
+          ]
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_question",
+        "notes": "Ko-initial question. 3sg pronoun ne typically omitted. TM dropdown: ʻoku (present), naʻe (past), ʻe (future)."
+      },
+      "examples": [
+        {
+          "tongan": "Ko hai ʻoku haʻu?",
+          "english": "Who is coming?"
+        },
+        {
+          "tongan": "Ko hai naʻe hiva?",
+          "english": "Who sang?"
+        },
+        {
+          "tongan": "Ko hai ʻe ʻalu?",
+          "english": "Who will go?"
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "data_status": "complete",
+      "category": "Questions",
+      "subcategory": null,
+      "title": "What is that? — ko e hā",
+      "label_en": "What is that? / What is this?",
+      "label_to": "ko e hā + Demonstrative",
+      "book_chapters": [
+        12,
+        13
+      ],
+      "min_chapter": 12,
+      "slots": [
+        {
+          "id": "ko_fixed",
+          "type": "ko_particle",
+          "label": "ko e",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko e",
+            "english": "it is a"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "question_word",
+          "type": "question_word",
+          "label": "hā",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "hā",
+            "english": "what"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "demonstrative",
+          "type": "demonstrative",
+          "label": "Demonstrative",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "demonstratives"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_question",
+        "notes": "Fixed ko e hā with variable demonstrative. Answer pattern uses s18 (Ko identification)."
+      },
+      "examples": [
+        {
+          "tongan": "Ko e hā ʻeni?",
+          "english": "What is this?"
+        },
+        {
+          "tongan": "Ko e hā ē?",
+          "english": "What is that?"
+        },
+        {
+          "tongan": "Ko e hā ʻena?",
+          "english": "What is that (near you)?"
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "data_status": "complete",
+      "category": "Questions",
+      "subcategory": null,
+      "title": "Where is...? — ko fē",
+      "label_en": "Where is John? / Where's your hat?",
+      "label_to": "ko fē + Subject",
+      "book_chapters": [
+        13,
+        17
+      ],
+      "min_chapter": 13,
+      "slots": [
+        {
+          "id": "ko_question",
+          "type": "ko_question",
+          "label": "ko fē",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko fē",
+            "english": "where is"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "subject_phrase",
+          "type": "subject_phrase",
+          "label": "Subject",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "noun_subject_names"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_question",
+        "notes": "Two sub-patterns: ko fē + ʻa + Name (Where is John?) and ko fē + Possessive + Noun (Where's my hat?)."
+      },
+      "examples": [
+        {
+          "tongan": "Ko fē ʻa Sione?",
+          "english": "Where is John?"
+        },
+        {
+          "tongan": "Ko fē ʻa Mele?",
+          "english": "Where is Mary?"
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "data_status": "complete",
+      "category": "Ko Sentences",
+      "subcategory": null,
+      "title": "Identifying Things — This is a book",
+      "label_en": "This is a book. / That is a mat.",
+      "label_to": "ko e + Noun + Demonstrative",
+      "book_chapters": [
+        12
+      ],
+      "min_chapter": 12,
+      "slots": [
+        {
+          "id": "ko_particle",
+          "type": "ko_particle",
+          "label": "ko",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko",
+            "english": "ko"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "article",
+          "type": "article",
+          "label": "e",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "e",
+            "english": "the"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "noun",
+          "type": "noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "ko_nouns"
+        },
+        {
+          "id": "demonstrative",
+          "type": "demonstrative",
+          "label": "Demonstrative",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "demonstratives"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_identification",
+        "notes": "The simplest ko pattern. No tense marker, no verb. Demonstrative dropdown: ʻeni (this), ʻena (that near you), ē (that over there)."
+      },
+      "examples": [
+        {
+          "tongan": "Ko e tohi ʻeni.",
+          "english": "This is a book."
+        },
+        {
+          "tongan": "Ko e fala ē.",
+          "english": "That is a mat."
+        },
+        {
+          "tongan": "Ko e hele ʻena.",
+          "english": "That (near you) is a knife."
+        }
+      ]
+    },
+    {
+      "id": "s19",
+      "data_status": "complete",
+      "category": "Ko Sentences",
+      "subcategory": null,
+      "title": "I am a... — Equational with Pronoun",
+      "label_en": "I am a teacher. / Are you a farmer?",
+      "label_to": "ko e + Predicate Noun + Postposed Pronoun",
+      "book_chapters": [
+        16
+      ],
+      "min_chapter": 16,
+      "slots": [
+        {
+          "id": "ko_particle",
+          "type": "ko_particle",
+          "label": "ko",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko",
+            "english": "ko"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "article",
+          "type": "article",
+          "label": "e",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "e",
+            "english": "the"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "predicate_noun",
+          "type": "predicate_noun",
+          "label": "Predicate Noun",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "predicate_nouns"
+        },
+        {
+          "id": "pronoun_postposed",
+          "type": "pronoun_postposed",
+          "label": "Postposed Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "postposed_pronouns"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_identification",
+        "notes": "Ko equational with pronoun subject: no ʻa before postposed pronouns. Postposed pronouns: au (I), koe (you), ia (he/she). Questions by rising intonation only."
+      },
+      "examples": [
+        {
+          "tongan": "Ko e tangata ngāue au.",
+          "english": "I am a worker."
+        },
+        {
+          "tongan": "Ko e tōketā koe?",
+          "english": "Are you a doctor?"
+        },
+        {
+          "tongan": "Ko e taʻahine mālohi ia.",
+          "english": "She is a strong girl."
+        }
+      ]
+    },
+    {
+      "id": "s20",
+      "data_status": "complete",
+      "category": "Ko Sentences",
+      "subcategory": null,
+      "title": "He/She is a... — Equational with Name",
+      "label_en": "Daniel is a teacher. / Samiu is a smart boy.",
+      "label_to": "ko e + Predicate Noun + ʻa + Name",
+      "book_chapters": [
+        16
+      ],
+      "min_chapter": 16,
+      "slots": [
+        {
+          "id": "ko_particle",
+          "type": "ko_particle",
+          "label": "ko",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko",
+            "english": "ko"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "article",
+          "type": "article",
+          "label": "e",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "e",
+            "english": "the"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "predicate_noun",
+          "type": "predicate_noun",
+          "label": "Predicate Noun",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "predicate_nouns"
+        },
+        {
+          "id": "focus_marker",
+          "type": "focus_marker",
+          "label": "Focus Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻa",
+            "english": "(focus)"
+          },
+          "position": 3,
+          "options_source": null
+        },
+        {
+          "id": "noun_subject",
+          "type": "noun_subject",
+          "label": "Name",
+          "required": true,
+          "locked": false,
+          "position": 4,
+          "options_source": "noun_subject_names"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_identification",
+        "notes": "ʻa before proper noun subjects. Parallel to verbal noun-subject sentences (s22). Optional adjective can appear between predicate_noun and focus_marker: Ko e tamasiʻi poto ʻa Lātū."
+      },
+      "examples": [
+        {
+          "tongan": "Ko e faiako ʻa Mele.",
+          "english": "Mele is a teacher."
+        },
+        {
+          "tongan": "Ko e tamasiʻi poto ʻa Lātū.",
+          "english": "Lātū is a smart boy."
+        },
+        {
+          "tongan": "Ko e tangata ngāue ʻa Sēmisi.",
+          "english": "Sēmisi is a worker."
+        }
+      ]
+    },
+    {
+      "id": "s21",
+      "data_status": "complete",
+      "category": "Ko Sentences",
+      "subcategory": null,
+      "title": "What Are You Doing? — ko + Possessive + Action",
+      "label_en": "Are you hoeing? / What are you doing?",
+      "label_to": "ko + Possessive + Verbal Noun (+ Prep + Place)",
+      "book_chapters": [
+        17,
+        45
+      ],
+      "min_chapter": 17,
+      "slots": [
+        {
+          "id": "ko_particle",
+          "type": "ko_particle",
+          "label": "ko",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko",
+            "english": "ko"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "possessive",
+          "type": "possessive",
+          "label": "Possessive",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "possessives_e"
+        },
+        {
+          "id": "verbal_noun",
+          "type": "verbal_noun",
+          "label": "Verbal Noun",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "verbal_nouns"
+        },
+        {
+          "id": "preposition",
+          "type": "preposition",
+          "label": "Preposition",
+          "required": false,
+          "locked": false,
+          "position": 3,
+          "options_source": "prepositions"
+        },
+        {
+          "id": "place",
+          "type": "location",
+          "label": "Place",
+          "required": false,
+          "locked": false,
+          "position": 4,
+          "options_source": "locations"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_identification",
+        "notes": "ko + ʻe-class possessive + verbal noun = present action. ʻE-class only for actions. With ko, the action is happening right now. Optional preposition + place for motion verbals (Ko ʻeku ʻalu ki Nukuʻalofa). Questions by rising intonation."
+      },
+      "examples": [
+        {
+          "tongan": "Ko hoʻo ako?",
+          "english": "Are you studying?"
+        },
+        {
+          "tongan": "Ko ʻeku ʻalu ki Nukuʻalofa.",
+          "english": "I am going to Nukuʻalofa."
+        },
+        {
+          "tongan": "Ko hoʻo ngāue?",
+          "english": "Are you working?"
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "data_status": "complete",
+      "category": "Noun Subjects and Agents",
+      "subcategory": null,
+      "title": "Named Subject — John went",
+      "label_en": "John went. / Mary is happy. / Peter is sick.",
+      "label_to": "TM + Verb + ʻa + Noun Subject",
+      "book_chapters": [
+        15
+      ],
+      "min_chapter": 15,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers_noun_subject"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_stative"
+          ]
+        },
+        {
+          "id": "focus_marker",
+          "type": "focus_marker",
+          "label": "Focus Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻa",
+            "english": "(focus marker)"
+          },
+          "position": 2,
+          "options_source": null
+        },
+        {
+          "id": "noun_subject",
+          "type": "noun_subject",
+          "label": "Subject",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "noun_subject_names"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Intransitive noun-subject pattern. Word order: TM + Verb + ʻa + Subject. Always naʻe (not naʻa) and ʻe (not te) with noun subjects. TM: Naʻe, ʻOku, ʻE, Kuo."
+      },
+      "examples": [
+        {
+          "tongan": "Naʻe ʻalu ʻa Sione.",
+          "english": "John went."
+        },
+        {
+          "tongan": "ʻOku fiefia ʻa Mele.",
+          "english": "Mary is happy."
+        },
+        {
+          "tongan": "ʻOku puke ʻa Pita.",
+          "english": "Peter is sick."
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "data_status": "complete",
+      "category": "Noun Subjects and Agents",
+      "subcategory": null,
+      "title": "Who Did What — Transitive Sentence",
+      "label_en": "John ate the bread. / Peter took Mary.",
+      "label_to": "TM + Verb + ʻa + Object + ʻe + Agent",
+      "book_chapters": [
+        19,
+        33
+      ],
+      "min_chapter": 19,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers_noun_subject"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "verbs_transitive_full"
+        },
+        {
+          "id": "focus_marker",
+          "type": "focus_marker",
+          "label": "Focus Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻa",
+            "english": "(focus)"
+          },
+          "position": 2,
+          "options_source": null
+        },
+        {
+          "id": "object",
+          "type": "object",
+          "label": "Object",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "transitive_objects"
+        },
+        {
+          "id": "agent_marker",
+          "type": "agent_marker",
+          "label": "Agent Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻe",
+            "english": "(agent)"
+          },
+          "position": 4,
+          "options_source": null
+        },
+        {
+          "id": "agent",
+          "type": "agent",
+          "label": "Agent",
+          "required": true,
+          "locked": false,
+          "position": 5,
+          "options_source": "agent_names"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "transitive",
+        "notes": "Full transitive pattern. ʻa marks proper noun objects only; before definite common nouns (tagged 'definite'), ʻa is omitted. ʻe marks the agent: ʻe + name for proper nouns, ʻe he + noun for common nouns. TMs: naʻe/ʻe/ʻoku/kuo with noun subjects (never naʻa or te). Passive variant: omit agent phrase entirely."
+      },
+      "examples": [
+        {
+          "tongan": "Naʻe lau ʻe Sione e tohí.",
+          "english": "Sione read the book."
+        },
+        {
+          "tongan": "Naʻe ʻave ʻe Pita ʻa Mele.",
+          "english": "Peter took Mary."
+        },
+        {
+          "tongan": "Naʻe kai ʻe he fefiné e iká.",
+          "english": "The woman ate the fish."
+        }
+      ]
+    },
+    {
+      "id": "s24",
+      "data_status": "complete",
+      "category": "Noun Subjects and Agents",
+      "subcategory": null,
+      "title": "Experiencer Verbs — I understand",
+      "label_en": "I understand. / I forgot. / I love you.",
+      "label_to": "TM + Verb + kiate/iate + Pronoun",
+      "book_chapters": [
+        7
+      ],
+      "min_chapter": 7,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers_experiencer"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "experiencer_verbs"
+        },
+        {
+          "id": "prep_pronoun",
+          "type": "prep_pronoun",
+          "label": "Prepositional Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "depends_on": "verb",
+          "options_source": "postposed_pronouns"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "experiencer",
+        "notes": "Experiencer verbs: mahino + kiate (understand), ngalo + ʻiate (forget). TM: ʻOku, Naʻe. prep_pronoun depends on verb choice."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku mahino kiate au.",
+          "english": "I understand."
+        },
+        {
+          "tongan": "Naʻe ngalo ʻiate au.",
+          "english": "I forgot."
+        },
+        {
+          "tongan": "ʻOku mahino kiate koe.",
+          "english": "You understand."
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "data_status": "complete",
+      "category": "Possessives",
+      "subcategory": null,
+      "title": "ʻE-Class — my knife (things you control)",
+      "label_en": "my knife / your book / their food",
+      "label_to": "ʻE-class Possessive + Noun",
+      "book_chapters": [
+        17,
+        29,
+        37
+      ],
+      "min_chapter": 17,
+      "slots": [
+        {
+          "id": "possessive_e",
+          "type": "possessive_e",
+          "label": "ʻE-Class Possessive",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "possessives_e"
+        },
+        {
+          "id": "noun",
+          "type": "noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "e_class_nouns"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "possessive_phrase",
+        "notes": "ʻE-class possessives for controlled/consumable items: food, tools, work, animals, money. Possessive pronoun precedes the noun directly."
+      },
+      "examples": [
+        {
+          "tongan": "ʻeku hele",
+          "english": "my knife"
+        },
+        {
+          "tongan": "hoʻo tohi",
+          "english": "your book"
+        },
+        {
+          "tongan": "ʻene kato",
+          "english": "his/her basket"
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "data_status": "complete",
+      "category": "Possessives",
+      "subcategory": null,
+      "title": "Ho-Class — my house (things that characterize you)",
+      "label_en": "my house / your name / his clothes",
+      "label_to": "Ho-class Possessive + Noun",
+      "book_chapters": [
+        17,
+        29,
+        37
+      ],
+      "min_chapter": 17,
+      "slots": [
+        {
+          "id": "possessive_ho",
+          "type": "possessive_ho",
+          "label": "Ho-Class Possessive",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "possessives_ho"
+        },
+        {
+          "id": "noun",
+          "type": "noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "ho_class_nouns"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "possessive_phrase",
+        "notes": "Ho-class possessives for shelter/characterization items: house, name, clothes, body parts, relations, country. Possessive pronoun precedes the noun directly."
+      },
+      "examples": [
+        {
+          "tongan": "hoku fale",
+          "english": "my house"
+        },
+        {
+          "tongan": "ho hingoa",
+          "english": "your name"
+        },
+        {
+          "tongan": "hono kofu",
+          "english": "his/her clothes"
+        }
+      ]
+    },
+    {
+      "id": "s27",
+      "data_status": "complete",
+      "category": "Possessives",
+      "subcategory": null,
+      "title": "Of-Phrase — John's boat",
+      "label_en": "John's boat. / The teacher's book.",
+      "label_to": "ko e + Noun + ʻo/ʻa + Possessor",
+      "book_chapters": [
+        17,
+        37
+      ],
+      "min_chapter": 17,
+      "slots": [
+        {
+          "id": "ko_particle",
+          "type": "ko_particle",
+          "label": "ko",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko",
+            "english": "ko"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "article",
+          "type": "article",
+          "label": "e",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "e",
+            "english": "the"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "noun",
+          "type": "noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": [
+            "e_class_nouns",
+            "ho_class_nouns"
+          ]
+        },
+        {
+          "id": "poss_prep",
+          "type": "poss_prep",
+          "label": "Possessive Preposition",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "poss_preps"
+        },
+        {
+          "id": "possessor",
+          "type": "possessor",
+          "label": "Possessor",
+          "required": true,
+          "locked": false,
+          "position": 4,
+          "options_source": "noun_subject_names"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_identification",
+        "notes": "Postposed possessive: ʻo (ho-class) or ʻa (ʻe-class) + possessor name. Class selection depends on the noun: ʻa for tools/food/work/animals, ʻo for house/body/clothes/shelter. E.g. hele ʻa Sione (knife, ʻe-class), fale ʻo Sione (house, ho-class)."
+      },
+      "examples": [
+        {
+          "tongan": "Ko e hele ʻa Sione.",
+          "english": "Johnʻs knife."
+        },
+        {
+          "tongan": "Ko e fale ʻo Sione.",
+          "english": "Johnʻs house."
+        },
+        {
+          "tongan": "Ko e vaka ʻo Tēvita.",
+          "english": "Davidʻs boat."
+        }
+      ]
+    },
+    {
+      "id": "s28",
+      "data_status": "complete",
+      "category": "Numbers and Time",
+      "subcategory": null,
+      "title": "Counting Things — six baskets",
+      "label_en": "six baskets / three books",
+      "label_to": "Noun + ʻe + Number",
+      "book_chapters": [
+        20
+      ],
+      "min_chapter": 20,
+      "slots": [
+        {
+          "id": "noun",
+          "type": "noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "countable_nouns"
+        },
+        {
+          "id": "numeral_particle",
+          "type": "numeral_particle",
+          "label": "Numeral Particle",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻe",
+            "english": "(numeral)"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "number",
+          "type": "number",
+          "label": "Number",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "cardinal_numbers"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "numeral_phrase",
+        "notes": "Attributive numeral pattern: noun + ʻe + number. This ʻe is distinct from the agent marker and future tense marker. Often preceded by ha (indefinite): ha kato ʻe ono (six baskets)."
+      },
+      "examples": [
+        {
+          "tongan": "kato ʻe ono",
+          "english": "six baskets"
+        },
+        {
+          "tongan": "tohi ʻe tolu",
+          "english": "three books"
+        },
+        {
+          "tongan": "paʻanga ʻe taha",
+          "english": "one dollar"
+        }
+      ]
+    },
+    {
+      "id": "s29",
+      "data_status": "complete",
+      "category": "Numbers and Time",
+      "subcategory": null,
+      "title": "Counting People — five people",
+      "label_en": "five people / only three",
+      "label_to": "toko + Number",
+      "book_chapters": [
+        20
+      ],
+      "min_chapter": 20,
+      "slots": [
+        {
+          "id": "people_counter",
+          "type": "people_counter",
+          "label": "People Counter",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "toko",
+            "english": "(people counter)"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "number",
+          "type": "number",
+          "label": "Number",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "cardinal_numbers"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "numeral_phrase",
+        "notes": "toko replaces ʻe when counting people. No ʻe between toko and the number. tokolahi = many (people), tokosiʻi = few (people)."
+      },
+      "examples": [
+        {
+          "tongan": "toko nima",
+          "english": "five (people)"
+        },
+        {
+          "tongan": "toko tolu",
+          "english": "three (people)"
+        },
+        {
+          "tongan": "toko hiva",
+          "english": "nine (people)"
+        }
+      ]
+    },
+    {
+      "id": "s30",
+      "data_status": "complete",
+      "category": "Numbers and Time",
+      "subcategory": null,
+      "title": "Prices — How much is the shirt?",
+      "label_en": "How much is the shirt?",
+      "label_to": "ʻoku fīha e + Noun",
+      "book_chapters": [
+        20
+      ],
+      "min_chapter": 20,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻOku",
+            "english": "present"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "question_word",
+          "type": "question_word",
+          "label": "Question Word",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "fīha",
+            "english": "how much"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "article",
+          "type": "article",
+          "label": "Article",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "e",
+            "english": "the"
+          },
+          "position": 2,
+          "options_source": null
+        },
+        {
+          "id": "noun",
+          "type": "noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "price_nouns"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "question",
+        "notes": "Price question pattern. Nouns take definitive accent. Answer: paʻanga ʻe + number, seniti ʻe + number."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku fīha e iká?",
+          "english": "How much is the fish?"
+        },
+        {
+          "tongan": "ʻOku fīha e kató?",
+          "english": "How much is the basket?"
+        },
+        {
+          "tongan": "ʻOku fīha e falá?",
+          "english": "How much is the mat?"
+        }
+      ]
+    },
+    {
+      "id": "s31",
+      "data_status": "complete",
+      "category": "Numbers and Time",
+      "subcategory": null,
+      "title": "Telling Time — It is three o'clock",
+      "label_en": "It is three o'clock. / What time is it?",
+      "label_to": "ko e + Hour + eni",
+      "book_chapters": [
+        20
+      ],
+      "min_chapter": 20,
+      "slots": [
+        {
+          "id": "ko_particle",
+          "type": "ko_particle",
+          "label": "ko",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko",
+            "english": "ko"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "article",
+          "type": "article",
+          "label": "e",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "e",
+            "english": "the"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "hour",
+          "type": "hour",
+          "label": "Hour",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "hours"
+        },
+        {
+          "id": "demonstrative",
+          "type": "demonstrative",
+          "label": "Demonstrative",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "eni",
+            "english": "now"
+          },
+          "position": 3,
+          "options_source": null
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "ko_identification",
+        "notes": "Time-telling uses the ko pattern. Hours take definitive accent: tolú (3), valú (8), etc. Question form: Ko e fihá eni? (What time is it?). Minutes past/to use ʻosi/toe as advanced variants."
+      },
+      "examples": [
+        {
+          "tongan": "Ko e tolú eni.",
+          "english": "It is three oʻclock."
+        },
+        {
+          "tongan": "Ko e valú eni.",
+          "english": "It is eight oʻclock."
+        },
+        {
+          "tongan": "Ko e onó eni.",
+          "english": "It is six oʻclock."
+        }
+      ]
+    },
+    {
+      "id": "s33",
+      "data_status": "complete",
+      "category": "Auxiliaries and Modals",
+      "subcategory": null,
+      "title": "Wanting and Ability — I want to eat",
+      "label_en": "I want to eat. / I can go. / I like fishing.",
+      "label_to": "TM + Pronoun + Auxiliary + Verb (+ Time)",
+      "book_chapters": [
+        21
+      ],
+      "min_chapter": 21,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "auxiliary",
+          "type": "auxiliary",
+          "label": "Auxiliary",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "auxiliaries"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive",
+            "verbs_stative"
+          ]
+        },
+        {
+          "id": "time",
+          "type": "time_phrase",
+          "label": "Time Word",
+          "required": false,
+          "locked": false,
+          "position": 4,
+          "options_source": "time_phrases"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Auxiliary verbs slot between pronoun and main verb. fie (want) takes verb directly: fie kai = want to eat. lava ʻo (can) inserts ʻo before the main verb: lava ʻo ʻalu = can go. saiʻia (like) takes he + definite noun rather than a verb — note as variant, not included in builder dropdown."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ou fie kai.",
+          "english": "I want to eat."
+        },
+        {
+          "tongan": "Te ke lava ʻo haʻu ʻanai?",
+          "english": "Will you be able to come later?"
+        },
+        {
+          "tongan": "Naʻa ku fie mohe ʻanepō.",
+          "english": "I wanted to sleep last night."
+        }
+      ]
+    },
+    {
+      "id": "s34",
+      "data_status": "complete",
+      "category": "Auxiliaries and Modals",
+      "subcategory": null,
+      "title": "Still / Already — I am still eating",
+      "label_en": "I am still eating. / I have already finished. / I am working right now.",
+      "label_to": "TM + Pronoun + Aspect + Verb",
+      "book_chapters": [
+        22
+      ],
+      "min_chapter": 22,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "aspect_marker",
+          "type": "aspect_marker",
+          "label": "Aspect Marker",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "aspect_markers"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive",
+            "verbs_stative"
+          ]
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Aspect markers slot between pronoun and main verb (same position as auxiliaries). kei (still) pairs well with pē. ʻosi (already) pairs naturally with kuo. lolotonga (currently) marks action in progress. toe (again) indicates repetition. toki (just now/not until) marks timing. Post-verbal variant: leva (immediately) goes after the verb — note as variant."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ou kei ngāue.",
+          "english": "I am still working."
+        },
+        {
+          "tongan": "Kuo ne ʻosi ʻalu.",
+          "english": "He has already gone."
+        },
+        {
+          "tongan": "ʻOku ou lolotonga lau ha tohi.",
+          "english": "I am currently reading a book."
+        }
+      ]
+    },
+    {
+      "id": "s35",
+      "data_status": "complete",
+      "category": "Auxiliaries and Modals",
+      "subcategory": null,
+      "title": "Should / Must — You should eat",
+      "label_en": "You should eat. / You must go.",
+      "label_to": "Modal + ke + (Pronoun | ʻa + Noun) + Verb (+ Prep + Place)",
+      "book_chapters": [
+        23
+      ],
+      "min_chapter": 23,
+      "slots": [
+        {
+          "id": "modal_frame",
+          "type": "modal_frame",
+          "label": "Modal",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "modal_frames"
+        },
+        {
+          "id": "subordinator",
+          "type": "subordinator",
+          "label": "Subordinator",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ke",
+            "english": "(subordinator)"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": false,
+          "locked": false,
+          "position": 2,
+          "options_source": "modal_pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive",
+            "verbs_stative"
+          ]
+        },
+        {
+          "id": "noun_subject",
+          "type": "noun_subject",
+          "label": "Noun Subject",
+          "required": false,
+          "locked": false,
+          "position": 4,
+          "options_source": "noun_subject_phrases_with_focus"
+        },
+        {
+          "id": "preposition",
+          "type": "preposition",
+          "label": "Preposition",
+          "required": false,
+          "locked": false,
+          "position": 5,
+          "options_source": "prepositions"
+        },
+        {
+          "id": "place",
+          "type": "location",
+          "label": "Place",
+          "required": false,
+          "locked": false,
+          "position": 6,
+          "options_source": "locations"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "modal",
+        "notes": "Modal obligation frames wrap around a ke-subordinate clause. ʻoku totonu (should) expresses moral obligation or probability. kuo pau (must) expresses necessity or certainty. 1sg after ke is always u (not ou/ku). Fill EITHER pronoun OR noun_subject (ʻa + name), not both. Optional preposition + place for motion verbs. Negative variant: ʻoku ʻikai totonu ke. Emphatic negative: ʻoku totonu ke ʻoua naʻa — note as advanced variant."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku totonu ke ke ako.",
+          "english": "You should study."
+        },
+        {
+          "tongan": "Kuo pau ke u foki ki ʻapi.",
+          "english": "I must go home."
+        },
+        {
+          "tongan": "ʻOku totonu ke tokoni ʻa Sione.",
+          "english": "Sione should help."
+        }
+      ]
+    },
+    {
+      "id": "s36",
+      "data_status": "complete",
+      "category": "Advanced Patterns",
+      "subcategory": null,
+      "title": "Comparison — Tonga is smaller than Fiji",
+      "label_en": "Tēvita is stronger than Sēmisi. / The truck is faster than the bicycle.",
+      "label_to": "TM + Adj + ange + ʻa + Subject + ʻi + NP",
+      "book_chapters": [
+        27
+      ],
+      "min_chapter": 27,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers_noun_subject"
+        },
+        {
+          "id": "adjective",
+          "type": "adjective",
+          "label": "Adjective",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "comparison_adjectives"
+        },
+        {
+          "id": "comparative",
+          "type": "comparative",
+          "label": "Comparative",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ange",
+            "english": "more (comparative)"
+          },
+          "position": 2,
+          "options_source": null
+        },
+        {
+          "id": "focus_marker",
+          "type": "focus_marker",
+          "label": "Focus Marker",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻa",
+            "english": "(focus)"
+          },
+          "position": 3,
+          "options_source": null
+        },
+        {
+          "id": "subject",
+          "type": "noun_phrase",
+          "label": "Subject",
+          "required": true,
+          "locked": false,
+          "position": 4,
+          "options_source": "comparison_subjects"
+        },
+        {
+          "id": "prep",
+          "type": "preposition",
+          "label": "Than",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻi",
+            "english": "than"
+          },
+          "position": 5,
+          "options_source": null
+        },
+        {
+          "id": "comparison_np",
+          "type": "noun_phrase",
+          "label": "Compared To",
+          "required": true,
+          "locked": false,
+          "position": 6,
+          "options_source": "comparison_noun_phrases"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "comparative",
+        "notes": "Tongan word order: TM + Adj + ange + ʻa + Subject + ʻi + ComparisonNP. Subject slot includes ʻa before proper nouns and ʻa e before common nouns (focus marker is locked but proper noun subjects in comparison_subjects omit the article). ʻi becomes ʻia before proper nouns in some dialects; both ʻi and ʻia are accepted. Before common nouns: ʻi he + noun. Superlative variant: replace ange with taha, drop ʻi phrase. Comparison modifiers kiʻi (a little), fuʻu (much), toe (still) go before the adjective."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku mālohi ange ʻa Tēvita ʻi Sēmisi.",
+          "english": "Tēvita is stronger than Sēmisi."
+        },
+        {
+          "tongan": "ʻOku vave ange ʻa e lolí ʻi he pasikalá.",
+          "english": "The truck is faster than the bicycle."
+        },
+        {
+          "tongan": "ʻOku lelei ange ʻa Sione ʻi Mele.",
+          "english": "Sione is better than Mele."
+        }
+      ]
+    },
+    {
+      "id": "s37",
+      "data_status": "complete",
+      "category": "Advanced Patterns",
+      "subcategory": null,
+      "title": "Directional Particles — Come here",
+      "label_en": "She is coming. / I will tell you. / They went down to the sea.",
+      "label_to": "TM + Pronoun + Verb + Directional (+ Prep + Place)",
+      "book_chapters": [
+        28
+      ],
+      "min_chapter": 28,
+      "slots": [
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "tense_markers"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "depends_on": "tense_marker",
+          "options_source": "pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive"
+          ]
+        },
+        {
+          "id": "directional",
+          "type": "directional",
+          "label": "Directional",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": "directionals"
+        },
+        {
+          "id": "preposition",
+          "type": "preposition",
+          "label": "Preposition",
+          "required": false,
+          "locked": false,
+          "position": 4,
+          "options_source": "prepositions"
+        },
+        {
+          "id": "place",
+          "type": "location",
+          "label": "Place",
+          "required": false,
+          "locked": false,
+          "position": 5,
+          "options_source": "locations"
+        }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": [
+          "ku",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "ʻoku": [
+          "ou",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "kuo": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ],
+        "te": [
+          "u",
+          "ke",
+          "ne",
+          "nau",
+          "mau",
+          "tau",
+          "mou",
+          "na",
+          "ma",
+          "ta",
+          "mo"
+        ]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Directional particle immediately follows the verb, before any objects or prepositional phrases. mai (toward speaker, 1st person), atu (away from speaker / toward listener, 2nd person), ange (toward third party, 3rd person), hake (upward / to completion), hifo (downward / to quietness), holo (around / in various directions). Note: ange also serves as comparative marker in s36 — context disambiguates. haʻu only combines with mai (haʻu mai); other directionals pair with ʻalu. Commands without TM/pronoun also work: Haʻu mai! ʻAlu atu!"
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ou ʻalu mai.",
+          "english": "I am coming."
+        },
+        {
+          "tongan": "Te u tala atu.",
+          "english": "I will tell you."
+        },
+        {
+          "tongan": "Naʻa nau ō hifo ki tahi.",
+          "english": "They went down to the sea."
+        }
+      ]
+    },
+    {
+      "id": "s38",
+      "data_status": "complete",
+      "category": "Advanced Patterns",
+      "subcategory": null,
+      "title": "There Is — Existential Sentences",
+      "label_en": "There is a man here. / There is no food in the house.",
+      "label_to": "ʻOku ʻi ai + ha + Noun (+ Location)",
+      "book_chapters": [
+        31
+      ],
+      "min_chapter": 31,
+      "slots": [
+        {
+          "id": "existential_prefix",
+          "type": "existential_prefix",
+          "label": "Existential Prefix",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ʻOku ʻi ai",
+            "english": "there is"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "article",
+          "type": "article",
+          "label": "Article",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "ha",
+            "english": "a (indefinite)"
+          },
+          "position": 1,
+          "options_source": null
+        },
+        {
+          "id": "noun",
+          "type": "noun",
+          "label": "Noun",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "existential_nouns"
+        },
+        {
+          "id": "preposition",
+          "type": "preposition",
+          "label": "Preposition",
+          "required": false,
+          "locked": false,
+          "position": 3,
+          "options_source": "existential_prepositions"
+        },
+        {
+          "id": "place",
+          "type": "location",
+          "label": "Place",
+          "required": false,
+          "locked": false,
+          "position": 4,
+          "depends_on": "preposition",
+          "options_source": "existential_locations"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "existential",
+        "notes": "Existential 'there is/are.' ha (indefinite) is required — you can only assert the existence of something indefinite. Location is optional but common. The classifier fo'i can appear before the noun to single out one item (ha fo'i moli = an orange). Negative variant: 'Oku 'ikai ke 'i ai ha... Other tenses: Na'e 'i ai (there was), 'E 'i ai (there will be)."
+      },
+      "examples": [
+        {
+          "tongan": "ʻOku ʻi ai ha tangata ʻi heni.",
+          "english": "There is a man here."
+        },
+        {
+          "tongan": "ʻOku ʻi ai ha foʻi moli ʻi fale.",
+          "english": "There is an orange in the house."
+        },
+        {
+          "tongan": "ʻOku ʻi ai ha vaka ʻi tahi.",
+          "english": "There is a boat at sea."
+        }
+      ]
+    },
+    {
+      "id": "s39",
+      "data_status": "complete",
+      "category": "Advanced Patterns",
+      "subcategory": null,
+      "title": "Cleft Sentence — It was John who ate the bread",
+      "label_en": "It was John who ate the bread. / It is Mary who is singing.",
+      "label_to": "Ko + Subject + TM + Verb + Object",
+      "book_chapters": [
+        36
+      ],
+      "min_chapter": 36,
+      "slots": [
+        {
+          "id": "ko_particle",
+          "type": "ko_particle",
+          "label": "ko",
+          "required": true,
+          "locked": true,
+          "locked_value": {
+            "tongan": "Ko",
+            "english": "ko"
+          },
+          "position": 0,
+          "options_source": null
+        },
+        {
+          "id": "subject",
+          "type": "subject",
+          "label": "Subject",
+          "required": true,
+          "locked": false,
+          "position": 1,
+          "options_source": "cleft_subjects"
+        },
+        {
+          "id": "tense_marker",
+          "type": "tense_marker",
+          "label": "Tense Marker",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": "tense_markers_cleft"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 3,
+          "options_source": [
+            "verbs_intransitive",
+            "verbs_transitive_full"
+          ]
+        },
+        {
+          "id": "object",
+          "type": "object",
+          "label": "Object",
+          "required": false,
+          "locked": false,
+          "position": 4,
+          "options_source": "transitive_objects"
+        },
+        {
+          "id": "location",
+          "type": "location",
+          "label": "Location",
+          "required": false,
+          "locked": false,
+          "position": 5,
+          "options_source": "locations"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "cleft",
+        "cleft_pronoun_insertion": "When verb is transitive and object is present, auto-insert pronoun between TM and verb. For 3sg proper-noun subjects: insert ne, accent TM (naʻe → naʻá). For 1sg subject (au): insert ku (naʻá ku). For 3pl subject (kinautolu / e fānau): insert nau (naʻá nau). Intransitive verbs with no object: no pronoun inserted.",
+        "notes": "Cleft sentences front the subject with ko for emphasis: ‘It was X who did Y.’ Transitive pattern: Ko + Subject + TM(accented) + pronoun + Verb + Object. Intransitive pattern: Ko + Subject + TM + Verb (+ Location). TMs: naʻe (past), ʻoku (present)."
+      },
+      "examples": [
+        {
+          "tongan": "Ko Tēvita naʻá ne kai e foʻi niú.",
+          "english": "It was Tēvita who ate the coconut."
+        },
+        {
+          "tongan": "Ko Mele naʻá ne fufulu e valá.",
+          "english": "It was Mele who washed the clothes."
+        },
+        {
+          "tongan": "Ko Pita ʻoku ngāue heni.",
+          "english": "It is Pita who works here."
+        },
+        {
+          "tongan": "Ko e fānau naʻe hiva.",
+          "english": "It was the children who sang."
+        }
+      ]
+    }
+  ]
+}

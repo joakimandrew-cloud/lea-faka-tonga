@@ -1,0 +1,3449 @@
+[
+  {
+    "chapter": 1,
+    "title": "The Basic Sentence",
+    "topics": [
+      "Past tense marker na'a",
+      "Pronouns ku and ke",
+      "Seven basic verbs",
+      "Three-part sentence pattern"
+    ],
+    "unlocks_sections": [
+      "s01"
+    ],
+    "unlocks_entry_points": [
+      "statement"
+    ],
+    "teaching": {
+      "summary": "Every Tongan sentence follows a fixed order: tense marker + pronoun + verb. The verb never changes form — the tense marker does all the work.",
+      "key_rules": [
+        {
+          "rule": "Sentences always start with a tense marker",
+          "example_tongan": "Naʻa ku kai.",
+          "example_english": "I ate."
+        },
+        {
+          "rule": "The pronoun goes between the tense marker and the verb",
+          "example_tongan": "Naʻa ke inu.",
+          "example_english": "Did you drink?"
+        },
+        {
+          "rule": "Questions use the same word order — just change your intonation",
+          "example_tongan": "Naʻa ke mohe?",
+          "example_english": "Did you sleep?"
+        }
+      ],
+      "paradigm": {
+        "caption": "Chapter 1 Pattern",
+        "headers": [
+          "Tongan",
+          "English"
+        ],
+        "rows": [
+          [
+            "Naʻa ku",
+            "I (past)"
+          ],
+          [
+            "Naʻa ke",
+            "you (past)"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "statement"
+      ],
+      "focus_nodes": [
+        "tense_marker",
+        "pronoun",
+        "verb"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 2,
+    "title": "Tense Markers and Pronouns",
+    "topics": [
+      "Present 'oku, perfect kuo, future te",
+      "All 13 pronouns",
+      "Dual and plural forms",
+      "Suggestions with tau/ta"
+    ],
+    "unlocks_sections": [
+      "s01"
+    ],
+    "unlocks_entry_points": [
+      "suggestion"
+    ],
+    "teaching": {
+      "summary": "Tongan has four tense markers that fill the same position. The pronoun for \"I\" changes depending on which tense marker you use. Tongan also distinguishes dual (two people) from plural (three or more) and inclusive \"we\" (you too) from exclusive \"we\" (not you).",
+      "key_rules": [
+        {
+          "rule": "Four tense markers: naʻa (past), ʻoku (present), kuo (perfect), te (future)",
+          "example_tongan": "ʻOku ke kai.",
+          "example_english": "You eat."
+        },
+        {
+          "rule": "The \"I\" pronoun changes with the tense marker: ku (naʻa), ou (ʻoku), u (kuo/te)",
+          "example_tongan": "Kuo u kai.",
+          "example_english": "I have eaten."
+        },
+        {
+          "rule": "Tau (inclusive) means \"we\" including the listener; mau (exclusive) means \"we\" without the listener",
+          "example_tongan": "Tau hiva.",
+          "example_english": "Let’s sing."
+        },
+        {
+          "rule": "Tau or ta without a tense marker makes a suggestion",
+          "example_tongan": "Ta kai.",
+          "example_english": "Let’s eat (us two)."
+        }
+      ],
+      "paradigm": {
+        "caption": "Pronouns by Number",
+        "headers": [
+          "",
+          "Singular",
+          "Dual (two)",
+          "Plural (three+)"
+        ],
+        "rows": [
+          [
+            "I / We (excl.)",
+            "ku / ou / u",
+            "ma",
+            "mau"
+          ],
+          [
+            "We (incl.)",
+            "—",
+            "ta",
+            "tau"
+          ],
+          [
+            "You",
+            "ke",
+            "mo",
+            "mou"
+          ],
+          [
+            "He, she / They",
+            "ne",
+            "na",
+            "nau"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "statement",
+        "suggestion"
+      ],
+      "focus_nodes": [
+        "tense_marker",
+        "pronoun",
+        "verb",
+        "suggestion_pronoun"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 3,
+    "title": "Descriptive Words",
+    "topics": [
+      "Adjectives as verbs",
+      "Postposed modifiers",
+      "Bare-noun objects",
+      "Combining modifiers"
+    ],
+    "unlocks_sections": [
+      "s02",
+      "s03",
+      "s04"
+    ],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "In Tongan, adjectives fill the verb slot — no helper verb like \"am\" or \"is\" is needed. Modifiers like lelei (well), lahi (a lot), and ʻaupito (very) go after the verb to describe how or how much.",
+      "key_rules": [
+        {
+          "rule": "Adjectives work like verbs: TM + pronoun + adjective",
+          "example_tongan": "ʻOku ou fiefia.",
+          "example_english": "I am happy."
+        },
+        {
+          "rule": "Modifiers go after the verb or adjective",
+          "example_tongan": "ʻOku ou hiva lelei.",
+          "example_english": "I sing well."
+        },
+        {
+          "rule": "ʻAupito (very) always comes last",
+          "example_tongan": "ʻOku ou helaʻia lahi ʻaupito.",
+          "example_english": "I am extremely tired."
+        },
+        {
+          "rule": "Bare-noun objects attach directly to the verb",
+          "example_tongan": "Naʻa ku kai mā.",
+          "example_english": "I ate bread."
+        }
+      ],
+      "focus_entry_points": [
+        "statement"
+      ],
+      "focus_nodes": [
+        "verb",
+        "modifier",
+        "object"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 4,
+    "title": "Time Words",
+    "topics": [
+      "Yesterday, last night, a while ago",
+      "Tomorrow, tonight, in a while",
+      "Today",
+      "Time words go last"
+    ],
+    "unlocks_sections": [
+      "s04"
+    ],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Time words go at the very end of the sentence. Past time words start with ʻane- and future time words start with ʻa-.",
+      "key_rules": [
+        {
+          "rule": "Time words always go at the end of the sentence",
+          "example_tongan": "Naʻa ku mohe ʻaneafi.",
+          "example_english": "I slept yesterday."
+        },
+        {
+          "rule": "Past: ʻaneafi (yesterday), ʻanepō (last night), ʻanenai (a while ago)",
+          "example_tongan": "Naʻa mau kai talo ʻanenai.",
+          "example_english": "We ate taro a while ago."
+        },
+        {
+          "rule": "Future: ʻapongipongi (tomorrow), ʻapō (tonight), ʻanai (in a while)",
+          "example_tongan": "Tē ke ʻalu ʻapongipongi?",
+          "example_english": "Will you go tomorrow?"
+        }
+      ],
+      "paradigm": {
+        "caption": "Past and Future Time Words",
+        "headers": [
+          "Past",
+          "",
+          "Future",
+          ""
+        ],
+        "rows": [
+          [
+            "ʻaneafi",
+            "yesterday",
+            "ʻapongipongi",
+            "tomorrow"
+          ],
+          [
+            "ʻanepō",
+            "last night",
+            "ʻapō",
+            "tonight"
+          ],
+          [
+            "ʻanenai",
+            "a while ago",
+            "ʻanai",
+            "in a while"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "statement"
+      ],
+      "focus_nodes": [
+        "time_word"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 5,
+    "title": "Commands and Emphasis",
+    "topics": [
+      "Singular commands (bare verb)",
+      "Plural commands with mou",
+      "Prohibition 'oua te",
+      "Polite particle mu'a",
+      "Postposed pronouns for emphasis"
+    ],
+    "unlocks_sections": [
+      "s08",
+      "s09",
+      "s10"
+    ],
+    "unlocks_entry_points": [
+      "command",
+      "command_plural",
+      "prohibition"
+    ],
+    "teaching": {
+      "summary": "Commands use the bare verb alone with no tense marker. For groups, add mou before the verb. To say \"don’t,\" use ʻoua te + pronoun + verb. The polite particle muʻa means \"please.\"",
+      "key_rules": [
+        {
+          "rule": "Commands to one person: just the verb",
+          "example_tongan": "Kai!",
+          "example_english": "Eat!"
+        },
+        {
+          "rule": "Commands to a group: mou + verb",
+          "example_tongan": "Mou hiva!",
+          "example_english": "Sing! (all of you)"
+        },
+        {
+          "rule": "Prohibitions: ʻoua te + pronoun + verb",
+          "example_tongan": "ʻOua te ke kai!",
+          "example_english": "Don’t eat!"
+        },
+        {
+          "rule": "Muʻa adds politeness (\"please\")",
+          "example_tongan": "Haʻu muʻa.",
+          "example_english": "Please come."
+        }
+      ],
+      "paradigm": {
+        "caption": "Command Forms",
+        "headers": [
+          "One person",
+          "Group (3+)",
+          "English"
+        ],
+        "rows": [
+          [
+            "Kai!",
+            "Mou kai!",
+            "Eat!"
+          ],
+          [
+            "ʻAlu!",
+            "Mou ō!",
+            "Go!"
+          ],
+          [
+            "Haʻu!",
+            "Mou ō mai!",
+            "Come!"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "command",
+        "command_plural",
+        "prohibition"
+      ],
+      "focus_nodes": [
+        "command_verb",
+        "imperative_mou",
+        "command_verb_plural",
+        "prohibition_marker",
+        "prohibition_pronoun",
+        "prohibition_verb",
+        "polite_particle",
+        "emphatic_pronoun"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 6,
+    "title": "Location",
+    "topics": [
+      "Being somewhere ('i + place)",
+      "Location questions ('i fe)",
+      "Demonstrative places (heni, hena, he)",
+      "Place vocabulary"
+    ],
+    "unlocks_sections": [
+      "s05",
+      "s06"
+    ],
+    "unlocks_entry_points": [
+      "location_state"
+    ],
+    "teaching": {
+      "summary": "The preposition ʻi means \"in,\" \"at,\" or \"on.\" Use it to say where someone is or where something happens. Three demonstratives point to places: heni (here), hena (there near you), hē (over there).",
+      "key_rules": [
+        {
+          "rule": "Say where someone is: TM + pronoun + ʻi + place",
+          "example_tongan": "ʻOku ou nofo ʻi ʻapi.",
+          "example_english": "I live at home."
+        },
+        {
+          "rule": "Ask where with ʻi fē",
+          "example_tongan": "Naʻa ke mohe ʻi fē?",
+          "example_english": "Where did you sleep?"
+        },
+        {
+          "rule": "Three demonstratives: heni (here), hena (there), hē (over there)",
+          "example_tongan": "Tau nofo heni.",
+          "example_english": "Let’s stay here."
+        }
+      ],
+      "paradigm": {
+        "caption": "Location Vocabulary",
+        "headers": [
+          "Tongan",
+          "English"
+        ],
+        "rows": [
+          [
+            "ʻi ʻapi",
+            "at home"
+          ],
+          [
+            "ʻi kolo",
+            "in town"
+          ],
+          [
+            "ʻi Tonga",
+            "in Tonga"
+          ],
+          [
+            "heni",
+            "here"
+          ],
+          [
+            "hena",
+            "there (near you)"
+          ],
+          [
+            "hē",
+            "over there"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "location_state",
+        "statement"
+      ],
+      "focus_nodes": [
+        "tense_marker_loc",
+        "pronoun_loc",
+        "preposition_i_fixed",
+        "place",
+        "preposition",
+        "noun_phrase",
+        "question_word"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 7,
+    "title": "Prepositions: Ki, ʻI, and Mei",
+    "topics": [
+      "Direction ki (to)",
+      "Origin mei (from)",
+      "Experiencer verbs (mahino, ngalo)",
+      "Prepositional pronouns (kiate, 'iate)"
+    ],
+    "unlocks_sections": [
+      "s06"
+    ],
+    "unlocks_entry_points": [
+      "experiencer"
+    ],
+    "teaching": {
+      "summary": "Ki means \"to\" (destination) and mei means \"from\" (origin). Before a person’s name, prepositions add -a (kia, meia). Before pronouns, they add -ate (kiate, meiate). The verbs mahino (understand) and ngalo (forget) use these prepositional pronouns.",
+      "key_rules": [
+        {
+          "rule": "Ki marks where you’re going; mei marks where you came from",
+          "example_tongan": "Tē u ʻalu ki Vavaʻu.",
+          "example_english": "I will go to Vavaʻu."
+        },
+        {
+          "rule": "Before a person: ki → kia, mei → meia, ʻi → ʻia",
+          "example_tongan": "Naʻa ku lea kia Tēvita.",
+          "example_english": "I spoke to David."
+        },
+        {
+          "rule": "Before a pronoun: ki → kiate, mei → meiate, ʻi → ʻiate",
+          "example_tongan": "ʻOku mahino kiate au.",
+          "example_english": "I understand."
+        }
+      ],
+      "paradigm": {
+        "caption": "Preposition Forms",
+        "headers": [
+          "",
+          "Before place",
+          "Before person",
+          "Before pronoun"
+        ],
+        "rows": [
+          [
+            "ʻi (at)",
+            "ʻi",
+            "ʻia",
+            "ʻiate"
+          ],
+          [
+            "ki (to)",
+            "ki",
+            "kia",
+            "kiate"
+          ],
+          [
+            "mei (from)",
+            "mei",
+            "meia",
+            "meiate"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "experiencer",
+        "statement"
+      ],
+      "focus_nodes": [
+        "preposition",
+        "noun_phrase",
+        "tense_marker_exp",
+        "verb_experiencer",
+        "prep_pronoun"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 8,
+    "title": "Articles",
+    "topics": [
+      "Indefinite ha (some)",
+      "Definite e (the)",
+      "Article + noun objects"
+    ],
+    "unlocks_sections": [
+      "s03",
+      "s04"
+    ],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan has two articles: ha (a, some) for indefinite nouns and e (the) for definite nouns. After the prepositions ʻi, ki, and mei, the definite article changes to he.",
+      "key_rules": [
+        {
+          "rule": "Ha means \"a\" or \"some\" (indefinite, non-specific)",
+          "example_tongan": "ʻOku ou fiemaʻu ha ika.",
+          "example_english": "I want some fish."
+        },
+        {
+          "rule": "E means \"the\" (definite); he after prepositions ʻi, ki, mei",
+          "example_tongan": "Naʻa ke kai e mā?",
+          "example_english": "Did you eat the bread?"
+        },
+        {
+          "rule": "Three ways to use nouns: bare (kai mā), indefinite (kai ha mā), definite (kai e mā)",
+          "example_tongan": "Tē u ʻalu ki he fale.",
+          "example_english": "I will go to the house."
+        }
+      ],
+      "paradigm": {
+        "caption": "Noun Forms with Articles",
+        "headers": [
+          "Type",
+          "Pattern",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Bare",
+            "verb + noun",
+            "kai mā — eat bread"
+          ],
+          [
+            "Indefinite",
+            "verb + ha + noun",
+            "kai ha mā — eat some bread"
+          ],
+          [
+            "Definite",
+            "verb + e + noun",
+            "kai e mā — eat the bread"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "statement"
+      ],
+      "focus_nodes": [
+        "object"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 9,
+    "title": "The Negative",
+    "topics": [
+      "Negation with 'ikai te",
+      "Tense marker changes (na'e, 'e)",
+      "First person always u",
+      "Impersonal negation 'ikai ke"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [
+      "negation",
+      "negation_impersonal"
+    ],
+    "teaching": {
+      "summary": "To negate a sentence, insert ʻikai te between the tense marker and the pronoun. Important: the tense marker changes in negation — use naʻe for past (not naʻa) and ʻe for future (not te). For weather and impersonal verbs with no pronoun, use ʻikai ke instead.",
+      "key_rules": [
+        {
+          "rule": "Negation with a pronoun: TM + ʻikai te + pronoun + verb",
+          "example_tongan": "ʻOku ʻikai te u fiefia.",
+          "example_english": "I am not happy."
+        },
+        {
+          "rule": "Tense markers change: naʻe (not naʻa) for past, ʻe (not te) for future",
+          "example_tongan": "Naʻe ʻikai te u kai.",
+          "example_english": "I did not eat."
+        },
+        {
+          "rule": "Impersonal negation (no pronoun): TM + ʻikai ke + verb",
+          "example_tongan": "ʻOku ʻikai ke ʻuha.",
+          "example_english": "It is not raining."
+        }
+      ],
+      "paradigm": {
+        "caption": "Negation Across Tenses",
+        "headers": [
+          "Tense",
+          "Negative",
+          "English"
+        ],
+        "rows": [
+          [
+            "Present",
+            "ʻOku ʻikai te u kai.",
+            "I don’t eat."
+          ],
+          [
+            "Past",
+            "Naʻe ʻikai te u kai.",
+            "I didn’t eat."
+          ],
+          [
+            "Future",
+            "ʻE ʻikai te u kai.",
+            "I won’t eat."
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "negation",
+        "negation_impersonal"
+      ],
+      "focus_nodes": [
+        "tense_marker_neg",
+        "negation_word",
+        "neg_connector",
+        "pronoun_neg",
+        "tense_marker_neg_imp",
+        "negation_word_imp",
+        "imp_connector",
+        "verb_weather"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 10,
+    "title": "The Comitative Mo",
+    "topics": [
+      "Mo = with/and",
+      "Companion phrases",
+      "Dual commands with mo"
+    ],
+    "unlocks_sections": [
+      "s07"
+    ],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Mo means \"with\" (together with) and also \"and\" between names. It goes after the verb and before the companion’s name or pronoun.",
+      "key_rules": [
+        {
+          "rule": "Mo + name means \"with\" (accompaniment)",
+          "example_tongan": "Naʻa ku ʻalu mo Sione.",
+          "example_english": "I went with John."
+        },
+        {
+          "rule": "Mo between names means \"and\"",
+          "example_tongan": "Naʻa ku lea kia Sione mo Mele.",
+          "example_english": "I spoke to John and Mary."
+        },
+        {
+          "rule": "Mo + verb makes a command to exactly two people",
+          "example_tongan": "Mo kai!",
+          "example_english": "Eat! (you two)"
+        }
+      ],
+      "paradigm": {
+        "caption": "Command Comparison",
+        "headers": [
+          "One person",
+          "Two people",
+          "Three or more"
+        ],
+        "rows": [
+          [
+            "Kai!",
+            "Mo kai!",
+            "Mou kai!"
+          ],
+          [
+            "ʻAlu!",
+            "Mo ō!",
+            "Mou ō!"
+          ],
+          [
+            "Haʻu!",
+            "Mo ō mai!",
+            "Mou ō mai!"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "statement"
+      ],
+      "focus_nodes": [
+        "mo_fixed",
+        "companion"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 11,
+    "title": "Question Words",
+    "topics": [
+      "When (past): 'anefe",
+      "When (future): 'afe",
+      "How: fefe"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Question words sit where the answer would go in the sentence. Use ʻanefē to ask \"when\" about the past, ʻafē for the future, and fēfē for \"how.\"",
+      "key_rules": [
+        {
+          "rule": "Past \"when\": ʻanefē (goes where the time word answer would be)",
+          "example_tongan": "Naʻa ne tau mai ʻanefē?",
+          "example_english": "When did he/she arrive?"
+        },
+        {
+          "rule": "Future \"when\": ʻafē",
+          "example_tongan": "Te mau haʻu ʻafē?",
+          "example_english": "When will we come?"
+        },
+        {
+          "rule": "\"How\": fēfē asks about condition or manner",
+          "example_tongan": "ʻOku ke fēfē?",
+          "example_english": "How are you?"
+        }
+      ],
+      "paradigm": {
+        "caption": "Question Words",
+        "headers": [
+          "Tongan",
+          "English"
+        ],
+        "rows": [
+          [
+            "ʻi fē",
+            "where (at)"
+          ],
+          [
+            "ki fē",
+            "where (to)"
+          ],
+          [
+            "mei fē",
+            "where (from)"
+          ],
+          [
+            "ʻanefē",
+            "when (past)"
+          ],
+          [
+            "ʻafē",
+            "when (future)"
+          ],
+          [
+            "fēfē",
+            "how"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "statement"
+      ],
+      "focus_nodes": [
+        "question_word"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 12,
+    "title": "The Ko Pattern",
+    "topics": [
+      "Identifying things (ko e + noun)",
+      "Demonstratives ('eni, 'ena, e)",
+      "Ko negation ('oku 'ikai ko e)",
+      "What is that? (ko e ha)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [
+      "ko_identification",
+      "ko_negation",
+      "ko_question_what"
+    ],
+    "teaching": {
+      "summary": "The ko pattern identifies things without using a tense marker or verb. Ko e + noun + demonstrative says \"this is a...\" Three demonstratives: ʻeni (this, near me), ʻena (that, near you), ē (over there).",
+      "key_rules": [
+        {
+          "rule": "Identify things: ko e + noun + demonstrative",
+          "example_tongan": "Ko e fala ʻeni.",
+          "example_english": "This is a mat."
+        },
+        {
+          "rule": "Ask \"what is that?\": ko e hā + demonstrative",
+          "example_tongan": "Ko e hā ē?",
+          "example_english": "What is that?"
+        },
+        {
+          "rule": "Negate with ʻoku ʻikai ko e",
+          "example_tongan": "ʻOku ʻikai ko e hele ʻeni.",
+          "example_english": "This is not a knife."
+        }
+      ],
+      "paradigm": {
+        "caption": "Ko Patterns",
+        "headers": [
+          "Pattern",
+          "Example",
+          "English"
+        ],
+        "rows": [
+          [
+            "Identification",
+            "Ko e tohi ʻeni.",
+            "This is a book."
+          ],
+          [
+            "Question",
+            "Ko e hā ē?",
+            "What is that?"
+          ],
+          [
+            "Negation",
+            "ʻOku ʻikai ko e hele ʻeni.",
+            "This is not a knife."
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "ko_identification",
+        "ko_negation",
+        "ko_question_what"
+      ],
+      "focus_nodes": [
+        "ko_e_fixed",
+        "noun_ko",
+        "demonstrative",
+        "ko_neg_prefix",
+        "predicate_noun",
+        "subject_ko",
+        "ko_e_ha_fixed"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 13,
+    "title": "Ko Questions",
+    "topics": [
+      "Who? (ko hai)",
+      "Where is? (ko fe)",
+      "Question-answer patterns"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [
+      "ko_question_who",
+      "ko_question_where"
+    ],
+    "teaching": {
+      "summary": "Ko hai asks \"who?\" and ko fē asks \"where?\" Both use the ko pattern. Answers use ko + noun.",
+      "key_rules": [
+        {
+          "rule": "\"Who?\": ko hai + tense marker + verb",
+          "example_tongan": "Ko hai ʻoku hiva?",
+          "example_english": "Who is singing?"
+        },
+        {
+          "rule": "\"Where?\": ko fē + noun",
+          "example_tongan": "Ko fē e kato?",
+          "example_english": "Where is the basket?"
+        },
+        {
+          "rule": "Answers use ko + name or koʻeni (here it is)",
+          "example_tongan": "Ko Sione.",
+          "example_english": "It’s John."
+        }
+      ],
+      "paradigm": {
+        "caption": "Ko Questions",
+        "headers": [
+          "Question",
+          "Meaning",
+          "Example Answer"
+        ],
+        "rows": [
+          [
+            "Ko hai ʻoku hiva?",
+            "Who is singing?",
+            "Ko Sione."
+          ],
+          [
+            "Ko fē e kato?",
+            "Where is the basket?",
+            "Koʻeni."
+          ],
+          [
+            "Ko e hā ē?",
+            "What is that?",
+            "Ko e tohi ē."
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "ko_question_who",
+        "ko_question_where"
+      ],
+      "focus_nodes": [
+        "ko_hai_fixed",
+        "tense_marker_kohai",
+        "verb_kohai",
+        "ko_fe_fixed",
+        "focus_and_name"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 14,
+    "title": "Greetings and Social Formulas",
+    "topics": [
+      "Formal greetings",
+      "Common expressions",
+      "Social protocols"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan greetings are fixed formulas. Mālō e lelei is the main greeting, fēfē hake asks \"how are you?\", and farewells depend on who is leaving: ʻalu ā (to someone going) or nofo ā (to someone staying).",
+      "key_rules": [
+        {
+          "rule": "Greeting: Mālō e lelei! (response: repeat it)",
+          "example_tongan": "Mālō e lelei!",
+          "example_english": "Hello!"
+        },
+        {
+          "rule": "\"How are you?\": Fēfē hake? Answer: Sai pē!",
+          "example_tongan": "Fēfē hake?",
+          "example_english": "How are you?"
+        },
+        {
+          "rule": "Farewells: ʻalu ā (to someone leaving), nofo ā (to someone staying)",
+          "example_tongan": "ʻAlu ā!",
+          "example_english": "Goodbye! (to someone leaving)"
+        },
+        {
+          "rule": "Ask someone’s name: Ko hai ho hingoa?",
+          "example_tongan": "Ko hai ho hingoa?",
+          "example_english": "What is your name?"
+        }
+      ],
+      "focus_entry_points": [],
+      "focus_nodes": []
+    },
+    "type": "word_study"
+  },
+  {
+    "chapter": 15,
+    "title": "Noun Subjects",
+    "topics": [
+      "Named subjects after the verb",
+      "Focus marker 'a",
+      "Tense marker shift (na'e, 'e)",
+      "Weather expressions"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [
+      "noun_subject"
+    ],
+    "teaching": {
+      "summary": "When the subject is a name (not a pronoun), it moves after the verb and is marked with ʻa. The tense marker also changes: naʻa becomes naʻe, and te becomes ʻe. Weather expressions like ʻuha (rain) have no subject at all.",
+      "key_rules": [
+        {
+          "rule": "Noun subject word order: TM + verb + ʻa + name",
+          "example_tongan": "Naʻe hiva ʻa Sione.",
+          "example_english": "John sang."
+        },
+        {
+          "rule": "Tense markers change: naʻa → naʻe, te → ʻe (before noun subjects)",
+          "example_tongan": "ʻE hiva ʻa Tēvita.",
+          "example_english": "David will sing."
+        },
+        {
+          "rule": "Weather verbs have no subject: just TM + verb",
+          "example_tongan": "Naʻe ʻuha.",
+          "example_english": "It rained."
+        }
+      ],
+      "paradigm": {
+        "caption": "Pronoun vs. Noun Subject",
+        "headers": [
+          "Pronoun subject",
+          "Noun subject"
+        ],
+        "rows": [
+          [
+            "ʻOku ne ʻalu. (He is going.)",
+            "ʻOku ʻalu ʻa Sione. (John is going.)"
+          ],
+          [
+            "Naʻa ne kai. (He ate.)",
+            "Naʻe kai ʻa Sione. (John ate.)"
+          ],
+          [
+            "Tē ne hiva. (He will sing.)",
+            "ʻE hiva ʻa Sione. (John will sing.)"
+          ]
+        ]
+      },
+      "focus_entry_points": [
+        "noun_subject"
+      ],
+      "focus_nodes": [
+        "tense_marker_ns",
+        "verb_ns",
+        "focus_marker",
+        "noun_subject_name"
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 16,
+    "title": "Equational Sentences",
+    "topics": [
+      "I am a teacher (ko e + noun + pronoun)",
+      "Named equationals with ʻa",
+      "Subject-first emphasis"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Equational sentences use ko e to identify what someone or something is, without a tense marker or verb. The subject appears at the end, marked by ʻa for proper nouns or as a bare pronoun.",
+      "key_rules": [
+        {
+          "rule": "With a noun subject, use ʻa before the name: ko e + noun + ʻa + name",
+          "example_tongan": "Ko e faiako ʻa Mele.",
+          "example_english": "Mele is a teacher."
+        },
+        {
+          "rule": "With a pronoun subject, drop ʻa: ko e + noun + pronoun",
+          "example_tongan": "Ko e tangata ngāue au.",
+          "example_english": "I am a worker."
+        },
+        {
+          "rule": "Subject-first order emphasizes who: ko + subject + ko e + predicate",
+          "example_tongan": "Ko Lisiate ko e faiako.",
+          "example_english": "Lisiate is the teacher. (emphasis on Lisiate)"
+        }
+      ],
+      "paradigm": {
+        "caption": "Equational Sentence Patterns",
+        "headers": [
+          "Pattern",
+          "Example",
+          "English"
+        ],
+        "rows": [
+          [
+            "Noun subject",
+            "Ko e taʻahine mālohi ʻa Seini.",
+            "Seini is a strong girl."
+          ],
+          [
+            "Pronoun subject",
+            "Ko e tōketā koe?",
+            "Are you a doctor?"
+          ],
+          [
+            "Subject-first",
+            "Ko Peau ko e tangata mālohi.",
+            "Peau is a strong man."
+          ],
+          [
+            "Negation",
+            "ʻOku ʻikai ko e faiako au.",
+            "I am not a teacher."
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 17,
+    "title": "Possessives",
+    "topics": [
+      "ʻE-class (controlled items)",
+      "Ho-class (characterizing items)",
+      "Possessive pronouns",
+      "Possessive prepositions ʻa and ʻo"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan splits possession into two classes. ʻE-class covers things you control, create, or consume. Ho-class covers things that shelter, clothe, or define you. Each class has its own set of pronouns.",
+      "key_rules": [
+        {
+          "rule": "ʻE-class for things you act upon: ʻeku (my), hoʻo (your), ʻene (his/her)",
+          "example_tongan": "ʻeku hele",
+          "example_english": "my knife"
+        },
+        {
+          "rule": "Ho-class for things that define you: hoku (my), ho (your), hono (his/her)",
+          "example_tongan": "hoku fale",
+          "example_english": "my house"
+        },
+        {
+          "rule": "With nouns use ʻa (ʻe-class) or ʻo (ho-class) to show possession",
+          "example_tongan": "Ko e paʻanga ʻa Sione.",
+          "example_english": "John’s money."
+        },
+        {
+          "rule": "Ko + possessive pronoun + verb describes what someone is doing right now",
+          "example_tongan": "Ko hoʻo ako?",
+          "example_english": "Are you studying?"
+        }
+      ],
+      "paradigm": {
+        "caption": "ʻE-class vs. Ho-class",
+        "headers": [
+          "Person",
+          "ʻE-class",
+          "Ho-class"
+        ],
+        "rows": [
+          [
+            "my",
+            "ʻeku",
+            "hoku"
+          ],
+          [
+            "your (sg.)",
+            "hoʻo",
+            "ho"
+          ],
+          [
+            "his/her",
+            "ʻene",
+            "hono"
+          ],
+          [
+            "our (incl.)",
+            "ʻetau",
+            "hotau"
+          ],
+          [
+            "our (excl.)",
+            "ʻemau",
+            "homau"
+          ],
+          [
+            "their",
+            "ʻenau",
+            "honau"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 18,
+    "title": "Definiteness and the Definitive Accent",
+    "topics": [
+      "Three levels of definiteness",
+      "Stress shift for definiteness",
+      "Article system in full"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan has three levels of definiteness: indefinite (ha), semi-definite (e, no stress shift), and fully definite (e with stress on the final vowel). The stress shift to the last vowel of a noun phrase is called the definitive accent.",
+      "key_rules": [
+        {
+          "rule": "Ha marks an indefinite noun; e marks a specific one; e + final stress marks the one both speaker and listener know",
+          "example_tongan": "Haʻu mo e katō.",
+          "example_english": "Bring the basket. (the one you know about)"
+        },
+        {
+          "rule": "The definitive accent always falls on the last vowel of the entire noun phrase",
+          "example_tongan": "ʻi he fale akō",
+          "example_english": "in the school"
+        },
+        {
+          "rule": "Tongan uses the definite article for general categories, unlike English",
+          "example_tongan": "ʻOku lelei e ikā.",
+          "example_english": "Fish is good. (fish in general)"
+        }
+      ],
+      "paradigm": {
+        "caption": "Three Levels of Definiteness",
+        "headers": [
+          "Level",
+          "Article",
+          "Example",
+          "English"
+        ],
+        "rows": [
+          [
+            "Indefinite",
+            "ha",
+            "ha ika",
+            "some fish"
+          ],
+          [
+            "Semi-definite",
+            "e",
+            "e ika",
+            "a fish (particular)"
+          ],
+          [
+            "Definite",
+            "e + accent",
+            "e ikā",
+            "the fish"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 19,
+    "title": "Transitive Word Order",
+    "topics": [
+      "Agent ʻe and object ʻa markers",
+      "Intransitive vs. transitive contrast",
+      "Passive equivalent"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "When a verb has a definite object, the subject marker changes from ʻa to ʻe. The marker ʻe introduces the doer (agent) and ʻa marks the thing acted upon. Dropping the agent phrase creates a passive meaning.",
+      "key_rules": [
+        {
+          "rule": "Intransitive subjects take ʻa; transitive subjects take ʻe",
+          "example_tongan": "Naʻe lau ʻe Sione e tohī.",
+          "example_english": "Sione read the book."
+        },
+        {
+          "rule": "Indefinite objects fuse with the verb and the whole phrase is intransitive",
+          "example_tongan": "Naʻe kai mā ʻa Sione.",
+          "example_english": "Sione ate bread."
+        },
+        {
+          "rule": "Drop the ʻe phrase to form a passive: the verb stays the same",
+          "example_tongan": "Naʻe langa e falē.",
+          "example_english": "The house was built."
+        }
+      ],
+      "paradigm": {
+        "caption": "Intransitive vs. Transitive",
+        "headers": [
+          "Type",
+          "Subject marker",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Intransitive",
+            "ʻa",
+            "Naʻe lea ʻa Mele. (Mele spoke.)"
+          ],
+          [
+            "Transitive",
+            "ʻe",
+            "Naʻe lau ʻe Mele e tohī. (Mele read the book.)"
+          ],
+          [
+            "Passive",
+            "(none)",
+            "Naʻe lau e tohī. (The book was read.)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 20,
+    "title": "Numbers and Time",
+    "topics": [
+      "Counting 1-10 and beyond",
+      "Numeral particle ʻe",
+      "Counting people with toko",
+      "Telling time"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan numbers are placed after the noun with the particle ʻe between them. People are counted with the prefix toko. Time uses the ko e pattern with the numeral carrying the definitive accent.",
+      "key_rules": [
+        {
+          "rule": "Noun + ʻe + number: the particle ʻe links a number to a noun",
+          "example_tongan": "ha tohi ʻe tolu",
+          "example_english": "three books"
+        },
+        {
+          "rule": "Use toko before the number when counting people",
+          "example_tongan": "Ko e tamaiki ʻe toko fā.",
+          "example_english": "Four children."
+        },
+        {
+          "rule": "Ask the time with ko e fihā eni; answer with ko e + number + eni",
+          "example_tongan": "Ko e valū eni.",
+          "example_english": "It is eight o’clock."
+        }
+      ],
+      "paradigm": {
+        "caption": "Basic Numbers",
+        "headers": [
+          "Number",
+          "Tongan"
+        ],
+        "rows": [
+          [
+            "1",
+            "taha"
+          ],
+          [
+            "2",
+            "ua"
+          ],
+          [
+            "3",
+            "tolu"
+          ],
+          [
+            "4",
+            "fā"
+          ],
+          [
+            "5",
+            "nima"
+          ],
+          [
+            "10",
+            "hongofulu"
+          ]
+        ]
+      }
+    },
+    "type": "word_study"
+  },
+  {
+    "chapter": 21,
+    "title": "Auxiliary Verbs",
+    "topics": [
+      "Want to (fie)",
+      "Can/able (lava ʻo)",
+      "Like (saiʻia)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Auxiliary verbs slot in before the main verb. Fie means want to, lava ʻo means be able to, and saiʻia (with ʻi/he) means to like something.",
+      "key_rules": [
+        {
+          "rule": "Fie goes directly before the main verb to mean want to",
+          "example_tongan": "ʻOku ou fie ako.",
+          "example_english": "I want to study."
+        },
+        {
+          "rule": "Lava ʻo + verb means able to; negate with ʻikai te + pronoun + lava ʻo",
+          "example_tongan": "ʻOku ou lava ʻo kakau.",
+          "example_english": "I can swim."
+        },
+        {
+          "rule": "Saiʻia he + definite noun means to like something",
+          "example_tongan": "ʻOku ou saiʻia lahi he lea faka-Tongā.",
+          "example_english": "I like the Tongan language a lot."
+        }
+      ],
+      "paradigm": {
+        "caption": "Auxiliary Verb Patterns",
+        "headers": [
+          "Auxiliary",
+          "Pattern",
+          "Example"
+        ],
+        "rows": [
+          [
+            "fie",
+            "TM + pronoun + fie + verb",
+            "ʻOkū ke fie hiva? (Do you want to sing?)"
+          ],
+          [
+            "lava ʻo",
+            "TM + pronoun + lava ʻo + verb",
+            "Tē ke lava ʻo haʻu? (Can you come?)"
+          ],
+          [
+            "saiʻia",
+            "TM + pronoun + saiʻia he + noun",
+            "ʻOkū ke saiʻia he hivā? (Do you like the song?)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 22,
+    "title": "Aspect Markers and Frequency",
+    "topics": [
+      "Still (kei)",
+      "Already (ʻosi)",
+      "Not yet (teʻeki ai)",
+      "Currently (lolotonga)",
+      "Again (toe)",
+      "Just/not until (toki)",
+      "Immediately (leva)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Aspect markers go before the verb (except leva, which goes after) to show what stage an action is at: still happening, already done, not yet started, in progress, repeated, or immediate.",
+      "key_rules": [
+        {
+          "rule": "Kei before the verb means still; often paired with pē",
+          "example_tongan": "ʻOkū ne kei mohe pē.",
+          "example_english": "He is still sleeping."
+        },
+        {
+          "rule": "ʻOsi before the verb means already finished; teʻeki ai is the opposite (not yet)",
+          "example_tongan": "Kuō ne ʻosi ʻalu.",
+          "example_english": "He has already gone."
+        },
+        {
+          "rule": "Toe before the verb means again or more",
+          "example_tongan": "ʻOkū ke fie toe haʻu?",
+          "example_english": "Do you want to come again?"
+        }
+      ],
+      "paradigm": {
+        "caption": "Aspect Markers",
+        "headers": [
+          "Marker",
+          "Position",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "kei",
+            "before verb",
+            "still"
+          ],
+          [
+            "ʻosi",
+            "before verb",
+            "already"
+          ],
+          [
+            "teʻeki ai",
+            "sentence-initial",
+            "not yet"
+          ],
+          [
+            "lolotonga",
+            "before verb",
+            "currently"
+          ],
+          [
+            "toe",
+            "before verb",
+            "again"
+          ],
+          [
+            "toki",
+            "before verb",
+            "just / not until"
+          ],
+          [
+            "leva",
+            "after verb",
+            "immediately"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 23,
+    "title": "Obligation and Necessity",
+    "topics": [
+      "Should (ʻoku totonu ke)",
+      "Must (kuo pau ke)",
+      "Negating obligation"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "ʻOku totonu ke expresses what is right or proper (should). Kuo pau ke expresses what is necessary or certain (must). Both are followed by ke and then the pronoun and verb.",
+      "key_rules": [
+        {
+          "rule": "ʻOku totonu ke + pronoun + verb means should or ought to",
+          "example_tongan": "ʻOku totonu ke ke feinga.",
+          "example_english": "You should try."
+        },
+        {
+          "rule": "Kuo pau ke + pronoun + verb means must or it is certain that",
+          "example_tongan": "Kuo pau ke u foki ki fale.",
+          "example_english": "I must go home."
+        },
+        {
+          "rule": "Negate with ʻoku ʻikai totonu ke for plain should not",
+          "example_tongan": "ʻOku ʻikai totonu ke ke nofo heni.",
+          "example_english": "You should not stay here."
+        }
+      ],
+      "paradigm": {
+        "caption": "Obligation Patterns",
+        "headers": [
+          "Pattern",
+          "Meaning",
+          "Example"
+        ],
+        "rows": [
+          [
+            "ʻoku totonu ke",
+            "should",
+            "ʻOku totonu ke u ako. (I should study.)"
+          ],
+          [
+            "kuo pau ke",
+            "must",
+            "Kuo pau ke ke ngāue. (You must work.)"
+          ],
+          [
+            "ʻoku ʻikai totonu ke",
+            "should not",
+            "ʻOku ʻikai totonu ke u lea. (I should not speak.)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 24,
+    "title": "Conjunctions",
+    "topics": [
+      "And then (pea)",
+      "And as one event (ʻo)",
+      "But (ka/kae)",
+      "Or/whether (pe)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Pea joins sequential actions (and then), ʻo joins actions treated as one event, ka and kae both mean but (ka before tense markers, kae before verbs), and pe means or.",
+      "key_rules": [
+        {
+          "rule": "Pea links two actions in sequence; the second tense marker is usually dropped",
+          "example_tongan": "Naʻā ku lotu peā u mohe.",
+          "example_english": "I prayed and then slept."
+        },
+        {
+          "rule": "ʻO links actions treated as a single combined event",
+          "example_tongan": "Haʻu ʻo kai.",
+          "example_english": "Come and eat."
+        },
+        {
+          "rule": "Use ka before a tense marker or pronoun; kae before a verb or adjective",
+          "example_tongan": "Naʻe ʻalu ʻa Sione kae nofo ʻa Mele.",
+          "example_english": "Sione went but Mele stayed."
+        }
+      ],
+      "paradigm": {
+        "caption": "Conjunction Summary",
+        "headers": [
+          "Conjunction",
+          "Meaning",
+          "Used for"
+        ],
+        "rows": [
+          [
+            "pea",
+            "and then",
+            "Sequential actions"
+          ],
+          [
+            "ʻo",
+            "and (one event)",
+            "Combined actions"
+          ],
+          [
+            "ka",
+            "but",
+            "Before TM, pronoun"
+          ],
+          [
+            "kae",
+            "but / while",
+            "Before verb, adjective"
+          ],
+          [
+            "pe",
+            "or / whether",
+            "Alternatives"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 25,
+    "title": "Plural Markers",
+    "topics": [
+      "General plural (ngaahi)",
+      "People plural (kau)",
+      "Animal plural (fanga)",
+      "Dual marker (ongo)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan nouns do not change form for plural. Instead, a plural marker goes before the noun: ngaahi for general use, kau for people, fanga for animals, and ʻū for small groups of things.",
+      "key_rules": [
+        {
+          "rule": "Ngaahi is the default plural marker and works with any noun",
+          "example_tongan": "ʻeku ngaahi katō",
+          "example_english": "my baskets"
+        },
+        {
+          "rule": "Kau is for people; fanga is for animals",
+          "example_tongan": "e kau faiakō",
+          "example_english": "the teachers"
+        },
+        {
+          "rule": "Some verbs have special plural forms: ʻalu becomes ō, haʻu becomes ō mai",
+          "example_tongan": "Naʻe ō ʻa e kau tamaikī ki kolo.",
+          "example_english": "The children went to town."
+        }
+      ],
+      "paradigm": {
+        "caption": "Choosing the Right Plural Marker",
+        "headers": [
+          "Marker",
+          "Used with",
+          "Example"
+        ],
+        "rows": [
+          [
+            "ngaahi",
+            "anything (default)",
+            "ngaahi fale (houses)"
+          ],
+          [
+            "kau",
+            "people",
+            "kau faiako (teachers)"
+          ],
+          [
+            "fanga",
+            "animals",
+            "fanga puaka (pigs)"
+          ],
+          [
+            "ʻū",
+            "things (small number)",
+            "ʻū tohi (books)"
+          ],
+          [
+            "ongo",
+            "exactly two",
+            "ongo vaka (two boats)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 26,
+    "title": "Purpose, Reason, and Benefit",
+    "topics": [
+      "Purpose clauses with ke",
+      "Reason with he",
+      "Benefactive maʻa/moʻo"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan uses ke to introduce purpose clauses (\"in order to\"), he to give reasons (\"because\"), and maʻa or moʻo to say who benefits from an action.",
+      "key_rules": [
+        {
+          "rule": "Use ke to express purpose; pronouns after ke take the same forms as after tense markers",
+          "example_tongan": "Kuo nau ō mai ke lau ʻa e tohī.",
+          "example_english": "They have come to read the book."
+        },
+        {
+          "rule": "Use he between two clauses to give a reason (\"because\")",
+          "example_tongan": "ʻOku ou ʻalu ki ʻapi, he ʻoku ou helaʻia.",
+          "example_english": "I am going home, because I am tired."
+        },
+        {
+          "rule": "Use maʻa for ʻe-class benefits (food, money) and moʻo for ho-class benefits (house, land)",
+          "example_tongan": "Naʻa nau tānaki ʻa e paʻangā maʻa Tēvita.",
+          "example_english": "They collected money for Tēvita."
+        }
+      ],
+      "paradigm": {
+        "caption": "maʻa / moʻo with Pronouns",
+        "headers": [
+          "ʻe-class",
+          "ho-class",
+          "English"
+        ],
+        "rows": [
+          [
+            "maʻaku",
+            "moʻoku",
+            "for me"
+          ],
+          [
+            "maʻau",
+            "moʻou",
+            "for you (sg.)"
+          ],
+          [
+            "maʻana",
+            "moʻona",
+            "for him/her"
+          ],
+          [
+            "maʻanau",
+            "moʻonau",
+            "for them"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 27,
+    "title": "Comparison and Degree",
+    "topics": [
+      "Comparative with ange",
+      "Superlative with taha",
+      "Same as (tatau mo)",
+      "Like (hangē)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan forms comparatives by placing ange after an adjective and superlatives by placing taha after it. The preposition ʻi introduces the thing compared to.",
+      "key_rules": [
+        {
+          "rule": "Comparative: adjective + ange + ʻa + first thing + ʻi + second thing",
+          "example_tongan": "ʻOku mālohi ange ʻa Tēvita ʻi Sēmisi.",
+          "example_english": "Tēvita is stronger than Sēmisi."
+        },
+        {
+          "rule": "Superlative: adjective + taha (no ʻi phrase needed)",
+          "example_tongan": "ʻOku mālohi taha ʻa Siaosi.",
+          "example_english": "Siaosi is the strongest."
+        },
+        {
+          "rule": "Use tatau + mo for \"the same as\" and hangē for \"like\"",
+          "example_tongan": "ʻOku tatau ʻa Mele mo Seini.",
+          "example_english": "Mele and Seini are the same."
+        }
+      ],
+      "paradigm": {
+        "caption": "Comparative and Superlative",
+        "headers": [
+          "Adjective",
+          "Comparative",
+          "Superlative"
+        ],
+        "rows": [
+          [
+            "lelei (good)",
+            "lelei ange",
+            "lelei taha"
+          ],
+          [
+            "lahi (big)",
+            "lahi ange",
+            "lahi taha"
+          ],
+          [
+            "mālohi (strong)",
+            "mālohi ange",
+            "mālohi taha"
+          ],
+          [
+            "vave (fast)",
+            "vave ange",
+            "vave taha"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 28,
+    "title": "Directional Particles",
+    "topics": [
+      "Mai (toward speaker)",
+      "Atu (away from speaker)",
+      "Ange (toward third person)",
+      "Hake (up)",
+      "Hifo (down)",
+      "Holo (around)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Six directional particles attach to verbs to show which way an action moves. Three are person-based (mai, atu, ange) and three are spatial (hake, hifo, holo).",
+      "key_rules": [
+        {
+          "rule": "Mai marks movement toward the speaker; atu marks movement away",
+          "example_tongan": "Haʻu mai!",
+          "example_english": "Come here! (toward me)"
+        },
+        {
+          "rule": "Ange marks movement toward a third person",
+          "example_tongan": "ʻOkū ne ʻave ange e katō ki he faiakō.",
+          "example_english": "She is taking the basket to the teacher."
+        },
+        {
+          "rule": "Directional particles go right after the verb, before objects or prepositional phrases",
+          "example_tongan": "Naʻā ku ʻave mai e valā mei he falē.",
+          "example_english": "I brought the clothes from the house."
+        }
+      ],
+      "paradigm": {
+        "caption": "The Six Directional Particles",
+        "headers": [
+          "Particle",
+          "Direction",
+          "Example"
+        ],
+        "rows": [
+          [
+            "mai",
+            "toward speaker",
+            "haʻu mai = come here"
+          ],
+          [
+            "atu",
+            "away from speaker",
+            "ʻalu atu = go away"
+          ],
+          [
+            "ange",
+            "toward 3rd person",
+            "tala ange = tell him/her"
+          ],
+          [
+            "hake",
+            "upward",
+            "sio hake = look up"
+          ],
+          [
+            "hifo",
+            "downward",
+            "tō hifo = fall down"
+          ],
+          [
+            "holo",
+            "around",
+            "ʻalu holo = go around"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 29,
+    "title": "The Possessive System in Full",
+    "topics": [
+      "Doer/receiver principle",
+      "Indefinite possessives",
+      "All possessive forms"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The two possessive classes follow a doer/receiver principle: ʻe-class marks the possessor as the one who acts, ho-class marks the possessor as the one acted upon. This chapter also introduces indefinite possessives.",
+      "key_rules": [
+        {
+          "rule": "With verbal nouns, ʻe-class means the possessor does the action; ho-class means the action is done to them",
+          "example_tongan": "ʻEku tokoni = my helping; hoku tokoni = my being helped",
+          "example_english": "I do the helping vs. the helping is done to me"
+        },
+        {
+          "rule": "ʻE-class for things you act on (food, tools); ho-class for things that define you (house, body)",
+          "example_tongan": "ʻEku hele = my knife; hoku fale = my house",
+          "example_english": "My knife (I use it) vs. my house (it shelters me)"
+        },
+        {
+          "rule": "Indefinite possessives (haʻaku, haʻo, haku, hao) appear in questions and negatives",
+          "example_tongan": "ʻOku ʻi ai haʻo kato?",
+          "example_english": "Do you have a basket?"
+        }
+      ],
+      "paradigm": {
+        "caption": "Indefinite Possessives",
+        "headers": [
+          "",
+          "ʻe-class",
+          "ho-class"
+        ],
+        "rows": [
+          [
+            "my",
+            "haʻaku",
+            "haku"
+          ],
+          [
+            "your (sg.)",
+            "haʻo",
+            "hao"
+          ],
+          [
+            "his/her",
+            "haʻane",
+            "hano"
+          ],
+          [
+            "their",
+            "haʻanau",
+            "hanau"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 30,
+    "title": "Temporal, Conditional, and Concessive Conjunctions",
+    "topics": [
+      "If (kapau)",
+      "While (lolotonga)",
+      "Until (kaeʻoua ke)",
+      "Although (neongo)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "This chapter introduces conjunctions for conditions and timing: kapau (if), lolotonga (while), kaeʻoua ke (until), and neongo (although).",
+      "key_rules": [
+        {
+          "rule": "Kapau introduces a condition; use ʻo kapau when the condition comes after the result",
+          "example_tongan": "Kapau tē ke foki, tē u kuki.",
+          "example_english": "If you return, I will cook."
+        },
+        {
+          "rule": "Lolotonga links two simultaneous events (\"while\")",
+          "example_tongan": "ʻOkū ne hiva lolotonga ʻoku ou ngāue.",
+          "example_english": "She sings while I work."
+        },
+        {
+          "rule": "Kaeʻoua ke means \"until\"",
+          "example_tongan": "Tē u ngāue heni kaeʻoua ke nau foki mai.",
+          "example_english": "I will work here until they come back."
+        }
+      ],
+      "paradigm": {
+        "caption": "Conjunction Summary",
+        "headers": [
+          "Conjunction",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "kapau",
+            "if"
+          ],
+          [
+            "lolotonga",
+            "while"
+          ],
+          [
+            "kaeʻoua ke",
+            "until"
+          ],
+          [
+            "neongo",
+            "although"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 31,
+    "title": "Existential Expressions",
+    "topics": [
+      "Back-reference with ai",
+      "There is (ʻoku ʻi ai)",
+      "Negative existential",
+      "Classifier foʻi"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The back-reference word ai replaces prepositional phrases already understood from context. Combined with ʻi, ʻoku ʻi ai expresses \"there is.\" The classifier foʻi singles out one individual item.",
+      "key_rules": [
+        {
+          "rule": "ʻOku ʻi ai + ha + noun expresses existence (\"there is\")",
+          "example_tongan": "ʻOku ʻi ai ha tangata ʻi heni?",
+          "example_english": "Is there a man here?"
+        },
+        {
+          "rule": "Negate existence with ʻoku ʻikai ke ʻi ai + ha + noun",
+          "example_tongan": "ʻOku ʻikai ke ʻi ai ha meʻakai ʻi fale.",
+          "example_english": "There is no food in the house."
+        },
+        {
+          "rule": "The classifier foʻi before a noun singles out one individual item",
+          "example_tongan": "ʻOku ʻi ai ha foʻi siaine ʻi he kato?",
+          "example_english": "Is there a banana in the basket?"
+        }
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 32,
+    "title": "The Faka- Prefix",
+    "topics": [
+      "Causative forms",
+      "Manner/style expressions",
+      "Temporal adverbs"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The prefix faka- is one of Tongan’s most productive word-building tools. Attached to nouns it means \"in the manner of\"; attached to adjectives or verbs it creates causatives; attached to time nouns it means \"every.\"",
+      "key_rules": [
+        {
+          "rule": "Faka- + noun creates \"in the manner of\" or \"pertaining to\" that noun",
+          "example_tongan": "ʻOkū ke poto he hiva faka-Tonga?",
+          "example_english": "Are you good at Tongan singing?"
+        },
+        {
+          "rule": "Faka- + adjective or verb creates a causative: \"to make [adjective]\"",
+          "example_tongan": "Naʻā ne fakamohe ʻene tamasiʻi.",
+          "example_english": "She put her child to sleep."
+        },
+        {
+          "rule": "Faka- + time noun creates a temporal adverb meaning \"every [time period]\"",
+          "example_tongan": "ʻOku ou lotu fakaʻaho.",
+          "example_english": "I pray daily."
+        }
+      ],
+      "paradigm": {
+        "caption": "Faka- Patterns",
+        "headers": [
+          "Base",
+          "Faka- form",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "Tonga",
+            "faka-Tonga",
+            "Tongan, in the Tongan way"
+          ],
+          [
+            "mohe (sleep)",
+            "fakamohe",
+            "put to sleep"
+          ],
+          [
+            "lelei (good)",
+            "fakalelei",
+            "mend, repair"
+          ],
+          [
+            "ʻaho (day)",
+            "fakaʻaho",
+            "daily"
+          ]
+        ]
+      }
+    },
+    "type": "word_study"
+  },
+  {
+    "chapter": 33,
+    "title": "Instrumental ʻaki and the Suffix -ʻi",
+    "topics": [
+      "Instrumental ʻaki",
+      "Transitive suffix -ʻi",
+      "Executive -ʻi",
+      "Suffix -ʻaki"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The word ʻaki expresses the instrument used for an action. The suffix -ʻi turns intransitive verbs into transitive ones that take direct objects, and on already-transitive verbs it emphasizes completion.",
+      "key_rules": [
+        {
+          "rule": "ʻAki after a verb introduces the instrument",
+          "example_tongan": "Fufulu ʻaki ho falā e vai māfanā.",
+          "example_english": "Wash your mat with warm water."
+        },
+        {
+          "rule": "The suffix -ʻi makes an intransitive verb transitive, replacing ki with a direct object",
+          "example_tongan": "Naʻā ku tokoniʻi ʻa Seini.",
+          "example_english": "I helped Seini."
+        },
+        {
+          "rule": "The suffix -ʻaki creates verbs meaning \"to use as\"",
+          "example_tongan": "ʻOku mau ngāueʻaki ʻene ʻū falā.",
+          "example_english": "We are using his mats."
+        }
+      ],
+      "paradigm": {
+        "caption": "Intransitive to Transitive with -ʻi",
+        "headers": [
+          "Base verb",
+          "With -ʻi",
+          "Change"
+        ],
+        "rows": [
+          [
+            "tokoni (help + ki)",
+            "tokoniʻi",
+            "takes direct object"
+          ],
+          [
+            "pule (govern + ki)",
+            "puleʻi",
+            "takes direct object"
+          ],
+          [
+            "manatu (remember)",
+            "manatuʻi",
+            "factual recall"
+          ],
+          [
+            "tāpuni (close)",
+            "tāpuniʻi",
+            "emphasizes completion"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 34,
+    "title": "Reported Speech",
+    "topics": [
+      "Pehē (to say/think)",
+      "Side-by-side clause stringing",
+      "Tokua (hearsay)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan reports speech by stringing two clauses together with no connecting word. The verb pehē is the most common introducer. The reportative tokua marks information as secondhand.",
+      "key_rules": [
+        {
+          "rule": "Verbs of perception introduce reported content by placing two clauses side by side",
+          "example_tongan": "ʻOku ou fanongo ko e kolō lelei ʻa Nukuʻalofa.",
+          "example_english": "I hear that Nukuʻalofa is a good town."
+        },
+        {
+          "rule": "Pehē introduces what someone said; the speaker is marked with ʻe",
+          "example_tongan": "Naʻe pehē ʻe Tēvita ʻe foki ʻa Mele.",
+          "example_english": "Tēvita thought Mele would return."
+        },
+        {
+          "rule": "Tokua at the start signals the information is reported, not personally witnessed",
+          "example_tongan": "Tokua kuo foki ʻa Sione ki Fisi.",
+          "example_english": "It is said that Sione has returned to Fiji."
+        }
+      ]
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 35,
+    "title": "Adjectives and Compound Adjectives",
+    "topics": [
+      "Postposed adjectives after nouns",
+      "Preposed adjectives (fuʻu, kiʻi)",
+      "Colors"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Attributive adjectives normally follow the noun (ha meʻa lahi). A few fixed words (fuʻu, kiʻi, ʻuluaki, toe) always precede the noun. Color words follow the standard postposed pattern.",
+      "key_rules": [
+        {
+          "rule": "Standard adjectives go after the noun: article + noun + adjective",
+          "example_tongan": "Naʻā ku fakatau mai ha vaka foʻou.",
+          "example_english": "I bought a new boat."
+        },
+        {
+          "rule": "A few adjectives always precede the noun: fuʻu (big), kiʻi (small), ʻuluaki (first), toe (other)",
+          "example_tongan": "Ha kiʻi tamasiʻi",
+          "example_english": "A small boy"
+        },
+        {
+          "rule": "Color words are postposed adjectives",
+          "example_tongan": "Naʻā ku fakatau mai ha sote kulokula.",
+          "example_english": "I bought a red shirt."
+        }
+      ],
+      "paradigm": {
+        "caption": "Common Colors",
+        "headers": [
+          "Tongan",
+          "English"
+        ],
+        "rows": [
+          [
+            "hinehina",
+            "white"
+          ],
+          [
+            "ʻuliʻuli",
+            "black"
+          ],
+          [
+            "kulokula",
+            "red"
+          ],
+          [
+            "lanumata",
+            "green"
+          ],
+          [
+            "engeenga",
+            "yellow"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 36,
+    "title": "Cleft Sentences and Emphatic Word Order",
+    "topics": [
+      "Cleft with transitive verbs",
+      "Cleft with intransitive verbs",
+      "Ko e meʻa ia ... ai (that's why)",
+      "Emphatic equational"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Moving the subject to the front with ko creates a cleft structure that emphasises who performed the action, similar to English \"It was X who...\"",
+      "key_rules": [
+        {
+          "rule": "Cleft with transitive verb: ko + subject + TM + pronoun + verb + object",
+          "example_tongan": "Ko Sēmisi naʻā ne kai e mā.",
+          "example_english": "It was Semisi who ate the bread."
+        },
+        {
+          "rule": "Cleft with intransitive verb: ko + subject + TM + verb (no pronoun needed)",
+          "example_tongan": "Ko e fānau naʻe hiva.",
+          "example_english": "It was the children who sang."
+        },
+        {
+          "rule": "Ko e meʻa ia ... ai expresses \"that’s why\" or \"that’s the reason\"",
+          "example_tongan": "Ko e meʻa ia naʻā ku haʻu ai.",
+          "example_english": "That’s the reason I came."
+        }
+      ],
+      "paradigm": {
+        "caption": "Standard vs. Cleft Word Order",
+        "headers": [
+          "Standard",
+          "Cleft (emphatic)"
+        ],
+        "rows": [
+          [
+            "Naʻe kai ʻe Ana e falā.",
+            "Ko Ana naʻā ne kai e falā."
+          ],
+          [
+            "ʻOku ngāue ʻa Pita heni.",
+            "Ko Pita ʻoku ngāue heni."
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 37,
+    "title": "Postposed Possessives",
+    "topics": [
+      "Postposed ʻe-class (ʻaʻaku)",
+      "Postposed ho-class (ʻoʻoku)",
+      "Asking whose? (ʻa hai, ʻo hai)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Possessive pronouns can follow the noun instead of preceding it, adding emphasis to ownership: \"That basket is MINE.\" The ʻe-class uses ʻaʻa- forms and the ho-class uses ʻoʻo- forms.",
+      "key_rules": [
+        {
+          "rule": "Postposed ʻe-class: ʻaʻaku (mine), ʻaʻau (yours), ʻaʻana (his/hers) follow the noun",
+          "example_tongan": "Ko e kato ia ʻaʻaku.",
+          "example_english": "That basket is mine."
+        },
+        {
+          "rule": "Postposed ho-class: ʻoʻoku (mine), ʻoʻou (yours), ʻoʻona (his/hers) for sheltering things",
+          "example_tongan": "Ko e fale ia ʻoʻoku.",
+          "example_english": "That house is mine."
+        },
+        {
+          "rule": "Ask \"whose?\" with ʻa hai (ʻe-class) or ʻo hai (ho-class)",
+          "example_tongan": "Ko e vaka eni ʻa hai?",
+          "example_english": "Whose boat is this?"
+        }
+      ],
+      "paradigm": {
+        "caption": "Postposed Possessive Forms (Singular)",
+        "headers": [
+          "Person",
+          "ʻe-class",
+          "ho-class"
+        ],
+        "rows": [
+          [
+            "mine",
+            "ʻaʻaku",
+            "ʻoʻoku"
+          ],
+          [
+            "yours (sg.)",
+            "ʻaʻau",
+            "ʻoʻou"
+          ],
+          [
+            "his/hers",
+            "ʻaʻana",
+            "ʻoʻona"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 38,
+    "title": "Warnings, Hopes, Permissions, and Uncertainty",
+    "topics": [
+      "Permission (tuku ke)",
+      "Hopes (ʻofa ke)",
+      "Warnings (naʻa lest)",
+      "Uncertainty (naʻa perhaps)",
+      "Stronger warnings (telia naʻa)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan has distinct expressions for granting permission (tuku ke), expressing hopes (ʻofa ke), and issuing warnings (naʻa, telia naʻa). The word naʻa doubles as both a warning and a marker of uncertainty.",
+      "key_rules": [
+        {
+          "rule": "Tuku ke + verb means \"let\" in the sense of allowing or permitting",
+          "example_tongan": "Tuku kē ke nofo heni.",
+          "example_english": "Let yourself stay here."
+        },
+        {
+          "rule": "ʻOfa pē ke expresses a hope or wish (\"may\" or \"I hope that\")",
+          "example_tongan": "ʻOfa pē ke mou fiefia ʻi homau kiʻi motū.",
+          "example_english": "May you all be happy on our little island."
+        },
+        {
+          "rule": "Naʻa after a command warns of a bad outcome (\"lest\")",
+          "example_tongan": "Hola naʻā ke lavea.",
+          "example_english": "Run away lest you get hurt."
+        }
+      ],
+      "paradigm": {
+        "caption": "Warning vs. Uncertainty",
+        "headers": [
+          "Use",
+          "Position",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "Warning",
+            "After command",
+            "lest"
+          ],
+          [
+            "Uncertainty",
+            "Start of clause",
+            "perhaps"
+          ],
+          [
+            "Strong warning",
+            "After command",
+            "lest (emphatic)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 39,
+    "title": "Relative Clauses with Ai and Demonstratives",
+    "topics": [
+      "Ai in relative clauses",
+      "Full demonstrative system",
+      "Naʻa mo (even)",
+      "Kaeʻumaʻa (and also)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The word ai links a descriptive clause back to a noun, functioning like English \"where\" or \"in which.\" Tongan also has a full demonstrative system organised by proximity.",
+      "key_rules": [
+        {
+          "rule": "Ai in a relative clause refers back to a noun; ki ai and mei ai keep the preposition visible",
+          "example_tongan": "Ko e kolō ia naʻā ku nofo ai.",
+          "example_english": "That is the village I lived in."
+        },
+        {
+          "rule": "Ni/eni = near speaker, na/ena = near listener, ē = pointed at, ia = already mentioned",
+          "example_tongan": "ʻI he falē ni ʻoku mau lotu ai.",
+          "example_english": "In this house we pray."
+        },
+        {
+          "rule": "Naʻa mo means \"even\"; kaeʻumaʻa means \"and also\"",
+          "example_tongan": "Naʻa mo Mele, naʻe ʻikai fie haʻu mai.",
+          "example_english": "Even Mele did not want to come."
+        }
+      ],
+      "paradigm": {
+        "caption": "Demonstrative System",
+        "headers": [
+          "",
+          "Near me",
+          "Near you",
+          "Pointing",
+          "Mentioned"
+        ],
+        "rows": [
+          [
+            "After noun",
+            "ni",
+            "na",
+            "—",
+            "—"
+          ],
+          [
+            "Pronoun",
+            "eni",
+            "ena",
+            "ē",
+            "ia"
+          ],
+          [
+            "After ʻi/ki/mei",
+            "heni",
+            "hena",
+            "hē",
+            "—"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 40,
+    "title": "Spatial Nouns",
+    "topics": [
+      "Loto (inside)",
+      "Lalo (under)",
+      "Tuʻa (outside)",
+      "Funga (top)",
+      "Veʻe (beside)",
+      "Spatial nouns with people"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Where English uses prepositions like \"inside\" or \"under,\" Tongan places spatial nouns directly before the thing being located. The pattern is ʻi he + spatial noun + noun.",
+      "key_rules": [
+        {
+          "rule": "Spatial noun + noun forms a compound: loto fale (inside the house), lalo tēpile (under the table)",
+          "example_tongan": "Naʻe tuku e helē ʻi loto falē.",
+          "example_english": "The knife was put inside the house."
+        },
+        {
+          "rule": "Funga means \"on top of\" and veʻe means \"right beside\"",
+          "example_tongan": "ʻOku hilī e tohī he funga tēpilē.",
+          "example_english": "The book is on top of the table."
+        },
+        {
+          "rule": "With people, insert ʻo before a common noun or ʻia before a proper name",
+          "example_tongan": "Nofo hifo he tafaʻaki ʻo Tēvita!",
+          "example_english": "Sit down by the side of David!"
+        }
+      ],
+      "paradigm": {
+        "caption": "Spatial Nouns",
+        "headers": [
+          "Spatial noun",
+          "Meaning",
+          "Example"
+        ],
+        "rows": [
+          [
+            "loto",
+            "inside",
+            "ʻi loto falē"
+          ],
+          [
+            "lalo",
+            "under",
+            "he lalo tēpilē"
+          ],
+          [
+            "tuʻa",
+            "outside, behind",
+            "he tuʻa falē"
+          ],
+          [
+            "funga",
+            "top, surface",
+            "he funga tēpilē"
+          ],
+          [
+            "veʻe",
+            "beside",
+            "he veʻe halā"
+          ],
+          [
+            "tafaʻaki",
+            "side",
+            "he tafaʻaki falē"
+          ]
+        ]
+      }
+    },
+    "type": "word_study"
+  },
+  {
+    "chapter": 41,
+    "title": "Word Class Flexibility",
+    "topics": [
+      "Nouns used as verbs",
+      "Verbs used as nouns",
+      "Verbs used as adjectives",
+      "Nouns used as adjectives",
+      "Fai + verbal noun",
+      "Ngali (to seem)",
+      "Ngalingali (to look as if)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The same Tongan word can serve as a noun, verb, adjective, or adverb depending on its position in the sentence. No suffixes or conjugation are needed — sentence structure alone determines the role.",
+      "key_rules": [
+        {
+          "rule": "A noun becomes a verb when placed after a tense marker",
+          "example_tongan": "Naʻe ʻuha ʻanepō.",
+          "example_english": "It rained last night."
+        },
+        {
+          "rule": "A verb placed after a noun acts as an adjective describing that noun",
+          "example_tongan": "Ha loki mohe.",
+          "example_english": "A bedroom (a room for sleeping)."
+        },
+        {
+          "rule": "Fai + verbal noun means \"to carry out\" or \"to perform\" the action",
+          "example_tongan": "Naʻa mau fai lotu.",
+          "example_english": "We prayed."
+        },
+        {
+          "rule": "Ngali means \"seems\" (firmer); ngalingali means \"looks as if\" (more tentative)",
+          "example_tongan": "ʻOku ngalingali ʻe ʻuha he ʻahō ni.",
+          "example_english": "It looks like it will rain today."
+        }
+      ],
+      "paradigm": {
+        "caption": "One Word, Multiple Roles",
+        "headers": [
+          "Word",
+          "As noun",
+          "As verb",
+          "As adjective"
+        ],
+        "rows": [
+          [
+            "ʻuha",
+            "rain",
+            "to rain",
+            "—"
+          ],
+          [
+            "tohi",
+            "book",
+            "to write",
+            "—"
+          ],
+          [
+            "tau",
+            "war",
+            "to fight",
+            "fighting (ha tangata tau)"
+          ],
+          [
+            "maka",
+            "stone",
+            "—",
+            "stone (ha ʻā maka)"
+          ],
+          [
+            "mohe",
+            "sleep",
+            "to sleep",
+            "sleeping (ha loki mohe)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 42,
+    "title": "Time Expressions",
+    "topics": [
+      "Asking name (ko hai ho hingoā)",
+      "Asking age (ko ho taʻu fiha)",
+      "Months with ʻi",
+      "Talu (since)",
+      "Hilī (after)",
+      "Ordinal numerals"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "This chapter covers practical conversational patterns: asking names and ages, talking about months, expressing \"since\" with talu and \"after\" with hilī, and forming ordinal numbers.",
+      "key_rules": [
+        {
+          "rule": "Ask someone’s name: Ko hai ho hingoā? Answer: Ko [name] hoku hingoā.",
+          "example_tongan": "Ko Sēmisi hoku hingoā.",
+          "example_english": "My name is Semisi."
+        },
+        {
+          "rule": "Months use ʻi alone with no article: ʻi Sānuali, ʻi Tisema",
+          "example_tongan": "Naʻā ku haʻu ʻi Maʻasi.",
+          "example_english": "I came in March."
+        },
+        {
+          "rule": "Talu (mei) means \"since\" or \"ever since\"",
+          "example_tongan": "Talu hoʻo haʻū mo ʻene momoko.",
+          "example_english": "Ever since you came, it has been cold."
+        },
+        {
+          "rule": "Ordinals use ʻuluaki (first) and ko hono + number (second, third...)",
+          "example_tongan": "Ko hono tolū.",
+          "example_english": "The third."
+        }
+      ],
+      "paradigm": {
+        "caption": "Months of the Year",
+        "headers": [
+          "Tongan",
+          "English"
+        ],
+        "rows": [
+          [
+            "Sānuali",
+            "January"
+          ],
+          [
+            "Fēpueli",
+            "February"
+          ],
+          [
+            "Maʻasi",
+            "March"
+          ],
+          [
+            "Siulai",
+            "July"
+          ],
+          [
+            "Nōvema",
+            "November"
+          ],
+          [
+            "Tisema",
+            "December"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 43,
+    "title": "The Taʻe- Prefix and Advanced Negation",
+    "topics": [
+      "Taʻe- before nouns (without)",
+      "Taʻe- before verbs/adjectives (un-, not)",
+      "Double negative for emphasis",
+      "Talaʻehai (let no one suppose)",
+      "Koloto (not at all)",
+      "Neʻineʻi (no wonder)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The prefix taʻe- attaches directly to a word to create its negative, like English \"un-\" or \"without.\" Several idiomatic expressions (talaʻehai, koloto, neʻineʻi) add nuance beyond simple ʻikai.",
+      "key_rules": [
+        {
+          "rule": "Taʻe- before a noun means \"without\": taʻe su (without shoes), taʻe totongi (without pay)",
+          "example_tongan": "ʻOku ngāue taʻe totongi ʻa Sione.",
+          "example_english": "Sione is working without pay."
+        },
+        {
+          "rule": "Taʻe- before a verb or adjective creates the opposite meaning",
+          "example_tongan": "ʻOku taʻe mahino ʻenau leā.",
+          "example_english": "Their speech is unintelligible."
+        },
+        {
+          "rule": "ʻIkai + taʻe- together form an emphatic double negative meaning \"certainly will\"",
+          "example_tongan": "ʻE ʻikai tē u taʻe fai e ngāuē ni.",
+          "example_english": "I will certainly do this work."
+        },
+        {
+          "rule": "Neʻineʻi replaces the tense marker and means \"no wonder\"",
+          "example_tongan": "Neʻineʻi tangi ʻa Seini he naʻe pukē.",
+          "example_english": "No wonder Seini cried — she was sick."
+        }
+      ],
+      "paradigm": {
+        "caption": "Advanced Negation Expressions",
+        "headers": [
+          "Expression",
+          "Meaning",
+          "Nuance"
+        ],
+        "rows": [
+          [
+            "taʻe- + word",
+            "un-, without",
+            "Creates the opposite"
+          ],
+          [
+            "ʻikai + taʻe-",
+            "certainly will",
+            "Double negative = emphatic positive"
+          ],
+          [
+            "talaʻehai",
+            "let no one suppose",
+            "Challenges assumptions"
+          ],
+          [
+            "koloto",
+            "not at all",
+            "Surprise/disappointment"
+          ],
+          [
+            "neʻineʻi",
+            "no wonder",
+            "Expected given circumstances"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 44,
+    "title": "The Definitive Accent System",
+    "topics": [
+      "Three levels of definiteness revisited",
+      "Semi-definiteness",
+      "Groups within groups",
+      "Phrasal and clausal accents"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The definitive accent system marks definiteness by shifting stress to the last vowel of a noun group. As qualifiers and relative clauses extend the group, the accent travels with them.",
+      "key_rules": [
+        {
+          "rule": "The accent always falls on the very last vowel of the entire noun group",
+          "example_tongan": "ʻi he fale ako foʻoú",
+          "example_english": "in the new school building"
+        },
+        {
+          "rule": "Adverbs modify the verb, not the noun — so the accent does not move onto them",
+          "example_tongan": "Naʻā ke ʻalu ki he fakatahā ʻaneafi?",
+          "example_english": "Did you go to the meeting yesterday?"
+        },
+        {
+          "rule": "A noun group inside another group gets its own accent at its own end",
+          "example_tongan": "Ko e hā e ʻuhinga naʻe ʻita ai ʻa e faiakō kiate aú?",
+          "example_english": "Why was the teacher angry with me?"
+        }
+      ],
+      "paradigm": {
+        "caption": "Three Levels of Definiteness",
+        "headers": [
+          "Level",
+          "Article",
+          "Accent?",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Indefinite",
+            "ha",
+            "No",
+            "ha puha (a box)"
+          ],
+          [
+            "Semi-definite",
+            "e/he",
+            "No",
+            "he puha (a particular box)"
+          ],
+          [
+            "Definite",
+            "e/he",
+            "Yes",
+            "he puhā (the box)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 45,
+    "title": "Verbal Nouns",
+    "topics": [
+      "Preposed subjects become possessives",
+      "Postposed subjects unchanged",
+      "Temporal clauses with ʻi he",
+      "Verbal nouns as sentence subjects"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "When a verb becomes a verbal noun, its preposed pronoun subject changes to a possessive pronoun (ʻe-class). The construction ʻi he + possessive + verbal noun creates temporal clauses meaning \"when\" or \"because.\"",
+      "key_rules": [
+        {
+          "rule": "Preposed pronoun becomes ʻe-class possessive: ne → ʻene, ku → ʻeku",
+          "example_tongan": "Naʻā ku ofo ʻi heʻene lau ʻa e tohī.",
+          "example_english": "I was surprised when he read the book."
+        },
+        {
+          "rule": "Postposed noun subjects stay unchanged in verbal noun constructions",
+          "example_tongan": "ʻI he ʻalu ʻa Sēmisi ki Fisi",
+          "example_english": "When Sēmisi went to Fiji"
+        },
+        {
+          "rule": "Ko e + verbal noun + pē means \"as soon as\"",
+          "example_tongan": "Ko e lava pē ʻeku ngāué, te mau kai.",
+          "example_english": "When my work is done, we will eat."
+        }
+      ],
+      "paradigm": {
+        "caption": "Pronoun → Possessive in Verbal Nouns",
+        "headers": [
+          "Pronoun",
+          "Possessive",
+          "Example"
+        ],
+        "rows": [
+          [
+            "ku (I)",
+            "ʻeku",
+            "ʻi heʻeku tohi (when I wrote)"
+          ],
+          [
+            "ke (you)",
+            "hoʻo",
+            "ʻi he hoʻo ngāue (when you worked)"
+          ],
+          [
+            "ne (he/she)",
+            "ʻene",
+            "ʻi heʻene lau (when he read)"
+          ],
+          [
+            "nau (they)",
+            "ʻenau",
+            "ʻi he ʻenau kai (when they ate)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 46,
+    "title": "Noun Classes",
+    "topics": [
+      "Personal nouns (ʻia, kia, meia)",
+      "Local nouns (place names)",
+      "Common nouns (with articles)",
+      "Quasi-local nouns",
+      "Classifier laʻi"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan divides nouns into personal (people’s names), local (place names), and common (everything else). The class determines which preposition form to use: ʻia/kia/meia before people, standard ʻi/ki/mei before places, and ʻi he/ki he/mei he before common nouns.",
+      "key_rules": [
+        {
+          "rule": "Before personal nouns: ʻi → ʻia, ki → kia, mei → meia",
+          "example_tongan": "Naʻā ku lea kia Lupe.",
+          "example_english": "I spoke to Lupe."
+        },
+        {
+          "rule": "Before local nouns (places): standard forms ʻi, ki, mei",
+          "example_tongan": "Naʻā ku ʻalu ki Nukuʻalofa.",
+          "example_english": "I went to Nukuʻalofa."
+        },
+        {
+          "rule": "Some common words act as local nouns when they refer to familiar places",
+          "example_tongan": "ʻi fale = at the house; ʻi he falē = in the (specific) house",
+          "example_english": "General vs. specific location"
+        }
+      ],
+      "paradigm": {
+        "caption": "Noun Class and Preposition Forms",
+        "headers": [
+          "Noun type",
+          "Article?",
+          "ʻi form",
+          "ki form"
+        ],
+        "rows": [
+          [
+            "Personal (Mele)",
+            "No",
+            "ʻia Mele",
+            "kia Mele"
+          ],
+          [
+            "Local (Tonga)",
+            "No",
+            "ʻi Tonga",
+            "ki Tonga"
+          ],
+          [
+            "Common (fale)",
+            "Yes",
+            "ʻi he falē",
+            "ki he falē"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 47,
+    "title": "Conditionals and Counterfactuals",
+    "topics": [
+      "Conditional future ka",
+      "Ka vs. kapau",
+      "Counterfactual ka ne",
+      "Ka ne ʻikai (if it were not for)",
+      "Moderative mei (nearly/would)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Ka marks a condition the speaker expects to happen (\"when/whenever\"). Ka ne marks counterfactual situations (\"had you done this\"). Kapau leaves the outcome open (\"if\").",
+      "key_rules": [
+        {
+          "rule": "Ka + verb expects the condition to happen; translates as \"when\" or \"whenever\"",
+          "example_tongan": "Ka haʻu ʻa Siale, pea ke tala ki ai.",
+          "example_english": "When Siale comes, tell him."
+        },
+        {
+          "rule": "Ka ne marks counterfactual past: something that did not happen",
+          "example_tongan": "Ka ne u feinga, naʻā ku lava.",
+          "example_english": "Had I tried, I would have succeeded."
+        },
+        {
+          "rule": "Ka ne ʻikai means \"if it were not for\"",
+          "example_tongan": "Ka ne ʻikai ʻa Mele, ʻoku ʻikai lava e ngāuē.",
+          "example_english": "If it were not for Mele, the work could not be done."
+        }
+      ],
+      "paradigm": {
+        "caption": "ka vs. kapau vs. ka ne",
+        "headers": [
+          "Marker",
+          "Likelihood",
+          "Time",
+          "Example"
+        ],
+        "rows": [
+          [
+            "ka",
+            "Expected",
+            "Future",
+            "Ka haʻu ʻa Siale... (When Siale comes...)"
+          ],
+          [
+            "kapau",
+            "Open/uncertain",
+            "Future",
+            "Kapau ʻe haʻu... (If he comes...)"
+          ],
+          [
+            "ka ne",
+            "Did not happen",
+            "Past/present",
+            "Ka ne u feinga... (Had I tried...)"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 48,
+    "title": "Suffixes",
+    "topics": [
+      "-ʻanga (place/source)",
+      "-nga (thing)",
+      "Transitive -a (durational)",
+      "State suffixes -fia, -hia, -ia, -ina",
+      "-ʻia (possessing/regarding)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan suffixes create new words from existing ones. The suffix -ʻanga names the place of an action, -nga names the thing, and -ʻia means \"possessing\" or \"regarding as.\"",
+      "key_rules": [
+        {
+          "rule": "-ʻanga turns a verb into a noun meaning the place or source of the action",
+          "example_tongan": "nofoʻanga = dwelling-place, akoʻanga = school",
+          "example_english": "from nofo (stay) and ako (study)"
+        },
+        {
+          "rule": "-nga turns a verb into a noun meaning the thing itself",
+          "example_tongan": "mohenga = bed, founga = method",
+          "example_english": "from mohe (sleep) and fou (go by a route)"
+        },
+        {
+          "rule": "-ʻia attached to a noun means possessing or abounding in",
+          "example_tongan": "ʻOku koloaʻia ʻa Sēmisi.",
+          "example_english": "Sēmisi is wealthy."
+        }
+      ],
+      "paradigm": {
+        "caption": "Common Suffixes",
+        "headers": [
+          "Suffix",
+          "Creates",
+          "Example"
+        ],
+        "rows": [
+          [
+            "-ʻanga",
+            "place noun",
+            "ngāueʻanga (workplace)"
+          ],
+          [
+            "-nga",
+            "thing noun",
+            "vāhenga (portion)"
+          ],
+          [
+            "-a (state)",
+            "adjective",
+            "efua (dusty)"
+          ],
+          [
+            "-ʻia",
+            "adj: possessing",
+            "koloaʻia (wealthy)"
+          ],
+          [
+            "-hia/-ia",
+            "state verb",
+            "tonuhia (innocent)"
+          ]
+        ]
+      }
+    },
+    "type": "word_study"
+  },
+  {
+    "chapter": 49,
+    "title": "Prefixes",
+    "topics": [
+      "fe-...-ʻaki (reciprocal)",
+      "fe- (communal)",
+      "ma- (potential)",
+      "ma-/mo-/mā- (resultative)",
+      "moʻu- (continuation)",
+      "kaungā- (fellow)"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Four prefixes create new verbs: fe-...-ʻaki for reciprocal actions, ma- for potential ability or resultative states, moʻu- for overdoing or overstaying, and kaungā- for doing something together.",
+      "key_rules": [
+        {
+          "rule": "Fe- + verb + -ʻaki creates reciprocal verbs: doing something to each other",
+          "example_tongan": "ʻOku nau feʻofaʻaki.",
+          "example_english": "They love one another."
+        },
+        {
+          "rule": "Ma- + verb describes the result of an action, often accidental or unknown agent",
+          "example_tongan": "Naʻe mahae ʻa e kofu ʻo Sialē.",
+          "example_english": "Siale’s garment was torn."
+        },
+        {
+          "rule": "Moʻu- + verb + -a means the action continued too long",
+          "example_tongan": "Naʻā ku moʻumohea.",
+          "example_english": "I overslept."
+        }
+      ],
+      "paradigm": {
+        "caption": "Prefix Patterns",
+        "headers": [
+          "Prefix",
+          "Meaning",
+          "Example"
+        ],
+        "rows": [
+          [
+            "fe-...-ʻaki",
+            "each other",
+            "fetokoniʻaki (help each other)"
+          ],
+          [
+            "ma-",
+            "able to / result",
+            "mahiki (able to lift)"
+          ],
+          [
+            "mo-/mā-",
+            "result state",
+            "movete (come to pieces)"
+          ],
+          [
+            "moʻu-...-a",
+            "too long",
+            "moʻumohea (oversleep)"
+          ],
+          [
+            "kaungā-",
+            "fellow / together",
+            "kaungāngāue (fellow-worker)"
+          ]
+        ]
+      }
+    },
+    "type": "word_study"
+  },
+  {
+    "chapter": 50,
+    "title": "Reduplication and Expressive Sound Devices",
+    "topics": [
+      "Complete reduplication",
+      "Partial reduplication",
+      "Plurality and repetition",
+      "Intensification",
+      "Moderation",
+      "Faka- with reduplication"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Repeating part or all of a word creates new meanings: softened intensity (katakata = smile, from kata = laugh), plurality (kehekehe = various), or intensification (ʻuliʻuli = black, from ʻuli = dirty).",
+      "key_rules": [
+        {
+          "rule": "Complete reduplication often softens or moderates: katakata (smile) from kata (laugh)",
+          "example_tongan": "ʻOku māmāfana ʻa e vaí.",
+          "example_english": "The water is lukewarm. (from māfana = warm)"
+        },
+        {
+          "rule": "Reduplication can intensify: ʻuliʻuli (black) from ʻuli (dirty)",
+          "example_tongan": "ʻOku ʻuliʻuli ʻa e langi hē.",
+          "example_english": "The sky over there is black."
+        },
+        {
+          "rule": "Faka- + reduplication creates moderated or abstract meanings",
+          "example_tongan": "ʻOku fakapotopoto ʻa e faiakō.",
+          "example_english": "The teacher is wise. (from poto = clever)"
+        }
+      ],
+      "paradigm": {
+        "caption": "Reduplication Effects",
+        "headers": [
+          "Base",
+          "Reduplicated",
+          "Effect"
+        ],
+        "rows": [
+          [
+            "kata (laugh)",
+            "katakata",
+            "moderation: smile"
+          ],
+          [
+            "momoko (cold)",
+            "mokomoko",
+            "moderation: cool"
+          ],
+          [
+            "kehe (different)",
+            "kehekehe",
+            "plurality: various"
+          ],
+          [
+            "ʻuli (dirty)",
+            "ʻuliʻuli",
+            "intensification: black"
+          ],
+          [
+            "poto (clever)",
+            "fakapotopoto",
+            "abstraction: wise"
+          ]
+        ]
+      }
+    },
+    "type": "word_study"
+  },
+  {
+    "chapter": 51,
+    "title": "Special Pronoun Uses",
+    "topics": [
+      "Impersonal te/kita (one/oneself)",
+      "Impersonal possessives",
+      "Rhetorical dual for plural",
+      "Dual-for-singular idiom",
+      "Sentence-initial kau"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "The pronoun te/kita serves as an impersonal \"one\" (anyone in general). Tongan speakers also use dual pronouns for plural audiences to create intimacy, and count everyone in a situation when choosing pronoun number.",
+      "key_rules": [
+        {
+          "rule": "Te (preposed) and kita (postposed) mean \"one\" or \"oneself\" in general statements",
+          "example_tongan": "ʻOku ʻikai totonu ke te tokanga pē kiate kita.",
+          "example_english": "One should not attend only to oneself."
+        },
+        {
+          "rule": "Kau is the first-person singular form used at the start of a sentence with no tense marker",
+          "example_tongan": "Kau ʻalu muʻa?",
+          "example_english": "May I go, please?"
+        },
+        {
+          "rule": "Dual pronouns used with plural groups create a personal, intimate tone",
+          "example_tongan": "Ke ta feinga ke fai ʻa e ngāuē.",
+          "example_english": "That we strive to do the work. (said to a group, using dual)"
+        }
+      ],
+      "paradigm": {
+        "caption": "Impersonal Possessives",
+        "headers": [
+          "",
+          "ʻe-class",
+          "ho-class"
+        ],
+        "rows": [
+          [
+            "Definite",
+            "ʻete",
+            "hoto"
+          ],
+          [
+            "Indefinite",
+            "haʻate",
+            "hato"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 52,
+    "title": "Emotional Articles and Possessives",
+    "topics": [
+      "Emotional definite siʻi (poor/dear)",
+      "Emotional indefinite siʻa",
+      "Emotional possessive pronouns",
+      "Exclamatory ko e ... ka ko ha ..."
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan has emotional articles that do the same job as ordinary articles but carry feelings of pity, affection, or humility. Siʻi replaces the definite article e; siʻa replaces the indefinite article ha.",
+      "key_rules": [
+        {
+          "rule": "Siʻi replaces e/he to add pity, affection, or sympathy",
+          "example_tongan": "ʻOku hela ʻa siʻi hōsī.",
+          "example_english": "The poor horse is tired."
+        },
+        {
+          "rule": "Siʻa replaces ha for an indefinite noun with the same emotional weight",
+          "example_tongan": "Kuō ne lavea siʻa tamasiʻī?",
+          "example_english": "Has a child been hurt? (poor thing)"
+        },
+        {
+          "rule": "Emotional possessives prefix siʻ- to regular forms: siʻeku (my, emotional)",
+          "example_tongan": "ʻOku tangi siʻeku kiʻi pēpē.",
+          "example_english": "My poor little baby is crying."
+        }
+      ],
+      "paradigm": {
+        "caption": "Ordinary vs. Emotional Articles",
+        "headers": [
+          "",
+          "Ordinary",
+          "Emotional"
+        ],
+        "rows": [
+          [
+            "Definite",
+            "e / he",
+            "siʻi"
+          ],
+          [
+            "Indefinite",
+            "ha",
+            "siʻa"
+          ]
+        ]
+      }
+    },
+    "type": "grammar"
+  },
+  {
+    "chapter": 53,
+    "title": "The Language of Respect",
+    "topics": [
+      "Tapu mo formula",
+      "Five vocabulary levels (ordinary to regal)",
+      "Formal address with vocative ʻe",
+      "Intermediaries in formal speech",
+      "Fakatulou: excusing oneself physically"
+    ],
+    "unlocks_sections": [],
+    "unlocks_entry_points": [],
+    "teaching": {
+      "summary": "Tongan has a respect language system called lea fakaʻapaʻapa. Speakers must choose different words depending on the social rank of the person addressed. The system includes the tapu mo acknowledgement formula, five vocabulary levels tied to rank, formal address conventions, and the use of intermediaries when a speaker is uncertain of the correct register.",
+      "key_rules": [
+        {
+          "rule": "Tapu mo + person/group opens a formal speech or apologises for a sensitive topic",
+          "example_tongan": "Tapu mo houʻeiki!",
+          "example_english": "My respects to the chiefs."
+        },
+        {
+          "rule": "The same concept has different words for different ranks: ordinary, polite, honorific, regal, derogatory",
+          "example_tongan": "kai / tokoni / ʻilo / taumafa / mama",
+          "example_english": "eat (ordinary / polite / honorific / regal / derogatory)"
+        },
+        {
+          "rule": "When uncertain of the correct register, use an intermediary rather than guessing",
+          "example_tongan": "(speaker remains silent; intermediary speaks on their behalf)",
+          "example_english": "Using the wrong register causes more offence than remaining silent."
+        }
+      ],
+      "paradigm": {
+        "caption": "Vocabulary Levels for “To Eat”",
+        "headers": [
+          "Level",
+          "Tongan",
+          "English"
+        ],
+        "rows": [
+          [
+            "Ordinary",
+            "kai",
+            "eat"
+          ],
+          [
+            "Polite",
+            "tokoni",
+            "eat (polite)"
+          ],
+          [
+            "Honorific",
+            "ʻilo",
+            "eat (to a chief)"
+          ],
+          [
+            "Regal",
+            "taumafa",
+            "eat (to the sovereign)"
+          ],
+          [
+            "Derogatory",
+            "mama",
+            "eat (of oneself, humbly)"
+          ]
+        ]
+      },
+      "focus_entry_points": [],
+      "focus_nodes": []
+    },
+    "type": "word_study"
+  }
+]

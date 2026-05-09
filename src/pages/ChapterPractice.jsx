@@ -1,0 +1,279 @@
+import { useState, useMemo } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { useChapter } from '../contexts/ChapterContext'
+import chapters from '../data/chapters.json'
+import sentencePatterns from '../data/sentence-patterns.json'
+import TeachingPanel from '../components/TeachingPanel'
+import SlotBuilder from '../components/SlotBuilder'
+import BookChapterContent from '../components/BookChapterContent'
+
+// ---------------------------------------------------------------------------
+// Entry-point → pattern-ID mapping
+// ---------------------------------------------------------------------------
+
+const ENTRY_TO_PATTERNS = {
+  statement:            ['s01', 's02', 's03', 's04', 's07'],
+  location_state:       ['s05', 's06'],
+  negation:             ['s12'],
+  negation_impersonal:  ['s12'],
+  experiencer:          ['s24'],
+  noun_subject:         ['s22'],
+  command:              ['s08'],
+  command_plural:       ['s09'],
+  suggestion:           ['s11'],
+  prohibition:          ['s10'],
+  ko_identification:    ['s18'],
+  ko_negation:          ['s13'],
+  ko_question_what:     ['s16'],
+  ko_question_who:      ['s15'],
+  ko_question_where:    ['s17'],
+}
+
+/** Patterns taught in this chapter (book_chapters includes chapterNum) */
+function getPatternsForChapter(chapterNum) {
+  return sentencePatterns.patterns.filter(p =>
+    p.data_status === 'complete' &&
+    p.book_chapters.includes(chapterNum)
+  )
+}
+
+/** Patterns from earlier chapters (available but not taught here) */
+function getEarlierPatterns(chapterNum) {
+  return sentencePatterns.patterns.filter(p =>
+    p.data_status === 'complete' &&
+    p.min_chapter <= chapterNum &&
+    !p.book_chapters.includes(chapterNum)
+  )
+}
+
+export default function ChapterPractice() {
+  const { num } = useParams()
+  const chapterNum = parseInt(num, 10)
+  const { setChapter } = useChapter()
+  const [patternIndex, setPatternIndex] = useState(null)
+  const [showHint, setShowHint] = useState(false)
+  const [earlierOpen, setEarlierOpen] = useState(false)
+  const [earlierPatternId, setEarlierPatternId] = useState(null)
+
+  const chapter = chapters.find(c => c.chapter === chapterNum)
+  if (!chapter) {
+    return <div className="text-[var(--text-muted)]">Chapter not found.</div>
+  }
+
+  // Keep global chapter context in sync
+  setChapter(chapterNum)
+
+  const chapterPatterns = useMemo(() => getPatternsForChapter(chapterNum), [chapterNum])
+  const earlierPatterns = useMemo(() => getEarlierPatterns(chapterNum), [chapterNum])
+
+  const selectedPattern = patternIndex !== null ? chapterPatterns[patternIndex] : null
+
+  const prevCh = chapterNum > 1 ? chapterNum - 1 : null
+  const nextCh = chapterNum < 53 ? chapterNum + 1 : null
+
+  const handlePatternSelect = (index) => {
+    setPatternIndex(index)
+    setShowHint(false)
+  }
+
+  const handleNextPattern = () => {
+    if (patternIndex < chapterPatterns.length - 1) {
+      setPatternIndex(patternIndex + 1)
+      setShowHint(false)
+    } else {
+      setPatternIndex(null)
+    }
+  }
+
+  const handleBackToList = () => {
+    setPatternIndex(null)
+    setShowHint(false)
+  }
+
+  return (
+    <div className="reading-page">
+      {/* Chapter header */}
+      <div className="mb-6">
+        <div className="flex items-baseline gap-3 mb-2">
+          <span className="text-[var(--accent)] text-2xl font-bold">{chapterNum}</span>
+          <h1 className="text-xl text-[var(--text-strong)]">{chapter.title}</h1>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {chapter.topics.map((topic, i) => (
+            <span
+              key={i}
+              className="text-xs px-2 py-1 border border-[var(--border)] text-[var(--text-muted)]"
+            >
+              {topic}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex gap-3 text-sm">
+          {prevCh && (
+            <Link
+              to={`/chapters/${prevCh}`}
+              className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+              onClick={() => { setPatternIndex(null); setEarlierPatternId(null) }}
+            >
+              &larr; Ch. {prevCh}
+            </Link>
+          )}
+          {nextCh && (
+            <Link
+              to={`/chapters/${nextCh}`}
+              className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+              onClick={() => { setPatternIndex(null); setEarlierPatternId(null) }}
+            >
+              Ch. {nextCh} &rarr;
+            </Link>
+          )}
+        </div>
+      </div>
+
+      {/* Full book chapter content */}
+      <BookChapterContent chapterNum={chapterNum} />
+
+      {/* Teaching summary (shown only when no book content exists) */}
+      {!chapterNum && chapter.teaching && <TeachingPanel teaching={chapter.teaching} />}
+
+      {/* ── PRACTICE: THIS CHAPTER'S PATTERNS ── */}
+      {chapterPatterns.length > 0 && (
+        <div className="mb-8">
+          <h2 className="text-sm text-[var(--accent)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4">
+            Practice
+          </h2>
+
+          {selectedPattern ? (
+            <div>
+              {/* Progress + navigation */}
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <div className="text-[var(--accent)] text-sm">{selectedPattern.title}</div>
+                  <div className="text-xs text-[var(--text-muted)] mt-0.5">
+                    Pattern {patternIndex + 1} of {chapterPatterns.length}
+                  </div>
+                </div>
+                <button
+                  onClick={handleBackToList}
+                  className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                >
+                  &larr; All patterns
+                </button>
+              </div>
+
+              {/* Hint toggle */}
+              <div className="mb-4">
+                <button
+                  onClick={() => setShowHint(!showHint)}
+                  className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                >
+                  {showHint ? 'Hide hint' : 'Show hint'}
+                </button>
+                {showHint && selectedPattern.examples?.length > 0 && (
+                  <div className="mt-2 border-l-2 border-[var(--clay)]/50 pl-3">
+                    {selectedPattern.examples.map((ex, i) => (
+                      <div key={i} className="mb-1">
+                        <span className="text-[var(--clay)] font-tongan">{ex.tongan}</span>
+                        <span className="text-[var(--text-muted)] text-sm ml-2">{ex.english}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* SlotBuilder */}
+              <SlotBuilder
+                key={`drill-${selectedPattern.id}-${chapterNum}`}
+                patternId={selectedPattern.id}
+                maxChapter={chapterNum}
+                onBack={handleBackToList}
+                onNext={patternIndex < chapterPatterns.length - 1 ? handleNextPattern : null}
+              />
+            </div>
+          ) : (
+            /* Pattern list */
+            <div className="space-y-1">
+              {chapterPatterns.map((p, i) => (
+                <button
+                  key={p.id}
+                  onClick={() => handlePatternSelect(i)}
+                  className="block w-full text-left px-4 py-3 border border-[var(--accent)]/20 hover:border-[var(--accent)] hover:bg-[var(--accent-faint)] transition-colors cursor-pointer"
+                >
+                  <div className="text-[var(--text)] mb-1">{p.title}</div>
+                  <div className="text-sm text-[var(--text-muted)]">{p.label_en}</div>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* No practice available */}
+      {chapterPatterns.length === 0 && !chapter.teaching && (
+        <div className="text-[var(--text-muted)] text-sm mb-8">
+          No interactive practice available for this chapter yet.
+        </div>
+      )}
+
+      {/* ── EARLIER CHAPTER PATTERNS ── */}
+      {earlierPatterns.length > 0 && (
+        <div>
+          <button
+            onClick={() => { setEarlierOpen(!earlierOpen); setEarlierPatternId(null) }}
+            className="w-full text-left text-sm text-[var(--text-muted)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4 hover:text-[var(--accent)] transition-colors cursor-pointer"
+          >
+            {earlierOpen ? '\u25BC' : '\u25B6'} Practice from Earlier Chapters
+          </button>
+
+          {earlierOpen && (
+            <div>
+              {earlierPatternId ? (
+                (() => {
+                  const p = sentencePatterns.patterns.find(pat => pat.id === earlierPatternId)
+                  if (!p) return null
+                  return (
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div>
+                          <div className="text-[var(--accent)] text-sm">{p.title}</div>
+                          <div className="text-xs text-[var(--text-muted)]">{p.label_en}</div>
+                        </div>
+                        <button
+                          onClick={() => setEarlierPatternId(null)}
+                          className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                        >
+                          &larr; Change
+                        </button>
+                      </div>
+                      <SlotBuilder
+                        key={`earlier-${earlierPatternId}-${chapterNum}`}
+                        patternId={earlierPatternId}
+                        maxChapter={chapterNum}
+                        onBack={() => setEarlierPatternId(null)}
+                      />
+                    </div>
+                  )
+                })()
+              ) : (
+                <div className="space-y-1">
+                  {earlierPatterns.map(p => (
+                    <button
+                      key={p.id}
+                      onClick={() => setEarlierPatternId(p.id)}
+                      className="block w-full text-left px-4 py-3 border border-transparent hover:border-[var(--border)] hover:bg-[var(--bg-tone)] transition-colors cursor-pointer"
+                    >
+                      <div className="text-[var(--text)] mb-1">{p.title}</div>
+                      <div className="text-sm text-[var(--text-muted)]">{p.label_en}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}

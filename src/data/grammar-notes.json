@@ -1,0 +1,102 @@
+{
+  "notes": [
+    {
+      "id": "tense_marker_intro",
+      "trigger": { "has_node": "tense_marker", "sentence_length": 1 },
+      "title": "Tense Markers Start the Sentence",
+      "text": "Every Tongan statement begins with a tense marker (TM). It tells you when the action happens. Na'a/Na'e = past, 'Oku = present, Kuo = has done (perfect), Te = will do (future).",
+      "min_chapter": 1
+    },
+    {
+      "id": "naa_vs_nae",
+      "trigger": { "any_node_value": { "tense_marker": ["Na'a", "Na'e"] } },
+      "title": "Na'a vs. Na'e",
+      "text": "Both mean past tense, but they pair with different pronouns. Na'a is used only before ku (I) and ke (you). For all other pronouns (ne, nau, mau, etc.), use na'e instead. This is one of the first rules to memorize.",
+      "min_chapter": 1
+    },
+    {
+      "id": "pronoun_form_changes",
+      "trigger": { "has_node": "pronoun" },
+      "title": "Pronoun Forms Change with Tense",
+      "text": "The word for 'I' changes depending on the tense marker: ku after na'a, ou after 'oku, and u after kuo or te. All other pronouns (ke, ne, nau, mau, etc.) stay the same regardless of tense marker.",
+      "min_chapter": 2
+    },
+    {
+      "id": "second_person_question",
+      "trigger": { "any_node_value": { "pronoun": ["ke", "mou", "mo"] } },
+      "title": "Questions Use the Same Word Order",
+      "text": "With second-person pronouns (ke, mou, mo), the sentence becomes a question when spoken with rising intonation. Na'a ke kai? = Did you eat? The words are identical to 'You ate' -- only the voice goes up at the end.",
+      "min_chapter": 1
+    },
+    {
+      "id": "present_action_habitual",
+      "trigger": { "has_node_value": { "tense_marker": "'Oku" }, "verb_has_tag": "action" },
+      "title": "Present Tense + Action = Habitual",
+      "text": "'Oku with an action verb like kai or inu describes a habitual action -- something you do regularly. 'Oku ou kai doesn't mean 'I am eating right now.' It means 'I eat (in general).' To say 'I am eating right now,' Tongan uses a different construction (ko + possessive + verbal noun).",
+      "min_chapter": 2
+    },
+    {
+      "id": "present_adjective_state",
+      "trigger": { "has_node_value": { "tense_marker": "'Oku" }, "verb_has_tag": "adjective" },
+      "title": "Present Tense + Adjective = Current State",
+      "text": "'Oku with an adjective like fiefia (happy) or hela'ia (tired) describes a current state -- how someone feels right now. 'Oku ou fiefia = 'I am happy (right now).' Unlike action verbs, adjectives with 'oku are not habitual.",
+      "min_chapter": 3
+    },
+    {
+      "id": "adjective_as_verb",
+      "trigger": { "verb_has_tag": "adjective" },
+      "title": "Adjectives Work Like Verbs",
+      "text": "In Tongan, adjectives like fiefia (happy), hela'ia (tired), and fiekaia (hungry) fill the verb slot. There is no separate word for 'am/is/are' -- the tense marker + pronoun + adjective pattern handles it all. 'Oku ou fiefia = I am happy.",
+      "min_chapter": 3
+    },
+    {
+      "id": "perfect_tense",
+      "trigger": { "has_node_value": { "tense_marker": "Kuo" } },
+      "title": "Kuo = Something Has Happened",
+      "text": "Kuo marks the perfect tense -- an action that is complete and has a result that matters now. Kuo u kai = 'I have eaten' (so I'm not hungry anymore). It's similar to English 'have done.'",
+      "min_chapter": 2
+    },
+    {
+      "id": "modifier_intro",
+      "trigger": { "has_node": "modifier" },
+      "title": "Modifiers Describe How",
+      "text": "Modifiers come right after the verb (or adjective) to describe how something was done or how much. Lelei = well, lahi = a lot, malohi = hard, 'aupito = very/extremely, pe = just/only.",
+      "min_chapter": 3
+    },
+    {
+      "id": "modifier_aupito_position",
+      "trigger": { "has_node_value": { "modifier": "'aupito" } },
+      "title": "'Aupito Always Goes Last",
+      "text": "'Aupito (very/extremely) must be the last modifier. You can combine it with others: lahi 'aupito = very much, malohi 'aupito = very hard. But 'aupito never comes before another modifier.",
+      "min_chapter": 3
+    },
+    {
+      "id": "modifier_with_adjective",
+      "trigger": { "has_node": "modifier", "verb_has_tag": "adjective" },
+      "title": "Modifiers Intensify Adjectives",
+      "text": "When a modifier follows an adjective in the verb slot, it intensifies the state: fiefia lahi = very happy, hela'ia 'aupito = extremely tired. This works the same way modifiers intensify action verbs.",
+      "min_chapter": 3
+    },
+    {
+      "id": "bare_noun_compound",
+      "trigger": { "has_node": "object", "object_has_tag": "bare_noun" },
+      "title": "Bare Noun = Verb-Object Compound",
+      "text": "When a bare noun (no article) follows directly after the verb, it forms a compound: kai ma = 'bread-eat,' inu vai = 'water-drink.' The action and object are treated as one idea. This is the simplest way to express what was acted upon.",
+      "min_chapter": 3
+    },
+    {
+      "id": "article_objects",
+      "trigger": { "has_node": "object", "object_has_tag": "indefinite" },
+      "title": "Ha = 'Some' (Indefinite Article)",
+      "text": "Adding ha before a noun makes the object indefinite but separate from the verb: ha talo = some taro, ha vai = some water. Unlike bare noun compounds, this treats the object as a distinct thing.",
+      "min_chapter": 8
+    },
+    {
+      "id": "definite_article",
+      "trigger": { "has_node": "object", "object_has_tag": "definite" },
+      "title": "E = 'The' (Definite Article)",
+      "text": "The article e before a noun makes the object definite: e ika = the fish, e ma = the bread. Use this when both speaker and listener know which specific item is meant.",
+      "min_chapter": 8
+    }
+  ]
+}

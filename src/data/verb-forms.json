@@ -1,0 +1,403 @@
+{
+  "verbs": {
+    "kai": {
+      "base": "eat",
+      "past": "ate",
+      "past_participle": "eaten",
+      "gerund": "eating",
+      "third_sg": "eats",
+      "type": "action"
+    },
+    "inu": {
+      "base": "drink",
+      "past": "drank",
+      "past_participle": "drunk",
+      "gerund": "drinking",
+      "third_sg": "drinks",
+      "type": "action"
+    },
+    "mohe": {
+      "base": "sleep",
+      "past": "slept",
+      "past_participle": "slept",
+      "gerund": "sleeping",
+      "third_sg": "sleeps",
+      "type": "action"
+    },
+    "\u02bbalu": {
+      "base": "go",
+      "past": "went",
+      "past_participle": "gone",
+      "gerund": "going",
+      "third_sg": "goes",
+      "type": "action"
+    },
+    "ha\u02bbu": {
+      "base": "come",
+      "past": "came",
+      "past_participle": "come",
+      "gerund": "coming",
+      "third_sg": "comes",
+      "type": "action"
+    },
+    "hiva": {
+      "base": "sing",
+      "past": "sang",
+      "past_participle": "sung",
+      "gerund": "singing",
+      "third_sg": "sings",
+      "type": "action"
+    },
+    "lea": {
+      "base": "speak",
+      "past": "spoke",
+      "past_participle": "spoken",
+      "gerund": "speaking",
+      "third_sg": "speaks",
+      "type": "action"
+    },
+    "nofo": {
+      "base": "stay",
+      "past": "stayed",
+      "past_participle": "stayed",
+      "gerund": "staying",
+      "third_sg": "stays",
+      "type": "action"
+    },
+    "ng\u0101ue": {
+      "base": "work",
+      "past": "worked",
+      "past_participle": "worked",
+      "gerund": "working",
+      "third_sg": "works",
+      "type": "action"
+    },
+    "tokoni": {
+      "base": "help",
+      "past": "helped",
+      "past_participle": "helped",
+      "gerund": "helping",
+      "third_sg": "helps",
+      "type": "action"
+    },
+    "fiema\u02bbu": {
+      "base": "want",
+      "past": "wanted",
+      "past_participle": "wanted",
+      "gerund": "wanting",
+      "third_sg": "wants",
+      "type": "action"
+    },
+    "fiefia": {
+      "base": "happy",
+      "past": "was happy",
+      "past_participle": "been happy",
+      "gerund": "happy",
+      "third_sg": "is happy",
+      "type": "adjective",
+      "copula": true
+    },
+    "hela\u02bbia": {
+      "base": "tired",
+      "past": "was tired",
+      "past_participle": "been tired",
+      "gerund": "tired",
+      "third_sg": "is tired",
+      "type": "adjective",
+      "copula": true
+    },
+    "fiekaia": {
+      "base": "hungry",
+      "past": "was hungry",
+      "past_participle": "been hungry",
+      "gerund": "hungry",
+      "third_sg": "is hungry",
+      "type": "adjective",
+      "copula": true
+    },
+    "\u02bbita": {
+      "base": "angry",
+      "past": "was angry",
+      "past_participle": "been angry",
+      "gerund": "angry",
+      "third_sg": "is angry",
+      "type": "adjective",
+      "copula": true
+    },
+    "puke": {
+      "base": "sick",
+      "past": "was sick",
+      "past_participle": "been sick",
+      "gerund": "sick",
+      "third_sg": "is sick",
+      "type": "adjective",
+      "copula": true
+    },
+    "fakatau": {
+      "base": "buy",
+      "past": "bought",
+      "past_participle": "bought",
+      "gerund": "buying",
+      "third_sg": "buys",
+      "type": "action"
+    },
+    "ma\u02bbu": {
+      "base": "get",
+      "past": "got",
+      "past_participle": "gotten",
+      "gerund": "getting",
+      "third_sg": "gets",
+      "type": "action"
+    },
+    "\u014d": {
+      "base": "go",
+      "past": "went",
+      "past_participle": "gone",
+      "gerund": "going",
+      "third_sg": "goes",
+      "type": "action"
+    },
+    "\u014d mai": {
+      "base": "come",
+      "past": "came",
+      "past_participle": "come",
+      "gerund": "coming",
+      "third_sg": "comes",
+      "type": "action"
+    },
+    "ako": {
+      "base": "study",
+      "past": "studied",
+      "past_participle": "studied",
+      "gerund": "studying",
+      "third_sg": "studies",
+      "type": "action"
+    },
+    "lele": {
+      "base": "run",
+      "past": "ran",
+      "past_participle": "run",
+      "gerund": "running",
+      "third_sg": "runs",
+      "type": "action"
+    },
+    "folau": {
+      "base": "travel",
+      "past": "traveled",
+      "past_participle": "traveled",
+      "gerund": "traveling",
+      "third_sg": "travels",
+      "type": "action"
+    },
+    "sio": {
+      "base": "see",
+      "past": "saw",
+      "past_participle": "seen",
+      "gerund": "seeing",
+      "third_sg": "sees",
+      "type": "action"
+    },
+    "fanongo": {
+      "base": "listen",
+      "past": "listened",
+      "past_participle": "listened",
+      "gerund": "listening",
+      "third_sg": "listens",
+      "type": "action"
+    },
+    "lau": {
+      "base": "read",
+      "past": "read",
+      "past_participle": "read",
+      "gerund": "reading",
+      "third_sg": "reads",
+      "type": "action"
+    },
+    "tohi": {
+      "base": "write",
+      "past": "wrote",
+      "past_participle": "written",
+      "gerund": "writing",
+      "third_sg": "writes",
+      "type": "action"
+    },
+    "hopo": {
+      "base": "jump",
+      "past": "jumped",
+      "past_participle": "jumped",
+      "gerund": "jumping",
+      "third_sg": "jumps",
+      "type": "action"
+    },
+    "fieinua": {
+      "base": "thirsty",
+      "past": "was thirsty",
+      "past_participle": "been thirsty",
+      "gerund": "thirsty",
+      "third_sg": "is thirsty",
+      "type": "adjective",
+      "copula": true
+    },
+    "vaivai": {
+      "base": "weak",
+      "past": "was weak",
+      "past_participle": "been weak",
+      "gerund": "weak",
+      "third_sg": "is weak",
+      "type": "adjective",
+      "copula": true
+    },
+    "masiva": {
+      "base": "poor",
+      "past": "was poor",
+      "past_participle": "been poor",
+      "gerund": "poor",
+      "third_sg": "is poor",
+      "type": "adjective",
+      "copula": true
+    },
+    "ʻave": {
+      "base": "take",
+      "past": "took",
+      "past_participle": "taken",
+      "gerund": "taking",
+      "third_sg": "takes",
+      "type": "action"
+    },
+    "kumi": {
+      "base": "search for",
+      "past": "searched for",
+      "past_participle": "searched for",
+      "gerund": "searching for",
+      "third_sg": "searches for",
+      "type": "action"
+    },
+    "ui": {
+      "base": "call",
+      "past": "called",
+      "past_participle": "called",
+      "gerund": "calling",
+      "third_sg": "calls",
+      "type": "action"
+    },
+    "fai": {
+      "base": "do",
+      "past": "did",
+      "past_participle": "done",
+      "gerund": "doing",
+      "third_sg": "does",
+      "type": "action"
+    },
+    "fufulu": {
+      "base": "wash",
+      "past": "washed",
+      "past_participle": "washed",
+      "gerund": "washing",
+      "third_sg": "washes",
+      "type": "action"
+    },
+    "kuki": {
+      "base": "cook",
+      "past": "cooked",
+      "past_participle": "cooked",
+      "gerund": "cooking",
+      "third_sg": "cooks",
+      "type": "action"
+    },
+    "langa": {
+      "base": "build",
+      "past": "built",
+      "past_participle": "built",
+      "gerund": "building",
+      "third_sg": "builds",
+      "type": "action"
+    },
+    "fakaʻosi": {
+      "base": "finish",
+      "past": "finished",
+      "past_participle": "finished",
+      "gerund": "finishing",
+      "third_sg": "finishes",
+      "type": "action"
+    },
+    "manatuʻi": {
+      "base": "remember",
+      "past": "remembered",
+      "past_participle": "remembered",
+      "gerund": "remembering",
+      "third_sg": "remembers",
+      "type": "action"
+    },
+    "tāmateʻi": {
+      "base": "kill",
+      "past": "killed",
+      "past_participle": "killed",
+      "gerund": "killing",
+      "third_sg": "kills",
+      "type": "action"
+    }
+  },
+
+  "modifiers": {
+    "lelei": { "english": "well", "adjective_english": "truly" },
+    "lahi": { "english": "a lot", "adjective_english": "very" },
+    "m\u0101lohi": { "english": "hard", "adjective_english": "intensely" },
+    "\u02bbaupito": { "english": "a great deal", "adjective_english": "so" },
+    "p\u0113": { "english": "just", "adjective_english": "just" }
+  },
+
+  "objects": {
+    "ma": { "english": "bread" },
+    "vai": { "english": "water" },
+    "moa": { "english": "chicken" },
+    "pulu": { "english": "beef" },
+    "ha talo": { "english": "some taro" },
+    "ha vai": { "english": "some water" },
+    "e ika": { "english": "the fish" },
+    "e m\u0101": { "english": "the bread" },
+    "ika": { "english": "fish" },
+    "talo": { "english": "taro" },
+    "kava": { "english": "kava" },
+    "t\u012b": { "english": "tea" },
+    "ha ika": { "english": "some fish" },
+    "ha moa": { "english": "some chicken" },
+    "e vai": { "english": "the water" },
+    "e tal\u014d": { "english": "the taro" },
+    "m\u0101lohi": { "english": "strength" },
+    "fiefia": { "english": "happiness" },
+    "\u02bbofa": { "english": "love" },
+    "fale": { "english": "house" },
+    "tohi": { "english": "book" },
+    "vaka": { "english": "boat" },
+    "pa\u02bbanga": { "english": "money" },
+    "hele": { "english": "knife" },
+    "kato": { "english": "basket" },
+    "kofu": { "english": "clothes" },
+    "tat\u0101": { "english": "hat" }
+  },
+
+  "tense_frames": {
+    "na\u02bba": { "tense": "past", "is_question_with_2nd_person": true },
+    "na\u02bbe": { "tense": "past", "is_question_with_2nd_person": true },
+    "\u02bboku": { "tense": "present", "is_question_with_2nd_person": true },
+    "kuo": { "tense": "perfect", "is_question_with_2nd_person": true },
+    "te": { "tense": "future", "is_question_with_2nd_person": true },
+    "\u02bbe": { "tense": "future", "is_question_with_2nd_person": false }
+  },
+
+  "pronouns": {
+    "ku": { "subject": "I", "person": 1, "number": "singular" },
+    "ke": { "subject": "you", "person": 2, "number": "singular" },
+    "ne": { "subject": "he/she", "person": 3, "number": "singular" },
+    "ou": { "subject": "I", "person": 1, "number": "singular" },
+    "u": { "subject": "I", "person": 1, "number": "singular" },
+    "nau": { "subject": "they", "person": 3, "number": "plural" },
+    "mau": { "subject": "we", "person": 1, "number": "plural" },
+    "tau": { "subject": "we all", "person": 1, "number": "plural" },
+    "mou": { "subject": "you", "person": 2, "number": "plural" },
+    "na": { "subject": "they two", "person": 3, "number": "dual" },
+    "ma": { "subject": "we two", "person": 1, "number": "dual" },
+    "ta": { "subject": "the two of us", "person": 1, "number": "dual" },
+    "mo": { "subject": "you two", "person": 2, "number": "dual" }
+  }
+}

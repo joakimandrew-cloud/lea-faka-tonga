@@ -1,0 +1,6004 @@
+{
+  "meta": {
+    "version": "1.0",
+    "source": "Extracted from grammar-graph.json nodes + verb-forms.json",
+    "description": "Vocabulary organized by slot type for slot-based sentence builder"
+  },
+  "tense_markers": [
+    {
+      "tongan": "Naʻa",
+      "english": "past",
+      "min_chapter": 1,
+      "tags": [
+        "past"
+      ]
+    },
+    {
+      "tongan": "ʻOku",
+      "english": "present",
+      "min_chapter": 2,
+      "tags": [
+        "present"
+      ]
+    },
+    {
+      "tongan": "Kuo",
+      "english": "perfect (has done)",
+      "min_chapter": 2,
+      "tags": [
+        "perfect"
+      ]
+    },
+    {
+      "tongan": "Te",
+      "english": "future",
+      "min_chapter": 2,
+      "tags": [
+        "future"
+      ]
+    }
+  ],
+  "pronouns": {
+    "1sg": {
+      "short_forms": {
+        "naʻa": "ku",
+        "ʻoku": "ou",
+        "kuo": "u",
+        "te": "u"
+      },
+      "long": "au",
+      "min_chapter": 1,
+      "subject_english": "I",
+      "person": 1,
+      "number": "singular"
+    },
+    "2sg": {
+      "short": "ke",
+      "long": "koe",
+      "min_chapter": 1,
+      "subject_english": "you",
+      "person": 2,
+      "number": "singular"
+    },
+    "3sg": {
+      "short": "ne",
+      "long": "ia",
+      "min_chapter": 2,
+      "subject_english": "he/she",
+      "person": 3,
+      "number": "singular"
+    },
+    "1dl_inc": {
+      "short": "ta",
+      "long": "kitaua",
+      "min_chapter": 2,
+      "subject_english": "the two of us",
+      "person": 1,
+      "number": "dual"
+    },
+    "1dl_exc": {
+      "short": "ma",
+      "long": "kimaua",
+      "min_chapter": 2,
+      "subject_english": "we two",
+      "person": 1,
+      "number": "dual"
+    },
+    "2dl": {
+      "short": "mo",
+      "long": "kimoua",
+      "min_chapter": 2,
+      "subject_english": "you two",
+      "person": 2,
+      "number": "dual"
+    },
+    "3dl": {
+      "short": "na",
+      "long": "kinaua",
+      "min_chapter": 2,
+      "subject_english": "they two",
+      "person": 3,
+      "number": "dual"
+    },
+    "1pl_inc": {
+      "short": "tau",
+      "long": "kitautolu",
+      "min_chapter": 2,
+      "subject_english": "we all",
+      "person": 1,
+      "number": "plural"
+    },
+    "1pl_exc": {
+      "short": "mau",
+      "long": "kimautolu",
+      "min_chapter": 2,
+      "subject_english": "we",
+      "person": 1,
+      "number": "plural"
+    },
+    "2pl": {
+      "short": "mou",
+      "long": "kimoutolu",
+      "min_chapter": 2,
+      "subject_english": "you",
+      "person": 2,
+      "number": "plural"
+    },
+    "3pl": {
+      "short": "nau",
+      "long": "kinautolu",
+      "min_chapter": 2,
+      "subject_english": "they",
+      "person": 3,
+      "number": "plural"
+    }
+  },
+  "verbs_intransitive": [
+    {
+      "tongan": "mohe",
+      "english": "sleep",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "mohe"
+    },
+    {
+      "tongan": "ʻalu",
+      "english": "go",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ],
+      "verb_form_key": "ʻalu"
+    },
+    {
+      "tongan": "haʻu",
+      "english": "come",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ],
+      "verb_form_key": "haʻu"
+    },
+    {
+      "tongan": "ō",
+      "english": "go (plural)",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion",
+        "plural_suppletion"
+      ],
+      "verb_form_key": "ō"
+    },
+    {
+      "tongan": "ō mai",
+      "english": "come (plural)",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion",
+        "plural_suppletion"
+      ],
+      "verb_form_key": "ō mai"
+    },
+    {
+      "tongan": "hiva",
+      "english": "sing",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "hiva"
+    },
+    {
+      "tongan": "lea",
+      "english": "speak",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "lea"
+    },
+    {
+      "tongan": "nofo",
+      "english": "stay/live",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "nofo"
+    },
+    {
+      "tongan": "ngāue",
+      "english": "work",
+      "min_chapter": 3,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "ngāue"
+    },
+    {
+      "tongan": "tokoni",
+      "english": "help",
+      "min_chapter": 3,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "tokoni"
+    },
+    {
+      "tongan": "ako",
+      "english": "study",
+      "min_chapter": 3,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "ako"
+    },
+    {
+      "tongan": "lele",
+      "english": "run",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ],
+      "verb_form_key": "lele"
+    },
+    {
+      "tongan": "folau",
+      "english": "travel/sail",
+      "min_chapter": 7,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ],
+      "verb_form_key": "folau"
+    },
+    {
+      "tongan": "fanongo",
+      "english": "listen",
+      "min_chapter": 7,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "fanongo"
+    },
+    {
+      "tongan": "hopo",
+      "english": "jump",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "hopo"
+    },
+    {
+      "tongan": "foki",
+      "english": "return",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ],
+      "verb_form_key": "foki"
+    },
+    {
+      "tongan": "kamata",
+      "english": "begin/start",
+      "min_chapter": 11,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "kamata"
+    },
+    {
+      "tongan": "kakau",
+      "english": "swim",
+      "min_chapter": 21,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "kakau"
+    },
+    {
+      "tongan": "feinga",
+      "english": "try",
+      "min_chapter": 21,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "feinga"
+    },
+    {
+      "tongan": "haka",
+      "english": "dance",
+      "min_chapter": 21,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "haka"
+    },
+    {
+      "tongan": "lotu",
+      "english": "pray",
+      "min_chapter": 23,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "lotu"
+    },
+    {
+      "tongan": "tō",
+      "english": "fall",
+      "min_chapter": 28,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "tō"
+    },
+    {
+      "tongan": "tangutu",
+      "english": "sit down",
+      "min_chapter": 28,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "tangutu"
+    },
+    {
+      "tongan": "mamata",
+      "english": "look/watch",
+      "min_chapter": 28,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "mamata"
+    },
+    {
+      "tongan": "lue",
+      "english": "walk",
+      "min_chapter": 28,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ],
+      "verb_form_key": "lue"
+    },
+    {
+      "tongan": "tangi",
+      "english": "cry",
+      "min_chapter": 36,
+      "tags": [
+        "action",
+        "intransitive"
+      ],
+      "verb_form_key": "tangi"
+    }
+  ],
+  "verbs_transitive": [
+    {
+      "tongan": "kai",
+      "english": "eat",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "kai"
+    },
+    {
+      "tongan": "inu",
+      "english": "drink",
+      "min_chapter": 1,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "inu"
+    },
+    {
+      "tongan": "fiemaʻu",
+      "english": "want/need",
+      "min_chapter": 8,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "fiemaʻu"
+    },
+    {
+      "tongan": "sio",
+      "english": "see/look",
+      "min_chapter": 7,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "sio"
+    },
+    {
+      "tongan": "lau",
+      "english": "read",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "lau"
+    },
+    {
+      "tongan": "tohi",
+      "english": "write",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "tohi"
+    },
+    {
+      "tongan": "tala",
+      "english": "tell",
+      "min_chapter": 28,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "tala"
+    },
+    {
+      "tongan": "fakatau",
+      "english": "buy",
+      "min_chapter": 21,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "fakatau"
+    },
+    {
+      "tongan": "ʻilo",
+      "english": "know",
+      "min_chapter": 24,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "ʻilo"
+    },
+    {
+      "tongan": "kole",
+      "english": "ask/request",
+      "min_chapter": 26,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "kole"
+    },
+    {
+      "tongan": "tānaki",
+      "english": "collect",
+      "min_chapter": 26,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "tānaki"
+    },
+    {
+      "tongan": "langa",
+      "english": "build",
+      "min_chapter": 26,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "langa"
+    },
+    {
+      "tongan": "fili",
+      "english": "choose",
+      "min_chapter": 29,
+      "tags": [
+        "action",
+        "transitive"
+      ],
+      "verb_form_key": "fili"
+    }
+  ],
+  "verbs_stative": [
+    {
+      "tongan": "fiefia",
+      "english": "happy",
+      "min_chapter": 3,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "fiefia"
+    },
+    {
+      "tongan": "helaʻia",
+      "english": "tired",
+      "min_chapter": 3,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "helaʻia"
+    },
+    {
+      "tongan": "fiekaia",
+      "english": "hungry",
+      "min_chapter": 3,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "fiekaia"
+    },
+    {
+      "tongan": "ʻita",
+      "english": "angry",
+      "min_chapter": 3,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "ʻita"
+    },
+    {
+      "tongan": "puke",
+      "english": "sick",
+      "min_chapter": 9,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "puke"
+    },
+    {
+      "tongan": "fieinua",
+      "english": "thirsty",
+      "min_chapter": 3,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "fieinua"
+    },
+    {
+      "tongan": "vaivai",
+      "english": "weak",
+      "min_chapter": 3,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "vaivai"
+    },
+    {
+      "tongan": "masiva",
+      "english": "poor",
+      "min_chapter": 3,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "masiva"
+    },
+    {
+      "tongan": "mālohi",
+      "english": "strong",
+      "min_chapter": 22,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "mālohi"
+    },
+    {
+      "tongan": "fakapikopiko",
+      "english": "lazy",
+      "min_chapter": 23,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "fakapikopiko"
+    },
+    {
+      "tongan": "tōmui",
+      "english": "late",
+      "min_chapter": 38,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "tōmui"
+    },
+    {
+      "tongan": "lavea",
+      "english": "hurt/injured",
+      "min_chapter": 38,
+      "tags": [
+        "adjective"
+      ],
+      "verb_form_key": "lavea"
+    }
+  ],
+  "modifiers": [
+    {
+      "tongan": "lelei",
+      "english": "well/truly",
+      "min_chapter": 3,
+      "position_rule": null
+    },
+    {
+      "tongan": "lahi",
+      "english": "a lot/very",
+      "min_chapter": 3,
+      "position_rule": null
+    },
+    {
+      "tongan": "mālohi",
+      "english": "hard/strongly",
+      "min_chapter": 3,
+      "position_rule": null
+    },
+    {
+      "tongan": "ʻaupito",
+      "english": "very/extremely",
+      "min_chapter": 3,
+      "position_rule": "always_last_modifier"
+    },
+    {
+      "tongan": "pē",
+      "english": "just/only",
+      "min_chapter": 3,
+      "position_rule": null
+    }
+  ],
+  "objects": [
+    {
+      "tongan": "mā",
+      "english": "bread",
+      "min_chapter": 3,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "vai",
+      "english": "water",
+      "min_chapter": 3,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "moa",
+      "english": "chicken",
+      "min_chapter": 8,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "pulu",
+      "english": "cow",
+      "min_chapter": 25,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "ika",
+      "english": "fish",
+      "min_chapter": 3,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "talo",
+      "english": "taro",
+      "min_chapter": 3,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "kava",
+      "english": "kava",
+      "min_chapter": 3,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "tī",
+      "english": "tea",
+      "min_chapter": 3,
+      "tags": [
+        "bare_noun"
+      ]
+    },
+    {
+      "tongan": "ha talo",
+      "english": "some taro",
+      "min_chapter": 8,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "ha vai",
+      "english": "some water",
+      "min_chapter": 8,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "ha ika",
+      "english": "some fish",
+      "min_chapter": 8,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "ha moa",
+      "english": "some chicken",
+      "min_chapter": 8,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "ha mā",
+      "english": "some bread",
+      "min_chapter": 8,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "ha pulu",
+      "english": "a cow",
+      "min_chapter": 25,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "ha kava",
+      "english": "some kava",
+      "min_chapter": 8,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "ha tī",
+      "english": "some tea",
+      "min_chapter": 8,
+      "tags": [
+        "indefinite"
+      ]
+    },
+    {
+      "tongan": "e ika",
+      "english": "the fish",
+      "min_chapter": 8,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e mā",
+      "english": "the bread",
+      "min_chapter": 8,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e vai",
+      "english": "the water",
+      "min_chapter": 8,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e talō",
+      "english": "the taro",
+      "min_chapter": 8,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e moa",
+      "english": "the chicken",
+      "min_chapter": 8,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e pulu",
+      "english": "the cow",
+      "min_chapter": 25,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e kava",
+      "english": "the kava",
+      "min_chapter": 8,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e tī",
+      "english": "the tea",
+      "min_chapter": 8,
+      "tags": [
+        "definite"
+      ]
+    }
+  ],
+  "prepositions": [
+    {
+      "tongan": "ʻi",
+      "english": "in/at",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "ki",
+      "english": "to/toward",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "mei",
+      "english": "from",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "maʻa",
+      "english": "for (benefactive, ʻe-class)",
+      "min_chapter": 26,
+      "tags": [
+        "benefactive",
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "moʻo",
+      "english": "for (benefactive, ho-class)",
+      "min_chapter": 26,
+      "tags": [
+        "benefactive",
+        "ho_class"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "tongan": "ʻapi",
+      "english": "home",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "kolo",
+      "english": "town",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "Tonga",
+      "english": "Tonga",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "Nukuʻalofa",
+      "english": "Nukuʻalofa",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "Fisi",
+      "english": "Fiji",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "fale mohe",
+      "english": "dormitory",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "fale kai",
+      "english": "cafeteria",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "heni",
+      "english": "here",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "hena",
+      "english": "there (near you)",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "hē",
+      "english": "over there",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "tahi",
+      "english": "sea",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "fē",
+      "english": "where?",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "Vavaʻu",
+      "english": "Vavaʻu",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "Haʻapai",
+      "english": "Haʻapai",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "ʻAmelika",
+      "english": "America",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "falekoloa",
+      "english": "store",
+      "min_chapter": 28
+    },
+    {
+      "tongan": "mātāfaga",
+      "english": "beach",
+      "min_chapter": 28
+    },
+    {
+      "tongan": "Niuatoputapu",
+      "english": "Niuatoputapu",
+      "min_chapter": 28
+    },
+    {
+      "tongan": "lani",
+      "english": "sky",
+      "min_chapter": 28
+    }
+  ],
+  "time_phrases": [
+    {
+      "tongan": "ʻaneafi",
+      "english": "yesterday",
+      "min_chapter": 4,
+      "tags": [
+        "past"
+      ]
+    },
+    {
+      "tongan": "ʻanepō",
+      "english": "last night",
+      "min_chapter": 4,
+      "tags": [
+        "past"
+      ]
+    },
+    {
+      "tongan": "ʻanenai",
+      "english": "a while ago",
+      "min_chapter": 4,
+      "tags": [
+        "past"
+      ]
+    },
+    {
+      "tongan": "ʻapongipongi",
+      "english": "tomorrow",
+      "min_chapter": 4,
+      "tags": [
+        "future"
+      ]
+    },
+    {
+      "tongan": "ʻapō",
+      "english": "tonight",
+      "min_chapter": 4,
+      "tags": [
+        "future"
+      ]
+    },
+    {
+      "tongan": "ʻanai",
+      "english": "in a while",
+      "min_chapter": 4,
+      "tags": [
+        "future"
+      ]
+    },
+    {
+      "tongan": "ʻaho ni",
+      "english": "today",
+      "min_chapter": 4,
+      "tags": [
+        "any"
+      ]
+    }
+  ],
+  "companions": [
+    {
+      "tongan": "Sione",
+      "english": "John",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "Mele",
+      "english": "Mary",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "Pita",
+      "english": "Peter",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "Tēvita",
+      "english": "David",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "Ana",
+      "english": "Ana",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "ʻOfa",
+      "english": "ʻOfa",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "Seini",
+      "english": "Seini",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "Sēmisi",
+      "english": "Sēmisi",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "Lupe",
+      "english": "Lupe",
+      "min_chapter": 10
+    }
+  ],
+  "question_words": [
+    {
+      "tongan": "ʻi fē",
+      "english": "where (at)",
+      "min_chapter": 6
+    },
+    {
+      "tongan": "ki fē",
+      "english": "where (to)",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "mei fē",
+      "english": "where (from)",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "ʻanefē",
+      "english": "when (past)",
+      "min_chapter": 11
+    },
+    {
+      "tongan": "ʻafē",
+      "english": "when (future)",
+      "min_chapter": 11
+    },
+    {
+      "tongan": "fēfē",
+      "english": "how",
+      "min_chapter": 11
+    }
+  ],
+  "demonstratives": [
+    {
+      "tongan": "ʻeni",
+      "english": "this (near me)",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "ʻena",
+      "english": "that (near you)",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "ē",
+      "english": "that (over there)",
+      "min_chapter": 12
+    }
+  ],
+  "ko_nouns": [
+    {
+      "tongan": "tohi",
+      "english": "book",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "fala",
+      "english": "mat",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "hele",
+      "english": "knife",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "kato",
+      "english": "basket",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "vaka",
+      "english": "boat",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "sea",
+      "english": "chair",
+      "min_chapter": 12
+    },
+    {
+      "tongan": "faiako",
+      "english": "teacher",
+      "min_chapter": 12
+    }
+  ],
+  "experiencer_verbs": [
+    {
+      "tongan": "mahino",
+      "english": "be understandable (= I understand)",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "ngalo",
+      "english": "be forgotten (= I forgot)",
+      "min_chapter": 7
+    }
+  ],
+  "weather_verbs": [
+    {
+      "tongan": "ʻuha",
+      "english": "rain",
+      "min_chapter": 9
+    },
+    {
+      "tongan": "matangi",
+      "english": "be windy",
+      "min_chapter": 9
+    },
+    {
+      "tongan": "momoko",
+      "english": "be cold",
+      "min_chapter": 9
+    },
+    {
+      "tongan": "lāʻā",
+      "english": "be sunny",
+      "min_chapter": 15
+    },
+    {
+      "tongan": "vela",
+      "english": "be hot",
+      "min_chapter": 15
+    },
+    {
+      "tongan": "ʻafua",
+      "english": "fine weather",
+      "min_chapter": 15
+    }
+  ],
+  "transport_modes": [
+    {
+      "tongan": "vakapuna",
+      "english": "by plane",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "vaka",
+      "english": "by boat",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "pasī",
+      "english": "by bus",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "loli",
+      "english": "by truck",
+      "min_chapter": 7
+    },
+    {
+      "tongan": "pasikala",
+      "english": "by bicycle",
+      "min_chapter": 7
+    }
+  ],
+  "postposed_pronouns": [
+    {
+      "tongan": "au",
+      "english": "I (emphatic)",
+      "min_chapter": 5,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "koe",
+      "english": "you (emphatic)",
+      "min_chapter": 5,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "ia",
+      "english": "he/she (emphatic)",
+      "min_chapter": 5,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "kitaua",
+      "english": "us two incl. (emphatic)",
+      "min_chapter": 5,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "kimaua",
+      "english": "us two excl. (emphatic)",
+      "min_chapter": 5,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "kimoua",
+      "english": "you two (emphatic)",
+      "min_chapter": 5,
+      "person": 2,
+      "number": "dual"
+    },
+    {
+      "tongan": "kinaua",
+      "english": "them two (emphatic)",
+      "min_chapter": 5,
+      "person": 3,
+      "number": "dual"
+    },
+    {
+      "tongan": "kitautolu",
+      "english": "us all incl. (emphatic)",
+      "min_chapter": 5,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "kimautolu",
+      "english": "us all excl. (emphatic)",
+      "min_chapter": 5,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "kimoutolu",
+      "english": "you all (emphatic)",
+      "min_chapter": 5,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "kinautolu",
+      "english": "them all (emphatic)",
+      "min_chapter": 5,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "noun_subject_names": [
+    {
+      "tongan": "Sione",
+      "english": "John",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Mele",
+      "english": "Mary",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Pita",
+      "english": "Peter",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Tēvita",
+      "english": "David",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Ana",
+      "english": "Ana",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Seini",
+      "english": "Seini",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Sēmisi",
+      "english": "Sēmisi",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Lupe",
+      "english": "Lupe",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Kepu",
+      "english": "Kepu",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Siale",
+      "english": "Siale",
+      "min_chapter": 13
+    },
+    {
+      "tongan": "Lātū",
+      "english": "Lātū",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "Taniela",
+      "english": "Daniel",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "Siaosi",
+      "english": "George",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "Lisiate",
+      "english": "Lisiate",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "e tamasiʻi",
+      "english": "the boy",
+      "min_chapter": 15
+    },
+    {
+      "tongan": "e fefine",
+      "english": "the woman",
+      "min_chapter": 15
+    },
+    {
+      "tongan": "e tangata",
+      "english": "the man",
+      "min_chapter": 15
+    },
+    {
+      "tongan": "e faiako",
+      "english": "the teacher",
+      "min_chapter": 15
+    }
+  ],
+  "suggestion_pronouns": [
+    {
+      "tongan": "Tau",
+      "english": "let's (all of us)",
+      "min_chapter": 2
+    },
+    {
+      "tongan": "Ta",
+      "english": "let's (us two)",
+      "min_chapter": 2
+    }
+  ],
+  "polite_particles": [
+    {
+      "tongan": "muʻa",
+      "english": "please",
+      "min_chapter": 5
+    }
+  ],
+  "postposed_pronouns_singular_command": [
+    {
+      "tongan": "koe",
+      "english": "you (emphatic)",
+      "min_chapter": 5,
+      "person": 2,
+      "number": "singular"
+    }
+  ],
+  "noun_subject_phrases_with_focus": [
+    { "tongan": "ʻa Sione", "english": "Sione", "min_chapter": 13 },
+    { "tongan": "ʻa Mele", "english": "Mele", "min_chapter": 13 },
+    { "tongan": "ʻa Pita", "english": "Pita", "min_chapter": 13 },
+    { "tongan": "ʻa Tēvita", "english": "Tēvita", "min_chapter": 13 },
+    { "tongan": "ʻa Ana", "english": "Ana", "min_chapter": 13 },
+    { "tongan": "ʻa Sēmisi", "english": "Sēmisi", "min_chapter": 13 },
+    { "tongan": "ʻa Lupe", "english": "Lupe", "min_chapter": 13 }
+  ],
+  "command_verbs_singular": [
+    {
+      "tongan": "Kai",
+      "english": "Eat",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "Inu",
+      "english": "Drink",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "Mohe",
+      "english": "Sleep",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "ʻAlu",
+      "english": "Go",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ]
+    },
+    {
+      "tongan": "Haʻu",
+      "english": "Come",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ]
+    },
+    {
+      "tongan": "Nofo",
+      "english": "Stay",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "Lea",
+      "english": "Speak",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "Hiva",
+      "english": "Sing",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "Hopo",
+      "english": "Jump",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "Lau",
+      "english": "Read",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "Tohi",
+      "english": "Write",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    }
+  ],
+  "command_verbs_plural": [
+    {
+      "tongan": "kai",
+      "english": "eat",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "inu",
+      "english": "drink",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "mohe",
+      "english": "sleep",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "nofo",
+      "english": "stay",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "lea",
+      "english": "speak",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "hiva",
+      "english": "sing",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "ō",
+      "english": "go (plural form of ʻalu)",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "ō mai",
+      "english": "come (plural form of haʻu)",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "hopo",
+      "english": "jump",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "lau",
+      "english": "read",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "tohi",
+      "english": "write",
+      "min_chapter": 10
+    }
+  ],
+  "prohibition_verbs": [
+    {
+      "tongan": "kai",
+      "english": "eat",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "inu",
+      "english": "drink",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "mohe",
+      "english": "sleep",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "ʻalu",
+      "english": "go",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ]
+    },
+    {
+      "tongan": "haʻu",
+      "english": "come",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive",
+        "motion"
+      ]
+    },
+    {
+      "tongan": "nofo",
+      "english": "stay",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "lea",
+      "english": "speak",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "hiva",
+      "english": "sing",
+      "min_chapter": 5,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "hopo",
+      "english": "jump",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "intransitive"
+      ]
+    },
+    {
+      "tongan": "lau",
+      "english": "read",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "tohi",
+      "english": "write",
+      "min_chapter": 10,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    }
+  ],
+  "tense_markers_experiencer": [
+    {
+      "tongan": "ʻOku",
+      "english": "present",
+      "min_chapter": 7,
+      "tags": [
+        "present"
+      ]
+    },
+    {
+      "tongan": "Naʻe",
+      "english": "past",
+      "min_chapter": 7,
+      "tags": [
+        "past"
+      ]
+    }
+  ],
+  "tense_markers_negation": [
+    {
+      "tongan": "ʻOku",
+      "english": "present",
+      "min_chapter": 9,
+      "tags": [
+        "present"
+      ]
+    },
+    {
+      "tongan": "Naʻe",
+      "english": "past",
+      "min_chapter": 9,
+      "tags": [
+        "past",
+        "negation"
+      ]
+    },
+    {
+      "tongan": "ʻE",
+      "english": "future",
+      "min_chapter": 9,
+      "tags": [
+        "future",
+        "negation"
+      ]
+    }
+  ],
+  "tense_markers_noun_subject": [
+    {
+      "tongan": "ʻOku",
+      "english": "present",
+      "min_chapter": 2,
+      "tags": [
+        "present"
+      ]
+    },
+    {
+      "tongan": "Naʻe",
+      "english": "past",
+      "min_chapter": 2,
+      "tags": [
+        "past",
+        "noun_subject"
+      ]
+    },
+    {
+      "tongan": "ʻE",
+      "english": "future",
+      "min_chapter": 9,
+      "tags": [
+        "future",
+        "noun_subject"
+      ]
+    },
+    {
+      "tongan": "Kuo",
+      "english": "perfect (has done)",
+      "min_chapter": 2,
+      "tags": [
+        "perfect"
+      ]
+    }
+  ],
+  "prohibition_pronouns": [
+    {
+      "tongan": "ke",
+      "english": "you (one person)",
+      "min_chapter": 5
+    },
+    {
+      "tongan": "mo",
+      "english": "you (two)",
+      "min_chapter": 10
+    },
+    {
+      "tongan": "mou",
+      "english": "you (all)",
+      "min_chapter": 5
+    }
+  ],
+  "predicate_nouns": [
+    {
+      "tongan": "faiako",
+      "english": "teacher",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "tōketā",
+      "english": "doctor",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "tangata faama",
+      "english": "farmer",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "tangata ngāue",
+      "english": "worker",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "tamasiʻi",
+      "english": "boy",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "taʻahine",
+      "english": "girl",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "tamasiʻi poto",
+      "english": "smart boy",
+      "min_chapter": 16
+    },
+    {
+      "tongan": "taʻahine mālohi",
+      "english": "strong girl",
+      "min_chapter": 16
+    }
+  ],
+  "possessives_e": [
+    {
+      "tongan": "ʻeku",
+      "english": "my",
+      "min_chapter": 17,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "hoʻo",
+      "english": "your (sg.)",
+      "min_chapter": 17,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻene",
+      "english": "his/her",
+      "min_chapter": 17,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻetau",
+      "english": "our (incl.)",
+      "min_chapter": 17,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻemau",
+      "english": "our (excl.)",
+      "min_chapter": 17,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "hoʻomou",
+      "english": "your (pl.)",
+      "min_chapter": 17,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻenau",
+      "english": "their",
+      "min_chapter": 17,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "possessives_ho": [
+    {
+      "tongan": "hoku",
+      "english": "my",
+      "min_chapter": 17,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "ho",
+      "english": "your (sg.)",
+      "min_chapter": 17,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "hono",
+      "english": "his/her",
+      "min_chapter": 17,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "hotau",
+      "english": "our (incl.)",
+      "min_chapter": 17,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "homau",
+      "english": "our (excl.)",
+      "min_chapter": 17,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "homou",
+      "english": "your (pl.)",
+      "min_chapter": 17,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "honau",
+      "english": "their",
+      "min_chapter": 17,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "e_class_nouns": [
+    {
+      "tongan": "hele",
+      "english": "knife",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "tohi",
+      "english": "book",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "kato",
+      "english": "basket",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "talo",
+      "english": "taro",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "moa",
+      "english": "chicken",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "ngāue",
+      "english": "work",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "paʻanga",
+      "english": "money",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "meʻakai",
+      "english": "food",
+      "min_chapter": 17
+    }
+  ],
+  "ho_class_nouns": [
+    {
+      "tongan": "fale",
+      "english": "house",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "hingoa",
+      "english": "name",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "kofu",
+      "english": "clothes",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "nima",
+      "english": "hand",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "fonua",
+      "english": "country",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "tatā",
+      "english": "hat",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "loki",
+      "english": "room",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "ʻapi",
+      "english": "home",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "vaka",
+      "english": "boat",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "tokoua",
+      "english": "sibling",
+      "min_chapter": 17
+    }
+  ],
+  "verbal_nouns": [
+    {
+      "tongan": "ʻalu",
+      "english": "going",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "ako",
+      "english": "studying",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "ngāue",
+      "english": "working",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "haka",
+      "english": "dancing",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "kai",
+      "english": "eating",
+      "min_chapter": 17
+    },
+    {
+      "tongan": "hiva",
+      "english": "singing",
+      "min_chapter": 17
+    }
+  ],
+  "poss_preps": [
+    {
+      "tongan": "ʻa",
+      "english": "of (ʻe-class)",
+      "min_chapter": 17,
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "ʻo",
+      "english": "of (ho-class)",
+      "min_chapter": 17,
+      "tags": [
+        "ho_class"
+      ]
+    }
+  ],
+  "verbs_transitive_full": [
+    {
+      "tongan": "kai",
+      "english": "eat",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "inu",
+      "english": "drink",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "lau",
+      "english": "read",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "tohi",
+      "english": "write",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "fai",
+      "english": "do/make",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "ʻave",
+      "english": "take",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "kumi",
+      "english": "search for",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "fufulu",
+      "english": "wash",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "kuki",
+      "english": "cook",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "tokoni",
+      "english": "help",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "ui",
+      "english": "call",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "manatuʻi",
+      "english": "remember",
+      "min_chapter": 19,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "kole",
+      "english": "ask/request",
+      "min_chapter": 26,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "tānaki",
+      "english": "collect",
+      "min_chapter": 26,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "langa",
+      "english": "build",
+      "min_chapter": 26,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    },
+    {
+      "tongan": "fili",
+      "english": "choose",
+      "min_chapter": 29,
+      "tags": [
+        "action",
+        "transitive"
+      ]
+    }
+  ],
+  "transitive_objects": [
+    {
+      "tongan": "Mele",
+      "english": "Mary",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Seini",
+      "english": "Seini",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Kepu",
+      "english": "Kepu",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Siale",
+      "english": "Siale",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "e tohí",
+      "english": "the book",
+      "min_chapter": 19,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e mā",
+      "english": "the bread",
+      "min_chapter": 19,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e iká",
+      "english": "the fish",
+      "min_chapter": 19,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e vaí",
+      "english": "the water",
+      "min_chapter": 19,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e ngāué",
+      "english": "the work",
+      "min_chapter": 19,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e valá",
+      "english": "the clothes",
+      "min_chapter": 19,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e moá",
+      "english": "the chicken",
+      "min_chapter": 19,
+      "tags": [
+        "definite"
+      ]
+    },
+    {
+      "tongan": "e foʻi niú",
+      "english": "the coconut",
+      "min_chapter": 36,
+      "tags": [
+        "definite"
+      ]
+    }
+  ],
+  "agent_names": [
+    {
+      "tongan": "Sione",
+      "english": "John",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Mele",
+      "english": "Mary",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Pita",
+      "english": "Peter",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Tēvita",
+      "english": "David",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Taniela",
+      "english": "Daniel",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Sēmisi",
+      "english": "Semisi",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Ana",
+      "english": "Ana",
+      "min_chapter": 19,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "he faiakó",
+      "english": "the teacher",
+      "min_chapter": 19,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "he tamasiʻí",
+      "english": "the boy",
+      "min_chapter": 19,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "he fefiné",
+      "english": "the woman",
+      "min_chapter": 19,
+      "tags": [
+        "common"
+      ]
+    }
+  ],
+  "cardinal_numbers": [
+    {
+      "tongan": "taha",
+      "english": "one",
+      "min_chapter": 20,
+      "value": 1
+    },
+    {
+      "tongan": "ua",
+      "english": "two",
+      "min_chapter": 20,
+      "value": 2
+    },
+    {
+      "tongan": "tolu",
+      "english": "three",
+      "min_chapter": 20,
+      "value": 3
+    },
+    {
+      "tongan": "fā",
+      "english": "four",
+      "min_chapter": 20,
+      "value": 4
+    },
+    {
+      "tongan": "nima",
+      "english": "five",
+      "min_chapter": 20,
+      "value": 5
+    },
+    {
+      "tongan": "ono",
+      "english": "six",
+      "min_chapter": 20,
+      "value": 6
+    },
+    {
+      "tongan": "fitu",
+      "english": "seven",
+      "min_chapter": 20,
+      "value": 7
+    },
+    {
+      "tongan": "valu",
+      "english": "eight",
+      "min_chapter": 20,
+      "value": 8
+    },
+    {
+      "tongan": "hiva",
+      "english": "nine",
+      "min_chapter": 20,
+      "value": 9
+    },
+    {
+      "tongan": "hongofulu",
+      "english": "ten",
+      "min_chapter": 20,
+      "value": 10
+    }
+  ],
+  "countable_nouns": [
+    {
+      "tongan": "kato",
+      "english": "basket",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "tohi",
+      "english": "book",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "fala",
+      "english": "mat",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "hele",
+      "english": "knife",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "paʻanga",
+      "english": "dollar",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "seniti",
+      "english": "cent",
+      "min_chapter": 20
+    }
+  ],
+  "price_nouns": [
+    {
+      "tongan": "iká",
+      "english": "fish",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "kató",
+      "english": "basket",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "tohí",
+      "english": "book",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "falá",
+      "english": "mat",
+      "min_chapter": 20
+    },
+    {
+      "tongan": "sotē",
+      "english": "shirt",
+      "min_chapter": 20
+    }
+  ],
+  "hours": [
+    {
+      "tongan": "tahá",
+      "english": "one",
+      "min_chapter": 20,
+      "value": 1
+    },
+    {
+      "tongan": "uá",
+      "english": "two",
+      "min_chapter": 20,
+      "value": 2
+    },
+    {
+      "tongan": "tolú",
+      "english": "three",
+      "min_chapter": 20,
+      "value": 3
+    },
+    {
+      "tongan": "fā",
+      "english": "four",
+      "min_chapter": 20,
+      "value": 4
+    },
+    {
+      "tongan": "nimá",
+      "english": "five",
+      "min_chapter": 20,
+      "value": 5
+    },
+    {
+      "tongan": "onó",
+      "english": "six",
+      "min_chapter": 20,
+      "value": 6
+    },
+    {
+      "tongan": "fitú",
+      "english": "seven",
+      "min_chapter": 20,
+      "value": 7
+    },
+    {
+      "tongan": "valú",
+      "english": "eight",
+      "min_chapter": 20,
+      "value": 8
+    },
+    {
+      "tongan": "hivá",
+      "english": "nine",
+      "min_chapter": 20,
+      "value": 9
+    },
+    {
+      "tongan": "hongofulu",
+      "english": "ten",
+      "min_chapter": 20,
+      "value": 10
+    },
+    {
+      "tongan": "hongofulu mā tahá",
+      "english": "eleven",
+      "min_chapter": 20,
+      "value": 11
+    },
+    {
+      "tongan": "hongofulu mā uá",
+      "english": "twelve",
+      "min_chapter": 20,
+      "value": 12
+    }
+  ],
+  "auxiliaries": [
+    {
+      "tongan": "fie",
+      "english": "want to",
+      "min_chapter": 21,
+      "tags": [
+        "auxiliary"
+      ],
+      "complement": "verb"
+    },
+    {
+      "tongan": "lava ʻo",
+      "english": "can/able to",
+      "min_chapter": 21,
+      "tags": [
+        "auxiliary"
+      ],
+      "complement": "verb"
+    }
+  ],
+  "aspect_markers": [
+    {
+      "tongan": "kei",
+      "english": "still",
+      "min_chapter": 22,
+      "tags": [
+        "continuing"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "ʻosi",
+      "english": "already/finished",
+      "min_chapter": 22,
+      "tags": [
+        "completed"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "lolotonga",
+      "english": "currently/in progress",
+      "min_chapter": 22,
+      "tags": [
+        "progressive"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "toe",
+      "english": "again/more",
+      "min_chapter": 22,
+      "tags": [
+        "repetitive"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "toki",
+      "english": "just now/not until",
+      "min_chapter": 22,
+      "tags": [
+        "timing"
+      ],
+      "position": "before_verb"
+    }
+  ],
+  "modal_frames": [
+    {
+      "tongan": "ʻOku totonu",
+      "english": "should/ought to",
+      "min_chapter": 23,
+      "tags": [
+        "obligation"
+      ]
+    },
+    {
+      "tongan": "Kuo pau",
+      "english": "must/certainly",
+      "min_chapter": 23,
+      "tags": [
+        "necessity"
+      ]
+    }
+  ],
+  "modal_pronouns": [
+    {
+      "tongan": "u",
+      "english": "I",
+      "min_chapter": 23,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "ke",
+      "english": "you (sg.)",
+      "min_chapter": 23,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "ne",
+      "english": "he/she",
+      "min_chapter": 23,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "ta",
+      "english": "we two (incl.)",
+      "min_chapter": 23,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "ma",
+      "english": "we two (excl.)",
+      "min_chapter": 23,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "mo",
+      "english": "you two",
+      "min_chapter": 23,
+      "person": 2,
+      "number": "dual"
+    },
+    {
+      "tongan": "na",
+      "english": "they two",
+      "min_chapter": 23,
+      "person": 3,
+      "number": "dual"
+    },
+    {
+      "tongan": "tau",
+      "english": "we all (incl.)",
+      "min_chapter": 23,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "mau",
+      "english": "we (excl.)",
+      "min_chapter": 23,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "mou",
+      "english": "you all",
+      "min_chapter": 23,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "nau",
+      "english": "they",
+      "min_chapter": 23,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "plural_markers": [
+    {
+      "tongan": "ngaahi",
+      "english": "plural (general)",
+      "min_chapter": 25,
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "tongan": "kau",
+      "english": "plural (people)",
+      "min_chapter": 25,
+      "tags": [
+        "people"
+      ]
+    },
+    {
+      "tongan": "fanga",
+      "english": "plural (animals)",
+      "min_chapter": 25,
+      "tags": [
+        "animals"
+      ]
+    },
+    {
+      "tongan": "ʻū",
+      "english": "plural (things, small number)",
+      "min_chapter": 25,
+      "tags": [
+        "things"
+      ]
+    },
+    {
+      "tongan": "ongo",
+      "english": "dual (exactly two)",
+      "min_chapter": 25,
+      "tags": [
+        "dual"
+      ]
+    }
+  ],
+  "benefactive_pronouns": [
+    {
+      "tongan": "maʻaku",
+      "english": "for me (ʻe-class)",
+      "min_chapter": 26,
+      "person": 1,
+      "number": "singular",
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "maʻau",
+      "english": "for you sg. (ʻe-class)",
+      "min_chapter": 26,
+      "person": 2,
+      "number": "singular",
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "maʻana",
+      "english": "for him/her (ʻe-class)",
+      "min_chapter": 26,
+      "person": 3,
+      "number": "singular",
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "maʻatau",
+      "english": "for us incl. (ʻe-class)",
+      "min_chapter": 26,
+      "person": 1,
+      "number": "plural",
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "maʻamau",
+      "english": "for us excl. (ʻe-class)",
+      "min_chapter": 26,
+      "person": 1,
+      "number": "plural",
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "maʻamou",
+      "english": "for you pl. (ʻe-class)",
+      "min_chapter": 26,
+      "person": 2,
+      "number": "plural",
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "maʻanau",
+      "english": "for them (ʻe-class)",
+      "min_chapter": 26,
+      "person": 3,
+      "number": "plural",
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "moʻoku",
+      "english": "for me (ho-class)",
+      "min_chapter": 26,
+      "person": 1,
+      "number": "singular",
+      "tags": [
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "moʻou",
+      "english": "for you sg. (ho-class)",
+      "min_chapter": 26,
+      "person": 2,
+      "number": "singular",
+      "tags": [
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "moʻona",
+      "english": "for him/her (ho-class)",
+      "min_chapter": 26,
+      "person": 3,
+      "number": "singular",
+      "tags": [
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "moʻotau",
+      "english": "for us incl. (ho-class)",
+      "min_chapter": 26,
+      "person": 1,
+      "number": "plural",
+      "tags": [
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "moʻomau",
+      "english": "for us excl. (ho-class)",
+      "min_chapter": 26,
+      "person": 1,
+      "number": "plural",
+      "tags": [
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "moʻomou",
+      "english": "for you pl. (ho-class)",
+      "min_chapter": 26,
+      "person": 2,
+      "number": "plural",
+      "tags": [
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "moʻonau",
+      "english": "for them (ho-class)",
+      "min_chapter": 26,
+      "person": 3,
+      "number": "plural",
+      "tags": [
+        "ho_class"
+      ]
+    }
+  ],
+  "comparison_adjectives": [
+    {
+      "tongan": "lahi",
+      "english": "big",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "siʻisiʻi",
+      "english": "small",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "lelei",
+      "english": "good",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "sai",
+      "english": "good/well",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "mālohi",
+      "english": "strong",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "vave",
+      "english": "fast",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "poto",
+      "english": "smart",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "kovi",
+      "english": "bad",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "lōloa",
+      "english": "tall/long",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "talavou",
+      "english": "handsome/good-looking",
+      "min_chapter": 27,
+      "tags": [
+        "adjective"
+      ]
+    }
+  ],
+  "comparison_subjects": [
+    {
+      "tongan": "Tēvita",
+      "english": "Tēvita",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Sione",
+      "english": "Sione",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Mele",
+      "english": "Mele",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Sēmisi",
+      "english": "Sēmisi",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Lōpeti",
+      "english": "Lōpeti",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Siaosi",
+      "english": "Siaosi",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Peni",
+      "english": "Peni",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "e vaká",
+      "english": "the boat",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e lolí",
+      "english": "the truck",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e falé ni",
+      "english": "this house",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e vakapuná",
+      "english": "the airplane",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e kau tamaikí",
+      "english": "the children",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    }
+  ],
+  "comparison_noun_phrases": [
+    {
+      "tongan": "Sēmisi",
+      "english": "Sēmisi",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Tēvita",
+      "english": "Tēvita",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Sione",
+      "english": "Sione",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Mele",
+      "english": "Mele",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Siaosi",
+      "english": "Siaosi",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Simi",
+      "english": "Simi",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Peni",
+      "english": "Peni",
+      "min_chapter": 27,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "he pasikalá",
+      "english": "the bicycle",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "he fale ko iá",
+      "english": "that house",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "he vaká",
+      "english": "the boat",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "he faiakó",
+      "english": "the teacher",
+      "min_chapter": 27,
+      "tags": [
+        "common"
+      ]
+    }
+  ],
+  "directionals": [
+    {
+      "tongan": "mai",
+      "english": "toward speaker (hither)",
+      "min_chapter": 28,
+      "tags": [
+        "person",
+        "1st"
+      ]
+    },
+    {
+      "tongan": "atu",
+      "english": "away from speaker (thither)",
+      "min_chapter": 28,
+      "tags": [
+        "person",
+        "2nd"
+      ]
+    },
+    {
+      "tongan": "ange",
+      "english": "toward third person",
+      "min_chapter": 28,
+      "tags": [
+        "person",
+        "3rd"
+      ]
+    },
+    {
+      "tongan": "hake",
+      "english": "upward",
+      "min_chapter": 28,
+      "tags": [
+        "spatial",
+        "up"
+      ]
+    },
+    {
+      "tongan": "hifo",
+      "english": "downward",
+      "min_chapter": 28,
+      "tags": [
+        "spatial",
+        "down"
+      ]
+    },
+    {
+      "tongan": "holo",
+      "english": "around/about",
+      "min_chapter": 28,
+      "tags": [
+        "spatial",
+        "around"
+      ]
+    }
+  ],
+  "indefinite_possessives_e": [
+    {
+      "tongan": "haʻaku",
+      "english": "my (indef.)",
+      "min_chapter": 29,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "haʻo",
+      "english": "your sg. (indef.)",
+      "min_chapter": 29,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "haʻane",
+      "english": "his/her (indef.)",
+      "min_chapter": 29,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "haʻatau",
+      "english": "our incl. (indef.)",
+      "min_chapter": 29,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "haʻamau",
+      "english": "our excl. (indef.)",
+      "min_chapter": 29,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "haʻamou",
+      "english": "your pl. (indef.)",
+      "min_chapter": 29,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "haʻanau",
+      "english": "their (indef.)",
+      "min_chapter": 29,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "indefinite_possessives_ho": [
+    {
+      "tongan": "haku",
+      "english": "my (indef.)",
+      "min_chapter": 29,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "hao",
+      "english": "your sg. (indef.)",
+      "min_chapter": 29,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "hano",
+      "english": "his/her (indef.)",
+      "min_chapter": 29,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "hatau",
+      "english": "our incl. (indef.)",
+      "min_chapter": 29,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "hamau",
+      "english": "our excl. (indef.)",
+      "min_chapter": 29,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "hamou",
+      "english": "your pl. (indef.)",
+      "min_chapter": 29,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "hanau",
+      "english": "their (indef.)",
+      "min_chapter": 29,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "existential_nouns": [
+    {
+      "tongan": "tangata",
+      "english": "man",
+      "min_chapter": 31,
+      "tags": [
+        "person"
+      ]
+    },
+    {
+      "tongan": "taha",
+      "english": "someone",
+      "min_chapter": 31,
+      "tags": [
+        "person"
+      ]
+    },
+    {
+      "tongan": "faiako",
+      "english": "teacher",
+      "min_chapter": 31,
+      "tags": [
+        "person"
+      ]
+    },
+    {
+      "tongan": "meʻakai",
+      "english": "food",
+      "min_chapter": 31,
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "vaka",
+      "english": "boat",
+      "min_chapter": 31,
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "vai",
+      "english": "water",
+      "min_chapter": 31,
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "foʻi moli",
+      "english": "an orange",
+      "min_chapter": 31,
+      "tags": [
+        "thing",
+        "classifier"
+      ]
+    },
+    {
+      "tongan": "foʻi mā",
+      "english": "a loaf of bread",
+      "min_chapter": 31,
+      "tags": [
+        "thing",
+        "classifier"
+      ]
+    },
+    {
+      "tongan": "foʻi moa",
+      "english": "an egg",
+      "min_chapter": 31,
+      "tags": [
+        "thing",
+        "classifier"
+      ]
+    },
+    {
+      "tongan": "foʻi niu",
+      "english": "a coconut",
+      "min_chapter": 31,
+      "tags": [
+        "thing",
+        "classifier"
+      ]
+    },
+    {
+      "tongan": "foʻi siaine",
+      "english": "a banana",
+      "min_chapter": 31,
+      "tags": [
+        "thing",
+        "classifier"
+      ]
+    },
+    {
+      "tongan": "foʻi maka",
+      "english": "a stone",
+      "min_chapter": 31,
+      "tags": [
+        "thing",
+        "classifier"
+      ]
+    },
+    {
+      "tongan": "kātoanga",
+      "english": "celebration",
+      "min_chapter": 31,
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "tohi",
+      "english": "book",
+      "min_chapter": 31,
+      "tags": [
+        "thing"
+      ]
+    }
+  ],
+  "existential_prepositions": [
+    {
+      "tongan": "ʻi",
+      "english": "in/at",
+      "min_chapter": 31
+    },
+    {
+      "tongan": "ʻi he",
+      "english": "in the",
+      "min_chapter": 31
+    }
+  ],
+  "existential_locations": [
+    {
+      "tongan": "fale",
+      "english": "house",
+      "min_chapter": 31
+    },
+    {
+      "tongan": "heni",
+      "english": "here",
+      "min_chapter": 31
+    },
+    {
+      "tongan": "tahi",
+      "english": "sea",
+      "min_chapter": 31
+    },
+    {
+      "tongan": "kolo",
+      "english": "town",
+      "min_chapter": 31
+    },
+    {
+      "tongan": "kato",
+      "english": "basket",
+      "min_chapter": 31
+    },
+    {
+      "tongan": "fale ako",
+      "english": "school",
+      "min_chapter": 31
+    },
+    {
+      "tongan": "fale lotu",
+      "english": "church",
+      "min_chapter": 31
+    }
+  ],
+  "faka_verbs_causative": [
+    {
+      "tongan": "fakamohe",
+      "english": "put to sleep",
+      "min_chapter": 32,
+      "tags": [
+        "action",
+        "transitive",
+        "causative"
+      ],
+      "base": "mohe"
+    },
+    {
+      "tongan": "fakalelei",
+      "english": "mend/repair",
+      "min_chapter": 32,
+      "tags": [
+        "action",
+        "transitive",
+        "causative"
+      ],
+      "base": "lelei"
+    },
+    {
+      "tongan": "fakatotonu",
+      "english": "straighten",
+      "min_chapter": 32,
+      "tags": [
+        "action",
+        "transitive",
+        "causative"
+      ],
+      "base": "totonu"
+    },
+    {
+      "tongan": "fakafoʻou",
+      "english": "restore/make new",
+      "min_chapter": 32,
+      "tags": [
+        "action",
+        "transitive",
+        "causative"
+      ],
+      "base": "foʻou"
+    },
+    {
+      "tongan": "fakafoki",
+      "english": "send back/return something",
+      "min_chapter": 32,
+      "tags": [
+        "action",
+        "transitive",
+        "causative"
+      ],
+      "base": "foki"
+    }
+  ],
+  "faka_verbs_reflexive": [
+    {
+      "tongan": "fakataha",
+      "english": "assemble/gather",
+      "min_chapter": 32,
+      "tags": [
+        "action",
+        "intransitive",
+        "causative_reflexive"
+      ],
+      "base": "taha"
+    },
+    {
+      "tongan": "fakamamaʻo",
+      "english": "depart/move away",
+      "min_chapter": 32,
+      "tags": [
+        "action",
+        "intransitive",
+        "causative_reflexive"
+      ],
+      "base": "mamaʻo"
+    }
+  ],
+  "faka_adverbs_manner": [
+    {
+      "tongan": "faka-Tonga",
+      "english": "Tongan / in the Tongan way",
+      "min_chapter": 32,
+      "tags": [
+        "manner"
+      ]
+    },
+    {
+      "tongan": "faka-Pālangi",
+      "english": "in the European way",
+      "min_chapter": 32,
+      "tags": [
+        "manner"
+      ]
+    },
+    {
+      "tongan": "fakatuʻi",
+      "english": "kingly/royal",
+      "min_chapter": 32,
+      "tags": [
+        "manner"
+      ]
+    },
+    {
+      "tongan": "fakaako",
+      "english": "educational",
+      "min_chapter": 32,
+      "tags": [
+        "manner"
+      ]
+    }
+  ],
+  "faka_adverbs_temporal": [
+    {
+      "tongan": "fakaʻaho",
+      "english": "daily",
+      "min_chapter": 32,
+      "tags": [
+        "temporal"
+      ],
+      "base": "ʻaho"
+    },
+    {
+      "tongan": "fakauike",
+      "english": "weekly",
+      "min_chapter": 32,
+      "tags": [
+        "temporal"
+      ],
+      "base": "uike"
+    },
+    {
+      "tongan": "fakataʻu",
+      "english": "yearly",
+      "min_chapter": 32,
+      "tags": [
+        "temporal"
+      ],
+      "base": "taʻu"
+    }
+  ],
+  "transitive_i_verbs": [
+    {
+      "tongan": "tokoniʻi",
+      "english": "help (someone directly)",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_i"
+      ],
+      "base": "tokoni"
+    },
+    {
+      "tongan": "puleʻi",
+      "english": "manage/govern",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_i"
+      ],
+      "base": "pule"
+    },
+    {
+      "tongan": "koleʻi",
+      "english": "ask for (something specific)",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_i"
+      ],
+      "base": "kole"
+    },
+    {
+      "tongan": "tāʻi",
+      "english": "hit/strike (something)",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_i"
+      ],
+      "base": "tā"
+    },
+    {
+      "tongan": "maumauʻi",
+      "english": "break/waste (something)",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_i"
+      ],
+      "base": "maumau"
+    },
+    {
+      "tongan": "manatuʻi",
+      "english": "remember (factually)",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_i"
+      ],
+      "base": "manatu"
+    },
+    {
+      "tongan": "teuteuʻi",
+      "english": "decorate/prepare elaborately",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_i"
+      ],
+      "base": "teuteu"
+    },
+    {
+      "tongan": "tāpuniʻi",
+      "english": "close completely",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "executive_i"
+      ],
+      "base": "tāpuni"
+    },
+    {
+      "tongan": "vaheʻi",
+      "english": "divide up completely",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "executive_i"
+      ],
+      "base": "vahe"
+    },
+    {
+      "tongan": "ngāueʻaki",
+      "english": "use",
+      "min_chapter": 33,
+      "tags": [
+        "action",
+        "transitive",
+        "suffix_aki"
+      ],
+      "base": "ngāue"
+    }
+  ],
+  "reported_speech_verbs": [
+    {
+      "tongan": "pehē",
+      "english": "say/think",
+      "min_chapter": 34,
+      "tags": [
+        "action",
+        "speech"
+      ]
+    },
+    {
+      "tongan": "fanongo",
+      "english": "hear/listen",
+      "min_chapter": 34,
+      "tags": [
+        "action",
+        "perception"
+      ]
+    },
+    {
+      "tongan": "tui",
+      "english": "believe",
+      "min_chapter": 34,
+      "tags": [
+        "action",
+        "cognition"
+      ]
+    },
+    {
+      "tongan": "ʻilo",
+      "english": "know",
+      "min_chapter": 34,
+      "tags": [
+        "action",
+        "cognition"
+      ]
+    }
+  ],
+  "reported_speech_particles": [
+    {
+      "tongan": "tokua",
+      "english": "it is said / they say",
+      "min_chapter": 34,
+      "tags": [
+        "reportative"
+      ]
+    },
+    {
+      "tongan": "ko ia",
+      "english": "therefore / that is it",
+      "min_chapter": 34,
+      "tags": [
+        "inferential"
+      ]
+    },
+    {
+      "tongan": "tā",
+      "english": "so (discovery)",
+      "min_chapter": 34,
+      "tags": [
+        "interjection"
+      ]
+    }
+  ],
+  "attributive_adjectives_postposed": [
+    {
+      "tongan": "lahi",
+      "english": "big",
+      "min_chapter": 35,
+      "tags": [
+        "size"
+      ]
+    },
+    {
+      "tongan": "siʻi",
+      "english": "small",
+      "min_chapter": 35,
+      "tags": [
+        "size"
+      ]
+    },
+    {
+      "tongan": "foʻou",
+      "english": "new",
+      "min_chapter": 35,
+      "tags": [
+        "quality"
+      ]
+    },
+    {
+      "tongan": "kovi",
+      "english": "bad",
+      "min_chapter": 35,
+      "tags": [
+        "quality"
+      ]
+    },
+    {
+      "tongan": "masiva",
+      "english": "poor",
+      "min_chapter": 35,
+      "tags": [
+        "quality"
+      ]
+    },
+    {
+      "tongan": "mālohi",
+      "english": "strong",
+      "min_chapter": 35,
+      "tags": [
+        "quality"
+      ]
+    },
+    {
+      "tongan": "kehe",
+      "english": "different",
+      "min_chapter": 35,
+      "tags": [
+        "quality"
+      ]
+    }
+  ],
+  "attributive_adjectives_preposed": [
+    {
+      "tongan": "fuʻu",
+      "english": "big / really (intensifier) / tree (classifier)",
+      "min_chapter": 35,
+      "tags": [
+        "size",
+        "intensifier",
+        "classifier"
+      ]
+    },
+    {
+      "tongan": "kiʻi",
+      "english": "small/little",
+      "min_chapter": 35,
+      "tags": [
+        "size"
+      ]
+    },
+    {
+      "tongan": "ʻuluaki",
+      "english": "first",
+      "min_chapter": 35,
+      "tags": [
+        "ordinal"
+      ]
+    },
+    {
+      "tongan": "muʻaki",
+      "english": "first in time/former",
+      "min_chapter": 35,
+      "tags": [
+        "ordinal"
+      ]
+    },
+    {
+      "tongan": "toe",
+      "english": "other/additional",
+      "min_chapter": 35,
+      "tags": [
+        "quantity"
+      ]
+    }
+  ],
+  "colors": [
+    {
+      "tongan": "hinehina",
+      "english": "white",
+      "min_chapter": 35,
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "tongan": "ʻuliʻuli",
+      "english": "black",
+      "min_chapter": 35,
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "tongan": "kulokula",
+      "english": "red",
+      "min_chapter": 35,
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "tongan": "lanumata",
+      "english": "green",
+      "min_chapter": 35,
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "tongan": "engeenga",
+      "english": "yellow",
+      "min_chapter": 35,
+      "tags": [
+        "color"
+      ]
+    }
+  ],
+  "compound_adjectives": [
+    {
+      "tongan": "sino-mālohi",
+      "english": "strong-bodied",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "noun_adj"
+      ]
+    },
+    {
+      "tongan": "sino-vaivai",
+      "english": "weak-bodied",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "noun_adj"
+      ]
+    },
+    {
+      "tongan": "anga-lelei",
+      "english": "well-behaved",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "noun_adj"
+      ]
+    },
+    {
+      "tongan": "anga-kovi",
+      "english": "ill-behaved",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "noun_adj"
+      ]
+    },
+    {
+      "tongan": "faingofua",
+      "english": "easy",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "verb_adv"
+      ]
+    },
+    {
+      "tongan": "faingataʻa",
+      "english": "difficult",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "verb_adv"
+      ]
+    },
+    {
+      "tongan": "tuʻumālie",
+      "english": "prosperous",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "verb_adv"
+      ]
+    },
+    {
+      "tongan": "tuʻutāmaki",
+      "english": "unfortunate",
+      "min_chapter": 35,
+      "tags": [
+        "compound",
+        "verb_adv"
+      ]
+    }
+  ],
+  "loto_compounds": [
+    {
+      "tongan": "loto lelei",
+      "english": "agreeable/willing",
+      "min_chapter": 35,
+      "tags": [
+        "loto",
+        "compound"
+      ]
+    },
+    {
+      "tongan": "loto mamahi",
+      "english": "sad/upset",
+      "min_chapter": 35,
+      "tags": [
+        "loto",
+        "compound"
+      ]
+    },
+    {
+      "tongan": "loto toʻa",
+      "english": "courageous",
+      "min_chapter": 35,
+      "tags": [
+        "loto",
+        "compound"
+      ]
+    },
+    {
+      "tongan": "loto lahi",
+      "english": "brave/eager",
+      "min_chapter": 35,
+      "tags": [
+        "loto",
+        "compound"
+      ]
+    },
+    {
+      "tongan": "loto ʻofa",
+      "english": "kind/affectionate",
+      "min_chapter": 35,
+      "tags": [
+        "loto",
+        "compound"
+      ]
+    },
+    {
+      "tongan": "loto kovi",
+      "english": "malicious",
+      "min_chapter": 35,
+      "tags": [
+        "loto",
+        "compound"
+      ]
+    },
+    {
+      "tongan": "loto foʻi",
+      "english": "cowardly",
+      "min_chapter": 35,
+      "tags": [
+        "loto",
+        "compound"
+      ]
+    }
+  ],
+  "cleft_subjects": [
+    {
+      "tongan": "Sione",
+      "english": "Sione",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Mele",
+      "english": "Mele",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Pita",
+      "english": "Pita",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Tēvita",
+      "english": "Tēvita",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Ana",
+      "english": "Ana",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Sēmisi",
+      "english": "Sēmisi",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Seini",
+      "english": "Seini",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "Lupe",
+      "english": "Lupe",
+      "min_chapter": 36,
+      "tags": [
+        "proper"
+      ]
+    },
+    {
+      "tongan": "au",
+      "english": "I",
+      "min_chapter": 36,
+      "tags": [
+        "pronoun"
+      ]
+    },
+    {
+      "tongan": "kinautolu",
+      "english": "they",
+      "min_chapter": 36,
+      "tags": [
+        "pronoun"
+      ]
+    },
+    {
+      "tongan": "e fānau",
+      "english": "the children",
+      "min_chapter": 36,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e fefine",
+      "english": "the woman",
+      "min_chapter": 36,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e tangata",
+      "english": "the man",
+      "min_chapter": 36,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e tamasiʻi",
+      "english": "the boy",
+      "min_chapter": 36,
+      "tags": [
+        "common"
+      ]
+    },
+    {
+      "tongan": "e faiako",
+      "english": "the teacher",
+      "min_chapter": 36,
+      "tags": [
+        "common"
+      ]
+    }
+  ],
+  "tense_markers_cleft": [
+    {
+      "tongan": "naʻe",
+      "english": "past",
+      "min_chapter": 36,
+      "tags": [
+        "past"
+      ]
+    },
+    {
+      "tongan": "ʻoku",
+      "english": "present",
+      "min_chapter": 36,
+      "tags": [
+        "present"
+      ]
+    }
+  ],
+  "postposed_possessives_e": [
+    {
+      "tongan": "ʻaʻaku",
+      "english": "mine",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻaʻau",
+      "english": "yours (sg.)",
+      "min_chapter": 37,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻaʻana",
+      "english": "his/hers",
+      "min_chapter": 37,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻataua",
+      "english": "ours (dual incl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻamaua",
+      "english": "ours (dual excl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻamoua",
+      "english": "yours (dual)",
+      "min_chapter": 37,
+      "person": 2,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻanaua",
+      "english": "theirs (dual)",
+      "min_chapter": 37,
+      "person": 3,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻatautolu",
+      "english": "ours (pl. incl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻamautolu",
+      "english": "ours (pl. excl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻamoutolu",
+      "english": "yours (pl.)",
+      "min_chapter": 37,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻanautolu",
+      "english": "theirs (pl.)",
+      "min_chapter": 37,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "postposed_possessives_ho": [
+    {
+      "tongan": "ʻoʻoku",
+      "english": "mine",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻoʻou",
+      "english": "yours (sg.)",
+      "min_chapter": 37,
+      "person": 2,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻoʻona",
+      "english": "his/hers",
+      "min_chapter": 37,
+      "person": 3,
+      "number": "singular"
+    },
+    {
+      "tongan": "ʻotaua",
+      "english": "ours (dual incl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻomaua",
+      "english": "ours (dual excl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻomoua",
+      "english": "yours (dual)",
+      "min_chapter": 37,
+      "person": 2,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻonaua",
+      "english": "theirs (dual)",
+      "min_chapter": 37,
+      "person": 3,
+      "number": "dual"
+    },
+    {
+      "tongan": "ʻotautolu",
+      "english": "ours (pl. incl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻomautolu",
+      "english": "ours (pl. excl.)",
+      "min_chapter": 37,
+      "person": 1,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻomoutolu",
+      "english": "yours (pl.)",
+      "min_chapter": 37,
+      "person": 2,
+      "number": "plural"
+    },
+    {
+      "tongan": "ʻonautolu",
+      "english": "theirs (pl.)",
+      "min_chapter": 37,
+      "person": 3,
+      "number": "plural"
+    }
+  ],
+  "whose_questions": [
+    {
+      "tongan": "ʻa hai",
+      "english": "whose? (ʻe-class)",
+      "min_chapter": 37,
+      "tags": [
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "ʻo hai",
+      "english": "whose? (ho-class)",
+      "min_chapter": 37,
+      "tags": [
+        "ho_class"
+      ]
+    }
+  ],
+  "warning_hope_frames": [
+    {
+      "tongan": "tuku ke",
+      "english": "let/allow",
+      "min_chapter": 38,
+      "tags": [
+        "permission"
+      ]
+    },
+    {
+      "tongan": "ʻofa ke",
+      "english": "may (hope)",
+      "min_chapter": 38,
+      "tags": [
+        "hope"
+      ]
+    },
+    {
+      "tongan": "ʻofa pē ke",
+      "english": "I hope that",
+      "min_chapter": 38,
+      "tags": [
+        "hope"
+      ]
+    },
+    {
+      "tongan": "telia naʻa",
+      "english": "lest (warning)",
+      "min_chapter": 38,
+      "tags": [
+        "warning"
+      ]
+    },
+    {
+      "tongan": "fai mo ke",
+      "english": "hurry up and",
+      "min_chapter": 38,
+      "tags": [
+        "urgency"
+      ]
+    }
+  ],
+  "days_of_week": [
+    {
+      "tongan": "Mōnite",
+      "english": "Monday",
+      "min_chapter": 39,
+      "tags": [
+        "day"
+      ]
+    },
+    {
+      "tongan": "Tūsite",
+      "english": "Tuesday",
+      "min_chapter": 39,
+      "tags": [
+        "day"
+      ]
+    },
+    {
+      "tongan": "Pulelulu",
+      "english": "Wednesday",
+      "min_chapter": 39,
+      "tags": [
+        "day"
+      ]
+    },
+    {
+      "tongan": "Tuʻapulelulu",
+      "english": "Thursday",
+      "min_chapter": 39,
+      "tags": [
+        "day"
+      ]
+    },
+    {
+      "tongan": "Falaite",
+      "english": "Friday",
+      "min_chapter": 39,
+      "tags": [
+        "day"
+      ]
+    },
+    {
+      "tongan": "Tokonaki",
+      "english": "Saturday",
+      "min_chapter": 39,
+      "tags": [
+        "day"
+      ]
+    },
+    {
+      "tongan": "Sāpate",
+      "english": "Sunday",
+      "min_chapter": 39,
+      "tags": [
+        "day"
+      ]
+    }
+  ],
+  "manner_demonstratives": [
+    {
+      "tongan": "peheni",
+      "english": "like this (near me)",
+      "min_chapter": 39,
+      "tags": [
+        "manner",
+        "1st"
+      ]
+    },
+    {
+      "tongan": "pehena",
+      "english": "like that (near you)",
+      "min_chapter": 39,
+      "tags": [
+        "manner",
+        "2nd"
+      ]
+    },
+    {
+      "tongan": "pehē",
+      "english": "like that / thus",
+      "min_chapter": 39,
+      "tags": [
+        "manner",
+        "3rd"
+      ]
+    }
+  ],
+  "emphasis_expressions": [
+    {
+      "tongan": "naʻa mo",
+      "english": "even",
+      "min_chapter": 39,
+      "tags": [
+        "emphasis"
+      ]
+    },
+    {
+      "tongan": "kaeʻumaʻa",
+      "english": "and also / not to mention",
+      "min_chapter": 39,
+      "tags": [
+        "addition"
+      ]
+    }
+  ],
+  "preposed_adverbs": [
+    {
+      "tongan": "toutou",
+      "english": "repeatedly / again and again",
+      "min_chapter": 22,
+      "tags": [
+        "frequency"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "meimei",
+      "english": "almost / nearly",
+      "min_chapter": 27,
+      "tags": [
+        "degree"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "mei",
+      "english": "nearly (lighter form)",
+      "min_chapter": 27,
+      "tags": [
+        "degree"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "matu'aki",
+      "english": "extremely / exceedingly",
+      "min_chapter": 27,
+      "tags": [
+        "degree",
+        "intensifier"
+      ],
+      "position": "before_verb"
+    },
+    {
+      "tongan": "tōmu'a",
+      "english": "first of all / before anything else",
+      "min_chapter": 42,
+      "tags": [
+        "sequence"
+      ],
+      "position": "before_verb"
+    }
+  ],
+  "negative_modifying_adverbs": [
+    {
+      "tongan": "loko",
+      "english": "not too / not particularly (softens negative)",
+      "min_chapter": 9,
+      "tags": [
+        "moderative"
+      ],
+      "position": "after_ke"
+    },
+    {
+      "tongan": "teitei",
+      "english": "at all / certainly not (strengthens negative)",
+      "min_chapter": 9,
+      "tags": [
+        "emphatic"
+      ],
+      "position": "after_pronoun"
+    }
+  ],
+  "counting_expressions": [
+    {
+      "tongan": "tu'o taha",
+      "english": "once",
+      "min_chapter": 22,
+      "value": 1
+    },
+    {
+      "tongan": "tu'o ua",
+      "english": "twice",
+      "min_chapter": 22,
+      "value": 2
+    },
+    {
+      "tongan": "tu'o tolu",
+      "english": "three times",
+      "min_chapter": 22,
+      "value": 3
+    },
+    {
+      "tongan": "tu'o fā",
+      "english": "four times",
+      "min_chapter": 22,
+      "value": 4
+    },
+    {
+      "tongan": "tu'o lahi",
+      "english": "many times",
+      "min_chapter": 22
+    },
+    {
+      "tongan": "tu'o si'i",
+      "english": "a few times",
+      "min_chapter": 22
+    },
+    {
+      "tongan": "tu'o fiha",
+      "english": "how many times?",
+      "min_chapter": 22,
+      "tags": [
+        "question"
+      ]
+    }
+  ],
+  "distribution_expressions": [
+    {
+      "tongan": "taki taha",
+      "english": "each one / one by one",
+      "min_chapter": 22
+    },
+    {
+      "tongan": "taki ua",
+      "english": "two each",
+      "min_chapter": 22
+    },
+    {
+      "tongan": "taki tolu",
+      "english": "three each",
+      "min_chapter": 22
+    }
+  ],
+  "uncertainty_adverbs": [
+    {
+      "tongan": "nai",
+      "english": "I wonder / perhaps",
+      "min_chapter": 38,
+      "tags": [
+        "uncertainty"
+      ],
+      "position": "postposed"
+    },
+    {
+      "tongan": "ʻapē",
+      "english": "perhaps / I guess",
+      "min_chapter": 38,
+      "tags": [
+        "conjecture"
+      ],
+      "position": "postposed"
+    },
+    {
+      "tongan": "koā",
+      "english": "please tell me / really",
+      "min_chapter": 38,
+      "tags": [
+        "request"
+      ],
+      "position": "postposed"
+    }
+  ],
+  "continuity_expressions": [
+    {
+      "tongan": "ai pē",
+      "english": "as always / still / as usual",
+      "min_chapter": 22,
+      "tags": [
+        "continuity"
+      ],
+      "position": "postposed"
+    },
+    {
+      "tongan": "lahi pē",
+      "english": "mostly / mainly",
+      "min_chapter": 27,
+      "tags": [
+        "focus"
+      ],
+      "position": "preposed"
+    },
+    {
+      "tongan": "tautefito ki",
+      "english": "especially / particularly",
+      "min_chapter": 27,
+      "tags": [
+        "focus"
+      ]
+    }
+  ],
+  "spatial_nouns": [
+    {
+      "tongan": "loto",
+      "english": "inside / interior",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "tongan": "lalo",
+      "english": "under / underneath",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "tongan": "tu'a",
+      "english": "outside / behind",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "tongan": "mui",
+      "english": "end / space behind",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "tongan": "mata",
+      "english": "front",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "tongan": "funga",
+      "english": "top / surface",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "tongan": "tafa'aki",
+      "english": "side",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    },
+    {
+      "tongan": "ve'e",
+      "english": "beside / at ground level",
+      "min_chapter": 40,
+      "tags": [
+        "spatial"
+      ]
+    }
+  ],
+  "spatial_location_nouns": [
+    {
+      "tongan": "puha",
+      "english": "box / chest",
+      "min_chapter": 40
+    },
+    {
+      "tongan": "tēpile",
+      "english": "table",
+      "min_chapter": 40
+    },
+    {
+      "tongan": "mohenga",
+      "english": "bed",
+      "min_chapter": 40
+    },
+    {
+      "tongan": "hala",
+      "english": "road / path",
+      "min_chapter": 40
+    },
+    {
+      "tongan": "matatahi",
+      "english": "beach / coast",
+      "min_chapter": 40
+    },
+    {
+      "tongan": "maketi",
+      "english": "market",
+      "min_chapter": 40
+    }
+  ],
+  "word_class_compounds": [
+    {
+      "tongan": "tangata tau",
+      "english": "soldier (a fighting man)",
+      "min_chapter": 41,
+      "tags": [
+        "verb_as_adj"
+      ]
+    },
+    {
+      "tongan": "loki mohe",
+      "english": "bedroom (a sleeping room)",
+      "min_chapter": 41,
+      "tags": [
+        "verb_as_adj"
+      ]
+    },
+    {
+      "tongan": "loki tohi",
+      "english": "study / writing room",
+      "min_chapter": 41,
+      "tags": [
+        "verb_as_adj"
+      ]
+    },
+    {
+      "tongan": "ika tunu",
+      "english": "roasted fish",
+      "min_chapter": 41,
+      "tags": [
+        "verb_as_adj"
+      ]
+    },
+    {
+      "tongan": "mā tunu",
+      "english": "toast (toasted bread)",
+      "min_chapter": 41,
+      "tags": [
+        "verb_as_adj"
+      ]
+    },
+    {
+      "tongan": "ʻā maka",
+      "english": "stone fence",
+      "min_chapter": 41,
+      "tags": [
+        "noun_as_adj"
+      ]
+    },
+    {
+      "tongan": "ʻaho lāʻā",
+      "english": "sunny day",
+      "min_chapter": 41,
+      "tags": [
+        "noun_as_adj"
+      ]
+    },
+    {
+      "tongan": "pō māhina",
+      "english": "moonlight night",
+      "min_chapter": 41,
+      "tags": [
+        "noun_as_adj"
+      ]
+    }
+  ],
+  "appearance_verbs": [
+    {
+      "tongan": "ngali",
+      "english": "to seem / to look like",
+      "min_chapter": 41,
+      "tags": [
+        "stative"
+      ]
+    },
+    {
+      "tongan": "ngalingali",
+      "english": "to look as if / to seem (tentative)",
+      "min_chapter": 41,
+      "tags": [
+        "stative"
+      ]
+    }
+  ],
+  "months": [
+    {
+      "tongan": "Sānuali",
+      "english": "January",
+      "min_chapter": 42,
+      "value": 1
+    },
+    {
+      "tongan": "Fēpueli",
+      "english": "February",
+      "min_chapter": 42,
+      "value": 2
+    },
+    {
+      "tongan": "Ma'asi",
+      "english": "March",
+      "min_chapter": 42,
+      "value": 3
+    },
+    {
+      "tongan": "ʻEpeleli",
+      "english": "April",
+      "min_chapter": 42,
+      "value": 4
+    },
+    {
+      "tongan": "Mē",
+      "english": "May",
+      "min_chapter": 42,
+      "value": 5
+    },
+    {
+      "tongan": "Sune",
+      "english": "June",
+      "min_chapter": 42,
+      "value": 6
+    },
+    {
+      "tongan": "Siulai",
+      "english": "July",
+      "min_chapter": 42,
+      "value": 7
+    },
+    {
+      "tongan": "ʻAokosi",
+      "english": "August",
+      "min_chapter": 42,
+      "value": 8
+    },
+    {
+      "tongan": "Sepitema",
+      "english": "September",
+      "min_chapter": 42,
+      "value": 9
+    },
+    {
+      "tongan": "ʻOkatopa",
+      "english": "October",
+      "min_chapter": 42,
+      "value": 10
+    },
+    {
+      "tongan": "Nōvema",
+      "english": "November",
+      "min_chapter": 42,
+      "value": 11
+    },
+    {
+      "tongan": "Tisema",
+      "english": "December",
+      "min_chapter": 42,
+      "value": 12
+    }
+  ],
+  "time_sequence_expressions": [
+    {
+      "tongan": "talu",
+      "english": "since / ever since",
+      "min_chapter": 42,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "tongan": "talu mei",
+      "english": "since (from a point in time)",
+      "min_chapter": 42,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "tongan": "talu mei ai",
+      "english": "ever since then",
+      "min_chapter": 42,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "tongan": "hilí",
+      "english": "after",
+      "min_chapter": 42,
+      "tags": [
+        "temporal"
+      ]
+    },
+    {
+      "tongan": "kaha'u",
+      "english": "future / next / coming",
+      "min_chapter": 42,
+      "tags": [
+        "temporal",
+        "future"
+      ]
+    },
+    {
+      "tongan": "kuo hilí",
+      "english": "past / gone by",
+      "min_chapter": 42,
+      "tags": [
+        "temporal",
+        "past"
+      ]
+    },
+    {
+      "tongan": "fuofua",
+      "english": "first (initial occurrence)",
+      "min_chapter": 42,
+      "tags": [
+        "ordinal"
+      ]
+    },
+    {
+      "tongan": "fua",
+      "english": "first (short form)",
+      "min_chapter": 42,
+      "tags": [
+        "ordinal"
+      ]
+    },
+    {
+      "tongan": "ʻuluaki",
+      "english": "first (in a sequence)",
+      "min_chapter": 42,
+      "tags": [
+        "ordinal"
+      ]
+    },
+    {
+      "tongan": "ki mu'a",
+      "english": "before / ahead / first (in time)",
+      "min_chapter": 42,
+      "tags": [
+        "temporal",
+        "spatial_time"
+      ]
+    },
+    {
+      "tongan": "ki mui",
+      "english": "after / afterward",
+      "min_chapter": 42,
+      "tags": [
+        "temporal",
+        "spatial_time"
+      ]
+    },
+    {
+      "tongan": "ʻamui",
+      "english": "later on / in the future",
+      "min_chapter": 42,
+      "tags": [
+        "temporal",
+        "spatial_time"
+      ]
+    }
+  ],
+  "ordinal_patterns": [
+    {
+      "tongan": "ko hono uá",
+      "english": "the second",
+      "min_chapter": 42,
+      "value": 2
+    },
+    {
+      "tongan": "ko hono tolú",
+      "english": "the third",
+      "min_chapter": 42,
+      "value": 3
+    },
+    {
+      "tongan": "ko hono fā",
+      "english": "the fourth",
+      "min_chapter": 42,
+      "value": 4
+    },
+    {
+      "tongan": "ko hono nimá",
+      "english": "the fifth",
+      "min_chapter": 42,
+      "value": 5
+    },
+    {
+      "tongan": "ko hono fiha",
+      "english": "which (in a sequence)?",
+      "min_chapter": 42,
+      "tags": [
+        "question"
+      ]
+    }
+  ],
+  "tae_prefix_words": [
+    {
+      "tongan": "ta'e fe'unga",
+      "english": "unsuitable / inadequate",
+      "min_chapter": 43,
+      "tags": [
+        "negative",
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "ta'e mahino",
+      "english": "unclear / unintelligible",
+      "min_chapter": 43,
+      "tags": [
+        "negative",
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "ta'e totonu",
+      "english": "incorrect",
+      "min_chapter": 43,
+      "tags": [
+        "negative",
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "ta'e ʻofa",
+      "english": "unkind",
+      "min_chapter": 43,
+      "tags": [
+        "negative",
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "ta'e tokanga",
+      "english": "careless / inattentive",
+      "min_chapter": 43,
+      "tags": [
+        "negative",
+        "adjective"
+      ]
+    },
+    {
+      "tongan": "ta'e totongi",
+      "english": "without pay",
+      "min_chapter": 43,
+      "tags": [
+        "negative",
+        "noun_privative"
+      ]
+    },
+    {
+      "tongan": "ta'e su",
+      "english": "without shoes",
+      "min_chapter": 43,
+      "tags": [
+        "negative",
+        "noun_privative"
+      ]
+    }
+  ],
+  "negation_idioms": [
+    {
+      "tongan": "tala'ehai",
+      "english": "let no one suppose / don't believe that",
+      "min_chapter": 43,
+      "tags": [
+        "negation",
+        "emphatic"
+      ]
+    },
+    {
+      "tongan": "koloto",
+      "english": "not at all (surprised/disappointed)",
+      "min_chapter": 43,
+      "tags": [
+        "negation",
+        "emphatic"
+      ]
+    },
+    {
+      "tongan": "ne'ine'i",
+      "english": "no wonder / not surprising that",
+      "min_chapter": 43,
+      "tags": [
+        "negation",
+        "replaces_TM"
+      ]
+    },
+    {
+      "tongan": "mole ke mama'o",
+      "english": "far from it / not at all",
+      "min_chapter": 43,
+      "tags": [
+        "negation",
+        "fixed_expression"
+      ]
+    }
+  ],
+  "conditional_markers": [
+    {
+      "tongan": "ka",
+      "english": "when/if (expected)",
+      "min_chapter": 47,
+      "tags": [
+        "conditional",
+        "future"
+      ]
+    },
+    {
+      "tongan": "ka ne",
+      "english": "had / if (counterfactual)",
+      "min_chapter": 47,
+      "tags": [
+        "conditional",
+        "counterfactual"
+      ]
+    },
+    {
+      "tongan": "ka ne ʻikai",
+      "english": "if it were not for",
+      "min_chapter": 47,
+      "tags": [
+        "conditional",
+        "counterfactual"
+      ]
+    },
+    {
+      "tongan": "taʻeʻoua",
+      "english": "were it not (for)",
+      "min_chapter": 47,
+      "tags": [
+        "conditional",
+        "counterfactual"
+      ]
+    }
+  ],
+  "suffix_anga_nouns": [
+    {
+      "tongan": "nofoʻanga",
+      "english": "dwelling-place",
+      "min_chapter": 48,
+      "base": "nofo",
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "tongan": "akoʻanga",
+      "english": "school / seat of learning",
+      "min_chapter": 48,
+      "base": "ako",
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "tongan": "ngāueʻanga",
+      "english": "workplace",
+      "min_chapter": 48,
+      "base": "ngāue",
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "tongan": "kaiʻanga",
+      "english": "eating-place",
+      "min_chapter": 48,
+      "base": "kai",
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "tongan": "moheʻanga",
+      "english": "sleeping-place",
+      "min_chapter": 48,
+      "base": "mohe",
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "tongan": "tukuʻanga",
+      "english": "storage place",
+      "min_chapter": 48,
+      "base": "tuku",
+      "tags": [
+        "place"
+      ]
+    }
+  ],
+  "suffix_nga_nouns": [
+    {
+      "tongan": "mohenga",
+      "english": "bed",
+      "min_chapter": 48,
+      "base": "mohe",
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "tuʻunga",
+      "english": "stand / rank / status",
+      "min_chapter": 48,
+      "base": "tuʻu",
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "vāhenga",
+      "english": "portion / division",
+      "min_chapter": 48,
+      "base": "vahe",
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "toenga",
+      "english": "remainder",
+      "min_chapter": 48,
+      "base": "toe",
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "founga",
+      "english": "route / method",
+      "min_chapter": 48,
+      "base": "fou",
+      "tags": [
+        "thing"
+      ]
+    },
+    {
+      "tongan": "ākonga",
+      "english": "disciple / student",
+      "min_chapter": 48,
+      "base": "ako",
+      "tags": [
+        "person"
+      ]
+    }
+  ],
+  "suffix_ia_words": [
+    {
+      "tongan": "koloaʻia",
+      "english": "wealthy",
+      "min_chapter": 48,
+      "base": "koloa",
+      "tags": [
+        "possessing"
+      ]
+    },
+    {
+      "tongan": "kakaiʻia",
+      "english": "densely populated",
+      "min_chapter": 48,
+      "base": "kakai",
+      "tags": [
+        "possessing"
+      ]
+    },
+    {
+      "tongan": "mamahiʻia",
+      "english": "in pain",
+      "min_chapter": 48,
+      "base": "mamahi",
+      "tags": [
+        "possessing"
+      ]
+    },
+    {
+      "tongan": "tonuhia",
+      "english": "innocent / not guilty",
+      "min_chapter": 48,
+      "base": "tonu",
+      "tags": [
+        "state"
+      ]
+    },
+    {
+      "tongan": "halaia",
+      "english": "guilty",
+      "min_chapter": 48,
+      "base": "hala",
+      "tags": [
+        "state"
+      ]
+    },
+    {
+      "tongan": "ʻuheina",
+      "english": "caught in the rain",
+      "min_chapter": 48,
+      "base": "ʻuha",
+      "tags": [
+        "state"
+      ]
+    },
+    {
+      "tongan": "ilifia",
+      "english": "frightened",
+      "min_chapter": 48,
+      "base": "ili",
+      "tags": [
+        "state"
+      ]
+    }
+  ],
+  "reciprocal_verbs": [
+    {
+      "tongan": "feʻofaʻaki",
+      "english": "to love one another",
+      "min_chapter": 49,
+      "base": "ʻofa",
+      "tags": [
+        "reciprocal"
+      ]
+    },
+    {
+      "tongan": "fetokoniʻaki",
+      "english": "to help each other",
+      "min_chapter": 49,
+      "base": "tokoni",
+      "tags": [
+        "reciprocal"
+      ]
+    },
+    {
+      "tongan": "feleaʻaki",
+      "english": "to speak to each other",
+      "min_chapter": 49,
+      "base": "lea",
+      "tags": [
+        "reciprocal"
+      ]
+    },
+    {
+      "tongan": "fetohiʻaki",
+      "english": "to write to each other",
+      "min_chapter": 49,
+      "base": "tohi",
+      "tags": [
+        "reciprocal"
+      ]
+    },
+    {
+      "tongan": "fetalanoaʻaki",
+      "english": "to talk to one another",
+      "min_chapter": 49,
+      "base": "talanoa",
+      "tags": [
+        "reciprocal"
+      ]
+    },
+    {
+      "tongan": "feʻaluʻaki",
+      "english": "to go back and forth",
+      "min_chapter": 49,
+      "base": "ʻalu",
+      "tags": [
+        "reciprocative"
+      ]
+    }
+  ],
+  "ma_prefix_verbs": [
+    {
+      "tongan": "mahiki",
+      "english": "able to lift / slightly raised",
+      "min_chapter": 49,
+      "base": "hiki",
+      "tags": [
+        "potential",
+        "resultative"
+      ]
+    },
+    {
+      "tongan": "mahae",
+      "english": "to be torn",
+      "min_chapter": 49,
+      "base": "hae",
+      "tags": [
+        "resultative"
+      ]
+    },
+    {
+      "tongan": "movete",
+      "english": "to come to pieces",
+      "min_chapter": 49,
+      "base": "vete",
+      "tags": [
+        "resultative"
+      ]
+    },
+    {
+      "tongan": "māvae",
+      "english": "to be separated / parted",
+      "min_chapter": 49,
+      "base": "vae",
+      "tags": [
+        "resultative"
+      ]
+    },
+    {
+      "tongan": "moʻumohea",
+      "english": "to oversleep",
+      "min_chapter": 49,
+      "base": "mohe",
+      "tags": [
+        "continuation"
+      ]
+    },
+    {
+      "tongan": "moʻutuʻua",
+      "english": "to stand too long",
+      "min_chapter": 49,
+      "base": "tuʻu",
+      "tags": [
+        "continuation"
+      ]
+    },
+    {
+      "tongan": "moʻunofoa",
+      "english": "to overstay",
+      "min_chapter": 49,
+      "base": "nofo",
+      "tags": [
+        "continuation"
+      ]
+    }
+  ],
+  "kaunga_compounds": [
+    {
+      "tongan": "kaungāngāue",
+      "english": "fellow-worker(s)",
+      "min_chapter": 49,
+      "base": "ngāue",
+      "tags": [
+        "fellow"
+      ]
+    },
+    {
+      "tongan": "kaungālotu",
+      "english": "fellow-worshipper(s)",
+      "min_chapter": 49,
+      "base": "lotu",
+      "tags": [
+        "fellow"
+      ]
+    },
+    {
+      "tongan": "kaungā ako",
+      "english": "fellow student(s)",
+      "min_chapter": 49,
+      "base": "ako",
+      "tags": [
+        "fellow"
+      ]
+    },
+    {
+      "tongan": "kaungā mamahi",
+      "english": "fellow sufferer(s)",
+      "min_chapter": 49,
+      "base": "mamahi",
+      "tags": [
+        "fellow"
+      ]
+    }
+  ],
+  "reduplicated_forms": [
+    {
+      "tongan": "katakata",
+      "english": "to smile (laugh slightly)",
+      "min_chapter": 50,
+      "base": "kata",
+      "tags": [
+        "moderation"
+      ]
+    },
+    {
+      "tongan": "kehekehe",
+      "english": "various",
+      "min_chapter": 50,
+      "base": "kehe",
+      "tags": [
+        "plurality"
+      ]
+    },
+    {
+      "tongan": "māmāfana",
+      "english": "lukewarm",
+      "min_chapter": 50,
+      "base": "māfana",
+      "tags": [
+        "moderation"
+      ]
+    },
+    {
+      "tongan": "mokomoko",
+      "english": "cool",
+      "min_chapter": 50,
+      "base": "momoko",
+      "tags": [
+        "moderation"
+      ]
+    },
+    {
+      "tongan": "fakapotopoto",
+      "english": "sensible / wise",
+      "min_chapter": 50,
+      "base": "poto",
+      "tags": [
+        "faka_reduplication"
+      ]
+    },
+    {
+      "tongan": "mamata",
+      "english": "to look / to see",
+      "min_chapter": 50,
+      "base": "mata",
+      "tags": [
+        "partial_reduplication"
+      ]
+    },
+    {
+      "tongan": "ʻuliʻuli",
+      "english": "black",
+      "min_chapter": 50,
+      "base": "ʻuli",
+      "tags": [
+        "intensification"
+      ]
+    },
+    {
+      "tongan": "vaivai",
+      "english": "weak (watery)",
+      "min_chapter": 50,
+      "base": "vai",
+      "tags": [
+        "noun_to_adj"
+      ]
+    }
+  ],
+  "impersonal_pronouns": [
+    {
+      "tongan": "te",
+      "english": "one (impersonal preposed)",
+      "min_chapter": 51,
+      "tags": [
+        "impersonal"
+      ]
+    },
+    {
+      "tongan": "kita",
+      "english": "oneself (impersonal postposed)",
+      "min_chapter": 51,
+      "tags": [
+        "impersonal"
+      ]
+    },
+    {
+      "tongan": "kau",
+      "english": "I (sentence-initial, no TM)",
+      "min_chapter": 51,
+      "tags": [
+        "sentence_initial"
+      ]
+    }
+  ],
+  "impersonal_possessives": [
+    {
+      "tongan": "ʻete",
+      "english": "one's (ʻe-class definite)",
+      "min_chapter": 51,
+      "tags": [
+        "impersonal",
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "hoto",
+      "english": "one's (ho-class definite)",
+      "min_chapter": 51,
+      "tags": [
+        "impersonal",
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "haʻate",
+      "english": "one's (ʻe-class indefinite)",
+      "min_chapter": 51,
+      "tags": [
+        "impersonal",
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "hato",
+      "english": "one's (ho-class indefinite)",
+      "min_chapter": 51,
+      "tags": [
+        "impersonal",
+        "ho_class"
+      ]
+    }
+  ],
+  "emotional_articles": [
+    {
+      "tongan": "siʻi",
+      "english": "the (emotional definite: poor/dear)",
+      "min_chapter": 52,
+      "tags": [
+        "emotional",
+        "definite"
+      ]
+    },
+    {
+      "tongan": "siʻa",
+      "english": "a/some (emotional indefinite: poor/dear)",
+      "min_chapter": 52,
+      "tags": [
+        "emotional",
+        "indefinite"
+      ]
+    }
+  ],
+  "emotional_possessives": [
+    {
+      "tongan": "siʻeku",
+      "english": "my (emotional, ʻe-class)",
+      "min_chapter": 52,
+      "person": 1,
+      "number": "singular",
+      "tags": [
+        "emotional",
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "siʻoku",
+      "english": "my (emotional, ho-class)",
+      "min_chapter": 52,
+      "person": 1,
+      "number": "singular",
+      "tags": [
+        "emotional",
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "siʻene",
+      "english": "his/her (emotional, ʻe-class)",
+      "min_chapter": 52,
+      "person": 3,
+      "number": "singular",
+      "tags": [
+        "emotional",
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "siʻono",
+      "english": "his/her (emotional, ho-class)",
+      "min_chapter": 52,
+      "person": 3,
+      "number": "singular",
+      "tags": [
+        "emotional",
+        "ho_class"
+      ]
+    },
+    {
+      "tongan": "siʻenau",
+      "english": "their (emotional, ʻe-class)",
+      "min_chapter": 52,
+      "person": 3,
+      "number": "plural",
+      "tags": [
+        "emotional",
+        "e_class"
+      ]
+    },
+    {
+      "tongan": "siʻonau",
+      "english": "their (emotional, ho-class)",
+      "min_chapter": 52,
+      "person": 3,
+      "number": "plural",
+      "tags": [
+        "emotional",
+        "ho_class"
+      ]
+    }
+  ],
+  "expressive_words": [
+    {
+      "tongan": "ʻilonga",
+      "english": "whoever / whatever / whichever",
+      "min_chapter": 50,
+      "tags": [
+        "universal"
+      ]
+    },
+    {
+      "tongan": "kae kehe",
+      "english": "nevertheless / however",
+      "min_chapter": 50,
+      "tags": [
+        "concessive"
+      ]
+    },
+    {
+      "tongan": "kehe ke",
+      "english": "provided that / so long as",
+      "min_chapter": 50,
+      "tags": [
+        "conditional"
+      ]
+    },
+    {
+      "tongan": "faifai",
+      "english": "by and by / as time passed",
+      "min_chapter": 50,
+      "tags": [
+        "temporal",
+        "narrative"
+      ]
+    }
+  ],
+  "la_i_classifier": [
+    {
+      "tongan": "laʻi pepa",
+      "english": "a sheet of paper",
+      "min_chapter": 46,
+      "tags": [
+        "flat_object"
+      ]
+    },
+    {
+      "tongan": "laʻi papa",
+      "english": "a board",
+      "min_chapter": 46,
+      "tags": [
+        "flat_object"
+      ]
+    },
+    {
+      "tongan": "laʻi foomu",
+      "english": "a form (document)",
+      "min_chapter": 46,
+      "tags": [
+        "flat_object"
+      ]
+    }
+  ]
+}
