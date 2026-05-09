@@ -6,10 +6,9 @@ import remarkExamples from '../lib/remark-examples'
 import remarkDrillAnchors from '../lib/remark-drill-anchors'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
 
-// Bulk-load every chapter markdown file from the sibling book/ directory
-// at build time. Vite inlines each file's contents as a string, so no runtime
-// fetch is needed. The keys look like '../../../book/Chapter-01.md'.
-const chapterFiles = import.meta.glob('../../../book/Chapter-*.md', {
+// Bulk-load every chapter markdown file at build time. Vite inlines each
+// file's contents as a string, so no runtime fetch is needed.
+const chapterFiles = import.meta.glob('../../book/Chapter-*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
