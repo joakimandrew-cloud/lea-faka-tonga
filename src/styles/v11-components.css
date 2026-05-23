@@ -1080,6 +1080,30 @@
 }
 .chapters-page * { box-sizing: border-box; }
 
+/* ── Quizzes page (chapters-page aesthetic inside Layout) ──── */
+.quizzes-page {
+  padding-bottom: 32px;
+}
+.quizzes-page * { box-sizing: border-box; }
+.quizzes-page .panel-heading {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 48px 16px;
+}
+.quizzes-page .chapters-groups {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 8px 48px 32px;
+}
+@media (max-width: 1000px) {
+  .quizzes-page .panel-heading { padding: 24px 32px 12px; }
+  .quizzes-page .chapters-groups { padding: 8px 32px 32px; }
+}
+@media (max-width: 640px) {
+  .quizzes-page .panel-heading { padding: 20px 20px 10px; }
+  .quizzes-page .chapters-groups { padding: 8px 20px 24px; }
+}
+
 /* ── Brand band ────────────────────────────────────────────── */
 .chapters-brand-band {
   background: #ffffff;

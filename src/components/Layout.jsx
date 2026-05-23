@@ -132,7 +132,7 @@ export default function Layout() {
         </header>
 
         {/* ── Content ── */}
-        <main className={isDrillsMenu ? '' : 'max-w-3xl mx-auto px-8 py-10'}>
+        <main className={isDrillsMenu || isQuizIndex ? '' : 'max-w-3xl mx-auto px-8 py-10'}>
           <Outlet />
         </main>
 
