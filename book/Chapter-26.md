@@ -4,14 +4,14 @@ This chapter covers how to express purpose ("in order to"), give a reason ("beca
 
 ---
 
-### *ke* — to, in order to, so that
+### *ke*: to, in order to, so that
 
 Tongan uses the word *ke* to introduce a part of the sentence that depends on the main clause. This dependent part is called a subordinate clause: a group of words built around a verb that cannot stand on its own. It needs the main clause for its meaning.
 
 *Kole* *(ask, request)*. *Sio* *(see, look at)*.
 
 ::: {.examples}
-*Té u kole kia Mele ke ne ha'u mai.* — I will ask Mele to come. (Lit. "I will ask to Mele that she come hither")
+*Té u kole kia Mele ke ne ha'u mai.* I will ask Mele to come. (Lit. "I will ask to Mele that she come hither")
 :::
 
 The main clause (*Té u kole kia Mele*) can stand alone. The *ke* clause (*ke ne ha'u mai*) cannot: it tells you the purpose of asking.
@@ -19,19 +19,19 @@ The main clause (*Té u kole kia Mele*) can stand alone. The *ke* clause (*ke ne
 After *ke*, pronouns take the same forms as after tense markers: *ke u* (that I), *ke ke* (that you), *ke ne* (that he/she), *ke nau* (that they).
 
 ::: {.examples}
-*Kuo nau ō mai ke lau 'a e tohí.* — They have come to read the book.
+*Kuo nau ō mai ke lau 'a e tohí.* They have come to read the book.
 :::
 
 When the *ke* clause states a general fact rather than an action by a specific person, no pronoun is needed:
 
 ::: {.examples}
-*'Oku lelei ke fufulu leva 'a e valá.* — The clothes had better be washed at once. (Lit. "It is good that wash immediately the clothes")
+*'Oku lelei ke fufulu leva 'a e valá.* The clothes had better be washed at once. (Lit. "It is good that wash immediately the clothes")
 :::
 
 Adding a pronoun assigns the action to a specific person:
 
 ::: {.examples}
-*'Oku lelei ke ke fufulu leva 'a e valá.* — You had better wash the clothes at once.
+*'Oku lelei ke ke fufulu leva 'a e valá.* You had better wash the clothes at once.
 :::
 
 The doubled *ke ke* is correct. The first *ke* is the subordinator; the second is the pronoun "you."
@@ -47,34 +47,34 @@ The doubled *ke ke* is correct. The first *ke* is the subordinator; the second i
 
 ---
 
-### *he* — for, because
+### *he*: for, because
 
 The word *he* introduces a reason or explanation for the preceding statement. It sits between two clauses, connecting them.
 
 *Tōmui* *(late)*.
 
 ::: {.examples}
-*'Okú ke tōmui, he kuo 'osi hoko.* — You are late, for it has already happened.
+*'Okú ke tōmui, he kuo 'osi hoko.* You are late, for it has already happened.
 :::
 
 The first clause states the situation (*'Okú ke tōmui*). The second clause, introduced by *he*, gives the reason (*kuo 'osi hoko*).
 
 ::: {.examples}
-*'Oua té ke 'alu, he 'oku 'uha.* — Do not go, because it is raining.
+*'Oua té ke 'alu, he 'oku 'uha.* Do not go, because it is raining.
 
-*'Oku ou 'alu ki 'api, he 'oku ou hela'ia.* — I am going home, because I am tired.
+*'Oku ou 'alu ki 'api, he 'oku ou hela'ia.* I am going home, because I am tired.
 :::
 
 ---
 
-### *koe'uhi* — because, in order that
+### *koe'uhi*: because, in order that
 
 *Koe'uhi* is a more emphatic way to express "because" or "in order that." It introduces both reasons and purposes. Where *he* is light and conversational, *koe'uhi* carries more weight.
 
 *Faiako* *(teacher)*.
 
 ::: {.examples}
-*'Oku ou 'alu koe'uhi ke u sio ki he faiakó.* — I go in order to see the teacher.
+*'Oku ou 'alu koe'uhi ke u sio ki he faiakó.* I go in order to see the teacher.
 :::
 
 Here *koe'uhi ke* means "in order to" or "so that." The *ke* introduces the purpose clause, just as in the previous section.
@@ -82,7 +82,7 @@ Here *koe'uhi ke* means "in order to" or "so that." The *ke* introduces the purp
 *Koe'uhi* also appears before *ko* to introduce a noun as the reason:
 
 ::: {.examples}
-*Té u foki koe'uhi ko Mele.* — I will return because of Mele. (for Mele's sake)
+*Té u foki koe'uhi ko Mele.* I will return because of Mele. (for Mele's sake)
 :::
 
 | Pattern | Meaning |
@@ -107,7 +107,7 @@ Both the full and short forms are correct. The short form is more common in conv
 
 ---
 
-### *ma'a* and *mo'o* — for (someone's benefit)
+### *ma'a* and *mo'o*: for (someone's benefit)
 
 English uses a single word "for" when saying something benefits someone. Tongan has two words: *ma'a* and *mo'o*. The choice depends on the possessive class of the thing being given or intended.
 
@@ -116,13 +116,13 @@ English uses a single word "for" when saying something benefits someone. Tongan 
 *Langa* *(build)*.
 
 ::: {.examples}
-*Ko e kato ika eni ma'a Tēvita.* — This basket of fish is for Tēvita.
+*Ko e kato ika eni ma'a Tēvita.* This basket of fish is for Tēvita.
 :::
 
 Fish is food ('e-class: you eat it), so *ma'a* is used.
 
 ::: {.examples}
-*'Oku langa e vaká mo'ou?* — Is the boat being built for you?
+*'Oku langa e vaká mo'ou?* Is the boat being built for you?
 :::
 
 A boat carries a person (ho-class: it acts on you), so *mo'o* is used.
@@ -136,9 +136,9 @@ The distinction follows the same rule as 'e-class and ho-class possessives:
 | clothes (you wear them) | land (it characterizes you) |
 
 ::: {.examples}
-*Na'a nau tānaki 'a e pa'angá ma'a Tēvita.* — They collected money for Tēvita.
+*Na'a nau tānaki 'a e pa'angá ma'a Tēvita.* They collected money for Tēvita.
 
-*Na'a nau langa 'a e falé mo'o Mele.* — They built a house for Mele.
+*Na'a nau langa 'a e falé mo'o Mele.* They built a house for Mele.
 :::
 
 When the class is uncertain, *ma'a* is the safer choice.
@@ -162,9 +162,9 @@ When the beneficiary is a pronoun rather than a name or noun, *ma'a* and *mo'o* 
 The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and the *'o* with *mo'o*.
 
 ::: {.examples}
-*Ko e kato ika eni ma'aku.* — This basket of fish is for me.
+*Ko e kato ika eni ma'aku.* This basket of fish is for me.
 
-*Na'a nau langa 'a e falé mo'onau.* — They built the house for them.
+*Na'a nau langa 'a e falé mo'onau.* They built the house for them.
 :::
 
 ---

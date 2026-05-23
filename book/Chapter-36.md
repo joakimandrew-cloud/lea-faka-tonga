@@ -9,13 +9,13 @@ Every sentence pattern covered so far places the verb first: *na'e kai 'e Sione 
 Standard Tongan word order puts the verb first. The subject follows, marked by *'e*:
 
 ::: {.examples}
-*Na'e kai 'e Tēvita e fo'i niú.* — Tēvita ate the coconut.
+*Na'e kai 'e Tēvita e fo'i niú.* Tēvita ate the coconut.
 :::
 
 The focus falls naturally on the action. To shift the focus to who performed it, move the subject to the front with *ko*. A pronoun then appears after the tense marker to represent the displaced subject:
 
 ::: {.examples}
-*Ko Tēvita na'á ne kai e fo'i niú.* — It was Tēvita who ate the coconut.
+*Ko Tēvita na'á ne kai e fo'i niú.* It was Tēvita who ate the coconut.
 :::
 
 Both sentences describe the same event. The first stresses the action. The second stresses the person: Tēvita, and no one else. This construction is called a cleft sentence.
@@ -25,7 +25,7 @@ The full pattern:
 *ko* + subject + tense marker + pronoun + verb + object
 
 ::: {.examples}
-*Ko Mele na'á ne fufulu 'a e valá.* — It was Mele who washed the clothes.
+*Ko Mele na'á ne fufulu 'a e valá.* It was Mele who washed the clothes.
 :::
 
 > **Preview:** The pronoun *ne* in this pattern refers back to *Mele*. This is a relative use of the cardinal pronoun, where *ne* functions like "who" within the cleft sentence. The broader use of cardinal pronouns in relative clauses is covered in Chapter 39: Relative Clauses with *Ai* and Demonstratives. The cleft construction is the pattern to learn.
@@ -33,9 +33,9 @@ The full pattern:
 The pronoun must match the subject:
 
 ::: {.examples}
-*Ko au na'á ku 'ave 'a e kató.* — It was I who carried the basket.
+*Ko au na'á ku 'ave 'a e kató.* It was I who carried the basket.
 
-*Ko kinautolu na'a nau tohi 'a e tohí.* — It was they who wrote the letter.
+*Ko kinautolu na'a nau tohi 'a e tohí.* It was they who wrote the letter.
 :::
 
 | Standard word order | Cleft (emphatic) word order |
@@ -54,9 +54,9 @@ The pronoun must match the subject:
 With intransitive verbs and adjectives used as verbs, no pronoun is needed to repeat the subject. The tense marker connects directly to the verb:
 
 ::: {.examples}
-*Ko Pita 'oku ngāue heni.* — It is Pita who works here.
+*Ko Pita 'oku ngāue heni.* It is Pita who works here.
 
-*Ko e fānau na'e hiva.* — It was the children who sang.
+*Ko e fānau na'e hiva.* It was the children who sang.
 :::
 
 | Standard word order | Cleft (emphatic) word order |
@@ -73,15 +73,15 @@ With intransitive verbs and adjectives used as verbs, no pronoun is needed to re
 The pronoun *ia* placed after the subject in a cleft sentence reinforces the identity of the person being highlighted:
 
 ::: {.examples}
-*Ko e fefine ia na'e 'ita.* — She was the woman who was angry.
+*Ko e fefine ia na'e 'ita.* She was the woman who was angry.
 
-*Ko e ki'i tamasi'i ia na'e tangi.* — He was the little boy who cried.
+*Ko e ki'i tamasi'i ia na'e tangi.* He was the little boy who cried.
 :::
 
 The word *foki* (also) placed after the subject contributes a similar emphatic effect:
 
 ::: {.examples}
-*Ko e tangata foki na'e lea.* — He was also the man who spoke.
+*Ko e tangata foki na'e lea.* He was also the man who spoke.
 :::
 
 > *Note:* The word *ia* also has a separate adverbial use where it suggests that what happened differed from what was expected. *Na'e ha'u 'a Mele ia* can mean "Mele came" with the implication that her coming was surprising or contrary to expectations. This contrastive shade of *ia* is distinct from the emphatic *ia* in cleft sentences.
@@ -93,11 +93,11 @@ The word *foki* (also) placed after the subject contributes a similar emphatic e
 The phrase *ko e me'a ia* (literally "that is the thing") combined with *ai* after the verb expresses "that's why" or "that's the reason":
 
 ::: {.examples}
-*Ko e me'a ia 'oku ou loto mamahi ai.* — That's why I am upset.
+*Ko e me'a ia 'oku ou loto mamahi ai.* That's why I am upset.
 
-*Ko e me'a ia na'á ku ha'u ai.* — That's the reason I came.
+*Ko e me'a ia na'á ku ha'u ai.* That's the reason I came.
 
-*Ko e me'a ia 'okú ne ngāue ai.* — That's why he works.
+*Ko e me'a ia 'okú ne ngāue ai.* That's why he works.
 :::
 
 The word *ai* refers back to *ko e me'a ia*, occupying the same slot after the verb where *ai* appears in other patterns you have learned.
@@ -105,7 +105,7 @@ The word *ai* refers back to *ko e me'a ia*, occupying the same slot after the v
 When *ko e me'a ia* points to a specific thing rather than expressing "that's why," the clause often contains *ki ai*:
 
 ::: {.examples}
-*Ko e me'a ia 'oku 'ikai te u loto ki ai.* — That's the thing I don't agree to.
+*Ko e me'a ia 'oku 'ikai te u loto ki ai.* That's the thing I don't agree to.
 :::
 
 ---
@@ -122,7 +122,7 @@ You learned equational sentences with *ko* in Chapter 16: Equational Sentences. 
 | I am a teacher. | I (specifically) am a teacher. |
 
 ::: {.examples}
-*Ko Lātū ko e pule lahi.* — Lātū is the high authority.
+*Ko Lātū ko e pule lahi.* Lātū is the high authority.
 :::
 
 The standard order stresses what the person is. The reversed order stresses who the person is.
@@ -134,17 +134,17 @@ The standard order stresses what the person is. The reversed order stresses who 
 When a relative clause describes a noun that serves as the object of the relative verb, Tongan leaves the object position empty. No word for "whom," "which," or "that" appears:
 
 ::: {.examples}
-*Ko e fefine eni na'á ku 'iló.* — This is the woman whom I found. (Lit. "Is the woman this I found")
+*Ko e fefine eni na'á ku 'iló.* This is the woman whom I found. (Lit. "Is the woman this I found")
 :::
 
 The verb *'ilo* *(to know, to find)* is transitive. The noun being described (*fefine*) is its object, but that object does not appear in the relative clause. The definitive accent on *'iló* marks the end of the relative clause.
 
 ::: {.examples}
-*Ko e tohi eni na'a nau laú.* — This is the book that they read.
+*Ko e tohi eni na'a nau laú.* This is the book that they read.
 
-*Ko e kato eni na'á ne 'avé.* — This is the basket that he carried.
+*Ko e kato eni na'á ne 'avé.* This is the basket that he carried.
 
-*Ko e ika eni na'á ku kaí.* — This is the fish that I ate.
+*Ko e ika eni na'á ku kaí.* This is the fish that I ate.
 :::
 
 ---
@@ -262,9 +262,9 @@ Choose the correct word to complete each sentence.
 
 #### Exercise 5
 
-1. *na'á* — the tense marker *na'a* takes an acute accent before the one-syllable pronoun *ne*
-2. *ia* — the emphatic pronoun reinforcing the subject's identity
-3. *ai* — refers back to *ko e me'a ia*
-4. *ia* — completing the set phrase *ko e me'a ia ... ai*
-5. *ko e* — the second *ko* introduces the predicate in an emphatic equational sentence
-6. *kaí* — a transitive verb with the definitive accent marking the end of the relative clause; *'ita* (angry) is intransitive and would not take an unexpressed object
+1. *na'á*. the tense marker *na'a* takes an acute accent before the one-syllable pronoun *ne*
+2. *ia*. the emphatic pronoun reinforcing the subject's identity
+3. *ai*. refers back to *ko e me'a ia*
+4. *ia*. completing the set phrase *ko e me'a ia ... ai*
+5. *ko e*. the second *ko* introduces the predicate in an emphatic equational sentence
+6. *kaí*. a transitive verb with the definitive accent marking the end of the relative clause; *'ita* (angry) is intransitive and would not take an unexpressed object

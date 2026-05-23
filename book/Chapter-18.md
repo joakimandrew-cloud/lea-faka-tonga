@@ -11,11 +11,11 @@ Chapter 8: Articles introduced the articles *ha*, *e*, and *he*. English has two
 Consider a basket (*kato*). Three sentences place that noun at three levels of specificity:
 
 ::: {.examples}
-*Ha'u mo ha kato.* — Bring a basket. (Any basket.)
+*Ha'u mo ha kato.* Bring a basket. (Any basket.)
 
-*Ha'u mo e kato.* — Bring a basket. (I have a particular one in mind, but you may not know which.)
+*Ha'u mo e kato.* Bring a basket. (I have a particular one in mind, but you may not know which.)
 
-*Ha'u mo e kató.* — Bring the basket. (The one you know about.)
+*Ha'u mo e kató.* Bring the basket. (The one you know about.)
 :::
 
 The first sentence uses *ha*, the indefinite article. The speaker does not have a particular basket in mind.
@@ -29,11 +29,11 @@ The difference between the second and third sentences is entirely in the pronunc
 The same contrast appears with *ika* (fish):
 
 ::: {.examples}
-*'Oku ou fiema'u ha ika.* — I want some fish. (Any fish. Indefinite.)
+*'Oku ou fiema'u ha ika.* I want some fish. (Any fish. Indefinite.)
 
-*'Oku ou fiema'u 'a e ika.* — I want fish. (A particular fish, but not identified to the listener. Semi-definite.)
+*'Oku ou fiema'u 'a e ika.* I want fish. (A particular fish, but not identified to the listener. Semi-definite.)
 
-*'Oku ou fiema'u 'a e iká.* — I want the fish. (The specific fish we both know about. Definite.)
+*'Oku ou fiema'u 'a e iká.* I want the fish. (The specific fish we both know about. Definite.)
 :::
 
 The verb *fiema'u* *(to want, to need)* takes a direct object. The first two sentences look different because they use different articles (*ha* vs. *e*). The second and third look the same in writing but sound different: in the third, stress falls on the final *a*, producing *iká*.
@@ -51,9 +51,9 @@ The verb *fiema'u* *(to want, to need)* takes a direct object. The first two sen
 The Introduction covered the basic stress rule: stress normally falls on the second-to-last vowel. The definitive accent overrides this. When a noun phrase is fully definite, stress moves to the very last vowel of the entire phrase.
 
 ::: {.examples}
-*fále* — house (normal stress, second-to-last vowel)
+*fále*. house (normal stress, second-to-last vowel)
 
-*'i he falé* — in the house (stress on the last vowel)
+*'i he falé*. in the house (stress on the last vowel)
 :::
 
 The rule is straightforward: when a common noun is definite and preceded by the article *he* or *e*, stress shifts from the second-to-last syllable to the last syllable. Think of the article and noun as a single pronunciation unit where the stress adjusts to cover the whole group.
@@ -61,15 +61,15 @@ The rule is straightforward: when a common noun is definite and preceded by the 
 The same accent shift applies to other nouns. The word *koloa* *(wealth, goods)* becomes *koloá* when definite:
 
 ::: {.examples}
-*Na'á ku sio ki he koloá.* — I looked at the goods.
+*Na'á ku sio ki he koloá.* I looked at the goods.
 :::
 
 The word *talavou* *(young man)* becomes *talavo'ú* when definite:
 
 ::: {.examples}
-*Na'e ha'u 'a e talavo'ú.* — The young man came.
+*Na'e ha'u 'a e talavo'ú.* The young man came.
 
-*'Oku fiefia 'a e talavo'ú.* — The young man is happy.
+*'Oku fiefia 'a e talavo'ú.* The young man is happy.
 :::
 
 When a definite noun phrase gets longer, the definitive accent always moves to the end of the whole group:
@@ -93,7 +93,7 @@ When the definitive accent falls on a vowel that is already long, the long vowel
 Consider the word *mā* *(bread)*. The *ā* is already a long vowel. When the definitive accent falls on it, the long vowel expands: the pronunciation shifts toward something like *maá*. In writing, this doubling is sometimes shown explicitly and sometimes left to the reader's knowledge.
 
 ::: {.examples}
-*Na'á ku kai 'a e maá.* — I ate the bread.
+*Na'á ku kai 'a e maá.* I ate the bread.
 :::
 
 > *Note:* You do not need to master every detail of long-vowel doubling at this stage. The essential point is that the definitive accent always pushes stress to the final vowel of the noun phrase, whether that vowel is short or long. The full definitive accent system is covered in Chapter 44: The Definitive Accent System.
@@ -105,7 +105,7 @@ Consider the word *mā* *(bread)*. The *ā* is already a long vowel. When the de
 Unlike English, Tongan requires a definite article before nouns that refer to a kind or class of thing in general. Where English says "fish is good" with no article, Tongan treats the entire category as a definite concept:
 
 ::: {.examples}
-*'Oku lelei 'a e iká.* — Fish is good. (Lit. "Is good the fish," referring to fish as a category.)
+*'Oku lelei 'a e iká.* Fish is good. (Lit. "Is good the fish," referring to fish as a category.)
 :::
 
 Another example: *'Oku lelei 'a e kavá* (Kava is good). The word *kavá* takes the definite article and the definitive accent, even though the sentence is about kava in general, not a specific batch.
@@ -113,7 +113,7 @@ Another example: *'Oku lelei 'a e kavá* (Kava is good). The word *kavá* takes 
 This pattern extends to everyday nouns. When Tongan makes a general statement about water, food, or any category, the definite article appears:
 
 ::: {.examples}
-*'Oku mālohi 'a e vaí.* — Water is powerful.
+*'Oku mālohi 'a e vaí.* Water is powerful.
 :::
 
 ---
@@ -123,13 +123,13 @@ This pattern extends to everyday nouns. When Tongan makes a general statement ab
 When a common noun is the subject of a sentence and is definite, it takes *e* (or *he* after prepositions) with the definitive accent. This follows the word order taught in Chapter 15: Noun Subjects: tense marker + verb + subject.
 
 ::: {.examples}
-*Na'e lele 'a e tamasi'í.* — The boy ran.
+*Na'e lele 'a e tamasi'í.* The boy ran.
 
-*Na'e ha'u 'a e faiakó.* — The teacher came.
+*Na'e ha'u 'a e faiakó.* The teacher came.
 
-*Té ke tokoni ki he tangatá?* — Will you help the man?
+*Té ke tokoni ki he tangatá?* Will you help the man?
 
-*Na'á ku sio ki he tamasi'í.* — I looked at the boy.
+*Na'á ku sio ki he tamasi'í.* I looked at the boy.
 :::
 
 In each sentence, the definite article (*e* or *he*) combines with the definitive accent on the final vowel to mark the noun as fully definite. Remember: *he* appears right after the prepositions *'i*, *ki*, and *mei*. It also appears after *'e*, a particle that marks who performs an action in certain sentence types. That construction is covered in Chapter 19: Transitive Word Order. Use *e* everywhere else.

@@ -38,9 +38,9 @@ Three larger round numbers appear frequently:
 For numbers above ten, Tongan names each part and connects the last part with *mā* (and):
 
 ::: {.examples}
-*hongofulu mā taha* — eleven (ten and one)
+*hongofulu mā taha*. eleven (ten and one)
 
-*hongofulu mā fā* — fourteen (ten and four)
+*hongofulu mā fā*. fourteen (ten and four)
 :::
 
 The tens follow a regular pattern, adding *-ngofulu* to the unit:
@@ -55,17 +55,17 @@ The tens follow a regular pattern, adding *-ngofulu* to the unit:
 For compound numbers, *mā* appears before the last part only:
 
 ::: {.examples}
-*tolungofulu mā valu* — thirty-eight
+*tolungofulu mā valu*. thirty-eight
 
-*teau nimangofulu mā ono* — one hundred and fifty-six
+*teau nimangofulu mā ono*. one hundred and fifty-six
 :::
 
 Larger numbers follow the same logic:
 
 ::: {.examples}
-*taha afe* — one thousand
+*taha afe*. one thousand
 
-*ua afe mā tolungeau* — two thousand three hundred
+*ua afe mā tolungeau*. two thousand three hundred
 :::
 
 ---
@@ -75,11 +75,11 @@ Larger numbers follow the same logic:
 When a number describes a noun (answering "how many of this thing?"), the particle *'e* appears before the number:
 
 ::: {.examples}
-*ha kato 'e ono* — six baskets
+*ha kato 'e ono*. six baskets
 
-*pa'anga 'e taha* — one dollar
+*pa'anga 'e taha*. one dollar
 
-*ha tohi 'e tolu* — three books
+*ha tohi 'e tolu*. three books
 :::
 
 The pattern is: noun + *'e* + number. This *'e* is a different word from the agent marker *'e* (which marks the doer in transitive sentences) and the future tense marker *'e* (which appears before noun subjects). It is a particle that attaches a number to a noun.
@@ -87,31 +87,31 @@ The pattern is: noun + *'e* + number. This *'e* is a different word from the age
 The particle *'e* is the standard form. When the noun has the definite article, the definitive accent falls on the last vowel of the noun as usual:
 
 ::: {.examples}
-*'a e kato 'e onó* — the six baskets
+*'a e kato 'e onó*. the six baskets
 :::
 
 ---
 
 ### Asking "how many" and "how much": *fīha*
 
-You have already met *fīha* as an interrogative meaning "when" or "at what time" (*Te ke 'osi he fīha?* — What time will you finish?). When *fīha* appears directly after a tense marker, it asks "how much" or "what price":
+You have already met *fīha* as an interrogative meaning "when" or "at what time" (*Te ke 'osi he fīha?* What time will you finish?). When *fīha* appears directly after a tense marker, it asks "how much" or "what price":
 
 ::: {.examples}
-*'Oku fīha 'a e sotē?* — How much is the shirt?
+*'Oku fīha 'a e sotē?* How much is the shirt?
 
-*'Oku fīha 'a e iká?* — How much is the fish?
+*'Oku fīha 'a e iká?* How much is the fish?
 :::
 
 The answer uses the same *'e* + number pattern:
 
 ::: {.examples}
-*'Oku pa'anga 'e taha, seniti 'e ua.* — One dollar and two cents.
+*'Oku pa'anga 'e taha, seniti 'e ua.* One dollar and two cents.
 :::
 
 *Fīha* also asks "how many" when combined with a noun:
 
 ::: {.examples}
-*ha kato 'e fīha?* — how many baskets?
+*ha kato 'e fīha?* how many baskets?
 :::
 
 ---
@@ -121,15 +121,15 @@ The answer uses the same *'e* + number pattern:
 When a number refers to people or living animals, *toko* precedes the number. The particle *'e* does not appear between *toko* and the number:
 
 ::: {.examples}
-*'Oku toko hiva pē.* — Only nine (people).
+*'Oku toko hiva pē.* Only nine (people).
 
-*Ko e tamaiki 'e toko tolu.* — Three children.
+*Ko e tamaiki 'e toko tolu.* Three children.
 :::
 
 The word *kau* *(group)* before a noun marks a group of people: *kau faiakó* *(teachers)*, *kau akó* *(pupils)*. It appears naturally with *toko* when asking about groups:
 
 ::: {.examples}
-*'Oku toko fīha ho'o kau akó?* — How many pupils do you have?
+*'Oku toko fīha ho'o kau akó?* How many pupils do you have?
 :::
 
 The pattern is *toko* + number for a specific count, and *toko fīha* for the question "how many people."
@@ -142,7 +142,7 @@ Two related words use the same *toko* base:
 | *tokosi'i* | few (people) |
 
 ::: {.examples}
-*'Oku nau tokosi'i pē.* — There are only a few of them.
+*'Oku nau tokosi'i pē.* There are only a few of them.
 :::
 
 ---
@@ -154,7 +154,7 @@ Tongan uses the *ko* pattern for telling time.
 The most common way to ask the time is:
 
 ::: {.examples}
-*Ko e fihá eni?* — What time is it?
+*Ko e fihá eni?* What time is it?
 :::
 
 Two other forms are also used: *Ko e taimi fīha eni?* and *Ko e hā 'a e taimí?*. The first form is the most frequent.
@@ -162,29 +162,29 @@ Two other forms are also used: *Ko e taimi fīha eni?* and *Ko e hā 'a e taimí
 To answer, state the hour with *ko e*:
 
 ::: {.examples}
-*Ko e tolú eni.* — It is three o'clock.
+*Ko e tolú eni.* It is three o'clock.
 
-*Ko e valú eni.* — It is eight o'clock.
+*Ko e valú eni.* It is eight o'clock.
 :::
 
 For "at" a specific time, use *he* (which is *'i he* with *'i* dropped, a pattern you learned with prepositions):
 
 ::: {.examples}
-*Tau kamata he fitū.* — We begin at seven.
+*Tau kamata he fitū.* We begin at seven.
 
-*He tolu.* — At three.
+*He tolu.* At three.
 :::
 
 For minutes before the hour, Tongan uses the word *toe* *(remaining, still to go)* before the time phrase. This word has other uses covered in Chapter 22: Aspect Markers, but in time-telling it simply means "remaining":
 
 ::: {.examples}
-*'Oku toe 'a e miniti 'e nima ki he tolú.* — Five minutes to three. (Lit. "Five minutes remain to the three.")
+*'Oku toe 'a e miniti 'e nima ki he tolú.* Five minutes to three. (Lit. "Five minutes remain to the three.")
 :::
 
 For minutes after the hour, Tongan uses *'osi* *(finished, past)* to indicate that the hour has passed. Like *toe*, this word has broader uses covered in Chapter 22: Aspect Markers, but in time-telling it signals that the hour is complete:
 
 ::: {.examples}
-*Kuo 'osi 'a e valú, miniti 'e hongofulu.* — Ten minutes past eight. (Lit. "The eight is finished, ten minutes.")
+*Kuo 'osi 'a e valú, miniti 'e hongofulu.* Ten minutes past eight. (Lit. "The eight is finished, ten minutes.")
 :::
 
 A common shortcut in everyday speech is to state each digit:
@@ -205,9 +205,9 @@ For times of day, Tongan adds a word after the hour:
 | *po'uli* | nighttime |
 
 ::: {.examples}
-*'I he fitu pongipongi.* — At 7 a.m.
+*'I he fitu pongipongi.* At 7 a.m.
 
-*'I he ono efiafi.* — At 6 p.m.
+*'I he ono efiafi.* At 6 p.m.
 :::
 
 ---
@@ -217,17 +217,17 @@ For times of day, Tongan adds a word after the hour:
 The word for "first" is *'uluaki*. It can appear before or after the noun:
 
 ::: {.examples}
-*ko e 'uluaki ta'ú* — the first year
+*ko e 'uluaki ta'ú*. the first year
 :::
 
 For "second," "third," and higher, Tongan uses the ho-class possessive *hono* (which you learned with possessives) plus the number with the definitive accent:
 
 ::: {.examples}
-*ko hono uá* — the second
+*ko hono uá*. the second
 
-*ko hono tolú* — the third
+*ko hono tolú*. the third
 
-*ko hono nimá* — the fifth
+*ko hono nimá*. the fifth
 :::
 
 This is a natural extension of the possessive system: the ordinal literally says "its second," "its third."
@@ -239,13 +239,13 @@ This is a natural extension of the possessive system: the ordinal literally says
 ### *Me'a e fiha* (how many)
 
 ::: {.examples}
-*Ko e fo'i mango. Me'a e fiha?* — Mangoes. How many?
+*Ko e fo'i mango. Me'a e fiha?* Mangoes. How many?
 :::
 
 The expression *me'a e fiha* *(how many)* is a conversational way to ask about quantity. It often appears on its own as a follow-up question after someone names what they want.
 
 ::: {.examples}
-*Ko e fo'i siaine. Me'a e fiha? Nima pē!* — Bananas. How many? Just five.
+*Ko e fo'i siaine. Me'a e fiha? Nima pē!* Bananas. How many? Just five.
 :::
 
 ---
@@ -324,9 +324,9 @@ Write the Tongan word for each number.
 
 Translate each exchange into Tongan.
 
-1. How much is the basket? — Two dollars.
-2. How much is the book? — Three dollars and five cents.
-3. How much is the mat? — One dollar.
+1. How much is the basket? Two dollars.
+2. How much is the book? Three dollars and five cents.
+3. How much is the mat? One dollar.
 
 #### Exercise 4: Telling time
 
@@ -364,11 +364,11 @@ Translate into Tongan.
 
 #### Exercise 8: Translate each short exchange into Tongan using *me'a e fiha*
 
-1. Books. How many? — Three!
-2. Baskets. How many? — Six!
-3. Fish. How many? — Five!
-4. Mats. How many? — Two!
-5. Knives. How many? — Four!
+1. Books. How many? Three!
+2. Baskets. How many? Six!
+3. Fish. How many? Five!
+4. Mats. How many? Two!
+5. Knives. How many? Four!
 
 ---
 
@@ -391,9 +391,9 @@ Translate into Tongan.
 5. How many teachers are there?
 
 #### Exercise 3
-1. *'Oku fīha e kató? — Pa'anga 'e ua.*
-2. *'Oku fīha e tohí? — Pa'anga 'e tolu, seniti 'e nima.*
-3. *'Oku fīha e falá? — Pa'anga 'e taha.*
+1. *'Oku fīha e kató?* *Pa'anga 'e ua.*
+2. *'Oku fīha e tohí?* *Pa'anga 'e tolu, seniti 'e nima.*
+3. *'Oku fīha e falá?* *Pa'anga 'e taha.*
 
 #### Exercise 4
 1. *Ko e fihá eni?*
@@ -422,8 +422,8 @@ Translate into Tongan.
 5. The second.
 
 #### Exercise 8
-1. *Ko e tohi. Me'a e fiha? — Tolu!*
-2. *Ko e kato. Me'a e fiha? — Ono!*
-3. *Ko e ika. Me'a e fiha? — Nima!*
-4. *Ko e fala. Me'a e fiha? — Ua!*
-5. *Ko e hele. Me'a e fiha? — Fā!*
+1. *Ko e tohi. Me'a e fiha?* *Tolu!*
+2. *Ko e kato. Me'a e fiha?* *Ono!*
+3. *Ko e ika. Me'a e fiha?* *Nima!*
+4. *Ko e fala. Me'a e fiha?* *Ua!*
+5. *Ko e hele. Me'a e fiha?* *Fā!*

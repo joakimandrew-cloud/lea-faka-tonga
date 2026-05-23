@@ -44,8 +44,8 @@ Beyond proper place names and familiar local nouns like *'api*, *kolo*, *fale*, 
 These words function as local nouns because they refer to places that need no further identification. When they take an article and the definitive accent, they become common nouns with a more specific meaning:
 
 ::: {.examples}
-*ki tahi* — (to sea, generally) vs. *ki he tahí* (to the sea, a specific body of water)
-*'i loto* — (inside) vs. *'i he lotó* (in the mind)
+*ki tahi*. (to sea, generally) vs. *ki he tahí* (to the sea, a specific body of water)
+*'i loto*. (inside) vs. *'i he lotó* (in the mind)
 :::
 
 The word *loto* shifts meaning entirely: as a local noun it means "inside" (a place), but as a common noun with an article it means "mind."
@@ -57,9 +57,9 @@ The word *loto* shifts meaning entirely: as a local noun it means "inside" (a pl
 The previous chapter covered verbal noun constructions in detail. In the classification system, verbal nouns form a third group within common nouns. A verbal noun denotes doing something, having something, or being something.
 
 ::: {.examples}
-*'ene taki* — his leading (he does the leading: 'e-class possessive)
+*'ene taki*. his leading (he does the leading: 'e-class possessive)
 
-*hono taki* — his being led (the leading is done to him: ho-class possessive)
+*hono taki*. his being led (the leading is done to him: ho-class possessive)
 :::
 
 The possessive class signals the difference. The 'e-class (*'ene*) marks the doer. The ho-class (*hono*) marks the one acted upon, or names the thing or quality itself.
@@ -67,9 +67,9 @@ The possessive class signals the difference. The 'e-class (*'ene*) marks the doe
 This distinction extends to statives used as verbal or abstract nouns:
 
 ::: {.examples}
-*'ene mālohi* — his being strong (a state: verbal noun)
+*'ene mālohi*. his being strong (a state: verbal noun)
 
-*hono mālohi* — his strength (a quality: abstract noun)
+*hono mālohi*. his strength (a quality: abstract noun)
 :::
 
 The verbal noun describes the fact that someone is strong. The abstract noun names the quality of strength.
@@ -81,13 +81,13 @@ The verbal noun describes the fact that someone is strong. The abstract noun nam
 Certain verbs take an *'i* phrase as their complement, meaning "at," "in," or "about." When the complement is a personal noun, *'i* becomes *'ia*:
 
 ::: {.examples}
-*'Okú ne 'ofa he ta'ahiné.* — He loves the girl. (common noun: *he* = *'i he*)
+*'Okú ne 'ofa he ta'ahiné.* He loves the girl. (common noun: *he* = *'i he*)
 
-*'Okú ne 'ofa 'ia Seini.* — He loves Seini. (personal noun: *'ia*)
+*'Okú ne 'ofa 'ia Seini.* He loves Seini. (personal noun: *'ia*)
 
-*'Okú ne 'ita he tamasi'í.* — He is angry at the boy. (common noun)
+*'Okú ne 'ita he tamasi'í.* He is angry at the boy. (common noun)
 
-*'Okú ne 'ita 'ia Tēvita.* — He is angry at Tēvita. (personal noun)
+*'Okú ne 'ita 'ia Tēvita.* He is angry at Tēvita. (personal noun)
 :::
 
 The pattern applies to other verbs that take *'i* phrases:
@@ -120,15 +120,15 @@ The classification determines the preposition form. If you know what type of nou
 Chapter 31: Existential Expressions introduced the classifier *fo'i* for single, round, or complete objects. The classifier *la'i* works the same way but for objects that are long, thin, and flat. It probably comes from *lau'i* (the leaf of).
 
 ::: {.examples}
-*la'i pepa* — a sheet/piece of paper
+*la'i pepa*. a sheet/piece of paper
 
-*la'i papa* — a board
+*la'i papa*. a board
 
-*la'i foomu* — a form (document)
+*la'i foomu*. a form (document)
 
-*To'o hake 'a e la'i pepá.* — Pick up the piece of paper.
+*To'o hake 'a e la'i pepá.* Pick up the piece of paper.
 
-*Na'á ke fakafonu 'a e la'i foomú?* — Did you fill out the form?
+*Na'á ke fakafonu 'a e la'i foomú?* Did you fill out the form?
 :::
 
 | Classifier | Object type | Example |
@@ -219,21 +219,21 @@ For each pair of sentences, explain the difference in meaning.
 
 #### Exercise 1
 
-1. *Na'á ku 'alu ki Fisi.* — I went to Fiji. (local noun: standard *ki*)
-2. *Na'á ku lea kia Lupe.* — I spoke to Lupe. (personal noun: *kia*)
-3. *Na'á ne nofo 'ia Sēmisi.* — He stayed with Sēmisi. (personal noun: *'ia*)
-4. *Te mau folau mei Ha'apai.* — We will sail from Ha'apai. (local noun: standard *mei*)
-5. *Na'á ne tokoni ki he faiakó.* — He helped the teacher. (common noun: *ki he*)
-6. *Te nau foki meia Siaosi.* — They will return from Siaosi. (personal noun: *meia*)
+1. *Na'á ku 'alu ki Fisi.* I went to Fiji. (local noun: standard *ki*)
+2. *Na'á ku lea kia Lupe.* I spoke to Lupe. (personal noun: *kia*)
+3. *Na'á ne nofo 'ia Sēmisi.* He stayed with Sēmisi. (personal noun: *'ia*)
+4. *Te mau folau mei Ha'apai.* We will sail from Ha'apai. (local noun: standard *mei*)
+5. *Na'á ne tokoni ki he faiakó.* He helped the teacher. (common noun: *ki he*)
+6. *Te nau foki meia Siaosi.* They will return from Siaosi. (personal noun: *meia*)
 
 #### Exercise 2
 
-1. *Mele* — personal: *kia Mele*
-2. *kolo* — local: *ki kolo*
-3. *tamasi'i* (definite) — common: *ki he tamasi'í*
-4. *Nuku'alofa* — local: *ki Nuku'alofa*
-5. *hou'eiki* — personal (quasi-personal): *kia hou'eiki*
-6. *tahi* — local (quasi-local): *ki tahi*
+1. *Mele*. personal: *kia Mele*
+2. *kolo*. local: *ki kolo*
+3. *tamasi'i* (definite). Common: *ki he tamasi'í*
+4. *Nuku'alofa*. local: *ki Nuku'alofa*
+5. *hou'eiki*. personal (quasi-personal): *kia hou'eiki*
+6. *tahi*. local (quasi-local): *ki tahi*
 
 #### Exercise 3
 

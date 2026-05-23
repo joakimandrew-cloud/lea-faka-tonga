@@ -7,9 +7,9 @@ This chapter introduces a three-part sentence pattern (tense marker, pronoun, ve
 ### The Pattern
 
 ::: {.examples}
-*Na'á ke kai?* — Did you eat?
+*Na'á ke kai?* Did you eat?
 
-*Na'á ku kai.* — I ate.
+*Na'á ku kai.* I ate.
 :::
 
 These two sentences show the basic pattern for this chapter: a tense marker, a pronoun, and a verb, always in that order. You will build on this pattern and learn others as the book progresses.
@@ -52,7 +52,7 @@ This chapter introduces one tense marker: *na'a*. It marks the past tense, meani
 *Na'a* always comes first in this pattern.
 
 ::: {.examples}
-*Na'á ke kai.* — You ate. (Lit. "Past you eat.")
+*Na'á ke kai.* You ate. (Lit. "Past you eat.")
 :::
 
 The literal translation shows how the three parts line up. *Na'a* = past. *Ke* = you. *Kai* = eat. In this pattern, the tense marker comes first, then who did it, then what they did.
@@ -87,11 +87,11 @@ The pattern has three parts in a fixed order:
 Change the pronoun to change who did the action. Change the verb to change what was done. The tense marker stays the same.
 
 ::: {.examples}
-*Na'á ku kai.* — I ate.
+*Na'á ku kai.* I ate.
 
-*Na'á ku inu.* — I drank.
+*Na'á ku inu.* I drank.
 
-*Na'á ke inu.* — You drank.
+*Na'á ke inu.* You drank.
 :::
 
 Here is the full set of combinations. Every cell in the table follows the same pattern.
@@ -109,15 +109,15 @@ The same pattern works with the five additional verbs:
 | *ke* (you) | *Na'á ke nofo.* | *Na'á ke lele.* | *Na'á ke ako.* | *Na'á ke foki.* | *Na'á ke tangi.* |
 
 ::: {.examples}
-*Na'á ku nofo.* — I stayed.
+*Na'á ku nofo.* I stayed.
 
-*Na'á ke lele?* — Did you run?
+*Na'á ke lele?* Did you run?
 
-*Na'á ku ako.* — I studied.
+*Na'á ku ako.* I studied.
 
-*Na'á ku foki.* — I returned.
+*Na'á ku foki.* I returned.
 
-*Na'á ke tangi?* — Did you cry?
+*Na'á ke tangi?* Did you cry?
 :::
 
 ---
@@ -132,17 +132,17 @@ In this pattern, you form a yes/no question the simplest way possible: say the s
 A typical exchange follows this pattern:
 
 ::: {.examples}
-*Na'á ke kai?* ↗ — Did you eat?
+*Na'á ke kai?* ↗ Did you eat?
 
-*'Io, na'á ku kai.* ↘ — Yes, I ate.
+*'Io, na'á ku kai.* ↘ Yes, I ate.
 :::
 
 *'Io* *(yes)* is the standard Tongan word for "yes." To answer "no," use *'ikai*.
 
 ::: {.examples}
-*Na'á ke inu?* ↗ — Did you drink?
+*Na'á ke inu?* ↗ Did you drink?
 
-*'Ikai, na'á ku mohe.* ↘ — No, I slept.
+*'Ikai, na'á ku mohe.* ↘ No, I slept.
 :::
 
 > *Note:* *'Ikai* as a full negative sentence pattern is taught in Chapter 9: The Negative. Use it simply to mean "no" when answering a question.
@@ -166,8 +166,8 @@ Throughout this book, an acute accent (´) on the tense marker shows where the s
 Practice saying these out loud:
 
 ::: {.examples}
-*Na'á ku kai.* — (stress: na-**'a**-ku kai)
-*Na'á ke kai?* — (stress: na-**'a**-ke kai)
+*Na'á ku kai.* (stress: na-**'a**-ku kai)
+*Na'á ke kai?* (stress: na-**'a**-ke kai)
 :::
 
 ---

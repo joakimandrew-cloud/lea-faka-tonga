@@ -14,11 +14,11 @@ The expression *tapu mo* is the most characteristically Tongan element of the re
 A formal speech or public address begins with a series of *tapu mo* statements. Each one acknowledges a person or group present, in order of rank.
 
 ::: {.examples}
-*Tapu mo hou'eiki!* — My respects to the chiefs.
+*Tapu mo hou'eiki!* My respects to the chiefs.
 
-*Tapu mo e kau faifekaú!* — My respects to the clergy.
+*Tapu mo e kau faifekaú!* My respects to the clergy.
 
-*Tapu mo e fakatahá ni!* — My respects to this gathering.
+*Tapu mo e fakatahá ni!* My respects to this gathering.
 :::
 
 The speaker names each group in descending order of rank: royalty first (if present), then high chiefs, then clergy, then the general assembly. Other individuals of high rank or special importance may be specifically mentioned in their appropriate position.
@@ -35,15 +35,15 @@ The speaker names each group in descending order of rank: royalty first (if pres
 The second use of *tapu mo* is as an apology inserted into speech (whether public or conversational) after mentioning a topic that Tongan propriety considers sensitive. References to the human body, food, fire, cooking, or animals may all require an immediate *tapu mo* to show the speaker is aware of the impropriety.
 
 ::: {.examples}
-*Tapu mo koe!* — With respect to you. (In conversation with one person.)
+*Tapu mo koe!* With respect to you. (In conversation with one person.)
 
-*Tapu mo hou'eiki!* — With respect to the chiefs. (In a public setting.)
+*Tapu mo hou'eiki!* With respect to the chiefs. (In a public setting.)
 :::
 
 A reference to a person who is not present also calls for this formula:
 
 ::: {.examples}
-*Tapu mo ia!* — With all due respect to him/her.
+*Tapu mo ia!* With all due respect to him/her.
 :::
 
 These insertions are far more frequent in Tongan than their English equivalents. Their regular use is an essential part of Tongan etiquette, not an occasional flourish.
@@ -109,9 +109,9 @@ The standard greeting *Mālō e lelei* (introduced in an earlier chapter) uses *
 An earlier chapter introduced the vocative particle *'e* for addressing someone by name (*'E Sione, ha'u!*). In formal contexts, the vocative combines with titles to mark the rank of the person addressed.
 
 ::: {.examples}
-*'E Ho'o 'Afio.* — Your Majesty. (Addressing the sovereign.)
+*'E Ho'o 'Afio.* Your Majesty. (Addressing the sovereign.)
 
-*'E 'Otua māfimafí.* — Almighty God. (In prayer.)
+*'E 'Otua māfimafí.* Almighty God. (In prayer.)
 :::
 
 The title *Ho'o 'Afio* (Your Majesty) is the standard form for the sovereign. When referring to the sovereign in the third person, the form is *'Ene 'Afio* (His/Her Majesty).
@@ -121,7 +121,7 @@ The title *Ho'o 'Afio* (Your Majesty) is the standard form for the sovereign. Wh
 When calling someone's attention, the words *Tangata'eiki!* (Sir) and *Fine'eiki!* (Madam) serve as respectful alternatives. The addition of *ko eni* (this) makes the address more formal:
 
 ::: {.examples}
-*Tangata'eiki ko eni!* — Sir. (Formal call for attention.)
+*Tangata'eiki ko eni!* Sir. (Formal call for attention.)
 :::
 
 #### Responding to a call
@@ -137,7 +137,7 @@ This rule illustrates how Tongan respect language constantly adjusts based on wh
 The word *fakatulou* means "to excuse oneself" when passing by or reaching over someone. In Tongan culture, the head is sacred (*tapu*), and passing close to someone, especially someone of higher rank, requires a verbal acknowledgement.
 
 ::: {.examples}
-*Fakatulou!* — Excuse me. (When passing by someone.)
+*Fakatulou!* Excuse me. (When passing by someone.)
 :::
 
 This is distinct from *fakamolemole* (pardon, introduced in an earlier chapter), which is used for verbal requests. *Fakatulou* specifically addresses the physical act of moving near or past another person.
@@ -220,7 +220,7 @@ Select the appropriate word for each situation.
 5. You are greeting a friend informally. You say *Mālō e \_\_\_\_\_\_\_.*
 6. The sovereign is departing. You say _______ *ā!*
 
-#### Exercise 3: *Tapu mo* — Insert the correct phrase
+#### Exercise 3: *Tapu mo*: Insert the correct phrase
 
 What *tapu mo* phrase would follow each statement? Choose from: *Tapu mo koe!* / *Tapu mo hou'eiki!* / *Tapu mo ia!*
 
@@ -253,23 +253,23 @@ What *tapu mo* phrase would follow each statement? Choose from: *Tapu mo koe!* /
 
 #### Exercise 1
 
-1. *kai* — ordinary
-2. *taumafa* — regal
-3. *mama* — derogatory
-4. *tokoni* — polite
-5. *'ilo* — honorific
-6. *hā'ele* — regal
-7. *faka'au* — polite
-8. *me'a* — honorific
+1. *kai*. ordinary
+2. *taumafa*. regal
+3. *mama*. derogatory
+4. *tokoni*. polite
+5. *'ilo*. honorific
+6. *hā'ele*. regal
+7. *faka'au*. polite
+8. *me'a*. honorific
 
 #### Exercise 2
 
 1. *kai* (ordinary, informal family setting)
 2. *Me'a ā!* (honorific farewell for a chief)
-3. *lakoifuá* (*Mālō e lakoifuá* — regal greeting for the sovereign)
+3. *lakoifuá* (*Mālō e lakoifuá*. regal greeting for the sovereign)
 4. *mama* (derogatory, referring to oneself before a chief)
-5. *leleí* (*Mālō e leleí* — ordinary greeting)
-6. *Hā'ele* (*Hā'ele ā!* — regal farewell for the sovereign)
+5. *leleí* (*Mālō e leleí*. ordinary greeting)
+6. *Hā'ele* (*Hā'ele ā!* regal farewell for the sovereign)
 
 #### Exercise 3
 

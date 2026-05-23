@@ -84,9 +84,9 @@ Reduplication can strengthen or amplify the meaning:
 | *fiefia* (to rejoice) | *fiefia* → built from *fia* + *fia* | to rejoice (the word itself is a historical reduplication) |
 
 ::: {.examples}
-*'Oku 'uli'uli 'a e langi hé.* — The sky over there is black.
+*'Oku 'uli'uli 'a e langi hé.* The sky over there is black.
 
-*Na'e katokatoa 'a e kau akó.* — Absolutely all the students were there.
+*Na'e katokatoa 'a e kau akó.* Absolutely all the students were there.
 :::
 
 #### Moderation
@@ -102,9 +102,9 @@ Reduplication can soften or moderate the meaning, expressing "somewhat" or "a li
 | *fakasio* (to watch, stare) | *fakasiosio* | to peep |
 
 ::: {.examples}
-*'Oku māmāfana 'a e vaí.* — The water is lukewarm.
+*'Oku māmāfana 'a e vaí.* The water is lukewarm.
 
-*Na'e mokomoko 'a e efiafí.* — The evening was cool.
+*Na'e mokomoko 'a e efiafí.* The evening was cool.
 :::
 
 > *Note:* Some reduplicated forms can carry either an intensifying or a moderating meaning depending on context. *Lahilahi*, from *lahi* (big), can mean "quite big" or "moderately big." The moderative sense is often signalled by adding *pē*: *'oku lahilahi pē* (it is just moderately big).
@@ -141,9 +141,9 @@ Reduplication can turn a word from one part of speech into another. You already 
 | *vai* (water) | *vaivai* | weak (watery) |
 
 ::: {.examples}
-*'Oku luoluo 'a e halá.* — The road is full of holes.
+*'Oku luoluo 'a e halá.* The road is full of holes.
 
-*'Oku totototo 'a e langi 'i he efiafí.* — The sky is red in the evening.
+*'Oku totototo 'a e langi 'i he efiafí.* The sky is red in the evening.
 :::
 
 **Noun → verb:**
@@ -181,9 +181,9 @@ The prefix *faka-*, which you learned in Chapter 32: The *Faka-* Prefix, combine
 The effect is often one of moderation or abstraction. *Poto* means "clever" in a direct, concrete sense. *Fakapotopoto* means "wise" or "sensible," a more considered quality. *Fua* means "to measure" precisely. *Fakafuofua* means "to estimate," a less exact action.
 
 ::: {.examples}
-*'Oku fakapotopoto 'a e faiakó.* — The teacher is wise.
+*'Oku fakapotopoto 'a e faiakó.* The teacher is wise.
 
-*Na'á ne fakafuofua 'a e mamafá.* — He estimated the weight.
+*Na'á ne fakafuofua 'a e mamafá.* He estimated the weight.
 :::
 
 > *Note:* Not every *faka-* + reduplicated form follows this pattern. *Fakamu'omu'a* (to put in front, to give preference to) is simply the causative of *mu'omu'a* (to go in front), not a moderated form. The word-building process is the same, but the meaning comes from the regular causative function of *faka-*.
@@ -199,17 +199,17 @@ Reduplication repeats syllables to modify meaning. Tongan also manipulates vowel
 #### Vowel protraction for superlativeness
 
 ::: {.examples}
-*la——hi* — very very big, enormous
+*la––hi*. very very big, enormous
 :::
 
 Tongan can express extreme degree by drawing out a vowel far beyond normal length. This is not the same as a long vowel marked with a macron. A protracted vowel is held for several times the length of an ordinary long vowel, stretching the word as the speaker stretches the meaning.
 
-The vowel that gets protracted is usually the one that carries the main stress. In *lahi* (big), the stress falls on the *a*, so protracting it produces *la——hi*, meaning something far beyond merely big.
+The vowel that gets protracted is usually the one that carries the main stress. In *lahi* (big), the stress falls on the *a*, so protracting it produces *la––hi*, meaning something far beyond merely big.
 
 ::: {.examples}
-*si——'i* — very very small, absolutely tiny
+*si––'i*. very very small, absolutely tiny
 
-*mani——fi* — very very thin
+*mani––fi*. very very thin
 :::
 
 The dashes in the spelling represent the drawn-out vowel. In speech, the speaker simply holds the vowel for as long as the emotion demands. There is no fixed duration. A speaker describing something merely very big might hold the vowel for a second. A speaker describing something astonishingly big might hold it for three or four.
@@ -223,9 +223,9 @@ This is different from using *'aupito* (very) or *lahi* (much) as modifiers. Tho
 The same technique expresses extended duration with certain verbs:
 
 ::: {.examples}
-*tu——'u* — to stand for a very long time
+*tu––'u*. to stand for a very long time
 
-*fuolo——a* — for a very very long time
+*fuolo––a*. for a very very long time
 :::
 
 Here the protracted vowel does not mean "very much standing" but "standing for an extremely long time." The speaker holds the vowel to mirror the length of time being described.
@@ -239,10 +239,10 @@ Here the protracted vowel does not mean "very much standing" but "standing for a
 In formal or respectful speech, the definite article *e* can itself be protracted:
 
 ::: {.examples}
-*Fakafeta'i e—— toka kava!* — (Ceremonial) Thank you for the kava.
+*Fakafeta'i e–– toka kava!* (Ceremonial) Thank you for the kava.
 :::
 
-The word *fakafeta'i* is the respectful form of "thank you," used instead of *mālō* in formal settings. The protracted article *e——* adds weight and ceremony to the expression. The casual equivalent would be *Mālō e ma'u kava!* (Thank you for the kava), with no protraction.
+The word *fakafeta'i* is the respectful form of "thank you," used instead of *mālō* in formal settings. The protracted article *e––* adds weight and ceremony to the expression. The casual equivalent would be *Mālō e ma'u kava!* (Thank you for the kava), with no protraction.
 
 This kind of protraction is heard in ceremonial occasions: the arrival of a distinguished visitor, formal gift-giving, or speeches at traditional gatherings. It signals that the speaker is observing protocol, not just making conversation.
 
@@ -254,15 +254,15 @@ Tongan has fixed exclamatory shouts in which a vowel is always protracted:
 
 | Shout | Emotion | Comparable to |
 |---|---|---|
-| *Tue——!* | Joy, exultation | "Hooray!" |
-| *'Iohoe——!* | Grief, pain, distress | A cry of anguish |
-| *Iu——huhū!* | Alarm | A warning cry |
+| *Tue––!* | Joy, exultation | "Hooray!" |
+| *'Iohoe––!* | Grief, pain, distress | A cry of anguish |
+| *Iu––huhū!* | Alarm | A warning cry |
 
-*Tue——!* often appears in a repeated form: *Tuētuētuētue——!* The *tuē* may be repeated any number of times, building excitement with each repetition.
+*Tue––!* often appears in a repeated form: *Tuētuētuētue––!* The *tuē* may be repeated any number of times, building excitement with each repetition.
 
-*'Iohoe——!* is the opposite: a cry of sudden or overwhelming grief. Its protracted final vowel carries the weight of the speaker's distress.
+*'Iohoe––!* is the opposite: a cry of sudden or overwhelming grief. Its protracted final vowel carries the weight of the speaker's distress.
 
-*Iu——huhū!* begins on a very high note and serves as an alarm call.
+*Iu––huhū!* begins on a very high note and serves as an alarm call.
 
 These are fixed expressions. They are not built from productive grammar rules. You learn them as complete units, the way English speakers learn "Hooray!" or "Help!"
 
@@ -273,13 +273,13 @@ These are fixed expressions. They are not built from productive grammar rules. Y
 A related but distinct device appears when a verb is repeated immediately (with no word between the two occurrences) to express long continuance. The stressed vowel of the verb is lengthened, but not protracted to the extreme degree described above:
 
 ::: {.examples}
-*Na'a nau tūli tūli 'o a'u ki he vao.* — They chased and chased all the way to the bush.
+*Na'a nau tūli tūli 'o a'u ki he vao.* They chased and chased all the way to the bush.
 :::
 
 The original verb *tuli* (to chase) has its penultimate vowel *u* lengthened to *ū* when repeated: *tūli tūli*. This lengthening signals that the chasing went on for a long time, not just that it happened twice.
 
 ::: {.examples}
-*Na'á ne tohi tohi pea 'osi 'a e tohí.* — He wrote and wrote until the book was finished.
+*Na'á ne tohi tohi pea 'osi 'a e tohí.* He wrote and wrote until the book was finished.
 :::
 
 Here *tohi* does not show visible lengthening in spelling because its stressed vowel *o* is already short and the lengthening is subtle. The key structural signal is the immediate repetition of the verb.
@@ -379,13 +379,13 @@ Fill in the correct form of the word in brackets.
 
 For each item, state whether the device is (a) vowel protraction for superlativeness, (b) vowel protraction for duration, (c) ceremonial protraction, (d) a customary shout, (e) vowel lengthening in a repeated verb, or (f) none of these.
 
-1. *la——hi*
-2. *Tue——!*
+1. *la––hi*
+2. *Tue––!*
 3. *Na'á ne tūli tūli 'a e puaká.*
-4. *Fakafeta'i e—— toka kava!*
-5. *no——fo*
-6. *si——'i*
-7. *'Iohoe——!*
+4. *Fakafeta'i e–– toka kava!*
+5. *no––fo*
+6. *si––'i*
+7. *'Iohoe––!*
 
 #### Exercise 8: Transform using vowel protraction or repetition
 
@@ -465,8 +465,8 @@ Rewrite each sentence to express the meaning in parentheses.
 
 #### Exercise 8
 
-1. *'Oku la——hi 'a e falé.*
-2. *Na'á ne no——fo 'i he kolo ko iá.*
+1. *'Oku la––hi 'a e falé.*
+2. *Na'á ne no––fo 'i he kolo ko iá.*
 3. *Na'a nau kūmi kūmi 'a e tamasi'í.*
-4. *'Oku si——'i 'a e me'á.*
-5. *Na'á ne tū——'u 'i he hala ko iá.*
+4. *'Oku si––'i 'a e me'á.*
+5. *Na'á ne tū––'u 'i he hala ko iá.*

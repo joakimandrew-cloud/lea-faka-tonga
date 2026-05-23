@@ -7,7 +7,7 @@ Nouns so far have appeared either as indefinite objects joined directly to a ver
 ### The Indefinite Article: *Ha*
 
 ::: {.examples}
-*'Oku ou fiema'u ha ika.* — I want some fish.
+*'Oku ou fiema'u ha ika.* I want some fish.
 :::
 
 The word *ha* placed before a noun means "a," "some," or "any." It signals that the speaker does not have a specific one in mind. The noun *ika* *(fish)* is a common food word, like *mā* and *vai* from earlier chapters. The verb *fiema'u* *(to want, to need)* takes its object with *ha* when the speaker means any or some of that thing.
@@ -15,9 +15,9 @@ The word *ha* placed before a noun means "a," "some," or "any." It signals that 
 Compare these two sentences:
 
 ::: {.examples}
-*'Oku ou inu vai.* — I drink water.
+*'Oku ou inu vai.* I drink water.
 
-*Na'á ku inu ha vai.* — I drank some water.
+*Na'á ku inu ha vai.* I drank some water.
 :::
 
 In the first sentence, *inu vai* is the kind of verb-object unit from earlier chapters: the verb and noun sit together with nothing between them. In the second, *ha* appears between the verb and the noun. The noun phrase *ha vai* means "some water," not a specific glass of water.
@@ -27,15 +27,15 @@ The word *ha* marks its noun as indefinite, without specifying a particular one.
 *Ha* is common in questions:
 
 ::: {.examples}
-*'Okú ke fiema'u ha vai?* — Do you want some water?
+*'Okú ke fiema'u ha vai?* Do you want some water?
 
-*'Okú ke fiema'u ha ika?* — Do you want some fish? (The noun *ika* *(fish)* works the same way.)
+*'Okú ke fiema'u ha ika?* Do you want some fish? (The noun *ika* *(fish)* works the same way.)
 :::
 
 It also appears in suggestions using the imperative:
 
 ::: {.examples}
-*Inu ha vai.* — Drink some water.
+*Inu ha vai.* Drink some water.
 :::
 
 *Ha* appears frequently in negative sentences as well, once you learn negation in the next chapter.
@@ -62,7 +62,7 @@ Eat some chicken.
 ### The Definite Article: *E* and *He*
 
 ::: {.examples}
-*Na'á ke kai e mā?* — Did you eat the bread?
+*Na'á ke kai e mā?* Did you eat the bread?
 :::
 
 The definite article tells the listener you mean a specific thing. Tongan has two forms of the definite article: *e* and *he*. They mean the same thing. The form depends on which word comes directly before the article.
@@ -70,34 +70,34 @@ The definite article tells the listener you mean a specific thing. Tongan has tw
 **Use *he*** right after the prepositions *'i*, *ki*, and *mei*:
 
 ::: {.examples}
-*Té u 'alu ki he fale.* — I will go to the house.
+*Té u 'alu ki he fale.* I will go to the house.
 
-*Na'á ku nofo 'i he fale kai.* — I stayed in the cafeteria.
+*Na'á ku nofo 'i he fale kai.* I stayed in the cafeteria.
 
-*Na'a mau ha'u mei he kolo.* — We came from the town.
+*Na'a mau ha'u mei he kolo.* We came from the town.
 :::
 
 **Use *e*** in all other positions:
 
 ::: {.examples}
-*Na'á ke kai 'a e mā?* — Did you eat the bread?
+*Na'á ke kai 'a e mā?* Did you eat the bread?
 
-*'Oku ou fiema'u 'a e talo.* — I want the taro. (a specific amount, already identified)
+*'Oku ou fiema'u 'a e talo.* I want the taro. (a specific amount, already identified)
 :::
 
 The full rule: *he* appears immediately after *'i*, *ki*, *mei*, and one other preposition (*'e*) that you will encounter in Chapter 19: Transitive Word Order. Everywhere else, use *e*.
 
 | Position | Form | Example |
 |---|---|---|
-| After *'i* | *he* | *'i he fale* — in the house |
-| After *ki* | *he* | *ki he fale* — to the house |
-| After *mei* | *he* | *mei he kolo* — from the town |
-| Elsewhere | *e* (or *'a e*) | *'a e mā* — the bread |
+| After *'i* | *he* | *'i he fale*<br><span class="translation">in the house</span> |
+| After *ki* | *he* | *ki he fale*<br><span class="translation">to the house</span> |
+| After *mei* | *he* | *mei he kolo*<br><span class="translation">from the town</span> |
+| Elsewhere | *e* (or *'a e*) | *'a e mā*<br><span class="translation">the bread</span> |
 
 Here is an imperative that combines the preposition *ki* with the definite article:
 
 ::: {.examples}
-*Ha'u ki he fale.* — Come to the house.
+*Ha'u ki he fale.* Come to the house.
 :::
 
 The noun *fale* *(house)* follows *ki he*, using the *he* form because the preposition *ki* comes directly before the article.
@@ -127,14 +127,14 @@ The bare noun and the *ha* noun are both indefinite, but they are not identical.
 The full contrast looks like this:
 
 ::: {.examples}
-*'Oku ou fiema'u talo.* — I want taro.
+*'Oku ou fiema'u talo.* I want taro.
 
-*'Oku ou fiema'u ha talo.* — I want some taro.
+*'Oku ou fiema'u ha talo.* I want some taro.
 
-*'Oku ou fiema'u 'a e talō.* — I want the taro.
+*'Oku ou fiema'u 'a e talō.* I want the taro.
 :::
 
-> **Preview — the focus marker *'a*:** The small word *'a* before the article *e* is a focus marker. It signals which noun is most directly connected to the verb's action. When a definite noun is the object of a verb, *'a* appears before the article: *kai 'a e mā* (eat the bread). You will learn the full pattern in Chapter 15: Noun Subjects, and again in Chapter 19: Transitive Word Order. For now, notice that *'a e* belongs together as a unit before definite nouns that are acted on by the verb.
+> **Preview of the focus marker *'a*:** The small word *'a* before the article *e* is a focus marker. It signals which noun is most directly connected to the verb's action. When a definite noun is the object of a verb, *'a* appears before the article: *kai 'a e mā* (eat the bread). You will learn the full pattern in Chapter 15: Noun Subjects, and again in Chapter 19: Transitive Word Order. For now, notice that *'a e* belongs together as a unit before definite nouns that are acted on by the verb.
 
 In the third sentence, notice the stress on the last vowel of *talō*. This is the definitive accent, a stress shift that marks a definite noun as fully specific (both speaker and listener know exactly which one). The definitive accent is covered formally in Chapter 18: Definiteness and the Definitive Accent. The basic distinction between *ha* (indefinite) and *e*/*he* (definite) is what matters.
 

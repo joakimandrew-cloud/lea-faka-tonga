@@ -11,7 +11,7 @@ English has the word "one" used as an indefinite pronoun: "One should not speak 
 You already know *te* as the first-person inclusive singular preposed pronoun (I-and-you). In its impersonal use, *te* and *kita* mean "one" in the indefinite sense: anyone in general, including the speaker and the listener.
 
 ::: {.examples}
-*'Oku 'ikai totonu ke te tokanga pē kiate kita.* — One should not attend only to oneself.
+*'Oku 'ikai totonu ke te tokanga pē kiate kita.* One should not attend only to oneself.
 :::
 
 The structure is identical to any other pronoun sentence: tense marker + subordinator *ke* + pronoun *te* + verb. But here *te* does not mean "I and you (two)." It means "a person in general." And *kita* (the postposed form) means "oneself."
@@ -19,13 +19,13 @@ The structure is identical to any other pronoun sentence: tense marker + subordi
 This impersonal meaning is the primary function of *te*/*kita*. A second, related use is as a polite or humble way to say "I" or "me." Instead of using *ou* (I) directly, a speaker may choose *te* to sound less self-centred:
 
 ::: {.examples}
-*'Okú te mā kita.* — One is ashamed. (Or: I am ashamed, said humbly.)
+*'Okú te mā kita.* One is ashamed. (Or: I am ashamed, said humbly.)
 :::
 
 The effect is similar to saying "one finds oneself embarrassed" in English instead of "I'm embarrassed." The speaker is technically including everyone, but the meaning is clearly personal.
 
 ::: {.examples}
-*'Okú te fie 'alu ka 'oku 'ikai te lava.* — One wants to go but one cannot.
+*'Okú te fie 'alu ka 'oku 'ikai te lava.* One wants to go but one cannot.
 :::
 
 Here the speaker is talking about a personal wish but frames it through the impersonal *te* out of modesty.
@@ -48,9 +48,9 @@ Just as the regular pronouns have possessive forms, the impersonal pronoun has i
 The class distinction works the same way as with all other possessive pronouns. Use *'ete* for things you act upon or control ('e-class), and *hoto* for things that belong to you by nature or shelter you (ho-class):
 
 ::: {.examples}
-*'Oku totonu ke tauhi 'e te 'ete ngāué.* — One should take care of one's work.
+*'Oku totonu ke tauhi 'e te 'ete ngāué.* One should take care of one's work.
 
-*'Oku 'ikai lelei ke fakangalofa'i 'a hoto fāmilí.* — It is not good to neglect one's family.
+*'Oku 'ikai lelei ke fakangalofa'i 'a hoto fāmilí.* It is not good to neglect one's family.
 :::
 
 The postposed forms are *'a'ata* ('e-class) and *'o'ota* (ho-class), meaning "of one's" or "of mine" (humbly). The benefactive forms are *ma'ata* ('e-class) and *mo'ota* (ho-class), meaning "for one" or "for me" (humbly).
@@ -64,7 +64,7 @@ Tongan speakers sometimes use the dual (two-person) pronoun where you might expe
 This applies to all types of pronouns: cardinal pronouns, possessive pronouns, pronominal adjectives, and pronominal adverbs. The effect is to make a general statement feel like a conversation between two people.
 
 ::: {.examples}
-*Ke ta feinga ke fai 'a e ngāué.* — That we strive to do the work. (Said to a group, but using the dual to create closeness.)
+*Ke ta feinga ke fai 'a e ngāué.* That we strive to do the work. (Said to a group, but using the dual to create closeness.)
 :::
 
 Where the plural *tau* would be factually accurate, the dual *ta* draws the listener in as though the speaker is talking to each person individually.
@@ -76,7 +76,7 @@ Where the plural *tau* would be factually accurate, the dual *ta* draws the list
 A related but distinct pattern: when a situation involves two or more people, Tongan often prefers a pronoun that includes everyone involved, even if the English equivalent would single out just one person.
 
 ::: {.examples}
-*Na'á ma nofo mo ia.* — I stayed with him.
+*Na'á ma nofo mo ia.* I stayed with him.
 :::
 
 The pronoun *ma* means "we two (excluding you)." But the English meaning is "I stayed with him," not "We two stayed." Tongan uses *ma* because both the speaker and the other person were involved in the staying. The togetherness is built into the pronoun itself rather than expressed separately.
@@ -84,13 +84,13 @@ The pronoun *ma* means "we two (excluding you)." But the English meaning is "I s
 This pattern extends across persons:
 
 ::: {.examples}
-*Té mo nofo mo ia?* — Will you stay with him?
+*Té mo nofo mo ia?* Will you stay with him?
 :::
 
 Here *mo* means "you two." English says "Will you stay with him?" but Tongan sees the situation as involving both people and chooses the dual pronoun accordingly.
 
 ::: {.examples}
-*Na'á nau talanoa mo ia.* — They talked with him.
+*Na'á nau talanoa mo ia.* They talked with him.
 :::
 
 Even if only two people were talking with him, *nau* (they, three or more) is used because, including him, there were three people involved. The pronoun counts everyone in the situation, not just the grammatical subject.
@@ -104,9 +104,9 @@ Even if only two people were talking with him, *nau* (they, three or more) is us
 When the first-person singular pronoun appears as the very first word in a sentence (with no tense marker before it), Tongan uses the form *kau*:
 
 ::: {.examples}
-*Kau 'alu mu'a?* — May I go, please?
+*Kau 'alu mu'a?* May I go, please?
 
-*Kau fufulu mu'a 'eku ipu.* — Let me wash my cup.
+*Kau fufulu mu'a 'eku ipu.* Let me wash my cup.
 :::
 
 This *kau* is simply another form of "I," used only in sentence-initial position. Do not confuse it with *ka u* (but I) or *ka u* (if/when I), where *ka* is a conjunction and *u* is the pronoun. In *kau 'alu mu'a*, there is no conjunction: *kau* is the pronoun by itself.
@@ -118,13 +118,13 @@ This *kau* is simply another form of "I," used only in sentence-initial position
 Pronouns you already know as personal ("I," "you," "he") can also function like English "who" or "which" when they appear in a clause that describes a noun:
 
 ::: {.examples}
-*Ko au 'oku ou lolotonga lea kiate koé, ko au ia.* — I who am speaking to you am he.
+*Ko au 'oku ou lolotonga lea kiate koé, ko au ia.* I who am speaking to you am he.
 :::
 
 The second *ou* does not introduce a new person. It refers back to *au* (I) in a relative sense: "I, who am speaking." English would use "who" here. Tongan simply repeats the pronoun.
 
 ::: {.examples}
-*Ko kimoutolu kuó mou toki a'u mai, kuo pau ke mou ō leva ki he 'ofisí.* — You who have just arrived must go to the office at once.
+*Ko kimoutolu kuó mou toki a'u mai, kuo pau ke mou ō leva ki he 'ofisí.* You who have just arrived must go to the office at once.
 :::
 
 The first *mou* functions as "who" (you who have just arrived). The second *mou* is the regular pronoun in the obligation clause.
@@ -132,7 +132,7 @@ The first *mou* functions as "who" (you who have just arrived). The second *mou*
 This works with all persons. The pronoun in the relative clause matches the person it refers back to:
 
 ::: {.examples}
-*'Oku 'aonga kiate kitautolu kotoa pē 'oku tau fie muimui ki he hala totonú.* — It is of value to all of us who want to follow the right path.
+*'Oku 'aonga kiate kitautolu kotoa pē 'oku tau fie muimui ki he hala totonú.* It is of value to all of us who want to follow the right path.
 :::
 
 Here *tau* (we, inclusive) is used in a relative sense: "all of us who want to follow."
@@ -146,13 +146,13 @@ In certain types of clauses, *te* and *'e* do not indicate the future tense. Ins
 This happens specifically in adjectival clauses (clauses that describe a noun), most commonly when the noun being described is indefinite:
 
 ::: {.examples}
-*'Oku 'ikai ha tamasi'i ako heni té ne ta'e 'ilo 'a e faka'ofo'ofa 'o homou fonuá.* — There is not a school child here who does not know the beauty of your country.
+*'Oku 'ikai ha tamasi'i ako heni té ne ta'e 'ilo 'a e faka'ofo'ofa 'o homou fonuá.* There is not a school child here who does not know the beauty of your country.
 :::
 
 The main clause uses *'oku* (present tense). The relative clause uses *te ne*, but this does not mean "who will not know" (future). It means "who does not know" (present), matching the main clause.
 
 ::: {.examples}
-*Na'e 'ikai ha'ane lea 'e fai.* — He did not say a word. (Lit. There was not a word of his to say.)
+*Na'e 'ikai ha'ane lea 'e fai.* He did not say a word. (Lit. There was not a word of his to say.)
 :::
 
 Here the main clause is past (*na'e*), and *'e* in the relative clause also carries past meaning despite looking like the future marker.
@@ -166,11 +166,11 @@ This usage appears to be confined to adjectival clauses whose antecedent (the no
 You have used *na'a* and *na'e* as past tense markers throughout this book. There is a third form, *ne*, which also marks the past tense but carries an additional shade of meaning: it implies that what happened was "as expected" or "as intended."
 
 ::: {.examples}
-*Na'e 'alu 'a Sione.* — John went. (Simple past, neutral.)
+*Na'e 'alu 'a Sione.* John went. (Simple past, neutral.)
 
-*Ne 'alu 'a Sione.* — John went. (As planned, as expected.)
+*Ne 'alu 'a Sione.* John went. (As planned, as expected.)
 
-*Ne 'ikai ke 'alu 'a Sione.* — John did not go (as we expected him to).
+*Ne 'ikai ke 'alu 'a Sione.* John did not go (as we expected him to).
 :::
 
 This is a subtle distinction. In everyday use, *na'a*/*na'e* and *ne* are often interchangeable. But when you encounter *ne* in texts, you may notice this implication of expectation behind it.

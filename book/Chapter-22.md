@@ -6,16 +6,16 @@ tense marker + pronoun + aspect marker + verb
 
 ---
 
-### *kei* — still
+### *kei*: still
 
 The word *kei* is placed before the verb to indicate that a state or action is continuing. Something was true before, and it remains true now.
 
 ::: {.examples}
-*'Okú ne kei fiekaia pē.* — He is still hungry.
+*'Okú ne kei fiekaia pē.* He is still hungry.
 
-*'Oku kei vaivai pē 'a Sēmisi.* — Sēmisi is still weak.
+*'Oku kei vaivai pē 'a Sēmisi.* Sēmisi is still weak.
 
-*'Oku ou kei feinga pē.* — I am still trying.
+*'Oku ou kei feinga pē.* I am still trying.
 :::
 
 The limiter *pē* appears frequently with *kei*. Together they give the sense of "still just" or "continuing as before," with no change from the expected situation.
@@ -30,45 +30,45 @@ The limiter *pē* appears frequently with *kei*. Together they give the sense of
 In the negative, the usual negation patterns apply. With pronoun subjects:
 
 ::: {.examples}
-*'Oku 'ikai te u kei fiekaia.* — I am not still hungry. (I am no longer hungry.)
+*'Oku 'ikai te u kei fiekaia.* I am not still hungry. (I am no longer hungry.)
 :::
 
 ---
 
-### *'osi* — already, finished
+### *'osi*: already, finished
 
 The word *'osi* placed before a verb means the action has already been completed. As a main verb on its own, *'osi* means "to be finished" or "to be over."
 
 ::: {.examples}
-*Kuó ne 'osi 'alu.* — He has already gone.
+*Kuó ne 'osi 'alu.* He has already gone.
 
-*Kuo 'osi ha'u 'a Sione?* — Has Sione already come?
+*Kuo 'osi ha'u 'a Sione?* Has Sione already come?
 :::
 
 The tense marker *kuo* (perfect) pairs naturally with *'osi*, since both point to completion. But *'osi* can appear with other tense markers too:
 
 ::: {.examples}
-*Na'á ku 'osi kai.* — I had already eaten.
+*Na'á ku 'osi kai.* I had already eaten.
 
-*'Oku 'osi lahi e ngāué.* — The work is already considerable. (Much has already been done.)
+*'Oku 'osi lahi e ngāué.* The work is already considerable. (Much has already been done.)
 :::
 
 As a main verb, *'osi* works just like any other verb:
 
 ::: {.examples}
-*Kuo 'osi 'a e fakatahá.* — The meeting is over.
+*Kuo 'osi 'a e fakatahá.* The meeting is over.
 :::
 
 ---
 
-### *te'eki ai* — not yet
+### *te'eki ai*: not yet
 
 The natural companion to *'osi* (already) is *te'eki ai* (not yet). It indicates that something expected has not happened so far, but the speaker anticipates it will.
 
 ::: {.examples}
-*Kuo 'osi foki 'a Mele?* — Has Mele already returned?
+*Kuo 'osi foki 'a Mele?* Has Mele already returned?
 
-*Te'eki ai.* — Not yet.
+*Te'eki ai.* Not yet.
 :::
 
 The short answer *Te'eki ai* is one of the most common phrases in Tongan. The *ai* is required in this standalone use.
@@ -76,53 +76,53 @@ The short answer *Te'eki ai* is one of the most common phrases in Tongan. The *a
 In full sentences, *te'eki* follows the same patterns as *'ikai*. Before a pronoun, use *te'eki te* (or occasionally *te'eki ke*):
 
 ::: {.examples}
-*'Oku te'eki té ke 'alu tu'o taha ki Ha'apai.* — You have not gone even once to Ha'apai.
+*'Oku te'eki té ke 'alu tu'o taha ki Ha'apai.* You have not gone even once to Ha'apai.
 :::
 
 Before a verb with a noun subject, *te'eki* can stand without *te* or *ke*:
 
 ::: {.examples}
-*'Oku te'eki kamata 'a e ngāué.* — The work has not started yet.
+*'Oku te'eki kamata 'a e ngāué.* The work has not started yet.
 :::
 
 > *Note:* The phrase *te'eki ai ke* can also mean "before" in the sense of something happening prior to another event: *Te'eki ai ke u lea, kuó ne lea mai.* (Before I could speak, he spoke to me.) This is an awareness item. You will encounter it in reading, but the formal treatment comes in Chapter 30: Temporal and Conditional Conjunctions.
 
 ---
 
-### *lolotonga* — currently, in the act of
+### *lolotonga*: currently, in the act of
 
 The word *lolotonga* marks an action as being in progress at the time of speaking (or at the time referred to). English uses "-ing" forms for this; Tongan uses *lolotonga* before the verb.
 
 ::: {.examples}
-*'Oku ou lolotonga lau ha tohi.* — I am currently reading a book.
+*'Oku ou lolotonga lau ha tohi.* I am currently reading a book.
 
-*Na'á ku lolotonga ngāue au he taimi ko iá.* — I was working at that time.
+*Na'á ku lolotonga ngāue au he taimi ko iá.* I was working at that time.
 
-*Lolotonga pē 'emau kaí, kuo ha'u 'a Sione.* — Right while we were eating, Sione arrived.
+*Lolotonga pē 'emau kaí, kuo ha'u 'a Sione.* Right while we were eating, Sione arrived.
 :::
 
 As a main verb, *lolotonga* means "to be in progress" or "to be going on":
 
 ::: {.examples}
-*'Oku lolotonga 'a e ngāué.* — The work is in progress.
+*'Oku lolotonga 'a e ngāué.* The work is in progress.
 :::
 
 ---
 
-### *toe* — again, more, other
+### *toe*: again, more, other
 
 The word *toe* is placed before a verb to mean "again" or "more." It indicates repetition or addition.
 
 ::: {.examples}
-*'Oku toe fiekaia 'a Sēmisi.* — Sēmisi is hungry again.
+*'Oku toe fiekaia 'a Sēmisi.* Sēmisi is hungry again.
 
-*'Okú ke fie toe ha'u?* — Do you want to come again?
+*'Okú ke fie toe ha'u?* Do you want to come again?
 :::
 
 *Toe* can also mean "more" or "other" when used before a noun as an adjective:
 
 ::: {.examples}
-*ha toe me'a* — another thing, an additional thing
+*ha toe me'a*. another thing, an additional thing
 :::
 
 Before a verb with a modifier, *toe* combines with *ange* to form comparisons (you will learn this pattern formally in Chapter 27: Comparison and Degree). Observe the basic meaning of repetition:
@@ -135,42 +135,42 @@ Before a verb with a modifier, *toe* combines with *ange* to form comparisons (y
 
 ---
 
-### *toki* — just, not until
+### *toki*: just, not until
 
 The word *toki* is placed before the verb. It carries two related meanings, both rooted in the idea of timing: "just now" (something happened a moment ago) and "not until" (something will not happen before a certain point).
 
 **"Just" (recent past):**
 
 ::: {.examples}
-*Na'a mau toki ha'u 'aneafi.* — We just came yesterday.
+*Na'a mau toki ha'u 'aneafi.* We just came yesterday.
 
-*Na'á ku toki fanongo ki he me'a ko iá.* — I only just heard about that.
+*Na'á ku toki fanongo ki he me'a ko iá.* I only just heard about that.
 :::
 
 **"Not until" (delayed future):**
 
 ::: {.examples}
-*'E toki kamata 'a e fakatahá 'apongipongi.* — The meeting will not begin until tomorrow.
+*'E toki kamata 'a e fakatahá 'apongipongi.* The meeting will not begin until tomorrow.
 
-*Te u toki ngāue.* — I will work presently. (Not right now, but soon.)
+*Te u toki ngāue.* I will work presently. (Not right now, but soon.)
 :::
 
 The common thread is that *toki* marks the action as happening at a particular point, neither sooner nor later. When referring to the past, it emphasizes recency. When referring to the future, it emphasizes delay.
 
 ::: {.examples}
-*Ha'u 'o inu ká ke toki 'alu.* — Come and drink, then go. (Go only after drinking.)
+*Ha'u 'o inu ká ke toki 'alu.* Come and drink, then go. (Go only after drinking.)
 :::
 
 ---
 
-### *leva* — immediately
+### *leva*: immediately
 
 The word *leva* is placed after the verb. Where *toki* delays, *leva* does the opposite: it indicates that the action happened (or should happen) right away, without delay.
 
 ::: {.examples}
-*Na'á ku foki leva.* — I returned at once.
+*Na'á ku foki leva.* I returned at once.
 
-*Hili iá, na'e toki 'alu leva 'a Mele.* — After that, Mele left immediately.
+*Hili iá, na'e toki 'alu leva 'a Mele.* After that, Mele left immediately.
 :::
 
 | Tongan | English |
@@ -203,9 +203,9 @@ Here is a summary of the aspect markers introduced in this chapter:
 These markers slot into the sentence pattern you already know. Multiple markers can combine when the meaning requires it:
 
 ::: {.examples}
-*'Oku 'ikai te u kei fie 'alu.* — I no longer want to go. (Lit. I do not still want to go.)
+*'Oku 'ikai te u kei fie 'alu.* I no longer want to go. (Lit. I do not still want to go.)
 
-*Kuó ne 'osi lava 'o ha'u.* — He has already been able to come.
+*Kuó ne 'osi lava 'o ha'u.* He has already been able to come.
 :::
 
 ---
@@ -221,11 +221,11 @@ The markers above describe the stage of an action. A closely related set of modi
 The preposed modifier *toutou* means "repeatedly," "continuously," or "again and again." It comes directly before the verb.
 
 ::: {.examples}
-*'Oku toutou lele 'a Sēmisi ki he maketi.* — Sēmisi keeps running to the market.
+*'Oku toutou lele 'a Sēmisi ki he maketi.* Sēmisi keeps running to the market.
 
-*Na'e toutou lea pehē 'a Tēvita.* — Tēvita repeatedly spoke in that manner.
+*Na'e toutou lea pehē 'a Tēvita.* Tēvita repeatedly spoke in that manner.
 
-*'Oku totonu ke toutou ako'i kinautolu.* — They need to be taught again and again.
+*'Oku totonu ke toutou ako'i kinautolu.* They need to be taught again and again.
 :::
 
 ---
@@ -235,13 +235,13 @@ The preposed modifier *toutou* means "repeatedly," "continuously," or "again and
 The adverb *ai pē* means "still," "as always," "as before," or "as usual." It indicates that something continues unchanged.
 
 ::: {.examples}
-*Ko ia ai pē.* — Just the same old thing. / Same as always.
+*Ko ia ai pē.* Just the same old thing. / Same as always.
 
-*'Oku kei fai ai pē e ngāué.* — The work is still being done as usual.
+*'Oku kei fai ai pē e ngāué.* The work is still being done as usual.
 
-*'Oku fakalaka ai pē 'a Tonga ki mu'a.* — Tonga is continuing to go forward.
+*'Oku fakalaka ai pē 'a Tonga ki mu'a.* Tonga is continuing to go forward.
 
-*Ko e tatau ai pē.* — It is absolutely the same.
+*Ko e tatau ai pē.* It is absolutely the same.
 :::
 
 ---
@@ -250,13 +250,13 @@ The adverb *ai pē* means "still," "as always," "as before," or "as usual." It i
 
 Fill in the blank with *toutou* (repeatedly) or *ai pē* (as always, as usual).
 
-1. *Na'e \_\_\_ tangi 'a e tamasi'í.* — The boy kept crying.
-2. *'Oku fakalaka \_\_\_ 'a e ngāué.* — The work is moving forward as always.
-3. *'Oku kei lotu \_\_\_ 'a e fāmilí.* — The family still prays as usual.
-4. *Na'e \_\_\_ 'alu 'a Sione ki kolo.* — Sione kept going to town.
-5. *'Oku \_\_\_ ngāue 'a e fefiné 'i he 'apí.* — The woman continually works at the home.
+1. *Na'e \_\_\_ tangi 'a e tamasi'í.* The boy kept crying.
+2. *'Oku fakalaka \_\_\_ 'a e ngāué.* The work is moving forward as always.
+3. *'Oku kei lotu \_\_\_ 'a e fāmilí.* The family still prays as usual.
+4. *Na'e \_\_\_ 'alu 'a Sione ki kolo.* Sione kept going to town.
+5. *'Oku \_\_\_ ngāue 'a e fefiné 'i he 'apí.* The woman continually works at the home.
 
-**Answers:** 1. *toutou* — 2. *ai pē* — 3. *ai pē* — 4. *toutou* — 5. *toutou*
+**Answers:** 1. *toutou*. 2. *ai pē*. 3. *ai pē*. 4. *toutou*. 5. *toutou*
 
 ---
 
@@ -265,11 +265,11 @@ Fill in the blank with *toutou* (repeatedly) or *ai pē* (as always, as usual).
 To say how many times something has happened or will happen, place *tu'o* before a numeral. The combination follows the verb or sits in the predicate position.
 
 ::: {.examples}
-*Kuó u 'alu tu'o taha pē ki Vava'u.* — I have gone just once to Vava'u.
+*Kuó u 'alu tu'o taha pē ki Vava'u.* I have gone just once to Vava'u.
 
-*Na'e tu'o tolu 'eku kole pa'anga kia Mele.* — Three times I asked Mary for money. (Lit. "Was three-times my asking money to Mary")
+*Na'e tu'o tolu 'eku kole pa'anga kia Mele.* Three times I asked Mary for money. (Lit. "Was three-times my asking money to Mary")
 
-*'Oku mau lotu tu'o ua he Sāpaté.* — We attend services twice on Sunday.
+*'Oku mau lotu tu'o ua he Sāpaté.* We attend services twice on Sunday.
 :::
 
 The numeral can be any number: *tu'o taha* (once), *tu'o ua* (twice), *tu'o tolu* (three times), *tu'o fā* (four times), and so on.
@@ -277,19 +277,19 @@ The numeral can be any number: *tu'o taha* (once), *tu'o ua* (twice), *tu'o tolu
 For "how many times," use *tu'o fiha*:
 
 ::: {.examples}
-*Na'e tu'o fiha ho'o tohi ki ai?* — How many times did you write to him?
+*Na'e tu'o fiha ho'o tohi ki ai?* How many times did you write to him?
 :::
 
 For "many times" and "a few times," use *tu'o lahi* and *tu'o si'i*:
 
 ::: {.examples}
-*Kuó ne ha'u heni tu'o lahi.* — He has come here many times.
+*Kuó ne ha'u heni tu'o lahi.* He has come here many times.
 :::
 
 When *tu'o* + numeral appears in the predicate with *ko e*, it takes on an ordinal sense, "the Nth time":
 
 ::: {.examples}
-*Ko e tu'o tolu eni 'o 'eku ha'ú.* — This is the third time I have come.
+*Ko e tu'o tolu eni 'o 'eku ha'ú.* This is the third time I have come.
 :::
 
 | Tongan | English |
@@ -311,23 +311,23 @@ The word *taki* before a numeral means "each." The most common combination is *t
 As a preposed adverb (the common position):
 
 ::: {.examples}
-*'Oku nau taki taha fa'iteliha.* — Each of them does as he pleases.
+*'Oku nau taki taha fa'iteliha.* Each of them does as he pleases.
 
-*Mou taki taha fai hono loto.* — Each of you do what you want.
+*Mou taki taha fai hono loto.* Each of you do what you want.
 
-*'Oku totonu ke mou taki taha fakamālō ki he faiakó.* — You should each thank the teacher.
+*'Oku totonu ke mou taki taha fakamālō ki he faiakó.* You should each thank the teacher.
 :::
 
 The expression *taki taha ma'ana* means "each for himself" or "each in his own way":
 
 ::: {.examples}
-*'Oku tau taki taha ma'ana.* — We are each man for himself.
+*'Oku tau taki taha ma'ana.* We are each man for himself.
 :::
 
 With higher numerals, *taki* distributes the count: *taki ua* (two each), *taki tolu* (three each). These are placed before the noun they refer to:
 
 ::: {.examples}
-*Na'a nau 'omi taki tolu 'a e kato.* — They brought three baskets each.
+*Na'a nau 'omi taki tolu 'a e kato.* They brought three baskets each.
 :::
 
 > *Note:* The related words *tāutaha* (one by one), *tahataha* (one by one), and *tautau toko* + numeral (in groups of) are less common. Recognise them if you encounter them, but *taki taha* is the form to learn actively.
@@ -384,12 +384,12 @@ With higher numerals, *taki* distributes the count: *taki ua* (two each), *taki 
 
 #### Exercise 3: Transform: add the aspect marker in parentheses
 
-1. *'Oku ou ngāue.* (kei — still)
-2. *Kuó ne ha'u.* ('osi — already)
-3. *Na'á ku 'alu ki kolo.* (toe — again)
-4. *'Okú ke lau 'a e tohí.* (lolotonga — currently)
-5. *Na'a mau foki mai.* (toki — just)
-6. *Na'a nau 'alu.* (leva — immediately)
+1. *'Oku ou ngāue.* (kei: still)
+2. *Kuó ne ha'u.* ('osi: already)
+3. *Na'á ku 'alu ki kolo.* (toe: again)
+4. *'Okú ke lau 'a e tohí.* (lolotonga: currently)
+5. *Na'a mau foki mai.* (toki: just)
+6. *Na'a nau 'alu.* (leva: immediately)
 
 #### Exercise 4: Respond to each question with *te'eki ai* or *kuo 'osi*
 

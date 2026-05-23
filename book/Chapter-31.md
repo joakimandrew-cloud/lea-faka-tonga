@@ -1,6 +1,6 @@
 # Chapter 31: Existential Expressions
 
-Building on the back-reference word *ai*, this chapter introduces the existential expression *'oku 'i ai* (there is, there are). You previewed this pattern in Chapter 29, where it combined with indefinite possessives to form the Tongan equivalent of "to have" (*'Oku 'i ai ha'o kato?* — Do you have a basket?). This chapter gives it its full treatment as a standalone existential.
+Building on the back-reference word *ai*, this chapter introduces the existential expression *'oku 'i ai* (there is, there are). You previewed this pattern in Chapter 29, where it combined with indefinite possessives to form the Tongan equivalent of "to have" (*'Oku 'i ai ha'o kato?* Do you have a basket?). This chapter gives it its full treatment as a standalone existential.
 
 ---
 
@@ -9,15 +9,15 @@ Building on the back-reference word *ai*, this chapter introduces the existentia
 The combination *'i ai* can also sit in the verb position of a sentence, where it means "there is" or "there are." This is how Tongan expresses existence. Literally, *'i ai* means "is in-it" or "is there," and in the verb slot it becomes an existential statement.
 
 ::: {.examples}
-*'Oku 'i ai ha fo'i moli 'i fale?* — Is there an orange in the house?
+*'Oku 'i ai ha fo'i moli 'i fale?* Is there an orange in the house?
 
-*'Io, 'oku 'i ai.* — Yes, there is.
+*'Io, 'oku 'i ai.* Yes, there is.
 :::
 
 The pattern: *'oku* + *'i ai* + *ha* + noun (+ location).
 
 ::: {.examples}
-*'Oku 'i ai ha tangata 'i heni?* — Is there a man here?
+*'Oku 'i ai ha tangata 'i heni?* Is there a man here?
 :::
 
 The indefinite article *ha* is typical in existential sentences because the speaker is asking whether something exists, not pointing to a specific one.
@@ -25,9 +25,9 @@ The indefinite article *ha* is typical in existential sentences because the spea
 With other tense markers, the construction works the same way:
 
 ::: {.examples}
-*Na'e 'i ai ha vaka 'i tahi.* — There was a boat at sea.
+*Na'e 'i ai ha vaka 'i tahi.* There was a boat at sea.
 
-*'E 'i ai ha kātoanga 'apongipongi.* — There will be a celebration tomorrow.
+*'E 'i ai ha kātoanga 'apongipongi.* There will be a celebration tomorrow.
 :::
 
 ---
@@ -37,24 +37,24 @@ With other tense markers, the construction works the same way:
 The negative existential follows the standard negation pattern. Place *'ikai ke* before *'i ai*:
 
 ::: {.examples}
-*'Oku 'ikai ke 'i ai ha taha.* — There is no one.
+*'Oku 'ikai ke 'i ai ha taha.* There is no one.
 
-*'Oku 'ikai ke 'i ai ha me'akai 'i fale.* — There is no food in the house.
+*'Oku 'ikai ke 'i ai ha me'akai 'i fale.* There is no food in the house.
 :::
 
 In past and future tenses:
 
 ::: {.examples}
-*Na'e 'ikai ke 'i ai ha vaka.* — There was no boat.
+*Na'e 'ikai ke 'i ai ha vaka.* There was no boat.
 
-*'E 'ikai ke 'i ai ha tangata 'i heni.* — There will be no one here.
+*'E 'ikai ke 'i ai ha tangata 'i heni.* There will be no one here.
 :::
 
 ---
 
 ### The classifier *fo'i* in existential contexts
 
-You met *fo'i* in Chapter 20 as the classifier that singles out one individual unit — *ha fo'i niu* (one coconut), *ha fo'i mā* (one loaf of bread). Its original sense relates to fruit (one fruit from a tree), and it extends naturally to any complete, self-contained item, especially round objects. This section extends that usage into the existential and generic patterns this chapter introduces.
+You met *fo'i* in Chapter 20 as the classifier that singles out one individual unit: *ha fo'i niu* (one coconut), *ha fo'i mā* (one loaf of bread). Its original sense relates to fruit (one fruit from a tree), and it extends naturally to any complete, self-contained item, especially round objects. This section extends that usage into the existential and generic patterns this chapter introduces.
 
 | Tongan | English |
 |---|---|
@@ -69,13 +69,13 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 *Fo'i* also works with non-round nouns when the point is to single out one item from a larger category:
 
 ::: {.examples}
-*ha fo'i lea* — a single word (compared to *ha lea*, which could mean a word, a statement, or a language)
+*ha fo'i lea*. a single word (compared to *ha lea*, which could mean a word, a statement, or a language)
 
-*ha fo'i me'a* — one (single) thing
+*ha fo'i me'a*. one (single) thing
 :::
 
 ::: {.examples}
-*'Oku 'i ai ha fo'i siaine 'i he kato?* — Is there a banana in the basket?
+*'Oku 'i ai ha fo'i siaine 'i he kato?* Is there a banana in the basket?
 :::
 
 ---
@@ -90,9 +90,9 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 
 | Pattern | Meaning | Example |
 |---|---|---|
-| *'oku 'i ai* + *ha* + noun | there is/are | *'Oku 'i ai ha tangata.* — There is a man. |
-| *'oku 'ikai ke 'i ai* + *ha* + noun | there is not | *'Oku 'ikai ke 'i ai ha taha.* — There is no one. |
-| *fo'i* + noun | a single, individual | *ha fo'i niu* — a (single) coconut |
+| *'oku 'i ai* + *ha* + noun | there is/are | *'Oku 'i ai ha tangata.*<br><span class="translation">There is a man.</span> |
+| *'oku 'ikai ke 'i ai* + *ha* + noun | there is not | *'Oku 'ikai ke 'i ai ha taha.*<br><span class="translation">There is no one.</span> |
+| *fo'i* + noun | a single, individual | *ha fo'i niu*<br><span class="translation">a (single) coconut</span> |
 
 ---
 

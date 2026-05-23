@@ -9,9 +9,9 @@ Building on the *ko* identification pattern, this chapter adds deeper structures
 In the previous chapter, *'a* appeared as the marker before noun subjects in verb-first sentences: *'E 'alu 'a Sione* (John will go). The same marker works in equational sentences. When the subject is a proper noun, *'a* introduces it at the end of the equational sentence:
 
 ::: {.examples}
-*Ko e tangata ngāue 'a Mafi?* — Is Mafi a worker? (Lit. "Identity-marker a worker focus Mafi")
+*Ko e tangata ngāue 'a Mafi?* Is Mafi a worker? (Lit. "Identity-marker a worker focus Mafi")
 
-*Ko e ta'ahine mālohi 'a Seini.* — Seini is a strong girl. The word *mālohi* *(strong)* describes the noun.
+*Ko e ta'ahine mālohi 'a Seini.* Seini is a strong girl. The word *mālohi* *(strong)* describes the noun.
 :::
 
 Compare the parallel between verbal and equational constructions:
@@ -32,7 +32,7 @@ The pattern:
 This also works with *ko fē* (where, which):
 
 ::: {.examples}
-*Ko fē 'a Sione?* — Where is John?
+*Ko fē 'a Sione?* Where is John?
 :::
 
 ---
@@ -42,9 +42,9 @@ This also works with *ko fē* (where, which):
 When the subject is a pronoun rather than a proper noun, the focus marker *'a* drops away. The postposed pronoun appears directly after the predicate:
 
 ::: {.examples}
-*Ko e tangata ngāue au.* — I am a worker. (Lit. "Identity-marker a worker I")
+*Ko e tangata ngāue au.* I am a worker. (Lit. "Identity-marker a worker I")
 
-*Ko e tōketā koe?* — Are you a doctor?
+*Ko e tōketā koe?* Are you a doctor?
 :::
 
 The focus marker *'a* is always dropped before postposed pronouns in equational sentences. Compare:
@@ -69,13 +69,13 @@ The pattern:
 The normal equational order places the predicate first and the subject second:
 
 ::: {.examples}
-*Ko e faiako 'a Lisiate.* — Lisiate is the teacher.
+*Ko e faiako 'a Lisiate.* Lisiate is the teacher.
 :::
 
 A reversed order emphasises the subject. Placing the subject first, followed by *ko e* + predicate, stresses *who* the person is rather than *what* they are:
 
 ::: {.examples}
-*Ko Lisiate ko e faiako.* — Lisiate is the teacher. (emphasis: Lisiate, and no one else)
+*Ko Lisiate ko e faiako.* Lisiate is the teacher. (emphasis: Lisiate, and no one else)
 :::
 
 Compare the two:
@@ -102,9 +102,9 @@ The pattern:
 You have already seen *ko* combined with demonstratives:
 
 ::: {.examples}
-*Ko'eni.* — Here it is. (this, near me)
+*Ko'eni.* Here it is. (this, near me)
 
-*Ko ē.* — There it is. (that, over there)
+*Ko ē.* There it is. (that, over there)
 :::
 
 In practice, *ē* often serves for all three distances, whether the thing is near the speaker, near the listener, or far from both. *Ko'eni* points to something close at hand, while *ko ē* points to something the speaker is directing attention toward.
@@ -112,9 +112,9 @@ In practice, *ē* often serves for all three distances, whether the thing is nea
 These forms appear naturally in equational exchanges:
 
 ::: {.examples}
-*Ko e hā ē?* — What is that?
+*Ko e hā ē?* What is that?
 
-*Ko e ki'i kato.* — It is a small basket.
+*Ko e ki'i kato.* It is a small basket.
 :::
 
 ---
@@ -124,15 +124,15 @@ These forms appear naturally in equational exchanges:
 To negate an equational sentence, use *'oku 'ikai ko e*:
 
 ::: {.examples}
-*'Oku 'ikai ko e tangata ngāue au.* — I am not a worker.
+*'Oku 'ikai ko e tangata ngāue au.* I am not a worker.
 
-*'Oku 'ikai ko e tōketā 'a Mele.* — Mele is not a doctor.
+*'Oku 'ikai ko e tōketā 'a Mele.* Mele is not a doctor.
 :::
 
 For past negation, the pattern uses *na'e 'ikai ko e*:
 
 ::: {.examples}
-*Na'e 'ikai ko e faiako 'a Fehoko.* — Fehoko was not a teacher.
+*Na'e 'ikai ko e faiako 'a Fehoko.* Fehoko was not a teacher.
 :::
 
 This is the same negation pattern introduced with *ko* earlier. The tense marker *'oku* (or *na'e* for the past) opens the sentence, followed by *'ikai*, followed by the equational construction.
@@ -155,9 +155,9 @@ Compare the contrast in equational sentences:
 *Ki'i* and *si'isi'i* mean roughly the same thing on their own. The difference is position: *ki'i* before the noun, *si'isi'i* after it. When both appear together, the effect is "very small" or "tiny."
 
 ::: {.examples}
-*Ko e ki'i tohi.* — It is a small book.
+*Ko e ki'i tohi.* It is a small book.
 
-*Ko e ki'i tohi motu'a pē.* — It is just a small old book. (*motu'a* = old)
+*Ko e ki'i tohi motu'a pē.* It is just a small old book. (*motu'a* = old)
 :::
 
 > *Note:* The word *si'isi'i* is the reduplicated form of *si'i* (small). Reduplication often intensifies meaning in Tongan. The full system of reduplication is covered in Chapter 50: Reduplication.
@@ -171,9 +171,9 @@ Compare the contrast in equational sentences:
 Some equational sentences use *pea* to connect two statements:
 
 ::: {.examples}
-*Ko e tangata ngāue 'a Vaia?* — Is Vaia a worker?
+*Ko e tangata ngāue 'a Vaia?* Is Vaia a worker?
 
-*'Io, pea ko e tangata mālohi.* — Yes, and he is a strong man.
+*'Io, pea ko e tangata mālohi.* Yes, and he is a strong man.
 :::
 
 *Pea* appears naturally in equational exchanges like this one.

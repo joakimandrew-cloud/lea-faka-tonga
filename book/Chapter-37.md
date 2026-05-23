@@ -9,7 +9,7 @@ Possessives so far have been preposed: *'eku tohi* (my book), *'ene tohi* (his b
 The 'e-class preposed possessives (*'eku*, *ho'o*, *'ene*...) express who acts upon or controls something. The postposed 'e-class forms carry the same meaning, but they follow the noun and add emphasis to the possessor.
 
 ::: {.examples}
-*Ko e kato ia 'a'aku.* — That basket is mine.
+*Ko e kato ia 'a'aku.* That basket is mine.
 :::
 
 The word *'a'aku* means "mine" in the 'e-class. It is built from two parts: the possessive preposition *'a* (marking 'e-class), reduplicated, plus the pronoun. Think of *'a'aku* as "of-of-me," stressing that the thing belongs to the speaker.
@@ -23,9 +23,9 @@ The singular forms:
 | *'a'ana* | his/hers/its | *'a* + *'a* + *na* |
 
 ::: {.examples}
-*Ko e hele ia 'a'au.* — That knife is yours.
+*Ko e hele ia 'a'au.* That knife is yours.
 
-*Ko e me'a ia 'a'ana.* — That thing is his.
+*Ko e me'a ia 'a'ana.* That thing is his.
 :::
 
 The dual and plural forms follow a regular pattern without redoubling:
@@ -42,9 +42,9 @@ The dual and plural forms follow a regular pattern without redoubling:
 | *'anautolu* | theirs (plural) |
 
 ::: {.examples}
-*Ko e fala ia 'amautolu.* — That mat is ours (exclusive).
+*Ko e fala ia 'amautolu.* That mat is ours (exclusive).
 
-*Ko e me'a ia 'amoutolu.* — That thing is yours (plural).
+*Ko e me'a ia 'amoutolu.* That thing is yours (plural).
 :::
 
 ---
@@ -62,11 +62,11 @@ The singular forms:
 | *'o'ona* | his/hers/its | *'o* + *'o* + *na* |
 
 ::: {.examples}
-*Ko e fale ia 'o'oku.* — That house is mine.
+*Ko e fale ia 'o'oku.* That house is mine.
 
-*Ko e vala ia 'o'ou.* — Those clothes are yours.
+*Ko e vala ia 'o'ou.* Those clothes are yours.
 
-*Ko e kofu ia 'o'ona.* — That dress is hers.
+*Ko e kofu ia 'o'ona.* That dress is hers.
 :::
 
 The dual and plural forms:
@@ -83,7 +83,7 @@ The dual and plural forms:
 | *'onautolu* | theirs (plural) |
 
 ::: {.examples}
-*Ko e fatongia ia 'omautolu.* — That responsibility is ours (exclusive).
+*Ko e fatongia ia 'omautolu.* That responsibility is ours (exclusive).
 :::
 
 > *Note:* The choice between 'e-class and ho-class follows the same rules taught in earlier chapters. Use 'e-class (*'a'aku*, *'a'au*...) for things you control or act upon (food, money, tools, animals). Use ho-class (*'o'oku*, *'o'ou*...) for things that shelter or define you (house, clothes, body parts, relatives).
@@ -95,17 +95,17 @@ The dual and plural forms:
 To ask "whose?" with an 'e-class noun, use *'a hai*:
 
 ::: {.examples}
-*Ko e vaka eni 'a hai?* — Whose boat is this?
+*Ko e vaka eni 'a hai?* Whose boat is this?
 
-*Ko e kato eni 'a hai?* — Whose basket is this?
+*Ko e kato eni 'a hai?* Whose basket is this?
 :::
 
 To ask "whose?" with a ho-class noun, use *'o hai*:
 
 ::: {.examples}
-*Ko e fale eni 'o hai?* — Whose house is this?
+*Ko e fale eni 'o hai?* Whose house is this?
 
-*Ko e fatongia 'o hai ke fakama'a e 'apī?* — Whose responsibility is it to clean the yard?
+*Ko e fatongia 'o hai ke fakama'a e 'apī?* Whose responsibility is it to clean the yard?
 :::
 
 The *hai* is the interrogative word "who." Combined with the possessive preposition (*'a* or *'o*), it asks who the possessor is.
@@ -122,9 +122,9 @@ The *hai* is the interrogative word "who." Combined with the possessive preposit
 Sometimes a preposed possessive pronoun is already present, but you want to stress exactly who the owner is. A postposed possessive added after the noun creates this emphasis. Churchward calls this combination a "pronominal adjective" because it functions like an adjective, qualifying the noun from behind.
 
 ::: {.examples}
-*Hono soté.* — His shirt.
+*Hono soté.* His shirt.
 
-*Hono soté 'ona.* — HIS shirt (not anyone else's).
+*Hono soté 'ona.* HIS shirt (not anyone else's).
 :::
 
 In the first sentence, *hono* tells you the shirt is his. In the second, the postposed form *'ona* (the short form of *'o'ona*) doubles down on the identity of the owner. The emphasis falls on the possessor.
@@ -132,9 +132,9 @@ In the first sentence, *hono* tells you the shirt is his. In the second, the pos
 > *Note:* The shorter forms (*'aku*, *'au*, *'ana*, *'oku*, *'ou*, *'ona*) drop the reduplicated syllable. They are interchangeable with the longer forms in most contexts. In the pronominal adjective construction, the shorter forms are more common.
 
 ::: {.examples}
-*'Eku pa'angá 'aku.* — MY money (emphasizing that it is mine).
+*'Eku pa'angá 'aku.* MY money (emphasizing that it is mine).
 
-*Ho'o tohí 'au.* — YOUR book (emphasizing that it is yours).
+*Ho'o tohí 'au.* YOUR book (emphasizing that it is yours).
 :::
 
 The definitive accent in *hono soté* falls on the last vowel of the noun phrase before the pronominal adjective, as is standard for definite nouns.
@@ -146,25 +146,25 @@ The definitive accent in *hono soté* falls on the last vowel of the noun phrase
 The postposed possessives can function as the verb in a sentence, following a tense marker. This is the predicative use, parallel to how adjectives function as verbs in Tongan.
 
 ::: {.examples}
-*'Oku 'a'ana eni.* — This is his. (lit. "Is his this")
+*'Oku 'a'ana eni.* This is his. (lit. "Is his this")
 
-*'Oku 'o'ona eni.* — This is his. (ho-class)
+*'Oku 'o'ona eni.* This is his. (ho-class)
 :::
 
 Both sentences mean "This is his," but the class differs. Use *'a'ana* when talking about something the person controls ('e-class), and *'o'ona* for something that characterizes them (ho-class).
 
 ::: {.examples}
-*'Oku 'a'aku 'a e kató.* — The basket is mine.
+*'Oku 'a'aku 'a e kató.* The basket is mine.
 
-*'Oku 'o'oku 'a e falé.* — The house is mine.
+*'Oku 'o'oku 'a e falé.* The house is mine.
 :::
 
 The shorter forms work the same way:
 
 ::: {.examples}
-*'Oku 'ana eni.* — This is his.
+*'Oku 'ana eni.* This is his.
 
-*'Oku 'ona eni.* — This is his. (ho-class)
+*'Oku 'ona eni.* This is his. (ho-class)
 :::
 
 | Predicative ('e-class) | Predicative (ho-class) | Meaning |

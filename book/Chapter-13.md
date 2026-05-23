@@ -4,22 +4,22 @@ The *ko* pattern also forms questions. Where tense-marker questions ask about ac
 
 ---
 
-### *Ko hai* — Who?
+### *Ko hai*: Who?
 
 The word *hai* means "who." Combined with *ko*, it asks about a person's identity.
 
 ::: {.examples}
-*Ko hai 'oku hiva?* — Who is singing?
+*Ko hai 'oku hiva?* Who is singing?
 
-*Ko Sione.* — Sione.
+*Ko Sione.* Sione.
 :::
 
 The pattern is: *ko hai* + tense-marker clause. The *ko hai* asks "who?", and the clause that follows describes what that person is doing.
 
 ::: {.examples}
-*Ko hai na'e mohe?* — Who slept?
+*Ko hai na'e mohe?* Who slept?
 
-*Ko hai 'e lele?* — Who will run?
+*Ko hai 'e lele?* Who will run?
 :::
 
 The word *lele* means "run." In these sentences, the third-person pronoun *ne* does not appear after the tense marker. The tense marker stands alone because *ko hai* is already asking about a single person, making the pronoun redundant.
@@ -27,7 +27,7 @@ The word *lele* means "run." In these sentences, the third-person pronoun *ne* d
 When the question asks about someone doing something to a specific thing, the pronoun *ne* does appear after the tense marker:
 
 ::: {.examples}
-*Ko hai té ne tokoni ki he faiako?* — Who will help the teacher?
+*Ko hai té ne tokoni ki he faiako?* Who will help the teacher?
 :::
 
 The word *tokoni* means "help." The full pattern for this kind of sentence is covered in Chapter 19: Transitive Word Order. Recognize that *ko hai* can ask about people in both types of sentence.
@@ -35,33 +35,33 @@ The word *tokoni* means "help." The full pattern for this kind of sentence is co
 The answer to a *ko hai* question uses *ko* + the person:
 
 ::: {.examples}
-*Ko au.* — Me. (Lit. "It-is I")
+*Ko au.* Me. (Lit. "It-is I")
 
-*Ko e faiako.* — The teacher.
+*Ko e faiako.* The teacher.
 :::
 
 ---
 
-### *Ko e hā* and *Ko e hā 'a e me'a* — What?
+### *Ko e hā* and *Ko e hā 'a e me'a*: What?
 
 You already know *ko e hā ē?* (What is that?) from the previous chapter. The word *hā* means "what." On its own, *ko e hā?* can mean "What?", "What is it?", or "What's the matter?"
 
 The fuller form *ko e hā e me'a* appears when asking about a specific thing. The word *me'a* means "thing."
 
 ::: {.examples}
-*Ko e hā 'a e me'a 'okú ke fiema'u?* — What do you want? (Lit. "The thing you want-to-get is what?")
+*Ko e hā 'a e me'a 'okú ke fiema'u?* What do you want? (Lit. "The thing you want-to-get is what?")
 :::
 
 The word *fiema'u* means "want" or "need." The literal translation reveals how the sentence works: the thing being asked about is described in the clause, with the question word *hā* sitting at the front. When asking about a specific thing, speakers tend to use the longer form *ko e hā e me'a* rather than the shorter *ko e hā* on its own.
 
 ---
 
-### *Ko fē* — Where? Which?
+### *Ko fē*: Where? Which?
 
 The word *fē* means "where" or "which." Combined with *ko*, it asks about location or identity.
 
 ::: {.examples}
-*Ko fē 'a e kato?* — Where is the basket?
+*Ko fē 'a e kato?* Where is the basket?
 :::
 
 You may recall this question word from a note in the previous chapter. Where *'oku 'i fē* asks "where?" in a tense-marker sentence, *ko fē* asks the same question using the *ko* pattern. The two differ in nuance: *'oku 'i fē* is used when you suppose the person or thing may be far away, while *ko fē* is used when you suppose it is somewhere within sight.
@@ -69,25 +69,25 @@ You may recall this question word from a note in the previous chapter. Where *'o
 The answer uses any *ko* identification pattern:
 
 ::: {.examples}
-*Ko fē 'a e hele?* — Where is the knife?
+*Ko fē 'a e hele?* Where is the knife?
 
-*Ko'eni.* — Here it is.
+*Ko'eni.* Here it is.
 :::
 
 ---
 
-### *Ko e hā ... ai* — Why?
+### *Ko e hā ... ai*: Why?
 
 To ask "why?", Tongan uses *ko e hā* (what) with the word *ai* placed after the verb. The word *ai* has no single English translation. In these sentences, it works like "because of it" or "for that reason," referring back to the unknown reason being asked about.
 
 ::: {.examples}
-*Ko e hā na'á ke 'alu ai ki Nuku'alofa?* — Why did you go to Nuku'alofa? (Lit. "What is [the thing] you went because-of-it to Nuku'alofa?")
+*Ko e hā na'á ke 'alu ai ki Nuku'alofa?* Why did you go to Nuku'alofa? (Lit. "What is [the thing] you went because-of-it to Nuku'alofa?")
 :::
 
 The *ai* comes immediately after the verb or verb phrase. It connects the question word *hā* to the action: what is the thing *for which* you did this?
 
 ::: {.examples}
-*Ko e hā na'e 'ita ai?* — Why was he angry? (Lit. "What is [the thing] was-angry because-of-it?")
+*Ko e hā na'e 'ita ai?* Why was he angry? (Lit. "What is [the thing] was-angry because-of-it?")
 :::
 
 The word *'ita* means "angry." In this sentence, the subject is understood from context.
@@ -102,11 +102,11 @@ The full form of this question is *ko e hā e 'uhinga ... ai* (what is the reaso
 
 | Question | Meaning | Example |
 |---|---|---|
-| *Ko hai ...?* | Who? | *Ko hai 'oku hiva?* — Who is singing? |
-| *Ko e hā ...?* | What? | *Ko e hā 'a e me'a 'okú ke fiema'u?* — What do you want? |
-| *Ko e hā ē?* | What is that? | *Ko e hā ē? — Ko e fala.* — What is that? — A mat. |
-| *Ko fē ...?* | Where? Which? | *Ko fē 'a e kato?* — Where is the basket? |
-| *Ko e hā ... ai?* | Why? | *Ko e hā na'á ke 'alu ai ki Nuku'alofa?* — Why did you go to Nuku'alofa? |
+| *Ko hai ...?* | Who? | *Ko hai 'oku hiva?*<br><span class="translation">Who is singing?</span> |
+| *Ko e hā ...?* | What? | *Ko e hā 'a e me'a 'okú ke fiema'u?*<br><span class="translation">What do you want?</span> |
+| *Ko e hā ē?* | What is that? | *Ko e hā ē?* *Ko e fala.*<br><span class="translation">What is that? A mat.</span> |
+| *Ko fē ...?* | Where? Which? | *Ko fē 'a e kato?*<br><span class="translation">Where is the basket?</span> |
+| *Ko e hā ... ai?* | Why? | *Ko e hā na'á ke 'alu ai ki Nuku'alofa?*<br><span class="translation">Why did you go to Nuku'alofa?</span> |
 
 > *Note:* The word *hai* also appears in expressions meaning "whose" (*'a hai?*, *'o hai?*). These possessive forms are covered in Chapter 37: Postposed Possessives.
 

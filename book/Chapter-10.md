@@ -7,15 +7,15 @@ The preposition *mo* means "with" in the sense of "together with." With *mo*, yo
 ### *Mo*: With, Together With
 
 ::: {.examples}
-*Na'á ku 'alu mo Sione.* — I went with John.
+*Na'á ku 'alu mo Sione.* I went with John.
 :::
 
 The preposition *mo* goes directly before a person's name to show accompaniment. It works like the prepositions you already know: it sits in the sentence after the verb and any location phrases.
 
 ::: {.examples}
-*'Oku ou nofo 'i Vava'u mo Mele.* — I live in Vava'u with Mary.
+*'Oku ou nofo 'i Vava'u mo Mele.* I live in Vava'u with Mary.
 
-*Na'á ne ha'u mei Tonga mo Tēvita.* — He came from Tonga with David.
+*Na'á ne ha'u mei Tonga mo Tēvita.* He came from Tonga with David.
 :::
 
 | Tongan | English |
@@ -32,9 +32,9 @@ The verb *ako* *(to study, to learn)* is intransitive, like *'alu* and *nofo*. I
 The *mo* phrase fits naturally into longer sentences. Time words still come last:
 
 ::: {.examples}
-*Na'á ku 'alu ki kolo mo Sione 'aneafi.* — I went to town with John yesterday.
+*Na'á ku 'alu ki kolo mo Sione 'aneafi.* I went to town with John yesterday.
 
-*Te tau hiva mo Mele 'apō.* — We will sing with Mary tonight.
+*Te tau hiva mo Mele 'apō.* We will sing with Mary tonight.
 :::
 
 ---
@@ -42,7 +42,7 @@ The *mo* phrase fits naturally into longer sentences. Time words still come last
 ### *Mo* Connecting Names: And
 
 ::: {.examples}
-*Na'á ku lea kia Sione mo Mele.* — I spoke to John and Mary.
+*Na'á ku lea kia Sione mo Mele.* I spoke to John and Mary.
 :::
 
 When *mo* appears between two names, it means "and." This is the same word doing double duty: *Sione mo Mele* means "John together-with Mary," which in practice means "John and Mary."
@@ -50,9 +50,9 @@ When *mo* appears between two names, it means "and." This is the same word doing
 To list three or more names, repeat *mo* before each:
 
 ::: {.examples}
-*Tēvita mo Seini mo Lupe* — David, Seini, and Lupe
+*Tēvita mo Seini mo Lupe*. David, Seini, and Lupe
 
-*Na'a mau 'alu ki tahi mo Sēmisi mo Ana.* — We went to the sea with Semisi and Ana.
+*Na'a mau 'alu ki tahi mo Sēmisi mo Ana.* We went to the sea with Semisi and Ana.
 :::
 
 | Tongan | English |
@@ -65,9 +65,9 @@ To list three or more names, repeat *mo* before each:
 ### Taking Something Along
 
 ::: {.examples}
-*Ha'u mo e tohí!* — Come with the book! (Lit. "Come with the book!")
+*Ha'u mo e tohí!* Come with the book! (Lit. "Come with the book!")
 
-*'Alu mo e valá!* — Take the clothes! (Lit. "Go with the clothes!")
+*'Alu mo e valá!* Take the clothes! (Lit. "Go with the clothes!")
 :::
 
 When a motion verb like *'alu* (go) or *ha'u* (come) combines with *mo* and a thing, the meaning shifts from accompaniment to taking or bringing. *Ha'u mo e tohí!* literally means "Come with the book" but idiomatically means "Bring the book (to me)." *'Alu mo e valá!* means "Take the clothes (with you)."
@@ -83,7 +83,7 @@ With a person's name, no article is needed. Whether *Na'á ku 'alu mo Sione* mea
 ### *Mo* with Pronouns
 
 ::: {.examples}
-*Na'á ne 'alu mo au.* — He went with me.
+*Na'á ne 'alu mo au.* He went with me.
 :::
 
 When *mo* points at a pronoun instead of a name, the pronoun takes its postposed (long) form: *au* (me), *koe* (you), *ia* (him/her), and the rest of the set you learned earlier.
@@ -105,11 +105,11 @@ Unlike the prepositions *ki*, *'i*, and *mei*, which change form before pronouns
 | *mo kinautolu* | with them |
 
 ::: {.examples}
-*Na'a mau 'alu ki kolo mo ia.* — We went to town with him.
+*Na'a mau 'alu ki kolo mo ia.* We went to town with him.
 
-*'Okú ne nofo mo au.* — She lives with me.
+*'Okú ne nofo mo au.* She lives with me.
 
-*Té ke ha'u mo kimautolu?* — Will you come with us?
+*Té ke ha'u mo kimautolu?* Will you come with us?
 :::
 
 ---
@@ -117,7 +117,7 @@ Unlike the prepositions *ki*, *'i*, and *mei*, which change form before pronouns
 ### Commands to Two People: *Mo* + Verb
 
 ::: {.examples}
-*Mo hopo!* — Jump! (you two)
+*Mo hopo!* Jump! (you two)
 :::
 
 In Chapter 5: Commands and Emphasis, you learned that a bare verb makes a command to one person (*Hopo!*), and *mou* before the verb makes a command to a group of three or more (*Mou hopo!*). There is a third form for exactly two people: *mo* before the verb.
@@ -144,11 +144,11 @@ The plural verb forms apply: *'alu* becomes *ō* with two or more people, just a
 The preposed modifier *kau* *(concerning, about)* is used with the *ki*-phrase to indicate the topic or subject matter. The structure is: verb + *kau ki* + noun phrase.
 
 ::: {.examples}
-*Na'á ke fanongo kau ki he ngāué?* — Did you hear about the work?
+*Na'á ke fanongo kau ki he ngāué?* Did you hear about the work?
 
-*'Oku 'i ai ha me'a kau ki he akó?* — Is there anything concerning the school?
+*'Oku 'i ai ha me'a kau ki he akó?* Is there anything concerning the school?
 
-*Na'á ku lau ha tohi kau ki he hisitōlia 'o Tongá.* — I read a book about the history of Tonga.
+*Na'á ku lau ha tohi kau ki he hisitōlia 'o Tongá.* I read a book about the history of Tonga.
 :::
 
 ---
@@ -276,11 +276,11 @@ Example: Eat! (1 person) → *Kai!*
 
 #### Exercise 3
 
-1. *ki*, *mo* — I went to town with John.
-2. *'i*, *mo* — I live in Tonga with Mary.
-3. *mei*, *mo* — We came from Ha'apai with David.
-4. *'i*, *mo* — Will you sleep in the dormitory with Ofa?
-5. *ki*, *mo* — He went to the sea with Seini yesterday.
+1. *ki*, *mo*. I went to town with John.
+2. *'i*, *mo*. I live in Tonga with Mary.
+3. *mei*, *mo*. We came from Ha'apai with David.
+4. *'i*, *mo*. Will you sleep in the dormitory with Ofa?
+5. *ki*, *mo*. He went to the sea with Seini yesterday.
 
 #### Exercise 4
 

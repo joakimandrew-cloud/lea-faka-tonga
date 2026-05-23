@@ -12,38 +12,38 @@ There are six directional particles. They fall into two groups: three based on p
 
 ---
 
-### *mai* — toward the speaker
+### *mai*: toward the speaker
 
 The particle *mai* marks movement toward the speaker. When you say *ha'u mai*, you are telling someone to come to where you are.
 
 ::: {.examples}
-*Ha'u mai!* — Come here! (toward me)
+*Ha'u mai!* Come here! (toward me)
 
-*'Oku 'alu mai 'a Siale.* — Siale is coming (toward us).
+*'Oku 'alu mai 'a Siale.* Siale is coming (toward us).
 
-*Foki mai!* — Come back! (to where I am)
+*Foki mai!* Come back! (to where I am)
 :::
 
 The verb *ha'u* (come) already implies movement toward the speaker, so *ha'u mai* reinforces the direction. Many verbs that have no inherent direction gain it from *mai*.
 
 ::: {.examples}
-*'Okú ne 'ave mai 'a e tohí.* — He is bringing the book (to me/us). (Lit. "He takes-hither the book")
+*'Okú ne 'ave mai 'a e tohí.* He is bringing the book (to me/us). (Lit. "He takes-hither the book")
 :::
 
 > *Note:* The verb *ha'u* does not combine with the other directional particles (*atu*, *ange*, *hake*, *hifo*). You will not hear *ha'u atu* or *ha'u hifo*. To say "come up" or "come down," Tongan uses *'alu hake* (go up) and *'alu hifo* (go down), even when the movement is toward the speaker.
 
 ---
 
-### *atu* — away from the speaker, toward the listener
+### *atu*: away from the speaker, toward the listener
 
 The particle *atu* marks movement away from the speaker, often toward the person being addressed.
 
 ::: {.examples}
-*'Alu atu!* — Go away! (away from me)
+*'Alu atu!* Go away! (away from me)
 
-*'Okú ne lele atu ki he falé.* — He is running (away) toward the house.
+*'Okú ne lele atu ki he falé.* He is running (away) toward the house.
 
-*Té u tala atu.* — I will tell you. (sending the telling toward you)
+*Té u tala atu.* I will tell you. (sending the telling toward you)
 :::
 
 Where *mai* pulls action toward the speaker, *atu* pushes it away. The two form a natural pair.
@@ -57,14 +57,14 @@ Where *mai* pulls action toward the speaker, *atu* pushes it away. The two form 
 
 ---
 
-### *ange* — toward a third person
+### *ange*: toward a third person
 
 The particle *ange* marks movement toward someone who is neither the speaker nor the listener: a third person, or a place that is neither here nor there.
 
 ::: {.examples}
-*Tala ange ke ha'u!* — Tell him/her to come! (sending the message toward a third person)
+*Tala ange ke ha'u!* Tell him/her to come! (sending the message toward a third person)
 
-*'Okú ne 'ave ange 'a e kató ki he faiakó.* — She is taking the basket to the teacher. (toward a third person)
+*'Okú ne 'ave ange 'a e kató ki he faiakó.* She is taking the basket to the teacher. (toward a third person)
 :::
 
 The three person-based particles work as a set:
@@ -79,32 +79,32 @@ The three person-based particles work as a set:
 
 ---
 
-### *hake* — upward
+### *hake*: upward
 
 The particle *hake* marks upward movement.
 
 ::: {.examples}
-*Sio hake ki hē!* — Look up over there!
+*Sio hake ki hē!* Look up over there!
 
-*Na'e folau hake 'a e vaká ki Niuatoputapu.* — The boat sailed up to Niuatoputapu.
+*Na'e folau hake 'a e vaká ki Niuatoputapu.* The boat sailed up to Niuatoputapu.
 
-*Na'a mau 'ā hake he pongipongi.* — We woke up in the morning. (Lit. "We waked up")
+*Na'a mau 'ā hake he pongipongi.* We woke up in the morning. (Lit. "We waked up")
 :::
 
 The word *hake* sometimes extends beyond literal upward movement to mean "to completion": *'ai hake* (finish it off, lit. "place it up").
 
 ---
 
-### *hifo* — downward
+### *hifo*: downward
 
 The particle *hifo* marks downward movement.
 
 ::: {.examples}
-*Na'e tō hifo 'a e kató mei he lolí.* — The basket fell down from the truck.
+*Na'e tō hifo 'a e kató mei he lolí.* The basket fell down from the truck.
 
-*Na'a nau ō hifo ki tahí 'aneafi.* — They went down to the ocean yesterday.
+*Na'a nau ō hifo ki tahí 'aneafi.* They went down to the ocean yesterday.
 
-*Tangutu hifo!* — Sit down!
+*Tangutu hifo!* Sit down!
 :::
 
 The word *hifo* can also mean "to quietness" or "to oneself." The expression *nofo hifo* can mean "sit down" or "stay behind," depending on context.
@@ -113,18 +113,18 @@ The word *hifo* can also mean "to quietness" or "to oneself." The expression *no
 
 ---
 
-### *holo* — around, about
+### *holo*: around, about
 
 The particle *holo* marks movement in various directions, without a fixed destination: wandering, going here and there, searching around.
 
 ::: {.examples}
-*Na'a mau ō holo 'o mamata.* — We went around and looked.
+*Na'a mau ō holo 'o mamata.* We went around and looked.
 
-*Na'e kumi holo koe 'e he faiakó.* — The teacher looked all around for you.
+*Na'e kumi holo koe 'e he faiakó.* The teacher looked all around for you.
 
-*Na'á na lele holo fakataha pē.* — They (two) ran around together.
+*Na'á na lele holo fakataha pē.* They (two) ran around together.
 
-*Kuó ne hela he lue holó.* — He is tired from walking around.
+*Kuó ne hela he lue holó.* He is tired from walking around.
 :::
 
 | Particle | Meaning | Example |
@@ -142,19 +142,19 @@ Directional particles fit into sentence patterns already taught. They come immed
 Pattern: TM + (pronoun) + verb + directional particle + (object) + (prepositional phrase)
 
 ::: {.examples}
-*Na'á ku 'ave mai 'a e valá mei he falé.* — I brought the clothes from the house. (Lit. "I took-hither the clothes from the house")
+*Na'á ku 'ave mai 'a e valá mei he falé.* I brought the clothes from the house. (Lit. "I took-hither the clothes from the house")
 
-*Té ne tala ange 'a e ongoongó ki he fāmilí.* — He will tell the news to the family. (toward a third party)
+*Té ne tala ange 'a e ongoongó ki he fāmilí.* He will tell the news to the family. (toward a third party)
 
-*Na'a mau lele hifo ki he mātāfagá.* — We ran down to the beach.
+*Na'a mau lele hifo ki he mātāfagá.* We ran down to the beach.
 
-*'Okú na 'alu holo 'i he koló.* — They (two) are going around in the village.
+*'Okú na 'alu holo 'i he koló.* They (two) are going around in the village.
 :::
 
 With the conjunction *'o* linking two actions:
 
 ::: {.examples}
-*Na'a nau ō hake 'o ngāue.* — They went up and worked.
+*Na'a nau ō hake 'o ngāue.* They went up and worked.
 :::
 
 ---
@@ -164,7 +164,7 @@ With the conjunction *'o* linking two actions:
 The verb *hanga* (to turn) is used idiomatically to soften commands and requests. It appears before *'o* and a transitive verb, with the object marked by *'a* and any named agent by *'e*:
 
 ::: {.examples}
-*Hanga 'o tāpuni 'a e matapaá.* — Close the door. (Lit. "Turn and close the door")
+*Hanga 'o tāpuni 'a e matapaá.* Close the door. (Lit. "Turn and close the door")
 :::
 
 Compare this with the blunt imperative *Tāpuni 'a e matapaá.* (Close the door.) The *hanga* version is noticeably more courteous.
@@ -183,7 +183,7 @@ The more particles you stack, the more courteous the request.
 When a specific person is named as the one being asked, that person takes *'e*:
 
 ::: {.examples}
-*Hanga ange mu'a 'e Sēmisi 'o fufulu 'a e ipú.* — Sēmisi, would you please wash the cup.
+*Hanga ange mu'a 'e Sēmisi 'o fufulu 'a e ipú.* Sēmisi, would you please wash the cup.
 :::
 
 ---
@@ -323,10 +323,10 @@ Change the direction of each sentence by replacing the directional particle with
 
 #### Exercise 4
 
-1. *'Okú ne lele atu.* — He/she is running away.
-2. *Na'e 'alu hake 'a Mele.* — Mele went up.
-3. *Na'a mau ō atu.* — We went away.
-4. *Tala mai ke ha'u!* — Tell me to come! (sending the message toward the speaker)
+1. *'Okú ne lele atu.* He/she is running away.
+2. *Na'e 'alu hake 'a Mele.* Mele went up.
+3. *Na'a mau ō atu.* We went away.
+4. *Tala mai ke ha'u!* Tell me to come! (sending the message toward the speaker)
 
 #### Exercise 5
 

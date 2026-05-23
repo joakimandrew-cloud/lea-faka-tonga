@@ -6,14 +6,14 @@ In English, you add "-s" to make a noun plural: "house" becomes "houses." Tongan
 
 ---
 
-### *ngaahi* — the general plural
+### *ngaahi*: the general plural
 
 *Ngaahi* is the most common plural marker. It works with almost any noun.
 
 ::: {.examples}
-*ha ngaahi fale* — some houses
+*ha ngaahi fale*. some houses
 
-*e ngaahi falé* — the houses
+*e ngaahi falé*. the houses
 :::
 
 The plural marker sits between the article (or possessive) and the noun: article + *ngaahi* + noun.
@@ -21,7 +21,7 @@ The plural marker sits between the article (or possessive) and the noun: article
 *Kato* *(basket)*.
 
 ::: {.examples}
-*'eku ngaahi kató* — my baskets
+*'eku ngaahi kató*. my baskets
 :::
 
 | Tongan | English |
@@ -33,12 +33,12 @@ The plural marker sits between the article (or possessive) and the noun: article
 
 ---
 
-### *kau* — plural for people
+### *kau*: plural for people
 
 *Kau* is used with nouns that refer to people.
 
 ::: {.examples}
-*e kau faiakó* — the teachers
+*e kau faiakó*. the teachers
 :::
 
 Where *ngaahi* works with any noun, *kau* is specifically for people. The structure is the same: article + *kau* + noun.
@@ -54,24 +54,24 @@ Where *ngaahi* works with any noun, *kau* is specifically for people. The struct
 
 ---
 
-### *fanga* — plural for animals
+### *fanga*: plural for animals
 
 *Fanga* is used with nouns that refer to animals, including birds, fish, and insects.
 
 *Moa* *(chicken)*. *Pulu* *(cow)*.
 
 ::: {.examples}
-*ha fanga moa* — some chickens
+*ha fanga moa*. some chickens
 
-*e fanga puaká* — the pigs
+*e fanga puaká*. the pigs
 :::
 
 *Fanga* is also used with nouns preceded by *ki'i* *(small)*, regardless of what the noun refers to:
 
 ::: {.examples}
-*ha fanga ki'i kato* — some little baskets
+*ha fanga ki'i kato*. some little baskets
 
-*ha fanga ki'i me'a* — some little things
+*ha fanga ki'i me'a*. some little things
 :::
 
 | Tongan | English |
@@ -83,16 +83,16 @@ Where *ngaahi* works with any noun, *kau* is specifically for people. The struct
 
 ---
 
-### *'ū* — plural for things (smaller numbers)
+### *'ū*: plural for things (smaller numbers)
 
 *'Ū* is used with nouns that refer to things, especially when the number is relatively small.
 
 *Hele* *(knife)*.
 
 ::: {.examples}
-*e 'ū tohí* — the books
+*e 'ū tohí*. the books
 
-*ha 'ū hele* — some knives
+*ha 'ū hele*. some knives
 :::
 
 Both *'ū* and *ngaahi* work with things. *'Ū* is more natural for a few items; *ngaahi* suits larger numbers. In practice, the two are often interchangeable.
@@ -103,41 +103,41 @@ Both *'ū* and *ngaahi* work with things. *'Ū* is more natural for a few items;
 
 | Marker | Used with | Example |
 |---|---|---|
-| *ngaahi* | anything (the default) | *ngaahi fale* — houses |
-| *kau* | people | *kau faiako* — teachers |
-| *fanga* | animals; *ki'i* + noun | *fanga moa* — chickens |
-| *'ū* | things (smaller number) | *'ū tohi* — books |
+| *ngaahi* | anything (the default) | *ngaahi fale*<br><span class="translation">houses</span> |
+| *kau* | people | *kau faiako*<br><span class="translation">teachers</span> |
+| *fanga* | animals; *ki'i* + noun | *fanga moa*<br><span class="translation">chickens</span> |
+| *'ū* | things (smaller number) | *'ū tohi*<br><span class="translation">books</span> |
 
 When in doubt, *ngaahi* works for most nouns.
 
 ---
 
-### *ongo* — the dual marker (exactly two)
+### *ongo*: the dual marker (exactly two)
 
 Tongan has a separate marker for exactly two of something. The dual marker *ongo* works with any noun: people, animals, or things.
 
 ::: {.examples}
-*ha ongo kato* — two baskets
+*ha ongo kato*. two baskets
 
-*e ongo tangatá* — the two men
+*e ongo tangatá*. the two men
 
-*ha ongo vaka* — two boats
+*ha ongo vaka*. two boats
 :::
 
 > *Note:* The numeral *ua* *(two)* can be added for emphasis: *ha ongo vaka 'e ua* (two boats). *Ongo* alone already means two, so the numeral is optional.
 
 ---
 
-### *kau* vs. *ngaahi* — people vs. actions
+### *kau* vs. *ngaahi*: people vs. actions
 
 Many Tongan words can name either a person who does something or the activity itself. The plural marker signals which meaning you intend.
 
 | *kau* + noun (people) | *ngaahi* + noun (actions/things) |
 |---|---|
-| *kau hiva* — singers | *ngaahi hiva* — songs |
-| *kau ako* — students | *ngaahi ako* — schools |
-| *kau lotu* — worshippers | *ngaahi lotu* — religions |
-| *kau ngāue* — workers | *ngaahi ngāue* — tasks |
+| *kau hiva*<br><span class="translation">singers</span> | *ngaahi hiva*<br><span class="translation">songs</span> |
+| *kau ako*<br><span class="translation">students</span> | *ngaahi ako*<br><span class="translation">schools</span> |
+| *kau lotu*<br><span class="translation">worshippers</span> | *ngaahi lotu*<br><span class="translation">religions</span> |
+| *kau ngāue*<br><span class="translation">workers</span> | *ngaahi ngāue*<br><span class="translation">tasks</span> |
 
 *Kau hiva* refers to people who sing. *Ngaahi hiva* refers to the songs themselves. The choice of plural marker changes the meaning entirely.
 
@@ -162,9 +162,9 @@ A few common nouns have irregular plural forms.
 These forms replace the singular when referring to two or more. They still take plural markers:
 
 ::: {.examples}
-*e kau tamaikí* — the children
+*e kau tamaikí*. the children
 
-*'a e hou'eikí* — the chiefs
+*'a e hou'eikí*. the chiefs
 :::
 
 > *Note:* *Fafine* is the standard form for the dual (*e ongo fafiné*, the two women). For three or more, the regular form *fefine* is used with *kau*: *e kau fefiné* (the women). In courteous speech, *fafine* is sometimes used for the plural as well.
@@ -187,21 +187,21 @@ Some common verbs have different forms when the subject is two or more people.
 Use the plural form whenever the subject is dual or plural:
 
 ::: {.examples}
-*Na'e ō 'a e kau tamaikí ki kolo.* — The children went to town.
+*Na'e ō 'a e kau tamaikí ki kolo.* The children went to town.
 :::
 
 The subject *kau tamaiki* is plural, so *ō* replaces *'alu*. Compare the singular: *Na'e 'alu 'a Sione ki kolo* (Sione went to town).
 
 ::: {.examples}
-*Mou ō ki 'api.* — Go home. (to a group)
+*Mou ō ki 'api.* Go home. (to a group)
 
-*Kuo nau ō mai.* — They have come.
+*Kuo nau ō mai.* They have come.
 :::
 
 The plural form *ō* carries a slightly softer tone than *'alu*. The form *nonofo* specifically means "live together," not just a grammatical plural of "stay" or "sit":
 
 ::: {.examples}
-*'Oku nonofo 'a Sione mo Mele 'i 'api.* — Sione and Mele live together at home.
+*'Oku nonofo 'a Sione mo Mele 'i 'api.* Sione and Mele live together at home.
 :::
 
 Most verbs have no special plural form. Only this small group does.
@@ -221,17 +221,17 @@ Some adjectives have different forms when describing plural nouns.
 The word *lahi* has two meanings: "big" (describing size) and "many" (describing quantity). The plural form *lalahi* can only mean "big," which removes the ambiguity:
 
 ::: {.examples}
-*ha ngaahi me'a lahi* — many things (*lahi* = many)
+*ha ngaahi me'a lahi*. many things (*lahi* = many)
 
-*ha ngaahi me'a lalahi* — some big things (*lalahi* = big, plural)
+*ha ngaahi me'a lalahi*. some big things (*lalahi* = big, plural)
 :::
 
 The same pattern applies to *si'i*, which means both "small" and "few":
 
 ::: {.examples}
-*ha ngaahi me'a si'i* — a few things (*si'i* = few)
+*ha ngaahi me'a si'i*. a few things (*si'i* = few)
 
-*ha ngaahi me'a iiki* — some small things (*iiki* = small, plural)
+*ha ngaahi me'a iiki*. some small things (*iiki* = small, plural)
 :::
 
 ---
@@ -299,11 +299,11 @@ The same pattern applies to *si'i*, which means both "small" and "few":
 
 #### Exercise 3: Choose the correct meaning
 
-1. *kau hiva* — (a) songs (b) singers
-2. *ngaahi hiva* — (a) songs (b) singers
-3. *kau ako* — (a) schools (b) students
-4. *ngaahi lotu* — (a) worshippers (b) religions
-5. *kau ngāue* — (a) tasks (b) workers
+1. *kau hiva*. (a) songs (b) singers
+2. *ngaahi hiva*. (a) songs (b) singers
+3. *kau ako*. (a) schools (b) students
+4. *ngaahi lotu*. (a) worshippers (b) religions
+5. *kau ngāue*. (a) tasks (b) workers
 
 #### Exercise 4: Rewrite using the correct plural form
 

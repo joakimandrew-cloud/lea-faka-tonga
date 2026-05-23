@@ -9,9 +9,9 @@ A verbal noun is a verb used as a noun, a word for an action treated as a thing.
 When a verb has a preposed pronoun subject (the pronoun between the tense marker and the verb) and the verb becomes a verbal noun, that pronoun changes to a possessive pronoun. The possessive is 'e-class because the subject is the person doing the action.
 
 ::: {.examples}
-*Na'á ne lau 'a e tohí.* — He read the book.
+*Na'á ne lau 'a e tohí.* He read the book.
 
-*Na'á ku ofo 'i he'ene lau 'a e tohí.* — I was surprised at his reading the book. (I was surprised when he read the book.)
+*Na'á ku ofo 'i he'ene lau 'a e tohí.* I was surprised at his reading the book. (I was surprised when he read the book.)
 :::
 
 The pronoun *ne* (he) becomes *'ene* (his). The pattern *'i he* + possessive + verbal noun creates a clause meaning "when" or "because."
@@ -29,25 +29,25 @@ The pronoun *ne* (he) becomes *'ene* (his). The pattern *'i he* + possessive + v
 Three more verbs illustrate the same conversion. The verb *tanu* *(plant, bury)* becomes a verbal noun when the pronoun changes to a possessive:
 
 ::: {.examples}
-*Na'á ne tanu 'a e 'akau.* — He planted the tree.
+*Na'á ne tanu 'a e 'akau.* He planted the tree.
 
-*Na'á ku ofo 'i he'ene tanu 'a e 'akaú.* — I was surprised at his planting the tree.
+*Na'á ku ofo 'i he'ene tanu 'a e 'akaú.* I was surprised at his planting the tree.
 :::
 
 The verb *tā* *(strike, hit, build)* works the same way:
 
 ::: {.examples}
-*Na'a mau tā 'a e falé.* — We built the house.
+*Na'a mau tā 'a e falé.* We built the house.
 
-*'I he 'emau tā 'a e falé, na'e 'uha.* — When we built the house, it rained.
+*'I he 'emau tā 'a e falé, na'e 'uha.* When we built the house, it rained.
 :::
 
 The verb *fai* *(do, make)* is especially common in verbal noun constructions:
 
 ::: {.examples}
-*Na'á ne fai 'a e ngāué.* — He did the work.
+*Na'á ne fai 'a e ngāué.* He did the work.
 
-*'I he'ene fai 'a e ngāué, na'á ku mālōlō.* — When he did the work, I rested.
+*'I he'ene fai 'a e ngāué, na'á ku mālōlō.* When he did the work, I rested.
 :::
 
 ---
@@ -59,17 +59,17 @@ When a verb has a postposed subject (a noun after the verb), the subject keeps i
 With transitive verbs, the agent marker *'e* stays:
 
 ::: {.examples}
-*Na'e fufulu 'e Ana 'a e valá.* — Ana washed the clothes.
+*Na'e fufulu 'e Ana 'a e valá.* Ana washed the clothes.
 
-*'I he fufulu 'e Ana 'a e valá* — When Ana washed the clothes
+*'I he fufulu 'e Ana 'a e valá*. When Ana washed the clothes
 :::
 
 With intransitive verbs, the subject marker *'a* stays:
 
 ::: {.examples}
-*Na'e 'alu 'a Sēmisi ki Fisi.* — Sēmisi went to Fiji.
+*Na'e 'alu 'a Sēmisi ki Fisi.* Sēmisi went to Fiji.
 
-*'I he 'alu 'a Sēmisi ki Fisi* — When Sēmisi went to Fiji
+*'I he 'alu 'a Sēmisi ki Fisi*. When Sēmisi went to Fiji
 :::
 
 In both cases, the postposed subject (*'e Ana*, *'a Sēmisi*) passes unchanged into the verbal noun construction.
@@ -85,7 +85,7 @@ Three patterns govern objects in verbal noun constructions, depending on the typ
 When the subject is a preposed possessive, the object usually stays as it was:
 
 ::: {.examples}
-*'i he'ene lau 'a e tohí* — at his reading the book
+*'i he'ene lau 'a e tohí*. at his reading the book
 :::
 
 The object *'a e tohi* is unchanged.
@@ -95,9 +95,9 @@ The object *'a e tohi* is unchanged.
 When the verb has a postposed subject or no subject, the object can change from *'a e* + noun to *'o e* + noun, using the possessive preposition *'o* (of):
 
 ::: {.examples}
-*'E fufulu 'a e valá.* — The clothes will be washed.
+*'E fufulu 'a e valá.* The clothes will be washed.
 
-*Té u tokoni 'i he fufulu 'o e valá.* — I will help with the washing of the clothes.
+*Té u tokoni 'i he fufulu 'o e valá.* I will help with the washing of the clothes.
 :::
 
 The object *'a e vala* becomes *'o e vala* (of the clothes). This tends to happen when the object comes before the subject in the verbal noun construction.
@@ -107,9 +107,9 @@ The object *'a e vala* becomes *'o e vala* (of the clothes). This tends to happe
 When the object is a pronoun and the verb has a postposed subject or no subject, the pronoun changes to a ho-class (objective) possessive:
 
 ::: {.examples}
-*Na'e tokoni au 'e Sēmisi.* — Sēmisi helped me.
+*Na'e tokoni au 'e Sēmisi.* Sēmisi helped me.
 
-*Na'á ku fiefia 'i hoku tokoni 'e Sēmisi.* — I was glad when I was helped by Sēmisi. (Lit. "at my being-helped by Sēmisi")
+*Na'á ku fiefia 'i hoku tokoni 'e Sēmisi.* I was glad when I was helped by Sēmisi. (Lit. "at my being-helped by Sēmisi")
 :::
 
 The pronoun *au* (me) becomes *hoku* (my, ho-class). The ho-class marks the person as the one being acted upon.
@@ -121,11 +121,11 @@ The pronoun *au* (me) becomes *hoku* (my, ho-class). The ho-class marks the pers
 Impersonal verbs such as weather and time-of-day expressions have no subject. When these verbs become verbal nouns, Tongan places *he'ene* (its) before them, even though there is no real "it" doing the action.
 
 ::: {.examples}
-*'i he'ene 'afuá* — when it became fine (Lit. "at its becoming-fine")
+*'i he'ene 'afuá*. when it became fine (Lit. "at its becoming-fine")
 
-*'i he'ene efiafi hifó* — when evening came (Lit. "at its becoming-evening down")
+*'i he'ene efiafi hifó*. when evening came (Lit. "at its becoming-evening down")
 
-*'i he'ene 'aho haké* — when the next day came (Lit. "at its becoming-day up")
+*'i he'ene 'aho haké*. when the next day came (Lit. "at its becoming-day up")
 :::
 
 This *he'ene* is a fixed part of the construction. It appears regardless of whether the original impersonal verb had any pronoun.
@@ -141,7 +141,7 @@ Two constructions use verbal nouns to form temporal clauses.
 This construction means "when" or "because":
 
 ::: {.examples}
-*'I he 'osi 'enau ngāué, pea nau mālōlō.* — When their work was finished, they rested.
+*'I he 'osi 'enau ngāué, pea nau mālōlō.* When their work was finished, they rested.
 :::
 
 The particle *pea* (and then) introduces the main clause. All the verbal noun constructions shown earlier in this chapter (*'i he'ene lau*, *'i he fufulu 'e Ana*, *'i he 'alu 'a Sēmisi*) follow this same temporal pattern.
@@ -151,13 +151,13 @@ The particle *pea* (and then) introduces the main clause. All the verbal noun co
 This construction also means "when," often with a sense of "as soon as." The limiter *pē* (just) after the verbal noun strengthens this sense:
 
 ::: {.examples}
-*Ko e 'osi pē 'a e me'akai, pea nau mālōlō.* — As soon as the food was finished, they rested.
+*Ko e 'osi pē 'a e me'akai, pea nau mālōlō.* As soon as the food was finished, they rested.
 :::
 
 When the main clause is in the future, the future tense marker can replace *pea*:
 
 ::: {.examples}
-*Ko e lava pē 'eku ngāué, te mau kai.* — When my work is done, we will eat.
+*Ko e lava pē 'eku ngāué, te mau kai.* When my work is done, we will eat.
 :::
 
 ---
@@ -167,9 +167,9 @@ When the main clause is in the future, the future tense marker can replace *pea*
 A verbal noun can serve as the subject of a sentence, with the person performing the action expressed as a possessive phrase with *'a*. The stative or adjective functions as the predicate:
 
 ::: {.examples}
-*'Oku mālie e hiva 'a Seini.* — Seini's singing is superb. (Lit. "Is superb the singing of Seini")
+*'Oku mālie e hiva 'a Seini.* Seini's singing is superb. (Lit. "Is superb the singing of Seini")
 
-*'Oku mālohi e ngāue 'a Tēvita.* — Tēvita's working is hard. (Lit. "Is hard the working of Tēvita")
+*'Oku mālohi e ngāue 'a Tēvita.* Tēvita's working is hard. (Lit. "Is hard the working of Tēvita")
 :::
 
 Compare these with the standard verb pattern:
@@ -190,9 +190,9 @@ Both express the same meaning. The verbal noun construction is considered more n
 Chapter 22: Aspect Markers introduced this pattern for actions happening right now. With the verbal noun constructions above, you can see how it fits into the broader system:
 
 ::: {.examples}
-*Ko ho'o lele ki fē?* — Where are you running to? (Lit. "It is your running to where?")
+*Ko ho'o lele ki fē?* Where are you running to? (Lit. "It is your running to where?")
 
-*Ko 'eku fufulu vala.* — I am washing clothes. (Lit. "It is my washing clothes.")
+*Ko 'eku fufulu vala.* I am washing clothes. (Lit. "It is my washing clothes.")
 :::
 
 The possessive pronoun (*ho'o*, *'eku*) marks the subject using the 'e-class, because the subject is the doer. The verb after it functions as a verbal noun.
@@ -266,17 +266,17 @@ For each pair, state whether the possessive signals a verbal noun (an action) or
 
 #### Exercise 1
 
-1. *'i he'ene hiva 'i he fale lotu* — when he sang in the church
-2. *'i he'eku tohi 'a e tohí* — when I wrote the book
-3. *'i he 'enau kai 'a e me'akaí* — when they ate the food
-4. *'i he ho'o ngāue 'i he ngoué* — when you worked in the garden
-5. *'i he'ene 'alu ki Fisi* — when she went to Fiji
+1. *'i he'ene hiva 'i he fale lotu*. when he sang in the church
+2. *'i he'eku tohi 'a e tohí*. when I wrote the book
+3. *'i he 'enau kai 'a e me'akaí*. when they ate the food
+4. *'i he ho'o ngāue 'i he ngoué*. when you worked in the garden
+5. *'i he'ene 'alu ki Fisi*. when she went to Fiji
 
 #### Exercise 2
 
-1. *'I he 'alu 'a Mele ki kolo* — When Mele went to town
-2. *'I he fufulu 'e Ana 'a e valá* — When Ana washed the clothes
-3. *'I he nofo 'a Tēvita 'i fale* — When Tēvita stayed at the house
+1. *'I he 'alu 'a Mele ki kolo*. When Mele went to town
+2. *'I he fufulu 'e Ana 'a e valá*. When Ana washed the clothes
+3. *'I he nofo 'a Tēvita 'i fale*. When Tēvita stayed at the house
 
 #### Exercise 3
 
@@ -287,9 +287,9 @@ For each pair, state whether the possessive signals a verbal noun (an action) or
 
 #### Exercise 4
 
-1. *'Oku mālie e hiva 'a Lupe.* — Lupe's singing is superb.
-2. *'Oku mālohi e ngāue 'a Sēmisi.* — Sēmisi's working is hard.
-3. *Na'e lelei e ako 'a Ana.* — Ana's studying was good.
+1. *'Oku mālie e hiva 'a Lupe.* Lupe's singing is superb.
+2. *'Oku mālohi e ngāue 'a Sēmisi.* Sēmisi's working is hard.
+3. *Na'e lelei e ako 'a Ana.* Ana's studying was good.
 
 #### Exercise 5
 

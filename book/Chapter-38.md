@@ -9,23 +9,23 @@ This chapter introduces a set of expressions built around the subordinator *ke* 
 The verb *tuku* has several ordinary meanings: to put down, to leave, to stop. When followed by *ke*, it takes on the special meaning of "let" in the sense of "allow" or "permit."
 
 ::: {.examples}
-*Tuku ke 'alu 'a e fefiné.* — Let the woman go.
+*Tuku ke 'alu 'a e fefiné.* Let the woman go.
 :::
 
 The structure is *tuku ke* + verb + subject (or pronoun). The *ke* signals that what follows is the thing being allowed.
 
 ::: {.examples}
-*Tuku ké u fakamahino atu.* — Let me explain it to you.
+*Tuku ké u fakamahino atu.* Let me explain it to you.
 
-*Tuku ke 'alu ia.* — Let him go.
+*Tuku ke 'alu ia.* Let him go.
 :::
 
 When a pronoun follows *ke*, the verb comes after the pronoun:
 
 ::: {.examples}
-*Tuku ke nau ō kinautolu.* — Let them go.
+*Tuku ke nau ō kinautolu.* Let them go.
 
-*Tuku ké ke nofo heni.* — Let yourself stay here.
+*Tuku ké ke nofo heni.* Let yourself stay here.
 :::
 
 This *tuku ke* is "let" only in the sense of "allow." It does not work for "let" as a suggestion or command (for that, Tongan uses other structures covered in Chapter 5: Commands and Emphasis, such as *tau hiva*, "let us sing").
@@ -39,25 +39,25 @@ This *tuku ke* is "let" only in the sense of "allow." It does not work for "let"
 The verb *'ofa* ordinarily means "to love." In a special construction with *ke*, it expresses a wish or hope, equivalent to English "may" or "I hope that."
 
 ::: {.examples}
-*'Ofa ke mo'ui lelei 'a e fonuá ni.* — May this country prosper. (Lit. "Love that be-well the country")
+*'Ofa ke mo'ui lelei 'a e fonuá ni.* May this country prosper. (Lit. "Love that be-well the country")
 :::
 
 Adding *pē* between *'ofa* and *ke* gives the expression a warmer, more earnest tone, often translated as "I hope that" or "let us hope that."
 
 ::: {.examples}
-*'Ofa pē ke tau a'usia e ta'u fo'oú.* — May we all live until the new year.
+*'Ofa pē ke tau a'usia e ta'u fo'oú.* May we all live until the new year.
 
-*'Ofa pē ke mou fiefia 'i homau ki'i motú.* — May you all be happy on our little island.
+*'Ofa pē ke mou fiefia 'i homau ki'i motú.* May you all be happy on our little island.
 :::
 
 *'Ofa pē* can also be followed by a tense marker instead of *ke*, to express hope about something that may already be true or may have happened:
 
 ::: {.examples}
-*'Ofa pē 'oku 'ikai puke.* — I hope he is not sick.
+*'Ofa pē 'oku 'ikai puke.* I hope he is not sick.
 
-*'Ofa pē kuo nau a'u ki ai.* — I hope they have arrived there.
+*'Ofa pē kuo nau a'u ki ai.* I hope they have arrived there.
 
-*'Ofa pē té ne foki leleí mai.* — I hope he will come back safe and sound.
+*'Ofa pē té ne foki leleí mai.* I hope he will come back safe and sound.
 :::
 
 > *Note:* The formal variant *tauange ke* carries a similar meaning but is more hortative (urging or exhorting). *Tauange ké ke mo'ui 'o 'aonga ki he fonuá.* (May you live to be of service to the country.) You may encounter this in speeches and written Tongan.
@@ -69,17 +69,17 @@ Adding *pē* between *'ofa* and *ke* gives the expression a warmer, more earnest
 The word *na'a* has appeared before as a past tense marker (*na'a ku kai*, I ate). In this chapter, *na'a* serves a completely different function: it introduces a warning or caution, meaning "lest" or "or else."
 
 ::: {.examples}
-*Lele mai na'á ke tōmui.* — Run here or you will be late. (Lit. "Run hither lest you be late")
+*Lele mai na'á ke tōmui.* Run here or you will be late. (Lit. "Run hither lest you be late")
 :::
 
 The warning pattern is: command or statement + *na'a* + the thing to be avoided. The speaker is saying "do this, because otherwise that bad thing might happen."
 
 ::: {.examples}
-*Fakalelei'i 'a e valá na'a maumau he halá.* — Fix the clothes lest they get ruined on the road.
+*Fakalelei'i 'a e valá na'a maumau he halá.* Fix the clothes lest they get ruined on the road.
 
-*Mou tokanga lelei na'a hoko ha fakatu'utāmaki.* — You all be very careful lest some disaster occur.
+*Mou tokanga lelei na'a hoko ha fakatu'utāmaki.* You all be very careful lest some disaster occur.
 
-*Hola na'á ke lavea.* — Run away lest you get hurt.
+*Hola na'á ke lavea.* Run away lest you get hurt.
 :::
 
 When a pronoun immediately follows *na'a*, only context tells you whether this is the tense marker or the warning word. In a warning, *na'a* follows a command or advice and introduces a consequence to avoid.
@@ -91,13 +91,13 @@ When a pronoun immediately follows *na'a*, only context tells you whether this i
 The same word *na'a* can also express uncertainty, meaning "perhaps" or "maybe." In this use, *na'a* stands at the beginning of its clause and is followed by a tense marker or *ko*.
 
 ::: {.examples}
-*Na'a kuo ke hela.* — Perhaps you are tired.
+*Na'a kuo ke hela.* Perhaps you are tired.
 
-*Na'a ko hono falé ení.* — Perhaps this is his house.
+*Na'a ko hono falé ení.* Perhaps this is his house.
 
-*Na'a kuo 'osi ho'o pa'angá.* — Perhaps you have no more money.
+*Na'a kuo 'osi ho'o pa'angá.* Perhaps you have no more money.
 
-*Na'a 'oku mo'oní ia.* — Perhaps he is right.
+*Na'a 'oku mo'oní ia.* Perhaps he is right.
 :::
 
 The difference between the two uses is position and function. The warning *na'a* follows a command and introduces a feared outcome. The "perhaps" *na'a* begins a clause and introduces an uncertain possibility.
@@ -114,13 +114,13 @@ The difference between the two uses is position and function. The warning *na'a*
 For a more emphatic warning, *telia na'a* replaces the simple *na'a*. The meaning is identical ("lest"), but the phrasing is stronger and more deliberate.
 
 ::: {.examples}
-*Mou ako mālohi, teliá na'a mou tō he siví.* — Study hard, lest you fail the exam.
+*Mou ako mālohi, teliá na'a mou tō he siví.* Study hard, lest you fail the exam.
 
-*Fakalelei'i 'a e kaá telia na'a maumau he halá.* — Fix the car well lest it break down on the road.
+*Fakalelei'i 'a e kaá telia na'a maumau he halá.* Fix the car well lest it break down on the road.
 
-*'Oua té ke mohe, teliá na'a li'aki koe.* — Do not sleep, lest you be left behind.
+*'Oua té ke mohe, teliá na'a li'aki koe.* Do not sleep, lest you be left behind.
 
-*Tokanga ki ho'o tohí teliá na'a mole.* — Take care of your book lest it be lost.
+*Tokanga ki ho'o tohí teliá na'a mole.* Take care of your book lest it be lost.
 :::
 
 > *Note:* *Telia na'a* and the simple warning *na'a* are interchangeable in meaning. *Telia na'a* adds weight and formality.
@@ -132,9 +132,9 @@ For a more emphatic warning, *telia na'a* replaces the simple *na'a*. The meanin
 The word *telia* without *na'a* takes a different meaning entirely: "for the sake of" or "out of respect for."
 
 ::: {.examples}
-*'Ai homou ta'ovala telia 'a Nuku.* — Put on your ta'ovalas out of respect for Nuku.
+*'Ai homou ta'ovala telia 'a Nuku.* Put on your ta'ovalas out of respect for Nuku.
 
-*Kuo fai eni 'e he tu'í telia e kaha'u 'o Tongá.* — The king has done this for the sake of Tonga's future.
+*Kuo fai eni 'e he tu'í telia e kaha'u 'o Tongá.* The king has done this for the sake of Tonga's future.
 :::
 
 This *telia* expresses deference or consideration. The speaker is explaining why something should be done (or was done), and the reason is respect or concern for someone or something.
@@ -144,15 +144,15 @@ This *telia* expresses deference or consideration. The speaker is explaining why
 ### *Fai mo ke* (hurry up and)
 
 ::: {.examples}
-*Fai mo ke 'alu!* — Hurry up and go.
+*Fai mo ke 'alu!* Hurry up and go.
 :::
 
 The imperative expression *fai mo ke* *(hurry up and, get a move on and)* urges someone to act quickly. The structure is *fai mo ke* + verb. It always addresses the second person.
 
 ::: {.examples}
-*Fai mo ke faka'osi 'o ka tau ō!* — Hurry and finish so we can go.
+*Fai mo ke faka'osi 'o ka tau ō!* Hurry and finish so we can go.
 
-*Fai mo ke ngāue na'a po'ulí!* — Get a move on and work before it gets dark.
+*Fai mo ke ngāue na'a po'ulí!* Get a move on and work before it gets dark.
 :::
 
 When addressing multiple people, or when including the speaker, *ke* changes to match the audience. *Fai mo tau ō!* (Come on, let us go) uses the inclusive first person plural *tau* instead of *ke*.
@@ -168,11 +168,11 @@ The expressions in this chapter (warnings, hopes, permissions) share a common th
 *Nai* adds a tone of wondering or gentle uncertainty. In questions, it softens the directness.
 
 ::: {.examples}
-*'Oku 'i fē nai 'a Siale?* — I wonder where Siale is.
+*'Oku 'i fē nai 'a Siale?* I wonder where Siale is.
 
-*Té ke fie 'alu nai?* — I wonder whether you would like to go.
+*Té ke fie 'alu nai?* I wonder whether you would like to go.
 
-*'Oku toko fiha nai ho'o fānau?* — How many children do you have? (polite, softened)
+*'Oku toko fiha nai ho'o fānau?* How many children do you have? (polite, softened)
 :::
 
 #### *'Apē*: perhaps, I guess
@@ -180,11 +180,11 @@ The expressions in this chapter (warnings, hopes, permissions) share a common th
 *'Apē* introduces conjecture or a gentle suggestion. It does not appear after interrogative words (*hai*, *hā*, *fē*).
 
 ::: {.examples}
-*'E ha'u 'apē 'a e vakapuná 'apongipongi?* — Is the airplane coming tomorrow? (I guess it might)
+*'E ha'u 'apē 'a e vakapuná 'apongipongi?* Is the airplane coming tomorrow? (I guess it might)
 
-*'Oku kei ngāue 'apē 'a 'Ana pe 'ikai?* — Does Ana still work or not?
+*'Oku kei ngāue 'apē 'a 'Ana pe 'ikai?* Does Ana still work or not?
 
-*Ko e hā 'apē 'a e me'a 'oku 'ita ai 'a e pulé?* — Why is the boss angry? (what could the reason be)
+*Ko e hā 'apē 'a e me'a 'oku 'ita ai 'a e pulé?* Why is the boss angry? (what could the reason be)
 :::
 
 #### *Koā*: please tell me
@@ -192,17 +192,17 @@ The expressions in this chapter (warnings, hopes, permissions) share a common th
 *Koā* requests a definite answer or expresses suspense. It carries a sense of "tell me" or "really."
 
 ::: {.examples}
-*Té ke ha'u koā pe 'ikai?* — Are you coming or not? (I need a clear answer)
+*Té ke ha'u koā pe 'ikai?* Are you coming or not? (I need a clear answer)
 
-*'Oku nofo koā heni 'a Sione?* — Does John live here? (please tell me)
+*'Oku nofo koā heni 'a Sione?* Does John live here? (please tell me)
 
-*Ko e hā koā e me'a te tau fai?* — What on earth are we going to do?
+*Ko e hā koā e me'a te tau fai?* What on earth are we going to do?
 :::
 
 The idiom *'ikai koā* introduces a fact, like "as a matter of fact" or "to tell you the truth":
 
 ::: {.examples}
-*'Ikai koā na'á ku 'osi tala ange ke 'oua te nau ō mai.* — Why, I told them not to come.
+*'Ikai koā na'á ku 'osi tala ange ke 'oua te nau ō mai.* Why, I told them not to come.
 :::
 
 | Adverb | Meaning | Position | Tone |

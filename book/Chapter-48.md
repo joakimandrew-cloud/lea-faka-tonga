@@ -10,19 +10,19 @@ A suffix is a short element added after a word to change its meaning or function
 ### *-'anga*: place, source, or means
 
 ::: {.examples}
-*nofo'anga* — dwelling-place (from *nofo*, to stay/live)
+*nofo'anga*. dwelling-place (from *nofo*, to stay/live)
 :::
 
 The suffix *-'anga* turns a verb (or occasionally a stative) into a noun that names the place, source, or means of the action. The pattern is simple: verb + *-'anga* = the place where, or thing through which, the action happens.
 
 ::: {.examples}
-*ako'anga* — school, seat of learning (from *ako*, to study)
+*ako'anga*. school, seat of learning (from *ako*, to study)
 
-*ngāue'anga* — workplace (from *ngāue*, to work)
+*ngāue'anga*. workplace (from *ngāue*, to work)
 
-*kai'anga* — eating-place (from *kai*, to eat)
+*kai'anga*. eating-place (from *kai*, to eat)
 
-*fiefia'anga* — source of happiness (from *fiefia*, happy)
+*fiefia'anga*. source of happiness (from *fiefia*, happy)
 :::
 
 These nouns can also be used as adjectives by placing them after another noun: *fale nofo'anga* (dwelling-house), *loki ngāue'anga* (work-room). The *-'anga* noun narrows down what kind of building or room it is.
@@ -30,9 +30,9 @@ These nouns can also be used as adjectives by placing them after another noun: *
 A noun formed with *-'anga* can be followed by the object of the original verb:
 
 ::: {.examples}
-*kili'anga papa* — place for sawing boards, sawmill (from *kili*, to saw, and *papa*, board)
+*kili'anga papa*. place for sawing boards, sawmill (from *kili*, to saw, and *papa*, board)
 
-*tuku'anga tohi* — place for keeping books, bookcase (from *tuku*, to put, and *tohi*, book)
+*tuku'anga tohi*. place for keeping books, bookcase (from *tuku*, to put, and *tohi*, book)
 :::
 
 | Verb/stative | + *-'anga* | Meaning |
@@ -52,13 +52,13 @@ A noun formed with *-'anga* can be followed by the object of the original verb:
 The suffix *-nga* looks similar to *-'anga* but the difference matters. Where *-'anga* points to a place, *-nga* points to a thing.
 
 ::: {.examples}
-*mohe'anga* — sleeping-place (where you sleep)
+*mohe'anga*. sleeping-place (where you sleep)
 
-*mohenga* — bed (the thing you sleep on)
+*mohenga*. bed (the thing you sleep on)
 
-*tu'u'anga* — standing-place, site
+*tu'u'anga*. standing-place, site
 
-*tu'unga* — stand, ladder, or (figuratively) rank, status
+*tu'unga*. stand, ladder, or (figuratively) rank, status
 :::
 
 In some cases the difference is small: *mālohi'anga* (source of strength) versus *mālohinga* (that which strengthens). But the general distinction holds: *-'anga* answers "where?" and *-nga* answers "what?"
@@ -83,15 +83,15 @@ An earlier chapter introduced the distinction between transitive verbs (which ta
 A verb with a first-type suffix (*-'i*) tends to emphasize carrying the action through to completion. A verb with a second-type suffix (*-a*) has a different character. It may express the action as a process or ongoing state rather than a completed event. It often appears without a named agent, making it equivalent to the English passive. And it can sound less abrupt, more courteous or emotional.
 
 ::: {.examples}
-*folau* — to voyage (intransitive)
+*folau*. to voyage (intransitive)
 
-*folaua* — to voyage toward (transitive, durational, the journey viewed as a process)
+*folaua*. to voyage toward (transitive, durational, the journey viewed as a process)
 
-*'ilo* — to know (transitive)
+*'ilo*. to know (transitive)
 
-*'iloa* — to be well known (durational, often used without an agent)
+*'iloa*. to be well known (durational, often used without an agent)
 
-*'Oku 'iloa 'a Sēmisí.* — Sēmisi is well known. (Lit. "Is known Sēmisi")
+*'Oku 'iloa 'a Sēmisí.* Sēmisi is well known. (Lit. "Is known Sēmisi")
 :::
 
 The durational character is fundamental. When a verb takes the *-a* suffix, the action is presented as something with duration, not a single sharp event. This naturally leads to impersonal use (no agent stated), because a state or process often matters more than who caused it.
@@ -114,7 +114,7 @@ Add *-a* to a concrete noun to get an adjective meaning "covered with" or "aboun
 | *namu* (mosquito) | *namua* | full of mosquitoes |
 
 ::: {.examples}
-*'Oku fu'u efua 'aupito 'a e halá.* — The road is very dusty.
+*'Oku fu'u efua 'aupito 'a e halá.* The road is very dusty.
 :::
 
 This suffix also appears in familiar compound words you already know: *fiemohea* (sleepy), *fieinua* (thirsty), *fiekaia* (hungry). Each is built from *fie-* (wanting) plus a verb plus *-a*.
@@ -131,7 +131,7 @@ The suffixes *-fia*, *-hia*, *-ia*, and *-ina* work similarly, forming intransit
 | *ili* (apprehensive) | *-fia* | *ilifia* | frightened |
 
 ::: {.examples}
-*Na'á ku 'uheina.* — I was caught in the rain.
+*Na'á ku 'uheina.* I was caught in the rain.
 :::
 
 These verbs are intransitive even though their English translations often sound passive ("was caught," "was paralyzed"). They describe the subject's state, not an action done to the subject by someone.
@@ -151,13 +151,13 @@ The suffix *-'ia* has three distinct uses, all productive and common.
 Attached to a noun, *-'ia* means "having," "characterized by," or "abounding in":
 
 ::: {.examples}
-*koloa'ia* — wealthy (from *koloa*, wealth)
+*koloa'ia*. wealthy (from *koloa*, wealth)
 
-*kakai'ia* — densely populated (from *kakai*, people)
+*kakai'ia*. densely populated (from *kakai*, people)
 
-*Ko e fonua kakai'ia 'a 'Amelika.* — America is a densely populated land.
+*Ko e fonua kakai'ia 'a 'Amelika.* America is a densely populated land.
 
-*'Oku kumā'ia e ngouē.* — The garden is infested with rats. (Lit. "Is rat-abounding the garden")
+*'Oku kumā'ia e ngouē.* The garden is infested with rats. (Lit. "Is rat-abounding the garden")
 :::
 
 | Noun | + *-'ia* | Meaning |
@@ -173,11 +173,11 @@ Attached to a noun, *-'ia* means "having," "characterized by," or "abounding in"
 Attached to adjectives, *-'ia* forms intransitive verbs meaning "to regard as" or "to consider or find to be" what the adjective means. The verb is followed by *'i* (with a noun) or the adverb *ai* (referring back to something already mentioned):
 
 ::: {.examples}
-*'Oku ou lelei'ia ai.* — I regard it as good. I am pleased with it.
+*'Oku ou lelei'ia ai.* I regard it as good. I am pleased with it.
 
-*Na'á ku faka'ofa'ia 'ia Siale.* — I felt sorry for Siale.
+*Na'á ku faka'ofa'ia 'ia Siale.* I felt sorry for Siale.
 
-*Na'á ke mālie'ia he hivá?* — Did you enjoy the song?
+*Na'á ke mālie'ia he hivá?* Did you enjoy the song?
 :::
 
 The connection between uses 1 and 2 is logical. *Faingata'a'ia* can mean "having difficulty" (use 1: possessing difficulty) or, with *ai*, "finding it difficult" (use 2: regarding as difficult). The suffix works the same way; the context determines which reading applies.
@@ -187,9 +187,9 @@ The connection between uses 1 and 2 is logical. *Faingata'a'ia* can mean "having
 Attached to *'ikai* (before *ko*), to *noa* (worthless), or to question words like *fē* (which), *-'ia* intensifies the meaning:
 
 ::: {.examples}
-*'Oku 'ikai'ia ko ia pē.* — It is not only that. (Emphasizing: truly not just that.)
+*'Oku 'ikai'ia ko ia pē.* It is not only that. (Emphasizing: truly not just that.)
 
-*Ha va'inga noa'ia pē.* — An utterly worthless game.
+*Ha va'inga noa'ia pē.* An utterly worthless game.
 :::
 
 ---
@@ -199,7 +199,7 @@ Attached to *'ikai* (before *ko*), to *noa* (worthless), or to question words li
 The suffix *-'aki*, covered in an earlier chapter, creates transitive verbs meaning "to use as." One *-'aki* verb deserves special attention here. *Fai'aki* (from *fai*, to do) means "to manage with," "to decide upon," or "to let something suffice":
 
 ::: {.examples}
-*Tau fai'aki pē ho'o fakakaukau.* — We will go along with your opinion.
+*Tau fai'aki pē ho'o fakakaukau.* We will go along with your opinion.
 :::
 
 ---
@@ -211,9 +211,9 @@ The suffix *-'i* works differently from the others in this chapter. It does not 
 Compare the loose form and the compound form:
 
 ::: {.examples}
-*Ko e mata 'o e helé.* — The blade of the knife. (Two separate noun phrases joined by *'o*.)
+*Ko e mata 'o e helé.* The blade of the knife. (Two separate noun phrases joined by *'o*.)
 
-*Ko e mata'i hele.* — The knife-blade. (One compound noun.)
+*Ko e mata'i hele.* The knife-blade. (One compound noun.)
 :::
 
 The compound form is tighter and more specific. The first noun names a part (*mata*, blade/edge/face) and the second names the whole (*hele*, knife). The *-'i* suffix fuses them.
@@ -225,7 +225,7 @@ The compound form is tighter and more specific. The first noun names a part (*ma
 | *tefito 'o e me'a* | *tefito'i me'a* | principal thing, root of the matter |
 
 ::: {.examples}
-*Na'e lavea 'a e tamasi'í he mata'i taó.* — The boy was injured on the point of the spear.
+*Na'e lavea 'a e tamasi'í he mata'i taó.* The boy was injured on the point of the spear.
 :::
 
 Some *-'i* compounds have idiomatic meanings. *Mo'oni'i me'a* (lit. "truth-of thing") means "fact." *Mingimingi'i me'a* (lit. "shrivellings-of things") means "details, fine points." These are fixed expressions worth learning as vocabulary.
@@ -240,14 +240,14 @@ These two suffixes attach to verbs to express difficulty or ease:
 |---|---|---|
 | *ma'u* (get) | *ma'ungata'a* (hard to get) | *ma'ungofua* (easy to get) |
 | *fai* (do) | *faingata'a* (difficult) | *faingofua* (easy) |
-| *'alu* (go) | *'alungata'a* (hard going, rough) | — |
-| *mahae* (tear) | — | *mahaengofua* (tears easily) |
-| *'ita* (be angry) | — | *'itangofua* (quick to anger) |
+| *'alu* (go) | *'alungata'a* (hard going, rough) | – |
+| *mahae* (tear) | – | *mahaengofua* (tears easily) |
+| *'ita* (be angry) | – | *'itangofua* (quick to anger) |
 
 ::: {.examples}
-*'Oku ma'ungata'a 'aupito 'a e me'akái 'i he taimi ení.* — Food is very hard to get right now.
+*'Oku ma'ungata'a 'aupito 'a e me'akái 'i he taimi ení.* Food is very hard to get right now.
 
-*'Oku faingofua ke ako e lea faka-Tongá.* — It is easy to learn the Tongan language.
+*'Oku faingofua ke ako e lea faka-Tongá.* It is easy to learn the Tongan language.
 :::
 
 You already know *faingata'a* (difficult) from earlier chapters. Now you can see that it is built from *fai* (do) + *-ngata'a* (hard to). The word was always a suffix construction.
@@ -341,11 +341,11 @@ Choose the correct suffix for each sentence and translate.
 
 Choose from: *-'ia*, *-'aki*, *-a*, *-ngata'a*, *-ngofua*
 
-1. *'Oku kumā\_\_\_ 'a e falé.* — The house is infested with rats.
-2. *'Oku mau sipinga\_\_\_ 'ene ngāué.* — We use his work as an example. (*sipinga* = pattern, from Chapter 33)
-3. *'Oku langu\_\_\_ 'a e me'akái.* — The food is infested with flies. (from *lango*)
-4. *'Oku ma'u\_\_\_ 'a e iká 'i he tahí.* — Fish is easy to get in the sea.
-5. *'Oku fai\_\_\_ ke ako e lea faka-Tongá.* — It is difficult to learn the Tongan language.
+1. *'Oku kumā\_\_\_ 'a e falé.* The house is infested with rats.
+2. *'Oku mau sipinga\_\_\_ 'ene ngāué.* We use his work as an example. (*sipinga* = pattern, from Chapter 33)
+3. *'Oku langu\_\_\_ 'a e me'akái.* The food is infested with flies. (from *lango*)
+4. *'Oku ma'u\_\_\_ 'a e iká 'i he tahí.* Fish is easy to get in the sea.
+5. *'Oku fai\_\_\_ ke ako e lea faka-Tongá.* It is difficult to learn the Tongan language.
 
 ---
 
@@ -387,8 +387,8 @@ Choose from: *-'ia*, *-'aki*, *-a*, *-ngata'a*, *-ngofua*
 
 #### Exercise 5
 
-1. *kumā'ia* — The house is infested with rats.
-2. *sipinga'aki* — We use his work as an example.
-3. *langoa* — The food is infested with flies.
-4. *ma'ungofua* — Fish is easy to get in the sea.
-5. *faingata'a* — It is difficult to learn the Tongan language.
+1. *kumā'ia*. The house is infested with rats.
+2. *sipinga'aki*. We use his work as an example.
+3. *langoa*. The food is infested with flies.
+4. *ma'ungofua*. Fish is easy to get in the sea.
+5. *faingata'a*. It is difficult to learn the Tongan language.

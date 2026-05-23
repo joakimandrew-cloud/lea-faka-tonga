@@ -9,7 +9,7 @@ This chapter introduces two tools for building more precise sentences: the word 
 Tongan uses *mo* for accompaniment, as in *Na'á ku 'alu mo Sione* (I went with Sione). For expressing the instrument or means used to do something, Tongan uses a different word: *'aki*. The word *'aki* functions like a preposition, showing the relationship between a verb and the tool or material involved.
 
 ::: {.examples}
-*Fufulu 'aki ho falá e vai māfaná.* — Wash your mat with warm water.
+*Fufulu 'aki ho falá e vai māfaná.* Wash your mat with warm water.
 :::
 
 Here *'aki* tells you the means: warm water is the instrument used for washing. The verb *fufulu* means "to wash (something)."
@@ -17,7 +17,7 @@ Here *'aki* tells you the means: warm water is the instrument used for washing. 
 After verbs of making, *'aki* means "of" or "out of," indicating the material something is made from.
 
 ::: {.examples}
-*'Oku ngaohi eni 'aki 'a e niu.* — This is made of coconut. (Lit. "Is made this with the coconut")
+*'Oku ngaohi eni 'aki 'a e niu.* This is made of coconut. (Lit. "Is made this with the coconut")
 :::
 
 The verb *ngaohi* *(to make)* combines with *'aki* to state the material.
@@ -33,13 +33,13 @@ The verb *ngaohi* *(to make)* combines with *'aki* to state the material.
 The word *'aki* can appear in two positions. It can sit right after the verb, before the object:
 
 ::: {.examples}
-*Fufulu 'aki ho falá e vai māfaná.* — Wash your mat with warm water. (Lit. "Wash with your-mat the warm-water")
+*Fufulu 'aki ho falá e vai māfaná.* Wash your mat with warm water. (Lit. "Wash with your-mat the warm-water")
 :::
 
 Or it can come after the object, in its logical position:
 
 ::: {.examples}
-*Fufulu ho falá 'aki e vai māfaná.* — Wash your mat with warm water.
+*Fufulu ho falá 'aki e vai māfaná.* Wash your mat with warm water.
 :::
 
 Both orders are correct and mean the same thing. The first pattern, with *'aki* immediately after the verb, is the more common word order in natural Tongan speech.
@@ -51,7 +51,7 @@ Both orders are correct and mean the same thing. The first pattern, with *'aki* 
 When the instrument has already been mentioned and you want to refer back to it without repeating the noun, *'aki* on its own means "with it" or "with them." In this use, *'aki* functions as a pronominal adverb: a single word that replaces a preposition-plus-pronoun combination. You have already seen this with *ai* (there, in it) in earlier chapters. The word *'aki* works the same way, but for instruments.
 
 ::: {.examples}
-*Na'á ne puke 'a e helé 'o ne tā 'aki 'a e iká.* — He grabbed the knife and cut the fish with it.
+*Na'á ne puke 'a e helé 'o ne tā 'aki 'a e iká.* He grabbed the knife and cut the fish with it.
 :::
 
 The word *puke* here means "grabbed" and *tā* means "struck" or "cut." The word *'aki* means "with it," referring back to the knife *(hele)*.
@@ -59,7 +59,7 @@ The word *puke* here means "grabbed" and *tā* means "struck" or "cut." The word
 In a relative construction, *'aki* connects back to a noun mentioned earlier, meaning "with which."
 
 ::: {.examples}
-*Ko e hele eni na'á ne tā 'aki 'a e iká.* — This is the knife with which he cut the fish.
+*Ko e hele eni na'á ne tā 'aki 'a e iká.* This is the knife with which he cut the fish.
 :::
 
 ---
@@ -71,13 +71,13 @@ Many Tongan verbs are intransitive: they describe an action without taking a dir
 *tokoni* *(to help, to give assistance)* is intransitive. The person helped is introduced by the preposition *ki*:
 
 ::: {.examples}
-*Na'á ku tokoni ki Seini.* — I helped Seini. (Lit. "I helped to Seini")
+*Na'á ku tokoni ki Seini.* I helped Seini. (Lit. "I helped to Seini")
 :::
 
 *tokoni'i* is transitive. The person helped becomes a direct object:
 
 ::: {.examples}
-*Na'á ku tokoni'i 'a Seini.* — I helped Seini.
+*Na'á ku tokoni'i 'a Seini.* I helped Seini.
 :::
 
 Both sentences translate the same way in English, but the Tongan grammar differs. Without *-'i*, *tokoni* takes the preposition *ki*. With *-'i*, *tokoni'i* takes a direct object marked by *'a*.
@@ -85,13 +85,13 @@ Both sentences translate the same way in English, but the Tongan grammar differs
 *pule* *(to be in charge, to govern)* is intransitive with *ki*:
 
 ::: {.examples}
-*'Okú ne pule ki he ngāué.* — He is in charge of the work.
+*'Okú ne pule ki he ngāué.* He is in charge of the work.
 :::
 
 *pule'i* is transitive:
 
 ::: {.examples}
-*'Okú ne pule'i 'a e ngāué.* — He manages the work.
+*'Okú ne pule'i 'a e ngāué.* He manages the work.
 :::
 
 | Base verb | Meaning | With *-'i* | Meaning |
@@ -111,25 +111,25 @@ Sometimes both forms work with the same noun, but the *-'i* form carries a subtl
 *manatu* *(to remember)* without *-'i* suggests emotional remembering, with longing or nostalgia. It takes *kia* before a person's name:
 
 ::: {.examples}
-*'Oku ou manatu kia Lupe.* — I remember Lupe. (with feeling, reminiscing)
+*'Oku ou manatu kia Lupe.* I remember Lupe. (with feeling, reminiscing)
 :::
 
 *manatu'i* with *-'i* suggests factual recall. It takes a direct object:
 
 ::: {.examples}
-*'Oku ou manatu'i 'a Lupe.* — I remember Lupe. (I can recall her)
+*'Oku ou manatu'i 'a Lupe.* I remember Lupe. (I can recall her)
 :::
 
 *teuteu* *(to prepare)* without *-'i*:
 
 ::: {.examples}
-*Kuo teuteu 'a e vaká.* — The boat has been prepared.
+*Kuo teuteu 'a e vaká.* The boat has been prepared.
 :::
 
 *teuteu'i* with *-'i* carries a stronger sense of completion or elaboration:
 
 ::: {.examples}
-*Kuo teuteu'i 'a e vaká.* — The boat has been decorated. (prepared elaborately, fitted out)
+*Kuo teuteu'i 'a e vaká.* The boat has been decorated. (prepared elaborately, fitted out)
 :::
 
 ---
@@ -141,13 +141,13 @@ When *-'i* is added to a verb that is already transitive, the effect is not to c
 *tāpuni* *(to close, to shut)*:
 
 ::: {.examples}
-*Na'á ku tāpuni e katō.* — I closed the basket.
+*Na'á ku tāpuni e katō.* I closed the basket.
 :::
 
 *tāpuni'i*:
 
 ::: {.examples}
-*Na'á ku tāpuni'i e katō.* — I closed the basket completely.
+*Na'á ku tāpuni'i e katō.* I closed the basket completely.
 :::
 
 With *tāpuni*, you state the action. With *tāpuni'i*, you emphasize that the action was carried through: the basket is not just pushed shut, it is firmly closed.
@@ -155,13 +155,13 @@ With *tāpuni*, you state the action. With *tāpuni'i*, you emphasize that the a
 *vahe* *(to divide)*:
 
 ::: {.examples}
-*Na'á ne vahe 'a e iká.* — She divided the fish.
+*Na'á ne vahe 'a e iká.* She divided the fish.
 :::
 
 *vahe'i*:
 
 ::: {.examples}
-*Na'á ne vahe'i 'a e iká.* — She divided up the fish. (into portions, completely)
+*Na'á ne vahe'i 'a e iká.* She divided up the fish. (into portions, completely)
 :::
 
 ---
@@ -173,13 +173,13 @@ When the suffix *-'aki* is attached to a noun or intransitive verb, it creates a
 *ngāue* (work) → *ngāue'aki* (to use)
 
 ::: {.examples}
-*'Oku mau ngāue'aki 'ene 'u falá.* — We are using his mats.
+*'Oku mau ngāue'aki 'ene 'u falá.* We are using his mats.
 :::
 
 The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to work with," which naturally becomes "to use." Because *ngāue'aki* is a transitive verb, its postposed subject takes the agent marker *'e*:
 
 ::: {.examples}
-*'Oku ngāue'aki 'e he kau akó 'a e ngaahi tohí.* — The students are using the books.
+*'Oku ngāue'aki 'e he kau akó 'a e ngaahi tohí.* The students are using the books.
 :::
 
 | Base word | *-'aki* verb | Meaning |

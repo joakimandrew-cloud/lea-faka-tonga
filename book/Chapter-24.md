@@ -4,12 +4,12 @@ Conjunctions are words that link clauses into longer sentences. Where English us
 
 ---
 
-### *pea* — and then
+### *pea*: and then
 
 *Pea* joins two actions in sequence. The first happens, then the next follows.
 
 ::: {.examples}
-*Mohe pea ngāue.* — Sleep and then work.
+*Mohe pea ngāue.* Sleep and then work.
 :::
 
 Two commands joined by *pea*: first sleep, then work. Each half could stand alone as a separate imperative.
@@ -17,7 +17,7 @@ Two commands joined by *pea*: first sleep, then work. Each half could stand alon
 *Pea* also joins full clauses, each with its own tense marker and pronoun:
 
 ::: {.examples}
-*Na'á ku lotu peá u mohe.* — I prayed and then I slept.
+*Na'á ku lotu peá u mohe.* I prayed and then I slept.
 :::
 
 This sentence has two complete clauses: *Na'á ku lotu* (I prayed) + *peá u mohe* (and then I slept). Notice the accent on *peá*: when *pea* is immediately followed by a one-syllable pronoun (*u*), the stress shifts to its final vowel. This follows the same accent pattern you know from tense markers.
@@ -29,20 +29,20 @@ This sentence has two complete clauses: *Na'á ku lotu* (I prayed) + *peá u moh
 
 ---
 
-### *'o* — and (as part of one event)
+### *'o*: and (as part of one event)
 
 Where *pea* means "and then" (two actions in sequence), *'o* connects two actions that the speaker treats as a single combined event. The second action arises from or belongs to the first.
 
 ::: {.examples}
-*Ha'u 'o kai.* — Come and eat.
+*Ha'u 'o kai.* Come and eat.
 :::
 
 The coming and the eating are one event: you come in order to eat. Compare *Ha'u pea kai* (come, and then eat), which treats them as two separate steps.
 
 ::: {.examples}
-*'Alu 'o ako.* — Go and study.
+*'Alu 'o ako.* Go and study.
 
-*Té u foki mai 'o kamata 'eku ngāué.* — I will go back and start my work.
+*Té u foki mai 'o kamata 'eku ngāué.* I will go back and start my work.
 :::
 
 In each case, *'o* signals that the second action is a natural result or continuation of the first, not a separate event.
@@ -56,29 +56,29 @@ In each case, *'o* signals that the second action is a natural result or continu
 *'O* can introduce phrases that work like time expressions in English. The most common is *'o fuoloa*, where *fuoloa* means "long in duration."
 
 ::: {.examples}
-*Té ke ako heni 'o fuoloa?* — Will you study here for a long time?
+*Té ke ako heni 'o fuoloa?* Will you study here for a long time?
 
-*Na'a nau ngāue 'i kolo 'o fuoloa.* — They worked in town for a long time.
+*Na'a nau ngāue 'i kolo 'o fuoloa.* They worked in town for a long time.
 :::
 
 Although *'o fuoloa* is technically a conjunction linking a second clause ("and it was long"), it functions as a single time expression meaning "for a long time." Treat *'o fuoloa* as a unit.
 
 ---
 
-### *ka* and *kae* — but
+### *ka* and *kae*: but
 
 Tongan has two words for "but." The choice depends on the word that comes immediately after.
 
 **Use *ka*** before a tense marker, a pronoun, or a preposition:
 
 ::: {.examples}
-*'Oku ou sai'ia he hivá, ka 'oku 'ikai té u sai'ia he ngāué.* — I like singing, but I don't like working.
+*'Oku ou sai'ia he hivá, ka 'oku 'ikai té u sai'ia he ngāué.* I like singing, but I don't like working.
 :::
 
 After the comma, *ka* is followed by the tense marker *'oku*, so *ka* is correct.
 
 ::: {.examples}
-*'Alu koe, ka ke foki mai he fā.* — Go, but come back at four.
+*'Alu koe, ka ke foki mai he fā.* Go, but come back at four.
 :::
 
 Here *ka* is followed by the pronoun *ke* (you).
@@ -86,13 +86,13 @@ Here *ka* is followed by the pronoun *ke* (you).
 **Use *kae*** before a verb, an adjective (stative), or an adverb:
 
 ::: {.examples}
-*Na'e 'alu 'a Sione kae nofo 'a Mele.* — Sione went but Mele stayed.
+*Na'e 'alu 'a Sione kae nofo 'a Mele.* Sione went but Mele stayed.
 :::
 
 After *kae*, the next word is the verb *nofo*.
 
 ::: {.examples}
-*Na'e 'alu 'a Pita kae puke 'a Tēvita.* — Pita went but Tēvita was sick.
+*Na'e 'alu 'a Pita kae puke 'a Tēvita.* Pita went but Tēvita was sick.
 :::
 
 Here *kae* is followed by the stative *puke*.
@@ -100,7 +100,7 @@ Here *kae* is followed by the stative *puke*.
 *Kae* can also mean "while," depending on context:
 
 ::: {.examples}
-*Na'e hiva 'a Sēmisi kae fanongo 'a Ana.* — Sēmisi sang while Ana listened.
+*Na'e hiva 'a Sēmisi kae fanongo 'a Ana.* Sēmisi sang while Ana listened.
 :::
 
 The rule is straightforward: look at the word immediately after "but." If it is a tense marker, pronoun, or preposition, use *ka*. If it is a verb, adjective, or adverb, use *kae*.
@@ -115,20 +115,20 @@ The rule is straightforward: look at the word immediately after "but." If it is 
 
 ---
 
-### *pe* — or, whether
+### *pe*: or, whether
 
 *Pe* joins alternatives.
 
 ::: {.examples}
-*'Oku mālohi pe vaivai?* — Is he strong or weak?
+*'Oku mālohi pe vaivai?* Is he strong or weak?
 :::
 
 *Pe* also introduces indirect questions, where it means "whether" or "if." The verb *'ilo* *(to know)* often pairs with *pe* in this pattern:
 
 ::: {.examples}
-*'Oku 'ikai té u 'ilo pe 'oku fiefia pe 'ita.* — I don't know whether (she) is happy or angry.
+*'Oku 'ikai té u 'ilo pe 'oku fiefia pe 'ita.* I don't know whether (she) is happy or angry.
 
-*'Oku 'ikai té u 'ilo pe 'oku nau ngāue 'i fē.* — I don't know where they work.
+*'Oku 'ikai té u 'ilo pe 'oku nau ngāue 'i fē.* I don't know where they work.
 :::
 
 In the second example, *pe* introduces the indirect question ("where they work") without offering two alternatives. This is a common pattern for reporting questions.
@@ -142,19 +142,19 @@ When *pea* joins two clauses with pronoun subjects, the tense marker in the seco
 Full form (both tense markers present):
 
 ::: {.examples}
-*Té u ngāue, pea té u toe foki.* — I will work, and then I will go back again.
+*Té u ngāue, pea té u toe foki.* I will work, and then I will go back again.
 :::
 
 Standard form (second tense marker dropped):
 
 ::: {.examples}
-*Té u ngāue peá u toe foki.* — I will work and then go back again.
+*Té u ngāue peá u toe foki.* I will work and then go back again.
 :::
 
 The meaning is the same. The tense of the second clause is understood from the first. This shortened form is standard in everyday speech.
 
 ::: {.examples}
-*Na'á ku ako peá u 'alu ki kolo.* — I studied and then went to town.
+*Na'á ku ako peá u 'alu ki kolo.* I studied and then went to town.
 :::
 
 With first-person singular, the pronoun form *u* is used after *pea* (the same form as in the future and perfect tenses), not *ku* or *ou*.

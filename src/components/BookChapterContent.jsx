@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkDirective from 'remark-directive'
+import rehypeRaw from 'rehype-raw'
 import remarkExamples from '../lib/remark-examples'
 import remarkDrillAnchors from '../lib/remark-drill-anchors'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
@@ -139,6 +140,7 @@ export default function BookChapterContent({ chapterNum }) {
     <div className="mb-8">
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
+        rehypePlugins={[rehypeRaw]}
         components={components}
       >
         {normalizeExamplesFence(stripLeadingTitle(md))}

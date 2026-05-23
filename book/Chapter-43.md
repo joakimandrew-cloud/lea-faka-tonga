@@ -11,9 +11,9 @@ You have already seen how a prefix changes a word's meaning, as with *faka-*. Th
 When *ta'e-* appears before a noun, it means "without" that thing.
 
 ::: {.examples}
-*Na'e 'alu ta'e su 'a Maikolo.* — Maikolo went without shoes.
+*Na'e 'alu ta'e su 'a Maikolo.* Maikolo went without shoes.
 
-*'Oku ngāue ta'e totongi 'a Sēmisi.* — Semisi is working without pay.
+*'Oku ngāue ta'e totongi 'a Sēmisi.* Semisi is working without pay.
 :::
 
 Here *su* *(shoes)* and *totongi* *(pay)* are the nouns being negated. The phrase *ta'e su* means "without shoes" and *ta'e totongi* means "without pay." The rest of the sentence keeps its normal word order.
@@ -31,15 +31,15 @@ When *ta'e-* appears before a verb or adjective, it creates the opposite meaning
 | *tokanga* *(attentive)* | *ta'e tokanga* *(careless, inattentive)* |
 
 ::: {.examples}
-*'Oku ta'e mahino 'enau leá.* — Their speech is unintelligible. (Lit. "Is not-clear their speech")
+*'Oku ta'e mahino 'enau leá.* Their speech is unintelligible. (Lit. "Is not-clear their speech")
 
-*'Oku ta'e fe'unga 'ene ngāué.* — His work is inadequate.
+*'Oku ta'e fe'unga 'ene ngāué.* His work is inadequate.
 :::
 
 When *ta'e-* + adjective follows a noun, it works as a postposed modifier:
 
 ::: {.examples}
-*Ko e tangata ta'e 'ofa mo'oni 'a Tēvita.* — Tevita is a truly unkind man.
+*Ko e tangata ta'e 'ofa mo'oni 'a Tēvita.* Tevita is a truly unkind man.
 :::
 
 Here *mo'oni* *(truly)* intensifies *ta'e 'ofa*. The whole phrase *tangata ta'e 'ofa mo'oni* modifies the subject.
@@ -47,7 +47,7 @@ Here *mo'oni* *(truly)* intensifies *ta'e 'ofa*. The whole phrase *tangata ta'e 
 When *ta'e-* + word appears with a possessive pronoun, it can function as a noun meaning "the not-doing-of" or "the lack of":
 
 ::: {.examples}
-*Ko e lahí 'ene ta'etokanga.* — His carelessness is great. (Lit. "The greatness of his not-paying-attention")
+*Ko e lahí 'ene ta'etokanga.* His carelessness is great. (Lit. "The greatness of his not-paying-attention")
 :::
 
 #### Before a phrase: "without doing"
@@ -55,9 +55,9 @@ When *ta'e-* + word appears with a possessive pronoun, it can function as a noun
 When *ta'e-* introduces a phrase with *te* + pronoun + verb, it means "without someone doing something." This mirrors the *'ikai te* + pronoun pattern, but with *ta'e* in place of *'ikai*.
 
 ::: {.examples}
-*Na'e 'alu 'a Tēvita ta'e té ne tala mai.* — Tevita went without telling me.
+*Na'e 'alu 'a Tēvita ta'e té ne tala mai.* Tevita went without telling me.
 
-*Na'á ku ngāue kia Sēmisi ta'e té u ma'u ha me'a.* — I worked for Semisi without receiving anything.
+*Na'á ku ngāue kia Sēmisi ta'e té u ma'u ha me'a.* I worked for Semisi without receiving anything.
 :::
 
 #### *Ta'e-* compared with *'ikai*
@@ -75,9 +75,9 @@ Both *ta'e-* and *'ikai* express negation, but they work differently. *'Ikai* is
 When *'ikai* and *ta'e-* appear together in the same sentence, the two negatives cancel out, producing an emphatic positive. The logic: "it will not fail to happen" means "it will definitely happen."
 
 ::: {.examples}
-*'E 'ikai pē ke ta'e 'osi 'a e ngāue ko iá.* — That work will certainly be completed. (Lit. "Will not just not-finish the work")
+*'E 'ikai pē ke ta'e 'osi 'a e ngāue ko iá.* That work will certainly be completed. (Lit. "Will not just not-finish the work")
 
-*'E 'ikai té u ta'e fai e ngāué ni.* — I will certainly do this work. (Lit. "Will not I not-do this work")
+*'E 'ikai té u ta'e fai e ngāué ni.* I will certainly do this work. (Lit. "Will not I not-do this work")
 :::
 
 The particle *pē* (just) in the first sentence reinforces the certainty. The speaker is saying that the negative outcome is itself impossible.
@@ -87,11 +87,11 @@ The particle *pē* (just) in the first sentence reinforces the certainty. The sp
 The word *tala'ehai* *(let no one say)* is an idiom meaning "let no one suppose" or "don't believe for a moment that." It originates from *'e tala 'e hai* (who shall say?). In use, it functions as a strong form of "not," coloured by the sense of "whatever anyone might think."
 
 ::: {.examples}
-*Tala'ehai kuó ne ngalo'i kitautolu.* — Let no one suppose he has forgotten us.
+*Tala'ehai kuó ne ngalo'i kitautolu.* Let no one suppose he has forgotten us.
 
-*Na'á ku foki, he tala'ehai 'oku ou ilifia.* — I returned, not because I am afraid. (Lit. "I returned, for let-no-one-suppose I am afraid")
+*Na'á ku foki, he tala'ehai 'oku ou ilifia.* I returned, not because I am afraid. (Lit. "I returned, for let-no-one-suppose I am afraid")
 
-*Tala'ehai ko Sēmisi na'á ne fai 'a e koví.* — Let no one suppose Semisi did the bad deed.
+*Tala'ehai ko Sēmisi na'á ne fai 'a e koví.* Let no one suppose Semisi did the bad deed.
 :::
 
 The conjunction *he* (because, for) often introduces a *tala'ehai* clause, as in the second example. Despite being nearly equivalent to *'ikai*, *tala'ehai* always carries its original nuance of challenging what others might assume.
@@ -101,11 +101,11 @@ The conjunction *he* (because, for) often introduces a *tala'ehai* clause, as in
 The word *koloto* means "not at all," but it carries more than simple negation. It implies surprise or disappointment that something expected did not happen, or that something which ought to exist is missing.
 
 ::: {.examples}
-*'Oku ou toutou tohi kiate ia, ka koloto ha'ane talí.* — I keep writing to him, but he never answers at all.
+*'Oku ou toutou tohi kiate ia, ka koloto ha'ane talí.* I keep writing to him, but he never answers at all.
 
-*Koloto ke ne tokoni'i hono fāmilí.* — He did not help his family at all.
+*Koloto ke ne tokoni'i hono fāmilí.* He did not help his family at all.
 
-*Koloto ha taha.* — Not one. Not a single person.
+*Koloto ha taha.* Not one. Not a single person.
 :::
 
 In the first example, the speaker expected a reply and is disappointed that none came. In the second, the speaker expected help that never materialised. This emotional undertone, the jolt of an expected thing being absent, distinguishes *koloto* from a plain *'ikai*.
@@ -115,11 +115,11 @@ In the first example, the speaker expected a reply and is disappointed that none
 The word *ne'ine'i* means "no wonder" or "it is not surprising that." It replaces the tense marker at the beginning of its clause, so the verb follows directly after it.
 
 ::: {.examples}
-*Ne'ine'i tangi 'a Seini he na'e puké.* — No wonder Seini cried, she was sick.
+*Ne'ine'i tangi 'a Seini he na'e puké.* No wonder Seini cried, she was sick.
 
-*Ne'ine'i hola 'a Mele ia.* — No wonder Mele ran away.
+*Ne'ine'i hola 'a Mele ia.* No wonder Mele ran away.
 
-*Ne'ine'i mole hono tohí ko e lahí 'ene ta'etokanga.* — No wonder he lost his book, he was very careless. (Lit. "No wonder lost his book, the greatness of his carelessness")
+*Ne'ine'i mole hono tohí ko e lahí 'ene ta'etokanga.* No wonder he lost his book, he was very careless. (Lit. "No wonder lost his book, the greatness of his carelessness")
 :::
 
 Here *hola* *(run away)* and *mole* *(lose, be lost)* are verbs that follow *ne'ine'i* directly. Because *ne'ine'i* takes the place of the tense marker, no *'oku*, *na'e*, or other marker appears before the verb.
@@ -240,9 +240,9 @@ Match each Tongan expression with its English meaning.
 
 #### Exercise 4
 
-1 — e (*ta'e totonu* = incorrect)
-2 — c (*ne'ine'i* = no wonder)
-3 — a (*koloto* = not at all)
-4 — b (*tala'ehai* = let no one suppose)
-5 — d (*mole ke mama'o* = far from it)
-6 — f (*ta'e totongi* = without pay)
+1: e (*ta'e totonu* = incorrect)
+2: c (*ne'ine'i* = no wonder)
+3: a (*koloto* = not at all)
+4: b (*tala'ehai* = let no one suppose)
+5: d (*mole ke mama'o* = far from it)
+6: f (*ta'e totongi* = without pay)

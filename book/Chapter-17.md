@@ -69,9 +69,9 @@ Notice the pattern: 'e-class pronouns all contain a glottal stop in the possessi
 When the prepositions *ki* or *'i* appear before a ho-class possessive pronoun, the article *he* does not intervene. The preposition goes directly before the possessive:
 
 ::: {.examples}
-*Na'á ke sio ki hoku tokoua?* — Did you see my brother? (*tokoua* = sibling)
+*Na'á ke sio ki hoku tokoua?* Did you see my brother? (*tokoua* = sibling)
 
-*'Oku 'i hoku fale 'a Sione.* — John is at my house.
+*'Oku 'i hoku fale 'a Sione.* John is at my house.
 :::
 
 Compare this with ordinary nouns, where *ki* and *'i* combine with the article *he*: *ki he fale* (to the house). With ho-class possessives, the *he* disappears: *ki hoku fale* (to my house), not *ki he hoku fale*.
@@ -96,9 +96,9 @@ Tongan also has dual forms for "our (two)" and "their (two)":
 | *'ena* | *hona* | their (two) |
 
 ::: {.examples}
-*Ko fē hona kote?* — Where are their coats (the two of them)?
+*Ko fē hona kote?* Where are their coats (the two of them)?
 
-*Kuo mole homa kote.* — We (he and I) have lost our coats.
+*Kuo mole homa kote.* We (he and I) have lost our coats.
 :::
 
 ---
@@ -108,11 +108,11 @@ Tongan also has dual forms for "our (two)" and "their (two)":
 To show possession with a noun (not a pronoun), Tongan uses two prepositions: *'a* for 'e-class and *'o* for ho-class. Both translate as "of" in English, but the class rules apply.
 
 ::: {.examples}
-*Ko e pa'anga 'a Sione.* — John's money. (Lit. "The money of John." 'E-class: money is something John controls.)
+*Ko e pa'anga 'a Sione.* John's money. (Lit. "The money of John." 'E-class: money is something John controls.)
 
-*Ko e fale 'o Sione.* — John's house. (Lit. "The house of John." Ho-class: a house shelters John.)
+*Ko e fale 'o Sione.* John's house. (Lit. "The house of John." Ho-class: a house shelters John.)
 
-*Ko e vaka 'o Tēvita.* — David's boat. (Ho-class: a boat shelters and carries you.)
+*Ko e vaka 'o Tēvita.* David's boat. (Ho-class: a boat shelters and carries you.)
 :::
 
 The distinction is clearest with abstract nouns: *ko e taki 'a e tu'i* means the guidance of (given by) the king, but *ko e taki 'o e fonua* means the guidance of (given to) the country. The king produces the guidance ('e-class), while the country receives it (ho-class).
@@ -126,26 +126,26 @@ A verbal noun is a verb being used as a noun. The word *'alu* (to go) is normall
 The pattern: **ko + possessive pronoun + verb (as verbal noun)**
 
 ::: {.examples}
-*Ko ho'o huo?* — Are you hoeing? (Lit. "It is your hoeing?")
-*Ko ho'o ako?* — Are you studying? (Lit. "It is your studying?")
+*Ko ho'o huo?* Are you hoeing? (Lit. "It is your hoeing?")
+*Ko ho'o ako?* Are you studying? (Lit. "It is your studying?")
 
-*Ko 'eku 'alu ki Nukunuku.* — I am going to Nukunuku. (Lit. "It is my going to Nukunuku.")
-*Ko 'eku 'alu ki Nuku'alofa.* — I am going to Nuku'alofa. (Lit. "It is my going to Nuku'alofa.")
+*Ko 'eku 'alu ki Nukunuku.* I am going to Nukunuku. (Lit. "It is my going to Nukunuku.")
+*Ko 'eku 'alu ki Nuku'alofa.* I am going to Nuku'alofa. (Lit. "It is my going to Nuku'alofa.")
 
-*Ko e hā ho'o me'a 'oku fai?* — What are you doing? (Lit. "What is your thing that is doing?")
-*Ko e hā 'ene me'a 'oku fai?* — What is he/she doing? (Lit. "What is his/her thing that is doing?")
+*Ko e hā ho'o me'a 'oku fai?* What are you doing? (Lit. "What is your thing that is doing?")
+*Ko e hā 'ene me'a 'oku fai?* What is he/she doing? (Lit. "What is his/her thing that is doing?")
 
-*Ko e fai 'eku tō manioke.* — I am planting cassava. (Lit. "It is the doing of my planting cassava.")
-*Ko e fai 'eku tō kumala.* — I am planting sweet potato. (Lit. "It is the doing of my planting sweet potato.")
+*Ko e fai 'eku tō manioke.* I am planting cassava. (Lit. "It is the doing of my planting cassava.")
+*Ko e fai 'eku tō kumala.* I am planting sweet potato. (Lit. "It is the doing of my planting sweet potato.")
 :::
 
 This pattern is a common and polite greeting. When you see someone working, you observe what they are doing and ask about it:
 
 ::: {.examples}
-*Ko ho'o lālanga?* — Are you weaving?
-*Ko ho'o haka?* — Are you dancing?
+*Ko ho'o lālanga?* Are you weaving?
+*Ko ho'o haka?* Are you dancing?
 
-*Ko ho'o ngāue?* — Are you working?
+*Ko ho'o ngāue?* Are you working?
 :::
 
 One important difference:
@@ -335,4 +335,4 @@ Use the 'e-class or ho-class pronoun given in parentheses.
 5. *'eku* (my, 'e-class: verbal noun construction with *ko*)
 
 #### Exercise 6
-1 — b, 2 — c, 3 — e, 4 — a, 5 — d
+1: b, 2: c, 3: e, 4: a, 5: d

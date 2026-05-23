@@ -11,13 +11,13 @@ English adds "-er" to make comparisons: taller, faster, stronger. Tongan places 
 *Mālohi* *(strong)*. *Vave* *(fast)*.
 
 ::: {.examples}
-*'Oku mālohi ange 'a Tēvita 'i Sēmisi.* — Tēvita is stronger than Sēmisi.
+*'Oku mālohi ange 'a Tēvita 'i Sēmisi.* Tēvita is stronger than Sēmisi.
 :::
 
 The adjective *mālohi* does not change form. The word *ange* after it creates the comparison. The preposition *'i* introduces the thing compared to, like English "than."
 
 ::: {.examples}
-*'Oku vave ange 'a e lolí 'i he pasikalá.* — The truck is faster than the bicycle.
+*'Oku vave ange 'a e lolí 'i he pasikalá.* The truck is faster than the bicycle.
 :::
 
 The pattern: adjective + *ange* + *'a* + first thing + *'i* + second thing.
@@ -40,9 +40,9 @@ The pattern: adjective + *ange* + *'a* + first thing + *'i* + second thing.
 The *'i* phrase tells you what the comparison is against. Before a proper noun, use *'ia*. Before a common noun with an article, use *'i he* (or *'i e*).
 
 ::: {.examples}
-*'Oku talavou ange 'a Peni 'ia Tēvita.* — Peni is better-looking than Tēvita.
+*'Oku talavou ange 'a Peni 'ia Tēvita.* Peni is better-looking than Tēvita.
 
-*'Oku ngāue lahi ange 'a e kau tamaikí 'i he faiakó.* — The children work harder than the teacher.
+*'Oku ngāue lahi ange 'a e kau tamaikí 'i he faiakó.* The children work harder than the teacher.
 :::
 
 Some adjectives need an adverb like *lahi* before *ange* to form the comparison. You cannot say *'oku 'ita ange*. Instead, say *'oku 'ita lahi ange* (more angry).
@@ -54,9 +54,9 @@ Some adjectives need an adverb like *lahi* before *ange* to form the comparison.
 To say something is the most or the best, place *taha* after the adjective.
 
 ::: {.examples}
-*'Oku lelei taha e ngāué 'a Seini.* — Seini's work is the best of all.
+*'Oku lelei taha e ngāué 'a Seini.* Seini's work is the best of all.
 
-*'Oku mālohi taha 'a Siaosi.* — Siaosi is the strongest.
+*'Oku mālohi taha 'a Siaosi.* Siaosi is the strongest.
 :::
 
 | Tongan | English |
@@ -76,11 +76,11 @@ The superlative does not use an *'i* phrase. It stands alone: the thing describe
 Three words can go before the adjective to strengthen or soften the comparison. Each one is followed by *ange* after the adjective.
 
 ::: {.examples}
-*'Oku ki'i vave ange 'a e vaká 'i he pasikalá.* — The boat is a little faster than the bicycle.
+*'Oku ki'i vave ange 'a e vaká 'i he pasikalá.* The boat is a little faster than the bicycle.
 
-*'Oku fu'u mālohi ange 'a Lōpeti 'i Simi.* — Lōpeti is much stronger than Simi.
+*'Oku fu'u mālohi ange 'a Lōpeti 'i Simi.* Lōpeti is much stronger than Simi.
 
-*'Oku toe lahi ange 'a e falé ni 'i he fale ko iá.* — This house is still bigger than that house.
+*'Oku toe lahi ange 'a e falé ni 'i he fale ko iá.* This house is still bigger than that house.
 :::
 
 | Modifier | Meaning | Example |
@@ -93,18 +93,18 @@ The modifier wraps around the adjective: modifier + adjective + *ange*.
 
 ---
 
-### *tatau* — same
+### *tatau*: same
 
 The word *tatau* means "same" or "identical." To say two things are the same, use *tatau* with the preposition *mo* (with).
 
 ::: {.examples}
-*'Oku tatau 'a e tohi ko eni mo e tohi ko ē.* — This book is the same as that book.
+*'Oku tatau 'a e tohi ko eni mo e tohi ko ē.* This book is the same as that book.
 :::
 
 With a dual pronoun subject:
 
 ::: {.examples}
-*'Okú na tatau.* — They (two) are the same.
+*'Okú na tatau.* They (two) are the same.
 :::
 
 | Tongan | English |
@@ -118,24 +118,24 @@ With a dual pronoun subject:
 
 Choose the right word for each blank.
 
-1. *'Oku lōloa \_\_\_ 'a Mele 'ia Ana.* — Mele is taller than Ana.
-2. *'Oku vave \_\_\_ 'a e hōsi 'a Sione.* — Sione's horse is the fastest.
-3. *'Oku \_\_\_ 'a e ongo kató.* — The two baskets are the same.
-4. *'Oku \_\_\_ talavou ange 'a Peni 'ia Sione.* — Peni is a little better-looking than Sione.
-5. *'Oku fu'u si'i \_\_\_ 'a e fale ko iá 'i he falé ni.* — That house is much smaller than this house.
+1. *'Oku lōloa \_\_\_ 'a Mele 'ia Ana.* Mele is taller than Ana.
+2. *'Oku vave \_\_\_ 'a e hōsi 'a Sione.* Sione's horse is the fastest.
+3. *'Oku \_\_\_ 'a e ongo kató.* The two baskets are the same.
+4. *'Oku \_\_\_ talavou ange 'a Peni 'ia Sione.* Peni is a little better-looking than Sione.
+5. *'Oku fu'u si'i \_\_\_ 'a e fale ko iá 'i he falé ni.* That house is much smaller than this house.
 
-**Answers:** 1. *ange* — 2. *taha* — 3. *tatau* — 4. *ki'i* — 5. *ange*
+**Answers:** 1. *ange*. 2. *taha*. 3. *tatau*. 4. *ki'i*. 5. *ange*
 
 ---
 
-### *fai kehekehe* — different
+### *fai kehekehe*: different
 
 The expression *fai kehekehe* means "different" or "to differ." Like *tatau*, it takes *mo* to introduce the second item.
 
 ::: {.examples}
-*'Oku fai kehekehe 'a e ngāue faka-faiakó mo e ngāue faka-toketā.* — The work of a teacher is different from the work of a doctor.
+*'Oku fai kehekehe 'a e ngāue faka-faiakó mo e ngāue faka-toketā.* The work of a teacher is different from the work of a doctor.
 
-*'Okú na fai kehekehe 'aupito.* — They are very different.
+*'Okú na fai kehekehe 'aupito.* They are very different.
 :::
 
 > **Preview:** The prefix *faka-* attached to a noun means "in the manner of" or "related to." *Faka-faiakó* = "teacher-related / pertaining to a teacher," *faka-toketā* = "doctor-related." It also appears in phrases like *lea faka-Tongá* ("the Tongan language") and *hiva faka-Tongá* ("Tongan-style singing"). The full *faka-* prefix system is covered formally in Chapter 32: The *Faka-* Prefix. For now, recognize *faka-X* as "of the X kind" or "X-style."
@@ -143,53 +143,53 @@ The expression *fai kehekehe* means "different" or "to differ." Like *tatau*, it
 To ask about the difference between two things:
 
 ::: {.examples}
-*Ko e hā hono fai kehekehe 'o e akó mo e vaʻingá?* — What is the difference between study and sport?
+*Ko e hā hono fai kehekehe 'o e akó mo e vaʻingá?* What is the difference between study and sport?
 :::
 
 The possessive preposition *'o* (of, ho-class) links *fai kehekehe* to the two things being compared.
 
 ---
 
-### *meimei* and *mei* — almost
+### *meimei* and *mei*: almost
 
 The words *meimei* and *mei* mean "almost" or "nearly." Both come before the verb or adjective they modify. (The form *meinei* also appears and is the same word.)
 
 ::: {.examples}
-*Na'á ku meimei tō 'anepō.* — I almost fell last night.
+*Na'á ku meimei tō 'anepō.* I almost fell last night.
 
-*Na'e meimei motu 'a e maeá.* — The rope almost broke.
+*Na'e meimei motu 'a e maeá.* The rope almost broke.
 
-*Kuó ne mei foki mai.* — He has nearly come back.
+*Kuó ne mei foki mai.* He has nearly come back.
 
-*Kuo mei 'osi 'a e ngāué.* — The work is almost finished.
+*Kuo mei 'osi 'a e ngāué.* The work is almost finished.
 :::
 
 With a negative, *meimei* means "hardly" or "very nearly not":
 
 ::: {.examples}
-*Na'e 'ikai té u meimei mohe.* — I hardly slept at all.
+*Na'e 'ikai té u meimei mohe.* I hardly slept at all.
 
-*Na'e 'ikai té u meimei lava ke ha'u.* — I was hardly able to come.
+*Na'e 'ikai té u meimei lava ke ha'u.* I was hardly able to come.
 :::
 
 The two forms differ slightly: *mei* is the lighter form. *Meimei* is stronger and more common in everyday speech.
 
 ---
 
-### *matu'aki* — extremely
+### *matu'aki*: extremely
 
 The preposed modifier *matu'aki* means "extremely," "exceedingly," or "absolutely." It goes before the verb or adjective it intensifies.
 
 ::: {.examples}
-*'Oku matu'aki 'ita 'a Seini.* — Seini is exceedingly angry.
+*'Oku matu'aki 'ita 'a Seini.* Seini is exceedingly angry.
 
-*'Oku matu'aki totonu ke tau feohi.* — It is absolutely right that we associate.
+*'Oku matu'aki totonu ke tau feohi.* It is absolutely right that we associate.
 :::
 
 *Matu'aki* can combine with *fu'u* for extra emphasis, with *fu'u* first:
 
 ::: {.examples}
-*Na'e fu'u matu'aki lelei e akó 'a Taniela.* — Daniel's schoolwork was absolutely outstanding.
+*Na'e fu'u matu'aki lelei e akó 'a Taniela.* Daniel's schoolwork was absolutely outstanding.
 :::
 
 ---
@@ -198,30 +198,30 @@ The preposed modifier *matu'aki* means "extremely," "exceedingly," or "absolutel
 
 Fill in the blank with the correct word.
 
-1. *'Oku \_\_\_ 'a e ngāue 'a e tamasi'í mo e ngāue 'a e ta'ahiné.* — The boy's work is different from the girl's work.
-2. *Na'á ku \_\_\_ tō 'i he ngoué.* — I almost fell in the garden.
-3. *Kuo \_\_\_ 'osi 'a e me'akaí.* — The food is nearly finished.
-4. *'Oku \_\_\_ vela 'a e 'ahó.* — The day is extremely hot.
-5. *'Oku \_\_\_ 'a e ongo tohí.* — The two books are different.
+1. *'Oku \_\_\_ 'a e ngāue 'a e tamasi'í mo e ngāue 'a e ta'ahiné.* The boy's work is different from the girl's work.
+2. *Na'á ku \_\_\_ tō 'i he ngoué.* I almost fell in the garden.
+3. *Kuo \_\_\_ 'osi 'a e me'akaí.* The food is nearly finished.
+4. *'Oku \_\_\_ vela 'a e 'ahó.* The day is extremely hot.
+5. *'Oku \_\_\_ 'a e ongo tohí.* The two books are different.
 
-**Answers:** 1. *fai kehekehe* — 2. *meimei* — 3. *mei* — 4. *matu'aki* — 5. *fai kehekehe*
+**Answers:** 1. *fai kehekehe*. 2. *meimei*. 3. *mei*. 4. *matu'aki*. 5. *fai kehekehe*
 
 ---
 
-### *hangē* — to be like, seem like
+### *hangē*: to be like, seem like
 
 The word *hangē* means "to be like" or "to seem like." When it modifies a verb, it is preceded by the conjunction *'o*.
 
 ::: {.examples}
-*Na'e ngāue 'a Sēmisi 'o hangē ha fu'u hōsí.* — Sēmisi worked like a big horse.
+*Na'e ngāue 'a Sēmisi 'o hangē ha fu'u hōsí.* Sēmisi worked like a big horse.
 
-*'Oku lea 'a e tamasi'í 'o hangē kuo 'ita.* — The boy talks as though he is angry.
+*'Oku lea 'a e tamasi'í 'o hangē kuo 'ita.* The boy talks as though he is angry.
 :::
 
 When *hangē* introduces a noun directly (not a clause), *ko* goes before the noun:
 
 ::: {.examples}
-*Na'e hiva 'a Neomai 'o hangē ko e ta'ahine.* — Neomai sang like a young woman.
+*Na'e hiva 'a Neomai 'o hangē ko e ta'ahine.* Neomai sang like a young woman.
 :::
 
 | Pattern | Structure | Example |
@@ -247,44 +247,44 @@ Two more comparison words appear in formal Tongan. They are not common in everyd
 The word *hangē* was introduced earlier as "like" or "as if" in comparisons. When followed by a clause introduced by *'o*, *hangē* means "as if" or "like":
 
 ::: {.examples}
-*Na'á ne lea 'o hangē ko e faiakó.* — He spoke as though he were the teacher.
+*Na'á ne lea 'o hangē ko e faiakó.* He spoke as though he were the teacher.
 
-*Na'á ne ngāue 'o hangē ha fu'u laioné.* — He worked like a lion.
+*Na'á ne ngāue 'o hangē ha fu'u laioné.* He worked like a lion.
 :::
 
 The *'o* links *hangē* to the preceding verb, creating a comparison within the action: not just "he worked" but "he worked *in the manner of* a lion."
 
 ---
 
-### Quick Practice C: *hangē* — like, as if
+### Quick Practice C: *hangē*: like, as if
 
 Translate each Tongan sentence to English.
 
-1. *Na'e lele 'a e kulī 'o hangē ha hōsi.* — ___
-2. *'Okú ne lea 'o hangē kuo helaʻia.* — ___
-3. *Na'e fai 'e Mele 'a e ngāué 'o hangē ko e faiako.* — ___
-4. *Na'á ne kai 'o hangē kuo fiekaia.* — ___
+1. *Na'e lele 'a e kulī 'o hangē ha hōsi.* ___
+2. *'Okú ne lea 'o hangē kuo helaʻia.* ___
+3. *Na'e fai 'e Mele 'a e ngāué 'o hangē ko e faiako.* ___
+4. *Na'á ne kai 'o hangē kuo fiekaia.* ___
 
-**Answers:** 1. The dog ran like a horse. — 2. He speaks as though tired. — 3. Mele did the work like a teacher. — 4. He ate as though hungry.
+**Answers:** 1. The dog ran like a horse.; 2. He speaks as though tired.; 3. Mele did the work like a teacher.; 4. He ate as though hungry.
 
 ---
 
 ### *'Ange'ange* (to be surpassed by)
 
 ::: {.examples}
-*'Oku 'ange'ange 'a e momoko 'i heni he momoko 'i Ha'amoá.* — The cold here is surpassed by the cold in Samoa. (Samoa is colder.)
+*'Oku 'ange'ange 'a e momoko 'i heni he momoko 'i Ha'amoá.* The cold here is surpassed by the cold in Samoa. (Samoa is colder.)
 :::
 
 The verb *'ange'ange* *(to be surpassed by)* expresses that one thing exceeds another. It is followed by an *'i*-phrase or *he*-phrase naming the thing that does the surpassing.
 
 ::: {.examples}
-*'Oku 'ange'ange ho'o potó he'eku potó.* — My skill surpasses yours. (Lit. Your skill is surpassed by my skill.)
+*'Oku 'ange'ange ho'o potó he'eku potó.* My skill surpasses yours. (Lit. Your skill is surpassed by my skill.)
 :::
 
 The word order may feel inverted compared to English. The thing named first is the one being surpassed, not the one doing the surpassing. In the example above, "your skill" is surpassed by "my skill."
 
 ::: {.examples}
-*'Oku 'ange'ange 'a e vela 'i heni he vela 'i 'Ameliká.* — The heat here is surpassed by the heat in America. (America is hotter.)
+*'Oku 'ange'ange 'a e vela 'i heni he vela 'i 'Ameliká.* The heat here is surpassed by the heat in America. (America is hotter.)
 :::
 
 ---
@@ -292,47 +292,47 @@ The word order may feel inverted compared to English. The thing named first is t
 ### *Huanoa* (how much more)
 
 ::: {.examples}
-*Kapau 'okú ne 'ofa ki he fanga puaká, huanoa 'ene 'ofa ki he kakaí!* — If he loves the pigs, how much more does he love the people.
+*Kapau 'okú ne 'ofa ki he fanga puaká, huanoa 'ene 'ofa ki he kakaí!* If he loves the pigs, how much more does he love the people.
 :::
 
 The word *huanoa* *(how much more)* introduces a comparison that amplifies the first statement. The pattern is: *kapau* (if) + first clause, *huanoa* + second clause. The logic is: if the lesser thing is true, how much more must the greater thing be true.
 
 ::: {.examples}
-*Kapau na'e lava ia 'e Mele, huanoa 'a Sione.* — If Mary was able to do it, how much more Peter.
+*Kapau na'e lava ia 'e Mele, huanoa 'a Sione.* If Mary was able to do it, how much more Peter.
 
-*Kapau 'oku momoko 'a e 'aho ní, huanoa 'a Kanata.* — If today is cold, how much more so is Canada.
+*Kapau 'oku momoko 'a e 'aho ní, huanoa 'a Kanata.* If today is cold, how much more so is Canada.
 :::
 
 *Huanoa* does not always require *kapau*. It can appear after a standalone statement for rhetorical emphasis:
 
 ::: {.examples}
-*Na'a mo eni 'oku faka'ofo'ofa. Kae huanoa 'i he kuonga ko iá!* — Even now it is beautiful. But how much more at that time.
+*Na'a mo eni 'oku faka'ofo'ofa. Kae huanoa 'i he kuonga ko iá!* Even now it is beautiful. But how much more at that time.
 :::
 
 ---
 
-### *lahi pē* — mostly
+### *lahi pē*: mostly
 
-The expression *lahi pē* means "mostly" or "mainly." The literal force is "much — only," indicating that one activity or place dominates.
+The expression *lahi pē* means "mostly" or "mainly." The literal force is "much, only," indicating that one activity or place dominates.
 
 ::: {.examples}
-*'Oku 'i heni hono 'apí, ka 'oku lahi pē 'ene nofó ki Vava'u.* — His home is here, but he lives mostly in Vava'u.
+*'Oku 'i heni hono 'apí, ka 'oku lahi pē 'ene nofó ki Vava'u.* His home is here, but he lives mostly in Vava'u.
 
-*'I he taimi na'á ku 'i Vava'u ai, na'á ku lahi ngāue pē.* — When I was in Vava'u, I was mostly working.
+*'I he taimi na'á ku 'i Vava'u ai, na'á ku lahi ngāue pē.* When I was in Vava'u, I was mostly working.
 :::
 
 > *Note:* Do not confuse *lahi pē* (mostly) with *lahi* as a postposed intensifier. *Na'á ku puke lahi* means "I was very sick." *Na'á ku lahi puke pē* means "I was sick most of the time."
 
 ---
 
-### *tautefito ki* — especially
+### *tautefito ki*: especially
 
 The expression *tautefito ki* means "especially," "particularly," or "mainly." It narrows a general statement to one specific case. It typically appears after a broad claim, introduced by *kae* (but):
 
 ::: {.examples}
-*'Oku lahi 'aupito 'a e fiekaiá 'i māmani, kae tautefito ki 'Eulopé.* — There is great hunger in the world, particularly in Europe.
+*'Oku lahi 'aupito 'a e fiekaiá 'i māmani, kae tautefito ki 'Eulopé.* There is great hunger in the world, particularly in Europe.
 
-*'Oku totonu ke tau tokoni ki he kakai vaivai, kae tautefito kiate kinautolu 'oku nau puké.* — We should help people who are weak, especially those who are sick.
+*'Oku totonu ke tau tokoni ki he kakai vaivai, kae tautefito kiate kinautolu 'oku nau puké.* We should help people who are weak, especially those who are sick.
 :::
 
 ---
@@ -428,11 +428,11 @@ Change each sentence from comparative to superlative, or from superlative to com
 
 #### Exercise 7: Fill in the blank with *'ange'ange*, *huanoa*, or *hangē*
 
-1. *'Oku \_\_\_ 'a e vela 'i Fisi he vela 'i Ha'amoá.* — The heat in Fiji is surpassed by the heat in Samoa.
-2. *Kapau na'e lava ia 'e Mele, \_\_\_ 'a Tēvita.* — If Mele could do it, how much more Tēvita.
-3. *Na'á ne lea 'o \_\_\_ ko e faiakó.* — He spoke as though he were the teacher.
-4. *Kapau 'oku fiefia 'a e tamaikí, \_\_\_ 'a e mātu'á.* — If the children are happy, how much more the parents.
-5. *'Oku \_\_\_ 'a e ngāué 'a Sione he ngāué 'a Mele.* — Sione's work is surpassed by Mele's work.
+1. *'Oku \_\_\_ 'a e vela 'i Fisi he vela 'i Ha'amoá.* The heat in Fiji is surpassed by the heat in Samoa.
+2. *Kapau na'e lava ia 'e Mele, \_\_\_ 'a Tēvita.* If Mele could do it, how much more Tēvita.
+3. *Na'á ne lea 'o \_\_\_ ko e faiakó.* He spoke as though he were the teacher.
+4. *Kapau 'oku fiefia 'a e tamaikí, \_\_\_ 'a e mātu'á.* If the children are happy, how much more the parents.
+5. *'Oku \_\_\_ 'a e ngāué 'a Sione he ngāué 'a Mele.* Sione's work is surpassed by Mele's work.
 
 #### Exercise 8: Translate Tongan to English
 

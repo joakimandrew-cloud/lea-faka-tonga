@@ -30,11 +30,11 @@ TM + pronoun + verb (+ modifier) (+ object) + *'i* + place
 Two new place words: *'api* *(home)* and *kolo* *(town)*. With *'i*, these refer to a particular place both speaker and listener already know about, without needing an article (a word like "the" or "a").
 
 ::: {.examples}
-*'Oku ou nofo 'i 'api.* — I live at home.
+*'Oku ou nofo 'i 'api.* I live at home.
 
-*Na'a mau ngāue 'i kolo.* — We worked in town.
+*Na'a mau ngāue 'i kolo.* We worked in town.
 
-*Té u nofo 'i Tonga.* — I will stay in Tonga.
+*Té u nofo 'i Tonga.* I will stay in Tonga.
 :::
 
 Five more place words: *siasi* *(church)*, *tahi* *(sea)*, *ngoue* *(plantation, garden)*, *mala'e* *(field, village green)*, and *hala* *(road, path)*. These work with *'i* the same way as *'api* and *kolo*.
@@ -57,9 +57,9 @@ I ran on the road.
 #### *Fale* + Verb
 
 ::: {.examples}
-*fale mohe* — dormitory (lit. "house sleep," a building for sleeping)
+*fale mohe*. dormitory (lit. "house sleep," a building for sleeping)
 
-*fale kai* — cafe, restaurant (lit. "house eat," a building for eating)
+*fale kai*. cafe, restaurant (lit. "house eat," a building for eating)
 :::
 
 *Fale* *(house, building)* is a general word for any building. When a verb is placed after *fale*, it describes what happens in that building. The verb works like a describing word (an adjective). *Mohe* (sleep) after *fale* tells you the building's purpose: *fale mohe* is a building for sleeping. *Kai* (eat) does the same: *fale kai* is a building for eating.
@@ -67,15 +67,15 @@ I ran on the road.
 These compounds work with *'i* like any place noun:
 
 ::: {.examples}
-*Na'á ku mohe 'i fale mohe.* — I slept in the dormitory.
+*Na'á ku mohe 'i fale mohe.* I slept in the dormitory.
 
-*Tau kai 'i fale kai.* — Let's eat in the cafeteria.
+*Tau kai 'i fale kai.* Let's eat in the cafeteria.
 :::
 
 ### Asking Where: *'i fē*
 
 ::: {.examples}
-*Na'á ke mohe 'i fē?* — Where did you sleep?
+*Na'á ke mohe 'i fē?* Where did you sleep?
 :::
 
 To ask where something happens, replace the place noun with *fē* *(what place, which place)*. The combination *'i fē* means "at what place," or simply "where."
@@ -83,19 +83,19 @@ To ask where something happens, replace the place noun with *fē* *(what place, 
 *'I fē* goes in the same position as the answer:
 
 ::: {.examples}
-*Na'á ke mohe 'i fē?* — Where did you sleep?
+*Na'á ke mohe 'i fē?* Where did you sleep?
 
-*Na'á ku mohe 'i fale mohe.* — I slept in the dormitory.
+*Na'á ku mohe 'i fale mohe.* I slept in the dormitory.
 
-*'Oku mou ngāue 'i fē?* — Where do you work?
+*'Oku mou ngāue 'i fē?* Where do you work?
 
-*'Oku mau ngāue 'i kolo.* — We work in town.
+*'Oku mau ngāue 'i kolo.* We work in town.
 :::
 
 ### Here, There, Over There
 
 ::: {.examples}
-*Tau nofo pē heni.* — Let's just stay here.
+*Tau nofo pē heni.* Let's just stay here.
 :::
 
 This chapter introduces three words for pointing to a place:
@@ -114,17 +114,17 @@ I'll just sit over there.
 When paired with *'i*, the words *heni*, *hena*, and *hē* work as part of a location phrase, just like *'i 'api* or *'i kolo*. Sometimes *'i* is omitted, and the word works on its own as a single location word:
 
 ::: {.examples}
-*Tau nofo 'i heni.* — Let's stay here.
+*Tau nofo 'i heni.* Let's stay here.
 
-*Tau nofo heni.* — Let's stay here.
+*Tau nofo heni.* Let's stay here.
 :::
 
 Because you already know imperatives from the previous chapter, you can combine a command with *'i* and a demonstrative:
 
 ::: {.examples}
-*Nofo 'i hē!* — Sit there.
+*Nofo 'i hē!* Sit there.
 
-*Mohe 'i heni!* — Sleep here.
+*Mohe 'i heni!* Sleep here.
 :::
 
 ### This and That: *ni* and *na*
@@ -143,17 +143,17 @@ Think of *falé ni* as a single three-syllable word, fa-le-ni, with stress on th
 ### Being Somewhere
 
 ::: {.examples}
-*Na'á ke 'i fē?* — Where have you been? (Lit. "Were-you at where?")
+*Na'á ke 'i fē?* Where have you been? (Lit. "Were-you at where?")
 :::
 
 In the sentences so far, *'i* has followed a verb: *Na'á ku mohe 'i fale* (I slept at the house). Tongan can also place the *'i* phrase directly after the pronoun, with no verb. The location phrase fills the verb slot and works as the predicate on its own, with no separate word for "is" or "was."
 
 ::: {.examples}
-*Na'á ku 'i kolo.* — I was in town. (Lit. "Was-I in town")
+*Na'á ku 'i kolo.* I was in town. (Lit. "Was-I in town")
 
-*'Oku ou 'i 'api.* — I am at home. (Lit. "Is-I at home")
+*'Oku ou 'i 'api.* I am at home. (Lit. "Is-I at home")
 
-*Té u 'i heni 'apō.* — I will be here tonight. (Lit. "Will-I at here tonight")
+*Té u 'i heni 'apō.* I will be here tonight. (Lit. "Will-I at here tonight")
 :::
 
 This works the same way as the predicate adjectives you learned earlier. Compare:

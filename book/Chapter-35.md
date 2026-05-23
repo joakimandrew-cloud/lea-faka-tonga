@@ -11,19 +11,19 @@ An adjective is a word that describes a noun: what kind, what size, what quality
 In Tongan, the standard position for an attributive adjective is after the noun.
 
 ::: {.examples}
-*ha me'a lahi* — a big thing
+*ha me'a lahi*. a big thing
 
-*ha tangata mālohi* — a strong man
+*ha tangata mālohi*. a strong man
 
-*ha fale fo'ou* — a new house
+*ha fale fo'ou*. a new house
 :::
 
 The noun comes first, the adjective follows. This is the opposite of English word order ("a big thing" vs. *ha me'a lahi*, literally "a thing big").
 
 ::: {.examples}
-*'Oku ou fiema'u ha kato lahi.* — I want a big basket.
+*'Oku ou fiema'u ha kato lahi.* I want a big basket.
 
-*Na'á ku fakatau mai ha vaka fo'ou.* — I bought a new boat.
+*Na'á ku fakatau mai ha vaka fo'ou.* I bought a new boat.
 :::
 
 More examples of postposed adjectives:
@@ -48,15 +48,15 @@ A few adjectives go before the noun instead of after it. These are fixed words t
 *toe* (other, additional)
 
 ::: {.examples}
-*ha fu'u fale* — a big house
+*ha fu'u fale*. a big house
 
-*ha ki'i tamasi'i* — a small boy
+*ha ki'i tamasi'i*. a small boy
 
-*ha 'uluaki me'a* — the first thing
+*ha 'uluaki me'a*. the first thing
 
-*ha mu'aki tu'i* — a former king
+*ha mu'aki tu'i*. a former king
 
-*ha toe me'a* — another thing (an additional thing)
+*ha toe me'a*. another thing (an additional thing)
 :::
 
 > *Note:* The word *toe* means "additional" or "more of the same kind." The word *kehe* (different) is postposed: *ha me'a kehe* = a different thing. To say "another thing of a different kind," combine them: *ha toe me'a kehe*.
@@ -68,13 +68,13 @@ A few adjectives go before the noun instead of after it. These are fixed words t
 When you want extra emphasis on size, you can use a preposed adjective and a postposed adjective together on the same noun. The preposed word goes before the noun, the postposed word goes after it. The two adjectives reinforce each other.
 
 ::: {.examples}
-*ha fu'u me'a lahi* — a great big thing
+*ha fu'u me'a lahi*. a great big thing
 
-*ha ki'i me'a si'i* — a little tiny thing
+*ha ki'i me'a si'i*. a little tiny thing
 
-*ha fu'u fale lahi* — a very big house
+*ha fu'u fale lahi*. a very big house
 
-*Na'á ku sio ki ha fu'u vaka lahi.* — I saw a very big boat.
+*Na'á ku sio ki ha fu'u vaka lahi.* I saw a very big boat.
 :::
 
 The pattern is: article + preposed adjective + noun + postposed adjective. This combination intensifies the description beyond what either adjective alone would convey.
@@ -88,27 +88,27 @@ The word *fu'u* has two uses beyond its role as a preposed adjective meaning "bi
 **Size intensifier:** Before an adjective or adverb, *fu'u* intensifies the meaning, similar to "really" or "very much."
 
 ::: {.examples}
-*fu'u lahi* — really big, very much
+*fu'u lahi*. really big, very much
 
-*fu'u lelei* — really good
+*fu'u lelei*. really good
 
-*Na'e fu'u lele lahi 'a e tangata faka'ulí.* — The driver really ran too fast.
+*Na'e fu'u lele lahi 'a e tangata faka'ulí.* The driver really ran too fast.
 
-*'Oku fu'u helaʻia 'a Mele.* — Mele is really tired.
+*'Oku fu'u helaʻia 'a Mele.* Mele is really tired.
 :::
 
 **Tree classifier:** Before a plant name, *fu'u* means "the whole tree or plant" (as opposed to a single fruit). Compare this with *fo'i*, which you learned as a classifier for single round objects.
 
 | *fu'u* (tree/plant) | *fo'i* (single fruit) |
 |---|---|
-| *fu'u mango* — a mango tree | *fo'i mango* — a mango (fruit) |
-| *fu'u niu* — a coconut palm | *fo'i niu* — a coconut |
-| *fu'u mei* — a breadfruit tree | *fo'i mei* — a breadfruit |
+| *fu'u mango*<br><span class="translation">a mango tree</span> | *fo'i mango*<br><span class="translation">a mango (fruit)</span> |
+| *fu'u niu*<br><span class="translation">a coconut palm</span> | *fo'i niu*<br><span class="translation">a coconut</span> |
+| *fu'u mei*<br><span class="translation">a breadfruit tree</span> | *fo'i mei*<br><span class="translation">a breadfruit</span> |
 
 ::: {.examples}
-*Na'e tō 'a e fu'u niu he matangí.* — The coconut palm fell in the wind.
+*Na'e tō 'a e fu'u niu he matangí.* The coconut palm fell in the wind.
 
-*'Oku ou fiema'u ha fo'i mango, kae 'ikai ko e fu'u mango.* — I want a mango (fruit), not a mango tree.
+*'Oku ou fiema'u ha fo'i mango, kae 'ikai ko e fu'u mango.* I want a mango (fruit), not a mango tree.
 :::
 
 ---
@@ -128,21 +128,21 @@ Common colors:
 | *engeenga* | yellow |
 
 ::: {.examples}
-*'Oku ou fiema'u e vala hinehiná.* — I want the white clothing.
+*'Oku ou fiema'u e vala hinehiná.* I want the white clothing.
 
-*Ko fē e kato 'uli'ulí?* — Where is the black basket?
+*Ko fē e kato 'uli'ulí?* Where is the black basket?
 
-*Na'á ku fakatau mai ha sote kulokula.* — I bought a red shirt.
+*Na'á ku fakatau mai ha sote kulokula.* I bought a red shirt.
 :::
 
 When a color adjective is the last word in a definite noun phrase, the definitive accent falls on its final vowel, just as with any other postposed adjective:
 
 ::: {.examples}
-*e sote hinehiná* — the white shirt
+*e sote hinehiná*. the white shirt
 
-*e tupenu 'uli'ulí* — the black lava-lava
+*e tupenu 'uli'ulí*. the black lava-lava
 
-*e kato kulokulá* — the red basket
+*e kato kulokulá*. the red basket
 :::
 
 > *Note:* Color words can also stand alone as nouns. *Ko e hinehina* = It is white (referring to the color itself). *'Oku ou sai'ia 'i he kulokulá* = I like the red (color).
@@ -167,9 +167,9 @@ Tongan builds compound adjectives by joining two words. Three patterns are commo
 | *anga-kovi* | behaviour-bad | ill-behaved |
 
 ::: {.examples}
-*Ko e tangata sino-mālohi 'a Tēvita.* — Tēvita is a strong-bodied man.
+*Ko e tangata sino-mālohi 'a Tēvita.* Tēvita is a strong-bodied man.
 
-*'Oku anga-lelei 'a e fānau.* — The children are well-behaved.
+*'Oku anga-lelei 'a e fānau.* The children are well-behaved.
 :::
 
 **Verb + noun:** The first word is a verb, the second is its object noun. Together they describe someone by what they habitually do.
@@ -177,7 +177,7 @@ Tongan builds compound adjectives by joining two words. Three patterns are commo
 > **Preview:** Verbs used as adjectives appear here as part of compound adjectives. This pattern is covered formally in Chapter 41: Word Class Flexibility. Observe how a verb and its object combine into a single describing word: *ha tangata tau* = a fighting man (a soldier), where *tau* (to fight) acts as an adjective after the noun.
 
 ::: {.examples}
-*ha tangata ngāue* — a working man
+*ha tangata ngāue*. a working man
 :::
 
 **Verb + adverb:** The first word is a verb, the second is an adverb or adverbial element. These are written as one word.
@@ -190,9 +190,9 @@ Tongan builds compound adjectives by joining two words. Three patterns are commo
 | *tu'utāmaki* | stand-badly | unfortunate, in adversity |
 
 ::: {.examples}
-*'Oku faingofua 'a e ngāué.* — The work is easy.
+*'Oku faingofua 'a e ngāué.* The work is easy.
 
-*'Oku faingata'a 'a e akó.* — The studying is difficult.
+*'Oku faingata'a 'a e akó.* The studying is difficult.
 :::
 
 > **Preview:** Nouns used as adjectives also occur in Tongan: *ha sipi tangata* = a male sheep (a ram), where *tangata* (man) describes the sheep. This pattern is covered formally in Chapter 41: Word Class Flexibility. Notice that nouns can describe other nouns when placed after them.
@@ -214,15 +214,15 @@ The noun *loto* (mind, heart, spirit) combines with adjectives to form compound 
 | *loto fo'i* | mind-defeated | cowardly |
 
 ::: {.examples}
-*'Oku ou loto mamahi 'i he me'a ko iá.* — I am upset about that.
+*'Oku ou loto mamahi 'i he me'a ko iá.* I am upset about that.
 
-*'Ai ké ke loto lelei!* — Work on being agreeable. (Lit. "Make that you heart-good")
+*'Ai ké ke loto lelei!* Work on being agreeable. (Lit. "Make that you heart-good")
 
-*'Oua té ke loto fo'i!* — Do not be a coward.
+*'Oua té ke loto fo'i!* Do not be a coward.
 
-*Ko e tamasi'i loto to'a 'a Sēmisi.* — Sēmisi is a courageous boy.
+*Ko e tamasi'i loto to'a 'a Sēmisi.* Sēmisi is a courageous boy.
 
-*'Oku loto lahi 'a Mele ké ne 'alu.* — Mele is eager to go.
+*'Oku loto lahi 'a Mele ké ne 'alu.* Mele is eager to go.
 :::
 
 These compounds follow all the standard patterns: they can appear after a noun (*ha tangata loto lahi* = a brave man), in the verb slot (*'oku ou loto mamahi* = I am upset), and with the full range of tense markers.
@@ -291,12 +291,12 @@ These compounds follow all the standard patterns: they can appear after a noun (
 
 Place the adjective in the correct position (before or after the noun) and write the complete phrase.
 
-1. ______ me'a ______ (lahi — big)
-2. ______ fale ______ (fu'u — big)
-3. ______ tamasi'i ______ (ki'i — small)
-4. ______ me'a ______ (kehe — different)
-5. ______ tohi ______ ('uluaki — first)
-6. ______ me'a ______ (toe — additional)
+1. ______ me'a ______ (lahi: big)
+2. ______ fale ______ (fu'u: big)
+3. ______ tamasi'i ______ (ki'i: small)
+4. ______ me'a ______ (kehe: different)
+5. ______ tohi ______ ('uluaki: first)
+6. ______ me'a ______ (toe: additional)
 
 #### Exercise 4: *Fu'u*: intensifier or tree?
 
@@ -362,12 +362,12 @@ Complete each sentence with the correct *loto* compound and translate.
 
 #### Exercise 4
 
-1. *fu'u mango* — a mango tree (tree classifier)
-2. *fu'u lahi* — really big (size intensifier)
-3. *fu'u niu* — a coconut palm (tree classifier)
-4. *fu'u lelei* — really good (size intensifier)
-5. *fu'u mei* — a breadfruit tree (tree classifier)
-6. *fu'u helaʻia* — really tired (size intensifier)
+1. *fu'u mango*. a mango tree (tree classifier)
+2. *fu'u lahi*. really big (size intensifier)
+3. *fu'u niu*. a coconut palm (tree classifier)
+4. *fu'u lelei*. really good (size intensifier)
+5. *fu'u mei*. a breadfruit tree (tree classifier)
+6. *fu'u helaʻia*. really tired (size intensifier)
 
 #### Exercise 5
 
@@ -384,8 +384,8 @@ Complete each sentence with the correct *loto* compound and translate.
 
 #### Exercise 7
 
-1. *'Oku ou loto mamahi 'i he me'a na'e hoko.* — I am upset about what happened.
-2. *Ko e tangata loto to'a 'a Sione.* — Sione is a courageous man.
-3. *'Ai ké ke loto lelei!* — Work on being agreeable.
-4. *'Oua té ke loto fo'i!* — Do not be a coward.
-5. *'Oku loto lahi 'a Lupe ké ne ako.* — Lupe is eager to study.
+1. *'Oku ou loto mamahi 'i he me'a na'e hoko.* I am upset about what happened.
+2. *Ko e tangata loto to'a 'a Sione.* Sione is a courageous man.
+3. *'Ai ké ke loto lelei!* Work on being agreeable.
+4. *'Oua té ke loto fo'i!* Do not be a coward.
+5. *'Oku loto lahi 'a Lupe ké ne ako.* Lupe is eager to study.

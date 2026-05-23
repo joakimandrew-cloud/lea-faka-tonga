@@ -9,19 +9,19 @@ This chapter introduces ways to report what someone said, thought, or heard: str
 In English, reported speech often uses "that": "I hear *that* Fiji is beautiful." Tongan does the same thing more simply: it strings two clauses together with no connecting word at all. The first clause states the act of hearing, knowing, or believing. The second clause states the content.
 
 ::: {.examples}
-*'Oku ou fanongo ko e kolō lelei 'a Nuku'alofa.* — I hear that Nuku'alofa is a good town. (Lit. "Is I hear is a town good Nuku'alofa")
+*'Oku ou fanongo ko e kolō lelei 'a Nuku'alofa.* I hear that Nuku'alofa is a good town. (Lit. "Is I hear is a town good Nuku'alofa")
 :::
 
 There is no word for "that" between *fanongo* *(to hear, to listen)* and the second clause. The two clauses sit side by side. The verb *fanongo* signals that what follows is something the speaker heard, not something directly witnessed.
 
 ::: {.examples}
-*Na'á ku 'ilo 'e tōmui 'a Seini.* — I knew that Seini would be late.
+*Na'á ku 'ilo 'e tōmui 'a Seini.* I knew that Seini would be late.
 :::
 
 Here *'ilo* *(to know)* introduces the reported content. The future tense marker *'e* in the second clause shows that the lateness had not yet happened at the time of knowing.
 
 ::: {.examples}
-*'Oku ou tui té u fiefia pē.* — I believe I will be happy.
+*'Oku ou tui té u fiefia pē.* I believe I will be happy.
 :::
 
 The verb *tui* *(to believe)* works the same way. The second clause (*te u fiefia pē*) states what the speaker believes.
@@ -30,9 +30,9 @@ This pattern works with any verb of perception or thinking:
 
 | Verb | Meaning | Example |
 |---|---|---|
-| *fanongo* | hear, listen | *'Oku ou fanongo ko e tangata mālohi 'a Tēvita.* — I hear that Tēvita is a strong man. |
-| *'ilo* | know | *Na'á ku 'ilo 'e foki 'a Mele.* — I knew Mele would return. |
-| *tui* | believe | *'Oku ou tui 'e lele 'a Sēmisi.* — I believe Sēmisi will run. |
+| *fanongo* | hear, listen | *'Oku ou fanongo ko e tangata mālohi 'a Tēvita.*<br><span class="translation">I hear that Tēvita is a strong man.</span> |
+| *'ilo* | know | *Na'á ku 'ilo 'e foki 'a Mele.*<br><span class="translation">I knew Mele would return.</span> |
+| *tui* | believe | *'Oku ou tui 'e lele 'a Sēmisi.*<br><span class="translation">I believe Sēmisi will run.</span> |
 
 > *Note:* The second clause keeps its own tense marker. The tense of the reported content does not change to match the first clause. If someone thought something would happen in the future, the future marker *'e* stays, even if the first clause is past tense.
 
@@ -43,28 +43,28 @@ This pattern works with any verb of perception or thinking:
 The verb *pehē* means "to say" or "to think." It is one of the most common ways to introduce reported speech.
 
 ::: {.examples}
-*Na'e pehē 'e Tēvita 'e foki 'a Mele.* — Tēvita thought Mele would return.
+*Na'e pehē 'e Tēvita 'e foki 'a Mele.* Tēvita thought Mele would return.
 :::
 
 The structure is: tense marker + *pehē* + *'e* phrase (naming the speaker) + reported content. The *'e* phrase works the same way as in transitive sentences, marking the person who says or thinks.
 
 ::: {.examples}
-*'Oku pehē 'e he faiakō té ke tali heni.* — The teacher thinks you will wait here.
+*'Oku pehē 'e he faiakō té ke tali heni.* The teacher thinks you will wait here.
 :::
 
 When a common noun is the speaker, *'e he* introduces it, just as in any transitive sentence.
 
 ::: {.examples}
-*'Okú ke pehē té ke helaʻia 'i Fisi?* — Do you think you will be tired in Fiji?
+*'Okú ke pehē té ke helaʻia 'i Fisi?* Do you think you will be tired in Fiji?
 :::
 
 When the subject is a pronoun, *pehē* takes the regular pronoun position after the tense marker. The accent on *'okú* appears because *ke* (a one-syllable pronoun) follows the tense marker.
 
 | Speaker type | Pattern | Example |
 |---|---|---|
-| Pronoun | TM + pronoun + *pehē* + content | *'Oku ou pehē 'e 'alu 'a Sione.* — I think Sione will go. |
-| Name | TM + *pehē* + *'e* + name + content | *Na'e pehē 'e Siale 'e ngāue 'a Mele.* — Siale said Mele would work. |
-| Common noun | TM + *pehē* + *'e he* + noun + content | *'Oku pehē 'e he faiakō té ke nofo.* — The teacher thinks you will stay. |
+| Pronoun | TM + pronoun + *pehē* + content | *'Oku ou pehē 'e 'alu 'a Sione.*<br><span class="translation">I think Sione will go.</span> |
+| Name | TM + *pehē* + *'e* + name + content | *Na'e pehē 'e Siale 'e ngāue 'a Mele.*<br><span class="translation">Siale said Mele would work.</span> |
+| Common noun | TM + *pehē* + *'e he* + noun + content | *'Oku pehē 'e he faiakō té ke nofo.*<br><span class="translation">The teacher thinks you will stay.</span> |
 
 ---
 
@@ -73,17 +73,17 @@ When the subject is a pronoun, *pehē* takes the regular pronoun position after 
 The word *pehē* has a second, distinct use: as an adverb meaning "thus," "like this," or "like that." In this use it describes the manner of an action, not an act of saying or thinking.
 
 ::: {.examples}
-*Na'e pehē pē mei he kamata'angá.* — It was that way from the beginning.
+*Na'e pehē pē mei he kamata'angá.* It was that way from the beginning.
 
-*'Oku pehē pē mo au.* — Same here. (Lit. "Is thus only with me")
+*'Oku pehē pē mo au.* Same here. (Lit. "Is thus only with me")
 
-*Kapau 'oku pehē, te u 'alu au.* — If that is the way it is, I will go.
+*Kapau 'oku pehē, te u 'alu au.* If that is the way it is, I will go.
 :::
 
 When *pehē* follows a verb, it means "in this way" or "in that way":
 
 ::: {.examples}
-*'Oua té ke lea pehē.* — Do not talk like that.
+*'Oua té ke lea pehē.* Do not talk like that.
 :::
 
 ---
@@ -93,21 +93,21 @@ When *pehē* follows a verb, it means "in this way" or "in that way":
 By adding the transitive suffix *-'i* (from the previous chapter), *pehē* becomes *pehe'i*. This transitive form means "to do in this way" or "to treat in this way." It takes an object.
 
 ::: {.examples}
-*Tohi pehe'i!* — Write it like this.
+*Tohi pehe'i!* Write it like this.
 
-*'Oua té ke pehe'i 'a e fefiné!* — Do not treat the woman that way.
+*'Oua té ke pehe'i 'a e fefiné!* Do not treat the woman that way.
 
-*'Oku pehe'i hono fufulu.* — The washing is done this way. (Lit. "Is thus-done its washing")
+*'Oku pehe'i hono fufulu.* The washing is done this way. (Lit. "Is thus-done its washing")
 
-*Ko e hā 'okú ke pehe'i ai 'a Lupe?* — Why do you treat Lupe that way? (Lit. "Is what you treat-thus for-it Lupe?")
+*Ko e hā 'okú ke pehe'i ai 'a Lupe?* Why do you treat Lupe that way? (Lit. "Is what you treat-thus for-it Lupe?")
 :::
 
 *Pehe'i* often appears in commands, telling someone to do a task in a particular way:
 
 ::: {.examples}
-*Tō pehe'i!* — Plant it this way.
+*Tō pehe'i!* Plant it this way.
 
-*Tuku pehe'i pē ia!* — Leave it the way it is.
+*Tuku pehe'i pē ia!* Leave it the way it is.
 :::
 
 ---
@@ -117,15 +117,15 @@ By adding the transitive suffix *-'i* (from the previous chapter), *pehē* becom
 The word *tokua* signals that the speaker is reporting something without committing to its truth. It is similar to "they say" or "it is said" in English. It usually appears at the beginning of a sentence.
 
 ::: {.examples}
-*Tokua kuo foki 'a Sione ki Fisi.* — It is said that Sione has returned to Fiji.
+*Tokua kuo foki 'a Sione ki Fisi.* It is said that Sione has returned to Fiji.
 
-*'Oku nofo tokua 'i Ha'apai.* — She lives, so they say, in Ha'apai.
+*'Oku nofo tokua 'i Ha'apai.* She lives, so they say, in Ha'apai.
 :::
 
 When *tokua* appears at the start, it colours the whole sentence as secondhand information. When it appears after the verb, it colours only that clause. In both positions, *tokua* tells the listener: this is what others report, not what I personally witnessed.
 
 ::: {.examples}
-*Na'á ne pehē tokua ko hono fo'ui pē.* — He said that it was just his own fault.
+*Na'á ne pehē tokua ko hono fo'ui pē.* He said that it was just his own fault.
 :::
 
 Here *tokua* and *pehē* work together: *pehē* introduces what "he" said, and *tokua* marks the whole report as something the current speaker did not verify.
@@ -137,17 +137,17 @@ Here *tokua* and *pehē* work together: *pehē* introduces what "he" said, and *
 The phrase *ko ia* has two uses. As a predicative expression, it means "that is it" or "that is all."
 
 ::: {.examples}
-*Kó ia.* — That is it.
+*Kó ia.* That is it.
 
-*Ko ia pē.* — That is all.
+*Ko ia pē.* That is all.
 :::
 
 As an inferential expression at the beginning of a sentence (followed by a pause), *ko ia* means "therefore" or "that being so."
 
 ::: {.examples}
-*Ko ia, na'e 'ikai té u 'alu ki he fakatahá.* — Therefore, I did not go to the meeting.
+*Ko ia, na'e 'ikai té u 'alu ki he fakatahá.* Therefore, I did not go to the meeting.
 
-*Ko ia, 'oku totonu ke ke nofo 'i 'api.* — Therefore, you should stay at home.
+*Ko ia, 'oku totonu ke ke nofo 'i 'api.* Therefore, you should stay at home.
 :::
 
 ---
@@ -157,9 +157,9 @@ As an inferential expression at the beginning of a sentence (followed by a pause
 The interjection *tā* appears at the start of a sentence and signals the discovery of something previously unknown, or the emergence of a new fact. It is similar to "So..." or "I see that..." in English, though often it has no exact English equivalent.
 
 ::: {.examples}
-*Tā né 'ikai té ke 'alu.* — So you did not go after all.
+*Tā né 'ikai té ke 'alu.* So you did not go after all.
 
-*Tā 'oku mo'oni.* — So it is true. (I see now that it is true.)
+*Tā 'oku mo'oni.* So it is true. (I see now that it is true.)
 :::
 
 *Tā* carries a sense of surprise or realization. The speaker has just learned or understood something new.
@@ -270,7 +270,7 @@ Decide which form fits each blank and write the complete sentence.
 
 #### Exercise 4
 
-1. *Tokua kuo 'alu 'a Sēmisi ki Ha'amoa.* — It is said that Sēmisi has gone to Samoa.
-2. *Tā 'oku mo'oni.* — So it is true.
-3. *Tā na'e 'ikai té ke foki.* — So you did not return after all.
-4. *Tokua kuo ngāue 'a Mele 'i he falekoloa.* — It is said that Mele has been working at the store.
+1. *Tokua kuo 'alu 'a Sēmisi ki Ha'amoa.* It is said that Sēmisi has gone to Samoa.
+2. *Tā 'oku mo'oni.* So it is true.
+3. *Tā na'e 'ikai té ke foki.* So you did not return after all.
+4. *Tokua kuo ngāue 'a Mele 'i he falekoloa.* It is said that Mele has been working at the store.

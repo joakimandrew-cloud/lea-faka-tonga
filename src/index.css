@@ -8,8 +8,11 @@
   --border: #d4c5a8;
   --text: #2a1f14;
   --text-strong: #2a1f14;
-  --text-muted: #8a7a62;
-  --text-faint: #5a4a36;
+  /* Muted/faint collapse onto the primary text color site-wide, so all
+   * body copy reads at one ink weight. Drill answer feedback uses --correct
+   * (green) and --wrong (red) and is unaffected. */
+  --text-muted: var(--text-strong);
+  --text-faint: var(--text-strong);
   --accent: #8b3a2a;
   --accent-hover: #6b2a1f;
   --accent-faint: rgba(139, 58, 42, 0.06);
@@ -47,8 +50,10 @@
   --border: #3a2e22;
   --text: rgba(240, 230, 210, 0.9);
   --text-strong: #f0e6d2;
-  --text-muted: #8a7a62;
-  --text-faint: #c8b89a;
+  /* Dark-mode counterpart of the light-mode flatten — muted/faint match
+   * the primary text color so everything reads at one bright ink weight. */
+  --text-muted: var(--text-strong);
+  --text-faint: var(--text-strong);
   --accent: #d96a52;
   --accent-hover: #e88670;
   --accent-faint: rgba(217, 106, 82, 0.08);
@@ -762,12 +767,24 @@ body::before {
 
 .example-english {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--text-strong);
   line-height: 1.4;
 }
 
 .cell-english {
-  color: var(--text-muted);
+  display: block;
+  font-size: 0.875em;
+  color: var(--text-strong);
+  line-height: 1.35;
+}
+
+/* Stacked-cell English: rendered below the Tongan inside table cells. Matches
+ * the Tongan color so the gloss reads as primary text, not a muted aside. */
+.translation {
+  display: inline-block;
+  font-size: 0.875em;
+  color: var(--text-strong);
+  line-height: 1.35;
 }
 
 /* ── Reading-page scope ───────────────────────────────────────────────── */
@@ -783,8 +800,12 @@ body::before {
   --border: #D4CEC3;
   --text: #1A1A1A;
   --text-strong: #0A0A0A;
-  --text-muted: #8A7A62;
-  --text-faint: #5A5550;
+  /* Chapter pages collapse muted/faint to the same near-black as primary
+   * text so topic chips, drill labels, hint text, progress counters etc.
+   * all read in black. (Same flatten as :root, restated with the
+   * reading-page-scoped #0A0A0A value.) */
+  --text-muted: var(--text-strong);
+  --text-faint: var(--text-strong);
   --accent: #0A0A0A;
   --accent-hover: #000000;
   --accent-faint: transparent;
@@ -859,8 +880,10 @@ body::before {
   --border: #3A332A;
   --text: #E8E4DC;
   --text-strong: #F0ECE4;
-  --text-muted: #8A7A62;
-  --text-faint: #B0A894;
+  /* Same flatten-to-primary in dark-mode reading pages — muted/faint match
+   * the cream primary text via var(--text-strong). */
+  --text-muted: var(--text-strong);
+  --text-faint: var(--text-strong);
   --accent: #F0ECE4;
   --accent-hover: #FFFFFF;
 }

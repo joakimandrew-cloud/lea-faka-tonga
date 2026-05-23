@@ -13,9 +13,9 @@ The clearest demonstration is with verbal nouns. A verbal noun is a verb used as
 Take the verb *tokoni* (to help):
 
 ::: {.examples}
-*'Eku tokoni* — my helping (I do the helping)
+*'Eku tokoni*. my helping (I do the helping)
 
-*Hoku tokoni* — my being helped (the helping is done to me)
+*Hoku tokoni*. my being helped (the helping is done to me)
 :::
 
 Both phrases contain the word "my." *'Eku* ('e-class) puts me in the doer role. *Hoku* (ho-class) puts me in the receiver role.
@@ -23,9 +23,9 @@ Both phrases contain the word "my." *'Eku* ('e-class) puts me in the doer role. 
 Another pair, using *fili* (to choose):
 
 ::: {.examples}
-*'Ene fili* — his choosing (he does the choosing)
+*'Ene fili*. his choosing (he does the choosing)
 
-*Hono fili* — his being chosen (the choosing is done to him)
+*Hono fili*. his being chosen (the choosing is done to him)
 :::
 
 Or think of it this way:
@@ -37,16 +37,16 @@ Or think of it this way:
 
 | 'E-class (doer) | Ho-class (receiver) |
 |---|---|
-| *'eku tokoni* — my helping | *hoku tokoni* — my being helped |
-| *'ene fili* — his choosing | *hono fili* — his being chosen |
-| *'ene tohi* — his writing | *hono tohi* — his being written about |
+| *'eku tokoni*<br><span class="translation">my helping</span> | *hoku tokoni*<br><span class="translation">my being helped</span> |
+| *'ene fili*<br><span class="translation">his choosing</span> | *hono fili*<br><span class="translation">his being chosen</span> |
+| *'ene tohi*<br><span class="translation">his writing</span> | *hono tohi*<br><span class="translation">his being written about</span> |
 
 When the verb has no object (an intransitive verb like *ngāue*, to work, or *fiefia*, to be happy), the person is always the doer. Only the 'e-class applies:
 
 ::: {.examples}
-*'Ene ngāue* — his working
+*'Ene ngāue*. his working
 
-*'Enau fiefia* — their being happy
+*'Enau fiefia*. their being happy
 :::
 
 ---
@@ -58,13 +58,13 @@ The doer/receiver principle extends to all possessive choices, not only verbal n
 Some nouns change class depending on your relationship to them:
 
 ::: {.examples}
-*'Eku vala* — the clothes I make (I act upon them)
+*'Eku vala*. the clothes I make (I act upon them)
 
-*Hoku vala* — the clothes I wear (they cover me)
+*Hoku vala*. the clothes I wear (they cover me)
 
-*'Ene hiva* — the song he sings (he produces it)
+*'Ene hiva*. the song he sings (he produces it)
 
-*Hono hiva* — the song sung about him (it is about him)
+*Hono hiva*. the song sung about him (it is about him)
 :::
 
 > *Note:* Most relatives take the ho-class: *hoku tokoua* (my sibling), *hoku kāinga* (my relative). Parents and children are exceptions and take the 'e-class: *'eku tamai* (my father), *'eku fa'ē* (my mother), *'eku fānau* (my children).
@@ -76,19 +76,19 @@ Some nouns change class depending on your relationship to them:
 Plants follow the doer/receiver principle with a specific pattern. Crops and fruit take the 'e-class, because you tend and harvest them. Trees take the ho-class, because they stand over you and provide for you.
 
 ::: {.examples}
-*'Eku ufi* — my yam plants (crops, 'e-class)
+*'Eku ufi*. my yam plants (crops, 'e-class)
 
-*'Eku kumala* — my sweet potatoes (crops, 'e-class)
+*'Eku kumala*. my sweet potatoes (crops, 'e-class)
 
-*Hoku niu* — my coconut palms (trees, ho-class)
+*Hoku niu*. my coconut palms (trees, ho-class)
 :::
 
 The same plant word can switch class depending on whether you mean the fruit or the tree:
 
 ::: {.examples}
-*'Eku niu* — my coconuts (the fruit I harvest)
+*'Eku niu*. my coconuts (the fruit I harvest)
 
-*Hoku niu* — my coconut palms (the trees)
+*Hoku niu*. my coconut palms (the trees)
 :::
 
 ---
@@ -109,16 +109,16 @@ The possessive forms taught so far (*'eku*, *ho'o*, *'ene*...) are definite: the
 | *ho'omou* | *ha'amou* | your (pl) |
 | *'enau* | *ha'anau* | their |
 
-> **Preview:** The construction *'oku 'i ai* ("there is / there exists") appears below minimally for the "to have" pattern. You met *'i ai* in Chapter 7 as a back-reference particle with a pronoun subject (*'Oku ou 'i ai* — "I am there"). The subjectless existential form used here is covered formally in Chapter 31: Existential Expressions. For now, treat *'Oku 'i ai ha'o X?* as the set question-frame meaning "Do you have X?"
+> **Preview:** The construction *'oku 'i ai* ("there is / there exists") appears below minimally for the "to have" pattern. You met *'i ai* in Chapter 7 as a back-reference particle with a pronoun subject (*'Oku ou 'i ai*. "I am there"). The subjectless existential form used here is covered formally in Chapter 31: Existential Expressions. For now, treat *'Oku 'i ai ha'o X?* as the set question-frame meaning "Do you have X?"
 
 Tongan has no verb meaning "to have." Instead, it combines *'oku 'i ai* (there is, there exists) with a possessive pronoun:
 
 ::: {.examples}
-*'Oku 'i ai ha'o kato?* — Do you have a basket? (Lit. "Is there a-your basket?")
+*'Oku 'i ai ha'o kato?* Do you have a basket? (Lit. "Is there a-your basket?")
 
-*'Oku 'ikai ha'aku hele.* — I don't have a knife. (Lit. "A-my knife does not exist.")
+*'Oku 'ikai ha'aku hele.* I don't have a knife. (Lit. "A-my knife does not exist.")
 
-*'Oku 'i ai 'eku hele 'e ua.* — I have two knives. (Definite form in the answer.)
+*'Oku 'i ai 'eku hele 'e ua.* I have two knives. (Definite form in the answer.)
 :::
 
 The indefinite form appears in the question (the speaker does not know if you have one) and in the negative (you have none at all). The definite form returns in affirmative answers, because the thing is now specific.
@@ -136,11 +136,11 @@ The indefinite form appears in the question (the speaker does not know if you ha
 | *honau* | *hanau* | their |
 
 ::: {.examples}
-*'Oku 'i ai hao fale?* — Do you have a house?
+*'Oku 'i ai hao fale?* Do you have a house?
 
-*'Oku 'ikai haku fale.* — I don't have a house.
+*'Oku 'ikai haku fale.* I don't have a house.
 
-*'Oku 'i ai hoku fale pē taha.* — I have just one house. (Definite form in the answer.)
+*'Oku 'i ai hoku fale pē taha.* I have just one house. (Definite form in the answer.)
 :::
 
 The same class rules apply to indefinite possessives. Use the 'e-class indefinite (*ha'o*) for things you control, and the ho-class indefinite (*hao*) for things that shelter or define you.
@@ -156,11 +156,11 @@ An earlier chapter showed that ho-class possessives connect directly to *ki* and
 'E-class possessives behave differently. When *ki*, *'i*, *mei*, or *'e* is followed by an 'e-class possessive, the article *he* appears between the preposition and the possessive:
 
 ::: {.examples}
-*mei he'eku tamaí* — from my father
+*mei he'eku tamaí*. from my father
 
-*ki he 'ene faiakó* — to his teacher
+*ki he 'ene faiakó*. to his teacher
 
-*'e he 'enau mātu'á* — by their parents
+*'e he 'enau mātu'á*. by their parents
 :::
 
 > *Note:* Dual possessive forms also exist: *'eta*/*hota* (ours, yours and mine), *'ema*/*homa* (ours, his/hers and mine), *ho'omo*/*homo* (yours, two people), *'ena*/*hona* (theirs, two people). They follow the same class rules as the plural forms.
@@ -242,11 +242,11 @@ Translate into Tongan using the correct indefinite possessive form.
 
 Fill in the blank with the correct preposition and possessive combination. The class is given in parentheses.
 
-1. *\_\_\_\_\_\_\_ falé* — to my house (*ki* + ho-class)
-2. *\_\_\_\_\_\_\_ tamaí* — from my father (*mei* + 'e-class)
-3. *\_\_\_\_\_\_\_ lokí* — in his room (*'i* + ho-class)
-4. *\_\_\_\_\_\_\_ faiakó* — by their teacher (*'e* + 'e-class)
-5. *\_\_\_\_\_\_\_ 'apí* — from our (excl.) home (*mei* + ho-class)
+1. *\_\_\_\_\_\_\_ falé*. to my house (*ki* + ho-class)
+2. *\_\_\_\_\_\_\_ tamaí*. from my father (*mei* + 'e-class)
+3. *\_\_\_\_\_\_\_ lokí*. in his room (*'i* + ho-class)
+4. *\_\_\_\_\_\_\_ faiakó*. by their teacher (*'e* + 'e-class)
+5. *\_\_\_\_\_\_\_ 'apí*. from our (excl.) home (*mei* + ho-class)
 
 #### Exercise 5: Translate English to Tongan
 
@@ -263,12 +263,12 @@ Fill in the blank with the correct preposition and possessive combination. The c
 
 #### Exercise 1
 
-1. *'eku tokoni* — doer: my helping (I do the helping)
-2. *hono fili* — receiver: his being chosen
-3. *'ene hiva* — doer: his singing (he does the singing)
-4. *hoku fili* — receiver: my being chosen
-5. *'enau ngāue* — doer: their working
-6. *hono tohi* — receiver: his being written about
+1. *'eku tokoni*. doer: my helping (I do the helping)
+2. *hono fili*. receiver: his being chosen
+3. *'ene hiva*. doer: his singing (he does the singing)
+4. *hoku fili*. receiver: my being chosen
+5. *'enau ngāue*. doer: their working
+6. *hono tohi*. receiver: his being written about
 
 #### Exercise 2
 

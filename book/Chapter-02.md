@@ -11,27 +11,27 @@ So far, the only tense marker you have seen is *na'a*, which marks the past tens
 #### Present: *'oku*
 
 ::: {.examples}
-*'Okú ke kai.* — You eat.
+*'Okú ke kai.* You eat.
 :::
 
 *'Oku* marks the present tense. Its meaning depends on the type of verb that follows it. With action verbs like *kai* (eat), *'alu* (go), or *mohe* (sleep), *'oku* carries a habitual sense: you do this regularly, not necessarily at this exact moment. With descriptive or feeling words like *'ita* (angry) or *sai'ia* (like), *'oku* describes the current state: you are angry now, you like something now. The verbs in this chapter are all action verbs, so for now, read *'oku* as habitual.
 
 ::: {.examples}
-*'Okú ke mohe.* — You sleep. (You regularly sleep.)
+*'Okú ke mohe.* You sleep. (You regularly sleep.)
 
-*'Oku ou kai.* — I eat. (Something I do regularly, not "I am eating right now.")
+*'Oku ou kai.* I eat. (Something I do regularly, not "I am eating right now.")
 :::
 
 To say that an action is in progress right now, Tongan uses the auxiliary verb *lolotonga* (to be in progress) before the main verb: *'Oku ou lolotonga kai* (I am currently eating). Just as English has several ways to express an action in progress ("I'm eating," "I'm eating right now," "right now I am eating," "at this time I am eating"), Tongan has its own set of constructions for this idea:
 
 ::: {.examples}
-*'Oku ou lolotonga kai.* — I am currently eating.
+*'Oku ou lolotonga kai.* I am currently eating.
 
-*'Oku ou kai he taimi ni.* — I am eating right now.
+*'Oku ou kai he taimi ni.* I am eating right now.
 
-*Ko 'eni 'oku ou kai.* — Right now I am eating.
+*Ko 'eni 'oku ou kai.* Right now I am eating.
 
-*'Oku fai 'eku kai.* — I am (in the process of) eating.
+*'Oku fai 'eku kai.* I am (in the process of) eating.
 :::
 
 Each of these expresses the idea differently. Focus on the building blocks of the simple pattern: tense marker + pronoun + verb.
@@ -39,13 +39,13 @@ Each of these expresses the idea differently. Focus on the building blocks of th
 #### Future: *te*
 
 ::: {.examples}
-*Té ke 'alu.* — You will go.
+*Té ke 'alu.* You will go.
 :::
 
 *Te* marks the future tense. Use it for actions that have not happened yet.
 
 ::: {.examples}
-*Té ke kai.* — You will eat.
+*Té ke kai.* You will eat.
 :::
 
 > *Note:* Tongan has a second future marker, *'e*, used when no pronoun follows directly. You will learn it in Chapter 9: The Negative. Every future sentence uses *te* followed by a pronoun.
@@ -53,7 +53,7 @@ Each of these expresses the idea differently. Focus on the building blocks of th
 #### Perfect: *kuo*
 
 ::: {.examples}
-*Kuó ke kai.* — You have eaten.
+*Kuó ke kai.* You have eaten.
 :::
 
 *Kuo* marks the perfect tense. Where *na'a* simply places an event in the past, *kuo* tells the listener that a new situation exists. The speaker is drawing attention to the fact that things were not this way before.
@@ -61,11 +61,11 @@ Each of these expresses the idea differently. Focus on the building blocks of th
 Compare:
 
 ::: {.examples}
-*'Okú ke mohe.* — You sleep. (A general statement about what you do.)
+*'Okú ke mohe.* You sleep. (A general statement about what you do.)
 
-*Kuó ke mohe.* — You have fallen asleep. (You were awake before. Now you are asleep.)
+*Kuó ke mohe.* You have fallen asleep. (You were awake before. Now you are asleep.)
 
-*Na'á ke mohe.* — You slept. (A past event, with no comment on the present.)
+*Na'á ke mohe.* You slept. (A past event, with no comment on the present.)
 :::
 
 The difference between *kuo* and *na'a* matters. *Na'a* reports that something happened. *Kuo* says that because something happened, the situation is now different. The key question *kuo* answers is: what has changed?
@@ -73,17 +73,17 @@ The difference between *kuo* and *na'a* matters. *Na'a* reports that something h
 This meaning extends even to ordinary verbs where you might not expect it. Compare these two sentences:
 
 ::: {.examples}
-*Na'a nau mohe.* — They slept. (Reports a past event.)
+*Na'a nau mohe.* They slept. (Reports a past event.)
 
-*Kuo nau mohe.* — They have fallen asleep. (They were awake before. Now they are asleep.)
+*Kuo nau mohe.* They have fallen asleep. (They were awake before. Now they are asleep.)
 :::
 
 The *na'a* sentence simply tells you something happened. The *kuo* sentence tells you the situation has changed. The same contrast works with *ha'u* *(come)*:
 
 ::: {.examples}
-*Na'á ku ha'u.* — I came. (A past event.)
+*Na'á ku ha'u.* I came. (A past event.)
 
-*Kuó u ha'u.* — I have arrived. (I was not here before. Now I am here.)
+*Kuó u ha'u.* I have arrived. (I was not here before. Now I am here.)
 :::
 
 > *Note:* This contrast extends to descriptive words like *ma'a* *(clean)*. *'Oku ma'a* = it is clean (stating a fact); *Kuo ma'a* = it has become clean, implying it was not clean before. You will work with descriptive words formally in Chapter 3: Descriptive Words, but the principle applies to all uses of *kuo*.
@@ -131,27 +131,27 @@ The previous chapter used two preposed pronouns: *ku*/*ou*/*u* for "I" and *ke* 
 #### He, She, It: *ne*
 
 ::: {.examples}
-*Na'á ne kai.* — He ate. / She ate.
+*Na'á ne kai.* He ate. / She ate.
 :::
 
 *Ne* means "he," "she," or "it." Tongan uses one pronoun for all three. It does not distinguish gender, and it uses the same form for people and things.
 
 ::: {.examples}
-*'Okú ne lea.* — He speaks. / She speaks.
+*'Okú ne lea.* He speaks. / She speaks.
 
-*Té ne 'alu.* — He will go. / She will go.
+*Té ne 'alu.* He will go. / She will go.
 :::
 
 #### They (three or more): *nau*
 
 ::: {.examples}
-*Na'a nau kai.* — They ate.
+*Na'a nau kai.* They ate.
 :::
 
 *Nau* means "they," referring to three or more people.
 
 ::: {.examples}
-*'Oku nau mohe.* — They sleep.
+*'Oku nau mohe.* They sleep.
 :::
 
 #### Two Kinds of "We"
@@ -163,9 +163,9 @@ English leaves you to figure out which meaning is intended. Tongan does not. It 
 *Mau* means "we, but not you." This is the **exclusive** form: the speaker and their group are included, but the person or people being addressed are not.
 
 ::: {.examples}
-*Na'a mou kai?* — Did you all eat?
+*Na'a mou kai?* Did you all eat?
 
-*Na'a mau kai.* — We ate. (You were not part of it.)
+*Na'a mau kai.* We ate. (You were not part of it.)
 :::
 
 The question uses *mou* (you all). The answer uses *mau* (we, not including you), because the person asking was not part of the group that ate. This is the student's "we" from the example above.
@@ -173,7 +173,7 @@ The question uses *mou* (you all). The answer uses *mau* (we, not including you)
 *Tau* means "we, and you too." This is the **inclusive** form: the speaker, the person or people being addressed, and anyone else involved are all included.
 
 ::: {.examples}
-*'Oku tau hiva.* — We sing. (All of us, including you.)
+*'Oku tau hiva.* We sing. (All of us, including you.)
 :::
 
 The choice between *mau* and *tau* always depends on whether the person being addressed is part of the group. A question using *mou* (you all) does not automatically call for *mau* in response. The speaker chooses whichever pronoun fits the situation.
@@ -183,17 +183,17 @@ The choice between *mau* and *tau* always depends on whether the person being ad
 When *tau* appears with no tense marker before it, it works as an invitation or suggestion.
 
 ::: {.examples}
-*Tau hiva?* — Shall we sing?
+*Tau hiva?* Shall we sing?
 
-*Tau kai.* — Let's eat.
+*Tau kai.* Let's eat.
 :::
 
 This pattern also works with the verb *nofo* *(stay, sit, live)*:
 
 ::: {.examples}
-*Tau nofo.* — Let's stay.
+*Tau nofo.* Let's stay.
 
-*Tau ō?* — Shall we go?
+*Tau ō?* Shall we go?
 :::
 
 > **Note:** The verb *'alu* (go) has a plural form, *ō*, which is used when the subject is more than one person. This book teaches *ō* as the plural form, and Chapter 5: Commands and Emphasis covers it formally alongside *ō mai* (the plural of *ha'u*). In everyday Tongan, however, speakers use *'alu* freely with plural pronouns. *Tau 'alu?* is common and perfectly natural where you would expect *Tau ō?* Churchward treats *ō* as the correct plural form, and you will encounter it in formal speech and writing.
@@ -201,13 +201,13 @@ This pattern also works with the verb *nofo* *(stay, sit, live)*:
 #### You (three or more): *mou*
 
 ::: {.examples}
-*Na'a mou kai?* — Did you all eat?
+*Na'a mou kai?* Did you all eat?
 :::
 
 *Mou* means "you" when speaking to three or more people.
 
 ::: {.examples}
-*Te mou hiva.* — You all will sing.
+*Te mou hiva.* You all will sing.
 :::
 
 ---
@@ -228,17 +228,17 @@ Tongan has a separate set of pronouns for exactly two people. English does not m
 The inclusive/exclusive distinction works the same way as the plurals: *ta* includes the listener, *ma* does not.
 
 ::: {.examples}
-*Na'á ma kai.* — We two ate. (Not you.)
+*Na'á ma kai.* We two ate. (Not you.)
 
-*'Okú mo lea.* — You two speak.
+*'Okú mo lea.* You two speak.
 
-*Té na mohe.* — They two will sleep.
+*Té na mohe.* They two will sleep.
 :::
 
 *Ta* without a tense marker works the same way as *tau*:
 
 ::: {.examples}
-*Ta hiva?* — Shall we (two) sing?
+*Ta hiva?* Shall we (two) sing?
 :::
 
 Inclusive "we" starts at two because it always includes at least the speaker and the listener.

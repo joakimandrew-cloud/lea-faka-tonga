@@ -9,13 +9,13 @@ This chapter introduces conjunctions that express conditions and timing: "if," "
 The word *kapau* means "if." It introduces a condition: something that may or may not happen.
 
 ::: {.examples}
-*Kapau té ke foki, té u kuki.* — If you return, I'll cook.
+*Kapau té ke foki, té u kuki.* If you return, I'll cook.
 :::
 
 The *kapau* clause states the condition. The second clause states the result. Each clause keeps its own tense marker. The condition can use any tense marker, depending on when the condition applies:
 
 ::: {.examples}
-*Kapau té ke tokoni mai, 'e sai 'aupito 'a e ngāué.* — If you help, the work will be very good.
+*Kapau té ke tokoni mai, 'e sai 'aupito 'a e ngāué.* If you help, the work will be very good.
 :::
 
 *Kapau* is always followed by a tense marker (*'oku*, *te*, *na'a*, *kuo*, *'e*) or by *ko*. It never stands alone without one of these.
@@ -27,7 +27,7 @@ When the *kapau* clause comes first, the result clause may optionally begin with
 When the result comes first and the condition follows, *'o* is placed before *kapau*:
 
 ::: {.examples}
-*Té u kuki 'o kapau té ke foki.* — I'll cook if you return.
+*Té u kuki 'o kapau té ke foki.* I'll cook if you return.
 :::
 
 This means the same thing as *Kapau té ke foki, té u kuki.* The only difference is clause order. When the "if" clause comes first, use *kapau* alone. When it comes second, use *'o kapau*.
@@ -41,9 +41,9 @@ This means the same thing as *Kapau té ke foki, té u kuki.* The only differenc
 You met *lolotonga* in Chapter 22: Aspect Markers, where it meant "currently" or "in the act of," placed before a verb within a single clause. *Lolotonga* also works as a conjunction meaning "while." In this use, it sits between two full clauses, saying that one event happens during another.
 
 ::: {.examples}
-*Na'á ku mohe lolotonga na'á ne lau tohi.* — I slept while she was reading.
+*Na'á ku mohe lolotonga na'á ne lau tohi.* I slept while she was reading.
 
-*'Okú ne hiva lolotonga 'oku ou ngāue.* — She sings while I work.
+*'Okú ne hiva lolotonga 'oku ou ngāue.* She sings while I work.
 :::
 
 Each clause has its own tense marker. The tense markers do not need to match: one clause can be past while the other is present, depending on the meaning.
@@ -55,13 +55,13 @@ Each clause has its own tense marker. The tense markers do not need to match: on
 The phrase *kae'oua ke* means "until." It introduces the event that brings the first action to an end.
 
 ::: {.examples}
-*Té u ngāue heni kae'oua ke nau foki mai.* — I will work here until they come back.
+*Té u ngāue heni kae'oua ke nau foki mai.* I will work here until they come back.
 :::
 
 After *kae'oua*, use *ke* when the "until" event has not yet happened. When the "until" event marks a completed state (the perfect sense), replace *ke* with *kuo*:
 
 ::: {.examples}
-*'E nofo ai kae'oua kuo mālohi.* — She will stay there until she is strong. (Lit. "Will stay there until has-become strong.")
+*'E nofo ai kae'oua kuo mālohi.* She will stay there until she is strong. (Lit. "Will stay there until has-become strong.")
 :::
 
 > **Preview:** In *'E nofo ai*, the particle *ai* attaches directly to a verb as a back-reference meaning "there" (referring to a place mentioned earlier). This extends the Chapter 7 use of *ai* (which combines with *'i*, *ki*, and *mei*); the bare post-verbal form, plus the subjectless existential *'oku 'i ai*, is covered formally in Chapter 31: Existential Expressions.
@@ -75,7 +75,7 @@ The difference: *kae'oua ke* looks forward to a future event. *Kae'oua kuo* look
 Tongan expresses "when" by using *'i he* followed by a verbal noun: a possessive pronoun plus a verb, as covered in the previous chapter. The second clause usually begins with *pea*.
 
 ::: {.examples}
-*'I he 'osi 'enau hivá, pea nau mohe.* — When they finished singing, they slept. (Lit. "In the finishing of their singing, then they slept.")
+*'I he 'osi 'enau hivá, pea nau mohe.* When they finished singing, they slept. (Lit. "In the finishing of their singing, then they slept.")
 :::
 
 The *'osi* here is the same *'osi* (finished, completed) you know as an aspect marker. Combined with *'i he* and a possessive verbal noun, it creates a temporal clause: "at the point when their [action] was finished."
@@ -83,7 +83,7 @@ The *'osi* here is the same *'osi* (finished, completed) you know as an aspect m
 Another pattern for "when" uses *ko e* with *pē* (just, only) to express "as soon as":
 
 ::: {.examples}
-*Ko e ha'u pē 'e Mele, pea u 'ave leva 'ene kato.* — As soon as Mele came, I carried her basket right away.
+*Ko e ha'u pē 'e Mele, pea u 'ave leva 'ene kato.* As soon as Mele came, I carried her basket right away.
 :::
 
 Both patterns use *pea* to begin the main clause. The *'i he* pattern emphasizes a moment in time. The *ko e ... pē* pattern emphasizes immediacy.
@@ -97,15 +97,15 @@ Both patterns use *pea* to begin the main clause. The *'i he* pattern emphasizes
 The word *neongo* means "although," "even though," or "in spite of." When the *neongo* clause comes first, the second clause often begins with *ka* (but):
 
 ::: {.examples}
-*Neongo 'eku hela'ia, ka té u ngāue pē.* — Although I am tired, I will work anyway.
+*Neongo 'eku hela'ia, ka té u ngāue pē.* Although I am tired, I will work anyway.
 
-*Neongo 'eku vaivai, ka té u feinga atu pē.* — Even though I am weak, I will keep trying.
+*Neongo 'eku vaivai, ka té u feinga atu pē.* Even though I am weak, I will keep trying.
 :::
 
 The *ka* is optional but common. Without it, the sentence still works:
 
 ::: {.examples}
-*Té ke lava 'o tokoni lahi, neongo ho'o masiva.* — You can help a lot, even though you are poor.
+*Té ke lava 'o tokoni lahi, neongo ho'o masiva.* You can help a lot, even though you are poor.
 :::
 
 When *neongo* follows the main clause (as in the sentence above), it states the concession after the main point, similar to how *'o kapau* states the condition after the result.
@@ -119,19 +119,19 @@ When *neongo* follows the main clause (as in the sentence above), it states the 
 The word *'ilonga* *(whoever, whatever, whichever)* introduces a clause that refers to any and all members of a kind, without specifying which one:
 
 ::: {.examples}
-*'Ilonga ia 'oku fie tokoni pea ha'u ke tau ngāue.* — Whoever wants to help should come so we can work.
+*'Ilonga ia 'oku fie tokoni pea ha'u ke tau ngāue.* Whoever wants to help should come so we can work.
 :::
 
 The structure is *'ilonga* + clause describing the kind of person or thing, followed by the main clause. The word *ia* often appears after *'ilonga* as a grammatical filler, though it is not always present.
 
 ::: {.examples}
-*'Ilonga ha feitu'u 'oku mau 'i ai, 'oku 'i ai foki mo e 'Otuá.* — Wherever we are, God is also there.
+*'Ilonga ha feitu'u 'oku mau 'i ai, 'oku 'i ai foki mo e 'Otuá.* Wherever we are, God is also there.
 :::
 
 Here *'ilonga* applies to a place (*feitu'u*) rather than a person. The construction works the same way: *'ilonga* + indefinite noun + relative clause, then the main clause.
 
 ::: {.examples}
-*'Ilonga 'a kinautolu 'oku nau nofo 'i Vava'ú, 'e fetukutuku kinautolu ki Tongatapu.* — All those who live in Vava'u, whoever they are, will be removed to Tongatapu.
+*'Ilonga 'a kinautolu 'oku nau nofo 'i Vava'ú, 'e fetukutuku kinautolu ki Tongatapu.* All those who live in Vava'u, whoever they are, will be removed to Tongatapu.
 :::
 
 When the subject is a specific group, *'ilonga* adds the meaning "whoever they may be," emphasising that no exceptions apply.
@@ -145,7 +145,7 @@ The adjective *kehe* *(different)* has three idiomatic uses that go beyond its b
 #### *kae kehe* (nevertheless, however)
 
 ::: {.examples}
-*Na'e faingata'a 'a e ngāué, kae kehe, na'á nau lava ia.* — The work was difficult, nevertheless, they accomplished it.
+*Na'e faingata'a 'a e ngāué, kae kehe, na'á nau lava ia.* The work was difficult, nevertheless, they accomplished it.
 :::
 
 *Kae kehe* appears at the start of a clause, followed by a slight pause (a comma in writing). It signals a contrast or concession, much like "nevertheless" or "however" in English. This is a close relative of *neongo*: both express concession, but *neongo* introduces the conceded fact ("although X") while *kae kehe* introduces the contrasting result ("nevertheless, Y").
@@ -153,11 +153,11 @@ The adjective *kehe* *(different)* has three idiomatic uses that go beyond its b
 #### *kehe ke* (provided that, so long as)
 
 ::: {.examples}
-*Fa'iteliha koe ki he totongi té ke ma'ú, kae kehe ke ke ha'u 'o fai 'a e ngāué.* — Decide for yourself about the payment you will receive, provided that you come and do the work.
+*Fa'iteliha koe ki he totongi té ke ma'ú, kae kehe ke ke ha'u 'o fai 'a e ngāué.* Decide for yourself about the payment you will receive, provided that you come and do the work.
 
-*Kehe ke* — (or *kae kehe ke*) introduces a condition that must be met. The clause after *ke* states what is required. The meaning is: everything else is flexible, but this one condition matters. Compare this with *kapau* (if): *kapau* introduces a condition that may or may not be true, while *kehe ke* introduces the one condition the speaker insists on.
+*Kehe ke*. (or *kae kehe ke*) introduces a condition that must be met. The clause after *ke* states what is required. The meaning is: everything else is flexible, but this one condition matters. Compare this with *kapau* (if): *kapau* introduces a condition that may or may not be true, while *kehe ke* introduces the one condition the speaker insists on.
 
-*Kehe pē ke tau fai ki hotau tūkuingata.* — The one thing that matters is that we do our best.
+*Kehe pē ke tau fai ki hotau tūkuingata.* The one thing that matters is that we do our best.
 :::
 
 Here *kehe pē ke* (with the limiter *pē*) narrows the condition further: just this one thing, nothing else.
@@ -167,7 +167,7 @@ Here *kehe pē ke* (with the limiter *pē*) narrows the condition further: just 
 In its basic use, *kehe* simply means "different":
 
 ::: {.examples}
-*'Oku kehe 'a e lea faka-Tongá mei he lea faka-Pilitāniá.* — The Tongan language is different from the English language.
+*'Oku kehe 'a e lea faka-Tongá mei he lea faka-Pilitāniá.* The Tongan language is different from the English language.
 :::
 
 ---
@@ -177,7 +177,7 @@ In its basic use, *kehe* simply means "different":
 The intransitive verb *faifai* *(by and by, as time went on)* is typically framed between two occurrences of *pea* (and/then):
 
 ::: {.examples}
-*Pea faifai pea hoko 'a e me'á.* — And by and by the thing happened.
+*Pea faifai pea hoko 'a e me'á.* And by and by the thing happened.
 :::
 
 The pattern *pea faifai pea* + verb creates a narrative sense of gradual progression: "and as time passed, eventually..." This pairs naturally with the temporal conjunctions above: *lolotonga* marks simultaneous events, *kae'oua ke* marks the endpoint, and *faifai* marks a gradual unfolding.
@@ -185,7 +185,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 *Faifai* can also be turned into a verbal noun with *'i he*:
 
 ::: {.examples}
-*'I he faifai na'á nau 'ilo 'a e mo'oní.* — In the course of time they came to know the truth.
+*'I he faifai na'á nau 'ilo 'a e mo'oní.* In the course of time they came to know the truth.
 :::
 
 ---

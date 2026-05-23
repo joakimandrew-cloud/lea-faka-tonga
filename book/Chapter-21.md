@@ -4,20 +4,20 @@ Auxiliary verbs are helper words placed before the main verb to add meaning. Thi
 
 ---
 
-### *fie* — want to, wish to
+### *fie*: want to, wish to
 
 To say you want to do something, place *fie* directly before the main verb. The sentence pattern stays the same as what you already know, with *fie* slotted in between the pronoun and the verb:
 
 tense marker + pronoun + *fie* + verb
 
 ::: {.examples}
-*'Okú ke fie nofo 'i Ha'apai?* — Do you want to live in Ha'apai?
+*'Okú ke fie nofo 'i Ha'apai?* Do you want to live in Ha'apai?
 
-*'Okú ke fie ngāue 'i kolo?* — Do you want to work in town?
+*'Okú ke fie ngāue 'i kolo?* Do you want to work in town?
 
-*'Oku ou fie 'alu lahi 'aupito ki ai.* — I want very much to go there.
+*'Oku ou fie 'alu lahi 'aupito ki ai.* I want very much to go there.
 
-*'Oku ou fie haʻu lahi 'aupito ki ai.* — I want very much to come there.
+*'Oku ou fie haʻu lahi 'aupito ki ai.* I want very much to come there.
 :::
 
 The word order around *fie* follows the same rules you already know. Modifiers like *lahi* and *'aupito* come after the verb, in that order. Prepositional phrases like *ki ai* come at the end.
@@ -45,9 +45,9 @@ When *fie* combines with certain adjectives instead of a verb, the meaning shift
 | *fie lelei* | want to be good | goody-goody |
 
 ::: {.examples}
-*'Oua té ke fie poto.* — Do not be conceited.
+*'Oua té ke fie poto.* Do not be conceited.
 
-*'Oua té ke fie lahi.* — Do not be a show-off.
+*'Oua té ke fie lahi.* Do not be a show-off.
 :::
 
 These combinations are always uncomplimentary. Telling someone *'Okú ke fie lahi* is not a neutral observation. It is a pointed remark.
@@ -56,40 +56,40 @@ These combinations are always uncomplimentary. Telling someone *'Okú ke fie lah
 
 ---
 
-### *lava* — to be able to
+### *lava*: to be able to
 
 To say someone can do something, use *lava* followed by the conjunction *'o* and then the main verb:
 
 tense marker + pronoun + *lava* + *'o* + verb
 
 ::: {.examples}
-*Té ke lava 'o ha'u 'anai?* — Will you be able to come later?
+*Té ke lava 'o ha'u 'anai?* Will you be able to come later?
 
-*Té ke lava 'o 'alu 'apongipongi?* — Will you be able to go tomorrow?
+*Té ke lava 'o 'alu 'apongipongi?* Will you be able to go tomorrow?
 :::
 
 The word *lava* literally means to arrive or achieve. The meaning progresses naturally: to arrive at a goal, to succeed in doing something, and from there, to be able. The conjunction *'o* links *lava* to the action that follows.
 
 ::: {.examples}
-*'Oku ou lava 'o kakau.* — I can swim.
+*'Oku ou lava 'o kakau.* I can swim.
 
-*Na'e lava 'a Siale 'o hiva lelei.* — Siale was able to sing well.
+*Na'e lava 'a Siale 'o hiva lelei.* Siale was able to sing well.
 :::
 
 When a noun (rather than a pronoun) is the subject, it follows *lava* with the focus marker *'a*, and *'o* still introduces the second verb:
 
 ::: {.examples}
-*'E lava 'e Pita 'o fakatau 'a e me'akái?* — Can Peter buy the food?
+*'E lava 'e Pita 'o fakatau 'a e me'akái?* Can Peter buy the food?
 
-*'E lava 'e Sione 'o lau 'a e tohí?* — Can Sione read the book?
+*'E lava 'e Sione 'o lau 'a e tohí?* Can Sione read the book?
 :::
 
 Notice that when the second verb is transitive, the agent marker *'e* replaces the focus marker *'a* before the noun subject, just as in normal transitive sentences. The subject particle is determined by the second verb.
 
 ::: {.examples}
-*'Oku 'ikai ke lava 'a Mele 'o lea lelei.* — Mary cannot speak well.
+*'Oku 'ikai ke lava 'a Mele 'o lea lelei.* Mary cannot speak well.
 
-*'Oku 'ikai ke lava 'a Ana 'o hiva lelei.* — Ana cannot sing well.
+*'Oku 'ikai ke lava 'a Ana 'o hiva lelei.* Ana cannot sing well.
 :::
 
 In the negative, *lava* uses the same negative patterns you already know. With pronoun subjects, use *'oku 'ikai te* + pronoun + *lava*. With noun subjects, use *'oku 'ikai ke lava*.
@@ -104,31 +104,31 @@ In the negative, *lava* uses the same negative patterns you already know. With p
 
 ---
 
-### *sai'ia* — to like
+### *sai'ia*: to like
 
 The verb *sai'ia* (to like, to be pleased with) takes an *'i* phrase to indicate what is liked. Because *'i* before the definite article *he* drops, you will usually see *sai'ia he* rather than *sai'ia 'i he*:
 
 ::: {.examples}
-*'Okú ke sai'ia he me'akai?* — Do you like the food?
+*'Okú ke sai'ia he me'akai?* Do you like the food?
 
-*'Okú ke sai'ia he hivá?* — Do you like the song?
+*'Okú ke sai'ia he hivá?* Do you like the song?
 
-*Sai'ia pē.* — Just a little.
+*Sai'ia pē.* Just a little.
 
 
-*'Oku ou sai'ia lahi he lea faka-Tongá.* — I like the Tongan language a lot.
+*'Oku ou sai'ia lahi he lea faka-Tongá.* I like the Tongan language a lot.
 :::
 
 With proper names, use *'ia* (the personal form of *'i*):
 
 ::: {.examples}
-*'Okú ke sai'ia 'ia Seini?* — Do you like Seini?
+*'Okú ke sai'ia 'ia Seini?* Do you like Seini?
 
-*'Okú ke sai'ia 'ia Siale?* — Do you like Siale?
+*'Okú ke sai'ia 'ia Siale?* Do you like Siale?
 
-*'Io, 'oku ou sai'ia lahi ai.* — Yes, I like her a lot.
+*'Io, 'oku ou sai'ia lahi ai.* Yes, I like her a lot.
 
-*'Io, 'oku ou sai'ia lahi 'aupito ai.* — Yes, I like her very much.
+*'Io, 'oku ou sai'ia lahi 'aupito ai.* Yes, I like her very much.
 :::
 
 The substitute *ai* works here the same way you learned with *ki* phrases: it replaces the full *'i*/*'ia* phrase when the object has already been mentioned.

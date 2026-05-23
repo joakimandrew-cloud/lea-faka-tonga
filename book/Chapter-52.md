@@ -9,13 +9,13 @@ You already know the three neutral articles: indefinite *ha* and semi-definite/d
 ### The emotional definite article: *si'i*
 
 ::: {.examples}
-*'Oku hela 'a si'i hōsí.* — The poor horse is tired.
+*'Oku hela 'a si'i hōsí.* The poor horse is tired.
 :::
 
 The word *si'i* replaces the ordinary definite article *e* and adds a feeling of pity, affection, or sympathy. The horse is not just "the horse." It is "the poor horse," the one the speaker feels sorry for.
 
 ::: {.examples}
-*Ko e fē si'i tamaiki 'a Tēvita?* — Where are David's dear children?
+*Ko e fē si'i tamaiki 'a Tēvita?* Where are David's dear children?
 :::
 
 Here *si'i* signals affection. The speaker is not making a neutral inquiry. The word "dear" or "poor" is built into the article itself.
@@ -28,7 +28,7 @@ The emotion *si'i* carries depends on context. It may suggest:
 - **Endearment:** the little darling, the sweet one
 
 ::: {.examples}
-*'Oku fakamamahi 'aupito si'i mate 'a e fa'ē mo si'i fānaú.* — The unfortunate death of the mother and the poor children is very sad.
+*'Oku fakamamahi 'aupito si'i mate 'a e fa'ē mo si'i fānaú.* The unfortunate death of the mother and the poor children is very sad.
 :::
 
 *Si'i* stands in the same position as any article: before the noun it modifies. It carries the definitive accent just as *e* does (note *hōsí* and *fānaú* with accent on the final vowel in the examples above).
@@ -40,13 +40,13 @@ The emotion *si'i* carries depends on context. It may suggest:
 ### The emotional indefinite article: *si'a*
 
 ::: {.examples}
-*Kuó ne lavea si'a tamasi'í?* — Has a child been hurt? (poor thing)
+*Kuó ne lavea si'a tamasi'í?* Has a child been hurt? (poor thing)
 :::
 
 Where the ordinary indefinite article *ha* is neutral ("a child"), *si'a* adds the same kind of emotional colouring as *si'i* but for indefinite nouns: "some poor child," "some dear little one."
 
 ::: {.examples}
-*Na'á nau 'omi ia ki 'api ke ne ma'u si'a me'atokoní.* — They brought him home so he could have some food. (the poor fellow)
+*Na'á nau 'omi ia ki 'api ke ne ma'u si'a me'atokoní.* They brought him home so he could have some food. (the poor fellow)
 :::
 
 The speaker is not simply reporting a fact. The choice of *si'a* over *ha* reveals sympathy for the person being fed.
@@ -83,13 +83,13 @@ Just as the ordinary articles have emotional counterparts, the ordinary possessi
 These work exactly like the regular possessives you already know. The 'e-class/ho-class distinction follows the same rules: 'e-class for things you act upon or control, ho-class for things that characterise or shelter you. The only difference is the emotional layer.
 
 ::: {.examples}
-*'Oku nofo si'ene ta'ahine 'e taha 'iate au, ka kuó ne mālōlō si'ono foha 'e taha.* — One of his poor little girls is staying with me, but one of his boys has passed away.
+*'Oku nofo si'ene ta'ahine 'e taha 'iate au, ka kuó ne mālōlō si'ono foha 'e taha.* One of his poor little girls is staying with me, but one of his boys has passed away.
 :::
 
 In this sentence, *si'ene* ('e-class) is used with *ta'ahine* (daughter), and *si'ono* (ho-class) is used with *foha* (son). The emotional possessive conveys the speaker's sympathy for the father whose children face hardship and loss.
 
 ::: {.examples}
-*'Oku tangi si'eku ki'i pēpē.* — My poor little baby is crying.
+*'Oku tangi si'eku ki'i pēpē.* My poor little baby is crying.
 :::
 
 Here *si'eku* ('e-class) expresses the speaker's tender feeling toward their own child.
@@ -117,15 +117,15 @@ The indefinite possessives also have emotional forms. These replace the ordinary
 Notice that in the indefinite emotional possessives, the 'e-class and ho-class forms are identical for most persons. This is the same pattern as the ordinary indefinite possessives.
 
 ::: {.examples}
-*Na'e 'ikai si'ano faingamālie.* — He never had a chance. (poor him)
+*Na'e 'ikai si'ano faingamālie.* He never had a chance. (poor him)
 
-*Na'e 'ikai si'ane 'amanaki.* — He had no idea. (poor him)
+*Na'e 'ikai si'ane 'amanaki.* He had no idea. (poor him)
 :::
 
 Both sentences use third-person singular emotional indefinite possessives. In the first, *si'ano* (ho-class) pairs with *faingamālie* (opportunity, something that comes to you). In the second, *si'ane* ('e-class) pairs with *'amanaki* (expectation, something you hold). The speaker's sympathy for the person is carried entirely by the possessive form.
 
 ::: {.examples}
-*Na'e 'ikai si'aku paʻanga ke fakatau mai ha me'akai.* — I had no money to buy food. (said humbly, with self-pity)
+*Na'e 'ikai si'aku paʻanga ke fakatau mai ha me'akai.* I had no money to buy food. (said humbly, with self-pity)
 :::
 
 Here the emotional indefinite possessive *si'aku* replaces the neutral *ha'aku*, adding a note of humility or self-deprecation.
@@ -137,15 +137,15 @@ Here the emotional indefinite possessive *si'aku* replaces the neutral *ha'aku*,
 One fixed expression worth recognising uses the conjunction *ka* (but) between two *ko e* clauses to create an exclamation of magnitude:
 
 ::: {.examples}
-*Ko e tangi ka ko ha tangi!* — What a tremendous cry!
+*Ko e tangi ka ko ha tangi!* What a tremendous cry!
 :::
 
 The structure literally says: "It was a cry, but it was a cry!" The first clause uses *e* (semi-definite: it was a cry as opposed to a shout or a call). The second uses *ha* (indefinite: it was a cry singled out from all other cries). Together they produce emphasis: not just any cry, but an extraordinary one.
 
 ::: {.examples}
-*Ko e 'ofa ka ko ha 'ofa!* — What a wonderful love!
+*Ko e 'ofa ka ko ha 'ofa!* What a wonderful love!
 
-*Ko e momoko ka ko ha momoko!* — It is terribly cold!
+*Ko e momoko ka ko ha momoko!* It is terribly cold!
 :::
 
 This idiom is common in spoken Tongan. Its force depends on the distinction between the semi-definite *e* (this kind of thing, as opposed to other kinds) and the indefinite *ha* (one of its kind, standing out from all others of the same kind).
@@ -155,13 +155,13 @@ This idiom is common in spoken Tongan. Its force depends on the distinction betw
 ### Idiomatic *me'a* (exclamatory)
 
 ::: {.examples}
-*Me'a faka'ofo'ofa ko e hihilifaki kalauní.* — The coronation was a beautiful thing.
+*Me'a faka'ofo'ofa ko e hihilifaki kalauní.* The coronation was a beautiful thing.
 :::
 
 When something is remarkable or superlative, Tongan uses *me'a* *(thing)* followed by the appropriate modifier. The structure is *me'a* + modifier + *ko e* + noun. This construction conveys admiration, wonder, or emphasis.
 
 ::: {.examples}
-*Me'a mālie ko e hivá.* — The song was a wonderful thing.
+*Me'a mālie ko e hivá.* The song was a wonderful thing.
 :::
 
 This is an evaluative idiom, not a literal statement about a "thing." It is Tongan's way of exclaiming about the quality of an experience.

@@ -7,9 +7,9 @@ This chapter expands the tense marker + pronoun + verb pattern by showing that t
 ### Adjectives in the Verb Slot
 
 ::: {.examples}
-*'Oku ou mālohi.* — I am strong. (Lit. "Present I strong")
+*'Oku ou mālohi.* I am strong. (Lit. "Present I strong")
 
-*'Oku ou vaivai.* — I am weak. (Lit. "Present I weak")
+*'Oku ou vaivai.* I am weak. (Lit. "Present I weak")
 :::
 
 Both sentences follow the same pattern as *'Oku ou kai* (I eat): tense marker + pronoun + verb. But *fiefia* *(happy)* and *hela'ia* *(tired)* are not actions. They are **adjectives**: words that describe a quality or state. In English, adjectives typically describe nouns ("a happy child," "a strong person"). In Tongan, adjectives can also fill the verb position, which is the pattern taught in this chapter. Happy, tired, hungry, strong, angry are all adjectives.
@@ -45,11 +45,11 @@ Here are adjectives to use in the verb slot. All follow the pattern: tense marke
 | *mālohi*      | strong      |
 
 ::: {.examples}
-*'Okú ne 'ita.* — He is angry.
+*'Okú ne 'ita.* He is angry.
 
-*Na'a mau vaivai.* — We were weak.
+*Na'a mau vaivai.* We were weak.
 
-*Kuó ke mālohi.* — You have become strong.
+*Kuó ke mālohi.* You have become strong.
 :::
 
 ---
@@ -57,7 +57,7 @@ Here are adjectives to use in the verb slot. All follow the pattern: tense marke
 ### Modifiers
 
 ::: {.examples}
-*Na'á ku ngāue mālohi.* — I worked hard.
+*Na'á ku ngāue mālohi.* I worked hard.
 :::
 
 A **modifier** (also called an adverb) is a word that adds detail to a verb or adjective. It tells you how, how much, or in what way something happens. In the sentence above, *mālohi* tells you how the work was done. The verb *ngāue* *(work)* is new in this chapter.
@@ -72,15 +72,15 @@ Here are three common postposed modifiers:
 | *mālohi* | hard, strongly |
 
 ::: {.examples}
-*'Oku ou hiva lelei.* — I sing well.
+*'Oku ou hiva lelei.* I sing well.
 
-*Na'a mau kai lahi.* — We ate a lot.
+*Na'a mau kai lahi.* We ate a lot.
 :::
 
 These modifiers work after adjectives in the verb slot too:
 
 ::: {.examples}
-*'Okú ne 'ita lahi.* — He is very angry. (Lit. "He angry much")
+*'Okú ne 'ita lahi.* He is very angry. (Lit. "He angry much")
 :::
 
 > *Note:* The word *mālohi* has two uses. In the verb slot it means "strong" (*'Okú ne mālohi*, He is strong). After another verb it works as a modifier meaning "hard" or "strongly" (*Na'á ku ngāue mālohi*, I worked hard).
@@ -90,15 +90,15 @@ These modifiers work after adjectives in the verb slot too:
 *'Aupito* *(very, extremely)* makes the meaning of the word before it stronger. It always comes last, after any other modifier.
 
 ::: {.examples}
-*'Oku ou hela'ia 'aupito.* — I am very tired.
+*'Oku ou hela'ia 'aupito.* I am very tired.
 
-*'Oku ou fiefia lahi 'aupito.* — I am extremely happy.
+*'Oku ou fiefia lahi 'aupito.* I am extremely happy.
 :::
 
 In the second sentence, *lahi* and *'aupito* combine to form *lahi 'aupito* (very much, extremely). This combination always appears in this order. *'Aupito lahi* does not occur.
 
 ::: {.examples}
-*Na'á ku ngāue mālohi 'aupito.* — I worked very hard.
+*Na'á ku ngāue mālohi 'aupito.* I worked very hard.
 :::
 
 #### *Pē*
@@ -106,9 +106,9 @@ In the second sentence, *lahi* and *'aupito* combine to form *lahi 'aupito* (ver
 *Pē* *(just, only)* narrows the meaning of the word it follows. It eliminates other possibilities: whatever *pē* attaches to is the only thing in play.
 
 ::: {.examples}
-*Na'a mau mohe pē.* — We just slept.
+*Na'a mau mohe pē.* We just slept.
 
-*Na'á ne kai mā pē.* — He just ate bread.
+*Na'á ne kai mā pē.* He just ate bread.
 :::
 
 In the first sentence, *pē* follows the verb: we did nothing but sleep. In the second, *pē* follows the compound *kai mā*: he ate nothing but bread. *Pē* attaches to whichever word it limits.
@@ -118,7 +118,7 @@ In the first sentence, *pē* follows the verb: we did nothing but sleep. In the 
 ### Verb-Object Compounds
 
 ::: {.examples}
-*Na'á ke inu kava?* — Did you drink kava?
+*Na'á ke inu kava?* Did you drink kava?
 :::
 
 An **object** is the thing an action is done to. In this sentence, *kava* is what was drunk.
@@ -139,11 +139,11 @@ The nouns here are new: *ika* *(fish)*, *talo* *(taro)*, *vai* *(water)*, *kava*
 These compounds take modifiers and *pē* just as any verb does. The modifier goes after the compound:
 
 ::: {.examples}
-*Na'á ku kai ika pē.* — I just ate fish.
+*Na'á ku kai ika pē.* I just ate fish.
 
-*Na'a nau kai ika lahi.* — They ate a lot of fish.
+*Na'a nau kai ika lahi.* They ate a lot of fish.
 
-*Na'a tau kai mā lahi 'aupito.* — We ate a great deal of bread.
+*Na'a tau kai mā lahi 'aupito.* We ate a great deal of bread.
 :::
 
 ---
@@ -151,7 +151,7 @@ These compounds take modifiers and *pē* just as any verb does. The modifier goe
 ### *Fa'a*
 
 ::: {.examples}
-*'Oku ou fa'a hiva.* — I often sing.
+*'Oku ou fa'a hiva.* I often sing.
 :::
 
 *Fa'a* *(often, habitually)* sits before the verb, between the pronoun and the verb. This is the reverse of the postposed modifiers above.
@@ -159,7 +159,7 @@ These compounds take modifiers and *pē* just as any verb does. The modifier goe
 The pattern: TM + pronoun + *fa'a* + verb.
 
 ::: {.examples}
-*'Okú ke fa'a tokoni?* — Do you often help?
+*'Okú ke fa'a tokoni?* Do you often help?
 :::
 
 The verb *tokoni* *(help)* appears here without a specific object.
@@ -167,15 +167,15 @@ The verb *tokoni* *(help)* appears here without a specific object.
 *Fa'a* combines naturally with the postposed modifiers from earlier in this chapter:
 
 ::: {.examples}
-*'Oku mau fa'a ngāue mālohi.* — We often work hard.
+*'Oku mau fa'a ngāue mālohi.* We often work hard.
 
-*'Okú ne fa'a kai lahi.* — He often eats a lot.
+*'Okú ne fa'a kai lahi.* He often eats a lot.
 :::
 
 The most complex sentence you can now build stacks every element from this chapter:
 
 ::: {.examples}
-*'Oku ou fa'a kai mā lahi 'aupito.* — I often eat a great deal of bread.
+*'Oku ou fa'a kai mā lahi 'aupito.* I often eat a great deal of bread.
 :::
 
 This combines: present tense marker + first person pronoun + preposed modifier + verb + indefinite object + postposed modifier + intensifier.

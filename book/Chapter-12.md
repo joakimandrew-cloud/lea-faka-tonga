@@ -7,7 +7,7 @@ Unlike the verb-first sentences built so far, the *ko* pattern has no verb and n
 ### What *ko* Does
 
 ::: {.examples}
-*Ko e hele 'eni.* — This is a knife.
+*Ko e hele 'eni.* This is a knife.
 :::
 
 The word *hele* means "knife." The word *ko* does the work that "is" does in English. It connects a thing to its identity, directing the listener's attention to who or what is being talked about.
@@ -17,9 +17,9 @@ This is different from every sentence you've learned so far. Until now, all your
 The basic pattern is: *ko e* + noun (+ demonstrative).
 
 ::: {.examples}
-*Ko e fala 'eni.* — This is a mat.
+*Ko e fala 'eni.* This is a mat.
 
-*Ko e hele ē.* — That is a knife.
+*Ko e hele ē.* That is a knife.
 :::
 
 The words *fala* *(mat)*, *hele* *(knife)*, and *kato* *(basket)* are new vocabulary. The word *e* after *ko* is the definite article you learned earlier. In these sentences, *ko e* works as a unit meaning "it is a" or "this is a."
@@ -41,11 +41,11 @@ The demonstratives *'eni*, *ē*, and *'ena* work in a similar three-way system, 
 When combined with *ko*, these become short identification statements, the kind of thing you say while pointing:
 
 ::: {.examples}
-*Ko'eni.* — Here it is. (Lit. "It-is this-here")
+*Ko'eni.* Here it is. (Lit. "It-is this-here")
 
-*Ko ē!* — There it is!
+*Ko ē!* There it is!
 
-*Ko'ena.* — There it is (near you).
+*Ko'ena.* There it is (near you).
 :::
 
 In daily speech, *ē* often covers the jobs of all three, especially in quick exchanges. It may function for both *'eni* and *'ena* as well as suggest distance.
@@ -59,13 +59,13 @@ These demonstratives also sit at the end of longer *ko* sentences, as in the exa
 To ask someone to identify something, combine *ko e hā* (what) with a demonstrative:
 
 ::: {.examples}
-*Ko e hā ē?* — What is that?
+*Ko e hā ē?* What is that?
 :::
 
 The answer uses the same *ko* pattern:
 
 ::: {.examples}
-*Ko e ki'i kato.* — It's a small basket.
+*Ko e ki'i kato.* It's a small basket.
 :::
 
 The word *ki'i* means "small" and goes before the noun.
@@ -73,13 +73,13 @@ The word *ki'i* means "small" and goes before the noun.
 More exchanges:
 
 ::: {.examples}
-*Ko e hā 'eni?* — What is this?
+*Ko e hā 'eni?* What is this?
 
-*Ko e kato.* — It's a basket.
+*Ko e kato.* It's a basket.
 
-*Ko e hā ē?* — What is that?
+*Ko e hā ē?* What is that?
 
-*Ko e vaka.* — It's a boat.
+*Ko e vaka.* It's a boat.
 :::
 
 The word *vaka* *(boat, canoe)* is new vocabulary. *Ko e hā ē?* is the most common form of this question. The *ē* carries a general "that" meaning broad enough for most pointing situations.
@@ -95,13 +95,13 @@ The word *vaka* *(boat, canoe)* is new vocabulary. *Ko e hā ē?* is the most co
 To say what something is *not*, place *'oku 'ikai* before *ko*:
 
 ::: {.examples}
-*'Oku 'ikai ko e hele 'eni.* — This is not a knife.
+*'Oku 'ikai ko e hele 'eni.* This is not a knife.
 :::
 
 The negation uses a tense marker (*'oku*), even though the positive *ko* sentence has none. The *'oku 'ikai* is placed immediately before the *ko*, wrapping the identification in a negative frame.
 
 ::: {.examples}
-*'Oku 'ikai ko e faiako ia.* — He/she is not a teacher.
+*'Oku 'ikai ko e faiako ia.* He/she is not a teacher.
 :::
 
 The word *ia* after *faiako* is the postposed pronoun you learned earlier. Here, it sits after the noun to say who is (or is not) that thing: *Ko e faiako ia* = He/she is a teacher; *'Oku 'ikai ko e faiako ia* = He/she is not a teacher.
@@ -109,9 +109,9 @@ The word *ia* after *faiako* is the postposed pronoun you learned earlier. Here,
 The negation pattern is: *'oku 'ikai* + *ko e* + noun (+ demonstrative or pronoun).
 
 ::: {.examples}
-*'Oku 'ikai ko e kato ē.* — That is not a basket.
+*'Oku 'ikai ko e kato ē.* That is not a basket.
 
-*'Oku 'ikai ko e tohi 'eni.* — This is not a book.
+*'Oku 'ikai ko e tohi 'eni.* This is not a book.
 :::
 
 ---

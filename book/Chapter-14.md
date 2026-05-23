@@ -5,12 +5,12 @@ Unlike the productive patterns built so far, Tongan greetings and farewells are 
 
 ---
 
-### *Mālō e lelei* — Hello
+### *Mālō e lelei*: Hello
 
 The most common Tongan greeting is:
 
 ::: {.examples}
-*Mālō e lelei!* — Hello.
+*Mālō e lelei!* Hello.
 :::
 
 The word *mālō* means "worthy of praise" or "congratulations." The word *e* here is the definite article (the same *e* you know from *e tohi*, the book). The word *lelei* means "well" or "good." The literal meaning is "The being-in-good-health is worthy of praise," a much warmer greeting than a simple "hello."
@@ -18,19 +18,19 @@ The word *mālō* means "worthy of praise" or "congratulations." The word *e* he
 The standard response is to repeat the greeting:
 
 ::: {.examples}
-*'Io, mālō e lelei!* — Hello. (Lit. "Yes, congratulations on being well.")
+*'Io, mālō e lelei!* Hello. (Lit. "Yes, congratulations on being well.")
 :::
 
 The word *'io* (yes) is the appropriate first word in response to any greeting, compliment, or farewell. It may stand alone or accompany a more specific response.
 
 ---
 
-### *Fēfē hake?* — How Are You?
+### *Fēfē hake?*: How Are You?
 
 After the initial greeting, the follow-up is:
 
 ::: {.examples}
-*Fēfē hake?* — How are you?
+*Fēfē hake?* How are you?
 :::
 
 You already know *fēfē* (how) from the verbal interrogatives in Chapter 11: Question Words. The word *hake* means "up" or "upward" and gives the question a sense of "How are you getting along?" This form is used especially when asking after someone who has been unwell.
@@ -38,19 +38,19 @@ You already know *fēfē* (how) from the verbal interrogatives in Chapter 11: Qu
 The standard answer:
 
 ::: {.examples}
-*Sai pē!* — Just fine.
+*Sai pē!* Just fine.
 :::
 
 The word *sai* means "good, well, fine." Combined with *pē* (just, only), it means "just fine" or "all right." This is a fixed response, not a full sentence with a tense marker.
 
 ---
 
-### *Mālō e 'ofa* — Thank You
+### *Mālō e 'ofa*: Thank You
 
 To express thanks, Tongan uses *mālō* with *'ofa* (love, kindness):
 
 ::: {.examples}
-*Mālō e 'ofa!* — Thank you for your kindness.
+*Mālō e 'ofa!* Thank you for your kindness.
 :::
 
 The literal meaning is "Your kindness is worthy of praise." The word *'ofa* means "love" or "kindness."
@@ -64,7 +64,7 @@ Several variations use the same *mālō e* pattern. The word *lava* means "to ar
 In more formal settings, Tongan uses a longer greeting:
 
 ::: {.examples}
-*Mālō 'etau lava ki he pongipongi ni.* — Good morning. (Lit. "Congratulations on our surviving to this morning.")
+*Mālō 'etau lava ki he pongipongi ni.* Good morning. (Lit. "Congratulations on our surviving to this morning.")
 :::
 
 The word *'etau* is a possessive pronoun meaning "our" (inclusive). It is formally taught in Chapter 17: Possessives. Treat this greeting as a formula to be memorized whole. The pattern works the same way for other times of day: substitute *efiafi ni* (this afternoon) or *pō ni* (this night) for *pongipongi ni*.
@@ -89,7 +89,7 @@ f. *Mālō e lava mai!*
 5. Saying "Good morning" formally.
 6. Greeting a visitor who has just arrived.
 
-**Answers:** a. 4 — b. 3 — c. 1 — d. 5 — e. 2 — f. 6
+**Answers:** a. 4; b. 3; c. 1; d. 5; e. 2; f. 6
 
 ---
 
@@ -98,11 +98,11 @@ f. *Mālō e lava mai!*
 Tongan farewells depend on who is leaving and who is staying. There are three basic forms:
 
 ::: {.examples}
-*'Alu ā!* — Goodbye. (Said to the person who is leaving.)
+*'Alu ā!* Goodbye. (Said to the person who is leaving.)
 
-*Nofo ā!* — Goodbye. (Said to the person who is staying.)
+*Nofo ā!* Goodbye. (Said to the person who is staying.)
 
-*Mohe ā!* — Goodnight. (Said to someone going to bed.)
+*Mohe ā!* Goodnight. (Said to someone going to bed.)
 :::
 
 You already know the verbs *'alu* (go), *nofo* (stay), and *mohe* (sleep) as imperative forms. These farewells use the same bare-verb imperative pattern, with the addition of a small word: *ā*.
@@ -114,9 +114,9 @@ The word *ā* is a tonal adverb. It does not translate directly into English. In
 In speech, a vocative *ē* often appears at the end of farewells:
 
 ::: {.examples}
-*'Alu ā ē!* — Goodbye.
+*'Alu ā ē!* Goodbye.
 
-*Nofo ā ē!* — Goodbye.
+*Nofo ā ē!* Goodbye.
 :::
 
 The *ē* is a friendly embellishment, not a separate word that changes the meaning.
@@ -132,7 +132,7 @@ These follow the imperative patterns from earlier chapters: singular uses the ba
 
 ---
 
-### *'Io* and *'Ikai* — Yes and No
+### *'Io* and *'Ikai*: Yes and No
 
 You already know *'io* (yes) and *'ikai* (no) as response words. In greetings, *'io* serves a broader role: it is the universal acknowledgement. When someone greets you with *Mālō e lelei!*, the proper first word in your response is *'Io!* When someone says *Mālō e ngāue!* (Thanks for working.), the response is *'Io!* A useful way to think of *'io* is "It is as you say."
 
@@ -151,9 +151,9 @@ Two words soften requests and make them polite:
 Both words appear at the beginning of the request:
 
 ::: {.examples}
-*Fakamolemole, ha'u ki heni.* — Excuse me, come here.
+*Fakamolemole, ha'u ki heni.* Excuse me, come here.
 
-*Kātaki, nofo hē.* — Please, sit over there.
+*Kātaki, nofo hē.* Please, sit over there.
 :::
 
 You may also hear both words together in more formal requests. The polite request word *mu'a* that you learned with imperatives is less formal than either of these.
@@ -165,9 +165,9 @@ You may also hear both words together in more formal requests. The polite reques
 When you address someone by name, Tongan uses the particle *'e* before the name. This signals that you are speaking directly to that person.
 
 ::: {.examples}
-*'E Sione, ha'u!* — John, come.
+*'E Sione, ha'u!* John, come.
 
-*'E Mele, nofo ā!* — Mary, goodbye.
+*'E Mele, nofo ā!* Mary, goodbye.
 :::
 
 This *'e* marks the vocative: it signals direct address. It is sometimes dropped in casual speech, but it is always correct to include it.
@@ -186,7 +186,7 @@ Write the appropriate Tongan response or formula for each situation.
 4. You accidentally step on someone's foot. What single word do you say?
 5. Tell Lupe (use her name) to please sit here.
 
-**Answers:** 1. *Nofo ā!* — 2. *Mo ō ā!* — 3. *'E Sēmisi, fakamolemole ha'u ki heni.* — 4. *Kātaki!* — 5. *'E Lupe, kātaki nofo heni.*
+**Answers:** 1. *Nofo ā!* 2. *Mo ō ā!* 3. *'E Sēmisi, fakamolemole ha'u ki heni.* 4. *Kātaki!* 5. *'E Lupe, kātaki nofo heni.*
 
 ---
 
@@ -195,7 +195,7 @@ Write the appropriate Tongan response or formula for each situation.
 To ask someone's name:
 
 ::: {.examples}
-*Ko hai ho hingoa?* — What is your name? (Lit. "Who is your name?")
+*Ko hai ho hingoa?* What is your name? (Lit. "Who is your name?")
 :::
 
 You already know *ko hai* (who) from the previous chapter. The word *hingoa* means "name."
@@ -205,7 +205,7 @@ You already know *ko hai* (who) from the previous chapter. The word *hingoa* mea
 The answer uses the *ko* identification pattern:
 
 ::: {.examples}
-*Ko Sione au.* — I am John. (Lit. "It-is John I.")
+*Ko Sione au.* I am John. (Lit. "It-is John I.")
 :::
 
 The postposed pronoun *au* (I) was introduced in Chapter 5: Commands and Emphasis. The sentence follows the same *ko* + noun pattern you already know, with *au* identifying who is being named.
@@ -217,7 +217,7 @@ The postposed pronoun *au* (I) was introduced in Chapter 5: Commands and Emphasi
 Another common question when meeting someone:
 
 ::: {.examples}
-*Ko ho ta'u fiha eni?* — How old are you? (Lit. "Is your year how-many this?")
+*Ko ho ta'u fiha eni?* How old are you? (Lit. "Is your year how-many this?")
 :::
 
 The word *ta'u* means "year" or "age." The word *fiha* means "how many." Combined with the *ko* identification pattern and the possessive *ho* (your), this asks "What is your year-count?"
@@ -225,15 +225,15 @@ The word *ta'u* means "year" or "age." The word *fiha* means "how many." Combine
 The answer follows the same pattern:
 
 ::: {.examples}
-*Ko hoku ta'u uofulu eni.* — I am twenty years old. (Lit. "Is my year twenty this.")
+*Ko hoku ta'u uofulu eni.* I am twenty years old. (Lit. "Is my year twenty this.")
 :::
 
 > **Preview:** The words *hoku* (my) and *ho* (your) are possessive pronouns, formally taught in Chapter 17: Possessives. The number *uofulu* (twenty) comes from the number system taught in Chapter 20: Numbers and Time. For now, treat *Ko ho ta'u fiha eni?* and *Ko hoku ta'u* [number] *eni* as set phrases to memorize.
 
 | Question | Answer |
 |---|---|
-| *Ko hai ho hingoa?* — What is your name? | *Ko Sione au.* — I am John. |
-| *Ko ho ta'u fiha eni?* — How old are you? | *Ko hoku ta'u uofulu eni.* — I am twenty. |
+| *Ko hai ho hingoa?*<br><span class="translation">What is your name?</span> | *Ko Sione au.*<br><span class="translation">I am John.</span> |
+| *Ko ho ta'u fiha eni?*<br><span class="translation">How old are you?</span> | *Ko hoku ta'u uofulu eni.*<br><span class="translation">I am twenty.</span> |
 
 ---
 
@@ -242,25 +242,25 @@ The answer follows the same pattern:
 A typical greeting exchange combines several formulas:
 
 ::: {.examples}
-*Mālō e lelei!* — Hello.
+*Mālō e lelei!* Hello.
 
-*'Io, mālō e lelei!* — Hello.
+*'Io, mālō e lelei!* Hello.
 
-*Fēfē hake?* — How are you?
+*Fēfē hake?* How are you?
 
-*Sai pē!* — Just fine.
+*Sai pē!* Just fine.
 
-*Ko hai ho hingoa?* — What is your name?
+*Ko hai ho hingoa?* What is your name?
 
-*Ko Mele au.* — I am Mary.
+*Ko Mele au.* I am Mary.
 
-*Ko ho ta'u fiha eni?* — How old are you?
+*Ko ho ta'u fiha eni?* How old are you?
 
-*Ko hoku ta'u uofulu eni.* — I am twenty.
+*Ko hoku ta'u uofulu eni.* I am twenty.
 
-*'Alu ā ē!* — Goodbye.
+*'Alu ā ē!* Goodbye.
 
-*Nofo ā ē!* — Goodbye.
+*Nofo ā ē!* Goodbye.
 :::
 
 Each line in this exchange uses grammar you can now identify: *ko* identification, the *'io* acknowledgement, familiar question words, postposed pronouns, imperative verb forms, and the set-phrase personal questions just introduced.

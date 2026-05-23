@@ -10,7 +10,7 @@ A prefix is a short element added before a word to change its meaning. English d
 ### *fe-* with *-'aki*: reciprocal and reciprocative verbs
 
 ::: {.examples}
-*'Oku nau fe'ofa'aki.* — They love one another.
+*'Oku nau fe'ofa'aki.* They love one another.
 :::
 
 The prefix *fe-* combined with the suffix *-'aki* creates verbs expressing reciprocal action (doing something to each other) or reciprocative movement (going back and forth). These two meanings shade into each other, and context tells you which one applies.
@@ -38,11 +38,11 @@ The reciprocative sense (back and forth) appears with movement verbs:
 Because these verbs describe mutual action, their subjects are always dual or plural. You cannot use *fe'ofa'aki* with a single person.
 
 ::: {.examples}
-*'Okú na fetokoni'aki.* — They two help each other.
+*'Okú na fetokoni'aki.* They two help each other.
 
-*Na'a nau fetalanoa'aki 'i he efiafí.* — They talked to one another in the evening.
+*Na'a nau fetalanoa'aki 'i he efiafí.* They talked to one another in the evening.
 
-*'Oku totonu ke ta fe'ofa'aki.* — We should love one another.
+*'Oku totonu ke ta fe'ofa'aki.* We should love one another.
 :::
 
 ---
@@ -79,7 +79,7 @@ Some *fe-* verbs have no suffix at all. These are common enough to learn as voca
 One *fe-* verb worth special attention is *fetu'utaki*, meaning "to communicate" or "to be in contact." It appears frequently in modern Tongan:
 
 ::: {.examples}
-*'Okú na fetu'utaki ma'u pē.* — They two communicate constantly.
+*'Okú na fetu'utaki ma'u pē.* They two communicate constantly.
 :::
 
 > *Note:* Several *fe-* verbs have meanings that cannot be predicted from the base word alone. *Fetongi* (to replace) is related to *totongi* (to pay), but the connection is not obvious. *Fepaki* (to collide) probably comes from *pā* (to touch). These are best learned as vocabulary items.
@@ -89,15 +89,15 @@ One *fe-* verb worth special attention is *fetu'utaki*, meaning "to communicate"
 ### *ma-*: potential (ability discovered by trial)
 
 ::: {.examples}
-*mahiki* — able to lift (from *hiki*, to lift)
+*mahiki*. able to lift (from *hiki*, to lift)
 :::
 
 The prefix *ma-* attached to a transitive verb means "to be able to do" what the verb describes. The ability is discovered by trying: you attempt the action, and *ma-* tells the listener whether you succeed or fail. Many transitive verbs can take *ma-* in this sense.
 
 ::: {.examples}
-*Na'é ke mahiki e puha ko iá?* — Were you able to lift that box?
+*Na'é ke mahiki e puha ko iá?* Were you able to lift that box?
 
-*'Oku 'ikai ke mafai 'e ia e ngāué.* — He cannot manage the work.
+*'Oku 'ikai ke mafai 'e ia e ngāué.* He cannot manage the work.
 :::
 
 The distinction from *lava* (to be able to), which you learned in Chapter 21: Auxiliary Verbs, is important. *Lava* describes general ability or capacity. *Ma-* describes ability proven in the moment, by actual trial.
@@ -107,13 +107,13 @@ The distinction from *lava* (to be able to), which you learned in Chapter 21: Au
 ### *ma-*, *mo-*, *mā-*: resultative state
 
 ::: {.examples}
-*mahae* — to be torn (from *hae*, to tear)
+*mahae*. to be torn (from *hae*, to tear)
 :::
 
 The same prefix *ma-* (along with its variants *mo-* and *mā-*) has a second, different use. Attached to certain verbs, it forms intransitive verbs describing a state that results from an action. The action may have happened accidentally, spontaneously, or by an unknown agent.
 
 ::: {.examples}
-*Na'e mahae 'a e kofu 'o Sialé.* — Siale's garment was torn. (Something tore it, or it tore on its own.)
+*Na'e mahae 'a e kofu 'o Sialé.* Siale's garment was torn. (Something tore it, or it tore on its own.)
 :::
 
 Compare this with the active transitive: *Na'e hae 'e ia 'a e kofú.* (He tore the garment.) The *ma-* form describes the result without naming who or what caused it.
@@ -131,13 +131,13 @@ Compare this with the active transitive: *Na'e hae 'e ia 'a e kofú.* (He tore t
 Some *ma-* forms carry a sense of "slightly" or "a little," suggesting a small or accidental result rather than a complete one:
 
 ::: {.examples}
-*mafusi* — to be pulled slightly out of position (from *fusi*, to pull)
+*mafusi*. to be pulled slightly out of position (from *fusi*, to pull)
 
-*mateke* — to be pushed slightly out of position (from *teke*, to push)
+*mateke*. to be pushed slightly out of position (from *teke*, to push)
 
-*Na'e movete 'a e vaká.* — The boat came to pieces.
+*Na'e movete 'a e vaká.* The boat came to pieces.
 
-*Kuó na māvae.* — They two have parted.
+*Kuó na māvae.* They two have parted.
 :::
 
 > *Note:* The same verb can have both the potential meaning and the resultative meaning. *Mahiki* can mean "able to lift" (potential) or "slightly raised" (resultative). Context and sentence structure make the intended sense clear.
@@ -145,11 +145,11 @@ Some *ma-* forms carry a sense of "slightly" or "a little," suggesting a small o
 An idiomatic use of *ma-* appears after *ke* in paired expressions emphasizing thoroughness:
 
 ::: {.examples}
-*Ako ke maako.* — To learn thoroughly. (Lit. "Study so-as-to ma-study")
+*Ako ke maako.* To learn thoroughly. (Lit. "Study so-as-to ma-study")
 
-*Tu'u ke matu'u.* — To stand firm.
+*Tu'u ke matu'u.* To stand firm.
 
-*Puke ke mapuke.* — To hold tightly.
+*Puke ke mapuke.* To hold tightly.
 :::
 
 The pattern is verb + *ke* + *ma-* + verb, and it means carrying the action to its proper result or full extent.
@@ -159,7 +159,7 @@ The pattern is verb + *ke* + *ma-* + verb, and it means carrying the action to i
 ### *mo'u-*: continuation or overdoing
 
 ::: {.examples}
-*mo'umohea* — to oversleep (from *mohe*, to sleep)
+*mo'umohea*. to oversleep (from *mohe*, to sleep)
 :::
 
 The prefix *mo'u-* indicates that an action or state continues for an unusually long time, often longer than intended. It is related to *ma'u* (firm, continuous). The suffix *-a* is added to the end of the verb along with *mo'u-* at the front.
@@ -176,11 +176,11 @@ When building *mo'u-* verbs, the final vowel of the base word changes: a short f
 | *tali* (wait) | *mo'utalia* | to wait too long |
 
 ::: {.examples}
-*Kātaki'i 'eku tōmui, na'á ku mo'umohea.* — Forgive my lateness, I overslept.
+*Kātaki'i 'eku tōmui, na'á ku mo'umohea.* Forgive my lateness, I overslept.
 
-*Kuo mo'unofoa 'a e vaká 'i he motú.* — The boat has stayed too long at the island.
+*Kuo mo'unofoa 'a e vaká 'i he motú.* The boat has stayed too long at the island.
 
-*Kuó ne mo'utu'ua 'i he māketí.* — He has been standing too long at the market.
+*Kuó ne mo'utu'ua 'i he māketí.* He has been standing too long at the market.
 :::
 
 ---
@@ -188,7 +188,7 @@ When building *mo'u-* verbs, the final vowel of the base word changes: a short f
 ### *kaungā-*: fellow, together
 
 ::: {.examples}
-*kaungāngāue* — fellow-worker (from *ngāue*, to work)
+*kaungāngāue*. fellow-worker (from *ngāue*, to work)
 :::
 
 The prefix *kaungā-* adds the meaning "together" or "fellow" to verbs and some nouns. It describes shared experience, joint action, or the relationship of doing something alongside others.
@@ -212,15 +212,15 @@ The prefix *kaungā-* adds the meaning "together" or "fellow" to verbs and some 
 *kaungā-* verbs can also function as nouns (as you would expect from the word-class flexibility covered in Chapter 41: Word Class Flexibility):
 
 ::: {.examples}
-*hoku kaungāngāue* — my fellow-worker(s)
+*hoku kaungāngāue*. my fellow-worker(s)
 
-*hotau kaungālotu* — our fellow-worshipper(s) (inclusive)
+*hotau kaungālotu*. our fellow-worshipper(s) (inclusive)
 
-*'Ofa ki ho kaungā 'apí.* — Love your neighbour.
+*'Ofa ki ho kaungā 'apí.* Love your neighbour.
 
-*Na'a mau kaungā ako fakataha.* — We were fellow students together.
+*Na'a mau kaungā ako fakataha.* We were fellow students together.
 
-*Mou omi ke tau kaungā ngāue hení.* — Come so we can be fellow workers here.
+*Mou omi ke tau kaungā ngāue hení.* Come so we can be fellow workers here.
 :::
 
 > *Note:* Nouns formed with *kaungā-* can take the plural marker *ngaahi*, but they often carry a collective sense without it. *Hoku kaungāngāue* can mean "my fellow-worker" or "my fellow-workers" depending on context.
@@ -232,7 +232,7 @@ The prefix *kaungā-* adds the meaning "together" or "fellow" to verbs and some 
 The word *ve'e* appears before nouns meaning "by the side of" or "the side of." It is likely a variant of *va'e* (foot, leg), which you know from the spatial nouns covered in Chapter 40: Spatial Nouns. You may encounter *ve'e* in phrases like *ve'e hala* (roadside) or *ve'e fale* (the side of the house).
 
 ::: {.examples}
-*'Okú ne tu'u he ve'e halá.* — He is standing by the roadside.
+*'Okú ne tu'u he ve'e halá.* He is standing by the roadside.
 :::
 
 This is a lexical variant, not a new grammar pattern.
@@ -365,8 +365,8 @@ Choose from: *fe-...-'aki*, *ma-*, *mo'u-*, *kaungā-*
 
 #### Exercise 5
 
-1. *mahae* — *ma-* (resultative prefix)
-2. *fetalanoa'aki* — *fe-...-'aki* (reciprocal)
-3. *mo'umohea* — *mo'u-* (continuation)
-4. *kaungāngāue* — *kaungā-* (fellow)
-5. *fetu'utaki* — *fe-* (communal, no *-'aki* suffix)
+1. *mahae*. *ma-* (resultative prefix)
+2. *fetalanoa'aki*. *fe-...-'aki* (reciprocal)
+3. *mo'umohea*. *mo'u-* (continuation)
+4. *kaungāngāue*. *kaungā-* (fellow)
+5. *fetu'utaki*. *fe-* (communal, no *-'aki* suffix)

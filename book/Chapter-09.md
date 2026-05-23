@@ -7,9 +7,9 @@ Every sentence so far has been a positive statement. This chapter introduces *'i
 ### Saying "Not" with a Pronoun: *'Ikai Te*
 
 ::: {.examples}
-*'Oku ou fiefia.* — I am happy.
+*'Oku ou fiefia.* I am happy.
 
-*'Oku 'ikai te u fiefia.* — I am not happy. (Lit. "Is not I happy")
+*'Oku 'ikai te u fiefia.* I am not happy. (Lit. "Is not I happy")
 :::
 
 To negate a sentence that has a pronoun subject, place *'ikai te* between the tense marker and the pronoun. The verb and everything after it stay in their normal positions.
@@ -24,9 +24,9 @@ The *te* in *'ikai te* is not the future tense marker. It is a connecting word t
 Compare a question with its negative answer:
 
 ::: {.examples}
-*'Okú ke fiekaia?* — Are you hungry?
+*'Okú ke fiekaia?* Are you hungry?
 
-*'Oku 'ikai te u fiekaia.* — I am not hungry.
+*'Oku 'ikai te u fiekaia.* I am not hungry.
 :::
 
 All the adjectives you already know (*fiefia*, *hela'ia*, *'ita*, *fiekaia*) negate the same way, because adjectives fill the verb slot in Tongan. Three more adjectives follow the same pattern: *puke* *(sick)*, *vela* *(hot)*, and *'afua* *(fine, clear weather)*.
@@ -35,9 +35,9 @@ All the adjectives you already know (*fiefia*, *hela'ia*, *'ita*, *fiekaia*) neg
 I am not sick.
 
 ::: {.examples}
-*'Oku 'ikai te ne hela'ia.* — He is not tired.
+*'Oku 'ikai te ne hela'ia.* He is not tired.
 
-*'Oku 'ikai te nau 'ita.* — They are not angry.
+*'Oku 'ikai te nau 'ita.* They are not angry.
 :::
 
 | Positive | Negative |
@@ -72,13 +72,13 @@ The same logic explains the future. In a positive sentence, *te* goes before a p
 More examples across tenses:
 
 ::: {.examples}
-*Na'e 'ikai te u tokoni kia Sione.* — I did not help John.
+*Na'e 'ikai te u tokoni kia Sione.* I did not help John.
 
-*'E 'ikai te ke nofo 'i Tonga.* — You will not stay in Tonga.
+*'E 'ikai te ke nofo 'i Tonga.* You will not stay in Tonga.
 
-*Na'e 'ikai te mau kai ika 'anepō.* — We did not eat fish last night.
+*Na'e 'ikai te mau kai ika 'anepō.* We did not eat fish last night.
 
-*'Oku 'ikai te ne ngāue mālohi.* — He does not work hard.
+*'Oku 'ikai te ne ngāue mālohi.* He does not work hard.
 :::
 
 The verb *ngāue* *(to work)* is intransitive, like the verbs you already know.
@@ -92,7 +92,7 @@ The verb *ngāue* *(to work)* is intransitive, like the verbs you already know.
 Some sentences describe a condition without naming who or what causes it. Weather is the clearest case.
 
 ::: {.examples}
-*Na'e matangi 'anepō.* — It was windy last night.
+*Na'e matangi 'anepō.* It was windy last night.
 :::
 
 The word *matangi* *(windy)* fills the verb slot. There is no pronoun subject because no person is doing the action.
@@ -100,13 +100,13 @@ The word *matangi* *(windy)* fills the verb slot. There is no pronoun subject be
 To negate this kind of sentence, use *'ikai ke* (not *'ikai te*):
 
 ::: {.examples}
-*Na'e 'ikai ke matangi 'anepō.* — It was not windy last night.
+*Na'e 'ikai ke matangi 'anepō.* It was not windy last night.
 :::
 
 The rule: *'ikai te* appears before a pronoun. *'Ikai ke* appears directly before a verb. This mirrors the split you already know in tense markers: one form before pronouns (*na'a*, *te*), another elsewhere (*na'e*, *'e*).
 
 ::: {.examples}
-*'Oku 'ikai ke 'uha.* — It is not raining.
+*'Oku 'ikai ke 'uha.* It is not raining.
 :::
 
 The word *'uha* *(to rain)* is another weather verb with no pronoun subject.
@@ -114,7 +114,7 @@ The word *'uha* *(to rain)* is another weather verb with no pronoun subject.
 The word *momoko* *(cold)* works the same way, along with *vela* *(hot)* and *'afua* *(fine, clear)*.
 
 ::: {.examples}
-*'E 'ikai ke momoko 'apongipongi.* — It will not be cold tomorrow.
+*'E 'ikai ke momoko 'apongipongi.* It will not be cold tomorrow.
 :::
 
 *'Oku 'ikai ke vela* *(hot).*
@@ -130,9 +130,9 @@ It was not fine yesterday.
 You have seen *'Ikai* since the earliest chapters as a one-word answer meaning "no." This is the same word:
 
 ::: {.examples}
-*Na'á ke kai?* — Did you eat?
+*Na'á ke kai?* Did you eat?
 
-*'Ikai.* — No.
+*'Ikai.* No.
 :::
 
 On its own, *'Ikai* is a complete negative response, the counterpart of *'Io* (yes).
@@ -144,11 +144,11 @@ On its own, *'Ikai* is a complete negative response, the counterpart of *'Io* (y
 The preposed modifier *loko* appears after a negative to weaken it. Where *'ikai* alone means "not," adding *loko* produces "not too" or "not particularly."
 
 ::: {.examples}
-*'Oku 'ikai ke loko sai 'a e tá.* — The game is not too good.
+*'Oku 'ikai ke loko sai 'a e tá.* The game is not too good.
 
-*'Oku 'ikai ke loko tokolahí.* — There are not too many.
+*'Oku 'ikai ke loko tokolahí.* There are not too many.
 
-*Na'e 'ikai ke loko lelei 'emau ngāué.* — Our work was not too good.
+*Na'e 'ikai ke loko lelei 'emau ngāué.* Our work was not too good.
 :::
 
 The pattern is always: negative + *ke* + *loko* + verb/stative. Without the negative, *loko* does not appear.
@@ -160,13 +160,13 @@ The pattern is always: negative + *ke* + *loko* + verb/stative. Without the nega
 Where *loko* softens a negative, *teitei* intensifies it. Combined with a negative, *teitei* means "at all" or "certainly not."
 
 ::: {.examples}
-*'E 'ikai té u teitei 'alu.* — I am certainly not going.
+*'E 'ikai té u teitei 'alu.* I am certainly not going.
 
-*'Oku 'ikai té u teitei loto ki ai.* — I absolutely do not agree to it.
+*'Oku 'ikai té u teitei loto ki ai.* I absolutely do not agree to it.
 
-*Na'e 'ikai té u teitei tohi ki ai.* — I absolutely did not write to him.
+*Na'e 'ikai té u teitei tohi ki ai.* I absolutely did not write to him.
 
-*He 'ikai té ke teitei lava he sīvī.* — You have not got a chance in the examination.
+*He 'ikai té ke teitei lava he sīvī.* You have not got a chance in the examination.
 :::
 
 The pattern: negative + TM + pronoun + *teitei* + verb. *Teitei* only appears in negative sentences.

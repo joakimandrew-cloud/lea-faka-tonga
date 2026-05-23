@@ -9,21 +9,21 @@ This chapter expands two grammar areas that appeared in basic form earlier: the 
 The word *ai* appeared earlier as a back-reference meaning "there" or "in it," and in the existential expression *'oku 'i ai* (there is). *Ai* also serves a connecting function: it links a descriptive clause back to a noun in the main clause, much as English uses "where," "in which," or "that...in."
 
 ::: {.examples}
-*Ko e falé eni 'okú ne ngāue ai.* — This is the house he works in. (Lit. "Is the house this he works in-it")
+*Ko e falé eni 'okú ne ngāue ai.* This is the house he works in. (Lit. "Is the house this he works in-it")
 :::
 
 The *ai* at the end refers back to *fale*. Without it, the clause would leave the listener asking "works where?" *Ai* completes the connection: he works in THIS house.
 
 ::: {.examples}
-*Ko e koló ia na'á ku nofo ai.* — That is the village I lived in.
+*Ko e koló ia na'á ku nofo ai.* That is the village I lived in.
 
-*Ko e tamasi'í ia na'á ku lea ki ai.* — That is the boy I spoke to.
+*Ko e tamasi'í ia na'á ku lea ki ai.* That is the boy I spoke to.
 :::
 
 In the third example, *ki ai* keeps the preposition *ki* visible while *ai* stands in for the noun. The same applies with *mei*:
 
 ::: {.examples}
-*Ko e motú ia na'á ku ha'u mei ai.* — That is the island I came from.
+*Ko e motú ia na'á ku ha'u mei ai.* That is the island I came from.
 :::
 
 The pattern: a *ko* clause introduces a noun, and the descriptive clause that follows uses *ai* (or *ki ai*, *mei ai*) to refer back to it.
@@ -44,19 +44,19 @@ Earlier chapters introduced demonstratives for place (*heni*, *hena*, *hē*) and
 
 | | Near me (1st) | Near you (2nd) | Pointing | Mentioned (3rd) |
 |---|---|---|---|---|
-| After noun (enclitic) | *ni* | *na* | — | — |
+| After noun (enclitic) | *ni* | *na* | – | – |
 | Pronoun | *eni* | *ena* | *ē* | *ia* |
-| After *'i*/*ki*/*mei* | *heni* | *hena* | *hē* | — |
-| "Like this/that" | *peheni* | *pehena* | *pehē* | — |
+| After *'i*/*ki*/*mei* | *heni* | *hena* | *hē* | – |
+| "Like this/that" | *peheni* | *pehena* | *pehē* | – |
 
 #### Near me: *ni*, *eni*, *heni*, *peheni*
 
 These forms refer to what is near the speaker or in the speaker's current focus. *Ni* is an enclitic (a small word that leans on the word before it and shifts its stress forward): *fále* becomes *falé ni*.
 
 ::: {.examples}
-*'I he falé ni 'oku mau lotu ai.* — In this house we pray.
+*'I he falé ni 'oku mau lotu ai.* In this house we pray.
 
-*Nofo heni.* — Stay here.
+*Nofo heni.* Stay here.
 :::
 
 #### Near you: *na*, *ena*, *hena*, *pehena*
@@ -64,9 +64,9 @@ These forms refer to what is near the speaker or in the speaker's current focus.
 These forms refer to what is near the listener. *Na* is also an enclitic: *fále* becomes *falé na*.
 
 ::: {.examples}
-*Ho valá na 'oku lelei 'aupito.* — Those clothes of yours are very nice.
+*Ho valá na 'oku lelei 'aupito.* Those clothes of yours are very nice.
 
-*Ko ho'o kató ena 'i he lalo tēpilé.* — There (near you) is your basket under the table.
+*Ko ho'o kató ena 'i he lalo tēpilé.* There (near you) is your basket under the table.
 :::
 
 #### Pointing: *ē*, *hē*, *pehē*
@@ -74,9 +74,9 @@ These forms refer to what is near the listener. *Na* is also an enclitic: *fále
 The speaker uses these to point at something, whether physically or in imagination. They are not tied to a particular person.
 
 ::: {.examples}
-*Ko e hā ē?* — What is that? (pointing)
+*Ko e hā ē?* What is that? (pointing)
 
-*Tuku hē.* — Put it there. (where I am pointing)
+*Tuku hē.* Put it there. (where I am pointing)
 :::
 
 #### Mentioned: *ia*
@@ -84,13 +84,13 @@ The speaker uses these to point at something, whether physically or in imaginati
 The pronoun *ia* refers to something already mentioned or being discussed, detached from both speaker and listener.
 
 ::: {.examples}
-*Ko ia pē.* — That is all.
+*Ko ia pē.* That is all.
 :::
 
 When *ko ia* begins a sentence followed by a pause, it means "therefore" or "that being so" (covered in Chapter 24: Conjunctions):
 
 ::: {.examples}
-*Ko ia, na'e 'ikai té u 'alu ki he fakatahá.* — That being so, I did not go to the meeting.
+*Ko ia, na'e 'ikai té u 'alu ki he fakatahá.* That being so, I did not go to the meeting.
 :::
 
 ---
@@ -100,7 +100,7 @@ When *ko ia* begins a sentence followed by a pause, it means "therefore" or "tha
 The form *ko'eni* specifies the current instance of something. With days of the week, it means "this" day of the current week.
 
 ::: {.examples}
-*Té u 'alu ki he maketi he Falaite ko'eni.* — I will go to the market this Friday.
+*Té u 'alu ki he maketi he Falaite ko'eni.* I will go to the market this Friday.
 :::
 
 | Tongan | English |
@@ -120,15 +120,15 @@ The form *ko'eni* specifies the current instance of something. With days of the 
 Beyond its pronoun use, *eni* works as an adverb meaning "now," especially when a situation has changed or is being contrasted with an earlier state.
 
 ::: {.examples}
-*'Oku ou nofo eni 'i Pangai.* — Now I live at Pangai.
+*'Oku ou nofo eni 'i Pangai.* Now I live at Pangai.
 :::
 
 The related enclitic *ni* also carries a "now" sense, but is lighter and less emphatic:
 
 ::: {.examples}
-*Ko 'eku toki a'u mai ni.* — I have just arrived.
+*Ko 'eku toki a'u mai ni.* I have just arrived.
 
-*Ko 'eku toki a'u mai eni.* — I have only just now arrived. (More emphatic)
+*Ko 'eku toki a'u mai eni.* I have only just now arrived. (More emphatic)
 :::
 
 ---
@@ -138,11 +138,11 @@ The related enclitic *ni* also carries a "now" sense, but is lighter and less em
 The manner demonstrative *pehē* also functions as an adjective meaning "of this kind" or "such," and as an adverb meaning "in this way" or "thus." Its companions *peheni* and *pehena* work the same way, oriented toward speaker and listener respectively.
 
 ::: {.examples}
-*Ha me'a pehē.* — A thing like that. / Such a thing.
+*Ha me'a pehē.* A thing like that. / Such a thing.
 
-*Fai pehē.* — Do it like that.
+*Fai pehē.* Do it like that.
 
-*'Oua té ke fai peheni.* — Do not do it like this.
+*'Oua té ke fai peheni.* Do not do it like this.
 :::
 
 > *Note:* This demonstrative *pehē* must not be confused with the verb *pehē* (to say, to think) covered in Chapter 34: Reported Speech. The verb takes an agent phrase: *Na'á ne pehē...* (He said...). The demonstrative describes manner or type.
@@ -156,11 +156,11 @@ The manner demonstrative *pehē* also functions as an adjective meaning "of this
 The expression *na'a mo* before a pronoun or name (or *na'a mo e* before a common noun with an article) means "even" or "even with."
 
 ::: {.examples}
-*Na'a mo ia, he 'ikai té ne lava.* — Even he cannot.
+*Na'a mo ia, he 'ikai té ne lava.* Even he cannot.
 
-*Na'a mo Mele, na'e 'ikai fie ha'u mai.* — Even Mary did not want to come.
+*Na'a mo Mele, na'e 'ikai fie ha'u mai.* Even Mary did not want to come.
 
-*Na'a mo e 'ahó ni 'oku kei puke pē 'a Tēvitá.* — Even today David is still just sick.
+*Na'a mo e 'ahó ni 'oku kei puke pē 'a Tēvitá.* Even today David is still just sick.
 :::
 
 #### *Kae'uma'a*: and also, not to mention
@@ -168,11 +168,11 @@ The expression *na'a mo* before a pronoun or name (or *na'a mo e* before a commo
 *Kae'uma'a* adds emphasis to an additional item, meaning "and also," "not to mention," or "as well."
 
 ::: {.examples}
-*'Oku ou tokoni kia Tēvita kae'uma'a hono fāmilí.* — I help David and also his family.
+*'Oku ou tokoni kia Tēvita kae'uma'a hono fāmilí.* I help David and also his family.
 
-*Mou tokanga ki he ngāué kae'uma'a 'a e akó.* — Pay attention to work and also to school.
+*Mou tokanga ki he ngāué kae'uma'a 'a e akó.* Pay attention to work and also to school.
 
-*Kae'uma'a ha'ane 'ita 'iate ia.* — Not to mention his anger at her.
+*Kae'uma'a ha'ane 'ita 'iate ia.* Not to mention his anger at her.
 :::
 
 ---

@@ -7,15 +7,15 @@ Every sentence so far has required a tense marker and a pronoun. This chapter in
 ### Giving a Command
 
 ::: {.examples}
-*Nofo!* — Stay!
+*Nofo!* Stay!
 :::
 
 A command tells someone to do something. A command is a sentence built from the verb alone, without a tense marker or a pronoun. In English, "Stay!" works the same way: the verb does all the work.
 
 ::: {.examples}
-*Mohe!* — Sleep!
+*Mohe!* Sleep!
 
-*Kai!* — Eat!
+*Kai!* Eat!
 :::
 
 Every verb you have learned works this way. Use the verb by itself and you have a command to one person.
@@ -34,15 +34,15 @@ Every verb you have learned works this way. Use the verb by itself and you have 
 ### Commands to a Group: *Mou*
 
 ::: {.examples}
-*Mou nofo!* — Stay! (all of you)
+*Mou nofo!* Stay! (all of you)
 :::
 
 When speaking to three or more people, place *mou* before the verb. You already know *mou* as the second-person plural pronoun from statements like *na'a mou kai* (you all ate). In commands, it works the same way: it tells the group that the command is for all of them.
 
 ::: {.examples}
-*Mou kai!* — Eat! (all of you)
+*Mou kai!* Eat! (all of you)
 
-*Mou hiva!* — Sing! (all of you)
+*Mou hiva!* Sing! (all of you)
 :::
 
 #### Plural verb forms: *ō* and *ō mai*
@@ -50,13 +50,13 @@ When speaking to three or more people, place *mou* before the verb. You already 
 Two verbs change form when the subject is more than one person.
 
 ::: {.examples}
-*'Alu!* — Go! (to one person)
+*'Alu!* Go! (to one person)
 
-*Mou ō!* — Go! (to a group)
+*Mou ō!* Go! (to a group)
 
-*Ha'u!* — Come! (to one person)
+*Ha'u!* Come! (to one person)
 
-*Mou ō mai!* — Come! (to a group)
+*Mou ō mai!* Come! (to a group)
 :::
 
 The singular *'alu* *(to go)* becomes *ō* with a dual or plural subject. The singular *ha'u* *(to come)* becomes *ō mai*.Churchward notes that *ō* carries more of the sense of an actual journey than *'alu*, and is less abrupt, even more polite (Churchward Ch. 6, §4a).
@@ -73,7 +73,7 @@ The singular *'alu* *(to go)* becomes *ō* with a dual or plural subject. The si
 ### Saying "Don't": Prohibitions with *'Oua*
 
 ::: {.examples}
-*'Oua te ke lea!* — Don't speak!
+*'Oua te ke lea!* Don't speak!
 :::
 
 A prohibition tells someone *not* to do something. The Tongan word for "don't" in a command is *'oua*. It is followed by *te*, a pronoun, and then the verb.
@@ -83,13 +83,13 @@ The pattern: *'oua te* + pronoun + verb.
 For one person, the pronoun is *ke* (you, singular):
 
 ::: {.examples}
-*'Oua te ke mohe!* — Don't sleep!
+*'Oua te ke mohe!* Don't sleep!
 :::
 
 For a group, the pronoun is *mou*:
 
 ::: {.examples}
-*'Oua te mou nofo!* — Don't stay! (all of you)
+*'Oua te mou nofo!* Don't stay! (all of you)
 :::
 
 Unlike a positive command, a prohibition always includes the pronoun, because *'oua te* requires one.
@@ -104,7 +104,7 @@ Unlike a positive command, a prohibition always includes the pronoun, because *'
 This is illustrated by the phrase *fie poto* (conceited):
 
 ::: {.examples}
-*'Oua te ke fie poto.* — Don't be conceited.
+*'Oua te ke fie poto.* Don't be conceited.
 :::
 
 The word *fie* normally means "want to." When paired with certain adjectives, it takes on an uncomplimentary tone: *fie poto* (literally "wanting to be clever") means "conceited" or "presumptuous." This is worth recognizing, but *fie* as a helper verb is covered in Chapter 21: Auxiliary Verbs.
@@ -116,7 +116,7 @@ The word *fie* normally means "want to." When paired with certain adjectives, it
 ### Adding "Please": *Mu'a*
 
 ::: {.examples}
-*Ha'u mu'a!* — Please come!
+*Ha'u mu'a!* Please come!
 :::
 
 The word *mu'a* softens a command into a polite request. It comes after the verb.
@@ -124,15 +124,15 @@ The word *mu'a* softens a command into a polite request. It comes after the verb
 Churchward describes it as a word that adds "a touch of courtesy to a command, a request, or some other expression of the will of the speaker" (Churchward Ch. 27, §27).
 
 ::: {.examples}
-*Nofo mu'a!* — Please stay!
+*Nofo mu'a!* Please stay!
 
-*Mou ō mu'a!* — Please go! (all of you)
+*Mou ō mu'a!* Please go! (all of you)
 :::
 
 *Mu'a* combines naturally with prohibitions:
 
 ::: {.examples}
-*'Oua te ke kai mu'a.* — Please don't eat.
+*'Oua te ke kai mu'a.* Please don't eat.
 :::
 
 ---
@@ -147,7 +147,7 @@ Translate each English phrase into Tongan.
 4. Don't run! (to one person)
 5. Don't drink! (to a group)
 
-**Answers:** 1. *Lele!* — 2. *Mou inu!* — 3. *Lea mu'a!* — 4. *'Oua te ke lele!* — 5. *'Oua te mou inu!*
+**Answers:** 1. *Lele!* 2. *Mou inu!* 3. *Lea mu'a!* 4. *'Oua te ke lele!* 5. *'Oua te mou inu!*
 
 ---
 
@@ -182,7 +182,7 @@ The postposed pronouns have two uses taught in this chapter: emphasis in stateme
 ### Emphatic Statements with Postposed Pronouns
 
 ::: {.examples}
-*Te u nofo au.* — I will stay. (emphatic)
+*Te u nofo au.* I will stay. (emphatic)
 :::
 
 When you add the postposed pronoun after the verb, it echoes the preposed pronoun and emphasizes who is doing the action. The sentence *Te u nofo* already means "I will stay." Adding *au* makes it stronger: "**I** will stay" or "I myself will stay."
@@ -190,21 +190,21 @@ When you add the postposed pronoun after the verb, it echoes the preposed pronou
 Compare:
 
 ::: {.examples}
-*Te u nofo.* — I will stay.
+*Te u nofo.* I will stay.
 
-*Te u nofo au.* — I will stay. (that's certain)
+*Te u nofo au.* I will stay. (that's certain)
 :::
 
 The postposed pronoun appears right after the verb or verb phrase. It does not change the meaning. It adds weight. The sentence says: this person, not anyone else.
 
 ::: {.examples}
-*Na'a ku lea au.* — I spoke. (I myself spoke)
+*Na'a ku lea au.* I spoke. (I myself spoke)
 
-*'Oku ou fiefia au.* — I am happy. (I myself am happy)
+*'Oku ou fiefia au.* I am happy. (I myself am happy)
 
-*Na'a mau kai kimautolu.* — We ate. (we ourselves ate)
+*Na'a mau kai kimautolu.* We ate. (we ourselves ate)
 
-*Te ke mohe koe.* — You will sleep. (you yourself will sleep)
+*Te ke mohe koe.* You will sleep. (you yourself will sleep)
 :::
 
 This pattern works with any tense marker, any pronoun, and any verb you already know.
@@ -212,9 +212,9 @@ This pattern works with any tense marker, any pronoun, and any verb you already 
 The plural pattern works the same way:
 
 ::: {.examples}
-*Tau hiva kimautolu!* — Let's sing! (emphatic)
+*Tau hiva kimautolu!* Let's sing! (emphatic)
 
-*Te mau lele kimautolu!* — We will run! (emphatic)
+*Te mau lele kimautolu!* We will run! (emphatic)
 :::
 
 The contrast between *Tau kai!* (Let's eat!) and *Tau kai kimautolu!* (Let's eat! What are we waiting for?) shows how the postposed pronoun turns a suggestion into an insistent one.
@@ -225,38 +225,38 @@ The contrast between *Tau kai!* (Let's eat!) and *Tau kai kimautolu!* (Let's eat
 
 Add the correct postposed pronoun to make each statement emphatic.
 
-1. *Té u 'alu \_\_\_.* — I will go (myself).
-2. *Na'á ke kai \_\_\_.* — You ate (yourself).
-3. *'Okú ne hiva \_\_\_.* — He is singing (himself).
-4. *Tau lele \_\_\_!* — Let's run (we ourselves)!
-5. *'Oku nau lea \_\_\_.* — They are speaking (themselves).
+1. *Té u 'alu \_\_\_.* I will go (myself).
+2. *Na'á ke kai \_\_\_.* You ate (yourself).
+3. *'Okú ne hiva \_\_\_.* He is singing (himself).
+4. *Tau lele \_\_\_!* Let's run (we ourselves)!
+5. *'Oku nau lea \_\_\_.* They are speaking (themselves).
 
-**Answers:** 1. *au* — 2. *koe* — 3. *ia* — 4. *kitautolu* — 5. *kinautolu*
+**Answers:** 1. *au*. 2. *koe*. 3. *ia*. 4. *kitautolu*. 5. *kinautolu*
 
 ---
 
 ### Emphasis in Commands: *'Alu koe!*
 
 ::: {.examples}
-*'Alu koe!* — Go! (I mean you!)
+*'Alu koe!* Go! (I mean you!)
 :::
 
 In a command to one person, the preposed pronoun *ke* does not appear. But you can add the postposed pronoun *koe* after the verb to single out the person you are speaking to. The singular preposed *ke* does not occur with imperatives, but the postposed *koe* does.
 
 ::: {.examples}
-*Ha'u koe!* — Come! (yes, you!)
+*Ha'u koe!* Come! (yes, you!)
 
-*Nofo koe!* — Stay! (you!)
+*Nofo koe!* Stay! (you!)
 
-*Kai koe!* — Eat! (you!)
+*Kai koe!* Eat! (you!)
 :::
 
 For plural commands, *mou* already appears before the verb, and you can add the postposed plural pronoun after it:
 
 ::: {.examples}
-*Mou ō kimoutolu!* — Go! (all of you, I mean it!)
+*Mou ō kimoutolu!* Go! (all of you, I mean it!)
 
-*Mou kai kimoutolu!* — Eat! (all of you!)
+*Mou kai kimoutolu!* Eat! (all of you!)
 :::
 
 ---
@@ -265,13 +265,13 @@ For plural commands, *mou* already appears before the verb, and you can add the 
 
 Add the postposed pronoun to make each command emphatic.
 
-1. *Hiva \_\_\_!* — Sing! (you yourself!)
-2. *Lele \_\_\_!* — Run! (you yourself!)
-3. *Mou inu \_\_\_!* — Drink! (all of you, I mean it!)
-4. *Mohe \_\_\_!* — Sleep! (you yourself!)
-5. *Mou hiva \_\_\_!* — Sing! (all of you!)
+1. *Hiva \_\_\_!* Sing! (you yourself!)
+2. *Lele \_\_\_!* Run! (you yourself!)
+3. *Mou inu \_\_\_!* Drink! (all of you, I mean it!)
+4. *Mohe \_\_\_!* Sleep! (you yourself!)
+5. *Mou hiva \_\_\_!* Sing! (all of you!)
 
-**Answers:** 1. *koe* — 2. *koe* — 3. *kimoutolu* — 4. *koe* — 5. *kimoutolu*
+**Answers:** 1. *koe*. 2. *koe*. 3. *kimoutolu*. 4. *koe*. 5. *kimoutolu*
 
 ---
 

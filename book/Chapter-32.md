@@ -12,7 +12,7 @@ When *faka-* is attached to a noun, it creates an adjective or adverb meaning "i
 *Tonga* → *faka-Tonga* (Tongan, in the Tongan way)
 
 ::: {.examples}
-*'Okú ke poto he hiva faka-Tonga?* — Are you good at Tongan singing?
+*'Okú ke poto he hiva faka-Tonga?* Are you good at Tongan singing?
 :::
 
 Here *faka-Tonga* describes the style of *hiva* *(singing)* as Tongan.
@@ -27,7 +27,7 @@ When *faka-* is attached to a proper place name, it is written with a hyphen: *f
 | *Pālangi* (European) | *faka-Pālangi* | in the European way |
 
 ::: {.examples}
-*'Okú ne haka fakatu'i.* — He dances in a kingly manner.
+*'Okú ne haka fakatu'i.* He dances in a kingly manner.
 :::
 
 ---
@@ -39,7 +39,7 @@ The second function of *faka-* is causative. When attached to an adjective or an
 *mohe* (to sleep) → *fakamohe* (to put to sleep)
 
 ::: {.examples}
-*Na'á ne fakamohe 'ene tamasi'í.* — She put her child to sleep.
+*Na'á ne fakamohe 'ene tamasi'í.* She put her child to sleep.
 :::
 
 The word *mohe* means "to sleep," something you do yourself. Adding *faka-* makes it causative: *fakamohe* means "to cause to sleep," to put someone to sleep.
@@ -47,13 +47,13 @@ The word *mohe* means "to sleep," something you do yourself. Adding *faka-* make
 *totonu* *(straight, correct)* → *fakatotonu* (to straighten)
 
 ::: {.examples}
-*Na'á ku fakatotonu 'a e falá.* — I straightened the mat.
+*Na'á ku fakatotonu 'a e falá.* I straightened the mat.
 :::
 
 *lelei* (good) → *fakalelei* (to mend, to make good)
 
 ::: {.examples}
-*Kuó ne fakalelei 'a e vaká.* — He has mended the boat.
+*Kuó ne fakalelei 'a e vaká.* He has mended the boat.
 :::
 
 | Base word | Meaning | *faka-* form | Meaning |
@@ -75,7 +75,7 @@ Some *faka-* verbs are intransitive: the subject causes the action upon themselv
 *taha* (one) → *fakataha* (to assemble, to gather together)
 
 ::: {.examples}
-*Kuo nau fakataha 'i he fale lotú.* — They have assembled in the church.
+*Kuo nau fakataha 'i he fale lotú.* They have assembled in the church.
 :::
 
 The idea behind *fakataha* is "to cause oneself to become one," to come together as a group. No separate object is needed.
@@ -83,7 +83,7 @@ The idea behind *fakataha* is "to cause oneself to become one," to come together
 *mama'o* *(far, distant)* → *fakamama'o* (to depart, to move oneself away)
 
 ::: {.examples}
-*Na'á ne fakamama'o mei he kolō.* — He departed from the village.
+*Na'á ne fakamama'o mei he kolō.* He departed from the village.
 :::
 
 The distinction between transitive and reflexive causatives depends on the base word. Adjectives and transitive-sense verbs tend to produce transitive *faka-* forms (*fakamohe*, *fakalelei*). Adjectives and intransitive verbs that describe a state tend to produce reflexive *faka-* forms (*fakataha*, *fakamama'o*).
@@ -101,9 +101,9 @@ When *faka-* is attached to a noun naming a period of time, it creates an adverb
 | *ta'u* (year) | *fakata'u* | yearly |
 
 ::: {.examples}
-*'Oku ou lotu faka'aho.* — I pray daily.
+*'Oku ou lotu faka'aho.* I pray daily.
 
-*Na'e 'alu fakauike.* — He went weekly.
+*Na'e 'alu fakauike.* He went weekly.
 :::
 
 These temporal adverbs sit after the verb, in the same position as other adverbs like *lelei* (well) or *mālohi* (hard).
@@ -115,9 +115,9 @@ These temporal adverbs sit after the verb, in the same position as other adverbs
 The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka-* means "pertaining to [noun] in general," *faka-e-* narrows the meaning to "pertaining to one particular [noun]."
 
 ::: {.examples}
-*ha me'a fakakolo* — a village matter (relating to villages in general)
+*ha me'a fakakolo*. a village matter (relating to villages in general)
 
-*ha me'a fakaekolo* — a matter pertaining to one particular village
+*ha me'a fakaekolo*. a matter pertaining to one particular village
 :::
 
 *Fakakolo* describes something that relates to villages as a category. *Fakaekolo* singles out one specific village, distinguishing it from others.
@@ -132,11 +132,11 @@ The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka
 
 | Pattern | Function | Example |
 |---|---|---|
-| *faka-* + noun | manner/likeness | *faka-Tonga* — Tongan, in the Tongan way |
-| *faka-* + adjective/verb | causative (transitive) | *fakamohe* — to put to sleep |
-| *faka-* + adjective/verb | causative reflexive (intransitive) | *fakataha* — to assemble |
-| *faka-* + time noun | temporal adverb | *faka'aho* — daily |
-| *faka-e-* + noun | pertaining to one particular | *fakaekolo* — pertaining to this village |
+| *faka-* + noun | manner/likeness | *faka-Tonga*<br><span class="translation">Tongan, in the Tongan way</span> |
+| *faka-* + adjective/verb | causative (transitive) | *fakamohe*<br><span class="translation">to put to sleep</span> |
+| *faka-* + adjective/verb | causative reflexive (intransitive) | *fakataha*<br><span class="translation">to assemble</span> |
+| *faka-* + time noun | temporal adverb | *faka'aho*<br><span class="translation">daily</span> |
+| *faka-e-* + noun | pertaining to one particular | *fakaekolo*<br><span class="translation">pertaining to this village</span> |
 
 ---
 
@@ -230,14 +230,14 @@ The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka
 
 #### Exercise 1
 
-1. *faka-Tonga* — Tongan, in the Tongan way
-2. *fakamohe* — to put to sleep
-3. *faka'aho* — daily
-4. *fakatu'i* — kingly, royal
-5. *fakalelei* — to mend, to make good
-6. *fakauike* — weekly
-7. *fakataha* — to assemble, to gather together
-8. *fakatotonu* — to straighten
+1. *faka-Tonga*. Tongan, in the Tongan way
+2. *fakamohe*. to put to sleep
+3. *faka'aho*. daily
+4. *fakatu'i*. kingly, royal
+5. *fakalelei*. to mend, to make good
+6. *fakauike*. weekly
+7. *fakataha*. to assemble, to gather together
+8. *fakatotonu*. to straighten
 
 #### Exercise 2
 

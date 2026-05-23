@@ -6,88 +6,43 @@ const INTERVAL = 7000
 
 const slides = [
   {
-    eyebrow: 'The Only Modern Course for Tongan',
-    headline: <>Duolingo<br />doesn&apos;t have<br />Tongan. <span className="accent">We do.</span></>,
-    sub: 'Churchward’s grammar is from 1953. This is the serious, contemporary alternative — for adults who want to actually speak and understand the language.',
-    provenance: 'Category of One · Since 2024',
+    eyebrow: 'For the words that connect you home',
+    headline: <>Duolingo<br />doesn&apos;t have<br />Tongan. <span className="accent">So we&apos;re building it.</span></>,
+    sub: '190,000 people speak Tongan. There’s almost nothing online to learn it. This is a free, community-edited course — built in the open for anyone learning, returning to, or keeping the language alive.',
+    provenance: 'Free · Community Edition · v0.x',
   },
   {
-    eyebrow: 'One Complete Grammar Arc',
-    headline: <>52 chapters.<br />One <span className="accent">complete</span><br />grammar.</>,
-    sub: 'From greetings to cleft constructions. A1 to B2, chapter by chapter, with nothing skipped and nothing padded.',
+    eyebrow: 'A complete arc, in progress',
+    headline: <>53 chapters.<br />One <span className="accent">grammar</span>,<br />built in the open.</>,
+    sub: 'From greetings to cleft constructions. A1 to B2, chapter by chapter — published as it’s written, reviewed by fluent speakers as it grows.',
     provenance: 'A1–B2 · Beginner to Advanced',
   },
   {
-    eyebrow: 'Every Answer Teaches the Rule',
+    eyebrow: 'Every answer teaches the rule',
     headline: <>Told <span className="accent">why</span>,<br />not just<br />whether.</>,
     sub: 'Every wrong answer explains the rule it broke. Every right answer shows why the others weren’t. No guessing, no streaks to protect.',
-    provenance: 'Explanations on Every Option',
+    provenance: 'Explanations on every option',
   },
   {
-    eyebrow: 'Clean Prose · Beautiful Typography',
+    eyebrow: 'Speakers, learners, everyone',
+    headline: <>Speakers,<br />come help.<br /><span className="accent">Learners, come learn.</span></>,
+    sub: 'Flag a typo, suggest a better example, request an exercise. Fluent speakers who review chapters get their names on the Founding Reviewers page.',
+    provenance: 'Open to feedback · open to contributors',
+  },
+  {
+    eyebrow: 'Reads like a book',
     headline: <>No streaks.<br />No notifications.<br /><span className="accent">Just the book.</span></>,
-    sub: 'Drills embedded in the chapter, not quarantined in a separate app. Reads like a book, works like a course.',
-    provenance: 'Reads Like Prose · Not a Game',
-  },
-  {
-    eyebrow: 'Typeset for Pacific Languages',
-    headline: <>Saltillo<br /><span className="accent">and macrons</span>,<br />done right.</>,
-    sub: 'ʻOku ou nofo ʻi Tongatapu — set in a font purpose-built for Pacific orthography. The detail your language deserves.',
-    provenance: 'Purpose-Built Pacific Typesetting',
+    sub: 'Drills embedded in the chapter, not quarantined in a separate app. Set in a font built for Pacific orthography — macrons and saltillo, done right.',
+    provenance: 'Reads like prose · not a game',
   },
 ]
 
 const moduleCards = [
-  {
-    num: '01',
-    type: 'Chapters',
-    title: <>Learn by<br />Chapter</>,
-    tongan: 'ʻOku tuʻu fakataha pe',
-    desc: '52 chapters, A1 to B2. Greetings through cleft constructions, each one a self-contained lesson with drills embedded in the prose.',
-    to: '/chapters',
-    color: 'c1',
-    tag: '§ 01',
-  },
-  {
-    num: '02',
-    type: 'Exercises',
-    title: <>Targeted<br />Drills</>,
-    tongan: 'Ngaahi ngaue fakapotopoto',
-    desc: 'Sentence builders, tense swaps, possessive sorters. Practice the exact pattern the chapter just taught you — nothing generic.',
-    to: '/drills',
-    color: 'c2',
-    tag: '§ 02',
-  },
-  {
-    num: '03',
-    type: 'Quizzes',
-    title: <>Told<br />Why</>,
-    tongan: 'ʻUhinga, ʻikai pe totonu',
-    desc: 'One multiple-choice quiz per chapter, with an explanation on every option — right and wrong. You are taught, not tested.',
-    to: '/quizzes',
-    color: 'c3',
-    tag: '§ 03',
-  },
-  {
-    num: '04',
-    type: 'Vocabulary',
-    title: <>Flip<br />Cards</>,
-    tongan: 'Kāti fakafoki',
-    desc: '630+ vocabulary cards across every chapter. Filter by category, shuffle, and test your recall.',
-    to: '/cards',
-    color: 'c4',
-    tag: '§ 04',
-  },
-  {
-    num: '05',
-    type: 'Reference',
-    title: <>Reference<br />Charts</>,
-    tongan: 'Tepile tokoni',
-    desc: 'Pronoun paradigms, possessive tables, tense markers. The full grammatical system at a glance, typeset for the page.',
-    to: '/charts',
-    color: 'c5',
-    tag: '§ 05',
-  },
+  { num: '01', title: 'Chapters',                       desc: 'Follow the full grammar arc step by step.',     action: 'Start',    to: '/chapters' },
+  { num: '02', title: 'Exercises',                      desc: "Practice what you've learned in each chapter.", action: 'Practice', to: '/drills' },
+  { num: '03', title: 'Quizzes',                        desc: 'Test your understanding and track your progress.', action: 'Test',  to: '/quizzes' },
+  { num: '04', title: <>Vocab<br />Flip Cards</>,       desc: 'Build your vocabulary one card at a time.',     action: 'Flip',     to: '/cards' },
+  { num: '05', title: <>Reference<br />Charts</>,       desc: 'Quick grammar lookup whenever you need it.',    action: 'Lookup',   to: '/charts' },
 ]
 
 // ── Sentence builder data (for Preview 4) ─────────────────────────────────
@@ -322,7 +277,7 @@ export default function Landing() {
           </svg>
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">The Modern Course · 52 Chapters · A1–B2</div>
+        <div className="top-sub">A Community Edition · 53 Chapters · A1–B2 · Free</div>
       </div>
 
       {/* ========== HERO CANVAS ========== */}
@@ -527,7 +482,7 @@ export default function Landing() {
             <div className="preview-cta">
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
               <Link to="/chapters" className="cta-secondary">See the Contents</Link>
-              <div className="cta-meta"><strong>Ch. 01 Free</strong> · Full Course from $12</div>
+              <div className="cta-meta"><strong>Free, always</strong> · Built in the open</div>
             </div>
           </div>
         </div>
@@ -536,67 +491,53 @@ export default function Landing() {
       {/* ========== BOTTOM WHITE BAND ========== */}
       <div className="bottom-band reveal d4">
         <div>
-          <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> The Complete Course</div>
+          <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> The Community Edition</div>
           <div className="bottom-spec">
-            52 Chapters · Full Grammar Arc · Audio
-            <span className="counter"> · No streaks. No notifications. No gamification.</span>
+            53 Chapters · Full Grammar Arc · Reviewed in the open
+            <span className="counter"> · No streaks. No notifications. No paywall.</span>
           </div>
         </div>
         <div className="cefr-badge">
           <div className="level">A1–B2</div>
           <div className="scope">Beginner → Advanced</div>
         </div>
-        <div className="free-note">Ch. 01 Free</div>
+        <div className="free-note">Free, always</div>
       </div>
 
-      {/* ========== DARK SECTION — five module cards ========== */}
-      <div className="dark-section">
-        <div className="dark-frame">
-          <div className="section-bar" style={{ marginTop: 0, paddingTop: '28px' }}>
+      {/* ========== § 01 · Five Ways In — light panel ========== */}
+      <div className="panel-section">
+        <div className="panel-frame">
+          <div className="panel-section-bar" style={{ marginTop: 0 }}>
             <span>§ 01 · Five Ways In</span>
             <span className="right">Choose where to begin</span>
           </div>
-          <div className="cards">
+
+          <div className="panel-cards cards-5">
             {moduleCards.map((c, i) => (
               <Link
                 key={c.num}
                 to={c.to}
-                className={`card ${c.color} scroll-reveal`}
+                className={`panel-card panel-card-c${i + 1} scroll-reveal`}
                 style={{ transitionDelay: `${i * 0.08}s` }}
               >
-                <div className="top-stripe" />
-                <div className="card-body">
-                  <div className="card-head">
-                    <span className="card-num">No. {c.num}</span>
-                    <span>{c.type}</span>
+                <span className="panel-card-stripe" aria-hidden="true" />
+                <div className="panel-card-body">
+                  <span className="panel-card-num">{c.num}</span>
+                  <div className="panel-card-center">
+                    <div className="panel-card-title">{c.title}</div>
+                    <p className="panel-card-desc">{c.desc}</p>
                   </div>
-                  <div className="card-title">{c.title}</div>
-                  <div className="card-tongan">{c.tongan}</div>
-                  <p className="card-desc">{c.desc}</p>
                 </div>
-                <div className="card-foot">
-                  <span className="tag">{c.tag}</span>
-                  <span className="arrow">→</span>
+                <div className="panel-card-foot">
+                  <span className="panel-card-tag">{c.action}</span>
+                  <span className="panel-card-arrow" aria-hidden="true">→</span>
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="provenance-bar">
-            <div className="line">
-              <strong>Written by a Tongan teacher.</strong>
-              &nbsp;Every chapter edited by a native speaker, every sentence recorded by a native voice. This is the course we wanted to exist, so we made it.
-            </div>
-            <div className="sig">
-              <strong>Lea Faka-Tonga</strong><br />
-              Edition 2026
-            </div>
-          </div>
-
-          <div className="colophon">
-            <div><strong>Lea Faka-Tonga</strong> · Edition 2026</div>
-            <div>Set in Barlow Condensed, Inter &amp; Source Serif</div>
-            <div className="tonga-sig">Tuʻa ʻofa atu</div>
+          <div className="panel-colophon">
+            <div><strong>Lea Faka-Tonga</strong> · Edition v0.9 · 2026 · A work in progress</div>
           </div>
         </div>
       </div>

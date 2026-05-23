@@ -7,7 +7,7 @@ Sentences built so far describe actions but not when they happen. This chapter a
 ### Past Time Words
 
 ::: {.examples}
-*Na'a mou kai talo 'anepō?* — Did you (plural) eat taro last night?
+*Na'a mou kai talo 'anepō?* Did you (plural) eat taro last night?
 :::
 
 The word *'anepō* *(last night)* sits at the end of the sentence. Everything before it (the tense marker, pronoun, verb, and object *talo* *(taro)*) stays exactly as you learned it. The time word attaches to the end.
@@ -21,9 +21,9 @@ Tongan has three common time words for the recent past:
 | *'anenai* | a while ago, earlier today |
 
 ::: {.examples}
-*Na'á ku mohe 'aneafi.* — I slept yesterday.
+*Na'á ku mohe 'aneafi.* I slept yesterday.
 
-*Na'a mau ako lea 'anenai.* — We studied language a while ago.
+*Na'a mau ako lea 'anenai.* We studied language a while ago.
 :::
 
 In the second sentence, *ako* *(study)* combines with *lea* in the verb-object compound *ako lea* *(study language)*, which works as a unit, just as *kai mā* and *inu vai* do. The time word follows the compound, in the same end position as always.
@@ -31,9 +31,9 @@ In the second sentence, *ako* *(study)* combines with *lea* in the verb-object c
 Modifiers keep their usual position right after the verb or verb-object compound. The time word comes after them, at the very end:
 
 ::: {.examples}
-*Na'á ku ngāue mālohi 'aneafi.* — I worked hard yesterday.
+*Na'á ku ngāue mālohi 'aneafi.* I worked hard yesterday.
 
-*Na'a nau kai ika lahi 'anepō.* — They ate a lot of fish last night.
+*Na'a nau kai ika lahi 'anepō.* They ate a lot of fish last night.
 :::
 
 The object *ika* *(fish)* sits after the verb, with the modifier *lahi* and the time word following in order.
@@ -43,7 +43,7 @@ The object *ika* *(fish)* sits after the verb, with the modifier *lahi* and the 
 ### Future Time Words
 
 ::: {.examples}
-*Té u 'alu 'apongipongi.* — I will go tomorrow.
+*Té u 'alu 'apongipongi.* I will go tomorrow.
 :::
 
 Future time words work the same way: they go at the end of the sentence.
@@ -55,11 +55,11 @@ Future time words work the same way: they go at the end of the sentence.
 | *'anai* | in a little while, later today |
 
 ::: {.examples}
-*Te nau mohe 'apō.* — They will sleep tonight.
+*Te nau mohe 'apō.* They will sleep tonight.
 
-*Te mau ngāue 'anai.* — We will work in a little while.
+*Te mau ngāue 'anai.* We will work in a little while.
 
-*Té ke hiva 'apongipongi?* — Will you sing tomorrow?
+*Té ke hiva 'apongipongi?* Will you sing tomorrow?
 :::
 
 The verb *hiva* *(sing)* fills the same slot as *mohe* and *ngāue* in the sentences above.
@@ -91,19 +91,19 @@ When *'aho ni* appears as a time expression inside a sentence, the article *he* 
 > **Preview:** The word *he* before *'ahó ni* is the definite article, similar to "the" in English. The article *he* is introduced in Chapter 8: Articles. Treat *he 'ahó ni* as a set phrase meaning "today."
 
 ::: {.examples}
-*'Oku ou fiefia he 'ahó ni.* — I am happy today.
+*'Oku ou fiefia he 'ahó ni.* I am happy today.
 
-*'Oku ou fiekaia he 'ahó ni.* — I am hungry today.
+*'Oku ou fiekaia he 'ahó ni.* I am hungry today.
 :::
 
 The word *fiekaia* *(hungry)* is a predicate adjective, like *fiefia* and *hela'ia* from the previous chapter.
 
 ::: {.examples}
-*Té u ngāue mālohi he 'ahó ni.* — I will work hard today.
+*Té u ngāue mālohi he 'ahó ni.* I will work hard today.
 
-*'Oku lā'ā he 'ahó ni.* — It is sunny today.
+*'Oku lā'ā he 'ahó ni.* It is sunny today.
 
-*'Oku momoko he 'ahó ni.* — It is cold today.
+*'Oku momoko he 'ahó ni.* It is cold today.
 :::
 
 > **Preview:** The word *lā'ā* *(sunny)* appears in the sentence above without a pronoun. Weather expressions in Tongan often follow this short pattern: tense marker + weather word, with no one "doing" the action.
@@ -117,19 +117,19 @@ Tongan has three ways to say "tonight," and the choice depends on when you are s
 The time adverb *'apō* works like the other future time words: it carries the forward-looking *'a-* prefix, so it is used during the day, when night has not yet arrived.
 
 ::: {.examples}
-*Té ta 'alu 'apō.* — We will go tonight. (Said while the sun is still up.)
+*Té ta 'alu 'apō.* We will go tonight. (Said while the sun is still up.)
 :::
 
 Adding *ni* gives *'apōni* *(this coming night)*, which is more definite: *this* coming night, not some other.
 
 ::: {.examples}
-*Té ta 'alu 'apōni?* — Will we go tonight? (Still during the day, but narrowing it: tonight is the night.)
+*Té ta 'alu 'apōni?* Will we go tonight? (Still during the day, but narrowing it: tonight is the night.)
 :::
 
 Both *'apō* and *'apōni* look ahead to a night that has not started. Once night has arrived, neither form fits. You are no longer looking forward to it; you are in it. At that point, Tongan uses *he poó ni*, built the same way as *he 'ahó ni*: the article *he* + *pō* *(night)* + the demonstrative *ni*.
 
 ::: {.examples}
-*Té ta 'alu he poó ni.* — We are going tonight. (Said after dark.)
+*Té ta 'alu he poó ni.* We are going tonight. (Said after dark.)
 :::
 
 The stress shifts the same way: *pō* becomes *poó* before *ni*.
@@ -161,13 +161,13 @@ TM + pronoun + (*fa'a*) + verb (+ indefinite object) (+ modifier) (+ time word)
 Each element keeps its own position. The time word goes last.
 
 ::: {.examples}
-*Na'á ku kai mā lahi 'aupito 'aneafi.* — I ate a great deal of bread yesterday.
+*Na'á ku kai mā lahi 'aupito 'aneafi.* I ate a great deal of bread yesterday.
 :::
 
 This stacks: past tense marker + pronoun + verb + indefinite object + modifier + intensifier + time word.
 
 ::: {.examples}
-*Na'á ne inu kava 'anepō.* — He drank kava last night.
+*Na'á ne inu kava 'anepō.* He drank kava last night.
 :::
 
 Here *kava* fills the object slot, as *mā* and *vai* do.
@@ -175,7 +175,7 @@ Here *kava* fills the object slot, as *mā* and *vai* do.
 Adding the preposed modifier *fa'a* from the previous chapter gives the most complex sentence you can build so far:
 
 ::: {.examples}
-*Na'a mau fa'a inu vai lahi 'aupito 'anepō.* — We often drank a great deal of water last night.
+*Na'a mau fa'a inu vai lahi 'aupito 'anepō.* We often drank a great deal of water last night.
 :::
 
 ---

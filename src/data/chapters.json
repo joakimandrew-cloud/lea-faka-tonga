@@ -8,6 +8,9 @@
       "Seven basic verbs",
       "Three-part sentence pattern"
     ],
+    "preview": "Naʻa + pronoun + verb",
+    "level": "A1",
+    "group": "foundations",
     "unlocks_sections": [
       "s01"
     ],
@@ -70,6 +73,9 @@
       "Dual and plural forms",
       "Suggestions with tau/ta"
     ],
+    "preview": "Four tense markers, full pronoun paradigm",
+    "level": "A1",
+    "group": "foundations",
     "unlocks_sections": [
       "s01"
     ],
@@ -157,6 +163,9 @@
       "Bare-noun objects",
       "Combining modifiers"
     ],
+    "preview": "Adjectives as verbs, modifiers, pē and ʻaupito",
+    "level": "A1",
+    "group": "foundations",
     "unlocks_sections": [
       "s02",
       "s03",
@@ -207,6 +216,9 @@
       "Today",
       "Time words go last"
     ],
+    "preview": "Time word sits at the end of the sentence",
+    "level": "A1",
+    "group": "foundations",
     "unlocks_sections": [
       "s04"
     ],
@@ -278,6 +290,9 @@
       "Polite particle mu'a",
       "Postposed pronouns for emphasis"
     ],
+    "preview": "Imperatives, prohibitive, postposed pronouns",
+    "level": "A1",
+    "group": "foundations",
     "unlocks_sections": [
       "s08",
       "s09",
@@ -364,6 +379,9 @@
       "Demonstrative places (heni, hena, he)",
       "Place vocabulary"
     ],
+    "preview": "ʻi + place · ʻi fē · heni / hena / hē",
+    "level": "A1",
+    "group": "foundations",
     "unlocks_sections": [
       "s05",
       "s06"
@@ -448,6 +466,9 @@
       "Experiencer verbs (mahino, ngalo)",
       "Prepositional pronouns (kiate, 'iate)"
     ],
+    "preview": "ki (to) · mei (from) · kia (to a person)",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [
       "s06"
     ],
@@ -524,6 +545,9 @@
       "Definite e (the)",
       "Article + noun objects"
     ],
+    "preview": "Indefinite ha · definite e / he",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [
       "s03",
       "s04"
@@ -591,6 +615,9 @@
       "First person always u",
       "Impersonal negation 'ikai ke"
     ],
+    "preview": "TM + ʻikai te + pronoun + verb",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [],
     "unlocks_entry_points": [
       "negation",
@@ -665,6 +692,9 @@
       "Companion phrases",
       "Dual commands with mo"
     ],
+    "preview": "mo + name / pronoun (with, and, taking along)",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [
       "s07"
     ],
@@ -731,6 +761,9 @@
       "When (future): 'afe",
       "How: fefe"
     ],
+    "preview": "ʻi fē · fīha · fēfē · hā — sits where the answer goes",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -803,6 +836,9 @@
       "Ko negation ('oku 'ikai ko e)",
       "What is that? (ko e ha)"
     ],
+    "preview": "ko e + noun — identification sentences",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [],
     "unlocks_entry_points": [
       "ko_identification",
@@ -878,6 +914,9 @@
       "Where is? (ko fe)",
       "Question-answer patterns"
     ],
+    "preview": "ko hai · ko e hā · ko fē · ko e hā…ai",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [],
     "unlocks_entry_points": [
       "ko_question_who",
@@ -949,6 +988,9 @@
       "Common expressions",
       "Social protocols"
     ],
+    "preview": "Mālō e lelei · ʻalu ā · nofo ā",
+    "level": "A1",
+    "group": "core-grammar",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -989,6 +1031,9 @@
       "Tense marker shift (na'e, 'e)",
       "Weather expressions"
     ],
+    "preview": "TM + V + ʻa + noun subject (intransitive)",
+    "level": "A1",
+    "group": "structure-possession",
     "unlocks_sections": [],
     "unlocks_entry_points": [
       "noun_subject"
@@ -1053,6 +1098,9 @@
       "Named equationals with ʻa",
       "Subject-first emphasis"
     ],
+    "preview": "ko e + predicate + ʻa + noun subject",
+    "level": "A1",
+    "group": "structure-possession",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1116,6 +1164,9 @@
       "Possessive pronouns",
       "Possessive prepositions ʻa and ʻo"
     ],
+    "preview": "ʻeku / hoku classes · ʻa (doer) and ʻo (receiver)",
+    "level": "A1",
+    "group": "structure-possession",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1193,6 +1244,9 @@
       "Stress shift for definiteness",
       "Article system in full"
     ],
+    "preview": "Three-level definiteness · accent on the final vowel",
+    "level": "A1",
+    "group": "structure-possession",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1254,6 +1308,9 @@
       "Intransitive vs. transitive contrast",
       "Passive equivalent"
     ],
+    "preview": "TM + V + ʻa (object) + ʻe (agent)",
+    "level": "A1",
+    "group": "structure-possession",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1312,6 +1369,9 @@
       "Counting people with toko",
       "Telling time"
     ],
+    "preview": "Counting · toko · foʻi · telling time · prices",
+    "level": "A1",
+    "group": "structure-possession",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1377,6 +1437,9 @@
       "Can/able (lava ʻo)",
       "Like (saiʻia)"
     ],
+    "preview": "fie (want) · lava (able) · saiʻia (like)",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1438,6 +1501,9 @@
       "Just/not until (toki)",
       "Immediately (leva)"
     ],
+    "preview": "kei · ʻosi · teʻeki · toe · toki · leva",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1515,6 +1581,9 @@
       "Must (kuo pau ke)",
       "Negating obligation"
     ],
+    "preview": "ʻoku totonu ke · kuo pau ke",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1573,6 +1642,9 @@
       "But (ka/kae)",
       "Or/whether (pe)"
     ],
+    "preview": "pea · ʻo · ka / kae · pe",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1641,6 +1713,9 @@
       "Animal plural (fanga)",
       "Dual marker (ongo)"
     ],
+    "preview": "ngaahi · kau · fanga · ʻū · ongo",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1708,6 +1783,9 @@
       "Reason with he",
       "Benefactive maʻa/moʻo"
     ],
+    "preview": "ke (purpose) · he (reason) · maʻa / moʻo (benefit)",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1771,6 +1849,9 @@
       "Same as (tatau mo)",
       "Like (hangē)"
     ],
+    "preview": "ange · taha · tatau mo · hangē",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1836,6 +1917,9 @@
       "Hifo (down)",
       "Holo (around)"
     ],
+    "preview": "mai · atu · ange · hake · hifo · holo",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1908,6 +1992,9 @@
       "Indefinite possessives",
       "All possessive forms"
     ],
+    "preview": "Preposed, postposed, and prepositional possessives unified",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -1971,6 +2058,9 @@
       "Until (kaeʻoua ke)",
       "Although (neongo)"
     ],
+    "preview": "kapau · lolotonga · neongo · ka ne",
+    "level": "A2",
+    "group": "expanding-sentences",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2029,6 +2119,9 @@
       "Negative existential",
       "Classifier foʻi"
     ],
+    "preview": "ai (back-reference) · ʻoku ʻi ai (there is/are)",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2061,6 +2154,9 @@
       "Manner/style expressions",
       "Temporal adverbs"
     ],
+    "preview": "Manner · causative · temporal · pertaining-to",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2124,6 +2220,9 @@
       "Executive -ʻi",
       "Suffix -ʻaki"
     ],
+    "preview": "V + ʻaki (with) · transitive suffix -ʻi",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2186,6 +2285,9 @@
       "Side-by-side clause stringing",
       "Tokua (hearsay)"
     ],
+    "preview": "pehē · tokua · ko ia · tā",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2218,6 +2320,9 @@
       "Preposed adjectives (fuʻu, kiʻi)",
       "Colors"
     ],
+    "preview": "Postposed and preposed · double adjectives · colors",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2280,6 +2385,9 @@
       "Ko e meʻa ia ... ai (that's why)",
       "Emphatic equational"
     ],
+    "preview": "ko + subject + TM + pronoun + V",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2329,6 +2437,9 @@
       "Postposed ho-class (ʻoʻoku)",
       "Asking whose? (ʻa hai, ʻo hai)"
     ],
+    "preview": "ʻaʻaku · ʻoʻoku · ʻa hai? · ʻo hai?",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2388,6 +2499,9 @@
       "Uncertainty (naʻa perhaps)",
       "Stronger warnings (telia naʻa)"
     ],
+    "preview": "tuku ke · ʻofa ke · naʻa (lest / perhaps)",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2446,6 +2560,9 @@
       "Naʻa mo (even)",
       "Kaeʻumaʻa (and also)"
     ],
+    "preview": "ai in relatives · full 4×4 demonstrative system",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2514,6 +2631,9 @@
       "Veʻe (beside)",
       "Spatial nouns with people"
     ],
+    "preview": "ʻi he + loto · lalo · tuʻa · mui · funga · veʻe",
+    "level": "B1",
+    "group": "shaping-meaning",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2590,6 +2710,9 @@
       "Ngali (to seem)",
       "Ngalingali (to look as if)"
     ],
+    "preview": "Nouns ↔ verbs ↔ adjectives by position",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2671,6 +2794,9 @@
       "Hilī (after)",
       "Ordinal numerals"
     ],
+    "preview": "talu mei (since) · hilí (after) · kahaʻu (future)",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2744,6 +2870,9 @@
       "Koloto (not at all)",
       "Neʻineʻi (no wonder)"
     ],
+    "preview": "taʻe- (un- / without) · double negative = emphatic positive",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2817,6 +2946,9 @@
       "Groups within groups",
       "Phrasal and clausal accents"
     ],
+    "preview": "Groups within groups · phrasal and clausal accent",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2879,6 +3011,9 @@
       "Temporal clauses with ʻi he",
       "Verbal nouns as sentence subjects"
     ],
+    "preview": "Pronoun → possessive in verbal-noun constructions",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -2943,6 +3078,9 @@
       "Quasi-local nouns",
       "Classifier laʻi"
     ],
+    "preview": "Personal · local · common nouns",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -3006,6 +3144,9 @@
       "Ka ne ʻikai (if it were not for)",
       "Moderative mei (nearly/would)"
     ],
+    "preview": "ka (if / when / whenever) · ka ne (counterfactual)",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -3069,6 +3210,9 @@
       "State suffixes -fia, -hia, -ia, -ina",
       "-ʻia (possessing/regarding)"
     ],
+    "preview": "-ʻanga · -nga · -ʻia · -ngataʻa / -ngofua",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -3139,6 +3283,9 @@
       "moʻu- (continuation)",
       "kaungā- (fellow)"
     ],
+    "preview": "fe-…-ʻaki (reciprocal) · ma- (potential) · kaungā-",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -3209,6 +3356,9 @@
       "Moderation",
       "Faka- with reduplication"
     ],
+    "preview": "Full / partial reduplication · vowel protraction",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -3278,6 +3428,9 @@
       "Dual-for-singular idiom",
       "Sentence-initial kau"
     ],
+    "preview": "Impersonal te / kita · dual-for-singular",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -3331,6 +3484,9 @@
       "Emotional possessive pronouns",
       "Exclamatory ko e ... ka ko ha ..."
     ],
+    "preview": "siʻi (def emotional) · siʻa (indef emotional)",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
@@ -3385,6 +3541,9 @@
       "Intermediaries in formal speech",
       "Fakatulou: excusing oneself physically"
     ],
+    "preview": "Respectful vocabulary · formal register for chiefs",
+    "level": "B2",
+    "group": "advanced-patterns",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
