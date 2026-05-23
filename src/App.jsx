@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ChapterProvider } from './contexts/ChapterContext'
 import Layout from './components/Layout'
 import Landing from './pages/Landing'
-import Dashboard from './pages/Dashboard'
 import Builder from './pages/Builder'
 import OpenBuilder from './pages/OpenBuilder'
 import GuidedBuild from './pages/GuidedBuild'
@@ -36,7 +35,6 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/chapters" element={<ChapterBrowser />} />
           <Route element={<Layout />}>
-            <Route path="/learn" element={<Dashboard />} />
             <Route path="/build" element={<Builder />} />
             <Route path="/open-build" element={<OpenBuilder />} />
             <Route path="/guided" element={<GuidedBuild />} />

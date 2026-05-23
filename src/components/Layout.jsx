@@ -31,12 +31,14 @@ export default function Layout() {
   const isSkeletonFiller = path === '/skeleton-filler'
   const isClusivity = path === '/clusivity'
   const isQuizIndex = path === '/quizzes'
-  const isDashboard = path === '/learn'
-  const isSubPage = isFreeBuild || isOpenBuild || isGuidedBuild || isTerminalBuild || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum
+  const isDrillsMenu = path === '/drills'
+  const isSubPage = isFreeBuild || isOpenBuild || isGuidedBuild || isTerminalBuild || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu
 
   let breadcrumbLabel = ''
-  let backTo = '/learn'
-  if (isFreeBuild) {
+  let backTo = '/'
+  if (isDrillsMenu) {
+    breadcrumbLabel = 'Practice Drills'
+  } else if (isFreeBuild) {
     breadcrumbLabel = 'Free Build'
   } else if (isTerminalBuild) {
     breadcrumbLabel = 'Build a Sentence'
@@ -100,7 +102,7 @@ export default function Layout() {
         {/* ── Top header ── */}
         <header className="sticky top-0 z-10 bg-[var(--bg)] border-b border-[var(--border)] px-3 py-1.5 md:px-6 md:py-3 flex items-center justify-between">
           <button
-            onClick={() => navigate('/learn')}
+            onClick={() => navigate('/')}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Lea Faka-Tonga" className="brand-seal" />
@@ -130,7 +132,7 @@ export default function Layout() {
         </header>
 
         {/* ── Content ── */}
-        <main className={isDashboard ? 'max-w-6xl mx-auto px-6 py-6' : 'max-w-3xl mx-auto px-8 py-10'}>
+        <main className={isDrillsMenu ? '' : 'max-w-3xl mx-auto px-8 py-10'}>
           <Outlet />
         </main>
 
