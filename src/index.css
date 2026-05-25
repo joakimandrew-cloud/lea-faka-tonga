@@ -377,6 +377,97 @@ body::before {
   letter-spacing: 0.18em;
 }
 
+/* ── New site header (D layout) ────────────────────────────────────────── */
+/* Mobile-first: stack brand row above context row. Desktop: collapse into
+   a single flex row. The element itself is sticky+bordered via Tailwind in
+   Layout.jsx; this rule handles internal layout only. */
+.site-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+}
+
+.site-header-context {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px 6px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.site-header-context .back-link {
+  font-size: 0.78rem;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 24px;
+  }
+  .site-header-brand,
+  .site-header-context {
+    padding: 0;
+    border-top: none;
+  }
+  .site-header-context {
+    gap: 16px;
+    font-size: 0.875rem;
+  }
+  .site-header-context .back-link {
+    font-size: 0.875rem;
+  }
+}
+
+/* ── Segmented theme pill (T4) ─────────────────────────────────────────── */
+.theme-seg {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+.theme-seg span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--text);
+  opacity: 0.45;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.theme-seg span.on {
+  background: var(--text);
+  color: var(--bg);
+  opacity: 1;
+}
+
+/* ── Chapter chip (N4) ─────────────────────────────────────────────────── */
+.ch-chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 9px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
 /* ── Dashboard hero ────────────────────────────────────────────────────── */
 .dashboard-page {
   position: relative;

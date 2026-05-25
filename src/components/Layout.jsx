@@ -99,36 +99,51 @@ export default function Layout() {
 
       {/* ── Main area (offset by sidebar) ── */}
       <div className="md:ml-10">
-        {/* ── Top header ── */}
-        <header className="sticky top-0 z-10 bg-[var(--bg)] border-b border-[var(--border)] px-3 py-1.5 md:px-6 md:py-3 flex items-center justify-between">
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
-          >
-            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Lea Faka-Tonga" className="brand-seal" />
-            <span className="brand-text">LEA FAKA-TONGA</span>
-          </button>
-          <div className="flex items-center gap-4 text-sm">
-            <div className="theme-switch is-compact" onClick={() => setDark(d => !d)}>
-              <span className={`theme-switch-label ${dark ? 'active' : ''}`}>DARK</span>
-              <div className={`theme-switch-track ${dark ? '' : 'active'}`}>
-                <div className="theme-switch-thumb">{dark ? '☾' : ''}</div>
-              </div>
-              <span className={`theme-switch-label ${dark ? '' : 'active'}`}>LIGHT</span>
+        {/* ── Top header (two-row on mobile, single-row on desktop) ── */}
+        <header className="site-header sticky top-0 z-10 bg-[var(--bg)] border-b border-[var(--border)]">
+          <div className="site-header-brand">
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
+            >
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Lea Faka-Tonga" className="brand-seal" />
+              <span className="brand-text">LEA FAKA-TONGA</span>
+            </button>
+            <div className="theme-seg" role="group" aria-label="Theme">
+              <span
+                className={!dark ? 'on' : ''}
+                onClick={() => setDark(false)}
+              >
+                Light
+              </span>
+              <span
+                className={dark ? 'on' : ''}
+                onClick={() => setDark(true)}
+              >
+                Dark
+              </span>
             </div>
-            {isSubPage && (
-              <>
-                <button
-                  onClick={() => navigate(backTo)}
-                  className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
-                >
-                  &larr; Back
-                </button>
-                <span className="text-[var(--border)]">/</span>
-                <span className="text-[var(--text-muted)] text-xs md:text-sm">{breadcrumbLabel}</span>
-              </>
-            )}
           </div>
+          {isSubPage && (
+            <div className="site-header-context">
+              <button
+                onClick={() => navigate(backTo)}
+                className="back-link text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
+              >
+                &larr; Back
+              </button>
+              {currentChapterNum ? (
+                <span className="ch-chip">Ch {currentChapterNum}</span>
+              ) : currentQuizNum ? (
+                <span className="ch-chip">Ch {currentQuizNum} Quiz</span>
+              ) : (
+                <>
+                  <span className="text-[var(--border)]">/</span>
+                  <span className="text-[var(--text-muted)] text-xs md:text-sm">{breadcrumbLabel}</span>
+                </>
+              )}
+            </div>
+          )}
         </header>
 
         {/* ── Content ── */}
@@ -136,9 +151,6 @@ export default function Layout() {
           <Outlet />
         </main>
 
-        <footer className="site-footer">
-          Tuʻa ʻofa atu <span className="diamond">◆</span> Made with care for the language of Tonga
-        </footer>
       </div>
     </div>
   )
