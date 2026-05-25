@@ -12,9 +12,9 @@ const GROUPS = [
 ]
 
 const TIERS = [
-  { key: 'basic',        name: 'Basic',        level: 'A1',    blurb: 'Build the sentence.',                  groupKeys: ['foundations', 'core-grammar', 'structure-possession'] },
-  { key: 'intermediate', name: 'Intermediate', level: 'A2–B1', blurb: 'Expand and refine.',                   groupKeys: ['expanding-sentences', 'shaping-meaning'] },
-  { key: 'advanced',     name: 'Advanced',     level: 'B2',    blurb: 'Productive morphology and register.',  groupKeys: ['advanced-patterns'] },
+  { key: 'basic',        name: 'Basic',        blurb: 'Build the sentence.',                  groupKeys: ['foundations', 'core-grammar', 'structure-possession'] },
+  { key: 'intermediate', name: 'Intermediate', blurb: 'Expand and refine.',                   groupKeys: ['expanding-sentences', 'shaping-meaning'] },
+  { key: 'advanced',     name: 'Advanced',     blurb: 'Productive morphology and register.',  groupKeys: ['advanced-patterns'] },
 ]
 
 function ChipIcon() {
@@ -61,7 +61,6 @@ export default function QuizIndex() {
             <section key={tier.key} className="chapters-tier">
               <header className="chapters-tier-banner">
                 <div className="chapters-tier-heading">
-                  <div className="chapters-tier-eyebrow">Tier · {tier.level}</div>
                   <h2 className="chapters-tier-name">{tier.name}</h2>
                   <p className="chapters-tier-blurb">{tier.blurb}</p>
                 </div>

@@ -16,7 +16,9 @@
     "build:grammar-gates": "node scripts/build-grammar-gates.mjs",
     "audit:eva-build-indexes": "npm run extract:all-exercises && npm run build:vocab-index && npm run build:grammar-gates",
     "validate:exercises": "node scripts/validate-exercises.mjs",
-    "audit:eva": "npm run audit:eva-build-indexes && npm run validate:exercises"
+    "audit:eva": "npm run audit:eva-build-indexes && npm run validate:exercises",
+    "check:style": "node scripts/check-style.mjs",
+    "audit:all": "npm run check:style && npm run validate:drills && npm run audit:eva"
   },
   "dependencies": {
     "@fontsource/charis-sil": "^5.2.7",

@@ -6,8 +6,8 @@
 
 .v11-landing {
   /* Palette — warm cream + three reds, from the reference design */
-  --bg:          #f2ede1;
-  --bg-deep:     #e8e1d0;
+  --bg:          #ffffff;
+  --bg-deep:     #ffffff;
   --ink:         #1a1612;
   --mid:         #7a7570;
   --rule:        #d8d2c4;
@@ -23,7 +23,7 @@
   --plane-dark:  #1a1612;
   --plane:       #252019;
   --rule-dark:   #35302a;
-  --cream-light: #faf6ec;
+  --cream-light: #ffffff;
 
   background: var(--bg);
   color: var(--ink);

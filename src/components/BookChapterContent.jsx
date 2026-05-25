@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkDirective from 'remark-directive'
 import rehypeRaw from 'rehype-raw'
+import rehypeTableLabels from '../lib/rehype-table-labels'
 import remarkExamples from '../lib/remark-examples'
 import remarkDrillAnchors from '../lib/remark-drill-anchors'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
@@ -81,18 +82,36 @@ const baseComponents = {
         <code>{children}</code>
       </pre>
     ),
-  table: ({ children }) => (
-    <div className="overflow-x-auto my-4">
-      <table className="border-collapse text-sm">{children}</table>
-    </div>
-  ),
+  table: ({ node, children }) => {
+    // ch-stack (added by rehype-table-labels) marks tables that should become
+    // cards on mobile; tables without it stay compact real tables.
+    const extra = node?.properties?.className
+    const extraClass = Array.isArray(extra) ? extra.join(' ') : extra || ''
+    return (
+      <div className="ch-table-wrap overflow-x-auto my-4">
+        <table className={`ch-table border-collapse ${extraClass}`.trim()}>{children}</table>
+      </div>
+    )
+  },
   thead: ({ children }) => <thead className="bg-[var(--bg-tone)]">{children}</thead>,
   th: ({ children }) => (
     <th className="border border-[var(--border)] px-3 py-2 text-left text-[var(--accent)] font-semibold">{children}</th>
   ),
-  td: ({ children }) => (
-    <td className="border border-[var(--border)] px-3 py-2 text-[var(--text-strong)]">{children}</td>
-  ),
+  td: ({ node, children }) => {
+    // Preserve classes added by rehype-table-labels (e.g. vocab-type).
+    const extra = node?.properties?.className
+    const extraClass = Array.isArray(extra) ? extra.join(' ') : extra || ''
+    const colSpan = node?.properties?.colSpan || node?.properties?.colspan
+    return (
+      <td
+        className={`border border-[var(--border)] px-3 py-2 text-[var(--text-strong)] ${extraClass}`.trim()}
+        data-label={node?.properties?.['data-label'] || node?.properties?.dataLabel}
+        colSpan={colSpan}
+      >
+        {children}
+      </td>
+    )
+  },
   a: ({ href, children }) => (
     <a href={href} className="text-[var(--accent)] hover:text-[var(--accent-hover)] underline">{children}</a>
   ),
@@ -140,7 +159,7 @@ export default function BookChapterContent({ chapterNum }) {
     <div className="mb-8">
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
-        rehypePlugins={[rehypeRaw]}
+        rehypePlugins={[rehypeRaw, rehypeTableLabels]}
         components={components}
       >
         {normalizeExamplesFence(stripLeadingTitle(md))}
