@@ -1111,7 +1111,7 @@
 
     "prep_pronoun": {
       "label": "Prepositional Pronoun",
-      "description": "Choose the experiencer (to me, to you, etc.)",
+      "description": "Choose the experiencer (to me, to you, etc.). This is the COMPLETION node of the experiencer clause (`ʻOku mahino kiate au` = it is understandable to me): the experiencer pronoun is the required final slot, so the clause-connector edges and the time-word extension hang here, not on verb_experiencer (graph-walker registers prep_pronoun in CLAUSE_COMPLETION_NODE_IDS so getClauseConnectorEdges surfaces them, exactly as noun_subject_name/command_verb/prohibition_verb do — P1-A3). P1-A1: a full tensed stative clause extends with a time word (`ʻOku mahino kiate au he ʻaho ni`, parallel to the spec stative `ʻOku lāʻā he ʻaho ni`, Ch 15:272); the time_word node already gates `ʻOku`→`ʻaho ni` / `Naʻe`→past words via its own depends_on:tense_marker_exp + valid_combinations, and the `he` before `ʻaho ni` is added by getRenderedPath per book Ch 4:89. Clause connectors (spec §22 line 1424: any first clause that could FINISH may take a connector; A1 cites `ka ʻoku ʻikai mahino kia Sione`) are wired for coordination/reason/condition/time. The two PURPOSE subordinators (ke_purpose, koeʻuhi ke) are deliberately omitted: purpose attaches to an agentive main verb, not to a stative experiencer (`*ʻOku mahino kiate au ke u ʻalu` is ill-formed).",
       "words": [
         { "tongan": "kiate au", "english": "to me", "min_chapter": 7, "noun_class": "pronoun", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "kiate koe", "english": "to you", "min_chapter": 7, "noun_class": "pronoun", "animacy": "person", "possessive_class": "ho_class" },
@@ -1129,7 +1129,13 @@
       },
       "next": [
         { "node": "FINISH_STATEMENT", "label": "Finish as statement (.)", "min_chapter": 7 },
-        { "node": "FINISH_QUESTION", "label": "Finish as question (?)", "min_chapter": 7 }
+        { "node": "FINISH_QUESTION", "label": "Finish as question (?)", "min_chapter": 7 },
+        { "node": "time_word", "label": "Add time word (when)", "min_chapter": 7, "context_hint": "Say when — he ʻaho ni (today); ʻaneafi / ʻanepō (past) with Naʻe" },
+        { "node": "clause_connector_pea", "label": "Add sequential clause (pea... and then...)", "min_chapter": 24, "child_entry_point": "pea_second_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Say what happened next: ...and then..." },
+        { "node": "clause_connector_ka", "label": "Add contrasting clause (ka... but...)", "min_chapter": 24, "child_entry_point": "negation", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Contrast: ...but it is not clear to..." },
+        { "node": "clause_connector_he", "label": "Add reason (he... because...)", "min_chapter": 26, "child_entry_point": "reason_clause_he", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Give the reason: ...because..." },
+        { "node": "subordinator_kapau", "label": "Add condition (kapau... if...)", "min_chapter": 30, "child_entry_point": "conditional_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Add an if-clause: ...if..." },
+        { "node": "subordinator_lolotonga", "label": "Add simultaneous clause (lolotonga... while...)", "min_chapter": 30, "child_entry_point": "temporal_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Say what was happening at the same time: ...while..." }
       ]
     },
 

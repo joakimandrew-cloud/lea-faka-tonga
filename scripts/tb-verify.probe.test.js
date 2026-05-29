@@ -251,6 +251,73 @@ describe('P1-A3 — second clauses reach commands / noun-subject / prohibition',
   })
 })
 
+describe('P1-A1 — the experiencer clause extends past the experiencer pronoun', () => {
+  // Before P1-A1, `ʻOku mahino kiate au` dead-ended (prep_pronoun.next was
+  // FINISH-only). Now prep_pronoun is the experiencer clause's completion node
+  // and offers a time word + clause connectors.
+  it('experiencer + time word builds (ʻOku mahino kiate au he ʻaho ni)', () => {
+    let s = createWalkerState('experiencer', 53)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'mahino' })
+    s = advanceInFrame(s, { tongan: 'kiate au' })
+    s = takeExtension(s, 'time_word')
+    // present ʻOku gates the time word to ʻaho ni only (time_word.valid_combinations)
+    expect(getCurrentFrameWords(s).map(w => w.tongan)).toEqual(['ʻaho ni'])
+    s = advanceInFrame(s, { tongan: 'ʻaho ni' })
+    // book Ch 4:89 — ʻaho ni as a time expression takes the article `he`
+    expect(render(s)).toBe('ʻOku mahino kiate au he ʻaho ni')
+  })
+
+  it('past experiencer takes a bare adverb time word (Naʻe ngalo ʻiate au ʻaneafi)', () => {
+    let s = createWalkerState('experiencer', 53)
+    s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = advanceInFrame(s, { tongan: 'ngalo' })
+    s = advanceInFrame(s, { tongan: 'ʻiate au' })
+    s = takeExtension(s, 'time_word')
+    s = advanceInFrame(s, { tongan: 'ʻaneafi' })
+    expect(render(s)).toBe('Naʻe ngalo ʻiate au ʻaneafi') // adverbs take no `he`
+  })
+
+  it('experiencer offers clause connectors; ka opens a second clause', () => {
+    let s = createWalkerState('experiencer', 53)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'mahino' })
+    s = advanceInFrame(s, { tongan: 'kiate au' })
+    const extIds = getExtensionMenu(s).extensions.map(e => e.node)
+    expect(extIds).toContain('time_word')
+    expect(extIds).toContain('clause_connector_ka') // A1 cites `ka ʻoku ʻikai mahino…`
+    // purpose subordinators are intentionally NOT offered on a stative clause
+    expect(extIds).not.toContain('subordinator_ke_purpose')
+    s = takeExtension(s, 'clause_connector_ka')
+    s = advanceInFrame(s, { tongan: 'ka' })
+    expect(render(s)).toContain('ʻOku mahino kiate au ka')
+    expect(getExtensionMenu(s).requiredNodeId).toBe('tense_marker_neg') // fresh negation clause
+  })
+})
+
+describe('P1-A1 — `he ʻaho ni` render rule applies on every path (book Ch 4:89)', () => {
+  it('statement path renders he ʻaho ni', () => {
+    let s = createWalkerState('statement', 53)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'time_word')
+    s = advanceInFrame(s, { tongan: 'ʻaho ni' })
+    expect(render(s)).toBe('Naʻa ku ʻalu he ʻaho ni')
+  })
+  it('a bare adverb time word is unaffected (Naʻa ku ʻalu ʻaneafi)', () => {
+    let s = createWalkerState('statement', 53)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'time_word')
+    s = advanceInFrame(s, { tongan: 'ʻaneafi' })
+    expect(render(s)).toBe('Naʻa ku ʻalu ʻaneafi')
+  })
+})
+
 // KNOWN-REMAINING (tracked as P1 in plans/Terminal-Build-Fix-Tracker.md):
 // statement-path "...complement au" (e.g. ʻOku ... ki kolo au / mo Sione au)
 // still leaks because postposed_pronoun is offered from the verb anchor and the

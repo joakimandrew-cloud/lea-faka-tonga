@@ -155,11 +155,16 @@ const CLAUSE_CONNECTOR_NODES = new Set([
 // prohibition at `prohibition_verb` — none of which are VERB_NODE_IDS, so
 // getClauseConnectorEdges reads connectors from these completion nodes too
 // (not just the clause's main verb).
+// P1-A1: the experiencer clause (`ʻOku mahino kiate au`) completes at
+// `prep_pronoun` — its experiencer pronoun is the required final slot — so
+// the connectors hang there (verb_experiencer is a VERB_NODE_ID but carries
+// no connector edges; the real completion node is prep_pronoun).
 const CLAUSE_COMPLETION_NODE_IDS = new Set([
   'command_verb',
   'command_verb_plural',
   'noun_subject_name',
   'prohibition_verb',
+  'prep_pronoun',
 ])
 
 // Walk the stack top-down to find the current clause's root frame. A new
@@ -1483,6 +1488,19 @@ export function getRenderedPath(state) {
   for (let i = 0; i < out.length - 1; i++) {
     if (out[i].nodeId === 'preposition' && out[i + 1].nodeId === 'prep_phrase') {
       out[i].renderedTongan = renderPrepPhrase(out[i].word, out[i + 1].word)
+    }
+  }
+  // Book Ch 4:89 ("Where Time Words Go"): the time expression `ʻaho ni`
+  // ("this day" = today) takes the article `he` before it when it appears
+  // inside a sentence — `he ʻahó ni`, attested `ʻOku lāʻā he ʻaho ni`
+  // (Ch 15:272). The other time words (`ʻaneafi`, `ʻanepō`, …) are adverbs
+  // and take no article. Applied to the `time_word` node so every path
+  // (statement, experiencer, …) renders the book-correct form. `ʻaho ni` is
+  // only ever a post-verbal adjunct, never clause-initial, so this never
+  // interacts with the lowercase-after-connector pass below.
+  for (let i = 0; i < out.length; i++) {
+    if (out[i].nodeId === 'time_word' && normalize(out[i].word.tongan) === normalize('ʻaho ni')) {
+      out[i].renderedTongan = `he ${out[i].renderedTongan}`
     }
   }
   // Phase 2A.6 slice: Possessive pronoun auto-selection (spec §22). Each
