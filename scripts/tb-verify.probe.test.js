@@ -169,9 +169,29 @@ describe('P0 fixes — good constructions still build', () => {
     const extIds = getExtensionMenu(s).extensions.map(e => e.node)
     expect(extIds).not.toContain('mo_fixed') // 5th companion blocked
   })
-  it('two modifiers still allowed (lelei lelei)', () => {
-    expect(reachable('Naʻe', 'lelei lelei', { depth: 10, max: 15000 })).toBe(true)
-  }, 30000)
+  it('two modifiers still allowed on the negation path, capped at 2 (lelei lelei)', () => {
+    // Deterministic build (was a bounded `reachable` BFS; P1-A4's adjunct hub
+    // widened every menu, so the bushy tree no longer surfaces this exact string
+    // within a 15k-state budget — same fragility that made the `muʻa koe` test
+    // deterministic). Walks the negation path explicitly so the assertion is
+    // independent of menu breadth. The `lelei lelei lelei` (×3) cap guard above
+    // still uses the BFS and stays green.
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector')
+    s = advanceInFrame(s, { tongan: 'te' })
+    s = advanceInFrame(s, { tongan: 'u' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'kai' })
+    s = takeExtension(s, 'modifier')
+    s = advanceInFrame(s, { tongan: 'lelei' })
+    s = takeExtension(s, 'modifier')
+    s = advanceInFrame(s, { tongan: 'lelei' })
+    expect(render(s)).toContain('lelei lelei')
+    // The modifier cap fires at 2 (modifier_count_max counts modifier + modifier_ns).
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).not.toContain('modifier')
+  })
   it('command + please + you still builds (muʻa koe)', () => {
     // Deterministic build (the greedy build() helper picks the LAST extension
     // when no label/word matches, so it became order-fragile once P1-A3 added

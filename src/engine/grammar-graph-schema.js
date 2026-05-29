@@ -107,7 +107,10 @@ export const FE_FORM_FUNCTIONS = new Set([
 // ----------------------------------------------------------------------------
 
 const META_REQUIRED = ['version', 'description']
-const META_ALLOWED = new Set(META_REQUIRED)
+// P1-A4: `useAdjunctHub` is an optional boolean feature flag that activates the
+// adjuncts_hub surfacing in graph-walker.getHubExtensions. Optional so older
+// data files (and a revert) validate with the key absent.
+const META_ALLOWED = new Set([...META_REQUIRED, 'useAdjunctHub'])
 
 const ENTRY_POINT_REQUIRED = [
   'id',
@@ -121,7 +124,11 @@ const ENTRY_POINT_REQUIRED = [
 const ENTRY_POINT_ALLOWED = new Set(ENTRY_POINT_REQUIRED)
 
 const NODE_REQUIRED = ['label', 'description', 'words', 'next']
-const NODE_ALLOWED = new Set([...NODE_REQUIRED, 'constraints', 'word_filter'])
+// P1-A4: `route_to_hub` is an optional boolean marking a node whose extension
+// menu should additionally surface the adjuncts_hub edges (see
+// graph-walker.getHubExtensions). Optional/closed: unknown sibling keys still
+// hard-error.
+const NODE_ALLOWED = new Set([...NODE_REQUIRED, 'constraints', 'word_filter', 'route_to_hub'])
 
 const EDGE_REQUIRED = ['node', 'label', 'min_chapter']
 const EDGE_ALLOWED = new Set([
@@ -307,6 +314,9 @@ export function validateGrammarGraph(data) {
     if (data.meta.description !== undefined && typeof data.meta.description !== 'string') {
       add('$.meta.description', 'must be a string')
     }
+    if (data.meta.useAdjunctHub !== undefined && typeof data.meta.useAdjunctHub !== 'boolean') {
+      add('$.meta.useAdjunctHub', 'must be a boolean')
+    }
   }
 
   // ── entry_points ────────────────────────────────────────────────────────
@@ -370,6 +380,8 @@ export function validateGrammarGraph(data) {
         add(`${path}.label`, 'must be a string')
       if (node.description !== undefined && typeof node.description !== 'string')
         add(`${path}.description`, 'must be a string')
+      if (node.route_to_hub !== undefined && typeof node.route_to_hub !== 'boolean')
+        add(`${path}.route_to_hub`, 'must be a boolean')
       if (node.words !== undefined) validateWords(`${path}.words`, node.words, add)
       if (node.next !== undefined) validateEdges(`${path}.next`, node.next, add)
       if (node.constraints !== undefined) validateConstraints(`${path}.constraints`, node.constraints, add)

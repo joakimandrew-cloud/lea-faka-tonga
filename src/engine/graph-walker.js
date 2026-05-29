@@ -226,6 +226,90 @@ function getClauseConnectorEdges(state) {
   return out
 }
 
+// ============================================================================
+// P1-A4 — adjuncts_hub surfacing (behind meta.useAdjunctHub)
+// ============================================================================
+//
+// The single `adjuncts_hub` reference node (grammar-graph.json) holds the
+// verified union of the optional post-verbal adjunct targets. Nodes flagged
+// `route_to_hub: true` surface those edges in their extension menu via
+// getHubExtensions — widening the §A "single-option tail" menus on sparse
+// verb / clause-completion nodes (command_verb, verb_kohai, prohibition_verb,
+// noun_subject_name, the post-verbal adjunct phrases, etc.) without re-authoring
+// each edge per node. This is the menu-layer half of the recommended direction
+// (plans/Terminal-Build-Analysis.md §3/§4 A4); the structural "stop anchoring on
+// the last node" rewrite (§P2) is deferred.
+//
+// Four targets are PLACEMENT-BOUND — they are grammatical only beside a specific
+// host (the emphatic pronoun must abut the verb phrase; ʻe+cardinal counts an
+// object noun; the possessor and attributive adjective attach to a noun
+// complement). For those, the hub surfaces an edge ONLY where the anchor already
+// lists it natively, so the hub adds ZERO new reachability for them — it cannot
+// reintroduce the §B placement leaks (`Kai ʻi ʻapi au`, a count with no noun,
+// etc.). The remaining seven (modifier, time_word, preposition, mo_fixed,
+// benefactive ×2, aspect_marker_post_frequency) surface freely, each gated by its
+// own copied condition (the modifier cap and the prep / companion visit caps come
+// across verbatim, so the §B repetition leaks stay closed too).
+const HUB_NODE_ID = 'adjuncts_hub'
+const HUB_PLACEMENT_BOUND_TARGETS = new Set([
+  'postposed_pronoun',
+  'numeral',
+  'possessor_preposition',
+  'attributive_adjective',
+])
+
+// Compute the adjuncts_hub edges visible at the current frame's anchor, when
+// that anchor node is flagged route_to_hub and the clause is already completable
+// there. Filtered by chapter + edge condition + clause-scoped extensionsTaken +
+// per-target placement licensing. Returns [] when the flag is off, the anchor
+// isn't routed, or the anchor isn't a completion point.
+function getHubExtensions(state) {
+  if (!grammarGraph.meta || !grammarGraph.meta.useAdjunctHub) return []
+  const frame = currentFrame(state)
+  const tail = frame.extensionMenuAnchor
+  if (!tail) return []
+  const anchorNode = grammarGraph.nodes[tail]
+  if (!anchorNode || !anchorNode.route_to_hub) return []
+  const hub = grammarGraph.nodes[HUB_NODE_ID]
+  if (!hub || !Array.isArray(hub.next)) return []
+
+  const flatSteps = getFlatSteps(state)
+
+  // Only surface adjuncts where the clause can already FINISH. This keeps the
+  // hub out of branching / required-slot states (e.g. verb_ns before its
+  // subject), where an "optional" adjunct would wrongly substitute for the
+  // forced continuation.
+  const anchorEdges = getAvailableEdges(tail, state.chapter, flatSteps)
+  if (!anchorEdges.some(isTerminatorEdge)) return []
+
+  // De-dup against everything already taken in the CURRENT clause's frame chain
+  // (clause root outward), matching getClauseConnectorEdges' clause scoping. An
+  // edge with its own repetition rule (count / visit caps) is exempt — its
+  // condition decides when it disappears.
+  const { depth: clauseDepth } = findClauseRootFrame(state)
+  const takenInClause = new Set()
+  for (let i = clauseDepth; i < state.frames.length; i++) {
+    for (const t of state.frames[i].extensionsTaken) takenInClause.add(t)
+  }
+
+  // Targets the anchor already lists natively — used to license the
+  // placement-bound targets to hosts that already carry them.
+  const nativeTargets = new Set(anchorEdges.map(e => e.node))
+
+  const out = []
+  const seen = new Set()
+  for (const edge of hub.next) {
+    if (seen.has(edge.node)) continue
+    if (edge.min_chapter > state.chapter) continue
+    if (!evaluateCondition(edge.condition, flatSteps)) continue
+    if (!hasOwnRepetitionRule(edge) && takenInClause.has(edge.node)) continue
+    if (HUB_PLACEMENT_BOUND_TARGETS.has(edge.node) && !nativeTargets.has(edge.node)) continue
+    seen.add(edge.node)
+    out.push(edge)
+  }
+  return out
+}
+
 /**
  * Get available next edges from a node, filtered by chapter and conditions.
  * @param {string} nodeId - The current node
@@ -953,6 +1037,17 @@ export function getExtensionMenu(state) {
   // lists an edge to the same target, we don't duplicate it.
   const connectorEdges = getClauseConnectorEdges(state)
   for (const edge of connectorEdges) {
+    if (!extensions.some(e => e.node === edge.node)) {
+      extensions.push(edge)
+    }
+  }
+
+  // P1-A4: surface the adjuncts_hub edges when the current anchor is flagged
+  // route_to_hub (behind meta.useAdjunctHub). Additive and de-duped against the
+  // anchor's native extensions — the hub never removes an edge, so existing
+  // menu assertions that key on native edges are unaffected.
+  const hubEdges = getHubExtensions(state)
+  for (const edge of hubEdges) {
     if (!extensions.some(e => e.node === edge.node)) {
       extensions.push(edge)
     }

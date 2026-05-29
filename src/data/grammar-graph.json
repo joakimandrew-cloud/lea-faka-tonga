@@ -1,7 +1,8 @@
 {
   "meta": {
     "version": "2.10",
-    "description": "Tongan sentence grammar graph — Chapters 1-15 + 2C.1 (§§16-20: transitive, conjunctions, conditionals, cleft, noun classes) + 2C.2 (§§21-25: equational, aspect markers, reason clauses, benefactive) + 2C.3a (§26: cardinal numerals + toko personal counter) + 2C.3b (§27: fie + lava ʻo auxiliary verbs) + 2C.3c (§28: obligation totonu ke / kuo pau ke) + 2C.3d (§29: plural_marker reference node + irregular plural_form tagging pass) + 2C.3e (§30: post-verb directional particle slot) + 2C.4a (§31: comparative ange + superlative taha post-adjective slot) + 2C.4b (§32: existential entry point ʻoku ʻi ai ha + negation ʻoku ʻikai ke ʻi ai ha) + 2C.4c (§33: attributive_adjective postposed slot on prep_phrase + existential_noun) + 2C.4d (§34: permission tuku ke + optative ʻofa ke / ʻofa pē ke entry points reusing obligation_pronoun paradigm) + 2C.4e (§35: full 4×4 demonstrative grid reference node + emphatic discourse naʻa mo / kaeʻumaʻa reference node + ia added to demonstrative pronoun row) + 2C.4e-2 (§35: relative clause with ai — extension on demonstrative opens sub-walk tense→pronoun→verb, render pass auto-appends bare ai) + 2C.5b (§36: have construction ʻoku ʻi ai + possessive pronoun with polarity-driven indefinite/definite form selection) + 2C.7d (§50: exclamatory_ko_ka entry point — ko e X ka ko ha X! magnitude construction with FINISH_EXCLAMATION terminator) + 2C.7e (§50: exclamatory_me_a entry point — meʻa + modifier + ko e X evaluative admiration construction with FINISH_STATEMENT terminator)"
+    "description": "Tongan sentence grammar graph — Chapters 1-15 + 2C.1 (§§16-20: transitive, conjunctions, conditionals, cleft, noun classes) + 2C.2 (§§21-25: equational, aspect markers, reason clauses, benefactive) + 2C.3a (§26: cardinal numerals + toko personal counter) + 2C.3b (§27: fie + lava ʻo auxiliary verbs) + 2C.3c (§28: obligation totonu ke / kuo pau ke) + 2C.3d (§29: plural_marker reference node + irregular plural_form tagging pass) + 2C.3e (§30: post-verb directional particle slot) + 2C.4a (§31: comparative ange + superlative taha post-adjective slot) + 2C.4b (§32: existential entry point ʻoku ʻi ai ha + negation ʻoku ʻikai ke ʻi ai ha) + 2C.4c (§33: attributive_adjective postposed slot on prep_phrase + existential_noun) + 2C.4d (§34: permission tuku ke + optative ʻofa ke / ʻofa pē ke entry points reusing obligation_pronoun paradigm) + 2C.4e (§35: full 4×4 demonstrative grid reference node + emphatic discourse naʻa mo / kaeʻumaʻa reference node + ia added to demonstrative pronoun row) + 2C.4e-2 (§35: relative clause with ai — extension on demonstrative opens sub-walk tense→pronoun→verb, render pass auto-appends bare ai) + 2C.5b (§36: have construction ʻoku ʻi ai + possessive pronoun with polarity-driven indefinite/definite form selection) + 2C.7d (§50: exclamatory_ko_ka entry point — ko e X ka ko ha X! magnitude construction with FINISH_EXCLAMATION terminator) + 2C.7e (§50: exclamatory_me_a entry point — meʻa + modifier + ko e X evaluative admiration construction with FINISH_STATEMENT terminator)",
+    "useAdjunctHub": true
   },
 
   "entry_points": [
@@ -113,6 +114,7 @@
     },
 
     "verb": {
+      "route_to_hub": true,
       "label": "Verb",
       "description": "Choose an action or state",
       "words": [
@@ -184,6 +186,7 @@
     },
 
     "modifier": {
+      "route_to_hub": true,
       "label": "Modifier",
       "description": "Describe how the action was done or how much",
       "words": [
@@ -217,6 +220,7 @@
     },
 
     "object": {
+      "route_to_hub": true,
       "label": "Object",
       "description": "Choose what was acted upon",
       "words": [
@@ -344,6 +348,7 @@
     },
 
     "prep_phrase": {
+      "route_to_hub": true,
       "label": "Prepositional complement",
       "description": "Choose a place, person, or thing — the preposition form adjusts to match",
       "word_filter": { "type": "no_duplicate_prep_complement" },
@@ -415,6 +420,7 @@
     },
 
     "companion": {
+      "route_to_hub": true,
       "label": "Companion",
       "description": "Choose who you were with",
       "word_filter": { "type": "no_repeat_at_node" },
@@ -511,6 +517,7 @@
     },
 
     "place": {
+      "route_to_hub": true,
       "label": "Place",
       "description": "Choose a location",
       "words": [
@@ -539,6 +546,7 @@
     },
 
     "command_verb": {
+      "route_to_hub": true,
       "label": "Verb",
       "description": "Choose the action to command",
       "words": [
@@ -596,6 +604,7 @@
     },
 
     "command_verb_plural": {
+      "route_to_hub": true,
       "label": "Verb",
       "description": "Choose the action (some verbs change form for groups)",
       "words": [
@@ -638,6 +647,7 @@
     },
 
     "prohibition_verb": {
+      "route_to_hub": true,
       "label": "Verb",
       "description": "Choose what not to do",
       "words": [
@@ -766,6 +776,7 @@
     },
 
     "verb_weather": {
+      "route_to_hub": true,
       "label": "Verb",
       "description": "Choose a weather or impersonal verb",
       "words": [
@@ -909,6 +920,7 @@
     },
 
     "verb_kohai": {
+      "route_to_hub": true,
       "label": "Verb",
       "description": "Choose the action",
       "words": [
@@ -1029,6 +1041,7 @@
     },
 
     "noun_subject_name": {
+      "route_to_hub": true,
       "label": "Subject",
       "description": "Choose who did the action — a name or a definite noun",
       "words": [
@@ -1140,6 +1153,7 @@
     },
 
     "travel_compound": {
+      "route_to_hub": true,
       "label": "Transport",
       "description": "Choose how you traveled",
       "words": [
@@ -1160,6 +1174,7 @@
     },
 
     "postposed_pronoun": {
+      "route_to_hub": true,
       "label": "Emphasis",
       "description": "Emphasize who is doing the action",
       "words": [
@@ -1383,6 +1398,7 @@
     },
 
     "agent_phrase": {
+      "route_to_hub": true,
       "label": "Agent",
       "description": "Choose who did the action. Entries are stored bare — the ergative marker ʻe, the definite article `he` (for common nouns, used after ʻe), and the final-vowel accent are all applied at render time. Personal names surface as `ʻe Sione`; common nouns as `ʻe he tamasiʻí` etc.",
       "words": [
@@ -1566,6 +1582,7 @@
     },
 
     "verb_cleft": {
+      "route_to_hub": true,
       "label": "Verb (cleft)",
       "description": "Choose the action or state. Transitive verbs expose a definite-object extension; intransitive verbs expose location and time extensions directly.",
       "words": [
@@ -1711,6 +1728,7 @@
     },
 
     "aspect_marker_post": {
+      "route_to_hub": true,
       "label": "Aspect marker (postposed)",
       "description": "leva = immediately / at once — placed AFTER the verb (spec §24, Ch 22). Separate node from aspect_marker because the position rule differs; attached to verb.next as an optional extension.",
       "words": [
@@ -1725,6 +1743,7 @@
     },
 
     "aspect_marker_post_frequency": {
+      "route_to_hub": true,
       "label": "Frequency marker (postposed)",
       "description": "ai pē = as always, as usual, still — postposed clause-modifier signalling unchanged continuation (spec §24, Ch 22, 2C.2b follow-up). Position rule differs from aspect_marker_post leva: ai pē tends to sit clause-final after the verb (intransitive: ʻOku fakalaka ai pē ʻa Tonga ki muʻa) or after the object (transitive-passive-ish: ʻOku kei fai ai pē e ngāué). Attached to both verb.next and object.next so it can hang off either parent. Sibling of aspect_marker_post — same postposed slot, different semantics.",
       "words": [
@@ -1739,6 +1758,7 @@
     },
 
     "tuo_numeral": {
+      "route_to_hub": true,
       "label": "Count of times (tuʻo + numeral)",
       "description": "tuʻo + numeral = N times — postposed quantifier counting how many times the action happens (spec §24, Ch 22, 2C.2b follow-up). Stored as compound entries (tuʻo taha, tuʻo ua, tuʻo tolu, tuʻo fā) plus the open-ended quantifiers tuʻo lahi (many times), tuʻo siʻi (a few times), and the question form tuʻo fiha (how many times?). Attached to verb.next as a postposed extension. The ordinal use (Ko e tuʻo tolu eni = this is the third time) requires equational integration with ko_equational and is deferred — same rationale as the §21 subject-first equational deferral noted in 2C.2.",
       "words": [
@@ -1810,6 +1830,7 @@
     },
 
     "object_phrase_cleft": {
+      "route_to_hub": true,
       "label": "Definite object (cleft)",
       "description": "Same absolutive-marked noun as the transitive object_phrase, attached to a cleft verb as an optional extension. Entries are stored bare and render-time applies `ʻa e <accent>` / `ʻa <name>` — the duplicated list (separate from object_phrase) keeps each node's slot-shape independent.",
       "words": [
@@ -1933,6 +1954,7 @@
     },
 
     "directional": {
+      "route_to_hub": true,
       "label": "Directional particle",
       "description": "Post-verb directional particle slot per spec §30 (Ch 28). Six words in two groups: three person-oriented (mai = toward speaker / 1st, atu = toward listener / 2nd, ange = toward 3rd), three physical (hake = up, hifo = down, holo = around with no fixed destination). Attached on verb.next. directional.next allows continuation to object / time_word / preposition so spec examples like `Naʻá ku ʻave mai ʻa e valá mei he falé` (`ʻave` + `mai` + object + prep_phrase) walk end-to-end. Docs.4 catalog enforcement: `default_taken` — the walker's extensionsTaken mechanism tracks 'taken once' cardinality; pick-time SLOT-ORDER enforcement ('directional must come before object / prep_phrase / time_word per spec §30 line 3713') is NOT active in this slice. The current walker treats post-verb extensions as unordered siblings, so a user could pick `object` before `directional` and produce a wrong-order sentence. Enforcing Rule 5 at pick time is a separate walker-behavior slice. Deferred: (a) `verb_excludes_directionals` array field — spec §30 documents that haʻu (come) excludes all directionals except mai (you use `ʻalu hake`/`ʻalu hifo` instead), but this would require a new optional field in the schema allowlist; (b) ange homonymy disambiguation — spec §30 notes ange also means 'more' in comparative contexts (Ch 27, §31) and the walker should decide by what precedes it; (c) emphatic command form with definitive accent on the directional (`ʻAlu hifó!`) — part of the phrasal accent system finalized in Ch 44 / §46; (d) directional + ʻo conjunction (`Naʻa nau ō hake ʻo ngāue`) — works composably once the §17 ʻo connector is extended.",
       "words": [
@@ -2094,6 +2116,7 @@
     },
 
     "attributive_adjective": {
+      "route_to_hub": true,
       "label": "Attributive adjective (postposed)",
       "description": "Postposed attributive adjective slot per spec §33 (Ch 35). Spec §33 formalizes the slot that earlier sections (§21 Equational, §29 Plural, §31 Comparison) have been using informally: an attributive adjective describes a noun directly (rather than acting as a stative verb in its own clause), and the Tongan position is AFTER the noun — `(article) + noun + adjective`, opposite of English word order. 7 common postposed adjectives: `lahi` (big), `siʻi` (small), `foʻou` (new), `kovi` (bad), `lelei` (good), `masiva` (poor), `mālohi` (strong). Each entry tagged `adjective` + `postposed` for future tag-based reuse — tag-based reuse is preferred over a new `adjective_position` boolean field per the §33 schema-additions note, since the current slice only needs to identify postposed adjectives and the preposed closed-list is deferred. Attached as an extension on two noun-bearing nodes: `prep_phrase.next` (the central noun-bearing slot — walks through preposition → prep_phrase → adjective, covering `ʻOku ou ʻi ha fale foʻou` = I am in a new house) and `existential_noun.next` (2C.4b's existential chain — covers `ʻOku ʻi ai ha vaka lahi` = there is a big boat). Walker continuation is semi-terminal: FINISH × 2 + `time_word`, so the time-word slot-order chain continues to work. Deliberate deferrals (documented for future slices): (a) preposed closed-list adjectives `fuʻu` / `kiʻi` / `ʻuluaki` / `muʻaki` / `toe` — spec §33 line 4287 — different slot (before the noun), needs a new preposed-adjective slot on every noun-bearing node; (b) double adjectives (preposed + postposed for emphasis, `ha fuʻu meʻa lahi` = a great big thing, spec §33 line 4339) — blocked on (a); (c) `fuʻu` three-way homonymy: preposed adjective `big`, size intensifier `really` (`fuʻu lahi` = really big, `fuʻu helaʻia` = really tired), and tree classifier `the whole plant of` (`fuʻu mango` = mango tree vs `foʻi mango` = mango fruit) — spec §33 line 4358 — needs a disambiguation mechanism at pick time; (d) color words as both noun and postposed adjective (`hinehina`, `ʻuliʻuli`, `kulokula`, `lanumata`, `engeenga`) — spec §33 line 4385 — defers to a separate slice that handles the definitive-accent interaction on the final vowel in definite noun phrases (`e sote hinehiná` = the white shirt); (e) compound adjectives — three patterns: noun+adj (`sino-mālohi`, `anga-lelei`), verb+noun (`tangata tau`, `tangata ngāue`), and verb+adverb written as one word (`faingofua` / `faingataʻa` / `tuʻumālie` / `tuʻutāmaki`) — spec §33 line 4420 — needs a `compound_adjective: true` flag plus a `parts: []` field for morphological analysis; (f) `loto` compounds for emotional states (`loto lelei`, `loto mamahi`, `loto toʻa`, `loto lahi`, `loto ʻofa`, `loto kovi`, `loto foʻi`) — spec §33 line 4479 — needs a `loto_compound: true` flag; they appear BOTH postposed (`ha tangata loto lahi` = a brave man) AND in the verb slot as a stative (`ʻOku ou loto mamahi` = I am sad), so the entry lives in two places; (g) adjective ordering when multiple postposed adjectives stack — `adjective_order_priority` integer field per spec §33 line 4506; (h) attachment to other noun-bearing nodes beyond `prep_phrase` and `existential_noun` (`object`, `equational_noun`, `possessive_head_noun`, `object_phrase_cleft`, `companion`, etc. — each will be added slice-by-slice); (i) `takes_fuʻu_classifier` boolean flag for plant nouns (parallel to the 2C.4b `takes_foʻi_classifier` awareness item); (j) irregular plural adjective forms (`lalahi` for `lahi` plural, `iiki` for `siʻi` plural — spec §29 documents these; 2C.3d's plural_form tagging pass already tagged `lahi` → `lalahi` on modifier_eq but this slice's attributive_adjective entries do NOT carry plural_form yet — added when the plural_marker node wires up in a future slice).",
       "words": [
@@ -2281,6 +2304,24 @@
       ],
       "next": [
         { "node": "FINISH_STATEMENT", "label": "End statement (.)", "min_chapter": 52 }
+      ]
+    },
+    "adjuncts_hub": {
+      "label": "Adjuncts",
+      "description": "P1-A4 reference node (not a walkable slot). Its next[] is the verified union of the optional post-verbal adjunct targets; getHubExtensions surfaces these edges on any node flagged route_to_hub, filtered by chapter, edge condition, clause-scoped extensionsTaken, and per-target placement licensing. Behind meta.useAdjunctHub.",
+      "words": [],
+      "next": [
+        { "node": "modifier", "label": "Add modifier (how/how much)", "min_chapter": 3, "condition": { "type": "modifier_count_max", "max": 2 }, "context_hint": "Describe how — well, a lot, hard, etc." },
+        { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when" },
+        { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "condition": { "type": "not_already_visited_node", "node": "preposition" }, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
+        { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "condition": { "type": "not_already_visited_node", "node": "companion" }, "context_hint": "Say who it was with" },
+        { "node": "postposed_pronoun", "label": "Add emphasis (I myself, you yourself...)", "min_chapter": 5, "context_hint": "Emphasize the subject" },
+        { "node": "benefactive_preposition_ma", "label": "Add beneficiary (maʻa / moʻo + name)", "min_chapter": 26, "child_entry_point": "benefactive_name", "context_hint": "Say who the action is for — maʻa / moʻo + name" },
+        { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who the action is for — for me, for you, for him..." },
+        { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "context_hint": "Say the action continues unchanged — as usual, as always" },
+        { "node": "numeral", "label": "Add a count (ʻe ono = six...)", "min_chapter": 20, "context_hint": "Say how many — ʻe taha, ʻe ua, ʻe ono..." },
+        { "node": "possessor_preposition", "label": "Add whose (John’s, Mary’s...)", "min_chapter": 17, "child_entry_point": "possessive_phrase_name", "context_hint": "Say whose thing — John’s house, Mary’s book..." },
+        { "node": "attributive_adjective", "label": "Add adjective (big, new, bad...)", "min_chapter": 35, "context_hint": "Describe the thing — ha fale foʻou (a new house)" }
       ]
     }
   },
