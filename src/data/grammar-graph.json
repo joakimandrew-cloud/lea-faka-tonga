@@ -344,6 +344,7 @@
     "prep_phrase": {
       "label": "Prepositional complement",
       "description": "Choose a place, person, or thing — the preposition form adjusts to match",
+      "word_filter": { "type": "no_duplicate_prep_complement" },
       "words": [
         { "tongan": "ʻapi", "english": "home", "min_chapter": 6, "noun_class": "local", "animacy": "thing", "possessive_class": "ho_class", "kaunga_form": { "tongan": "kaungā ʻapi", "english": "neighbour(s)", "min_chapter": 49 } },
         { "tongan": "kolo", "english": "town", "min_chapter": 6, "noun_class": "local", "animacy": "thing", "possessive_class": "ho_class" },
@@ -395,7 +396,6 @@
         { "node": "preposition", "label": "Add another location/direction", "min_chapter": 7, "condition": { "type": "node_visit_count_max", "node": "preposition", "max": 2 }, "context_hint": "Add another direction — ki (to) or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "context_hint": "Say who {subject} was with" },
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 6, "context_hint": "Say when" },
-        { "node": "postposed_pronoun", "label": "Add emphasis", "min_chapter": 5, "context_hint": "Emphasize: {subject} myself / yourself / etc." },
         { "node": "possessor_preposition", "label": "Add whose (John's, Mary's...)", "min_chapter": 17, "child_entry_point": "possessive_phrase_name", "context_hint": "Say whose thing — John's house, Mary's book..." },
         { "node": "attributive_adjective", "label": "Add adjective (big, new, bad...)", "min_chapter": 35, "context_hint": "Describe the thing — ha fale foʻou (a new house), ha tangata mālohi (a strong man)" }
       ]
@@ -415,6 +415,7 @@
     "companion": {
       "label": "Companion",
       "description": "Choose who you were with",
+      "word_filter": { "type": "no_repeat_at_node" },
       "words": [
         { "tongan": "Sione", "english": "John", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Mele", "english": "Mary", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
@@ -429,9 +430,8 @@
       "next": [
         { "node": "FINISH_STATEMENT", "label": "Finish as statement (.)", "min_chapter": 10 },
         { "node": "FINISH_QUESTION", "label": "Finish as question (?)", "min_chapter": 10 },
-        { "node": "mo_fixed", "label": "Add another companion (and...)", "min_chapter": 10, "context_hint": "Add another person" },
-        { "node": "time_word", "label": "Add time word (when)", "min_chapter": 10, "context_hint": "Say when" },
-        { "node": "postposed_pronoun", "label": "Add emphasis", "min_chapter": 10, "context_hint": "Emphasize: {subject} myself / yourself / etc." }
+        { "node": "mo_fixed", "label": "Add another companion (and...)", "min_chapter": 10, "condition": { "type": "node_visit_count_max", "node": "companion", "max": 4 }, "context_hint": "Add another person" },
+        { "node": "time_word", "label": "Add time word (when)", "min_chapter": 10, "context_hint": "Say when" }
       ]
     },
 
@@ -553,7 +553,7 @@
         { "node": "FINISH_STATEMENT", "label": "Finish as command (!)", "min_chapter": 5 },
         { "node": "object", "label": "Add object (what)", "min_chapter": 8, "condition": { "type": "verb_has_tag", "tag": "transitive" }, "context_hint": "Say what to {verb_base}" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where to {verb_base}" },
-        { "node": "polite_particle", "label": "Add please (muʻa)", "min_chapter": 5, "context_hint": "Make it polite with muʻa (please)" },
+        { "node": "polite_particle", "label": "Add please (muʻa)", "min_chapter": 5, "condition": { "type": "not_already_visited_node", "node": "emphatic_pronoun" }, "context_hint": "Make it polite with muʻa (please)" },
         { "node": "emphatic_pronoun", "label": "Add emphasis (you!)", "min_chapter": 5, "context_hint": "Emphasize who you're talking to" }
       ]
     },

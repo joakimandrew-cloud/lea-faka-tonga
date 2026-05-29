@@ -67,6 +67,38 @@ export function getAvailableWords(nodeId, chapter, steps) {
     }
   }
 
+  // B2: de-dup at the same node. Drops any word already chosen at THIS node id
+  // earlier in the sentence, so a companion chain can't repeat a name
+  // (`mo Sione mo Sione`). Distinct companions (`mo Sione mo Mele`) are fine.
+  if (node.word_filter && node.word_filter.type === 'no_repeat_at_node') {
+    const used = new Set(
+      steps.filter(s => s.nodeId === nodeId && s.word).map(s => normalize(s.word.tongan))
+    )
+    words = words.filter(w => !used.has(normalize(w.tongan)))
+  }
+
+  // B3: in a dual-preposition phrase, forbid repeating the SAME (preposition,
+  // complement) pair — `ʻi ʻapi ʻi ʻapi` is empty repetition. A different
+  // complement under the same prep (`ʻi he fale … ʻi Lonitoni`) or the same
+  // complement under a different prep (`mei he potu ki he potu`) stay legal.
+  if (node.word_filter && node.word_filter.type === 'no_duplicate_prep_complement') {
+    // Build prior (prepWord → complementWord) pairs and find the preposition
+    // governing the slot now being filled (the most recent `preposition` step).
+    let lastPrep = null
+    const priorPairs = new Set()
+    let currentPrep = null
+    for (const s of steps) {
+      if (s.nodeId === 'preposition' && s.word) { lastPrep = normalize(s.word.tongan); currentPrep = lastPrep }
+      else if (s.nodeId === nodeId && s.word && lastPrep != null) {
+        priorPairs.add(lastPrep + '|' + normalize(s.word.tongan))
+        lastPrep = null // pair consumed; the next prep opens a new pair
+      }
+    }
+    if (currentPrep != null) {
+      words = words.filter(w => !priorPairs.has(currentPrep + '|' + normalize(w.tongan)))
+    }
+  }
+
   return words
 }
 
@@ -465,7 +497,14 @@ function evaluateCondition(condition, steps) {
   }
 
   if (condition.type === 'modifier_count_max') {
-    const count = steps.filter(s => s.nodeId === 'modifier').length
+    // Count BOTH modifier node variants. The statement path loops on
+    // `modifier`; the noun-subject / negation path loops on `modifier_ns`.
+    // The old code counted only `'modifier'`, so the `modifier_ns` self-loop
+    // (which reuses this same condition type) was never capped — letting
+    // `Naʻe ʻikai ke kai lelei lelei lelei …` repeat without bound. Both
+    // variants share one cap; they never co-occur in a single clause, so a
+    // sentence-global count is correct here.
+    const count = steps.filter(s => s.nodeId === 'modifier' || s.nodeId === 'modifier_ns').length
     return count < condition.max
   }
 
