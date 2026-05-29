@@ -3,7 +3,8 @@
   "1":  [{ "drillId": "skeleton-filler",             "after": "building-sentences" }],
   "2":  [
     { "drillId": "skeleton-filler",                  "after": "the-four-tense-markers" },
-    { "drillId": "clusivity-corner",                 "after": "dual-pronouns" }
+    { "drillId": "clusivity-corner",                 "after": "dual-pronouns" },
+    { "drillId": "pronoun-paradigm",                 "after": "the-complete-pronoun-table" }
   ],
   "3":  [{ "drillId": "modifier-order",              "after": "modifiers" }],
   "4":  [{ "drillId": "time-pair-matcher",           "after": "future-time-words" }],
@@ -30,7 +31,10 @@
     { "drillId": "definiteness-flip",                "after": "when-the-object-is-general-vs-specific" },
     { "drillId": "pronoun-object-drop-picker",       "after": "postposed-pronouns-as-transitive-objects" }
   ],
-  "20": [{ "drillId": "classifier-picker",           "after": "counting-people-toko" }],
+  "20": [
+    { "drillId": "classifier-picker",                "after": "counting-people-toko" },
+    { "drillId": "count-time",                       "after": "telling-time" }
+  ],
   "21": [{ "drillId": "auxiliary-picker",            "after": "lava-to-be-able-to" }],
   "22": [{ "drillId": "aspect-picker",               "after": "all-aspect-markers-together" }],
   "23": [{ "drillId": "should-or-must-picker",       "after": "kuo-pau-ke-must-certainly" }],
@@ -39,7 +43,10 @@
   "26": [{ "drillId": "benefactive-sorter",          "after": "maa-and-moo-for-someones-benefit" }],
   "27": [{ "drillId": "comparative-picker",          "after": "modifying-the-comparison" }],
   "28": [{ "drillId": "direction-picker",            "after": "holo-around-about" }],
-  "29": [{ "drillId": "doer-receiver-picker",        "after": "the-deeper-principle-doer-and-receiver" }],
+  "29": [
+    { "drillId": "doer-receiver-picker",             "after": "the-deeper-principle-doer-and-receiver" },
+    { "drillId": "kinship-possessive",               "after": "the-principle-with-everyday-nouns" }
+  ],
   "30": [{ "drillId": "temporal-conjunction-picker", "after": "although-neongo" }],
   "31": [{ "drillId": "classifier-extended-picker",  "after": "the-classifier-foi-in-existential-contexts" }],
   "32": [{ "drillId": "faka-pattern-sorter",         "after": "summary-of-faka-patterns" }],
