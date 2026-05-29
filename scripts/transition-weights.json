@@ -1,0 +1,1418 @@
+{
+  "generatedFrom": "book/Chapter-01..53.md italic spans + src/data/book-exercises.json italic spans; POS via src/data/book-vocabulary.json; tense/pronoun/slot sets via src/data/vocabulary-by-slot.json + grammar-graph.json",
+  "note": "evidence only; not imported by the app; regenerate with `node scripts/build-transition-weights.mjs` from lea-faka-tonga-app/",
+  "sampleSize": {
+    "italicSpans": 12740,
+    "usableSpans": 12740,
+    "exerciseSpans": 2494,
+    "chaptersRead": 53,
+    "tensePronounTriples": 2332,
+    "tenseMarkerSet": [
+      "'e",
+      "'oku",
+      "kuo",
+      "na'a",
+      "na'e",
+      "te"
+    ],
+    "preposedPronounSet": [
+      "ke",
+      "ku",
+      "ma",
+      "mau",
+      "mo",
+      "mou",
+      "na",
+      "nau",
+      "ne",
+      "ou",
+      "ta",
+      "tau",
+      "u"
+    ]
+  },
+  "afterTensePronoun": {
+    "verb": 1623,
+    "adjective_stative": 189,
+    "other_unknown": 169,
+    "numeral_count": 92,
+    "aux": 79,
+    "noun": 51,
+    "aspect_marker": 44,
+    "preposition": 43,
+    "preposed_modifier": 21,
+    "modifier": 21
+  },
+  "afterTensePronounPriority": [
+    "verb",
+    "adjective_stative",
+    "other_unknown",
+    "numeral_count",
+    "aux",
+    "noun",
+    "aspect_marker",
+    "preposition",
+    "preposed_modifier",
+    "modifier"
+  ],
+  "nextWordAfterTensePronoun": {
+    "'alu": 233,
+    "kai": 166,
+    "nofo": 140,
+    "ha'u": 130,
+    "mohe": 107,
+    "ngaue": 94,
+    "hiva": 92,
+    "lea": 83,
+    "fiema'u": 61,
+    "fie": 55,
+    "inu": 54,
+    "fiefia": 51,
+    "'i": 40,
+    "tokoni": 40,
+    "sai'ia": 40,
+    "ako": 37,
+    "foki": 33,
+    "fai": 33,
+    "o": 32,
+    "lau": 32,
+    "'ita": 26,
+    "tohi": 25,
+    "hela'ia": 24,
+    "lava": 24,
+    "fiekaia": 23,
+    "lele": 22,
+    "'ave": 21,
+    "lotu": 21,
+    "fa'a": 20,
+    "kei": 19,
+    "fanongo": 16,
+    "'ilo": 15,
+    "sio": 14,
+    "puke": 13,
+    "kuki": 13,
+    "loto": 13,
+    "lolotonga": 11,
+    "to": 11,
+    "kumi": 10,
+    "tomui": 10,
+    "malohi": 9,
+    "'osi": 9,
+    "toki": 9,
+    "tokoni'i": 9,
+    "'ofa": 8,
+    "teitei": 8,
+    "kamata": 8,
+    "toe": 7,
+    "tanaki": 7,
+    "'a": 7,
+    "fakataha": 7,
+    "pule'i": 7,
+    "ngaue'aki": 7,
+    "pehe": 7,
+    "e": 7,
+    "folau": 6,
+    "manatu'i": 6,
+    "lahi": 6,
+    "tala": 6,
+    "hela": 6,
+    "tu'u": 6,
+    "tomu'a": 6,
+    "fefe": 5,
+    "kole": 5,
+    "meimei": 5,
+    "a'u": 5,
+    "poto": 5,
+    "fakamohe": 5,
+    "tapuni": 5,
+    "tapuni'i": 5,
+    "'omai": 5,
+    "mo'umohea": 5,
+    "fakafuofua": 5,
+    "vaivai": 4,
+    "faiako": 4,
+    "'omi": 4,
+    "tatau": 4,
+    "'aupito": 4,
+    "ma'u": 4,
+    "pehe'i": 4,
+    "fakatau": 4,
+    "lavea": 4,
+    "fakakaukau": 4,
+    "ta'e": 4,
+    "tangi": 3,
+    "masiva": 3,
+    "tangutu": 3,
+    "siasi": 3,
+    "langa": 3,
+    "fakapikopiko": 3,
+    "mei": 3,
+    "feinga": 3,
+    "fakatotonu": 3,
+    "fakalelei": 3,
+    "pule": 3,
+    "manatu": 3,
+    "vahe'i": 3,
+    "fufulu": 3,
+    "ia": 3,
+    "'amanaki": 3,
+    "ilifia": 3,
+    "fa'o": 3,
+    "fakafonu": 3,
+    "lelei'ia": 3,
+    "fe'ofa'aki": 3,
+    "fetokoni'aki": 3,
+    "fetalanoa'aki": 3,
+    "mahiki": 3,
+    "kaunga": 3,
+    "tuli": 3,
+    "talanoa": 3,
+    "fieinua": 2,
+    "tau": 2,
+    "vahe": 2,
+    "tokolahi": 2,
+    "mai": 2,
+    "he": 2,
+    "taki": 2,
+    "tokoto": 2,
+    "takoto": 2,
+    "lue": 2,
+    "'ene": 2,
+    "ta": 2,
+    "tui": 2,
+    "tali": 2,
+    "hala": 2,
+    "mo'ui": 2,
+    "semisi": 2,
+    "au": 2,
+    "'eiki": 2,
+    "kaiha'a": 2,
+    "ofo": 2,
+    "malolo": 2,
+    "ma": 2,
+    "kau": 1,
+    "fahi": 1,
+    "tauhi": 1,
+    "faka'osi": 1,
+    "tokosi'i": 1,
+    "eni": 1,
+    "'oatu": 1,
+    "haka": 1,
+    "fakamama'o": 1,
+    "tokoni\\_\\_\\_": 1,
+    "ngaue\\_\\_\\_": 1,
+    "tapuni\\_\\_\\_": 1,
+    "tuku": 1,
+    "fe'iloaki": 1,
+    "mele": 1,
+    "va'inga": 1,
+    "faikava": 1,
+    "fetaulaki": 1,
+    "tatali": 1,
+    "tu'i": 1,
+    "mole": 1,
+    "ongo'i": 1,
+    "fua": 1,
+    "ngalo'i": 1,
+    "toutou": 1,
+    "misi": 1,
+    "ta'aki": 1,
+    "tanu": 1,
+    "'uheina": 1,
+    "faka'ofa'ia": 1,
+    "malie'ia": 1,
+    "sipinga\\_\\_\\_": 1,
+    "fetu'utaki": 1,
+    "mavae": 1,
+    "mo'utu'ua": 1,
+    "no––fo": 1,
+    "tu––'u": 1,
+    "kita": 1,
+    "tokoni___": 1,
+    "ngaue___": 1,
+    "tapuni___": 1,
+    "sipinga___": 1,
+    "no——fo": 1,
+    "tu——'u": 1
+  },
+  "wordFreqBySlot": {
+    "verb": {
+      "'alu": 523,
+      "ngaue": 393,
+      "kai": 346,
+      "ha'u": 333,
+      "nofo": 278,
+      "tohi": 278,
+      "hiva": 231,
+      "mohe": 224,
+      "lea": 181,
+      "ako": 171,
+      "fai": 144,
+      "malohi": 130,
+      "o": 114,
+      "tokoni": 102,
+      "fiefia": 99,
+      "foki": 93,
+      "inu": 90,
+      "to": 73,
+      "'ita": 70,
+      "fiema'u": 67,
+      "lele": 62,
+      "lau": 61,
+      "lotu": 57,
+      "hela'ia": 55,
+      "puke": 50,
+      "fiekaia": 44,
+      "fufulu": 43,
+      "'ilo": 36,
+      "'ave": 35,
+      "fanongo": 34,
+      "sio": 33,
+      "tala": 30,
+      "tangi": 28,
+      "kuki": 23,
+      "vaivai": 22,
+      "kamata": 22,
+      "fili": 21,
+      "langa": 19,
+      "masiva": 18,
+      "folau": 16,
+      "kumi": 16,
+      "fakatau": 15,
+      "tomui": 14,
+      "hopo": 12,
+      "mamata": 12,
+      "haka": 10,
+      "feinga": 9,
+      "kole": 9,
+      "manatu'i": 8,
+      "tanaki": 7,
+      "fieinua": 6,
+      "fakapikopiko": 6,
+      "lavea": 6,
+      "tangutu": 5,
+      "ui": 5,
+      "kakau": 4,
+      "lue": 3
+    },
+    "object": {
+      "tohi": 278,
+      "mele": 198,
+      "kato": 143,
+      "ma": 134,
+      "ika": 129,
+      "hele": 81,
+      "fala": 74,
+      "vai": 72,
+      "pa'anga": 53,
+      "siale": 52,
+      "seini": 45,
+      "kava": 29,
+      "talo": 28,
+      "moa": 17,
+      "ti": 13,
+      "kepu": 13,
+      "pulu": 5,
+      "seniti": 4
+    },
+    "modifier": {
+      "pe": 218,
+      "lahi": 196,
+      "malohi": 130,
+      "lelei": 116,
+      "'aupito": 87
+    },
+    "time_word": {
+      "'anepo": 79,
+      "'apongipongi": 79,
+      "'aneafi": 74,
+      "'apo": 29,
+      "'anenai": 16,
+      "'anai": 15
+    },
+    "preposition": {
+      "'i": 826,
+      "ki": 598,
+      "mei": 221,
+      "ma'a": 31,
+      "mo'o": 15
+    }
+  },
+  "topContentWords": [
+    [
+      "he",
+      828
+    ],
+    [
+      "'alu",
+      523
+    ],
+    [
+      "ngaue",
+      393
+    ],
+    [
+      "ai",
+      368
+    ],
+    [
+      "fale",
+      354
+    ],
+    [
+      "kai",
+      346
+    ],
+    [
+      "ha'u",
+      333
+    ],
+    [
+      "nofo",
+      278
+    ],
+    [
+      "tohi",
+      278
+    ],
+    [
+      "mohe",
+      224
+    ],
+    [
+      "mele",
+      198
+    ],
+    [
+      "kolo",
+      185
+    ],
+    [
+      "me'a",
+      185
+    ],
+    [
+      "lea",
+      181
+    ],
+    [
+      "fe",
+      173
+    ],
+    [
+      "ako",
+      171
+    ],
+    [
+      "fai",
+      144
+    ],
+    [
+      "kato",
+      143
+    ],
+    [
+      "ma",
+      134
+    ],
+    [
+      "faiako",
+      134
+    ],
+    [
+      "malohi",
+      130
+    ],
+    [
+      "totonu",
+      130
+    ],
+    [
+      "ika",
+      129
+    ],
+    [
+      "o",
+      114
+    ],
+    [
+      "tokoni",
+      102
+    ],
+    [
+      "'api",
+      100
+    ],
+    [
+      "fiefia",
+      99
+    ],
+    [
+      "loto",
+      97
+    ],
+    [
+      "foki",
+      93
+    ],
+    [
+      "vaka",
+      93
+    ],
+    [
+      "tangata",
+      92
+    ],
+    [
+      "inu",
+      90
+    ],
+    [
+      "'ofa",
+      90
+    ],
+    [
+      "tamasi'i",
+      84
+    ],
+    [
+      "'aho",
+      82
+    ],
+    [
+      "hele",
+      81
+    ],
+    [
+      "fala",
+      74
+    ],
+    [
+      "to",
+      73
+    ],
+    [
+      "vai",
+      72
+    ],
+    [
+      "'ita",
+      70
+    ]
+  ],
+  "verbNodeCrossCheck": {
+    "verdict": "NOT frequency-sorted (14 adjacent inversions of 31)",
+    "adjacentInversions": 14,
+    "graphVerbNodeOrder": [
+      "kai",
+      "inu",
+      "mohe",
+      "'alu",
+      "ha'u",
+      "hiva",
+      "lea",
+      "nofo",
+      "ngaue",
+      "tokoni",
+      "fiema'u",
+      "fiefia",
+      "hela'ia",
+      "fiekaia",
+      "'ita",
+      "puke",
+      "ako",
+      "lele",
+      "folau",
+      "sio",
+      "fanongo",
+      "lau",
+      "tohi",
+      "hopo",
+      "'ofa",
+      "fieinua",
+      "vaivai",
+      "masiva",
+      "fakatau",
+      "ma'u",
+      "kole",
+      "foki",
+      "tanaki",
+      "langa"
+    ],
+    "measuredVerbFreqOrder": [
+      "'alu",
+      "ngaue",
+      "kai",
+      "ha'u",
+      "nofo",
+      "tohi",
+      "hiva",
+      "mohe",
+      "lea",
+      "ako",
+      "fai",
+      "malohi",
+      "o",
+      "tokoni",
+      "fiefia",
+      "foki",
+      "inu",
+      "to",
+      "'ita",
+      "fiema'u",
+      "lele",
+      "lau",
+      "lotu",
+      "hela'ia",
+      "puke",
+      "fiekaia",
+      "fufulu",
+      "'ilo",
+      "'ave",
+      "fanongo",
+      "sio",
+      "tala",
+      "tangi",
+      "kuki",
+      "vaivai",
+      "kamata",
+      "fili",
+      "langa",
+      "masiva",
+      "folau",
+      "kumi",
+      "fakatau",
+      "tomui",
+      "hopo",
+      "mamata",
+      "haka",
+      "feinga",
+      "kole",
+      "manatu'i",
+      "tanaki",
+      "fieinua",
+      "fakapikopiko",
+      "lavea",
+      "tangutu",
+      "ui",
+      "kakau",
+      "lue"
+    ],
+    "perVerb": [
+      {
+        "tongan": "kai",
+        "authoredIndex": 0,
+        "measuredRank": 2,
+        "measuredCount": 346
+      },
+      {
+        "tongan": "inu",
+        "authoredIndex": 1,
+        "measuredRank": 16,
+        "measuredCount": 90
+      },
+      {
+        "tongan": "mohe",
+        "authoredIndex": 2,
+        "measuredRank": 7,
+        "measuredCount": 224
+      },
+      {
+        "tongan": "'alu",
+        "authoredIndex": 3,
+        "measuredRank": 0,
+        "measuredCount": 523
+      },
+      {
+        "tongan": "ha'u",
+        "authoredIndex": 4,
+        "measuredRank": 3,
+        "measuredCount": 333
+      },
+      {
+        "tongan": "hiva",
+        "authoredIndex": 5,
+        "measuredRank": 6,
+        "measuredCount": 231
+      },
+      {
+        "tongan": "lea",
+        "authoredIndex": 6,
+        "measuredRank": 8,
+        "measuredCount": 181
+      },
+      {
+        "tongan": "nofo",
+        "authoredIndex": 7,
+        "measuredRank": 4,
+        "measuredCount": 278
+      },
+      {
+        "tongan": "ngaue",
+        "authoredIndex": 8,
+        "measuredRank": 1,
+        "measuredCount": 393
+      },
+      {
+        "tongan": "tokoni",
+        "authoredIndex": 9,
+        "measuredRank": 13,
+        "measuredCount": 102
+      },
+      {
+        "tongan": "fiema'u",
+        "authoredIndex": 10,
+        "measuredRank": 19,
+        "measuredCount": 67
+      },
+      {
+        "tongan": "fiefia",
+        "authoredIndex": 11,
+        "measuredRank": 14,
+        "measuredCount": 99
+      },
+      {
+        "tongan": "hela'ia",
+        "authoredIndex": 12,
+        "measuredRank": 23,
+        "measuredCount": 55
+      },
+      {
+        "tongan": "fiekaia",
+        "authoredIndex": 13,
+        "measuredRank": 25,
+        "measuredCount": 44
+      },
+      {
+        "tongan": "'ita",
+        "authoredIndex": 14,
+        "measuredRank": 18,
+        "measuredCount": 70
+      },
+      {
+        "tongan": "puke",
+        "authoredIndex": 15,
+        "measuredRank": 24,
+        "measuredCount": 50
+      },
+      {
+        "tongan": "ako",
+        "authoredIndex": 16,
+        "measuredRank": 9,
+        "measuredCount": 171
+      },
+      {
+        "tongan": "lele",
+        "authoredIndex": 17,
+        "measuredRank": 20,
+        "measuredCount": 62
+      },
+      {
+        "tongan": "folau",
+        "authoredIndex": 18,
+        "measuredRank": 39,
+        "measuredCount": 16
+      },
+      {
+        "tongan": "sio",
+        "authoredIndex": 19,
+        "measuredRank": 30,
+        "measuredCount": 33
+      },
+      {
+        "tongan": "fanongo",
+        "authoredIndex": 20,
+        "measuredRank": 29,
+        "measuredCount": 34
+      },
+      {
+        "tongan": "lau",
+        "authoredIndex": 21,
+        "measuredRank": 21,
+        "measuredCount": 61
+      },
+      {
+        "tongan": "tohi",
+        "authoredIndex": 22,
+        "measuredRank": 5,
+        "measuredCount": 278
+      },
+      {
+        "tongan": "hopo",
+        "authoredIndex": 23,
+        "measuredRank": 43,
+        "measuredCount": 12
+      },
+      {
+        "tongan": "'ofa",
+        "authoredIndex": 24,
+        "measuredRank": null,
+        "measuredCount": 0
+      },
+      {
+        "tongan": "fieinua",
+        "authoredIndex": 25,
+        "measuredRank": 50,
+        "measuredCount": 6
+      },
+      {
+        "tongan": "vaivai",
+        "authoredIndex": 26,
+        "measuredRank": 34,
+        "measuredCount": 22
+      },
+      {
+        "tongan": "masiva",
+        "authoredIndex": 27,
+        "measuredRank": 38,
+        "measuredCount": 18
+      },
+      {
+        "tongan": "fakatau",
+        "authoredIndex": 28,
+        "measuredRank": 41,
+        "measuredCount": 15
+      },
+      {
+        "tongan": "ma'u",
+        "authoredIndex": 29,
+        "measuredRank": null,
+        "measuredCount": 0
+      },
+      {
+        "tongan": "kole",
+        "authoredIndex": 30,
+        "measuredRank": 47,
+        "measuredCount": 9
+      },
+      {
+        "tongan": "foki",
+        "authoredIndex": 31,
+        "measuredRank": 15,
+        "measuredCount": 93
+      },
+      {
+        "tongan": "tanaki",
+        "authoredIndex": 32,
+        "measuredRank": 49,
+        "measuredCount": 7
+      },
+      {
+        "tongan": "langa",
+        "authoredIndex": 33,
+        "measuredRank": 37,
+        "measuredCount": 19
+      }
+    ]
+  },
+  "branchingNodeAudit": [
+    {
+      "name": "pronoun",
+      "edgeCount": 6,
+      "authoredFirst": "preposed_modifier",
+      "idealFirst": "verb",
+      "allowsFinish": false,
+      "firstFinishIdx": -1,
+      "authored": [
+        "preposed_modifier",
+        "aspect_marker",
+        "fie_aux",
+        "lava_o_aux",
+        "verb",
+        "personal_count"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "verb",
+      "edgeCount": 28,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "travel_compound",
+        "directional",
+        "comparative_ange",
+        "superlative_taha",
+        "modifier",
+        "object",
+        "article",
+        "time_word",
+        "preposition",
+        "question_word",
+        "mo_fixed",
+        "postposed_pronoun",
+        "subordinator_ke_purpose",
+        "subordinator_koeuhi_ke",
+        "clause_connector_he",
+        "aspect_marker_post",
+        "aspect_marker_post_frequency",
+        "tuo_numeral",
+        "benefactive_preposition_ma",
+        "benefactive_pronoun_fused",
+        "clause_connector_ka",
+        "clause_connector_pea",
+        "subordinator_kapau",
+        "subordinator_lolotonga",
+        "possessive_pronoun",
+        "preposition_possessive"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "modifier",
+      "edgeCount": 7,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "modifier",
+        "time_word",
+        "preposition",
+        "mo_fixed",
+        "postposed_pronoun"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "object",
+      "edgeCount": 11,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "modifier",
+        "time_word",
+        "preposition",
+        "mo_fixed",
+        "postposed_pronoun",
+        "benefactive_preposition_ma",
+        "benefactive_pronoun_fused",
+        "aspect_marker_post_frequency",
+        "numeral"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "prep_phrase",
+      "edgeCount": 7,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "mo_fixed",
+        "time_word",
+        "possessor_preposition",
+        "attributive_adjective"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "companion",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "mo_fixed",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "place",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "mo_fixed",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "command_verb",
+      "edgeCount": 7,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "object",
+        "preposition",
+        "polite_particle",
+        "emphatic_pronoun",
+        "clause_connector_o",
+        "clause_connector_pea_serial"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "prohibition_verb",
+      "edgeCount": 5,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "preposition",
+        "time_word",
+        "polite_particle",
+        "clause_connector_he"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "pronoun_neg",
+      "edgeCount": 3,
+      "authoredFirst": "preposed_modifier",
+      "idealFirst": "verb",
+      "allowsFinish": false,
+      "firstFinishIdx": -1,
+      "authored": [
+        "preposed_modifier",
+        "aspect_marker",
+        "verb"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "verb_weather",
+      "edgeCount": 3,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "demonstrative",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "relative_clause_tense",
+        "whose_question_form"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "verb_ns",
+      "edgeCount": 4,
+      "authoredFirst": "modifier_ns",
+      "idealFirst": "modifier_ns",
+      "allowsFinish": false,
+      "firstFinishIdx": -1,
+      "authored": [
+        "modifier_ns",
+        "comparative_ange",
+        "superlative_taha",
+        "focus_marker"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "noun_subject_name",
+      "edgeCount": 10,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "mo_fixed",
+        "time_word",
+        "directional",
+        "tuo_numeral",
+        "clause_connector_kae",
+        "clause_connector_ka",
+        "clause_connector_pea"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "prep_pronoun",
+      "edgeCount": 8,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "time_word",
+        "clause_connector_pea",
+        "clause_connector_ka",
+        "clause_connector_he",
+        "subordinator_kapau",
+        "subordinator_lolotonga"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "travel_compound",
+      "edgeCount": 6,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "question_word",
+        "mo_fixed",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "postposed_pronoun",
+      "edgeCount": 3,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "possessive_head_noun",
+      "edgeCount": 3,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "pronominal_adjective"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "object_phrase",
+      "edgeCount": 3,
+      "authoredFirst": "agent_phrase",
+      "idealFirst": "agent_phrase",
+      "allowsFinish": false,
+      "firstFinishIdx": -1,
+      "authored": [
+        "agent_phrase",
+        "benefactive_preposition_ma",
+        "benefactive_pronoun_fused"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "agent_phrase",
+      "edgeCount": 9,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "time_word",
+        "mo_fixed",
+        "directional",
+        "tuo_numeral",
+        "benefactive_preposition_ma",
+        "benefactive_pronoun_fused"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "verb_cleft",
+      "edgeCount": 5,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "object_phrase_cleft",
+        "preposition",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "equational_noun",
+      "edgeCount": 3,
+      "authoredFirst": "modifier_eq",
+      "idealFirst": "modifier_eq",
+      "allowsFinish": false,
+      "firstFinishIdx": -1,
+      "authored": [
+        "modifier_eq",
+        "si_isi_i_postposed",
+        "equational_subject"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "aspect_marker_post",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "aspect_marker_post_frequency",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "tuo_numeral",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "clause_connector_he",
+      "edgeCount": 4,
+      "authoredFirst": "tense_marker",
+      "idealFirst": "tense_marker",
+      "allowsFinish": false,
+      "firstFinishIdx": -1,
+      "authored": [
+        "tense_marker",
+        "tense_marker_ns",
+        "tense_marker_neg",
+        "tense_marker_weather"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "object_phrase_cleft",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "personal_count",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "count_enclitic_pe",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "directional",
+      "edgeCount": 5,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "object",
+        "time_word",
+        "preposition"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "comparative_ange",
+      "edgeCount": 4,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "focus_marker"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "superlative_taha",
+      "edgeCount": 3,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "focus_marker"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "existential_noun",
+      "edgeCount": 7,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "preposition",
+        "time_word",
+        "attributive_adjective",
+        "subordinator_ke_purpose",
+        "subordinator_koeuhi_ke"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "attributive_adjective",
+      "edgeCount": 3,
+      "authoredFirst": "FINISH_STATEMENT",
+      "idealFirst": "FINISH_STATEMENT",
+      "allowsFinish": true,
+      "firstFinishIdx": 0,
+      "authored": [
+        "FINISH_STATEMENT",
+        "FINISH_QUESTION",
+        "time_word"
+      ],
+      "flagged": false,
+      "reasons": []
+    },
+    {
+      "name": "adjuncts_hub",
+      "edgeCount": 11,
+      "authoredFirst": "modifier",
+      "idealFirst": "numeral",
+      "allowsFinish": false,
+      "firstFinishIdx": -1,
+      "authored": [
+        "modifier",
+        "time_word",
+        "preposition",
+        "mo_fixed",
+        "postposed_pronoun",
+        "benefactive_preposition_ma",
+        "benefactive_pronoun_fused",
+        "aspect_marker_post_frequency",
+        "numeral",
+        "possessor_preposition",
+        "attributive_adjective"
+      ],
+      "flagged": false,
+      "reasons": []
+    }
+  ]
+}

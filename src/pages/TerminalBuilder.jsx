@@ -23,67 +23,9 @@ import {
   PHASE,
 } from '../engine/multi-walker'
 import { translateWalkerState } from '../engine/translate'
-
-// Touch-primary detection for swapping the inline drum-roller for a
-// tap-first dropdown picker on phones/tablets. Uses pointer/hover media
-// queries rather than a viewport-width breakpoint — a wide iPad still
-// needs the tap flow, and a narrow desktop window shouldn't. SSR-safe
-// default is false (desktop) since window is only read inside useEffect.
-function useIsTouchPrimary() {
-  const [isTouch, setIsTouch] = useState(false)
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return
-    const mq = window.matchMedia('(hover: none) and (pointer: coarse)')
-    const update = () => setIsTouch(mq.matches)
-    update()
-    mq.addEventListener?.('change', update)
-    return () => mq.removeEventListener?.('change', update)
-  }, [])
-  return isTouch
-}
-
-// ── Split an "Add more" group into per-POS tab pills ─────────────────────
-//
-// The engine's `extensions` / `mixed` phases bundle terminators (. ?) and
-// extension items (+ verb, + adverb, + ki he place, …) into one group
-// labelled "Add more". That rendered as a single pill with a long list of
-// `+ …` rows, which reads like the old "+ Add More" button rather than a
-// part-of-speech tab row.
-//
-// This transform flattens that group: terminators become a "Finish" tab
-// and each extension becomes its own tab pill whose only item is a
-// confirmation row. `type` + `id` on the item are preserved so the parent's
-// confirmSelection still routes to `pickExtension` / `pickTerminator`.
-// Groups without any extension items (plain word groups, "Finish", "Done")
-// pass through unchanged.
-function expandAddMoreGroup(groups) {
-  const result = []
-  for (const group of groups) {
-    const hasExtensions = group.items.some(it => it.type === 'extension')
-    if (!hasExtensions) {
-      result.push(group)
-      continue
-    }
-    const terminators = group.items.filter(it => it.type === 'terminator')
-    const extensions = group.items.filter(it => it.type === 'extension')
-    if (terminators.length > 0) {
-      result.push({ label: 'Finish', items: terminators })
-    }
-    for (const ext of extensions) {
-      const tabLabel = ext.display.replace(/^\+\s*/, '')
-      result.push({
-        label: tabLabel,
-        items: [{
-          type: 'extension',
-          id: ext.id,
-          display: `add ${tabLabel.toLowerCase()}`,
-          hint: ext.hint || '',
-        }],
-      })
-    }
-  }
-  return result
-}
+import { getLivePreview } from '../engine/sentence-preview'
+import { InlinePicker, MobilePicker } from '../components/TerminalPicker'
+import { useIsTouchPrimary, expandAddMoreGroup } from '../lib/terminal-picker-utils'
 
 export default function TerminalBuilder() {
   const [mwState, setMwState] = useState(() => createMultiWalker(53))
@@ -130,6 +72,14 @@ export default function TerminalBuilder() {
     const walker = getFinishedWalker(mwState)
     return walker ? translateWalkerState(walker) : null
   }, [mwState, isFinished])
+
+  // Live English preview of the in-progress sentence — updates on every pick
+  // ("Past tense" → "Past tense, I" → "I ate"). Cleared once finished, where
+  // the full translation takes over.
+  const livePreview = useMemo(
+    () => (isFinished ? '' : getLivePreview(mwState)),
+    [mwState, isFinished]
+  )
 
   const punct = useMemo(() => {
     if (!isFinished) return ''
@@ -329,6 +279,10 @@ export default function TerminalBuilder() {
         {showCursor && <span className="tb-cursor" aria-hidden />}
       </div>
 
+      {!isFinished && livePreview && (
+        <div className="tb-preview" aria-live="polite">{livePreview}</div>
+      )}
+
       {isFinished && translation && translation.text && (
         <div className="tb-translation">{translation.text}</div>
       )}
@@ -361,206 +315,5 @@ export default function TerminalBuilder() {
         )}
       </div>
     </div>
-  )
-}
-
-// ── Inline Picker ─────────────────────────────────────────────────────────
-
-function InlinePicker({ groups, groupIdx, itemIdx, onGroupChange, onItemChange, onConfirm }) {
-  // Nothing to pick (rare transient state) — the sentence-line cursor
-  // stands in instead.
-  if (groups.length === 0) return null
-
-  const group = groups[groupIdx] || groups[0]
-  const activeItem = group.items[itemIdx] || group.items[0]
-  const tabRowRef = useRef(null)
-  const listRef = useRef(null)
-
-  // Keep the active tab visible when the category row overflows the
-  // picker width — otherwise the selected pill could scroll off-edge
-  // as the user cycles with ←/→.
-  useEffect(() => {
-    const row = tabRowRef.current
-    if (!row) return
-    const tab = row.children[groupIdx]
-    if (tab && tab.scrollIntoView) {
-      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' })
-    }
-  }, [groupIdx])
-
-  // Keep the active word row visible inside the capped-height list as
-  // the user arrows ↑/↓ past what's initially rendered. `block: 'nearest'`
-  // means rows already in view don't trigger a scroll — the list only
-  // moves when the active row would otherwise clip.
-  useEffect(() => {
-    const list = listRef.current
-    if (!list) return
-    const row = list.children[itemIdx]
-    if (row && row.scrollIntoView) {
-      row.scrollIntoView({ block: 'nearest' })
-    }
-  }, [itemIdx, groupIdx])
-
-  return (
-    <span className="tb-picker">
-      <span className="tb-picker-tabrow">
-        {groups.length > 1 && <span className="tb-picker-edge" aria-hidden>{'\u25C0'}</span>}
-        <span className="tb-picker-tabs" ref={tabRowRef}>
-          {groups.map((g, gi) => (
-            <button
-              type="button"
-              key={g.label + gi}
-              onClick={(e) => {
-                e.stopPropagation()
-                onGroupChange(gi)
-              }}
-              className={`tb-picker-tab ${gi === groupIdx ? 'is-active' : ''}`}
-              tabIndex={-1}
-            >
-              {g.label}
-            </button>
-          ))}
-        </span>
-        {groups.length > 1 && <span className="tb-picker-edge" aria-hidden>{'\u25B6'}</span>}
-      </span>
-
-      <span className="tb-picker-list" ref={listRef}>
-        {group.items.map((item, i) => {
-          const isActive = i === itemIdx
-          return (
-            <button
-              type="button"
-              key={item.display + i}
-              onClick={(e) => {
-                e.stopPropagation()
-                if (isActive) onConfirm()
-                else onItemChange(i)
-              }}
-              className={`tb-picker-row ${isActive ? 'is-active' : ''}`}
-              tabIndex={-1}
-            >
-              <span className="tb-picker-caret" aria-hidden>{isActive ? '\u25B8' : ''}</span>
-              <span className="tb-picker-word">{item.display}</span>
-              {item.hint && <span className="tb-picker-gloss">{item.hint}</span>}
-            </button>
-          )
-        })}
-      </span>
-
-      {/* Fixed-height hint strip. Shows the active item's hint for now;
-          when per-group example strings land in multi-walker, swap this
-          to `group.hint`. The &nbsp; fallback keeps the picker from
-          jumping when an item has no hint. */}
-      <span className="tb-picker-footer">
-        {activeItem?.hint || '\u00A0'}
-      </span>
-    </span>
-  )
-}
-
-// ── Mobile Picker ─────────────────────────────────────────────────────────
-//
-// Two-stage dropdown: panel button → POS list → word list → confirm. The
-// panel lives below the sentence line (the sentence shows the blinking
-// cursor instead). When there's only one group (common in branching mode
-// — e.g. the merged "Tense Marker" after `he`) the POS step is skipped
-// and the word list opens directly.
-//
-// Desktop parity note: the inline drum-roller uses the parent's groupIdx/
-// itemIdx state because it needs to track keyboard focus for arrow keys.
-// MobilePicker has no keyboard input, so it manages its own local stage
-// and lets the parent's indices stay at defaults. onConfirm accepts the
-// picked item directly to sidestep setState-then-confirm batching.
-
-function MobilePicker({ groups, onConfirm }) {
-  const [stage, setStage] = useState('closed') // 'closed' | 'pos' | 'word'
-  const [selectedGroupIdx, setSelectedGroupIdx] = useState(0)
-
-  if (groups.length === 0) return null
-
-  const openMenu = () => {
-    setStage(groups.length === 1 ? 'word' : 'pos')
-    setSelectedGroupIdx(0)
-  }
-
-  const pickGroup = (gi) => {
-    setSelectedGroupIdx(gi)
-    setStage('word')
-  }
-
-  const pickItem = (item) => {
-    onConfirm(item)
-    setStage('closed')
-  }
-
-  const group = groups[selectedGroupIdx] || groups[0]
-
-  return (
-    <span className="relative inline-flex flex-col items-start">
-      <button
-        type="button"
-        onClick={openMenu}
-        aria-label="Pick the next word"
-        className="tb-mobile-trigger"
-      >
-        <span>pick</span>
-        <span aria-hidden>{'\u25BE'}</span>
-      </button>
-
-      {stage !== 'closed' && (
-        <>
-          {/* Outside-tap dismissal. z-index below the menu so taps on items
-              don't fall through to the backdrop. */}
-          <span
-            onClick={() => setStage('closed')}
-            className="fixed inset-0 z-40 bg-transparent"
-            aria-hidden
-          />
-          <span className="tb-mobile-menu">
-            <span className="tb-mobile-menu-header">
-              {stage === 'word' && groups.length > 1 ? (
-                <button type="button" onClick={() => setStage('pos')}>
-                  {'\u2190'} back
-                </button>
-              ) : <span />}
-              <span>{stage === 'pos' ? 'Pick a category' : group.label}</span>
-              <button
-                type="button"
-                onClick={() => setStage('closed')}
-                aria-label="Close"
-              >
-                {'\u2715'}
-              </button>
-            </span>
-
-            {stage === 'pos' && groups.map((g, gi) => (
-              <button
-                key={g.label + gi}
-                type="button"
-                onClick={() => pickGroup(gi)}
-                className="tb-mobile-menu-item"
-                style={{ fontStyle: 'normal' }}
-              >
-                {g.label} <span className="tb-mobile-menu-item-hint">{g.items.length}</span>
-              </button>
-            ))}
-
-            {stage === 'word' && group.items.map((it, i) => (
-              <button
-                key={it.display + i}
-                type="button"
-                onClick={() => pickItem(it)}
-                className="tb-mobile-menu-item"
-              >
-                <span>{it.display}</span>
-                {it.hint && (
-                  <span className="tb-mobile-menu-item-hint">{it.hint}</span>
-                )}
-              </button>
-            ))}
-          </span>
-        </>
-      )}
-    </span>
   )
 }

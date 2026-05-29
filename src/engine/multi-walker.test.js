@@ -1,6 +1,11 @@
 import { describe, it, expect } from 'vitest'
 import {
   createMultiWalker,
+  createGuidedMultiWalker,
+  getEntryPointCategories,
+  pickEntryPointCategory,
+  getFinishedEntryPoint,
+  getEntryPointCategory,
   getFirstWordOptions,
   pickFirstWord,
   getCurrentOptions,
@@ -15,6 +20,7 @@ import {
   PHASE,
 } from './multi-walker'
 import { translateWalkerState } from './translate'
+import { expandAddMoreGroup } from '../lib/terminal-picker-utils'
 
 /**
  * Helper: navigate through options to find and pick a word by its tongan form.
@@ -411,6 +417,69 @@ describe('multi-walker: TerminalBuilder picker order (user-reported regression)'
   })
 })
 
+describe('multi-walker: likelihood ordering (most-likely word leads)', () => {
+  // The user-reported defect: after "Naʻa ku" the picker's first tab was
+  // `faʻa` (preposed_modifier), the rarest continuation (~0.9% in the book
+  // corpus), forcing the user to arrow across to reach a verb (~78%). The
+  // engine now orders branching categories/words by corpus-grounded
+  // likelihood, so the default groupIdx=0/itemIdx=0 lands on a verb.
+
+  function naaKu(chapter) {
+    let s = createMultiWalker(chapter)
+    const naa = getFirstWordOptions(s).groups
+      .flatMap(g => g.words)
+      .find(item => item.word.tongan === 'Naʻa')
+    s = pickFirstWord(s, naa)
+    const ku = getCurrentOptions(s).words.find(w => w.tongan === 'ku')
+    return pickWord(s, ku)
+  }
+
+  it('after "Naʻa ku": the first picker tab is the Verb branch, not faʻa', () => {
+    const s = naaKu(22)
+    // expandAddMoreGroup is exactly what both builder pages render — assert the
+    // user-visible tab order, which the engine group order now drives.
+    const display = expandAddMoreGroup(getPickerData(s).groups)
+
+    // Default landing (groupIdx 0, itemIdx 0) is the verb branch.
+    expect(display[0].items[0].id).toBe('verb')
+
+    // faʻa still reachable, just demoted behind verb.
+    const verbIdx = display.findIndex(g => g.items.some(it => it.id === 'verb'))
+    const faaIdx = display.findIndex(g => g.items.some(it => it.id === 'preposed_modifier'))
+    expect(verbIdx).toBe(0)
+    expect(faaIdx).toBeGreaterThan(verbIdx)
+  })
+
+  it('within the Verb category the most-frequent verb (ʻalu) leads', () => {
+    // Branch into verb selection so verbs render as a word group, then check
+    // the within-category frequency order.
+    const s = pickExtension(naaKu(53), 'verb')
+    expect(s.phase).toBe(PHASE.PICKING_WORD)
+    const verbGroup = getPickerData(s).groups.find(g => g.label === 'Verb')
+    expect(verbGroup).toBeDefined()
+    // ʻalu is the most frequent verb in the corpus (523 occurrences) — it now
+    // leads instead of `kai`, which was first only by JSON authoring order.
+    expect(verbGroup.items[0].word.tongan).toBe('ʻalu')
+    // No faʻa here — it's a preposed modifier, not a verb.
+    expect(verbGroup.items.some(it => it.word && it.word.tongan === 'faʻa')).toBe(false)
+  })
+
+  it('terminators still lead the continuation group after a verb (unchanged)', () => {
+    // The likelihood sort must not disturb the "Finish at the top" rule.
+    let s = createMultiWalker(53)
+    const oku = getFirstWordOptions(s).groups
+      .flatMap(g => g.words)
+      .find(item => item.word.tongan === 'ʻOku')
+    s = pickFirstWord(s, oku)
+    s = findAndPickWord(s, 'ou')
+    s = findAndPickWord(s, 'ʻalu')
+    const picker = getPickerData(s)
+    expect(picker.groups[0].label).toBe('Add more')
+    expect(picker.groups[0].items[0].type).toBe('terminator')
+    expect(picker.groups[0].items[0].display).toBe('.')
+  })
+})
+
 describe('multi-walker: walker pruning', () => {
   it("walkers decrease as words narrow the path", () => {
     const state = createMultiWalker(53)
@@ -470,5 +539,125 @@ describe('clause_connector_he — Tense Marker category merges all three branche
     // tense_marker_ns / tense_marker_neg, not tense_marker.
     expect(tongans).toContain('Na\u02BBe')
     expect(tongans).toContain('\u02BBE')
+  })
+})
+
+// \u2500\u2500 Guided builder: skippable entry-point chooser \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+//
+// These cover the additive guided path (createGuidedMultiWalker +
+// getEntryPointCategories + pickEntryPointCategory) and, crucially, guard
+// that the plain createMultiWalker behaviour the existing TerminalBuilder
+// relies on is left byte-for-byte unchanged.
+
+describe('multi-walker: createMultiWalker is unchanged by the guided additions', () => {
+  it('still returns exactly the plain shape with no entry-point category field', () => {
+    const state = createMultiWalker(53)
+    expect(state).toEqual({
+      chapter: 53,
+      walkers: [],
+      phase: PHASE.PICKING_FIRST_WORD,
+      activeCategory: null,
+    })
+    // The guided field must NOT leak onto the plain builder \u2014 getFirstWordOptions
+    // keys its filter off its truthiness, so an accidental key here would change
+    // terminal-build behaviour.
+    expect('activeEntryPointCategory' in state).toBe(false)
+  })
+})
+
+describe('multi-walker: getEntryPointCategories', () => {
+  it('returns ordered sentence-type categories with label, blurb, and count', () => {
+    const cats = getEntryPointCategories(53)
+    const names = cats.map(c => c.category)
+    expect(names).toContain('Statements')
+    expect(names).toContain('Commands')
+    expect(names).toContain('Questions')
+    // Subordinate (internal sub-walk) entry points are never offered.
+    expect(names).not.toContain('Subordinate')
+    // Order: Statements leads, per ENTRY_CATEGORY_ORDER.
+    expect(names[0]).toBe('Statements')
+    // Statements before Commands before Questions.
+    expect(names.indexOf('Statements')).toBeLessThan(names.indexOf('Commands'))
+    expect(names.indexOf('Commands')).toBeLessThan(names.indexOf('Questions'))
+    // Each row is shaped for the chooser.
+    for (const c of cats) {
+      expect(typeof c.label).toBe('string')
+      expect(typeof c.blurb).toBe('string')
+      expect(c.count).toBeGreaterThan(0)
+    }
+  })
+
+  it('respects the chapter gate (early chapters expose fewer categories)', () => {
+    const early = getEntryPointCategories(1).map(c => c.category)
+    const all = getEntryPointCategories(53).map(c => c.category)
+    expect(early).toContain('Statements')
+    // Ko Sentences first appear at Ch 12, so they're absent at Ch 1 but
+    // present by Ch 53.
+    expect(early).not.toContain('Ko Sentences')
+    expect(all).toContain('Ko Sentences')
+  })
+})
+
+describe('multi-walker: createGuidedMultiWalker + pickEntryPointCategory', () => {
+  it('opens on the skippable PICKING_ENTRY_POINT step', () => {
+    const state = createGuidedMultiWalker(53)
+    expect(state.phase).toBe(PHASE.PICKING_ENTRY_POINT)
+    expect(state.activeEntryPointCategory).toBe(null)
+    expect(state.walkers).toEqual([])
+  })
+
+  it('picking a category filters first words to that category', () => {
+    const state = pickEntryPointCategory(createGuidedMultiWalker(53), 'Commands')
+    expect(state.phase).toBe(PHASE.PICKING_FIRST_WORD)
+    expect(state.activeEntryPointCategory).toBe('Commands')
+
+    const allItems = getFirstWordOptions(state).groups.flatMap(g => g.words)
+    // Every surviving first word maps ONLY to Commands entry points now.
+    for (const item of allItems) {
+      for (const ep of item.entryPoints) {
+        expect(ep.category).toBe('Commands')
+      }
+    }
+    // The command verb 'Kai' survives; the statement/negation starter '\u02BBOku'
+    // (which has no Commands entry point) is filtered out.
+    const tongans = allItems.map(i => i.word.tongan)
+    expect(tongans).toContain('Kai')
+    expect(tongans).not.toContain('\u02BBOku')
+  })
+
+  it('skipping (null category) leaves first words unfiltered', () => {
+    const skipped = pickEntryPointCategory(createGuidedMultiWalker(53), null)
+    expect(skipped.phase).toBe(PHASE.PICKING_FIRST_WORD)
+    expect(skipped.activeEntryPointCategory).toBe(null)
+
+    const tongans = getFirstWordOptions(skipped).groups
+      .flatMap(g => g.words)
+      .map(i => i.word.tongan)
+    // Same broad set as the plain builder \u2014 both a command verb and a
+    // statement starter are present.
+    expect(tongans).toContain('Kai')
+    expect(tongans).toContain('\u02BBOku')
+  })
+
+  it('builds a finished statement via the guided path and resolves its entry point', () => {
+    // Mirror the proven 'ʻOku ou ʻalu.' build, but through the guided
+    // Statements filter — confirms the filtered first-word set still reaches
+    // a finishable sentence and that getFinishedEntryPoint resolves it.
+    let state = pickEntryPointCategory(createGuidedMultiWalker(53), 'Statements')
+    const oku = getFirstWordOptions(state).groups
+      .flatMap(g => g.words)
+      .find(i => i.word.tongan === 'ʻOku')
+    expect(oku).toBeDefined()
+    state = pickFirstWord(state, oku)
+    state = findAndPickWord(state, 'ou')
+    state = findAndPickWord(state, 'ʻalu')
+    state = pickTerminator(state, 'FINISH_STATEMENT')
+
+    expect(state.phase).toBe(PHASE.FINISHED)
+    const ep = getFinishedEntryPoint(state)
+    expect(ep).not.toBe(null)
+    expect(ep.category).toBe('Statements')
+    // getFinishedEntryPoint and getEntryPointCategory agree.
+    expect(ep.category).toBe(getEntryPointCategory(state))
   })
 })

@@ -10,6 +10,7 @@ import ChapterPractice from './pages/ChapterPractice'
 import FlipCards from './pages/FlipCards'
 import ReferenceCharts from './pages/ReferenceCharts'
 import TerminalBuilder from './pages/TerminalBuilder'
+import SentenceBuilder from './pages/SentenceBuilder'
 import TenseSwapper from './pages/TenseSwapper'
 import FirstWordQuiz from './pages/FirstWordQuiz'
 import PossessiveSorter from './pages/PossessiveSorter'
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="/cards" element={<FlipCards />} />
             <Route path="/charts" element={<ReferenceCharts />} />
             <Route path="/terminal-build" element={<TerminalBuilder />} />
+            <Route path="/sentence-builder" element={<SentenceBuilder />} />
             <Route path="/tense-swap" element={<TenseSwapper />} />
             <Route path="/first-word" element={<FirstWordQuiz />} />
             <Route path="/possessive-sort" element={<PossessiveSorter />} />

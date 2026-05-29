@@ -11,6 +11,7 @@
 
 import grammarGraph from '../data/grammar-graph.json'
 import {
+  getEntryPoints,
   getFirstWords,
   createWalkerState,
   advanceInFrame,
@@ -28,6 +29,13 @@ import {
 // ── Phases ──────────────────────────────────────────────────────────────
 
 export const PHASE = {
+  // PICKING_ENTRY_POINT is the optional, skippable opening step used by the
+  // *guided* builder (createGuidedMultiWalker): the user first declares what
+  // kind of sentence they want ("Statement", "Command", …) so the first-word
+  // options can be pre-filtered to that category. The plain builder
+  // (createMultiWalker) skips this and starts at PICKING_FIRST_WORD, so the
+  // existing terminal builder is unaffected.
+  PICKING_ENTRY_POINT: 'PICKING_ENTRY_POINT',
   PICKING_FIRST_WORD: 'PICKING_FIRST_WORD',
   PICKING_CATEGORY: 'PICKING_CATEGORY',
   PICKING_WORD: 'PICKING_WORD',
@@ -65,6 +73,93 @@ function normalizeCategory(label) {
   return CATEGORY_NORMALIZE[label] || label
 }
 
+// ── Likelihood ordering ───────────────────────────────────────────────────
+//
+// The picker historically showed branching categories in grammar-graph edge-
+// declaration order, so after "Naʻa ku" the first tab was `preposed_modifier`
+// (faʻa = "often") and the user had to arrow past it to reach a verb. A book-
+// corpus scan of 2,332 [tense-marker + pronoun + X] sentences (see
+// scripts/build-transition-weights.mjs) shows what actually follows a pronoun:
+// a verb/stative ~78% of the time, with count/aux/aspect/faʻa a long tail.
+// PICKER_RANK encodes that order (lower = more likely = shown first) keyed by
+// the target node id; unranked nodes get a neutral default so adding a node to
+// the graph never silently reshuffles or drops anything.
+const PICKER_RANK = {
+  verb: 0, verb_tr: 0, verb_ns: 0, verb_cleft: 0,
+  verb_experiencer: 0, verb_kohai: 0,
+  command_verb: 0, command_verb_plural: 0, prohibition_verb: 0,
+  personal_count: 30,           // numeral/count ~3.9%
+  fie_aux: 34, lava_o_aux: 34,  // "want to" / "be able to" auxiliaries ~3.4%
+  aspect_marker: 40,            // kei / ʻosi ~1.9%
+  preposed_modifier: 45,        // faʻa "often" ~0.9% — rarest, so last
+}
+const DEFAULT_RANK = 50
+
+function rankNode(nodeId) {
+  return Object.prototype.hasOwnProperty.call(PICKER_RANK, nodeId)
+    ? PICKER_RANK[nodeId]
+    : DEFAULT_RANK
+}
+
+// Stable-sort picker groups by their node-id likelihood rank so the most-likely
+// category (verbs) leads. Array.prototype.sort is stable in V8, so groups with
+// equal rank keep their original (JSON / insertion) order. Groups carry their
+// node id as either `extNodeId` (branching extensions) or `nodeId` (selecting).
+function sortGroupsByLikelihood(groups) {
+  return [...groups].sort(
+    (a, b) => rankNode(a.extNodeId || a.nodeId) - rankNode(b.extNodeId || b.nodeId)
+  )
+}
+
+// Within a single category the picker shows the most frequent words first.
+// Action verbs are ordered by measured book-corpus frequency (the grammar-graph
+// `verb` words[] order did NOT track frequency — 14 of 31 adjacent pairs were
+// inverted); everything unlisted keeps its JSON order via the stable sort.
+// Keyed by the `normalize`d Tongan above (okina → ', lowercased, macrons kept).
+const VERB_FREQUENCY = [
+  "'alu", 'ngāue', 'kai', "ha'u", 'nofo', 'tohi', 'hiva', 'mohe', 'lea', 'ako',
+  'fai', 'mālohi', 'ō', 'tokoni', 'fiefia', 'foki', 'inu', "'ita", "fiema'u",
+  'fakatau', 'sio', 'lau', 'lele', 'folau', 'fanongo',
+]
+const VERB_FREQUENCY_RANK = Object.fromEntries(VERB_FREQUENCY.map((t, i) => [t, i]))
+
+function wordFrequencyRank(word) {
+  const r = VERB_FREQUENCY_RANK[normalize(word.tongan)]
+  return r === undefined ? Number.MAX_SAFE_INTEGER : r
+}
+
+// ── Entry-point categories (guided opening step) ──────────────────────────
+//
+// Display order for the "What do you want to say?" chooser. Mirrors the
+// open-build chooser order (OpenBuilder.jsx CATEGORY_ORDER) and appends
+// Exclamatory (which open-build's Ch 1–30 slice never reached). Any
+// category present in the data but missing here is appended alphabetically
+// so a new entry-point category can't silently disappear from the chooser.
+const ENTRY_CATEGORY_ORDER = [
+  'Statements',
+  'Commands',
+  'Questions',
+  'Negation',
+  'Ko Sentences',
+  'Noun Subjects',
+  'Exclamatory',
+]
+
+// Short, plain-English one-liners for each category — the scaled-back
+// guidance the chooser shows under each label. Kept deliberately terse
+// (the verbose per-entry-point descriptions in grammar-graph.json are NOT
+// surfaced here). Falls back to the category name if a category is added
+// without a blurb.
+const ENTRY_CATEGORY_BLURBS = {
+  'Statements': 'say that something is or happens',
+  'Commands': 'tell someone to do something',
+  'Questions': 'ask something',
+  'Negation': 'say something is not so',
+  'Ko Sentences': 'identify or equate — it is X',
+  'Noun Subjects': 'say what a named person did',
+  'Exclamatory': 'exclaim — what a tremendous X!',
+}
+
 // ── State creation ──────────────────────────────────────────────────────
 
 /**
@@ -80,6 +175,24 @@ export function createMultiWalker(chapter = 53) {
   }
 }
 
+/**
+ * Create a fresh *guided* multi-walker state. Identical to createMultiWalker
+ * except it opens on the skippable PICKING_ENTRY_POINT step and carries an
+ * `activeEntryPointCategory` field. That field stays null until the user
+ * picks a sentence-type category (or explicitly skips), at which point
+ * getFirstWordOptions filters to it. Because the plain createMultiWalker
+ * never sets this field, the existing terminal builder is unaffected.
+ */
+export function createGuidedMultiWalker(chapter = 53) {
+  return {
+    chapter,
+    walkers: [],
+    phase: PHASE.PICKING_ENTRY_POINT,
+    activeCategory: null,
+    activeEntryPointCategory: null,
+  }
+}
+
 // ── First-word options ──────────────────────────────────────────────────
 
 /**
@@ -91,11 +204,17 @@ export function createMultiWalker(chapter = 53) {
  * where each firstWordItem is { word, entryPoints, category }.
  */
 export function getFirstWordOptions(state) {
+  // When the guided builder has a chosen sentence-type category, keep only
+  // entry points in that category (and drop first words that no longer map
+  // to any). `cat` is null/undefined for the plain builder, so the extra
+  // predicate is a no-op there — behaviour is byte-for-byte unchanged.
+  const cat = state.activeEntryPointCategory || null
+  const keep = (ep) => ep.category !== 'Subordinate' && (!cat || ep.category === cat)
   const all = getFirstWords(state.chapter)
-    .filter(item => item.entryPoints.some(ep => ep.category !== 'Subordinate'))
+    .filter(item => item.entryPoints.some(keep))
     .map(item => ({
       ...item,
-      entryPoints: item.entryPoints.filter(ep => ep.category !== 'Subordinate'),
+      entryPoints: item.entryPoints.filter(keep),
     }))
 
   // Group by the start node's label
@@ -111,6 +230,53 @@ export function getFirstWordOptions(state) {
 
   const groups = Object.entries(groupMap).map(([label, words]) => ({ label, words }))
   return { groups }
+}
+
+// ── Entry-point categories (guided opening step) ──────────────────────────
+
+/**
+ * Return the sentence-type categories available at this chapter, for the
+ * guided builder's opening chooser. Reads the same entry_points the walker
+ * uses (graph-walker getEntryPoints) so the chooser can never offer a
+ * category the engine can't actually build. Subordinate (internal sub-walk)
+ * entry points are excluded.
+ *
+ * Returns: [{ category, label, blurb, count }] ordered by
+ * ENTRY_CATEGORY_ORDER, with any unknown category appended alphabetically.
+ */
+export function getEntryPointCategories(chapter) {
+  const byCategory = {}
+  for (const ep of getEntryPoints(chapter)) {
+    if (!ep.category || ep.category === 'Subordinate') continue
+    if (!byCategory[ep.category]) byCategory[ep.category] = 0
+    byCategory[ep.category] += 1
+  }
+
+  const present = Object.keys(byCategory)
+  const ordered = [
+    ...ENTRY_CATEGORY_ORDER.filter(c => present.includes(c)),
+    ...present.filter(c => !ENTRY_CATEGORY_ORDER.includes(c)).sort(),
+  ]
+
+  return ordered.map(category => ({
+    category,
+    label: category,
+    blurb: ENTRY_CATEGORY_BLURBS[category] || '',
+    count: byCategory[category],
+  }))
+}
+
+/**
+ * Record the user's sentence-type choice and advance to first-word picking.
+ * Passing a falsy category is the "just start building" skip — it leaves
+ * activeEntryPointCategory null so first words stay unfiltered.
+ */
+export function pickEntryPointCategory(state, category) {
+  return {
+    ...state,
+    activeEntryPointCategory: category || null,
+    phase: PHASE.PICKING_FIRST_WORD,
+  }
 }
 
 // ── First-word pick ─────────────────────────────────────────────────────
@@ -206,7 +372,7 @@ function groupWordsByCategory(selectingWalkers) {
     const label = normalizeCategory(node ? node.label : 'Word')
     const words = getCurrentFrameWords(w.walkerState)
 
-    if (!groupMap[label]) groupMap[label] = { label, wordMap: {} }
+    if (!groupMap[label]) groupMap[label] = { label, nodeId, wordMap: {} }
 
     for (const word of words) {
       const key = normalize(word.tongan)
@@ -216,10 +382,11 @@ function groupWordsByCategory(selectingWalkers) {
     }
   }
 
-  return Object.values(groupMap).map(g => ({
+  return sortGroupsByLikelihood(Object.values(groupMap).map(g => ({
     label: g.label,
+    nodeId: g.nodeId,
     words: Object.values(g.wordMap),
-  }))
+  })))
 }
 
 /**
@@ -256,11 +423,11 @@ function groupBranchingExtensions(walkersInProgress) {
     }
   }
 
-  return Object.values(groupMap).map(g => ({
+  return sortGroupsByLikelihood(Object.values(groupMap).map(g => ({
     label: g.label,
     extNodeId: g.extNodeId,
     words: Object.values(g.wordMap),
-  }))
+  })))
 }
 
 // ── Get current options ─────────────────────────────────────────────────
@@ -375,7 +542,10 @@ function collectExtensionOptions(walkersInProgress) {
 
   return {
     type: 'extensions',
-    extensions: Object.values(extMap),
+    // Order continuation options by likelihood too, so a branching `verb`
+    // leads the "Add more" list ahead of faʻa/aspect/aux. Terminators are
+    // prepended separately in getPickerData, so this sort never moves them.
+    extensions: Object.values(extMap).sort((a, b) => rankNode(a.id) - rankNode(b.id)),
     terminators: Object.values(termMap),
     canFinishFrame,
   }
@@ -576,6 +746,18 @@ export function getEntryPointCategory(state) {
   return state.walkers[0].entryPointCategory
 }
 
+/**
+ * Resolve the full grammar-graph entry_point object for the first surviving
+ * walker, so the ExplainPanel can show a frame name. Returns null when no
+ * walker exists or the id can't be resolved.
+ */
+export function getFinishedEntryPoint(state) {
+  if (state.walkers.length === 0) return null
+  const epId = state.walkers[0].entryPointId
+  if (!epId) return null
+  return getEntryPoints(state.chapter).find(ep => ep.id === epId) || null
+}
+
 // ── Definiteness ────────────────────────────────────────────────────────
 
 /**
@@ -654,7 +836,14 @@ function midSentenceDisplay(w) {
 
 function wordsToPickerItems(words) {
   const isAdj = (w) => Array.isArray(w.tags) && w.tags.includes('adjective')
-  const sorted = [...words].sort((a, b) => (isAdj(a) ? 1 : 0) - (isAdj(b) ? 1 : 0))
+  // Stable composite sort: action verbs before adjectival/stative verbs
+  // (Tongan adjectives fill the verb slot), then by measured corpus frequency
+  // within each tier, then original JSON order for ties.
+  const sorted = [...words].sort((a, b) => {
+    const adjDiff = (isAdj(a) ? 1 : 0) - (isAdj(b) ? 1 : 0)
+    if (adjDiff !== 0) return adjDiff
+    return wordFrequencyRank(a) - wordFrequencyRank(b)
+  })
   return sorted.map(w => ({
     type: 'word',
     word: w,

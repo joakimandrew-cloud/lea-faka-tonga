@@ -1024,6 +1024,27 @@ body::before {
   text-overflow: ellipsis;
 }
 
+/* Small uppercase "suggested" tag on the default-highlighted pick. Warm accent
+ * used sparingly (a punctuation mark, not a CTA); static, no animation. */
+.terminal-builder .tb-picker-suggest-tag {
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 9px;
+  color: var(--tb-picker-caret);
+  margin-right: 6px;
+}
+
+/* Live English preview of the in-progress sentence — quieter than the final
+ * translation, sits just under the Tongan line while building. */
+.terminal-builder .tb-preview {
+  font-size: 13px;
+  color: var(--tb-muted);
+  font-style: italic;
+  margin-top: 14px;
+  opacity: 0.8;
+}
+
 .terminal-builder .tb-translation {
   font-size: 14px;
   color: var(--tb-muted);
@@ -1169,6 +1190,63 @@ body::before {
   color: var(--tb-muted);
   margin-top: 2px;
 }
+
+/* ── Sentence-type chooser (SentenceBuilder opening step) ─────────────────── */
+/* The skippable "What do you want to say?" step. A quiet text-link list in the
+ * terminal palette: bold-ish italic category + a faint one-line blurb, with a
+ * warm-accent hover. Mirrors the guidance open-build led with, scaled back. */
+.terminal-builder .tb-chooser {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.terminal-builder .tb-chooser-item {
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid var(--tb-menu-divide);
+  padding: 0.6rem 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--tb-fg);
+  font: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.terminal-builder .tb-chooser-item:last-of-type { border-bottom: none; }
+
+.terminal-builder .tb-chooser-cat {
+  font-size: 18px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+}
+.terminal-builder .tb-chooser-item:hover .tb-chooser-cat,
+.terminal-builder .tb-chooser-item:focus-visible .tb-chooser-cat {
+  color: var(--tb-picker-caret);
+}
+
+.terminal-builder .tb-chooser-blurb {
+  font-size: 12px;
+  color: var(--tb-muted);
+}
+
+.terminal-builder .tb-chooser-skip {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--tb-muted);
+  transition: color 0.15s;
+}
+.terminal-builder .tb-chooser-skip:hover { color: var(--tb-hover-fg); }
+
+/* On-demand "Show how this was built" breakdown sits below the translation. */
+.terminal-builder .tb-explain { margin-top: 1rem; }
 
 /* ── Tense Swapper (/tense-swap) ─────────────────────────────────────────── */
 /* Week 2 lesson: "particles do the work." A single sentence renders in four
