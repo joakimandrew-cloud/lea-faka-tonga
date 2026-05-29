@@ -59,6 +59,13 @@ import AccentPlacementPickerCore from './AccentPlacementPickerCore'
 import VerbalNounConverterCore from './VerbalNounConverterCore'
 import ReciprocityPickerCore from './ReciprocityPickerCore'
 import EmotionalArticleMatrixCore from './EmotionalArticleMatrixCore'
+import SentenceBuilderCore from './SentenceBuilderCore'
+import PronounParadigmCore from './PronounParadigmCore'
+import ThereIsHaveCore from './ThereIsHaveCore'
+import CountTimeCore from './CountTimeCore'
+import ConnectorDisambiguatorCore from './ConnectorDisambiguatorCore'
+import KinshipPossessiveCore from './KinshipPossessiveCore'
+import VocabClozeCore from './VocabClozeCore'
 
 export const drillRegistry = {
   // ── Six existing drills ─────────────────────────────────────
@@ -277,5 +284,35 @@ export const drillRegistry = {
   'emotional-article-matrix': {
     Core: EmotionalArticleMatrixCore,
     meta: { title: `Adding feeling: siʻi and siʻa`, blurb: `Choose the emotional "the/a" to add pity or affection.` },
+  },
+
+  // ── Phase 3: new exercises (menu + /drill/:id; no chapter anchor) ──
+  'sentence-builder': {
+    Core: SentenceBuilderCore,
+    meta: { title: `Build a whole Tongan sentence`, blurb: `Assemble the sentence from tiles — pick the right ʻa / ʻe / ʻa e / ʻe he markers and the right order.` },
+  },
+  'pronoun-paradigm': {
+    Core: PronounParadigmCore,
+    meta: { title: `Name the pronoun`, blurb: `Recall the right preposed pronoun by its cell: singular / dual / plural, "we" with or without you.` },
+  },
+  'there-is-have': {
+    Core: ThereIsHaveCore,
+    meta: { title: `There is / I have`, blurb: `ʻi ai for "there is" and "have"; the negative drops ʻi ai. Pick the right opener and tense.` },
+  },
+  'count-time': {
+    Core: CountTimeCore,
+    meta: { title: `Count and tell the time`, blurb: `The numbers 1-10 inside their frames: ʻe for things, toko for people, the clock, prices.` },
+  },
+  'connector-disambiguator': {
+    Core: ConnectorDisambiguatorCore,
+    meta: { title: `Which connector: mo / pea / ʻo / ka / kae`, blurb: `Three words for "and" (mo, pea, ʻo) and two for "but" (ka, kae) — choose by what is being joined.` },
+  },
+  'kinship-possessive': {
+    Core: KinshipPossessiveCore,
+    meta: { title: `Family: my / your / his`, blurb: `Relatives are ho-class — but parents and children flip to e-class (ʻeku tamai, hoku tokoua).` },
+  },
+  'vocab-cloze': {
+    Core: VocabClozeCore,
+    meta: { title: `Fill the blank (vocabulary)`, blurb: `A known frame with one word missing and an English cue — recall the Tongan word.` },
   },
 }

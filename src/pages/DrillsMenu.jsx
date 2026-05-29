@@ -75,6 +75,9 @@ const beginner = [
   { id: 'audience-picker',      ch: 5,  title: `Commands: one, two, or many`,            blurb: `Pick the command form by how many you address: bare verb / mo / mou.`,                action: 'Pick',    icon: ICONS.people },
   { id: 'tm-by-context-picker', ch: 15, title: `Naʻa or Naʻe? Te or ʻE?`,               blurb: `Use the pronoun form before a pronoun, the other form before a noun or "ʻikai."`,      action: 'Pick',    icon: ICONS.fork },
   { id: 'clusivity-corner',     ch: 2,  title: `Which "we"?`,                            blurb: `Tongan has four words for "we." Is the listener in the group, and is it two or three-plus?`, action: 'Choose', icon: ICONS.weGroup },
+  { id: 'pronoun-paradigm',     ch: 2,  title: `Name the pronoun`,                       blurb: `Recall the right preposed pronoun by its cell: singular / dual / plural, "we" with or without you.`, action: 'Recall', icon: ICONS.people },
+  { id: 'count-time',           ch: 20, title: `Count and tell the time`,                blurb: `The numbers 1-10 in their frames: ʻe for things, toko for people, the clock, prices.`, action: 'Count', icon: ICONS.count },
+  { id: 'vocab-cloze',          ch: 3,  title: `Fill the blank (vocabulary)`,            blurb: `A known frame with one word missing and an English cue — recall the Tongan word.`, action: 'Recall', icon: ICONS.article },
 ]
 
 const intermediate = [
@@ -93,9 +96,13 @@ const intermediate = [
   { id: 'classifier-extended-picker',   ch: 31, title: `Counting: ʻe, toko, or foʻi?`,            blurb: `ʻe for things, toko for people, foʻi for single round/whole items.`,                    action: 'Pick',   icon: ICONS.count },
   { id: 'spatial-noun-picker',          ch: 40, title: `inside / under / on top / beside`,        blurb: `loto, lalo, funga, veʻe, tuʻa, mata, mui, tafaʻaki.`,                                    action: 'Pick',   icon: ICONS.spatial },
   { id: 'conditional-picker',           ch: 47, title: `if / when / had-I`,                       blurb: `kapau (uncertain), ka (expected), ka ne (didn't-happen, "had I…").`,                     action: 'Pick',   icon: ICONS.fork },
+  { id: 'there-is-have',                ch: 29, title: `There is / I have`,                        blurb: `ʻi ai for "there is" and "have"; the negative drops ʻi ai. Pick the right opener and tense.`, action: 'Pick', icon: ICONS.possess },
+  { id: 'connector-disambiguator',      ch: 24, title: `Which connector: mo / pea / ʻo / ka / kae`, blurb: `Three words for "and" (mo, pea, ʻo) and two for "but" (ka, kae) — choose by what is being joined.`, action: 'Pick', icon: ICONS.linked },
+  { id: 'kinship-possessive',           ch: 29, title: `Family: my / your / his`,                  blurb: `Relatives are ho-class — but parents and children flip to e-class (ʻeku tamai, hoku tokoua).`, action: 'Pick', icon: ICONS.weGroup },
 ]
 
 const advanced = [
+  { id: 'sentence-builder',          ch: 19, title: `Build a whole Tongan sentence`,        blurb: `The capstone: assemble the sentence from tiles — pick the right ʻa / ʻe / ʻa e / ʻe he markers and the right order.`, action: 'Build', icon: ICONS.blocks },
   { id: 'verbal-noun-converter',     ch: 45, title: `Say "when / because he read it"`,    blurb: `Turn "he read it" into a "when/because" clause; pick heʻene, heʻeku, he hoʻo…`,        action: 'Convert', icon: ICONS.convert },
   { id: 'doer-receiver-picker',      ch: 29, title: `his choosing vs. his being chosen`,   blurb: `ʻene fili (he does it) vs. hono fili (it's done to him).`,                              action: 'Pick',    icon: ICONS.possess },
   { id: 'cleft-builder',             ch: 36, title: `Say who did it (Ko …)`,               blurb: `Front the doer with Ko: "It was Sione who ate it."`,                                   action: 'Build',   icon: ICONS.cleft },
