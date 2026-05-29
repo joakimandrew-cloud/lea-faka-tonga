@@ -25,12 +25,17 @@
  *      Reports as warnings; false positives are expected (cleft sentences
  *      and semi-definite drills legitimately drop `'a`).
  *
+ *   5. CITATION VALIDATION (hard fail). Delegated to check-citations.mjs —
+ *      verifies every citation token in the translation specs, skills, and
+ *      Translation-Log.md resolves to a real chapter/section/source on disk.
+ *
  * Exits 0 on clean run (warnings OK), 1 on any hard-check failure.
  */
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { runCitationCheck } from './check-citations.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const APP_ROOT = path.resolve(__dirname, '..')
@@ -211,6 +216,9 @@ async function main() {
     console.log(`  ${aeWarn.length} pattern(s) worth a human glance (false positives expected for clefts/semi-definite drills):`)
     for (const w of aeWarn) console.log(`  ⚠ ${w.file}:${w.line}  "${w.hit}"  → ${w.ctx}`)
   }
+
+  const citationViolations = await runCitationCheck()
+  if (citationViolations > 0) exitCode = 1
 
   console.log('')
   process.exit(exitCode)

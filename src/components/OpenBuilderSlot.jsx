@@ -41,6 +41,7 @@ import {
 } from '../engine/graph-walker'
 import { translateWalkerState } from '../engine/translate'
 import GrammarNotePanel from './GrammarNotePanel'
+import ExplainPanel from './ExplainPanel'
 
 export default function OpenBuilderSlot({
   walkerState,
@@ -121,6 +122,19 @@ export default function OpenBuilderSlot({
         eligibleDefiniteness={eligibleDefiniteness}
         onSetDefiniteness={onSetDefiniteness}
       />
+
+      {/* "Show how this was built" — collapsed by default. Sits right after the
+          literal line (inside SentenceDisplay) so the breakdown is adjacent to
+          the translation it explains, but stays behind a disclosure to keep the
+          minimalist finished view uncluttered. Finished sentences only. */}
+      {isFinished && translation && (
+        <ExplainPanel
+          steps={flatSteps}
+          translation={translation}
+          chapter={walkerState.chapter}
+          entryPoint={entryPoint}
+        />
+      )}
 
       {depth > 1 && <FrameBreadcrumb frames={walkerState.frames} />}
 
