@@ -318,6 +318,103 @@ describe('P1-A1 — `he ʻaho ni` render rule applies on every path (book Ch 4:8
   })
 })
 
+describe('P1-A2 — count predicates extend with the enclitic pē + a time word (spec §26)', () => {
+  // Before P1-A2, `ʻOku nau toko tolu` was a FINISH-only branching-mode dead
+  // end (personal_count.next listed only the two terminators). Now the count
+  // predicate is a completion node offering the enclitic `pē` (count_enclitic_pe)
+  // and a trailing time word; both resolve at the personal_count anchor via
+  // extensionsTaken so neither can repeat.
+  function count(tense, pronoun, word) {
+    let s = createWalkerState('statement', 53)
+    s = advanceInFrame(s, { tongan: tense })
+    s = advanceInFrame(s, { tongan: pronoun })
+    s = takeExtension(s, 'personal_count')
+    s = advanceInFrame(s, { tongan: word })
+    return s
+  }
+  const extIds = (s) => getExtensionMenu(s).extensions.map(e => e.node)
+
+  it('the personal count is no longer a dead end — it offers pē + a time word (and nothing else)', () => {
+    const ids = extIds(count('ʻOku', 'nau', 'toko tolu'))
+    expect(ids).toContain('count_enclitic_pe')
+    expect(ids).toContain('time_word')
+    // adversarial guard: a manner modifier must NOT be reachable off a count
+    // (no `ʻOku nau toko tolu lahi` = "three a-lot"). count_enclitic_pe is a
+    // dedicated single-word `pē` node, NOT the general `modifier` node.
+    expect(ids).not.toContain('modifier')
+  })
+
+  it('enclitic pē builds (ʻOku nau toko ono pē — spec §26 ʻOku toko ono pē)', () => {
+    let s = count('ʻOku', 'nau', 'toko ono')
+    s = takeExtension(s, 'count_enclitic_pe')
+    s = advanceInFrame(s, { tongan: 'pē' })
+    expect(render(s)).toBe('ʻOku nau toko ono pē')
+    // pē is recorded → it cannot repeat (no `pē pē`); a time word is still on offer
+    expect(extIds(s)).not.toContain('count_enclitic_pe')
+    expect(extIds(s)).toContain('time_word')
+  })
+
+  it('count + time word builds; present ʻOku gates the time word to he ʻaho ni (ʻOku nau toko tolu he ʻaho ni)', () => {
+    let s = count('ʻOku', 'nau', 'toko tolu')
+    s = takeExtension(s, 'time_word')
+    expect(getCurrentFrameWords(s).map(w => w.tongan)).toEqual(['ʻaho ni']) // ʻOku → ʻaho ni only
+    s = advanceInFrame(s, { tongan: 'ʻaho ni' })
+    expect(render(s)).toBe('ʻOku nau toko tolu he ʻaho ni') // `he` added per Ch 4:89
+    // time word recorded → cannot repeat; pē is still on offer
+    expect(extIds(s)).not.toContain('time_word')
+    expect(extIds(s)).toContain('count_enclitic_pe')
+  })
+
+  it('pē then a time word both attach, in the canonical order (ʻOku nau toko ono pē he ʻaho ni)', () => {
+    let s = count('ʻOku', 'nau', 'toko ono')
+    s = takeExtension(s, 'count_enclitic_pe')
+    s = advanceInFrame(s, { tongan: 'pē' })
+    s = takeExtension(s, 'time_word')
+    s = advanceInFrame(s, { tongan: 'ʻaho ni' })
+    expect(render(s)).toBe('ʻOku nau toko ono pē he ʻaho ni')
+    // both consumed → only Finish remains (no double pē, no double time word)
+    expect(extIds(s)).toEqual([])
+  })
+
+  // ADJUDICATION (P1-A2 verification): the reverse pick order is also reachable,
+  // `ʻOku nau toko ono he ʻaho ni pē` (time word, then pē). This is INTENTIONALLY
+  // allowed: `pē` is a freely-attaching postposed limiter (Churchward 27.25a — it
+  // "eliminates other suggestions or possibilities", with no host restriction), so
+  // sentence-final `pē` reading "... only today" is grammatical, not §B nonsense.
+  // Suppressing only this order would require a `not_already_visited_node` guard on
+  // the pē edge, which disables the extensionsTaken same-node dedup and re-enables
+  // `pē pē` — so it is left reachable. Logged here so it reads as a decision.
+
+  it('a past count takes a bare adverb time word, no he (Naʻa nau toko ua ʻaneafi)', () => {
+    let s = count('Naʻa', 'nau', 'toko ua')
+    s = takeExtension(s, 'time_word')
+    s = advanceInFrame(s, { tongan: 'ʻaneafi' })
+    expect(render(s)).toBe('Naʻa nau toko ua ʻaneafi')
+  })
+
+  it('numeral (ʻe + cardinal) is left FINISH-only on purpose — its menu is NOT narrowed; pē + time arrive via the object auto-pop', () => {
+    // Wiring native pē/time edges onto numeral.next would give numeral its own
+    // non-terminator extensions, suppressing the object auto-pop and shrinking
+    // the menu (the §A over-restriction). So numeral.next stays FINISH-only and
+    // its continuations come from the object anchor the walker pops back to.
+    const finishOnly = (grammarGraph.nodes.numeral.next || [])
+      .every(e => ['FINISH_STATEMENT', 'FINISH_QUESTION'].includes(e.node))
+    expect(finishOnly).toBe(true)
+    let s = createWalkerState('statement', 53)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb'); s = advanceInFrame(s, { tongan: 'kai' })
+    s = takeExtension(s, 'object'); s = advanceInFrame(s, { tongan: 'mā' })
+    s = takeExtension(s, 'numeral'); s = advanceInFrame(s, { tongan: 'ʻe ono' })
+    const ids = extIds(s)
+    expect(ids).toContain('time_word')   // menu not narrowed
+    expect(ids).toContain('preposition')
+    expect(ids).toContain('modifier')    // modifier word list carries pē
+    s = takeExtension(s, 'modifier'); s = advanceInFrame(s, { tongan: 'pē' })
+    expect(render(s)).toBe('Naʻa ku kai mā ʻe ono pē')
+  })
+})
+
 // KNOWN-REMAINING (tracked as P1 in plans/Terminal-Build-Fix-Tracker.md):
 // statement-path "...complement au" (e.g. ʻOku ... ki kolo au / mo Sione au)
 // still leaks because postposed_pronoun is offered from the verb anchor and the

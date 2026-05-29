@@ -2131,8 +2131,14 @@ describe('Docs.4 — spec-graph conformance: extension catalog (Docs.3 main tabl
     {
       name: 'personal_count',
       primary_parent: 'pronoun',
+      enforcement: { kind: 'semi_terminal', extra_allowed: ['count_enclitic_pe', 'time_word'] },
+      spec_section: '§26 (Ch 20) — 2C.3a (toko + cardinal numeral, compound entries); P1-A2 adds the enclitic pē + a trailing time word so the count predicate is no longer a branching-mode dead-end',
+    },
+    {
+      name: 'count_enclitic_pe',
+      primary_parent: 'personal_count',
       enforcement: { kind: 'terminal' },
-      spec_section: '§26 (Ch 20) — 2C.3a (toko + cardinal numeral, compound entries)',
+      spec_section: '§26 (Ch 20) — P1-A2 (enclitic pē = only/just closing a personal-count predicate, ʻOku nau toko ono pē; terminal so pē + time word resolve at the personal_count anchor)',
     },
     {
       name: 'fie_aux',
