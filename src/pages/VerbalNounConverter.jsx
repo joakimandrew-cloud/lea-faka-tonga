@@ -10,8 +10,9 @@ export default function VerbalNounConverter() {
         <p className="pcs-sub">
           When a verb phrase is nominalized (turned into a noun phrase),
           its subject becomes a possessive pronoun before the verbal
-          noun. <em>He fili ʻe au</em> (my choosing) becomes{' '}
-          <em>heʻeku fili</em>. Pick the right form for each pronoun.
+          noun. <em>Naʻá ne lau ʻa e tohí</em> (he read the book)
+          becomes <em>ʻi heʻene lau ʻa e tohí</em> (when he read the
+          book). Pick the right form for each pronoun.
         </p>
       </header>
 

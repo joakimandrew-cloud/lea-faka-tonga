@@ -205,6 +205,35 @@ function shuffle(arr) {
   return out
 }
 
+// Definitive accent (Chapter 2, "Pronunciation: Stress Across All
+// Combinations"): a tense marker takes an acute accent on its final vowel
+// when immediately followed by a ONE-syllable enclitic pronoun. Two-syllable
+// pronouns (ou, mau, tau, mou, nau) leave the marker unaccented. The accent is
+// a pronunciation aid, not standard spelling — so the word-pool tiles stay
+// plain and the accent surfaces only on the assembled reveal.
+const ENCLITIC_PRONOUNS = new Set(['u', 'ku', 'ke', 'ne', 'na', 'ma', 'ta', 'mo'])
+const ACCENTABLE_MARKERS = new Set(['ʻoku', 'naʻa', 'kuo', 'te'])
+const ACUTE = { a: 'á', e: 'é', i: 'í', o: 'ó', u: 'ú', A: 'Á', E: 'É', I: 'Í', O: 'Ó', U: 'Ú' }
+
+function accentFinalVowel(word) {
+  for (let i = word.length - 1; i >= 0; i--) {
+    if (ACUTE[word[i]]) return word.slice(0, i) + ACUTE[word[i]] + word.slice(i + 1)
+  }
+  return word
+}
+
+// Build the surface sentence from the parts, applying the definitive accent
+// across every (tense-marker → one-syllable pronoun) boundary.
+function assembleSentence(parts) {
+  const words = parts.flatMap(p => (p.type === 'fixed' ? p.text : p.answer).split(' '))
+  for (let i = 0; i < words.length - 1; i++) {
+    if (ACCENTABLE_MARKERS.has(words[i].toLowerCase()) && ENCLITIC_PRONOUNS.has(words[i + 1])) {
+      words[i] = accentFinalVowel(words[i])
+    }
+  }
+  return words.join(' ')
+}
+
 export default function SkeletonFillerCore({ chapterNum }) {
   const exercises = useMemo(
     () => ALL_EXERCISES.filter(e => !chapterNum || e.minChapter <= chapterNum),
@@ -304,9 +333,7 @@ export default function SkeletonFillerCore({ chapterNum }) {
     setActiveSlot(null)
   }
 
-  const correctSentence = current.parts
-    .map(p => p.type === 'fixed' ? p.text : p.answer)
-    .join(' ')
+  const correctSentence = assembleSentence(current.parts)
 
   const perfect = score.total > 0 && score.right === score.total
   const pct = deck.length > 0 ? ((idx + (answered !== null ? 1 : 0)) / deck.length) * 100 : 0
@@ -414,7 +441,7 @@ export default function SkeletonFillerCore({ chapterNum }) {
         <div className="skf-reveal">
           <div className="skf-verdict">
             {answered === 'correct'
-              ? <><span className="skf-right">Yes.</span> You built a <em>{current.pattern.toLowerCase()}</em>.</>
+              ? <><span className="skf-right">Yes.</span> You built a <em>{current.pattern.toLowerCase()}</em>: <em>{correctSentence}</em></>
               : <><span className="skf-wrong">Not quite.</span> The correct sentence is <em>{correctSentence}</em>.</>
             }
           </div>
