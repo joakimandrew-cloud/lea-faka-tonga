@@ -1,73 +1,233 @@
 /**
  * CleftBuilderCore — Ch 36.
  *
- * Cleft sentences move the subject to the front and require a
- * resumptive pronoun in the relative clause: standard "Naʻe kai ʻe
- * Sione ʻa e mā" becomes cleft "Ko Sione naʻá ne kai ʻa e mā". The
- * drill makes the student build the cleft tile-by-tile.
+ * Cleft sentences move the subject to the front and require a resumptive
+ * pronoun in the relative clause: standard "Naʻe kai ʻe Sione ʻa e mā"
+ * becomes cleft "Ko Sione naʻá ne kai ʻa e mā". The drill makes the student
+ * build the cleft tile-by-tile.
  *
- * Same click-to-order mechanic as ModifierOrderCore — N tiles in a
- * pool, click them in correct Tongan order.
+ * Same click-to-order mechanic as ModifierOrderCore, but the pool now
+ * carries DISTRACTOR tiles alongside the correct ones, so the student must
+ * both pick the right tiles and order them:
+ *   - a resumptive-pronoun distractor (wrong person — the resumptive must
+ *     match the fronted subject, Ch36 L33);
+ *   - a tense-marker/accent distractor — naʻe (the noun-subject form, never
+ *     valid before a resumptive pronoun, Ch36 Ex5 #1) or the wrong accent
+ *     (naʻá before a one-syllable pronoun, plain naʻa before a two-syllable
+ *     one, Ch36 L48 / Ch2 L279-282).
+ *
+ * `tiles` is the whole pool (correct + distractors); `correct_order` lists
+ * the IDs of the correct tiles in order and sets how many slots to fill.
+ * Tile `gloss` (shown in the pool) is a non-leaking cue — the person for a
+ * pronoun, "past tense" for every TM variant — so the form, not the label,
+ * is what the learner must judge. `role` (shown only in the answered reveal)
+ * names each correct tile's job.
+ *
+ * Name items show the verb-first `standard` for reference; its naʻe is a
+ * deliberate trap for copiers, since the cleft needs naʻá. Pronoun items
+ * omit `standard` (it would already contain "naʻá ku" and give the game away).
  */
 
 import { useState, useEffect } from 'react'
 
+const KO = { id: 'ko', tongan: 'Ko', gloss: 'focus opener', role: 'cleft marker' }
+
 const PHRASES = [
+  // ── Names: 3sg resumptive ne, accented naʻá; naʻe decoy mirrors the standard form ──
   {
     id: 'sione-bread',
     standard: 'Naʻe kai ʻe Sione ʻa e mā.',
     english: 'It was Sione who ate the bread.',
-    tiles: [
-      { id: 'ko',   tongan: 'Ko',    role: 'cleft marker', gloss: 'identification opener' },
-      { id: 'sione',tongan: 'Sione', role: 'subject',      gloss: 'fronted subject' },
-      { id: 'naa',  tongan: 'naʻá',  role: 'TM',           gloss: 'past (with accent before pronoun ne)' },
-      { id: 'ne',   tongan: 'ne',    role: 'pronoun',      gloss: 'resumptive — refers back to Sione' },
-    ],
-    correct_order: ['ko', 'sione', 'naa', 'ne'],
     fixed_suffix: 'kai ʻa e mā',
-    why: 'Standard order puts the verb first and marks Sione with ʻe. Cleft pulls Sione to the front with ko, then the rest of the clause uses ne (pronoun) to refer back. Pattern: ko + subject + TM + ne + verb + object.',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'Sione', gloss: 'the doer', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá',  gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ne',    gloss: 'he / she',   role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻe', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'nau',  gloss: 'they' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'Pattern: Ko + subject + tense marker + pronoun + verb + object. The resumptive matches Sione (he), so it is ne; before a one-syllable pronoun the past marker takes the accent — naʻá, never naʻe (naʻe is for noun subjects).',
   },
   {
     id: 'mele-clothes',
     standard: 'Naʻe fufulu ʻe Mele ʻa e valá.',
     english: 'It was Mele who washed the clothes.',
-    tiles: [
-      { id: 'ko',  tongan: 'Ko',    role: 'cleft marker', gloss: 'identification opener' },
-      { id: 'mele',tongan: 'Mele',  role: 'subject',      gloss: 'fronted subject' },
-      { id: 'naa', tongan: 'naʻá',  role: 'TM',           gloss: 'past (accent shifts before ne)' },
-      { id: 'ne',  tongan: 'ne',    role: 'pronoun',      gloss: 'resumptive — refers back to Mele' },
-    ],
-    correct_order: ['ko', 'mele', 'naa', 'ne'],
     fixed_suffix: 'fufulu ʻa e valá',
-    why: 'Cleft transformation. Subject Mele moves to the front with ko; the TM stays past (naʻá), the pronoun ne refers back to Mele.',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'Mele', gloss: 'the doer', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá', gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ne',   gloss: 'he / she',   role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻa', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'ku',   gloss: 'I' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'Mele is "she", so the resumptive is ne. Before the one-syllable ne the marker carries the accent: naʻá ne. Plain naʻa (no accent) would be wrong here.',
   },
   {
-    id: 'i-letter',
-    standard: 'Naʻá ku tohi ʻa e tohí.',
-    english: 'It was I who wrote the letter.',
+    id: 'ana-mat',
+    standard: 'Naʻe ʻave ʻe Ana ʻa e falá.',
+    english: 'It was Ana who carried the mat.',
+    fixed_suffix: 'ʻave ʻa e falá',
     tiles: [
-      { id: 'ko',  tongan: 'Ko',    role: 'cleft marker', gloss: 'identification opener' },
-      { id: 'au',  tongan: 'au',    role: 'subject',      gloss: 'postposed pronoun (long form of "I")' },
-      { id: 'naa', tongan: 'naʻá',  role: 'TM',           gloss: 'past' },
-      { id: 'ku',  tongan: 'ku',    role: 'pronoun',      gloss: 'preposed pronoun (resumptive "I")' },
+      KO,
+      { id: 'subj', tongan: 'Ana',  gloss: 'the doer', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá', gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ne',   gloss: 'he / she',   role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻe', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'ke',   gloss: 'you' },
     ],
-    correct_order: ['ko', 'au', 'naa', 'ku'],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'The resumptive matches Ana (she) → ne, not ke (you). The marker takes the accent before ne: naʻá ne.',
+  },
+  {
+    id: 'tevita-letter',
+    standard: 'Naʻe tohi ʻe Tēvita ʻa e tohí.',
+    english: 'It was Tēvita who wrote the letter.',
     fixed_suffix: 'tohi ʻa e tohí',
-    why: 'When the fronted subject is a pronoun, you use the POSTPOSED form (au) at the front, then keep the preposed form (ku) as resumptive. Both are "I" — one fronted, one in the clause.',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'Tēvita', gloss: 'the doer', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá',   gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ne',     gloss: 'he / she',   role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻa', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'nau',  gloss: 'they' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'One person, Tēvita → ne (not nau, "they"). The accent appears on the marker before the one-syllable ne: naʻá ne.',
+  },
+
+  // ── 1sg pronoun: fronted au, resumptive ku, accented naʻá ──
+  {
+    id: 'i-basket',
+    english: 'It was I who carried the basket.',
+    fixed_suffix: 'ʻave ʻa e kató',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'au',   gloss: 'I (me)',     role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá', gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ku',   gloss: 'I',          role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻa', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'ne',   gloss: 'he / she' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'The fronted subject au ("I") pairs with the resumptive ku. ku is one syllable, so the marker takes the accent: naʻá ku, not plain naʻa.',
+  },
+  // ── 3pl pronoun: fronted kinautolu, resumptive nau, PLAIN naʻa (two syllables) ──
+  {
+    id: 'they-letter',
+    english: 'It was they who wrote the letter.',
+    fixed_suffix: 'tohi ʻa e tohí',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'kinautolu', gloss: 'they',       role: 'subject' },
+      { id: 'tm',   tongan: 'naʻa',      gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'nau',       gloss: 'they',       role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻá', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'ne',   gloss: 'he / she' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'kinautolu ("they") takes the resumptive nau. nau is two syllables, so the marker stays plain — naʻa nau, not naʻá nau.',
+  },
+  // ── 2sg pronoun: fronted koe, resumptive ke, accented naʻá ──
+  {
+    id: 'you-bread',
+    english: 'It was you who ate the bread.',
+    fixed_suffix: 'kai ʻa e mā',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'koe',  gloss: 'you',        role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá', gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ke',   gloss: 'you',        role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻe', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'ne',   gloss: 'he / she' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'koe ("you", fronted) pairs with the resumptive ke. ke is one syllable → naʻá ke. naʻe never precedes a resumptive pronoun.',
+  },
+  // ── 1pl exclusive: fronted kimautolu, resumptive mau, PLAIN naʻa ──
+  {
+    id: 'we-excl-clothes',
+    english: 'It was we (not you) who washed the clothes.',
+    fixed_suffix: 'fufulu ʻa e valá',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'kimautolu', gloss: 'we (not you)', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻa',      gloss: 'past tense',   role: 'tense marker' },
+      { id: 'pron', tongan: 'mau',       gloss: 'we (not you)', role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻá', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'nau',  gloss: 'they' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'kimautolu ("we, not you") takes the resumptive mau — two syllables, so the marker stays plain: naʻa mau. The decoy nau means "they".',
+  },
+  // ── 1pl inclusive: fronted kitautolu, resumptive tau, PLAIN naʻa ──
+  {
+    id: 'we-incl-fish',
+    english: 'It was we (and you) who ate the fish.',
+    fixed_suffix: 'kai ʻa e iká',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'kitautolu', gloss: 'we (and you)', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻa',      gloss: 'past tense',   role: 'tense marker' },
+      { id: 'pron', tongan: 'tau',       gloss: 'we (and you)', role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻá', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'mau',  gloss: 'we (not you)' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'kitautolu includes the listener ("we and you") → resumptive tau, two syllables → plain naʻa tau. The decoy mau would exclude the listener.',
+  },
+  // ── 1du exclusive: fronted kimaua, resumptive ma, accented naʻá ──
+  {
+    id: 'we-two-basket',
+    english: 'It was we two (not you) who carried the basket.',
+    fixed_suffix: 'ʻave ʻa e kató',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'kimaua', gloss: 'we two (not you)', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá',   gloss: 'past tense',       role: 'tense marker' },
+      { id: 'pron', tongan: 'ma',     gloss: 'we two (not you)', role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻa', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'mau',  gloss: 'we (three or more)' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'kimaua = "we two (not you)" → resumptive ma, a one-syllable pronoun, so the marker takes the accent: naʻá ma. mau would be three or more.',
+  },
+
+  // ── Two more names for object variety ──
+  {
+    id: 'pita-bread',
+    standard: 'Naʻe kai ʻe Pita ʻa e mā.',
+    english: 'It was Pita who ate the bread.',
+    fixed_suffix: 'kai ʻa e mā',
+    tiles: [
+      KO,
+      { id: 'subj', tongan: 'Pita', gloss: 'the doer', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá', gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ne',   gloss: 'he / she',   role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻa', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'nau',  gloss: 'they' },
+    ],
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'One doer, Pita → ne. The marker takes the accent before the one-syllable ne: naʻá ne.',
   },
   {
-    id: 'they-work',
-    standard: 'Naʻa nau fai ʻa e ngāué.',
-    english: 'It was they who did the work.',
+    id: 'semisi-mat',
+    standard: 'Naʻe ʻave ʻe Sēmisi ʻa e falá.',
+    english: 'It was Sēmisi who carried the mat.',
+    fixed_suffix: 'ʻave ʻa e falá',
     tiles: [
-      { id: 'ko',         tongan: 'Ko',         role: 'cleft marker', gloss: 'identification opener' },
-      { id: 'kinautolu',  tongan: 'kinautolu',  role: 'subject',      gloss: 'postposed pronoun (long "they")' },
-      { id: 'naa',        tongan: 'naʻa',       role: 'TM',           gloss: 'past (no accent before two-syllable pronoun nau)' },
-      { id: 'nau',        tongan: 'nau',        role: 'pronoun',      gloss: 'resumptive "they" (preposed)' },
+      KO,
+      { id: 'subj', tongan: 'Sēmisi', gloss: 'the doer', role: 'subject' },
+      { id: 'tm',   tongan: 'naʻá',   gloss: 'past tense', role: 'tense marker' },
+      { id: 'pron', tongan: 'ne',     gloss: 'he / she',   role: 'resumptive' },
+      { id: 'tm-bad',   tongan: 'naʻe', gloss: 'past tense' },
+      { id: 'pron-bad', tongan: 'ku',   gloss: 'I' },
     ],
-    correct_order: ['ko', 'kinautolu', 'naa', 'nau'],
-    fixed_suffix: 'fai ʻa e ngāué',
-    why: 'Same pattern with "they". Postposed kinautolu in front, preposed nau as resumptive. The accent on naʻá doesn\u2019t appear because nau is two-syllable (no accent shift).',
+    correct_order: ['ko', 'subj', 'tm', 'pron'],
+    why: 'Sēmisi (he) → resumptive ne. naʻá carries the accent before ne; the standard form’s naʻe is wrong in the cleft.',
   },
 ]
 
@@ -90,7 +250,7 @@ export default function CleftBuilderCore() {
   const [streak, setStreak] = useState(0)
 
   const current = deck[idx]
-  const slotCount = current.tiles.length
+  const slotCount = current.correct_order.length
 
   useEffect(() => {
     if (answered !== null) return
@@ -160,10 +320,14 @@ export default function CleftBuilderCore() {
         </div>
       </div>
 
-      <div className="afl-prompt-label">Standard form (verb-first)</div>
-      <div className="afl-prompt" style={{ fontStyle: 'italic' }}>{current.standard}</div>
+      {current.standard && (
+        <>
+          <div className="afl-prompt-label">Standard form (verb-first)</div>
+          <div className="afl-prompt" style={{ fontStyle: 'italic' }}>{current.standard}</div>
+        </>
+      )}
 
-      <div className="afl-prompt-label" style={{ marginTop: '0.75rem' }}>Build the cleft equivalent</div>
+      <div className="afl-prompt-label" style={{ marginTop: current.standard ? '0.75rem' : 0 }}>Build the cleft equivalent</div>
       <div className="afl-prompt">{current.english}</div>
 
       <div className="afl-answer-row">
@@ -175,7 +339,7 @@ export default function CleftBuilderCore() {
       </div>
 
       <div className="afl-pool-label">
-        {answered === null ? `Click the ${slotCount} tiles in correct cleft order` : 'The pool'}
+        {answered === null ? `Click ${slotCount} tiles in cleft order — not every tile belongs` : 'The pool'}
       </div>
       <div className="afl-pool">
         {pool.map((t, i) => {
@@ -211,7 +375,7 @@ export default function CleftBuilderCore() {
                 <span key={id} className="afl-pattern-pair">
                   <span className="afl-pattern-slot">{t.tongan}</span>
                   <span className="afl-pattern-role">{t.role}</span>
-                  {i < current.correct_order.length - 1 && <span className="afl-pattern-arrow">{' \u2192 '}</span>}
+                  {i < current.correct_order.length - 1 && <span className="afl-pattern-arrow">{' → '}</span>}
                 </span>
               )
             })}
@@ -221,7 +385,7 @@ export default function CleftBuilderCore() {
             <div className="pcs-why-text">{current.why}</div>
           </div>
           <button onClick={handleNext} className="afl-next">
-            Next phrase {'\u2192'}
+            Next phrase {'→'}
           </button>
         </div>
       )}

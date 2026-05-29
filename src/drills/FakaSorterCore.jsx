@@ -63,6 +63,7 @@ export default function FakaSorterCore() {
       categories={CATEGORIES}
       cards={CARDS}
       question="What is faka- doing here?"
+      hideGloss
       formatRightForm={(card) => card.tongan}
       rightFormNote={(card) => `means "${card.english}"`}
     />

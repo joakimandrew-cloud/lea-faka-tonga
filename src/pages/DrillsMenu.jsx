@@ -103,7 +103,7 @@ const advanced = [
   { id: 'faka-pattern-sorter',       ch: 32, title: `Sort faka- words by job`,            blurb: `faka- does four jobs (manner, cause, every-X, one-particular). Read the word and sort it.`, action: 'Sort', icon: ICONS.grid },
   { id: 'naa-three-way-picker',      ch: 38, title: `Which naʻa? (past / lest / perhaps)`, blurb: `Tell past-tense naʻa from "lest" (after a command) and "perhaps" (clause-initial).`,    action: 'Pick',    icon: ICONS.fan },
   { id: 'te-disambiguator',          ch: 51, title: `The three jobs of te`,                blurb: `Future marker, negation connector after ʻikai, or "one" — by position.`,               action: 'Pick',    icon: ICONS.trefoil },
-  { id: 'adjective-flip',            ch: 35, title: `Noun first, then the describing word`, blurb: `Build phrases in Tongan order: the noun comes before the word that describes it.`,     action: 'Flip',    icon: ICONS.flip },
+  { id: 'adjective-flip',            ch: 35, title: `Adjective order: before or after the noun`, blurb: `Most adjectives follow the noun (fale foʻou); a few — fuʻu, kiʻi, ʻuluaki, muʻaki, toe — come before it.`, action: 'Order', icon: ICONS.flip },
   { id: 'accent-placement-picker',   ch: 44, title: `Where the accent lands`,              blurb: `Spot which word in a noun phrase carries the accent — and which sit outside the group.`, action: 'Place',  icon: ICONS.accent },
 ]
 

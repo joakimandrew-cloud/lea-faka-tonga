@@ -11,6 +11,12 @@
  * until an answer is locked in; verdict + "why" render inline inside
  * the chosen tile; the correct bin reveals in green when the student
  * picks wrong.
+ *
+ * `hideGloss` (opt-in) collapses the English gloss under the prompt word
+ * until the learner answers, then fades it in — used by FakaSorter, where
+ * the gloss ("daily", "in the Tongan way") would otherwise hand over the
+ * category. PossessiveSorter leaves it on: there the gloss ("father") is
+ * needed context and does NOT reveal the e/ho class.
  */
 import { useState, useEffect, useRef } from 'react'
 
@@ -31,6 +37,7 @@ export default function SorterCore({
   formatWrongForm,
   rightFormNote,
   wrongFormNote,
+  hideGloss = false,
 }) {
   const [deck, setDeck] = useState(() => shuffle(cards))
   const [idx, setIdx] = useState(0)
@@ -200,7 +207,7 @@ export default function SorterCore({
 
       <div className="pcs-noun-frame">
         <div className="pcs-noun">{current.tongan}</div>
-        <div className="pcs-noun-gloss">{current.english}</div>
+        <div className={`pcs-noun-gloss${hideGloss ? ' pcs-noun-gloss-reveal' : ''}`}>{current.english}</div>
       </div>
 
       <div className="pcs-question">{question}</div>

@@ -29,6 +29,15 @@ export default function AccentPlacementPicker() {
           to that modifier: <em>ʻa e fale leléi</em>.
         </p>
         <p>
+          <strong>What is NOT in the group.</strong> An adverb or time word
+          such as <em>ʻaneafi</em> (yesterday) modifies the verb, not the
+          noun, so it sits outside the group and takes no accent &mdash;
+          unless a relative clause pulls it inside (<em>ki he fakataha naʻe
+          fai ʻaneafí</em>). And an indefinite (<em>ha</em>) or semi-definite
+          (<em>e / he</em>) group takes no definitive accent at all: only a
+          fully definite group does.
+        </p>
+        <p>
           <strong>Why it matters.</strong> Without the accent, two noun
           groups can blur together. The accent is the boundary marker
           that lets the listener parse the sentence correctly.

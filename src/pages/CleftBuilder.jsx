@@ -9,10 +9,11 @@ export default function CleftBuilder() {
         <h1 className="pcs-title">Build the cleft, tile by tile.</h1>
         <p className="pcs-sub">
           A Tongan cleft sentence fronts the subject with <em>Ko</em> and
-          replaces it inside the clause with the resumptive pronoun{' '}
-          <em>ne</em>. The pattern is always the same:{' '}
-          <em>Ko + subject + naʻá + ne + verb + object.</em>{' '}
-          Click the tiles in order to build it.
+          echoes it inside the clause with a resumptive pronoun that matches
+          the subject (<em>ne</em> for "he/she", <em>ku</em> for "I",{' '}
+          <em>nau</em> for "they"…). The pattern:{' '}
+          <em>Ko + subject + tense marker + pronoun + verb + object.</em>{' '}
+          Pick the right tiles, in order &mdash; some tiles are traps.
         </p>
       </header>
 

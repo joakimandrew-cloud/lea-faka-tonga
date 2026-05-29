@@ -1,28 +1,61 @@
 /**
- * AdjectiveFlipCore — "the noun leads."
+ * AdjectiveFlipCore — attributive adjective order (Ch 35).
  *
- * Mechanic only. Page chrome lives in src/pages/AdjectiveFlip.jsx.
+ * Three tiers, mixed in one deck so the learner must DECIDE the position
+ * each time rather than assume "noun first" (verified against
+ * book/Chapter-35.md):
+ *   - postposed: the default — the describing word follows the noun
+ *     (vaka lahi), Ch35 "Attributive adjectives after the noun" (L7-36);
+ *   - preposed: a fixed handful go BEFORE the noun — fuʻu, kiʻi, ʻuluaki,
+ *     muʻaki, toe (L40-60);
+ *   - stacking: a preposed word + noun + postposed word (fuʻu meʻa lahi),
+ *     Ch35 "Double adjectives" (L66-80).
+ *
+ * Each phrase lists its `parts` in CORRECT order; buildTiles tags each with
+ * its index and shuffles, and the answer is right when the picked order
+ * matches 0,1,2…. Page chrome lives in src/pages/AdjectiveFlip.jsx.
  */
 
 import { useState, useEffect } from 'react'
 
 const PHRASES = [
-  { english: 'big boat',        noun: 'vaka',     adj: 'lahi',   noun_gloss: 'boat',     adj_gloss: 'big' },
-  { english: 'small boy',       noun: 'tamasiʻi', adj: 'siʻi',   noun_gloss: 'boy',      adj_gloss: 'small' },
-  { english: 'new house',       noun: 'fale',     adj: 'foʻou',  noun_gloss: 'house',    adj_gloss: 'new' },
-  { english: 'good teacher',    noun: 'faiako',   adj: 'lelei',  noun_gloss: 'teacher',  adj_gloss: 'good' },
-  { english: 'bad food',        noun: 'meʻakai',  adj: 'kovi',   noun_gloss: 'food',     adj_gloss: 'bad' },
-  { english: 'poor man',        noun: 'tangata',  adj: 'masiva', noun_gloss: 'man',      adj_gloss: 'poor' },
-  { english: 'strong father',   noun: 'tamai',    adj: 'mālohi', noun_gloss: 'father',   adj_gloss: 'strong' },
-  { english: 'big celebration', noun: 'kātoanga', adj: 'lahi',   noun_gloss: 'celebration', adj_gloss: 'big' },
-  { english: 'new book',        noun: 'tohi',     adj: 'foʻou',  noun_gloss: 'book',     adj_gloss: 'new' },
-  { english: 'big knife',       noun: 'hele',     adj: 'lahi',   noun_gloss: 'knife',    adj_gloss: 'big' },
-  { english: 'small cat',       noun: 'pusi',     adj: 'siʻi',   noun_gloss: 'cat',      adj_gloss: 'small' },
-  { english: 'good dog',        noun: 'kulī',     adj: 'lelei',  noun_gloss: 'dog',      adj_gloss: 'good' },
-  { english: 'strong horse',    noun: 'hoosi',    adj: 'mālohi', noun_gloss: 'horse',    adj_gloss: 'strong' },
-  { english: 'new car',         noun: 'kā',       adj: 'foʻou',  noun_gloss: 'car',      adj_gloss: 'new' },
-  { english: 'bad woman',       noun: 'fefine',   adj: 'kovi',   noun_gloss: 'woman',    adj_gloss: 'bad' },
+  // ── Postposed: the describing word follows the noun (the default) ──
+  { english: 'big boat',        tier: 'postposed', parts: [{ tongan: 'vaka', gloss: 'boat', role: 'noun' }, { tongan: 'lahi', gloss: 'big', role: 'adjective' }] },
+  { english: 'small boy',       tier: 'postposed', parts: [{ tongan: 'tamasiʻi', gloss: 'boy', role: 'noun' }, { tongan: 'siʻi', gloss: 'small', role: 'adjective' }] },
+  { english: 'new house',       tier: 'postposed', parts: [{ tongan: 'fale', gloss: 'house', role: 'noun' }, { tongan: 'foʻou', gloss: 'new', role: 'adjective' }] },
+  { english: 'good teacher',    tier: 'postposed', parts: [{ tongan: 'faiako', gloss: 'teacher', role: 'noun' }, { tongan: 'lelei', gloss: 'good', role: 'adjective' }] },
+  { english: 'bad food',        tier: 'postposed', parts: [{ tongan: 'meʻakai', gloss: 'food', role: 'noun' }, { tongan: 'kovi', gloss: 'bad', role: 'adjective' }] },
+  { english: 'poor man',        tier: 'postposed', parts: [{ tongan: 'tangata', gloss: 'man', role: 'noun' }, { tongan: 'masiva', gloss: 'poor', role: 'adjective' }] },
+  { english: 'strong father',   tier: 'postposed', parts: [{ tongan: 'tamai', gloss: 'father', role: 'noun' }, { tongan: 'mālohi', gloss: 'strong', role: 'adjective' }] },
+  { english: 'big celebration', tier: 'postposed', parts: [{ tongan: 'kātoanga', gloss: 'celebration', role: 'noun' }, { tongan: 'lahi', gloss: 'big', role: 'adjective' }] },
+  { english: 'new book',        tier: 'postposed', parts: [{ tongan: 'tohi', gloss: 'book', role: 'noun' }, { tongan: 'foʻou', gloss: 'new', role: 'adjective' }] },
+  { english: 'big knife',       tier: 'postposed', parts: [{ tongan: 'hele', gloss: 'knife', role: 'noun' }, { tongan: 'lahi', gloss: 'big', role: 'adjective' }] },
+  { english: 'small cat',       tier: 'postposed', parts: [{ tongan: 'pusi', gloss: 'cat', role: 'noun' }, { tongan: 'siʻi', gloss: 'small', role: 'adjective' }] },
+  { english: 'good dog',        tier: 'postposed', parts: [{ tongan: 'kulī', gloss: 'dog', role: 'noun' }, { tongan: 'lelei', gloss: 'good', role: 'adjective' }] },
+  { english: 'strong horse',    tier: 'postposed', parts: [{ tongan: 'hoosi', gloss: 'horse', role: 'noun' }, { tongan: 'mālohi', gloss: 'strong', role: 'adjective' }] },
+  { english: 'new car',         tier: 'postposed', parts: [{ tongan: 'kā', gloss: 'car', role: 'noun' }, { tongan: 'foʻou', gloss: 'new', role: 'adjective' }] },
+  { english: 'bad woman',       tier: 'postposed', parts: [{ tongan: 'fefine', gloss: 'woman', role: 'noun' }, { tongan: 'kovi', gloss: 'bad', role: 'adjective' }] },
+
+  // ── Preposed: a fixed handful go BEFORE the noun (fuʻu, kiʻi, ʻuluaki, muʻaki, toe) ──
+  { english: 'a big house',     tier: 'preposed', parts: [{ tongan: 'fuʻu', gloss: 'big', role: 'preposed adj' }, { tongan: 'fale', gloss: 'house', role: 'noun' }] },
+  { english: 'a small boy',     tier: 'preposed', parts: [{ tongan: 'kiʻi', gloss: 'small', role: 'preposed adj' }, { tongan: 'tamasiʻi', gloss: 'boy', role: 'noun' }] },
+  { english: 'the first thing', tier: 'preposed', parts: [{ tongan: 'ʻuluaki', gloss: 'first', role: 'preposed adj' }, { tongan: 'meʻa', gloss: 'thing', role: 'noun' }] },
+  { english: 'a former king',   tier: 'preposed', parts: [{ tongan: 'muʻaki', gloss: 'former', role: 'preposed adj' }, { tongan: 'tuʻi', gloss: 'king', role: 'noun' }] },
+  { english: 'another thing',   tier: 'preposed', parts: [{ tongan: 'toe', gloss: 'another', role: 'preposed adj' }, { tongan: 'meʻa', gloss: 'thing', role: 'noun' }] },
+  { english: 'the first book',  tier: 'preposed', parts: [{ tongan: 'ʻuluaki', gloss: 'first', role: 'preposed adj' }, { tongan: 'tohi', gloss: 'book', role: 'noun' }] },
+
+  // ── Stacking: preposed word + noun + postposed word ──
+  { english: 'a great big thing', tier: 'stacking', parts: [{ tongan: 'fuʻu', gloss: 'big', role: 'preposed adj' }, { tongan: 'meʻa', gloss: 'thing', role: 'noun' }, { tongan: 'lahi', gloss: 'big', role: 'adjective' }] },
+  { english: 'a little tiny thing', tier: 'stacking', parts: [{ tongan: 'kiʻi', gloss: 'little', role: 'preposed adj' }, { tongan: 'meʻa', gloss: 'thing', role: 'noun' }, { tongan: 'siʻi', gloss: 'tiny', role: 'adjective' }] },
+  { english: 'a very big house', tier: 'stacking', parts: [{ tongan: 'fuʻu', gloss: 'big', role: 'preposed adj' }, { tongan: 'fale', gloss: 'house', role: 'noun' }, { tongan: 'lahi', gloss: 'big', role: 'adjective' }] },
+  { english: 'a very big boat', tier: 'stacking', parts: [{ tongan: 'fuʻu', gloss: 'big', role: 'preposed adj' }, { tongan: 'vaka', gloss: 'boat', role: 'noun' }, { tongan: 'lahi', gloss: 'big', role: 'adjective' }] },
 ]
+
+const TIER_NOTE = {
+  postposed: 'the describing word follows the noun.',
+  preposed: 'fuʻu, kiʻi, ʻuluaki, muʻaki and toe come before the noun.',
+  stacking: 'one describing word goes before the noun, one after.',
+}
 
 function shuffle(arr) {
   const out = [...arr]
@@ -34,11 +67,7 @@ function shuffle(arr) {
 }
 
 function buildTiles(phrase) {
-  const tiles = [
-    { role: 'noun', tongan: phrase.noun, gloss: phrase.noun_gloss },
-    { role: 'adj',  tongan: phrase.adj,  gloss: phrase.adj_gloss },
-  ]
-  return shuffle(tiles)
+  return shuffle(phrase.parts.map((p, order) => ({ ...p, order })))
 }
 
 export default function AdjectiveFlipCore() {
@@ -55,8 +84,8 @@ export default function AdjectiveFlipCore() {
   useEffect(() => {
     if (answered !== null) return
     if (selected.length !== tiles.length) return
-    const orderedRoles = selected.map(i => tiles[i].role)
-    const isCorrect = orderedRoles[0] === 'noun' && orderedRoles[1] === 'adj'
+    const orderedPos = selected.map(i => tiles[i].order)
+    const isCorrect = orderedPos.every((pos, slot) => pos === slot)
     setAnswered(isCorrect ? 'correct' : 'wrong')
     setScore(s => ({ right: s.right + (isCorrect ? 1 : 0), total: s.total + 1 }))
     setStreak(s => isCorrect ? s + 1 : 0)
@@ -97,8 +126,9 @@ export default function AdjectiveFlipCore() {
     setSelected([])
   }
 
-  const correctPhrase = `${current.noun} ${current.adj}`
+  const correctPhrase = current.parts.map(p => p.tongan).join(' ')
   const studentPhrase = selected.map(i => tiles[i].tongan).join(' ')
+  const note = TIER_NOTE[current.tier]
 
   const perfect = score.total > 0 && score.right === score.total
   const pct = deck.length > 0 ? ((idx + (answered !== null ? 1 : 0)) / deck.length) * 100 : 0
@@ -173,23 +203,21 @@ export default function AdjectiveFlipCore() {
         <div className="afl-reveal">
           <div className="afl-verdict">
             {answered === 'correct'
-              ? <><span className="afl-right">Yes.</span> <em>{studentPhrase}</em> &mdash; noun first, adjective second.</>
-              : <><span className="afl-wrong">Not quite.</span> You built <em>{studentPhrase}</em> &mdash; that&rsquo;s English order. In Tongan the noun leads: <em>{correctPhrase}</em>.</>
+              ? <><span className="afl-right">Yes.</span> <em>{studentPhrase}</em> &mdash; {note}</>
+              : <><span className="afl-wrong">Not quite.</span> You built <em>{studentPhrase}</em>. The Tongan order is <em>{correctPhrase}</em> &mdash; {note}</>
             }
           </div>
           <div className="afl-pattern">
-            <span className="afl-pattern-pair">
-              <span className="afl-pattern-slot">{current.noun}</span>
-              <span className="afl-pattern-role">noun</span>
-            </span>
-            <span className="afl-pattern-arrow">&rarr;</span>
-            <span className="afl-pattern-pair">
-              <span className="afl-pattern-slot">{current.adj}</span>
-              <span className="afl-pattern-role">adjective</span>
-            </span>
+            {current.parts.map((p, i) => (
+              <span key={p.tongan + i} className="afl-pattern-pair">
+                <span className="afl-pattern-slot">{p.tongan}</span>
+                <span className="afl-pattern-role">{p.role}</span>
+                {i < current.parts.length - 1 && <span className="afl-pattern-arrow">&rarr;</span>}
+              </span>
+            ))}
           </div>
           <button onClick={handleNext} className="afl-next">
-            Next phrase {'\u2192'}
+            Next phrase {'→'}
           </button>
         </div>
       )}

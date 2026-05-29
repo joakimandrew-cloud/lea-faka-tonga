@@ -1889,6 +1889,22 @@ body::before {
   letter-spacing: 0.05em;
 }
 
+/* SorterCore opt-in (hideGloss): collapse the prompt gloss until the
+   learner answers, then fade it in — same idiom as .pcs-btn-principle.
+   Keeps FakaSorter from handing over the category via the English gloss. */
+.pcs-noun-gloss-reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-3px);
+  transition: opacity 0.28s ease, transform 0.28s ease, max-height 0.28s ease;
+}
+.pcs-card.is-answered .pcs-noun-gloss-reveal {
+  max-height: 2em;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .pcs-question {
   text-align: center;
   font-size: 13px;

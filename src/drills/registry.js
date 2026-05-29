@@ -76,7 +76,7 @@ export const drillRegistry = {
   },
   'adjective-flip': {
     Core: AdjectiveFlipCore,
-    meta: { title: `Noun first, then the describing word`, blurb: `Build phrases in Tongan order: the noun comes before the word that describes it.` },
+    meta: { title: `Adjective order: before or after the noun`, blurb: `Most adjectives follow the noun (fale foʻou); a few — fuʻu, kiʻi, ʻuluaki, muʻaki, toe — come before it.` },
   },
   'skeleton-filler': {
     Core: SkeletonFillerCore,
