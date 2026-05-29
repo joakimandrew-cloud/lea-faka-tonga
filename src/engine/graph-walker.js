@@ -113,7 +113,7 @@ export function getAvailableWords(nodeId, chapter, steps) {
  * extensions with noun-class auto-rendering yet. This list grows as
  * subsequent sub-batches extend more paths.
  */
-const VERB_NODE_IDS = ['verb', 'verb_tr', 'verb_cleft', 'verb_ns']
+const VERB_NODE_IDS = ['verb', 'verb_tr', 'verb_cleft', 'verb_ns', 'verb_experiencer', 'verb_kohai']
 
 function findHeadVerbStep(steps) {
   // Phase 2C.1 full: the walker now has several verb-bearing nodes. All of
@@ -141,10 +141,25 @@ const CLAUSE_CONNECTOR_NODES = new Set([
   'clause_connector_ka',
   'clause_connector_kae',
   'clause_connector_pea',
+  'clause_connector_pea_serial',
+  'clause_connector_o',
   'subordinator_kapau',
   'subordinator_lolotonga',
   'subordinator_ke_purpose',
   'subordinator_koeuhi_ke',
+])
+
+// P1-A3: clause-completion nodes that are NOT verbs but carry the
+// clause-connector edges for their construction. A command clause completes
+// at `command_verb`, a noun-subject clause at `noun_subject_name`, and a
+// prohibition at `prohibition_verb` — none of which are VERB_NODE_IDS, so
+// getClauseConnectorEdges reads connectors from these completion nodes too
+// (not just the clause's main verb).
+const CLAUSE_COMPLETION_NODE_IDS = new Set([
+  'command_verb',
+  'command_verb_plural',
+  'noun_subject_name',
+  'prohibition_verb',
 ])
 
 // Walk the stack top-down to find the current clause's root frame. A new
@@ -161,30 +176,49 @@ function findClauseRootFrame(state) {
   return { frame: state.frames[0], depth: 0 }
 }
 
-// Compute the connector edges that attach to a given clause root's main
-// verb, filtered by chapter/conditions and hiding anything already in
-// extensionsTaken. Returns [] if the clause root hasn't reached a verb yet.
+// Compute the connector edges that attach to a given clause root's
+// completion node (its main verb, or a command/noun-subject/prohibition
+// completion node), filtered by chapter/conditions and hiding anything
+// already in extensionsTaken. Returns [] if the clause root has no such
+// source node yet (i.e. hasn't reached a verb / completion node).
 function getClauseConnectorEdges(state) {
   const { frame: clauseRoot } = findClauseRootFrame(state)
-  let verbStep = null
-  for (let i = clauseRoot.path.length - 1; i >= 0; i--) {
-    if (VERB_NODE_IDS.includes(clauseRoot.path[i].nodeId)) {
-      verbStep = clauseRoot.path[i]
-      break
+  // The connectors that close a clause live on its completion node. For
+  // statements / negation / noun-subject-via-verb / transitive / cleft that
+  // node is the main verb (VERB_NODE_IDS). For commands, noun-subject, and
+  // prohibitions (P1-A3) the connectors sit on a dedicated completion node
+  // (command_verb / noun_subject_name / prohibition_verb) that is NOT a verb.
+  // Collect from every such source node present in the clause root's path so
+  // the connectors surface from any descendant sub-frame, keyed off the
+  // clause root exactly as the verb-only version did.
+  const sourceNodeIds = []
+  for (const step of clauseRoot.path) {
+    if (
+      (VERB_NODE_IDS.includes(step.nodeId) || CLAUSE_COMPLETION_NODE_IDS.has(step.nodeId)) &&
+      !sourceNodeIds.includes(step.nodeId)
+    ) {
+      sourceNodeIds.push(step.nodeId)
     }
   }
-  if (!verbStep) return []
-  // Reconstruct the verb's nodeId from the step
-  const verbNodeId = clauseRoot.path.find(s => VERB_NODE_IDS.includes(s.nodeId)).nodeId
-  const verbNode = grammarGraph.nodes[verbNodeId]
-  if (!verbNode || !verbNode.next) return []
+  if (sourceNodeIds.length === 0) return []
 
   const flatSteps = getFlatSteps(state)
-  return verbNode.next
-    .filter(edge => CLAUSE_CONNECTOR_NODES.has(edge.node))
-    .filter(edge => edge.min_chapter <= state.chapter)
-    .filter(edge => evaluateCondition(edge.condition, flatSteps))
-    .filter(edge => !clauseRoot.extensionsTaken.includes(edge.node))
+  const seen = new Set()
+  const out = []
+  for (const nodeId of sourceNodeIds) {
+    const node = grammarGraph.nodes[nodeId]
+    if (!node || !node.next) continue
+    for (const edge of node.next) {
+      if (!CLAUSE_CONNECTOR_NODES.has(edge.node)) continue
+      if (seen.has(edge.node)) continue
+      if (edge.min_chapter > state.chapter) continue
+      if (!evaluateCondition(edge.condition, flatSteps)) continue
+      if (clauseRoot.extensionsTaken.includes(edge.node)) continue
+      seen.add(edge.node)
+      out.push(edge)
+    }
+  }
+  return out
 }
 
 /**
@@ -564,6 +598,8 @@ function evaluateCondition(condition, steps) {
       s.nodeId === 'clause_connector_ka' ||
       s.nodeId === 'clause_connector_kae' ||
       s.nodeId === 'clause_connector_pea' ||
+      s.nodeId === 'clause_connector_pea_serial' ||
+      s.nodeId === 'clause_connector_o' ||
       s.nodeId === 'subordinator_kapau' ||
       s.nodeId === 'subordinator_lolotonga'
     ).length
@@ -1726,6 +1762,8 @@ export function getRenderedPath(state) {
       prev.nodeId === 'clause_connector_ka' ||
       prev.nodeId === 'clause_connector_kae' ||
       prev.nodeId === 'clause_connector_pea' ||
+      prev.nodeId === 'clause_connector_pea_serial' ||
+      prev.nodeId === 'clause_connector_o' ||
       prev.nodeId === 'clause_connector_he' ||
       prev.nodeId === 'subordinator_ke_purpose' ||
       prev.nodeId === 'subordinator_koeuhi_ke' ||

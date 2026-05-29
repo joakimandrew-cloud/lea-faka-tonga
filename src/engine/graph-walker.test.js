@@ -1933,6 +1933,8 @@ describe('Docs.4 — spec-graph conformance: entry points (Rule 2 matrix)', () =
     { id: 'benefactive_name', allowed: [], section: '§25 (Ch 26, 2C.2)', note: 'Internal child frame for the benefactive_preposition_ma extension on verb.next / object.next / agent_phrase.next; sub-walk is benefactive_preposition_ma → possessor_name; render pass walks backwards to find the nearest preceding step carrying possessive_class and substitutes maʻa / moʻo' },
     { id: 'benefactive_pronoun', allowed: [], section: '§25 (Ch 26, 2C.2)', note: 'Internal child frame for the benefactive_pronoun_fused extension; sub-walk picks one fused form (maʻaku/moʻoku etc.); each entry stores both paradigm forms in possessive_forms, walker selects at render time' },
     { id: 'relative_clause', allowed: [], section: '§35 (Ch 39, 2C.4e-2 + 2C.4e-3)', note: 'Internal child frame for the relative clause extension on demonstrative.next; sub-walk is relative_clause_tense → pronoun → verb (+ extensions); render pass detects preposition family inside sub-walk and renders ai / ki ai / mei ai' },
+    { id: 'serial_clause', allowed: [], section: '§17/§22 (Ch 24, P1-A3)', note: 'Internal child frame for the clause_connector_o serial linker on command_verb.next; sub-walk is clause_connector_o → verb (bare second verb). Book: Haʻu ʻo kai, ʻAlu ʻo ako' },
+    { id: 'contrast_clause_kae', allowed: [], section: '§17 (Ch 24, P1-A3)', note: 'Internal child frame for the clause_connector_kae connector on noun_subject_name.next; sub-walk is clause_connector_kae → verb_ns → focus_marker → noun_subject_name (tense-dropped noun-subject clause). Book: Naʻe ʻalu ʻa Sione kae nofo ʻa Mele' },
   ]
 
   const dataById = Object.fromEntries(grammarGraph.entry_points.map(ep => [ep.id, ep]))

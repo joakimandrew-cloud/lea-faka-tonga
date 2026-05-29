@@ -8,6 +8,7 @@
  * Runs in the normal suite (bounded; explicit 30s timeout on the BFS cases).
  */
 import { describe, it, expect } from 'vitest'
+import grammarGraph from '../src/data/grammar-graph.json'
 import {
   createMultiWalker, pickFirstWord, pickWord, pickExtension, pickTerminator,
   finishCurrentFrame, getRenderedSentence, getPickerData, getFirstWordOptions, PHASE,
@@ -172,7 +173,81 @@ describe('P0 fixes — good constructions still build', () => {
     expect(reachable('Naʻe', 'lelei lelei', { depth: 10, max: 15000 })).toBe(true)
   }, 30000)
   it('command + please + you still builds (muʻa koe)', () => {
-    expect(build('Kai', ['muʻa', 'koe'])).toContain('muʻa koe')
+    // Deterministic build (the greedy build() helper picks the LAST extension
+    // when no label/word matches, so it became order-fragile once P1-A3 added
+    // clause connectors after emphatic_pronoun on command_verb.next). The
+    // grammar still supports Kai muʻa koe; this walks it explicitly.
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Kai' })
+    s = takeExtension(s, 'polite_particle')
+    s = advanceInFrame(s, { tongan: 'muʻa' })
+    s = takeExtension(s, 'emphatic_pronoun')
+    s = advanceInFrame(s, { tongan: 'koe' })
+    expect(render(s)).toContain('muʻa koe')
+  })
+})
+
+describe('P1-A3 — second clauses reach commands / noun-subject / prohibition', () => {
+  // Deterministic graph-walker builds for the four book-attested sentences the
+  // tracker requires reachable. Direct construction (not BFS) so the assertion
+  // is independent of menu ordering and BFS depth limits.
+  it('command + pea + bare verb builds (Mohe pea ngāue)', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Mohe' })
+    s = takeExtension(s, 'clause_connector_pea_serial')  // command-only bare-verb pea
+    s = advanceInFrame(s, { tongan: 'pea' })
+    s = advanceInFrame(s, { tongan: 'ngāue' })           // clause_connector_pea_serial.next = [verb required]
+    expect(render(s)).toContain('Mohe pea ngāue')
+  })
+  it('statement pea does NOT drop the pronoun (no bare-verb second clause)', () => {
+    // Regression guard for the verifier finding: clause_connector_pea (shared by
+    // statements / noun-subject) must offer only the full + tense-drop-pronoun
+    // paths, never a bare verb (Ch 24:138-160 keeps the pronoun: peá u mohe).
+    const targets = (grammarGraph.nodes.clause_connector_pea.next || []).map(e => e.node)
+    expect(targets).toEqual(['tense_marker', 'pronoun'])
+  })
+  it('command + serial ʻo + bare verb builds (Haʻu ʻo kai)', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Haʻu' })
+    s = takeExtension(s, 'clause_connector_o')
+    s = advanceInFrame(s, { tongan: 'ʻo' })
+    s = advanceInFrame(s, { tongan: 'kai' })   // clause_connector_o.next = [verb required]
+    expect(render(s)).toContain('Haʻu ʻo kai')
+  })
+  it('command + serial ʻo + bare verb builds (ʻAlu ʻo ako)', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'ʻAlu' })
+    s = takeExtension(s, 'clause_connector_o')
+    s = advanceInFrame(s, { tongan: 'ʻo' })
+    s = advanceInFrame(s, { tongan: 'ako' })
+    expect(render(s)).toContain('ʻAlu ʻo ako')
+  })
+  it('noun-subject + kae + second noun-subject clause builds (Naʻe ʻalu ʻa Sione kae nofo ʻa Mele)', () => {
+    let s = createWalkerState('noun_subject', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = takeExtension(s, 'clause_connector_kae')
+    s = advanceInFrame(s, { tongan: 'kae' })
+    s = advanceInFrame(s, { tongan: 'nofo' })  // clause_connector_kae.next = [verb_ns required]
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Mele' })
+    expect(render(s)).toContain('Naʻe ʻalu ʻa Sione kae nofo ʻa Mele')
+  })
+  it('prohibition + he + weather reason clause builds (ʻOua te ke ʻalu he ʻoku ʻuha)', () => {
+    let s = createWalkerState('prohibition', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOua te' })
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'clause_connector_he')
+    s = advanceInFrame(s, { tongan: 'he' })
+    s = takeExtension(s, 'tense_marker_weather')
+    s = advanceInFrame(s, { tongan: 'ʻoku' })
+    s = advanceInFrame(s, { tongan: 'ʻuha' })
+    expect(render(s)).toContain('ʻOua te ke ʻalu he ʻoku ʻuha')
   })
 })
 

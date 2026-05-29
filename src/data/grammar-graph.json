@@ -29,6 +29,8 @@
     { "id": "pea_second_clause", "label": "(pea second clause)", "category": "Subordinate", "description": "Internal entry point — the child frame pushed by the `clause_connector_pea` extension on verb.next. Parallel to the 2A.5 `clause_connector_ka` / `negation` pattern but routes to a full-statement sub-walk. allowed_terminators: [] forces explicit finishFrame to exit.", "start_node": "clause_connector_pea", "min_chapter": 24, "allowed_terminators": [] },
     { "id": "conditional_clause", "label": "(kapau conditional clause)", "category": "Subordinate", "description": "Internal entry point — the child frame pushed by the `subordinator_kapau` extension on verb.next. The sub-walk is a full statement clause (kapau → tense_marker → pronoun → verb …). allowed_terminators: [] forces finishFrame.", "start_node": "subordinator_kapau", "min_chapter": 30, "allowed_terminators": [] },
     { "id": "temporal_clause", "label": "(lolotonga temporal clause)", "category": "Subordinate", "description": "Internal entry point — the child frame pushed by the `subordinator_lolotonga` extension on verb.next. Shape is identical to the conditional_clause; different node for lexical disambiguation only.", "start_node": "subordinator_lolotonga", "min_chapter": 30, "allowed_terminators": [] },
+    { "id": "serial_clause", "label": "(serial ʻo clause)", "category": "Subordinate", "description": "Internal entry point — the child frame pushed by the `clause_connector_o` serial linker on command_verb.next (P1-A3, §17/§22 Ch 24 `Haʻu ʻo kai`, `ʻAlu ʻo ako`). Sub-walk is a single bare verb (clause_connector_o → verb). allowed_terminators: [] forces an explicit finishFrame to exit back to the parent command/clause, whose own FINISH terminator closes the sentence.", "start_node": "clause_connector_o", "min_chapter": 24, "allowed_terminators": [] },
+    { "id": "contrast_clause_kae", "label": "(kae contrast clause)", "category": "Subordinate", "description": "Internal entry point — the child frame pushed by the `clause_connector_kae` connector on noun_subject_name.next (P1-A3, §17 Ch 24 `Naʻe ʻalu ʻa Sione kae nofo ʻa Mele`). Sub-walk is a tense-dropped noun-subject clause (clause_connector_kae → verb_ns → focus_marker → noun_subject_name). allowed_terminators: [] forces finishFrame back to the first clause.", "start_node": "clause_connector_kae", "min_chapter": 24, "allowed_terminators": [] },
     { "id": "ko_equational", "label": "Say what someone is", "category": "Ko Sentences", "description": "Equational sentence: Ko e + predicate noun (+ adjective) + postposed pronoun or ʻa + name (spec §21, Ch 16). Covers 'Ko e faiako au' / 'Ko e taʻahine fiefia ʻa Mele'. Predicate-first order only — subject-first emphasis (Ko Sione ko e faiako) is deferred.", "start_node": "ko_e_equational", "min_chapter": 16, "allowed_terminators": ["FINISH_STATEMENT", "FINISH_QUESTION"] },
     { "id": "reason_clause_he", "label": "(he reason clause)", "category": "Subordinate", "description": "Internal entry point — the child frame pushed by the `clause_connector_he` extension on verb.next and object_phrase.next. Shape parallels pea_second_clause — the sub-walk is a full statement clause starting with tense_marker (spec §25, Ch 26 `he` = for, because).", "start_node": "clause_connector_he", "min_chapter": 26, "allowed_terminators": [] },
     { "id": "reason_clause_koeuhi_ke", "label": "(koeʻuhi ke purpose clause)", "category": "Subordinate", "description": "Internal entry point — the child frame pushed by the `subordinator_koeuhi_ke` extension on verb.next. More emphatic form of `ke` purpose; shape parallels purpose_bare_verb with a bare purpose verb following the subordinator (spec §25, Ch 26 `koeʻuhi ke` = in order that, so that).", "start_node": "subordinator_koeuhi_ke", "min_chapter": 26, "allowed_terminators": [] },
@@ -554,7 +556,9 @@
         { "node": "object", "label": "Add object (what)", "min_chapter": 8, "condition": { "type": "verb_has_tag", "tag": "transitive" }, "context_hint": "Say what to {verb_base}" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where to {verb_base}" },
         { "node": "polite_particle", "label": "Add please (muʻa)", "min_chapter": 5, "condition": { "type": "not_already_visited_node", "node": "emphatic_pronoun" }, "context_hint": "Make it polite with muʻa (please)" },
-        { "node": "emphatic_pronoun", "label": "Add emphasis (you!)", "min_chapter": 5, "context_hint": "Emphasize who you're talking to" }
+        { "node": "emphatic_pronoun", "label": "Add emphasis (you!)", "min_chapter": 5, "context_hint": "Emphasize who you're talking to" },
+        { "node": "clause_connector_o", "label": "Add serial verb (ʻo... and...)", "min_chapter": 24, "child_entry_point": "serial_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Link a second action: come ʻo eat, go ʻo study" },
+        { "node": "clause_connector_pea_serial", "label": "Add sequential command (pea... and then...)", "min_chapter": 24, "child_entry_point": "serial_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Say what to do next: ...and then..." }
       ]
     },
 
@@ -650,7 +654,8 @@
         { "node": "FINISH_STATEMENT", "label": "Finish as command (!)", "min_chapter": 5 },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where not to {verb_base}" },
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 5, "context_hint": "Say when" },
-        { "node": "polite_particle", "label": "Add please (muʻa)", "min_chapter": 5, "context_hint": "Soften the prohibition with muʻa (please)" }
+        { "node": "polite_particle", "label": "Add please (muʻa)", "min_chapter": 5, "context_hint": "Soften the prohibition with muʻa (please)" },
+        { "node": "clause_connector_he", "label": "Add reason (he... because...)", "min_chapter": 26, "child_entry_point": "reason_clause_he", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Give the reason not to: ...because..." }
       ]
     },
 
@@ -1073,7 +1078,10 @@
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 15, "context_hint": "Say who they were with" },
         { "node": "time_word", "label": "Add time word", "min_chapter": 15, "context_hint": "Say when" },
         { "node": "directional", "label": "Add direction (mai, atu, hake, hifo...)", "min_chapter": 28, "context_hint": "Say the direction after the subject" },
-        { "node": "tuo_numeral", "label": "Add count of times (tuʻo + numeral)", "min_chapter": 22, "context_hint": "Say how many times" }
+        { "node": "tuo_numeral", "label": "Add count of times (tuʻo + numeral)", "min_chapter": 22, "context_hint": "Say how many times" },
+        { "node": "clause_connector_kae", "label": "Add contrasting clause (kae... while/and...)", "min_chapter": 24, "child_entry_point": "contrast_clause_kae", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Contrast a second subject: ...while X..." },
+        { "node": "clause_connector_ka", "label": "Add contrasting clause (ka... but...)", "min_chapter": 24, "child_entry_point": "negation", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Contrast: ...but..." },
+        { "node": "clause_connector_pea", "label": "Add sequential clause (pea... and then...)", "min_chapter": 24, "child_entry_point": "pea_second_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Say what happened next: ...and then..." }
       ]
     },
 
@@ -1407,6 +1415,52 @@
       ]
     },
 
+    "clause_connector_pea_serial": {
+      "label": "And then (command)",
+      "description": "pea = and then — the IMPERATIVE-chain form that joins a second bare verb to a command (spec §17, Ch 24 `Mohe pea ngāue`, `Haʻu pea kai`: two commands, each able to stand alone). Distinct from clause_connector_pea (statement/noun-subject), which keeps the pronoun after pea (`Naʻá ku lotu peá u mohe`, Ch 24:23/138-160) and so never drops to a bare verb. The second verb is bare (no tense, no pronoun); the child frame uses the serial_clause entry point (allowed_terminators []).",
+      "words": [
+        { "tongan": "pea", "english": "and then", "min_chapter": 24 }
+      ],
+      "next": [
+        { "node": "verb", "label": "Second command (bare verb)", "min_chapter": 24, "required": true }
+      ]
+    },
+
+    "clause_connector_o": {
+      "label": "And (serial ʻo)",
+      "description": "ʻo = and / and then — the serial-verb linker that joins a second bare verb to a command or clause (spec §17/§22, Ch 24). Examples: Haʻu ʻo kai (come and eat), ʻAlu ʻo ako (go and study), Mohe pea ngāue uses pea but ʻo is the tighter serial form. The second verb is bare (no tense marker), parallel to the ke-purpose sub-walk; the child frame uses the serial_clause entry point (allowed_terminators []), so it exits via finishFrame back to the command/clause whose FINISH terminator closes the sentence.",
+      "words": [
+        { "tongan": "ʻo", "english": "and (then)", "min_chapter": 24 }
+      ],
+      "next": [
+        { "node": "verb", "label": "Second verb (bare)", "min_chapter": 24, "required": true }
+      ]
+    },
+
+    "clause_connector_kae": {
+      "label": "While / and (kae)",
+      "description": "kae = and / while / but — joins a contrasting second clause with a DIFFERENT subject directly to a bare verb (tense-drop), the noun-subject counterpart of ka (spec §17, Ch 24). Example: Naʻe ʻalu ʻa Sione kae nofo ʻa Mele (Sione went while Mele stayed). The second clause is a tense-dropped noun-subject clause (bare verb_ns + ʻa + name); the child frame uses the contrast_clause_kae entry point (allowed_terminators []), so it exits via finishFrame back to the first clause whose FINISH terminator closes the sentence.",
+      "words": [
+        { "tongan": "kae", "english": "while/and", "min_chapter": 24 }
+      ],
+      "next": [
+        { "node": "verb_ns", "label": "Second clause (bare verb + subject)", "min_chapter": 24, "required": true }
+      ]
+    },
+
+    "tense_marker_weather": {
+      "label": "Tense Marker",
+      "description": "Choose when for an affirmative impersonal-weather clause (ʻoku ʻuha = it is raining). Reached only inside the `he` reason clause (spec §25, Ch 26 `he ʻoku ʻuha` = because it is raining); the affirmative impersonal weather construction has no top-level entry point, so this node exists purely as a he-reason branch. Words are stored lowercase because the clause is always non-initial.",
+      "words": [
+        { "tongan": "ʻoku", "english": "present", "min_chapter": 9 },
+        { "tongan": "naʻe", "english": "past", "min_chapter": 9 },
+        { "tongan": "ʻe", "english": "future", "min_chapter": 9 }
+      ],
+      "next": [
+        { "node": "verb_weather", "label": "Add weather verb", "min_chapter": 9, "required": true }
+      ]
+    },
+
     "subordinator_kapau": {
       "label": "If",
       "description": "kapau = if — opens a conditional clause (spec §18, Ch 30). Requires a tense marker in the dependent clause, so the walker auto-advances to tense_marker as a required next.",
@@ -1707,7 +1761,8 @@
       "next": [
         { "node": "tense_marker", "label": "Reason clause (pronoun subject)", "min_chapter": 26 },
         { "node": "tense_marker_ns", "label": "Reason clause (noun subject)", "min_chapter": 26 },
-        { "node": "tense_marker_neg", "label": "Reason clause (negation)", "min_chapter": 26 }
+        { "node": "tense_marker_neg", "label": "Reason clause (negation)", "min_chapter": 26 },
+        { "node": "tense_marker_weather", "label": "Reason clause (weather/impersonal)", "min_chapter": 26 }
       ]
     },
 
