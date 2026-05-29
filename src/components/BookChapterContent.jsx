@@ -7,6 +7,7 @@ import rehypeTableLabels from '../lib/rehype-table-labels'
 import remarkExamples from '../lib/remark-examples'
 import remarkDrillAnchors from '../lib/remark-drill-anchors'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
+import VocabPracticeBlock from './VocabPracticeBlock'
 
 // Bulk-load every chapter markdown file at build time. Vite inlines each
 // file's contents as a string, so no runtime fetch is needed.
@@ -85,8 +86,30 @@ const baseComponents = {
   table: ({ node, children }) => {
     // ch-stack (added by rehype-table-labels) marks tables that should become
     // cards on mobile; tables without it stay compact real tables.
+    // ch-vocab-list marks "Words to Learn" tables that get a Cards-practice
+    // toggle — rehype-table-labels also attaches the row data as JSON.
     const extra = node?.properties?.className
     const extraClass = Array.isArray(extra) ? extra.join(' ') : extra || ''
+
+    if (extraClass.includes('ch-vocab-list')) {
+      const rowsJson =
+        node?.properties?.dataVocabRows ||
+        node?.properties?.['data-vocab-rows']
+      let rows = []
+      if (typeof rowsJson === 'string') {
+        try {
+          rows = JSON.parse(rowsJson)
+        } catch {
+          rows = []
+        }
+      }
+      return (
+        <VocabPracticeBlock rows={rows} tableClass={extraClass}>
+          {children}
+        </VocabPracticeBlock>
+      )
+    }
+
     return (
       <div className="ch-table-wrap overflow-x-auto my-4">
         <table className={`ch-table border-collapse ${extraClass}`.trim()}>{children}</table>

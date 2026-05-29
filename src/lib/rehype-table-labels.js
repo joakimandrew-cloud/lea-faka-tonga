@@ -158,6 +158,37 @@ export default function rehypeTableLabels() {
         (c) => c.type === 'element' && c.tagName === 'tr'
       )
 
+      // Vocab-list signature: exactly 3 cols matching "Tongan | Type|Function | English".
+      // These are the tables under "Words to Learn" in every chapter — students
+      // are expected to memorize them, so they get a Cards-view toggle.
+      // Paradigm/teaching demo tables don't match this signature and stay normal.
+      const lc = labels.map((l) => l.toLowerCase())
+      const isVocabList =
+        lc.length === 3 &&
+        lc[0] === 'tongan' &&
+        (lc[1] === 'type' || lc[1] === 'function') &&
+        lc[2] === 'english'
+
+      if (isVocabList) {
+        const vocabRows = bodyRows
+          .map((row) => {
+            const cells = rowCells(row)
+            if (cells.length < 3) return null
+            return {
+              tongan: textOf(cells[0]).trim(),
+              type: textOf(cells[1]).trim(),
+              english: textOf(cells[2]).trim(),
+            }
+          })
+          .filter(Boolean)
+
+        if (vocabRows.length > 0) {
+          addClass(node, 'ch-vocab-list')
+          node.properties = node.properties || {}
+          node.properties['data-vocab-rows'] = JSON.stringify(vocabRows)
+        }
+      }
+
       // Per-column max text length, across header + body. Drives the fit check.
       const colMax = labels.map((l) => l.length)
 

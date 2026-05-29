@@ -24,6 +24,7 @@ export default function Layout() {
   const isChapterBrowser = path === '/chapters'
   const isFlipCards = path === '/cards'
   const isTerminalBuild = path === '/terminal-build'
+  const isSentenceBuilder = path === '/sentence-builder'
   const isTenseSwap = path === '/tense-swap'
   const isFirstWord = path === '/first-word'
   const isPossessiveSort = path === '/possessive-sort'
@@ -32,7 +33,7 @@ export default function Layout() {
   const isClusivity = path === '/clusivity'
   const isQuizIndex = path === '/quizzes'
   const isDrillsMenu = path === '/drills'
-  const isSubPage = isFreeBuild || isOpenBuild || isGuidedBuild || isTerminalBuild || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu
+  const isSubPage = isFreeBuild || isOpenBuild || isGuidedBuild || isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu
 
   let breadcrumbLabel = ''
   let backTo = '/'
@@ -41,6 +42,8 @@ export default function Layout() {
   } else if (isFreeBuild) {
     breadcrumbLabel = 'Free Build'
   } else if (isTerminalBuild) {
+    breadcrumbLabel = 'Build a Sentence'
+  } else if (isSentenceBuilder) {
     breadcrumbLabel = 'Build a Sentence'
   } else if (isTenseSwap) {
     breadcrumbLabel = 'Tense Swapper'

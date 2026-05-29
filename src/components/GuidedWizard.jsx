@@ -99,7 +99,7 @@ const STEPS = {
   other_name_what: {
     question: 'What are you saying about this person?',
     choices: [
-      { label: 'Something they do or how they feel', description: 'Sione eats, the boy is happy, Mary ran', next: 'tense', sets: { flow: 'noun_subject' } },
+      { label: 'Something they do or how they feel', description: 'Sione eats, the boy is happy, Mele ran', next: 'tense', sets: { flow: 'noun_subject' } },
       { label: "Something they don't do", description: "Sione doesn't eat, the boy is not hungry", next: 'tense', sets: { flow: 'negation', nameNegation: true } },
     ],
   },

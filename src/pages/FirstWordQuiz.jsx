@@ -10,7 +10,7 @@ export default function FirstWordQuiz() {
   return (
     <div className="fwq-page">
       <header className="fwq-header">
-        <div className="fwq-eyebrow">Week 1 · Signature Drill</div>
+        <div className="fwq-eyebrow">Sentence shape</div>
         <h1 className="fwq-title">The first word commits you.</h1>
         <p className="fwq-sub">
           See only the opening. Predict the shape of the sentence before the
@@ -33,9 +33,10 @@ export default function FirstWordQuiz() {
           sentence just fills slots.
         </p>
         <p>
-          Every bug we ever fixed in this app was a case of the graph
-          allowing an opening particle to over-commit. That&rsquo;s because
-          the grammar really does branch this sharply at word one.
+          Tongan branches sharply at word one: <em>ʻOku</em> opens a
+          statement, <em>Ko e</em> opens an identification, <em>ʻOua</em> a
+          prohibition. Once you catch the opener, the rest of the sentence
+          just fills slots.
         </p>
         <p className="fwq-lesson-foot">
           Drill until you can name the pattern before the sentence even

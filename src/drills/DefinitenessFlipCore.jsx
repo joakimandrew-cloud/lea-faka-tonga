@@ -32,6 +32,8 @@ const EXAMPLES = [
       english: 'Sione ate the bread.',
       tongan: 'Naʻe kai ʻe Sione ʻa e mā.',
     },
+    lead: 'Sione ate',
+    principle: { indefinite: 'verb + noun fused, subject takes ʻa', definite: 'object splits off (ʻa e …), subject takes ʻe' },
     why: 'With "bread" (indef): the verb-noun pair kai+mā fuses into one intransitive unit. The subject takes ʻa (Sione is treated like the only argument).\nWith "the bread" (def): the object splits off as a separate phrase ʻa e mā. The verb is now transitive — the subject takes ʻe.',
   },
   {
@@ -46,6 +48,8 @@ const EXAMPLES = [
       english: 'Mele ate the fish.',
       tongan: 'Naʻe kai ʻe Mele ʻa e iká.',
     },
+    lead: 'Mele ate',
+    principle: { indefinite: 'verb + noun fused, subject takes ʻa', definite: 'object splits off (ʻa e …), subject takes ʻe' },
     why: 'Same pivot. kai+ika fused, subject ʻa. Versus kai split from ʻa e iká, subject ʻe.',
   },
   {
@@ -60,6 +64,8 @@ const EXAMPLES = [
       english: 'I drank the water.',
       tongan: 'Naʻá ku inu ʻa e vaí.',
     },
+    lead: 'I drank',
+    principle: { indefinite: 'verb + noun fused (inu vai)', definite: 'object splits off as ʻa e vaí; subject ku is unchanged' },
     why: 'Pronoun subject (ku/u) doesn\u2019t change between the two versions — the pivot is in the OBJECT side. Indefinite: inu+vai fused. Definite: object splits off as ʻa e vaí.',
   },
 ]
@@ -109,7 +115,7 @@ export default function DefinitenessFlipCore() {
 
         <div className="pcs-noun-frame">
           <div className="pcs-question">
-            Sione ate {' '}
+            {example.lead} {' '}
             <button
               onClick={() => setDefState('indefinite')}
               className={`pcs-btn ${defState === 'indefinite' ? 'is-answer' : 'is-dim'}`}
@@ -223,7 +229,7 @@ export default function DefinitenessFlipCore() {
               className={`pcs-btn ${cls}`}
             >
               <span className="pcs-btn-label">{current[opt].tongan}</span>
-              <span className="pcs-btn-principle">{opt === 'indefinite' ? 'verb+noun fused, subject ʻa' : 'object split off, subject ʻe'}</span>
+              <span className="pcs-btn-principle">{current.principle[opt]}</span>
             </button>
           )
         })}

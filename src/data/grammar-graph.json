@@ -371,10 +371,10 @@
         { "tongan": "ngoue", "english": "garden/plantation", "min_chapter": 46, "noun_class": "local", "animacy": "thing", "possessive_class": "ho_class" },
         { "tongan": "toafa", "english": "wilderness", "min_chapter": 46, "noun_class": "local", "animacy": "thing", "possessive_class": "ho_class" },
         { "tongan": "houʻeiki", "english": "chiefs (collective)", "min_chapter": 46, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Sione", "english": "John", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Mele", "english": "Mary", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Pita", "english": "Peter", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Tēvita", "english": "David", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Sione", "english": "Sione", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Mele", "english": "Mele", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Pita", "english": "Pita", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Tēvita", "english": "Tēvita", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Ana", "english": "Ana", "min_chapter": 7, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "fale", "english": "house", "min_chapter": 8, "noun_class": "common", "definitive_accent_form": "falé", "animacy": "thing", "possessive_class": "ho_class" },
         { "tongan": "tohi", "english": "book", "min_chapter": 11, "noun_class": "common", "definitive_accent_form": "tohí", "animacy": "thing", "possessive_class": "e_class" },
@@ -403,7 +403,7 @@
         { "node": "preposition", "label": "Add another location/direction", "min_chapter": 7, "condition": { "type": "node_visit_count_max", "node": "preposition", "max": 2 }, "context_hint": "Add another direction — ki (to) or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "context_hint": "Say who {subject} was with" },
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 6, "context_hint": "Say when" },
-        { "node": "possessor_preposition", "label": "Add whose (John's, Mary's...)", "min_chapter": 17, "child_entry_point": "possessive_phrase_name", "context_hint": "Say whose thing — John's house, Mary's book..." },
+        { "node": "possessor_preposition", "label": "Add whose (Sione's, Mele's...)", "min_chapter": 17, "child_entry_point": "possessive_phrase_name", "context_hint": "Say whose thing — Sione's house, Mele's book..." },
         { "node": "attributive_adjective", "label": "Add adjective (big, new, bad...)", "min_chapter": 35, "context_hint": "Describe the thing — ha fale foʻou (a new house), ha tangata mālohi (a strong man)" }
       ]
     },
@@ -425,10 +425,10 @@
       "description": "Choose who you were with",
       "word_filter": { "type": "no_repeat_at_node" },
       "words": [
-        { "tongan": "Sione", "english": "John", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Mele", "english": "Mary", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Pita", "english": "Peter", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Tēvita", "english": "David", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Sione", "english": "Sione", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Mele", "english": "Mele", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Pita", "english": "Pita", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Tēvita", "english": "Tēvita", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Ana", "english": "Ana", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "ʻOfa", "english": "ʻOfa", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Seini", "english": "Seini", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
@@ -874,9 +874,9 @@
         { "tongan": "ʻena", "english": "that (near you)", "min_chapter": 12 },
         { "tongan": "ē", "english": "that (over there)", "min_chapter": 12 },
         { "tongan": "ia", "english": "he/she", "min_chapter": 12, "noun_class": "pronoun", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Sione",  "english": "John",  "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Mele",   "english": "Mary",  "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Tēvita", "english": "David", "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" }
+        { "tongan": "ʻa Sione",  "english": "Sione",  "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Mele",   "english": "Mele",  "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Tēvita", "english": "Tēvita", "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" }
       ],
       "next": [
         { "node": "FINISH_STATEMENT", "label": "Finish as statement (.)", "min_chapter": 12 },
@@ -958,10 +958,10 @@
       "label": "Person",
       "description": "Choose who you're asking about",
       "words": [
-        { "tongan": "ʻa Sione", "english": "John", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Mele", "english": "Mary", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Pita", "english": "Peter", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Tēvita", "english": "David", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Sione", "english": "Sione", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Mele", "english": "Mele", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Pita", "english": "Pita", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Tēvita", "english": "Tēvita", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "ʻa Ana", "english": "Ana", "min_chapter": 13, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" }
       ],
       "next": [
@@ -1045,10 +1045,10 @@
       "label": "Subject",
       "description": "Choose who did the action — a name or a definite noun",
       "words": [
-        { "tongan": "Sione", "english": "John", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Mele", "english": "Mary", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Pita", "english": "Peter", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Tēvita", "english": "David", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Sione", "english": "Sione", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Mele", "english": "Mele", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Pita", "english": "Pita", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Tēvita", "english": "Tēvita", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Ana", "english": "Ana", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Seini", "english": "Seini", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Sēmisi", "english": "Sēmisi", "min_chapter": 15, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
@@ -1326,9 +1326,9 @@
       "label": "Possessor name",
       "description": "The proper name of the possessor — Sione, Mele, etc. Rendered as-is; class comes from the head noun, not the name.",
       "words": [
-        { "tongan": "Sione",  "english": "John",  "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Mele",   "english": "Mary",  "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "Tēvita", "english": "David", "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Sione",  "english": "Sione",  "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Mele",   "english": "Mele",  "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "Tēvita", "english": "Tēvita", "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "ʻOfa",   "english": "ʻOfa",  "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Siale",  "english": "Siale", "min_chapter": 17, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" }
       ],
@@ -1694,9 +1694,9 @@
         { "tongan": "kitautolu",  "english": "we (incl.)",   "min_chapter": 16, "noun_class": "pronoun", "animacy": "person", "possessive_class": "ho_class", "person": 1, "number": "plural" },
         { "tongan": "kimoutolu",  "english": "you all",      "min_chapter": 16, "noun_class": "pronoun", "animacy": "person", "possessive_class": "ho_class", "person": 2, "number": "plural" },
         { "tongan": "kinautolu",  "english": "they",         "min_chapter": 16, "noun_class": "pronoun", "animacy": "person", "possessive_class": "ho_class", "person": 3, "number": "plural" },
-        { "tongan": "ʻa Sione",   "english": "John",         "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Mele",    "english": "Mary",         "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
-        { "tongan": "ʻa Tēvita",  "english": "David",        "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Sione",   "english": "Sione",         "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Mele",    "english": "Mele",         "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
+        { "tongan": "ʻa Tēvita",  "english": "Tēvita",        "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "ʻa ʻOfa",    "english": "ʻOfa",         "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "ʻa Seini",   "english": "Seini",        "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "ʻa Peau",    "english": "Peau",         "min_chapter": 16, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
@@ -2320,7 +2320,7 @@
         { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who the action is for — for me, for you, for him..." },
         { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "context_hint": "Say the action continues unchanged — as usual, as always" },
         { "node": "numeral", "label": "Add a count (ʻe ono = six...)", "min_chapter": 20, "context_hint": "Say how many — ʻe taha, ʻe ua, ʻe ono..." },
-        { "node": "possessor_preposition", "label": "Add whose (John’s, Mary’s...)", "min_chapter": 17, "child_entry_point": "possessive_phrase_name", "context_hint": "Say whose thing — John’s house, Mary’s book..." },
+        { "node": "possessor_preposition", "label": "Add whose (Sione’s, Mele’s...)", "min_chapter": 17, "child_entry_point": "possessive_phrase_name", "context_hint": "Say whose thing — Sione’s house, Mele’s book..." },
         { "node": "attributive_adjective", "label": "Add adjective (big, new, bad...)", "min_chapter": 35, "context_hint": "Describe the thing — ha fale foʻou (a new house)" }
       ]
     }
@@ -2334,19 +2334,19 @@
     "naʻe": [
       { "path": ["Naʻe", "ʻikai", "te", "u", "kai"], "english": "I didn't eat.", "leads_to": "negation" },
       { "path": ["Naʻe", "mahino", "kiate au"], "english": "I understood.", "leads_to": "experiencer" },
-      { "path": ["Naʻe", "kai", "ʻa", "Sione"], "english": "John ate.", "leads_to": "noun_subject" },
+      { "path": ["Naʻe", "kai", "ʻa", "Sione"], "english": "Sione ate.", "leads_to": "noun_subject" },
       { "path": ["Naʻe", "ʻuha"], "english": "It rained.", "leads_to": "negation_impersonal" }
     ],
     "ʻoku": [
       { "path": ["ʻOku", "ou", "fiefia"], "english": "I am happy.", "leads_to": "statement" },
       { "path": ["ʻOku", "ou", "ʻi", "ʻapi"], "english": "I am at home.", "leads_to": "location_state" },
       { "path": ["ʻOku", "ʻikai", "te", "u", "kai"], "english": "I don't eat.", "leads_to": "negation" },
-      { "path": ["ʻOku", "ʻalu", "ʻa", "Sione"], "english": "John is going.", "leads_to": "noun_subject" }
+      { "path": ["ʻOku", "ʻalu", "ʻa", "Sione"], "english": "Sione is going.", "leads_to": "noun_subject" }
     ],
     "kuo": [
       { "path": ["Kuo", "u", "kai"], "english": "I have eaten.", "leads_to": "statement" },
       { "path": ["Kuo", "u", "ʻi", "kolo"], "english": "I have been in town.", "leads_to": "location_state" },
-      { "path": ["Kuo", "ʻalu", "ʻa", "Mele"], "english": "Mary has gone.", "leads_to": "noun_subject" }
+      { "path": ["Kuo", "ʻalu", "ʻa", "Mele"], "english": "Mele has gone.", "leads_to": "noun_subject" }
     ],
     "te": [
       { "path": ["Te", "u", "ʻalu"], "english": "I will go.", "leads_to": "statement" },
@@ -2355,7 +2355,7 @@
     "ʻe": [
       { "path": ["ʻE", "ʻikai", "te", "u", "ʻalu"], "english": "I will not go.", "leads_to": "negation" },
       { "path": ["ʻE", "ʻikai", "ke", "ʻuha"], "english": "It will not rain.", "leads_to": "negation_impersonal" },
-      { "path": ["ʻE", "hiva", "ʻa", "Sione"], "english": "John will sing.", "leads_to": "noun_subject" }
+      { "path": ["ʻE", "hiva", "ʻa", "Sione"], "english": "Sione will sing.", "leads_to": "noun_subject" }
     ],
     "tau": [
       { "path": ["Tau", "kai"], "english": "Let's eat.", "leads_to": "suggestion" },
@@ -2400,7 +2400,7 @@
       { "path": ["Ko e", "tohi", "ʻeni"], "english": "This is a book.", "leads_to": "ko_identification" },
       { "path": ["Ko e", "fala", "ē"], "english": "That is a mat.", "leads_to": "ko_identification" },
       { "path": ["Ko e", "faiako", "au"], "english": "I am a teacher.", "leads_to": "ko_equational" },
-      { "path": ["Ko e", "taʻahine", "fiefia", "ʻa Mele"], "english": "Mary is a happy girl.", "leads_to": "ko_equational" }
+      { "path": ["Ko e", "taʻahine", "fiefia", "ʻa Mele"], "english": "Mele is a happy girl.", "leads_to": "ko_equational" }
     ],
     "ʻoku ʻikai ko e": [
       { "path": ["ʻOku ʻikai ko e", "hele", "ʻeni"], "english": "This is not a knife.", "leads_to": "ko_negation" }
@@ -2414,8 +2414,8 @@
       { "path": ["Ko hai", "naʻe", "kai"], "english": "Who ate?", "leads_to": "ko_question_who" }
     ],
     "ko fē": [
-      { "path": ["Ko fē", "ʻa Sione"], "english": "Where is John?", "leads_to": "ko_question_where" },
-      { "path": ["Ko fē", "ʻa Mele"], "english": "Where is Mary?", "leads_to": "ko_question_where" }
+      { "path": ["Ko fē", "ʻa Sione"], "english": "Where is Sione?", "leads_to": "ko_question_where" },
+      { "path": ["Ko fē", "ʻa Mele"], "english": "Where is Mele?", "leads_to": "ko_question_where" }
     ]
   }
 }

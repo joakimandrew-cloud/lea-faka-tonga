@@ -1066,22 +1066,22 @@
   "companions": [
     {
       "tongan": "Sione",
-      "english": "John",
+      "english": "Sione",
       "min_chapter": 10
     },
     {
       "tongan": "Mele",
-      "english": "Mary",
+      "english": "Mele",
       "min_chapter": 10
     },
     {
       "tongan": "Pita",
-      "english": "Peter",
+      "english": "Pita",
       "min_chapter": 10
     },
     {
       "tongan": "Tēvita",
-      "english": "David",
+      "english": "Tēvita",
       "min_chapter": 10
     },
     {
@@ -1349,22 +1349,22 @@
   "noun_subject_names": [
     {
       "tongan": "Sione",
-      "english": "John",
+      "english": "Sione",
       "min_chapter": 13
     },
     {
       "tongan": "Mele",
-      "english": "Mary",
+      "english": "Mele",
       "min_chapter": 13
     },
     {
       "tongan": "Pita",
-      "english": "Peter",
+      "english": "Pita",
       "min_chapter": 13
     },
     {
       "tongan": "Tēvita",
-      "english": "David",
+      "english": "Tēvita",
       "min_chapter": 13
     },
     {
@@ -1404,12 +1404,12 @@
     },
     {
       "tongan": "Taniela",
-      "english": "Daniel",
+      "english": "Taniela",
       "min_chapter": 16
     },
     {
       "tongan": "Siaosi",
-      "english": "George",
+      "english": "Siaosi",
       "min_chapter": 16
     },
     {
@@ -2274,7 +2274,7 @@
   "transitive_objects": [
     {
       "tongan": "Mele",
-      "english": "Mary",
+      "english": "Mele",
       "min_chapter": 19,
       "tags": [
         "proper"
@@ -2372,7 +2372,7 @@
   "agent_names": [
     {
       "tongan": "Sione",
-      "english": "John",
+      "english": "Sione",
       "min_chapter": 19,
       "tags": [
         "proper"
@@ -2380,7 +2380,7 @@
     },
     {
       "tongan": "Mele",
-      "english": "Mary",
+      "english": "Mele",
       "min_chapter": 19,
       "tags": [
         "proper"
@@ -2388,7 +2388,7 @@
     },
     {
       "tongan": "Pita",
-      "english": "Peter",
+      "english": "Pita",
       "min_chapter": 19,
       "tags": [
         "proper"
@@ -2396,7 +2396,7 @@
     },
     {
       "tongan": "Tēvita",
-      "english": "David",
+      "english": "Tēvita",
       "min_chapter": 19,
       "tags": [
         "proper"
@@ -2404,7 +2404,7 @@
     },
     {
       "tongan": "Taniela",
-      "english": "Daniel",
+      "english": "Taniela",
       "min_chapter": 19,
       "tags": [
         "proper"
@@ -2412,7 +2412,7 @@
     },
     {
       "tongan": "Sēmisi",
-      "english": "Semisi",
+      "english": "Sēmisi",
       "min_chapter": 19,
       "tags": [
         "proper"

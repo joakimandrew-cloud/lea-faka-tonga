@@ -963,32 +963,32 @@ describe('Ch 9: Negation — s12 across tenses', () => {
 // ===========================================================================
 
 describe('Ch 10: Comitative mo — s07', () => {
-  it('s07: Na\u02BBa ku \u02BBalu mo Sione (I went with John)', () => {
+  it('s07: Na\u02BBa ku \u02BBalu mo Sione (I went with Sione)', () => {
     const r = assembleSentence('s07', {
       tense_marker: TM.past,
       subject: PRON._1sg_ku,
       verb: V.alu,
-      companion: { tongan: 'Sione', english: 'John' },
+      companion: { tongan: 'Sione', english: 'Sione' },
     })
     expect(r.tongan).toBe('Na\u02BBa ku \u02BBalu mo Sione')
   })
 
-  it('s07: \u02BBOku ou nofo mo Pita (I live with Peter)', () => {
+  it('s07: \u02BBOku ou nofo mo Pita (I live with Pita)', () => {
     const r = assembleSentence('s07', {
       tense_marker: TM.present,
       subject: PRON._1sg_ou,
       verb: V.nofo,
-      companion: { tongan: 'Pita', english: 'Peter' },
+      companion: { tongan: 'Pita', english: 'Pita' },
     })
     expect(r.tongan).toBe('\u02BBOku ou nofo mo Pita')
   })
 
-  it('s07: Na\u02BBa ne ha\u02BBu mo Mele (He/she came with Mary)', () => {
+  it('s07: Na\u02BBa ne ha\u02BBu mo Mele (He/she came with Mele)', () => {
     const r = assembleSentence('s07', {
       tense_marker: TM.past,
       subject: PRON._3sg,
       verb: V.hau,
-      companion: { tongan: 'Mele', english: 'Mary' },
+      companion: { tongan: 'Mele', english: 'Mele' },
     })
     expect(r.tongan).toBe('Na\u02BBa ne ha\u02BBu mo Mele')
   })
@@ -1121,20 +1121,20 @@ describe('Ch 14: Social formulas — category coverage', () => {
 // ===========================================================================
 
 describe('Ch 15: Noun subjects — s22', () => {
-  it("s22: Na\u02BBe \u02BBalu \u02BBa Sione (John went)", () => {
+  it("s22: Na\u02BBe \u02BBalu \u02BBa Sione (Sione went)", () => {
     const r = assembleSentence('s22', {
       tense_marker: { tongan: 'Na\u02BBe', english: 'past', tags: ['past', 'noun_subject'] },
       verb: V.alu,
-      noun_subject: { tongan: 'Sione', english: 'John' },
+      noun_subject: { tongan: 'Sione', english: 'Sione' },
     })
     expect(r.tongan).toBe('Na\u02BBe \u02BBalu \u02BBa Sione')
   })
 
-  it("s22: \u02BBOku puke \u02BBa Pita (Peter is sick)", () => {
+  it("s22: \u02BBOku puke \u02BBa Pita (Pita is sick)", () => {
     const r = assembleSentence('s22', {
       tense_marker: TM.present,
       verb: { tongan: 'puke', english: 'sick', tags: ['adjective'] },
-      noun_subject: { tongan: 'Pita', english: 'Peter' },
+      noun_subject: { tongan: 'Pita', english: 'Pita' },
     })
     expect(r.tongan).toBe('\u02BBOku puke \u02BBa Pita')
   })
@@ -1173,7 +1173,7 @@ describe('Ch 16: Equational sentences — s19, s20', () => {
   it('s20: Ko e faiako ʻa Mele (Mele is a teacher)', () => {
     const r = assembleSentence('s20', {
       predicate_noun: { tongan: 'faiako', english: 'teacher' },
-      noun_subject: { tongan: 'Mele', english: 'Mary' },
+      noun_subject: { tongan: 'Mele', english: 'Mele' },
     })
     expect(r.tongan).toBe('Ko e faiako ʻa Mele')
   })
@@ -1241,20 +1241,20 @@ describe('Ch 17: Possessives — s21, s25, s26, s27', () => {
     expect(r.tongan).toBe('hoku fale')
   })
 
-  it('s27: Ko e hele ʻa Sione (John\'s knife)', () => {
+  it('s27: Ko e hele ʻa Sione (Sione\'s knife)', () => {
     const r = assembleSentence('s27', {
       noun: { tongan: 'hele', english: 'knife' },
       poss_prep: { tongan: 'ʻa', english: 'of (ʻe-class)', tags: ['e_class'] },
-      possessor: { tongan: 'Sione', english: 'John' },
+      possessor: { tongan: 'Sione', english: 'Sione' },
     })
     expect(r.tongan).toBe('Ko e hele ʻa Sione')
   })
 
-  it('s27: Ko e fale ʻo Sione (John\'s house)', () => {
+  it('s27: Ko e fale ʻo Sione (Sione\'s house)', () => {
     const r = assembleSentence('s27', {
       noun: { tongan: 'fale', english: 'house' },
       poss_prep: { tongan: 'ʻo', english: 'of (ho-class)', tags: ['ho_class'] },
-      possessor: { tongan: 'Sione', english: 'John' },
+      possessor: { tongan: 'Sione', english: 'Sione' },
     })
     expect(r.tongan).toBe('Ko e fale ʻo Sione')
   })
@@ -1277,17 +1277,17 @@ describe('Ch 19: Transitive — s23', () => {
       tense_marker: { tongan: 'Naʻe', english: 'past', tags: ['past', 'noun_subject'] },
       verb: { tongan: 'lau', english: 'read', tags: ['action', 'transitive'] },
       object: { tongan: 'e tohí', english: 'the book', tags: ['definite'] },
-      agent: { tongan: 'Sione', english: 'John', tags: ['proper'] },
+      agent: { tongan: 'Sione', english: 'Sione', tags: ['proper'] },
     })
     expect(r.tongan).toBe('Naʻe lau ʻa e tohí ʻe Sione')
   })
 
-  it('s23: Naʻe ʻave ʻe Pita ʻa Mele (Peter took Mary)', () => {
+  it('s23: Naʻe ʻave ʻe Pita ʻa Mele (Pita took Mele)', () => {
     const r = assembleSentence('s23', {
       tense_marker: { tongan: 'Naʻe', english: 'past', tags: ['past', 'noun_subject'] },
       verb: { tongan: 'ʻave', english: 'take', tags: ['action', 'transitive'] },
-      object: { tongan: 'Mele', english: 'Mary', tags: ['proper'] },
-      agent: { tongan: 'Pita', english: 'Peter', tags: ['proper'] },
+      object: { tongan: 'Mele', english: 'Mele', tags: ['proper'] },
+      agent: { tongan: 'Pita', english: 'Pita', tags: ['proper'] },
     })
     expect(r.tongan).toBe('Naʻe ʻave ʻa Mele ʻe Pita')
   })

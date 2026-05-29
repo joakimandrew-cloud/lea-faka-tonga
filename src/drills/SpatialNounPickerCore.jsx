@@ -33,7 +33,7 @@ const PROMPTS = [
   { tongan: 'ʻOku nofo ʻa Sione ʻi he ___ tēpilé.',        english: 'Sione is sitting at the end of the table.',     answer: 'mui',     why: 'mui = end / far side. Goes before the noun: mui tēpilé = "end of the table".' },
   { tongan: 'Naʻe ʻalu ʻa e tamasiʻí ki ___ fonuá.',       english: 'The boy went to the far end of the land.',      answer: 'mui',     why: 'mui = end / far side, used for the furthest reach of a place.' },
   { tongan: 'ʻOku tuʻu ʻa e fuʻu ʻakau he ___ falé.',      english: 'The tree stands beside the house.',              answer: 'tafaaki', why: 'tafaʻaki = at the side of / beside.' },
-  { tongan: 'Nofo hifo he ___ ʻo Tēvita!',                 english: 'Sit down beside David.',                         answer: 'tafaaki', why: 'tafaʻaki = beside. With a person, takes ʻo (tafaʻaki ʻo Tēvita).' },
+  { tongan: 'Nofo hifo he ___ ʻo Tēvita!',                 english: 'Sit down beside Tēvita.',                         answer: 'tafaaki', why: 'tafaʻaki = beside. With a person, takes ʻo (tafaʻaki ʻo Tēvita).' },
 ]
 
 export default function SpatialNounPickerCore() {

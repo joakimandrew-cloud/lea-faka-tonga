@@ -2808,9 +2808,9 @@ describe('2A.6 follow-up — preposition-plus-possessive (§22 + §36)', () => {
 //   - auto-selected by the HEAD noun's possessive_class, not the name's
 //
 // Examples (spec §22 lines 2158–2165):
-//   Ko e paʻanga ʻa Sione.  — John's money (paʻanga = e_class)
-//   Ko e fale ʻo Sione.     — John's house (fale = ho_class)
-//   Ko e vaka ʻo Tēvita.    — David's boat (vaka = ho_class)
+//   Ko e paʻanga ʻa Sione.  — Sione's money (paʻanga = e_class)
+//   Ko e fale ʻo Sione.     — Sione's house (fale = ho_class)
+//   Ko e vaka ʻo Tēvita.    — Tēvita's boat (vaka = ho_class)
 //
 // Architecture: a new internal entry point `possessive_phrase_name` is
 // pushed as a child frame from `prep_phrase.next → possessor_preposition`.
@@ -9206,7 +9206,7 @@ describe('2E.4 integration: Ch 30 target sentence composed English', () => {
     s = finishWalker(s, 'FINISH_STATEMENT')
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe('I went to/toward town with John yesterday to buy some fish, but they did not want some fish.')
+    expect(out.text).toBe('I went to/toward town with Sione yesterday to buy some fish, but they did not want some fish.')
   })
 })
 
@@ -9310,7 +9310,7 @@ describe('2E.5 integration: Ch 10 worked example — standard statement with pre
     s = finishWalker(s, 'FINISH_STATEMENT')
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe('I went to/toward town with John yesterday.')
+    expect(out.text).toBe('I went to/toward town with Sione yesterday.')
   })
 })
 
@@ -9372,7 +9372,7 @@ describe('2E.5 integration: Ch 24 worked example — multi-clause with pea', () 
     s = finishWalker(s, 'FINISH_STATEMENT')
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe('I went to/toward town with John yesterday and I bought some fish.')
+    expect(out.text).toBe('I went to/toward town with Sione yesterday and I bought some fish.')
   })
 })
 
@@ -9603,10 +9603,10 @@ describe('2E.6 integration: named-possessor composition', () => {
     // Verify composed English
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe("I went to/toward John's house.")
+    expect(out.text).toBe("I went to/toward Sione's house.")
   })
 
-  it("walks Naʻa ne nofo ʻi fale ʻo Mele → 'He/she stayed in/at Mary's house.'", () => {
+  it("walks Naʻa ne nofo ʻi fale ʻo Mele → 'He/she stayed in/at Mele's house.'", () => {
     let s = createWalkerState('statement', 999)
     s = advanceInFrame(s, { tongan: 'Naʻa' })
     s = advanceInFrame(s, { tongan: 'ne' })
@@ -9625,7 +9625,7 @@ describe('2E.6 integration: named-possessor composition', () => {
     s = finishWalker(s, 'FINISH_STATEMENT')
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe("He/she stayed in/at Mary's house.")
+    expect(out.text).toBe("He/she stayed in/at Mele's house.")
   })
 })
 
@@ -9682,7 +9682,7 @@ describe('2E.6 integration: dual preposition support', () => {
 // ============================================================================
 
 describe('2F.1 integration: benefactive preposition + name composition', () => {
-  it("walks Naʻa ku ʻalu maʻa Sione → 'I went for John.'", () => {
+  it("walks Naʻa ku ʻalu maʻa Sione → 'I went for Sione.'", () => {
     let s = createWalkerState('statement', 999)
     s = advanceInFrame(s, { tongan: 'Naʻa' })
     s = advanceInFrame(s, { tongan: 'ku' })
@@ -9696,7 +9696,7 @@ describe('2F.1 integration: benefactive preposition + name composition', () => {
     s = finishWalker(s, 'FINISH_STATEMENT')
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe('I went for John.')
+    expect(out.text).toBe('I went for Sione.')
   })
 
   it("Tongan rendering keeps maʻa for e-class noun (moa) + composed English", () => {
@@ -9719,7 +9719,7 @@ describe('2F.1 integration: benefactive preposition + name composition', () => {
     expect(renderTongan(s)).toContain('maʻa')
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe('I bought some chicken for John.')
+    expect(out.text).toBe('I bought some chicken for Sione.')
   })
 })
 
@@ -9770,7 +9770,7 @@ describe('2F.1 integration: ko equational composition', () => {
     expect(out.text).toBe('I am a teacher.')
   })
 
-  it("walks Ko e taʻahine fiefia ʻa Mele → 'Mary is a happy girl.' (modifier_eq path)", () => {
+  it("walks Ko e taʻahine fiefia ʻa Mele → 'Mele is a happy girl.' (modifier_eq path)", () => {
     // Phase 2F.2: modifier_eq is now reachable from the walker — equational_subject
     // no longer auto-advances, so the user can pick modifier_eq first
     let s = createWalkerState('ko_equational', 999)
@@ -9783,7 +9783,7 @@ describe('2F.1 integration: ko equational composition', () => {
     s = finishWalker(s, 'FINISH_STATEMENT')
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
-    expect(out.text).toBe('Mary is a happy girl.')
+    expect(out.text).toBe('Mele is a happy girl.')
   })
 
   it("walks Ko e faiako ia → question: 'Is he/she a teacher?'", () => {

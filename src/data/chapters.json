@@ -479,7 +479,7 @@
         {
           "rule": "Before a person: ki → kia, mei → meia, ʻi → ʻia",
           "example_tongan": "Naʻa ku lea kia Tēvita.",
-          "example_english": "I spoke to David."
+          "example_english": "I spoke to Tēvita."
         },
         {
           "rule": "Before a pronoun: ki → kiate, mei → meiate, ʻi → ʻiate",
@@ -695,12 +695,12 @@
         {
           "rule": "Mo + name means \"with\" (accompaniment)",
           "example_tongan": "Naʻa ku ʻalu mo Sione.",
-          "example_english": "I went with John."
+          "example_english": "I went with Sione."
         },
         {
           "rule": "Mo between names means \"and\"",
           "example_tongan": "Naʻa ku lea kia Sione mo Mele.",
-          "example_english": "I spoke to John and Mary."
+          "example_english": "I spoke to Sione and Mele."
         },
         {
           "rule": "Mo + verb makes a command to exactly two people",
@@ -925,7 +925,7 @@
         {
           "rule": "Answers use ko + name or koʻeni (here it is)",
           "example_tongan": "Ko Sione.",
-          "example_english": "It’s John."
+          "example_english": "It’s Sione."
         }
       ],
       "paradigm": {
@@ -1029,12 +1029,12 @@
         {
           "rule": "Noun subject word order: TM + verb + ʻa + name",
           "example_tongan": "Naʻe hiva ʻa Sione.",
-          "example_english": "John sang."
+          "example_english": "Sione sang."
         },
         {
           "rule": "Tense markers change: naʻa → naʻe, te → ʻe (before noun subjects)",
           "example_tongan": "ʻE hiva ʻa Tēvita.",
-          "example_english": "David will sing."
+          "example_english": "Tēvita will sing."
         },
         {
           "rule": "Weather verbs have no subject: just TM + verb",
@@ -1051,15 +1051,15 @@
         "rows": [
           [
             "ʻOku ne ʻalu. (He is going.)",
-            "ʻOku ʻalu ʻa Sione. (John is going.)"
+            "ʻOku ʻalu ʻa Sione. (Sione is going.)"
           ],
           [
             "Naʻa ne kai. (He ate.)",
-            "Naʻe kai ʻa Sione. (John ate.)"
+            "Naʻe kai ʻa Sione. (Sione ate.)"
           ],
           [
             "Tē ne hiva. (He will sing.)",
-            "ʻE hiva ʻa Sione. (John will sing.)"
+            "ʻE hiva ʻa Sione. (Sione will sing.)"
           ]
         ]
       },
@@ -1168,7 +1168,7 @@
         {
           "rule": "With nouns use ʻa (ʻe-class) or ʻo (ho-class) to show possession",
           "example_tongan": "Ko e paʻanga ʻa Sione.",
-          "example_english": "John’s money."
+          "example_english": "Sione’s money."
         },
         {
           "rule": "Ko + possessive pronoun + verb describes what someone is doing right now",
@@ -2360,7 +2360,7 @@
         {
           "rule": "Cleft with transitive verb: ko + subject + TM + pronoun + verb + object",
           "example_tongan": "Ko Sēmisi naʻā ne kai e mā.",
-          "example_english": "It was Semisi who ate the bread."
+          "example_english": "It was Sēmisi who ate the bread."
         },
         {
           "rule": "Cleft with intransitive verb: ko + subject + TM + verb (no pronoun needed)",
@@ -2612,7 +2612,7 @@
         {
           "rule": "With people, insert ʻo before a common noun or ʻia before a proper name",
           "example_tongan": "Nofo hifo he tafaʻaki ʻo Tēvita!",
-          "example_english": "Sit down by the side of David!"
+          "example_english": "Sit down by the side of Tēvita!"
         }
       ],
       "paradigm": {
@@ -2763,7 +2763,7 @@
         {
           "rule": "Ask someone’s name: Ko hai ho hingoā? Answer: Ko [name] hoku hingoā.",
           "example_tongan": "Ko Sēmisi hoku hingoā.",
-          "example_english": "My name is Semisi."
+          "example_english": "My name is Sēmisi."
         },
         {
           "rule": "Months use ʻi alone with no article: ʻi Sānuali, ʻi Tisema",

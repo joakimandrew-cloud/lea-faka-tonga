@@ -58,6 +58,7 @@ const ICONS = {
   fan: svg(<><path d="M12 21v-7" /><path d="M12 14L5 5" /><path d="M12 14l7-9" /><path d="M12 14V5" /></>),
   trefoil: svg(<><circle cx="12" cy="6" r="2" /><circle cx="6" cy="18" r="2" /><circle cx="18" cy="18" r="2" /><path d="M12 8v3M12 11l-4.5 5M12 11l4.5 5" /></>),
   weGroup: svg(<><circle cx="9" cy="12" r="5" /><circle cx="15" cy="12" r="5" /></>),
+  terminal: svg(<><rect x="3" y="5" width="18" height="14" rx="1.5" /><path d="M7 10l3 2.5-3 2.5" /><path d="M13 15h4" /></>),
 }
 
 // ── Drills by tier (order = frequency / load, not chapter) ──────────────────
@@ -103,6 +104,8 @@ const intermediate = [
 
 const advanced = [
   { id: 'sentence-builder',          ch: 19, title: `Build a whole Tongan sentence`,        blurb: `The capstone: assemble the sentence from tiles — pick the right ʻa / ʻe / ʻa e / ʻe he markers and the right order.`, action: 'Build', icon: ICONS.blocks },
+  { id: 'terminal-builder',          ch: 19, title: `Free-build any sentence`,              blurb: `An open sandbox: pick a sentence type for guidance, or jump straight in. Build any sentence one word at a time, with every structure unlocked.`, action: 'Build', icon: ICONS.terminal },
+  { id: 'terminal-builder-classic',  ch: 19, title: `Classic terminal builder`,             blurb: `The original free-build: jump straight into building one word at a time, no opening menu.`, action: 'Build', icon: ICONS.terminal },
   { id: 'verbal-noun-converter',     ch: 45, title: `Say "when / because he read it"`,    blurb: `Turn "he read it" into a "when/because" clause; pick heʻene, heʻeku, he hoʻo…`,        action: 'Convert', icon: ICONS.convert },
   { id: 'doer-receiver-picker',      ch: 29, title: `his choosing vs. his being chosen`,   blurb: `ʻene fili (he does it) vs. hono fili (it's done to him).`,                              action: 'Pick',    icon: ICONS.possess },
   { id: 'cleft-builder',             ch: 36, title: `Say who did it (Ko …)`,               blurb: `Front the doer with Ko: "It was Sione who ate it."`,                                   action: 'Build',   icon: ICONS.cleft },
@@ -128,6 +131,8 @@ const BESPOKE = {
   'cleft-builder': '/cleft-builder',
   'accent-placement-picker': '/accent-placement',
   'verbal-noun-converter': '/verbal-noun',
+  'terminal-builder': '/sentence-builder',
+  'terminal-builder-classic': '/terminal-build',
 }
 const routeFor = (id) => BESPOKE[id] || `/drill/${id}`
 

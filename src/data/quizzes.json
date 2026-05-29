@@ -2765,7 +2765,7 @@
             "label": "A",
             "text": "With (in the sense of \"together with\")",
             "correct": true,
-            "explanation": "The preposition *mo* marks accompaniment, as in *Na'á ku 'alu mo Sione* (\"I went with John\"). It does not cover instrumental \"with\" (using a tool)."
+            "explanation": "The preposition *mo* marks accompaniment, as in *Na'á ku 'alu mo Sione* (\"I went with Sione\"). It does not cover instrumental \"with\" (using a tool)."
           },
           {
             "label": "B",
@@ -2789,7 +2789,7 @@
       },
       {
         "id": "q2",
-        "prompt": "Which Tongan sentence correctly translates \"I spoke to John and Mary\"?",
+        "prompt": "Which Tongan sentence correctly translates \"I spoke to Sione and Mele\"?",
         "options": [
           {
             "label": "A",
@@ -2813,7 +2813,7 @@
             "label": "D",
             "text": "*Na'á ku lea mo Sione kia Mele.*",
             "correct": false,
-            "explanation": "This would mean \"I spoke with John to Mary,\" reshuffling the relationships. *Mo* here should link the two names, not separate them."
+            "explanation": "This would mean \"I spoke with Sione to Mele,\" reshuffling the relationships. *Mo* here should link the two names, not separate them."
           }
         ]
       },
@@ -3887,7 +3887,7 @@
       },
       {
         "id": "q8",
-        "prompt": "How do you answer the question *Ko hai 'oku ha'u?* with the answer \"Mary\"?",
+        "prompt": "How do you answer the question *Ko hai 'oku ha'u?* with the answer \"Mele\"?",
         "options": [
           {
             "label": "A",
@@ -4133,7 +4133,7 @@
       },
       {
         "id": "q6",
-        "prompt": "Which sentence correctly translates \"John, come here\" using the vocative?",
+        "prompt": "Which sentence correctly translates \"Sione, come here\" using the vocative?",
         "options": [
           {
             "label": "A",
@@ -4151,7 +4151,7 @@
             "label": "C",
             "text": "*Ko Sione, ha'u ki heni.*",
             "correct": false,
-            "explanation": "The word *ko* is the identification marker used in equational sentences (\"it is John\"), not a vocative for calling someone."
+            "explanation": "The word *ko* is the identification marker used in equational sentences (\"it is Sione\"), not a vocative for calling someone."
           },
           {
             "label": "D",
@@ -4313,7 +4313,7 @@
             "label": "D",
             "text": "After the verb, introduced by the focus marker *'a*",
             "correct": true,
-            "explanation": "The noun-subject pattern is tense marker + verb + *'a* + noun, as in *Na'e 'alu 'a Sione* (\"John went\")."
+            "explanation": "The noun-subject pattern is tense marker + verb + *'a* + noun, as in *Na'e 'alu 'a Sione* (\"Sione went\")."
           }
         ]
       },
@@ -4353,25 +4353,25 @@
         "options": [
           {
             "label": "A",
-            "text": "Peter is sleeping at home.",
+            "text": "Pita is sleeping at home.",
             "correct": false,
             "explanation": "\"Is sleeping\" is present tense, which would use *'oku*. The marker *na'e* places the action in the past."
           },
           {
             "label": "B",
-            "text": "Peter will sleep at home.",
+            "text": "Pita will sleep at home.",
             "correct": false,
             "explanation": "The future with a noun subject would use *'e*, giving *'E mohe 'a Pita 'i 'api*."
           },
           {
             "label": "C",
-            "text": "Peter slept at home.",
+            "text": "Pita slept at home.",
             "correct": true,
-            "explanation": "The past marker *na'e* plus the verb *mohe*, the noun subject *'a Pita*, and the phrase *'i 'api* give \"Peter slept at home.\""
+            "explanation": "The past marker *na'e* plus the verb *mohe*, the noun subject *'a Pita*, and the phrase *'i 'api* give \"Pita slept at home.\""
           },
           {
             "label": "D",
-            "text": "Peter went home to sleep.",
+            "text": "Pita went home to sleep.",
             "correct": false,
             "explanation": "\"Went home\" would add *'alu ki 'api*. This sentence has only *mohe* (\"sleep\") and the location *'i 'api* (\"at home\")."
           }
@@ -4379,7 +4379,7 @@
       },
       {
         "id": "q4",
-        "prompt": "Which Tongan sentence correctly translates \"Mary is angry\"?",
+        "prompt": "Which Tongan sentence correctly translates \"Mele is angry\"?",
         "options": [
           {
             "label": "A",
@@ -4397,7 +4397,7 @@
             "label": "C",
             "text": "*Na'e 'ita 'a Mele.*",
             "correct": false,
-            "explanation": "The past marker *na'e* would give \"Mary was angry.\" The present-tense form uses *'oku*."
+            "explanation": "The past marker *na'e* would give \"Mele was angry.\" The present-tense form uses *'oku*."
           },
           {
             "label": "D",
@@ -4487,7 +4487,7 @@
             "label": "C",
             "text": "*Na'e 'ikai ke 'alu 'a Sione.*",
             "correct": true,
-            "explanation": "With noun subjects, negation uses *'ikai ke* before the verb, giving *Na'e 'ikai ke 'alu 'a Sione* (\"John did not go\")."
+            "explanation": "With noun subjects, negation uses *'ikai ke* before the verb, giving *Na'e 'ikai ke 'alu 'a Sione* (\"Sione did not go\")."
           },
           {
             "label": "D",
@@ -4529,7 +4529,7 @@
       },
       {
         "id": "q9",
-        "prompt": "Which Tongan sentence means \"John will go\"?",
+        "prompt": "Which Tongan sentence means \"Sione will go\"?",
         "options": [
           {
             "label": "A",
@@ -4541,13 +4541,13 @@
             "label": "B",
             "text": "*Na'e 'alu 'a Sione.*",
             "correct": false,
-            "explanation": "The marker *na'e* is past tense, giving \"John went,\" not \"John will go.\""
+            "explanation": "The marker *na'e* is past tense, giving \"Sione went,\" not \"Sione will go.\""
           },
           {
             "label": "C",
             "text": "*'E 'alu 'a Sione.*",
             "correct": true,
-            "explanation": "The future before a noun subject is *'e*, so *'E 'alu 'a Sione* is the standard \"John will go.\""
+            "explanation": "The future before a noun subject is *'e*, so *'E 'alu 'a Sione* is the standard \"Sione will go.\""
           },
           {
             "label": "D",
@@ -4749,25 +4749,25 @@
         "options": [
           {
             "label": "A",
-            "text": "Where is John?",
+            "text": "Where is Sione?",
             "correct": true,
-            "explanation": "The interrogative *ko fē* means \"where,\" and the noun-subject pattern with *'a* gives *Ko fē 'a Sione?* (\"Where is John?\")."
+            "explanation": "The interrogative *ko fē* means \"where,\" and the noun-subject pattern with *'a* gives *Ko fē 'a Sione?* (\"Where is Sione?\")."
           },
           {
             "label": "B",
-            "text": "What is John doing?",
+            "text": "What is Sione doing?",
             "correct": false,
-            "explanation": "\"What is John doing\" uses a verbal-noun construction with *me'a 'oku fai*. *Ko fē* asks a different question."
+            "explanation": "\"What is Sione doing\" uses a verbal-noun construction with *me'a 'oku fai*. *Ko fē* asks a different question."
           },
           {
             "label": "C",
-            "text": "Who is John?",
+            "text": "Who is Sione?",
             "correct": false,
             "explanation": "\"Who\" is *ko hai*, not *ko fē*. The question here is about location, not identity."
           },
           {
             "label": "D",
-            "text": "Is that John?",
+            "text": "Is that Sione?",
             "correct": false,
             "explanation": "Pointing identification uses a demonstrative like *ko ē* or *ko'eni*. *Ko fē* is specifically locational."
           }
@@ -4961,7 +4961,7 @@
       },
       {
         "id": "q3",
-        "prompt": "Which possessive preposition correctly completes \"John's house\": *Ko e fale ___ Sione.*?",
+        "prompt": "Which possessive preposition correctly completes \"Sione's house\": *Ko e fale ___ Sione.*?",
         "options": [
           {
             "label": "A",
@@ -5111,7 +5111,7 @@
       },
       {
         "id": "q8",
-        "prompt": "Which sentence correctly translates \"John's money\"?",
+        "prompt": "Which sentence correctly translates \"Sione's money\"?",
         "options": [
           {
             "label": "A",
@@ -5525,7 +5525,7 @@
             "label": "B",
             "text": "It marks the doer — the noun doing the action — in a transitive sentence.",
             "correct": true,
-            "explanation": "The agent marker *'e* introduces the subject of any transitive verb, as in *Na'e 'ave 'e Pita 'a Mele* (\"Peter took Mary\")."
+            "explanation": "The agent marker *'e* introduces the subject of any transitive verb, as in *Na'e 'ave 'e Pita 'a Mele* (\"Pita took Mele\")."
           },
           {
             "label": "C",
@@ -5669,7 +5669,7 @@
             "label": "A",
             "text": "kill",
             "correct": true,
-            "explanation": "The verb *tāmate'i* means \"kill,\" as in *Na'e tāmate'i 'e Tēvita 'a Kōlaiate* (\"David killed Goliath\")."
+            "explanation": "The verb *tāmate'i* means \"kill,\" as in *Na'e tāmate'i 'e Tēvita 'a Kōlaiate* (\"Tēvita killed Kōlaiate\")."
           },
           {
             "label": "B",
@@ -5753,7 +5753,7 @@
       },
       {
         "id": "q9",
-        "prompt": "Which sentence correctly translates \"Peter called her\"?",
+        "prompt": "Which sentence correctly translates \"Pita called her\"?",
         "options": [
           {
             "label": "A",
@@ -5777,7 +5777,7 @@
             "label": "D",
             "text": "*Na'e ui 'a Mele 'e Pita.*",
             "correct": false,
-            "explanation": "The noun *Mele* is \"Mary,\" not \"her.\" Replacing with a pronoun object requires *ia*, not a name."
+            "explanation": "The noun *Mele* is \"Mele,\" not \"her.\" Replacing with a pronoun object requires *ia*, not a name."
           }
         ]
       },
@@ -6215,7 +6215,7 @@
       },
       {
         "id": "q4",
-        "prompt": "Which Tongan sentence correctly translates \"Can Peter buy the food?\"",
+        "prompt": "Which Tongan sentence correctly translates \"Can Pita buy the food?\"",
         "options": [
           {
             "label": "A",
@@ -6233,7 +6233,7 @@
             "label": "C",
             "text": "*'E lava 'a Pita 'o fie fakatau 'a e me'akái?*",
             "correct": false,
-            "explanation": "Adding *fie* injects \"want to\" into the sentence, turning it into \"Can Peter want to buy the food?\" That is not what was asked."
+            "explanation": "Adding *fie* injects \"want to\" into the sentence, turning it into \"Can Pita want to buy the food?\" That is not what was asked."
           },
           {
             "label": "D",
@@ -6281,7 +6281,7 @@
             "label": "A",
             "text": "buy",
             "correct": true,
-            "explanation": "The verb *fakatau* means \"buy,\" as in *'E lava 'e Pita 'o fakatau 'a e me'akái?* (\"Can Peter buy the food?\")."
+            "explanation": "The verb *fakatau* means \"buy,\" as in *'E lava 'e Pita 'o fakatau 'a e me'akái?* (\"Can Pita buy the food?\")."
           },
           {
             "label": "B",
@@ -6365,7 +6365,7 @@
       },
       {
         "id": "q9",
-        "prompt": "Which negative pattern correctly says \"Mary cannot speak well\" (with a noun subject)?",
+        "prompt": "Which negative pattern correctly says \"Mele cannot speak well\" (with a noun subject)?",
         "options": [
           {
             "label": "A",
@@ -6389,7 +6389,7 @@
             "label": "D",
             "text": "*Na'e 'ikai ke lava 'a Mele 'o lea lelei.*",
             "correct": false,
-            "explanation": "The tense marker *Na'e* is past. \"Mary cannot speak\" is present, which requires *'Oku*."
+            "explanation": "The tense marker *Na'e* is past. \"Mele cannot speak\" is present, which requires *'Oku*."
           }
         ]
       },
@@ -11763,19 +11763,19 @@
           },
           {
             "label": "B",
-            "text": "Mary and he did not want to come.",
+            "text": "Mele and he did not want to come.",
             "correct": false,
-            "explanation": "\"Mary and he\" would use a coordinating structure like *Mele mo ia*, not *na'a mo Mele*."
+            "explanation": "\"Mele and he\" would use a coordinating structure like *Mele mo ia*, not *na'a mo Mele*."
           },
           {
             "label": "C",
-            "text": "Mary did not want to come back.",
+            "text": "Mele did not want to come back.",
             "correct": false,
             "explanation": "The directional *mai* means \"hither/toward the speaker,\" which combined with *ha'u* gives \"come (here),\" not \"come back.\""
           },
           {
             "label": "D",
-            "text": "Even Mary did not want to come.",
+            "text": "Even Mele did not want to come.",
             "correct": true,
             "explanation": "The expression *na'a mo* before a pronoun or name means \"even,\" introducing an extreme or unexpected case."
           }
@@ -12029,7 +12029,7 @@
       },
       {
         "id": "q4",
-        "prompt": "How does Tongan express \"behind David\" (a person), compared with \"behind the house\" (a thing)?",
+        "prompt": "How does Tongan express \"behind Tēvita\" (a person), compared with \"behind the house\" (a thing)?",
         "options": [
           {
             "label": "A",

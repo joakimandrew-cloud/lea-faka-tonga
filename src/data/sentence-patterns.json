@@ -796,8 +796,8 @@
       "data_status": "complete",
       "category": "Location and Direction",
       "subcategory": null,
-      "title": "With Someone — I went with John",
-      "label_en": "I went with John. / She came with Mary.",
+      "title": "With Someone — I went with Sione",
+      "label_en": "I went with Sione. / She came with Mele.",
       "label_to": "TM + Pronoun + Verb + mo + Companion",
       "book_chapters": [
         10
@@ -916,15 +916,15 @@
       "examples": [
         {
           "tongan": "Naʻa ku ʻalu mo Sione.",
-          "english": "I went with John."
+          "english": "I went with Sione."
         },
         {
           "tongan": "Naʻa ne haʻu mo Mele.",
-          "english": "He/she came with Mary."
+          "english": "He/she came with Mele."
         },
         {
           "tongan": "ʻOku ou nofo mo Pita.",
-          "english": "I live with Peter."
+          "english": "I live with Pita."
         }
       ]
     },
@@ -1592,7 +1592,7 @@
       "category": "Questions",
       "subcategory": null,
       "title": "Where is...? — ko fē",
-      "label_en": "Where is John? / Where's your hat?",
+      "label_en": "Where is Sione? / Where's your hat?",
       "label_to": "ko fē + Subject",
       "book_chapters": [
         13,
@@ -1626,16 +1626,16 @@
       "pronoun_dependencies": null,
       "assembly_rules": {
         "sentence_type": "ko_question",
-        "notes": "Two sub-patterns: ko fē + ʻa + Name (Where is John?) and ko fē + Possessive + Noun (Where's my hat?)."
+        "notes": "Two sub-patterns: ko fē + ʻa + Name (Where is Sione?) and ko fē + Possessive + Noun (Where's my hat?)."
       },
       "examples": [
         {
           "tongan": "Ko fē ʻa Sione?",
-          "english": "Where is John?"
+          "english": "Where is Sione?"
         },
         {
           "tongan": "Ko fē ʻa Mele?",
-          "english": "Where is Mary?"
+          "english": "Where is Mele?"
         }
       ]
     },
@@ -1801,7 +1801,7 @@
       "category": "Ko Sentences",
       "subcategory": null,
       "title": "He/She is a... — Equational with Name",
-      "label_en": "Daniel is a teacher. / Samiu is a smart boy.",
+      "label_en": "Taniela is a teacher. / Samiu is a smart boy.",
       "label_to": "ko e + Predicate Noun + ʻa + Name",
       "book_chapters": [
         16
@@ -1975,8 +1975,8 @@
       "data_status": "complete",
       "category": "Noun Subjects and Agents",
       "subcategory": null,
-      "title": "Named Subject — John went",
-      "label_en": "John went. / Mary is happy. / Peter is sick.",
+      "title": "Named Subject — Sione went",
+      "label_en": "Sione went. / Mele is happy. / Pita is sick.",
       "label_to": "TM + Verb + ʻa + Noun Subject",
       "book_chapters": [
         15
@@ -2035,15 +2035,15 @@
       "examples": [
         {
           "tongan": "Naʻe ʻalu ʻa Sione.",
-          "english": "John went."
+          "english": "Sione went."
         },
         {
           "tongan": "ʻOku fiefia ʻa Mele.",
-          "english": "Mary is happy."
+          "english": "Mele is happy."
         },
         {
           "tongan": "ʻOku puke ʻa Pita.",
-          "english": "Peter is sick."
+          "english": "Pita is sick."
         }
       ]
     },
@@ -2053,7 +2053,7 @@
       "category": "Noun Subjects and Agents",
       "subcategory": null,
       "title": "Who Did What — Transitive Sentence",
-      "label_en": "John ate the bread. / Peter took Mary.",
+      "label_en": "Sione ate the bread. / Pita took Mele.",
       "label_to": "TM + Verb + ʻa + Object + ʻe + Agent",
       "book_chapters": [
         19,
@@ -2136,7 +2136,7 @@
         },
         {
           "tongan": "Naʻe ʻave ʻe Pita ʻa Mele.",
-          "english": "Peter took Mary."
+          "english": "Pita took Mele."
         },
         {
           "tongan": "Naʻe kai ʻe he fefiné e iká.",
@@ -2319,8 +2319,8 @@
       "data_status": "complete",
       "category": "Possessives",
       "subcategory": null,
-      "title": "Of-Phrase — John's boat",
-      "label_en": "John's boat. / The teacher's book.",
+      "title": "Of-Phrase — Sione's boat",
+      "label_en": "Sione's boat. / The teacher's book.",
       "label_to": "ko e + Noun + ʻo/ʻa + Possessor",
       "book_chapters": [
         17,
@@ -3407,8 +3407,8 @@
       "data_status": "complete",
       "category": "Advanced Patterns",
       "subcategory": null,
-      "title": "Cleft Sentence — It was John who ate the bread",
-      "label_en": "It was John who ate the bread. / It is Mary who is singing.",
+      "title": "Cleft Sentence — It was Sione who ate the bread",
+      "label_en": "It was Sione who ate the bread. / It is Mele who is singing.",
       "label_to": "Ko + Subject + TM + Verb + Object",
       "book_chapters": [
         36

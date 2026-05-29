@@ -13,7 +13,7 @@ function normalize(s) {
  *
  *   - common noun + definiteness 'definite' → "to the house"
  *   - common noun + anything else            → "to a house"
- *   - local/personal/pronoun complements     → "to town" / "to John" / "to me"
+ *   - local/personal/pronoun complements     → "to town" / "to Sione" / "to me"
  *     (unchanged — these don't take articles in this sense)
  *
  * When `placeStep.word.english` already starts with an article ("the ", "a ",
@@ -530,7 +530,7 @@ function composeTranslation(steps, isQuestion = false) {
     sentence = insertObject(sentence, tuoStep.word.english)
   }
 
-  // Phase 2F.1: benefactive phrase ("for John" / "for me")
+  // Phase 2F.1: benefactive phrase ("for Sione" / "for me")
   sentence = insertBenefactivePhrase(sentence, steps)
 
   return sentence
@@ -812,7 +812,7 @@ function composeCommandTranslation(steps) {
 /**
  * Phase 2F.1: Compose ko equational sentences (§21, Ch 16).
  * "Ko e faiako au" → "I am a teacher."
- * "Ko e taʻahine fiefia ʻa Mele" → "Mary is a happy girl."
+ * "Ko e taʻahine fiefia ʻa Mele" → "Mele is a happy girl."
  */
 function composeKoEquationalTranslation(steps, isQuestion) {
   const nounStep = steps.find(s => s.nodeId === 'equational_noun')

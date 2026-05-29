@@ -70,6 +70,8 @@ export default function ChapterPractice() {
 
   const prevCh = chapterNum > 1 ? chapterNum - 1 : null
   const nextCh = chapterNum < 53 ? chapterNum + 1 : null
+  const prevChapter = prevCh ? chapters.find(c => c.chapter === prevCh) : null
+  const nextChapter = nextCh ? chapters.find(c => c.chapter === nextCh) : null
 
   const handlePatternSelect = (index) => {
     setPatternIndex(index)
@@ -271,6 +273,33 @@ export default function ChapterPractice() {
                 </div>
               )}
             </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Bottom chapter navigation (Continue to next) ── */}
+      {(nextChapter || prevChapter) && (
+        <div className="mt-16 pt-8 border-t border-[var(--border)] text-center">
+          {nextChapter && (
+            <Link
+              to={`/chapters/${nextCh}`}
+              onClick={() => { setPatternIndex(null); setEarlierPatternId(null); window.scrollTo(0, 0) }}
+              className="inline-block w-full sm:w-auto text-left border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors"
+            >
+              <div className="text-[var(--accent)] text-[15px] font-medium">
+                Continue to Chapter {nextCh} &rarr;
+              </div>
+              <div className="text-[var(--text-muted)] text-sm mt-0.5">{nextChapter.title}</div>
+            </Link>
+          )}
+          {prevChapter && (
+            <Link
+              to={`/chapters/${prevCh}`}
+              onClick={() => { setPatternIndex(null); setEarlierPatternId(null); window.scrollTo(0, 0) }}
+              className="block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
+            >
+              &larr; Back to Chapter {prevCh}
+            </Link>
           )}
         </div>
       )}

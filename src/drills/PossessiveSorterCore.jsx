@@ -18,10 +18,8 @@ const CATEGORIES = [
 const CARDS = [
   // ── Easy ho_class ──
   { tongan: 'fale',     english: 'house',     category: 'ho_class', why: 'A house is older than you and will outlast you. You live inside it; you don\u2019t produce it with your body. Dwelling places are ho_class.' },
-  { tongan: 'faʻē',     english: 'mother',    category: 'ho_class', why: 'Your mother existed before you did. Family elders are always ho_class — you are the associated one, not the maker.' },
-  { tongan: 'tamai',    english: 'father',    category: 'ho_class', why: 'Same logic as faʻē. Parents exist independent of you. You are their child, associated by relation.' },
   { tongan: 'nima',     english: 'hand',      category: 'ho_class', why: 'Body parts ARE you. You don\u2019t do your hand; your hand is the thing that does. All body parts are ho_class.' },
-  { tongan: 'tokoua',   english: 'sibling',   category: 'ho_class', why: 'Family members exist independent of you. Siblings, parents, spouses — ho_class. The principle is association, not creation.' },
+  { tongan: 'tokoua',   english: 'sibling',   category: 'ho_class', why: 'The standard for relatives: siblings and wider kin are ho_class (hoku tokoua, hoku kāinga). Parents and children are the famous exception, flipping to e_class.' },
   { tongan: 'fonua',    english: 'land',      category: 'ho_class', why: 'Land is eternal; you belong to it, not the other way around. A classic ho_class noun.' },
 
   // ── Easy e_class ──
@@ -31,6 +29,8 @@ const CARDS = [
   { tongan: 'meʻakai',  english: 'food',      category: 'e_class', why: 'You prepare it, you eat it, it becomes you. Food is maximally "dependent on the doer." e_class.' },
 
   // ── Surprising e_class (these teach the rule) ──
+  { tongan: 'faʻē',     english: 'mother',    category: 'e_class', why: 'A fixed exception. The doer-principle would predict ho_class (a parent comes before you), but Tongan locks parents and children into e_class: ʻeku faʻē, ʻeku tamai, ʻeku fānau. Learn the parent/child set by heart.' },
+  { tongan: 'tamai',    english: 'father',    category: 'e_class', why: 'Same exception as faʻē. Parents and children take e_class even though most other relatives (hoku tokoua, hoku kāinga) are ho_class.' },
   { tongan: 'ika',      english: 'fish',      category: 'e_class', why: 'Counterintuitive to English speakers: fish are e_class because you catch and eat them — they\u2019re dependents in your food chain. This is the Tongan ontological move: the "my" depends on what you DO with the noun, not its inherent category.' },
   { tongan: 'moa',      english: 'chicken',   category: 'e_class', why: 'Same logic as ika. You raise chickens, you eat their eggs, you cook them. You dominate the relationship. e_class.' },
   { tongan: 'faiako',   english: 'teacher',   category: 'e_class', why: 'The most surprising case. "My teacher" is `ʻeku faiako`, not `hoku faiako`. Why? Because in the relationship "my teacher," YOU are the principal — the teaching exists for your sake. The teacher is the receiver of your studentship. This cracks the rule open.' },

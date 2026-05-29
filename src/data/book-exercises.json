@@ -107,27 +107,27 @@
       "items": [
         {
           "id": "ch1-ex4-1",
-          "prompt": "*Na'a ___ kai.* (I ate.)",
+          "prompt": "*Na'a \\_\\_\\_ kai.* (I ate.)",
           "answer": "*ku*"
         },
         {
           "id": "ch1-ex4-2",
-          "prompt": "*Na'a ___ inu?* (Did you drink?)",
+          "prompt": "*Na'a \\_\\_\\_ inu?* (Did you drink?)",
           "answer": "*ke*"
         },
         {
           "id": "ch1-ex4-3",
-          "prompt": "*Na'a ___ mohe.* (I slept.)",
+          "prompt": "*Na'a \\_\\_\\_ mohe.* (I slept.)",
           "answer": "*ku*"
         },
         {
           "id": "ch1-ex4-4",
-          "prompt": "*Na'a ___ lea?* (Did you speak?)",
+          "prompt": "*Na'a \\_\\_\\_ lea?* (Did you speak?)",
           "answer": "*ke*"
         },
         {
           "id": "ch1-ex4-5",
-          "prompt": "*Na'a ___ ha'u.* (I came.) ---",
+          "prompt": "*Na'a \\_\\_\\_ ha'u.* (I came.) ---",
           "answer": "*ku* ---"
         }
       ]
@@ -238,32 +238,32 @@
       "items": [
         {
           "id": "ch2-ex3-1",
-          "prompt": "*Na'a ___ mohe.*",
+          "prompt": "*Na'a \\_\\_\\_ mohe.*",
           "answer": "*ku*"
         },
         {
           "id": "ch2-ex3-2",
-          "prompt": "*'Oku ___ kai.*",
+          "prompt": "*'Oku \\_\\_\\_ kai.*",
           "answer": "*ou*"
         },
         {
           "id": "ch2-ex3-3",
-          "prompt": "*Te ___ 'alu.*",
+          "prompt": "*Te \\_\\_\\_ 'alu.*",
           "answer": "*u*"
         },
         {
           "id": "ch2-ex3-4",
-          "prompt": "*Kuo ___ ha'u.*",
+          "prompt": "*Kuo \\_\\_\\_ ha'u.*",
           "answer": "*u*"
         },
         {
           "id": "ch2-ex3-5",
-          "prompt": "*'Oku ___ lea.*",
+          "prompt": "*'Oku \\_\\_\\_ lea.*",
           "answer": "*ou*"
         },
         {
           "id": "ch2-ex3-6",
-          "prompt": "*Na'a ___ hiva.*",
+          "prompt": "*Na'a \\_\\_\\_ hiva.*",
           "answer": "*ku*"
         }
       ]
@@ -500,32 +500,32 @@
       "items": [
         {
           "id": "ch3-ex4-1",
-          "prompt": "*Na'á ku inu vai ___.* (I drank only water.)",
+          "prompt": "*Na'á ku inu vai \\_\\_\\_.* (I drank only water.)",
           "answer": "*pē*"
         },
         {
           "id": "ch3-ex4-2",
-          "prompt": "*'Oku ou ___ hela'ia.* (I am often tired.)",
+          "prompt": "*'Oku ou \\_\\_\\_ hela'ia.* (I am often tired.)",
           "answer": "*fa'a*"
         },
         {
           "id": "ch3-ex4-3",
-          "prompt": "*'Okú ne hiva ___.* (She sings well.)",
+          "prompt": "*'Okú ne hiva \\_\\_\\_.* (She sings well.)",
           "answer": "*lelei*"
         },
         {
           "id": "ch3-ex4-4",
-          "prompt": "*Na'a mau ngāue ___.* (We worked hard.)",
+          "prompt": "*Na'a mau ngāue \\_\\_\\_.* (We worked hard.)",
           "answer": "*mālohi*"
         },
         {
           "id": "ch3-ex4-5",
-          "prompt": "*'Oku ou fiekaia ___.* (I am very hungry.)",
+          "prompt": "*'Oku ou fiekaia \\_\\_\\_.* (I am very hungry.)",
           "answer": "*'aupito*"
         },
         {
           "id": "ch3-ex4-6",
-          "prompt": "*Na'a nau kai ___.* (They ate a lot.)",
+          "prompt": "*Na'a nau kai \\_\\_\\_.* (They ate a lot.)",
           "answer": "*lahi*"
         }
       ]
@@ -670,36 +670,36 @@
       "id": "ch4-ex3",
       "number": 3,
       "title": "Add the time word",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch4-ex3-1",
-          "prompt": "*Na'á ku kai mā ___.* (yesterday)",
+          "prompt": "*Na'á ku kai mā \\_\\_\\_.* (yesterday)",
           "answer": "*'aneafi*"
         },
         {
           "id": "ch4-ex3-2",
-          "prompt": "*Te mau hiva ___.* (tonight)",
+          "prompt": "*Te mau hiva \\_\\_\\_.* (tonight)",
           "answer": "*'apō*"
         },
         {
           "id": "ch4-ex3-3",
-          "prompt": "*Na'a nau mohe ___.* (a while ago)",
+          "prompt": "*Na'a nau mohe \\_\\_\\_.* (a while ago)",
           "answer": "*'anenai*"
         },
         {
           "id": "ch4-ex3-4",
-          "prompt": "*Té u 'alu ___.* (tomorrow)",
+          "prompt": "*Té u 'alu \\_\\_\\_.* (tomorrow)",
           "answer": "*'apongipongi*"
         },
         {
           "id": "ch4-ex3-5",
-          "prompt": "*Na'á ke ngāue ___.* (last night)",
+          "prompt": "*Na'á ke ngāue \\_\\_\\_.* (last night)",
           "answer": "*'anepō*"
         },
         {
           "id": "ch4-ex3-6",
-          "prompt": "*'Oku ou fiefia ___.* (today)",
+          "prompt": "*'Oku ou fiefia \\_\\_\\_.* (today)",
           "answer": "*he 'ahó ni*"
         }
       ]
@@ -708,36 +708,36 @@
       "id": "ch4-ex4",
       "number": 4,
       "title": "Choose past or future",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch4-ex4-1",
-          "prompt": "*___ ku kai ika 'aneafi.*",
+          "prompt": "*\\_\\_\\_ ku kai ika 'aneafi.*",
           "answer": "*Na'á* (past: *'aneafi* = yesterday; accent before *ku*)"
         },
         {
           "id": "ch4-ex4-2",
-          "prompt": "*___ u 'alu 'apongipongi.*",
+          "prompt": "*\\_\\_\\_ u 'alu 'apongipongi.*",
           "answer": "*Té* (future: *'apongipongi* = tomorrow; accent before *u*)"
         },
         {
           "id": "ch4-ex4-3",
-          "prompt": "*___ nau mohe 'anepō.*",
+          "prompt": "*\\_\\_\\_ nau mohe 'anepō.*",
           "answer": "*Na'a* (past: *'anepō* = last night; no accent before *nau*)"
         },
         {
           "id": "ch4-ex4-4",
-          "prompt": "*___ ke hiva 'apō?*",
+          "prompt": "*\\_\\_\\_ ke hiva 'apō?*",
           "answer": "*Té* (future: *'apō* = tonight; accent before *ke*)"
         },
         {
           "id": "ch4-ex4-5",
-          "prompt": "*___ mau ngāue 'anenai.*",
+          "prompt": "*\\_\\_\\_ mau ngāue 'anenai.*",
           "answer": "*Na'a* (past: *'anenai* = a while ago; no accent before *mau*)"
         },
         {
           "id": "ch4-ex4-6",
-          "prompt": "*___ ne ngāue 'anai.*",
+          "prompt": "*\\_\\_\\_ ne ngāue 'anai.*",
           "answer": "*Té* (future: *'anai* = in a little while; accent before *ne*)"
         }
       ]
@@ -900,31 +900,31 @@
       "id": "ch5-ex4",
       "number": 4,
       "title": "Add emphasis to each sentence by inserting the correct postposed pronoun",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch5-ex4-1",
-          "prompt": "*Te u nofo. → Te u nofo ___.*",
+          "prompt": "*Te u nofo. → Te u nofo \\_\\_\\_.*",
           "answer": "*Te u nofo au.*"
         },
         {
           "id": "ch5-ex4-2",
-          "prompt": "*Na'a ku kai. → Na'a ku kai ___.*",
+          "prompt": "*Na'a ku kai. → Na'a ku kai \\_\\_\\_.*",
           "answer": "*Na'a ku kai au.*"
         },
         {
           "id": "ch5-ex4-3",
-          "prompt": "*'Oku mau hiva. → 'Oku mau hiva ___.*",
+          "prompt": "*'Oku mau hiva. → 'Oku mau hiva \\_\\_\\_.*",
           "answer": "*'Oku mau hiva kimautolu.*"
         },
         {
           "id": "ch5-ex4-4",
-          "prompt": "*Mou ō! → Mou ō ___!*",
+          "prompt": "*Mou ō! → Mou ō \\_\\_\\_!*",
           "answer": "*Mou ō kimoutolu!*"
         },
         {
           "id": "ch5-ex4-5",
-          "prompt": "*'Alu! → 'Alu ___!*",
+          "prompt": "*'Alu! → 'Alu \\_\\_\\_!*",
           "answer": "*'Alu koe!*"
         }
       ]
@@ -962,31 +962,8 @@
         },
         {
           "id": "ch5-ex5-6",
-          "prompt": "*'Oua te mou inu lahi 'aupito!*",
+          "prompt": "*'Oua te mou inu lahi 'aupito!* ---",
           "answer": "Don't drink too much! (all of you)"
-        }
-      ]
-    },
-    {
-      "id": "ch5-ex6",
-      "number": 6,
-      "title": "Translate into English",
-      "type": "translate_to_english",
-      "items": [
-        {
-          "id": "ch5-ex6-1",
-          "prompt": "*Hanga 'o tāpuni 'a e matapaá.*",
-          "answer": "Close the door. (polite)"
-        },
-        {
-          "id": "ch5-ex6-2",
-          "prompt": "*Hanga mu'a 'o fakaava 'a e matapaá.*",
-          "answer": "Please open the door."
-        },
-        {
-          "id": "ch5-ex6-3",
-          "prompt": "*Hanga ange mu'a 'e Sēmisi 'o fufulu 'a e ipú.* ---",
-          "answer": "Sēmisi, would you please wash the cup."
         }
       ]
     }
@@ -1096,32 +1073,32 @@
       "items": [
         {
           "id": "ch6-ex3-1",
-          "prompt": "*Na'á ku mohe ___ fale mohe.* (I slept in the dormitory.)",
+          "prompt": "*Na'á ku mohe \\_\\_\\_ fale mohe.* (I slept in the dormitory.)",
           "answer": "*'i*"
         },
         {
           "id": "ch6-ex3-2",
-          "prompt": "*'Okú ke ngāue ___?* (Where do you work?)",
+          "prompt": "*'Okú ke ngāue \\_\\_\\_?* (Where do you work?)",
           "answer": "*'i fē*"
         },
         {
           "id": "ch6-ex3-3",
-          "prompt": "*Tau hiva ___.* (Let's sing here.)",
+          "prompt": "*Tau hiva \\_\\_\\_.* (Let's sing here.)",
           "answer": "*heni*"
         },
         {
           "id": "ch6-ex3-4",
-          "prompt": "*Té u nofo pē ___.* (I'll just stay over there.)",
+          "prompt": "*Té u nofo pē \\_\\_\\_.* (I'll just stay over there.)",
           "answer": "*hē*"
         },
         {
           "id": "ch6-ex3-5",
-          "prompt": "*Na'á ne nofo ___ 'api 'aneafi.* (He stayed at home yesterday.)",
+          "prompt": "*Na'á ne nofo \\_\\_\\_ 'api 'aneafi.* (He stayed at home yesterday.)",
           "answer": "*'i*"
         },
         {
           "id": "ch6-ex3-6",
-          "prompt": "*Na'a mou kai ___ 'anepō?* (Where did you eat last night?)",
+          "prompt": "*Na'a mou kai \\_\\_\\_ 'anepō?* (Where did you eat last night?)",
           "answer": "*'i fē*"
         }
       ]
@@ -1174,37 +1151,37 @@
       "items": [
         {
           "id": "ch7-ex1-1",
-          "prompt": "*Na'á ku 'alu ___ Vava'u.*",
+          "prompt": "*Na'á ku 'alu \\_\\_\\_ Vava'u.*",
           "answer": "*ki*. I went to Vava'u."
         },
         {
           "id": "ch7-ex1-2",
-          "prompt": "*'Oku mau nofo ___ 'api.*",
+          "prompt": "*'Oku mau nofo \\_\\_\\_ 'api.*",
           "answer": "*'i*. We live at home."
         },
         {
           "id": "ch7-ex1-3",
-          "prompt": "*Na'á ne ha'u ___ Fisi.*",
+          "prompt": "*Na'á ne ha'u \\_\\_\\_ Fisi.*",
           "answer": "*mei*. He came from Fiji."
         },
         {
           "id": "ch7-ex1-4",
-          "prompt": "*Té ke folau ___ Ha'apai?*",
+          "prompt": "*Té ke folau \\_\\_\\_ Ha'apai?*",
           "answer": "*ki*. Will you sail to Ha'apai?"
         },
         {
           "id": "ch7-ex1-5",
-          "prompt": "*Na'á ku mohe ___ fale mohe.*",
+          "prompt": "*Na'á ku mohe \\_\\_\\_ fale mohe.*",
           "answer": "*'i*. I slept in the dormitory."
         },
         {
           "id": "ch7-ex1-6",
-          "prompt": "*Na'a mau ha'u ___ kolo.*",
+          "prompt": "*Na'a mau ha'u \\_\\_\\_ kolo.*",
           "answer": "*mei*. We came from town."
         },
         {
           "id": "ch7-ex1-7",
-          "prompt": "*Te tau 'alu ___ tahi.*",
+          "prompt": "*Te tau 'alu \\_\\_\\_ tahi.*",
           "answer": "*ki*. We will go to the sea."
         }
       ]
@@ -1217,42 +1194,42 @@
       "items": [
         {
           "id": "ch7-ex2-1",
-          "prompt": "*Na'á ku lea ___ Sione.*",
+          "prompt": "*Na'á ku lea \\_\\_\\_ Sione.*",
           "answer": "*kia*. Sione is a personal noun."
         },
         {
           "id": "ch7-ex2-2",
-          "prompt": "*Té ke 'alu ___ kolo?*",
+          "prompt": "*Té ke 'alu \\_\\_\\_ kolo?*",
           "answer": "*ki*. Kolo is a local noun."
         },
         {
           "id": "ch7-ex2-3",
-          "prompt": "*'Oku ou sio ___ Ana.*",
+          "prompt": "*'Oku ou sio \\_\\_\\_ Ana.*",
           "answer": "*kia*. Ana is a personal noun."
         },
         {
           "id": "ch7-ex2-4",
-          "prompt": "*'Oku mahino ___ au.*",
+          "prompt": "*'Oku mahino \\_\\_\\_ au.*",
           "answer": "*kiate*. Au is a pronoun. (*mahino* takes *kiate*)"
         },
         {
           "id": "ch7-ex2-5",
-          "prompt": "*Na'e ngalo ___ au.*",
+          "prompt": "*Na'e ngalo \\_\\_\\_ au.*",
           "answer": "*'iate*. Au is a pronoun. (*ngalo* takes *'iate*)"
         },
         {
           "id": "ch7-ex2-6",
-          "prompt": "*'Oku ou 'ofa lahi ___ koe.*",
+          "prompt": "*'Oku ou 'ofa lahi \\_\\_\\_ koe.*",
           "answer": "*'iate*. Koe is a pronoun. (*'ofa* takes *'iate*)"
         },
         {
           "id": "ch7-ex2-7",
-          "prompt": "*Na'á ne ha'u ___ kimautolu.*",
+          "prompt": "*Na'á ne ha'u \\_\\_\\_ kimautolu.*",
           "answer": "*meiate*. Kimautolu is a pronoun."
         },
         {
           "id": "ch7-ex2-8",
-          "prompt": "*Na'á ku lea ___ ia.*",
+          "prompt": "*Na'á ku lea \\_\\_\\_ ia.*",
           "answer": "*kiate*. Ia is a pronoun."
         }
       ]
@@ -1266,7 +1243,7 @@
         {
           "id": "ch7-ex3-1",
           "prompt": "*Na'á ku lea kia Sione.*",
-          "answer": "I spoke to John."
+          "answer": "I spoke to Sione."
         },
         {
           "id": "ch7-ex3-2",
@@ -1304,36 +1281,36 @@
       "id": "ch7-ex4",
       "number": 4,
       "title": "Answer the question using *ai*",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch7-ex4-1",
-          "prompt": "*Té ke 'alu ki Vava'u?* → *'Io, té u 'alu ___.*",
+          "prompt": "*Té ke 'alu ki Vava'u?* → *'Io, té u 'alu \\_\\_\\_.*",
           "answer": "*ki ai*. Ki ai replaces *ki Vava'u*."
         },
         {
           "id": "ch7-ex4-2",
-          "prompt": "*'Okú ne 'i Tonga?* → *'Io, 'okú ne ___.*",
+          "prompt": "*'Okú ne 'i Tonga?* → *'Io, 'okú ne \\_\\_\\_.*",
           "answer": "*'i ai*. 'I ai replaces *'i Tonga*."
         },
         {
           "id": "ch7-ex4-3",
-          "prompt": "*Na'á ke ha'u mei Fisi?* → *'Io, na'á ku ha'u ___.*",
+          "prompt": "*Na'á ke ha'u mei Fisi?* → *'Io, na'á ku ha'u \\_\\_\\_.*",
           "answer": "*mei ai*. Mei ai replaces *mei Fisi*."
         },
         {
           "id": "ch7-ex4-4",
-          "prompt": "*Té ke lea kia Mele?* → *'Io, té u lea ___.*",
+          "prompt": "*Té ke lea kia Mele?* → *'Io, té u lea \\_\\_\\_.*",
           "answer": "*ki ai*. Ki ai replaces *kia Mele*."
         },
         {
           "id": "ch7-ex4-5",
-          "prompt": "*Na'á ne 'alu mei 'api?* → *'Io, na'á ne 'alu ___.*",
+          "prompt": "*Na'á ne 'alu mei 'api?* → *'Io, na'á ne 'alu \\_\\_\\_.*",
           "answer": "*mei ai*. Mei ai replaces *mei 'api*."
         },
         {
           "id": "ch7-ex4-6",
-          "prompt": "*'Okú ke 'i kolo?* → *'Io, 'oku ou ___.*",
+          "prompt": "*'Okú ke 'i kolo?* → *'Io, 'oku ou \\_\\_\\_.*",
           "answer": "*'i ai*. 'I ai replaces *'i kolo*."
         }
       ]
@@ -1391,32 +1368,32 @@
       "items": [
         {
           "id": "ch8-ex1-1",
-          "prompt": "*'Oku ou fiema'u ___ vai.* (I want some water.)",
+          "prompt": "*'Oku ou fiema'u \\_\\_\\_ vai.* (I want some water.)",
           "answer": "*ha*. I want some water. (indefinite)"
         },
         {
           "id": "ch8-ex1-2",
-          "prompt": "*Na'á ke kai ___ mā?* (Did you eat the bread?)",
+          "prompt": "*Na'á ke kai \\_\\_\\_ mā?* (Did you eat the bread?)",
           "answer": "*'a e*. Did you eat the bread? (definite: the focus marker *'a* appears before the article)"
         },
         {
           "id": "ch8-ex1-3",
-          "prompt": "*Té u inu ___ tī.* (I will drink some tea.)",
+          "prompt": "*Té u inu \\_\\_\\_ tī.* (I will drink some tea.)",
           "answer": "*ha*. I will drink some tea. (indefinite)"
         },
         {
           "id": "ch8-ex1-4",
-          "prompt": "*'Okú ke fiema'u ___ ika?* (Do you want some fish?)",
+          "prompt": "*'Okú ke fiema'u \\_\\_\\_ ika?* (Do you want some fish?)",
           "answer": "*ha*. Do you want some fish? (indefinite)"
         },
         {
           "id": "ch8-ex1-5",
-          "prompt": "*Na'á ku kai ___ talo.* (I ate the taro.)",
+          "prompt": "*Na'á ku kai \\_\\_\\_ talo.* (I ate the taro.)",
           "answer": "*'a e*. I ate the taro. (definite: the focus marker *'a* appears before the article)"
         },
         {
           "id": "ch8-ex1-6",
-          "prompt": "*Na'a mau fiema'u ___ kava.* (We wanted some kava.)",
+          "prompt": "*Na'a mau fiema'u \\_\\_\\_ kava.* (We wanted some kava.)",
           "answer": "*ha*. We wanted some kava. (indefinite)"
         }
       ]
@@ -1429,32 +1406,32 @@
       "items": [
         {
           "id": "ch8-ex2-1",
-          "prompt": "*Na'á ku 'alu ki ___ fale.* (I went to the house.)",
+          "prompt": "*Na'á ku 'alu ki \\_\\_\\_ fale.* (I went to the house.)",
           "answer": "*he*. After *ki*, use *he*."
         },
         {
           "id": "ch8-ex2-2",
-          "prompt": "*'Oku ou nofo 'i ___ kolo.* (I live in the town.)",
+          "prompt": "*'Oku ou nofo 'i \\_\\_\\_ kolo.* (I live in the town.)",
           "answer": "*he*. After *'i*, use *he*."
         },
         {
           "id": "ch8-ex2-3",
-          "prompt": "*Na'á ke kai ___ ika?* (Did you eat the fish?)",
+          "prompt": "*Na'á ke kai \\_\\_\\_ ika?* (Did you eat the fish?)",
           "answer": "*'a e*. No preposition before the article, so use *'a e* (the focus marker *'a* + article *e*)."
         },
         {
           "id": "ch8-ex2-4",
-          "prompt": "*Na'a mau ha'u mei ___ fale kai.* (We came from the cafeteria.)",
+          "prompt": "*Na'a mau ha'u mei \\_\\_\\_ fale kai.* (We came from the cafeteria.)",
           "answer": "*he*. After *mei*, use *he*."
         },
         {
           "id": "ch8-ex2-5",
-          "prompt": "*Tokoni ki ___ faiako.* (Help the teacher.)",
+          "prompt": "*Tokoni ki \\_\\_\\_ faiako.* (Help the teacher.)",
           "answer": "*he*. After *ki*, use *he*."
         },
         {
           "id": "ch8-ex2-6",
-          "prompt": "*'Oku ou fiema'u ___ mā.* (I want the bread.)",
+          "prompt": "*'Oku ou fiema'u \\_\\_\\_ mā.* (I want the bread.)",
           "answer": "*'a e*. No preposition before the article, so use *'a e* (the focus marker *'a* + article *e*)."
         }
       ]
@@ -1697,32 +1674,32 @@
       "items": [
         {
           "id": "ch9-ex4-1",
-          "prompt": "*'Oku 'ikai ___ u hela'ia.*",
+          "prompt": "*'Oku 'ikai \\_\\_\\_ u hela'ia.*",
           "answer": "*te* (pronoun *u* follows)"
         },
         {
           "id": "ch9-ex4-2",
-          "prompt": "*Na'e 'ikai ___ matangi.*",
+          "prompt": "*Na'e 'ikai \\_\\_\\_ matangi.*",
           "answer": "*ke* (verb *matangi* follows, no pronoun)"
         },
         {
           "id": "ch9-ex4-3",
-          "prompt": "*'E 'ikai ___ ke 'alu ki Tonga.*",
+          "prompt": "*'E 'ikai \\_\\_\\_ ke 'alu ki Tonga.*",
           "answer": "*te* (pronoun *ke* follows)"
         },
         {
           "id": "ch9-ex4-4",
-          "prompt": "*'Oku 'ikai ___ momoko.*",
+          "prompt": "*'Oku 'ikai \\_\\_\\_ momoko.*",
           "answer": "*ke* (verb *momoko* follows, no pronoun)"
         },
         {
           "id": "ch9-ex4-5",
-          "prompt": "*Na'e 'ikai ___ nau fiefia.*",
+          "prompt": "*Na'e 'ikai \\_\\_\\_ nau fiefia.*",
           "answer": "*te* (pronoun *nau* follows)"
         },
         {
           "id": "ch9-ex4-6",
-          "prompt": "*'E 'ikai ___ 'uha 'apō.*",
+          "prompt": "*'E 'ikai \\_\\_\\_ 'uha 'apō.*",
           "answer": "*ke* (verb *'uha* follows, no pronoun)"
         }
       ]
@@ -1736,7 +1713,7 @@
         {
           "id": "ch9-ex5-1",
           "prompt": "*Na'e 'ikai te u 'alu ki kolo mo Mele 'aneafi.*",
-          "answer": "I did not go to town with Mary yesterday."
+          "answer": "I did not go to town with Mele yesterday."
         },
         {
           "id": "ch9-ex5-2",
@@ -1746,7 +1723,7 @@
         {
           "id": "ch9-ex5-3",
           "prompt": "*'Oku 'ikai te nau nofo 'i Vava'u mo Tēvita.*",
-          "answer": "They do not live in Vava'u with David."
+          "answer": "They do not live in Vava'u with Tēvita."
         },
         {
           "id": "ch9-ex5-4",
@@ -1799,12 +1776,12 @@
         {
           "id": "ch10-ex1-1",
           "prompt": "*Na'á ku 'alu ki kolo mo Mele.*",
-          "answer": "I went to town with Mary."
+          "answer": "I went to town with Mele."
         },
         {
           "id": "ch10-ex1-2",
           "prompt": "*'Oku ou ako mo Tēvita.*",
-          "answer": "I study with David."
+          "answer": "I study with Tēvita."
         },
         {
           "id": "ch10-ex1-3",
@@ -1819,7 +1796,7 @@
         {
           "id": "ch10-ex1-5",
           "prompt": "*Na'á ne ha'u mei Fisi mo Sione.*",
-          "answer": "He came from Fiji with John."
+          "answer": "He came from Fiji with Sione."
         },
         {
           "id": "ch10-ex1-6",
@@ -1836,7 +1813,7 @@
       "items": [
         {
           "id": "ch10-ex2-1",
-          "prompt": "I sang with David yesterday.",
+          "prompt": "I sang with Tēvita yesterday.",
           "answer": "*Na'á ku hiva mo Tēvita 'aneafi.*"
         },
         {
@@ -1846,7 +1823,7 @@
         },
         {
           "id": "ch10-ex2-3",
-          "prompt": "We lived in Tonga with Semisi.",
+          "prompt": "We lived in Tonga with Sēmisi.",
           "answer": "*Na'a mau nofo 'i Tonga mo Sēmisi.*"
         },
         {
@@ -1856,7 +1833,7 @@
         },
         {
           "id": "ch10-ex2-5",
-          "prompt": "I spoke to John and Mary.",
+          "prompt": "I spoke to Sione and Mele.",
           "answer": "*Na'á ku lea kia Sione mo Mele.*"
         },
         {
@@ -1874,28 +1851,28 @@
       "items": [
         {
           "id": "ch10-ex3-1",
-          "prompt": "*Na'á ku 'alu ___ kolo ___ Sione.*",
-          "answer": "*ki*, *mo* — I went to town with John."
+          "prompt": "*Na'á ku 'alu \\_\\_\\_ kolo \\_\\_\\_ Sione.*",
+          "answer": "*ki*, *mo*. I went to town with Sione."
         },
         {
           "id": "ch10-ex3-2",
-          "prompt": "*'Oku ou nofo ___ Tonga ___ Mele.*",
-          "answer": "*'i*, *mo* — I live in Tonga with Mary."
+          "prompt": "*'Oku ou nofo \\_\\_\\_ Tonga \\_\\_\\_ Mele.*",
+          "answer": "*'i*, *mo*. I live in Tonga with Mele."
         },
         {
           "id": "ch10-ex3-3",
-          "prompt": "*Na'a mau ha'u ___ Ha'apai ___ Tēvita.*",
-          "answer": "*mei*, *mo* — We came from Ha'apai with David."
+          "prompt": "*Na'a mau ha'u \\_\\_\\_ Ha'apai \\_\\_\\_ Tēvita.*",
+          "answer": "*mei*, *mo*. We came from Ha'apai with Tēvita."
         },
         {
           "id": "ch10-ex3-4",
-          "prompt": "*Té ke mohe ___ fale mohe ___ 'Ofa?*",
-          "answer": "*'i*, *mo* — Will you sleep in the dormitory with Ofa?"
+          "prompt": "*Té ke mohe \\_\\_\\_ fale mohe \\_\\_\\_ 'Ofa?*",
+          "answer": "*'i*, *mo*. Will you sleep in the dormitory with Ofa?"
         },
         {
           "id": "ch10-ex3-5",
-          "prompt": "*Na'á ne 'alu ___ tahi ___ Seini 'aneafi.*",
-          "answer": "*ki*, *mo* — He went to the sea with Seini yesterday."
+          "prompt": "*Na'á ne 'alu \\_\\_\\_ tahi \\_\\_\\_ Seini 'aneafi.*",
+          "answer": "*ki*, *mo*. He went to the sea with Seini yesterday."
         }
       ]
     },
@@ -2012,17 +1989,17 @@
         {
           "id": "ch10-ex7-2",
           "prompt": "*Te tau kai 'i fale kai mo Mele 'apongipongi.*",
-          "answer": "We will eat at the cafeteria with Mary tomorrow."
+          "answer": "We will eat at the cafeteria with Mele tomorrow."
         },
         {
           "id": "ch10-ex7-3",
           "prompt": "*Na'a mau 'alu loli ki kolo mo Tēvita mo Ana.*",
-          "answer": "We went by truck to town with David and Ana."
+          "answer": "We went by truck to town with Tēvita and Ana."
         },
         {
           "id": "ch10-ex7-4",
           "prompt": "*'Oku ou fanongo kia Sēmisi mo Lupe.*",
-          "answer": "I listen to Semisi and Lupe."
+          "answer": "I listen to Sēmisi and Lupe."
         },
         {
           "id": "ch10-ex7-5",
@@ -2160,32 +2137,32 @@
       "items": [
         {
           "id": "ch11-ex3-1",
-          "prompt": "*Na'á ke mohe ___ 'anepō?* (Where did you sleep last night?)",
+          "prompt": "*Na'á ke mohe \\_\\_\\_ 'anepō?* (Where did you sleep last night?)",
           "answer": "*'i fē*"
         },
         {
           "id": "ch11-ex3-2",
-          "prompt": "*Té ke foki mai ___?* (When will you return?)",
+          "prompt": "*Té ke foki mai \\_\\_\\_?* (When will you return?)",
           "answer": "*'afē*"
         },
         {
           "id": "ch11-ex3-3",
-          "prompt": "*Na'á ke ha'u ___?* (Where did you come from?)",
+          "prompt": "*Na'á ke ha'u \\_\\_\\_?* (Where did you come from?)",
           "answer": "*mei fē*"
         },
         {
           "id": "ch11-ex3-4",
-          "prompt": "*Te tau kamata ___?* (At what time shall we start?)",
+          "prompt": "*Te tau kamata \\_\\_\\_?* (At what time shall we start?)",
           "answer": "*he fīha*"
         },
         {
           "id": "ch11-ex3-5",
-          "prompt": "*'Okú ke ___?* (How are you?)",
+          "prompt": "*'Okú ke \\_\\_\\_?* (How are you?)",
           "answer": "*fēfē*"
         },
         {
           "id": "ch11-ex3-6",
-          "prompt": "*Na'a nau hiva ___?* (When did they sing?)",
+          "prompt": "*Na'a nau hiva \\_\\_\\_?* (When did they sing?)",
           "answer": "*'anefē*"
         }
       ]
@@ -2231,32 +2208,32 @@
       "items": [
         {
           "id": "ch11-ex5-1",
-          "prompt": "*'Okú ke ngāue ___?* — What work do you do?",
+          "prompt": "*'Okú ke ngāue \\_\\_\\_?* What work do you do?",
           "answer": "*hā*"
         },
         {
           "id": "ch11-ex5-2",
-          "prompt": "*'I he māhina ___?* — In which month?",
+          "prompt": "*'I he māhina \\_\\_\\_?* In which month?",
           "answer": "*fē*"
         },
         {
           "id": "ch11-ex5-3",
-          "prompt": "*Na'e ___?* — Why not?",
+          "prompt": "*Na'e \\_\\_\\_?* Why not?",
           "answer": "*hā*"
         },
         {
           "id": "ch11-ex5-4",
-          "prompt": "*Na'á ke mohe 'i he fale ___?* — Which house did you sleep in?",
+          "prompt": "*Na'á ke mohe 'i he fale \\_\\_\\_?* Which house did you sleep in?",
           "answer": "*fē*"
         },
         {
           "id": "ch11-ex5-5",
-          "prompt": "*'Oku ___?* — What's wrong?",
+          "prompt": "*'Oku \\_\\_\\_?* What's wrong?",
           "answer": "*hā*"
         },
         {
           "id": "ch11-ex5-6",
-          "prompt": "*'Okú ne 'alu ki he kolo ___?* — Which town is he going to?",
+          "prompt": "*'Okú ne 'alu ki he kolo \\_\\_\\_?* Which town is he going to?",
           "answer": "*fē*"
         }
       ]
@@ -2774,17 +2751,17 @@
         },
         {
           "id": "ch14-ex3-2",
-          "prompt": "I am David.",
+          "prompt": "I am Tēvita.",
           "answer": "*Ko Tēvita au.*"
         },
         {
           "id": "ch14-ex3-3",
-          "prompt": "John, come here.",
+          "prompt": "Sione, come here.",
           "answer": "*'E Sione, ha'u!* (or *'E Sione, ha'u ki heni!*)"
         },
         {
           "id": "ch14-ex3-4",
-          "prompt": "Mary, goodbye. (You are staying, Mary is leaving.)",
+          "prompt": "Mele, goodbye. (You are staying, Mele is leaving.)",
           "answer": "*'E Mele, 'alu ā!*"
         },
         {
@@ -2840,7 +2817,7 @@
         },
         {
           "id": "ch14-ex5-2",
-          "prompt": "David, goodbye.",
+          "prompt": "Tēvita, goodbye.",
           "answer": null
         },
         {
@@ -2881,12 +2858,12 @@
         {
           "id": "ch15-ex1-1",
           "prompt": "*'E 'alu 'a Mele.*",
-          "answer": "Mary will go."
+          "answer": "Mele will go."
         },
         {
           "id": "ch15-ex1-2",
           "prompt": "*Na'e mohe 'a Pita 'i 'api.*",
-          "answer": "Peter slept at home."
+          "answer": "Pita slept at home."
         },
         {
           "id": "ch15-ex1-3",
@@ -2896,7 +2873,7 @@
         {
           "id": "ch15-ex1-4",
           "prompt": "*Kuo ha'u 'a Tēvita.*",
-          "answer": "David has arrived."
+          "answer": "Tēvita has arrived."
         },
         {
           "id": "ch15-ex1-5",
@@ -2961,17 +2938,17 @@
       "items": [
         {
           "id": "ch15-ex3-1",
-          "prompt": "Mary is singing.",
+          "prompt": "Mele is singing.",
           "answer": "*'Oku hiva 'a Mele.*"
         },
         {
           "id": "ch15-ex3-2",
-          "prompt": "Peter went to town.",
+          "prompt": "Pita went to town.",
           "answer": "*Na'e 'alu 'a Pita ki kolo.*"
         },
         {
           "id": "ch15-ex3-3",
-          "prompt": "David has arrived.",
+          "prompt": "Tēvita has arrived.",
           "answer": "*Kuo ha'u 'a Tēvita.*"
         },
         {
@@ -3000,17 +2977,17 @@
         {
           "id": "ch15-ex4-1",
           "prompt": "*'Oku 'alu ki fē 'a Sione?* / *'Oku 'alu 'a Sione ki kolo.*",
-          "answer": "Where is John going? / John is going to town."
+          "answer": "Where is Sione going? / Sione is going to town."
         },
         {
           "id": "ch15-ex4-2",
           "prompt": "*Na'e mohe 'i fē 'a Mele?* / *Na'e mohe 'a Mele 'i 'api.*",
-          "answer": "Where did Mary sleep? / Mary slept at home."
+          "answer": "Where did Mele sleep? / Mele slept at home."
         },
         {
           "id": "ch15-ex4-3",
           "prompt": "*'Oku puke 'a Pita?* / *'Io, 'oku puke 'aupito.*",
-          "answer": "Is Peter sick? / Yes, he is very sick."
+          "answer": "Is Pita sick? / Yes, he is very sick."
         },
         {
           "id": "ch15-ex4-4",
@@ -3032,17 +3009,17 @@
       "items": [
         {
           "id": "ch15-ex5-1",
-          "prompt": "John is not going.",
+          "prompt": "Sione is not going.",
           "answer": "*'Oku 'ikai ke 'alu 'a Sione.*"
         },
         {
           "id": "ch15-ex5-2",
-          "prompt": "Peter did not sleep.",
+          "prompt": "Pita did not sleep.",
           "answer": "*Na'e 'ikai ke mohe 'a Pita.*"
         },
         {
           "id": "ch15-ex5-3",
-          "prompt": "Mary was not happy.",
+          "prompt": "Mele was not happy.",
           "answer": "*Na'e 'ikai ke fiefia 'a Mele.*"
         },
         {
@@ -3052,7 +3029,7 @@
         },
         {
           "id": "ch15-ex5-5",
-          "prompt": "David did not come.",
+          "prompt": "Tēvita did not come.",
           "answer": "*Na'e 'ikai ke ha'u 'a Tēvita.*"
         }
       ]
@@ -3116,7 +3093,7 @@
         {
           "id": "ch16-ex1-4",
           "prompt": "*Ko fē 'a Sione?*",
-          "answer": "Where is John?"
+          "answer": "Where is Sione?"
         },
         {
           "id": "ch16-ex1-5",
@@ -3131,12 +3108,12 @@
         {
           "id": "ch16-ex1-7",
           "prompt": "*'Oku 'ikai ko e faiako 'a Tēvita.*",
-          "answer": "David is not a teacher."
+          "answer": "Tēvita is not a teacher."
         },
         {
           "id": "ch16-ex1-8",
           "prompt": "*Ko Taniela ko e faiako.*",
-          "answer": "Daniel is the teacher. (subject emphasis)"
+          "answer": "Taniela is the teacher. (subject emphasis)"
         }
       ]
     },
@@ -3173,7 +3150,7 @@
         },
         {
           "id": "ch16-ex2-6",
-          "prompt": "John is not a doctor.",
+          "prompt": "Sione is not a doctor.",
           "answer": "*'Oku 'ikai ko e tōketā 'a Sione.*"
         },
         {
@@ -3224,32 +3201,32 @@
       "items": [
         {
           "id": "ch16-ex4-1",
-          "prompt": "*Ko e faiako _____ Mele.* (Mele is a teacher.)",
+          "prompt": "*Ko e faiako \\_\\_\\_\\_\\_ Mele.* (Mele is a teacher.)",
           "answer": "*'a*"
         },
         {
           "id": "ch16-ex4-2",
-          "prompt": "*Ko e tangata faama _____.* (I am a farmer.)",
+          "prompt": "*Ko e tangata faama \\_\\_\\_\\_\\_.* (I am a farmer.)",
           "answer": "*au*"
         },
         {
           "id": "ch16-ex4-3",
-          "prompt": "*Ko e _____ vaka.* (It is a small boat.) (*vaka* = boat)",
+          "prompt": "*Ko e \\_\\_\\_\\_\\_ vaka.* (It is a small boat.) (*vaka* = boat)",
           "answer": "*ki'i*"
         },
         {
           "id": "ch16-ex4-4",
-          "prompt": "*Ko e kato _____.* (It is a small basket.)",
+          "prompt": "*Ko e kato \\_\\_\\_\\_\\_.* (It is a small basket.)",
           "answer": "*si'isi'i*"
         },
         {
           "id": "ch16-ex4-5",
-          "prompt": "*'Oku 'ikai ko e faiako _____.* (You are not a teacher.)",
+          "prompt": "*'Oku 'ikai ko e faiako \\_\\_\\_\\_\\_.* (You are not a teacher.)",
           "answer": "*koe*"
         },
         {
           "id": "ch16-ex4-6",
-          "prompt": "*Ko e tamasi'i poto _____ Siaosi.* (Siaosi is a smart boy.) ---",
+          "prompt": "*Ko e tamasi'i poto \\_\\_\\_\\_\\_ Siaosi.* (Siaosi is a smart boy.) ---",
           "answer": "*'a*"
         }
       ]
@@ -3312,17 +3289,17 @@
       "items": [
         {
           "id": "ch17-ex2-1",
-          "prompt": "Ko e hele \\_\\_\\_ Mele. (Mary's knife)",
+          "prompt": "Ko e hele \\_\\_\\_ Mele. (Mele's knife)",
           "answer": "*'a* (knife: 'e-class, tool)"
         },
         {
           "id": "ch17-ex2-2",
-          "prompt": "Ko e fale \\_\\_\\_ Sione. (John's house)",
+          "prompt": "Ko e fale \\_\\_\\_ Sione. (Sione's house)",
           "answer": "*'o* (house: ho-class, shelter)"
         },
         {
           "id": "ch17-ex2-3",
-          "prompt": "Ko e vaka \\_\\_\\_ Tēvita. (David's boat)",
+          "prompt": "Ko e vaka \\_\\_\\_ Tēvita. (Tēvita's boat)",
           "answer": "*'o* (boat: ho-class, shelters/carries)"
         },
         {
@@ -3371,7 +3348,7 @@
         {
           "id": "ch17-ex3-5",
           "prompt": "*Ko e vaka 'o Mele.*",
-          "answer": "Mary's boat."
+          "answer": "Mele's boat."
         },
         {
           "id": "ch17-ex3-6",
@@ -3393,7 +3370,7 @@
         },
         {
           "id": "ch17-ex4-2",
-          "prompt": "John's money.",
+          "prompt": "Sione's money.",
           "answer": "*Ko e pa'anga 'a Sione.*"
         },
         {
@@ -3596,31 +3573,31 @@
       "id": "ch18-ex5",
       "number": 5,
       "title": "Choose the correct article",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch18-ex5-1",
-          "prompt": "*'Oku ou fiema'u ___ ika.* (any fish)",
+          "prompt": "*'Oku ou fiema'u \\_\\_\\_ ika.* (any fish)",
           "answer": "*ha* (indefinite)"
         },
         {
           "id": "ch18-ex5-2",
-          "prompt": "*Na'á ku 'alu ki ___ fale.* (the house, fully definite)",
+          "prompt": "*Na'á ku 'alu ki \\_\\_\\_ fale.* (the house, fully definite)",
           "answer": "*he falé* (definite, after *ki*)"
         },
         {
           "id": "ch18-ex5-3",
-          "prompt": "*'Oku 'i heni ___ tohi.* (a particular book, semi-definite)",
+          "prompt": "*'Oku 'i heni \\_\\_\\_ tohi.* (a particular book, semi-definite)",
           "answer": "*e* (semi-definite)"
         },
         {
           "id": "ch18-ex5-4",
-          "prompt": "*Té ke tokoni ki ___ tamasi'i?* (the boy, fully definite)",
+          "prompt": "*Té ke tokoni ki \\_\\_\\_ tamasi'i?* (the boy, fully definite)",
           "answer": "*he tamasi'í* (definite, after *ki*)"
         },
         {
           "id": "ch18-ex5-5",
-          "prompt": "*Na'e ha'u ___ fefine.* (the woman, fully definite) ---",
+          "prompt": "*Na'e ha'u \\_\\_\\_ fefine.* (the woman, fully definite) ---",
           "answer": "*'a e fefiné* (definite, with focus marker *'a* + article *e* as subject)"
         }
       ]
@@ -3669,31 +3646,31 @@
       "id": "ch19-ex2",
       "number": 2,
       "title": "Choose *'a* or *'e*",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch19-ex2-1",
-          "prompt": "*Na'e hiva ___ Siale.* (Siale sang.)",
+          "prompt": "*Na'e hiva \\_\\_\\_ Siale.* (Siale sang.)",
           "answer": "*'a* (intransitive, no object)"
         },
         {
           "id": "ch19-ex2-2",
-          "prompt": "*Na'e tohi ___ Siale 'a e tohí.* (Siale wrote the book.)",
+          "prompt": "*Na'e tohi \\_\\_\\_ Siale 'a e tohí.* (Siale wrote the book.)",
           "answer": "*'e* (transitive, has object *e tohí*)"
         },
         {
           "id": "ch19-ex2-3",
-          "prompt": "*Na'e 'ave ___ Pita ___ Mele.* (Peter took Mary.)",
+          "prompt": "*Na'e 'ave \\_\\_\\_ Pita \\_\\_\\_ Mele.* (Pita took Mele.)",
           "answer": "*'e* Pita *'a* Mele (agent *'e*, object *'a*)"
         },
         {
           "id": "ch19-ex2-4",
-          "prompt": "*Na'e lele ___ e tamasi'í.* (The boy ran.)",
+          "prompt": "*Na'e lele \\_\\_\\_ e tamasi'í.* (The boy ran.)",
           "answer": "*'a* (intransitive, no object)"
         },
         {
           "id": "ch19-ex2-5",
-          "prompt": "*Na'e kai ___ he fefiné 'a e iká.* (The woman ate the fish.)",
+          "prompt": "*Na'e kai \\_\\_\\_ he fefiné 'a e iká.* (The woman ate the fish.)",
           "answer": "*'e* (transitive, has object *e iká*)"
         }
       ]
@@ -3707,7 +3684,7 @@
         {
           "id": "ch19-ex3-1",
           "prompt": "*Na'e 'ave 'e Taniela 'a Seini.*",
-          "answer": "Daniel took Seini."
+          "answer": "Taniela took Seini."
         },
         {
           "id": "ch19-ex3-2",
@@ -3754,7 +3731,7 @@
         },
         {
           "id": "ch19-ex4-4",
-          "prompt": "Did Peter read the book?",
+          "prompt": "Did Pita read the book?",
           "answer": "*Na'e lau 'e Pita 'a e tohí?*"
         },
         {
@@ -3773,17 +3750,17 @@
         {
           "id": "ch19-ex5-1",
           "prompt": "*Na'e kai ika 'a Sione.* (Sione ate fish.) → Sione ate the fish.",
-          "answer": "*Na'e kai 'e Sione 'a e iká.* — Sione ate the fish."
+          "answer": "*Na'e kai 'e Sione 'a e iká.* Sione ate the fish."
         },
         {
           "id": "ch19-ex5-2",
           "prompt": "*Na'e inu vai 'a Mele.* (Mele drank water.) → Mele drank the water.",
-          "answer": "*Na'e inu 'e Mele 'a e vaí.* — Mele drank the water."
+          "answer": "*Na'e inu 'e Mele 'a e vaí.* Mele drank the water."
         },
         {
           "id": "ch19-ex5-3",
           "prompt": "*Na'á ku tohi tohi.* (I wrote a letter.) → I wrote the letter.",
-          "answer": "*Na'á ku tohi 'a e tohí.* — I wrote the letter."
+          "answer": "*Na'á ku tohi 'a e tohí.* I wrote the letter."
         }
       ]
     },
@@ -3796,17 +3773,17 @@
         {
           "id": "ch19-ex6-1",
           "prompt": "*Na'e lau 'e Sēmisi 'a e tohí.*",
-          "answer": "*Na'e lau 'a e tohí.* — The book was read."
+          "answer": "*Na'e lau 'a e tohí.* The book was read."
         },
         {
           "id": "ch19-ex6-2",
           "prompt": "*Kuo fufulu 'e Mele 'a e valá.*",
-          "answer": "*Kuo fufulu 'a e valá.* — The clothes have been washed."
+          "answer": "*Kuo fufulu 'a e valá.* The clothes have been washed."
         },
         {
           "id": "ch19-ex6-3",
           "prompt": "*Na'e kuki 'e he fefiné 'a e iká.*",
-          "answer": "*Na'e kuki 'a e iká.* — The fish was cooked."
+          "answer": "*Na'e kuki 'a e iká.* The fish was cooked."
         }
       ]
     },
@@ -3819,17 +3796,17 @@
         {
           "id": "ch19-ex7-1",
           "prompt": "*Na'á ku fai 'a e ngāué.* (I did the work.) → I did the work myself.",
-          "answer": "*Na'á ku fai 'a e ngāué 'e au.* — I did the work myself."
+          "answer": "*Na'á ku fai 'a e ngāué 'e au.* I did the work myself."
         },
         {
           "id": "ch19-ex7-2",
           "prompt": "*Na'á ke tohi 'a e tohí.* (You wrote the book.) → You wrote the book yourself.",
-          "answer": "*Na'á ke tohi 'a e tohí 'e koe.* — You wrote the book yourself."
+          "answer": "*Na'á ke tohi 'a e tohí 'e koe.* You wrote the book yourself."
         },
         {
           "id": "ch19-ex7-3",
           "prompt": "*Na'á ne kuki 'a e iká.* (He cooked the fish.) → He cooked the fish himself. ---",
-          "answer": "*Na'á ne kuki 'a e iká 'e ia.* — He cooked the fish himself."
+          "answer": "*Na'á ne kuki 'a e iká 'e ia.* He cooked the fish himself."
         }
       ]
     }
@@ -3919,18 +3896,18 @@
       "items": [
         {
           "id": "ch20-ex3-1",
-          "prompt": "How much is the basket? — Two dollars.",
-          "answer": "*'Oku fīha e kató? — Pa'anga 'e ua.*"
+          "prompt": "How much is the basket? Two dollars.",
+          "answer": "*'Oku fīha e kató?* *Pa'anga 'e ua.*"
         },
         {
           "id": "ch20-ex3-2",
-          "prompt": "How much is the book? — Three dollars and five cents.",
-          "answer": "*'Oku fīha e tohí? — Pa'anga 'e tolu, seniti 'e nima.*"
+          "prompt": "How much is the book? Three dollars and five cents.",
+          "answer": "*'Oku fīha e tohí?* *Pa'anga 'e tolu, seniti 'e nima.*"
         },
         {
           "id": "ch20-ex3-3",
-          "prompt": "How much is the mat? — One dollar.",
-          "answer": "*'Oku fīha e falá? — Pa'anga 'e taha.*"
+          "prompt": "How much is the mat? One dollar.",
+          "answer": "*'Oku fīha e falá?* *Pa'anga 'e taha.*"
         }
       ]
     },
@@ -4008,7 +3985,7 @@
         },
         {
           "id": "ch20-ex6-2",
-          "prompt": "Peter bought six baskets.",
+          "prompt": "Pita bought six baskets.",
           "answer": "*Na'e fakatau mai 'e Pita ha kato 'e ono.*"
         },
         {
@@ -4064,28 +4041,28 @@
       "items": [
         {
           "id": "ch20-ex8-1",
-          "prompt": "Books. How many? — Three!",
-          "answer": "*Ko e tohi. Me'a e fiha? — Tolu!*"
+          "prompt": "Books. How many? Three!",
+          "answer": "*Ko e tohi. Me'a e fiha?* *Tolu!*"
         },
         {
           "id": "ch20-ex8-2",
-          "prompt": "Baskets. How many? — Six!",
-          "answer": "*Ko e kato. Me'a e fiha? — Ono!*"
+          "prompt": "Baskets. How many? Six!",
+          "answer": "*Ko e kato. Me'a e fiha?* *Ono!*"
         },
         {
           "id": "ch20-ex8-3",
-          "prompt": "Fish. How many? — Five!",
-          "answer": "*Ko e ika. Me'a e fiha? — Nima!*"
+          "prompt": "Fish. How many? Five!",
+          "answer": "*Ko e ika. Me'a e fiha?* *Nima!*"
         },
         {
           "id": "ch20-ex8-4",
-          "prompt": "Mats. How many? — Two!",
-          "answer": "*Ko e fala. Me'a e fiha? — Ua!*"
+          "prompt": "Mats. How many? Two!",
+          "answer": "*Ko e fala. Me'a e fiha?* *Ua!*"
         },
         {
           "id": "ch20-ex8-5",
-          "prompt": "Knives. How many? — Four! ---",
-          "answer": "*Ko e hele. Me'a e fiha? — Fā!*"
+          "prompt": "Knives. How many? Four! ---",
+          "answer": "*Ko e hele. Me'a e fiha?* *Fā!*"
         }
       ]
     }
@@ -4228,32 +4205,32 @@
       "items": [
         {
           "id": "ch21-ex4-1",
-          "prompt": "*'Okú ke ___ he lea faka-Tongá?* (Do you like the Tongan language?)",
+          "prompt": "*'Okú ke \\_\\_\\_ he lea faka-Tongá?* (Do you like the Tongan language?)",
           "answer": "*sai'ia*"
         },
         {
           "id": "ch21-ex4-2",
-          "prompt": "*'Oku ou ___ 'alu ki tahi.* (I want to go to the ocean.)",
+          "prompt": "*'Oku ou \\_\\_\\_ 'alu ki tahi.* (I want to go to the ocean.)",
           "answer": "*fie*"
         },
         {
           "id": "ch21-ex4-3",
-          "prompt": "*Té ke ___ ha'u 'anai?* (Will you be able to come later?)",
+          "prompt": "*Té ke \\_\\_\\_ ha'u 'anai?* (Will you be able to come later?)",
           "answer": "*lava 'o*"
         },
         {
           "id": "ch21-ex4-4",
-          "prompt": "*Na'á ku ___ mohe 'anepō.* (I wanted to sleep last night.)",
+          "prompt": "*Na'á ku \\_\\_\\_ mohe 'anepō.* (I wanted to sleep last night.)",
           "answer": "*fie*"
         },
         {
           "id": "ch21-ex4-5",
-          "prompt": "*'Oku 'ikai te u ___ lahi he kavá.* (I do not like kava much.)",
+          "prompt": "*'Oku 'ikai te u \\_\\_\\_ lahi he kavá.* (I do not like kava much.)",
           "answer": "*sai'ia*"
         },
         {
           "id": "ch21-ex4-6",
-          "prompt": "*'E ___ 'a Ana 'o haka?* (Will Ana be able to dance?) ---",
+          "prompt": "*'E \\_\\_\\_ 'a Ana 'o haka?* (Will Ana be able to dance?) ---",
           "answer": "*lava*"
         }
       ]
@@ -4364,32 +4341,32 @@
       "items": [
         {
           "id": "ch22-ex3-1",
-          "prompt": "*'Oku ou ngāue.* (kei — still)",
+          "prompt": "*'Oku ou ngāue.* (kei: still)",
           "answer": "*'Oku ou kei ngāue.*"
         },
         {
           "id": "ch22-ex3-2",
-          "prompt": "*Kuó ne ha'u.* ('osi — already)",
+          "prompt": "*Kuó ne ha'u.* ('osi: already)",
           "answer": "*Kuó ne 'osi ha'u.*"
         },
         {
           "id": "ch22-ex3-3",
-          "prompt": "*Na'á ku 'alu ki kolo.* (toe — again)",
+          "prompt": "*Na'á ku 'alu ki kolo.* (toe: again)",
           "answer": "*Na'á ku toe 'alu ki kolo.*"
         },
         {
           "id": "ch22-ex3-4",
-          "prompt": "*'Okú ke lau 'a e tohí.* (lolotonga — currently)",
+          "prompt": "*'Okú ke lau 'a e tohí.* (lolotonga: currently)",
           "answer": "*'Okú ke lolotonga lau 'a e tohí.*"
         },
         {
           "id": "ch22-ex3-5",
-          "prompt": "*Na'a mau foki mai.* (toki — just)",
+          "prompt": "*Na'a mau foki mai.* (toki: just)",
           "answer": "*Na'a mau toki foki mai.*"
         },
         {
           "id": "ch22-ex3-6",
-          "prompt": "*Na'a nau 'alu.* (leva — immediately)",
+          "prompt": "*Na'a nau 'alu.* (leva: immediately)",
           "answer": "*Na'a nau 'alu leva.*"
         }
       ]
@@ -4758,27 +4735,27 @@
       "items": [
         {
           "id": "ch24-ex3-1",
-          "prompt": "*Na'e 'alu 'a Mele ___ nofo 'a Sione.*",
+          "prompt": "*Na'e 'alu 'a Mele \\_\\_\\_ nofo 'a Sione.*",
           "answer": "*kae* (before verb *nofo*)"
         },
         {
           "id": "ch24-ex3-2",
-          "prompt": "*'Oku ou fiefia, ___ 'oku 'ikai té u fie va'inga.*",
+          "prompt": "*'Oku ou fiefia, \\_\\_\\_ 'oku 'ikai té u fie va'inga.*",
           "answer": "*ka* (before tense marker *'oku*)"
         },
         {
           "id": "ch24-ex3-3",
-          "prompt": "*'Alu koe, ___ ke foki mai he nimá.*",
+          "prompt": "*'Alu koe, \\_\\_\\_ ke foki mai he nimá.*",
           "answer": "*ka* (before pronoun *ke*)"
         },
         {
           "id": "ch24-ex3-4",
-          "prompt": "*Na'e hiva 'a Sēmisi ___ fanongo 'a Ana.*",
+          "prompt": "*Na'e hiva 'a Sēmisi \\_\\_\\_ fanongo 'a Ana.*",
           "answer": "*kae* (before verb *fanongo*)"
         },
         {
           "id": "ch24-ex3-5",
-          "prompt": "*'Oku ou fie mohe, ___ kuo pau ke u ngāue.*",
+          "prompt": "*'Oku ou fie mohe, \\_\\_\\_ kuo pau ke u ngāue.*",
           "answer": "*ka* (before tense marker *kuo*)"
         }
       ]
@@ -4820,36 +4797,36 @@
       "id": "ch24-ex5",
       "number": 5,
       "title": "Choose the correct conjunction (*pea*, *'o*, *ka*, *kae*, *pe*)",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch24-ex5-1",
-          "prompt": "*'Alu ___ hiva.*",
+          "prompt": "*'Alu \\_\\_\\_ hiva.*",
           "answer": "*'o* (going and singing as one event)"
         },
         {
           "id": "ch24-ex5-2",
-          "prompt": "*Na'á ku 'alu ki kolo ___ u fakatau mai ha me'a.*",
+          "prompt": "*Na'á ku 'alu ki kolo \\_\\_\\_ u fakatau mai ha me'a.*",
           "answer": "*pea* (sequential: went to town, then bought something)"
         },
         {
           "id": "ch24-ex5-3",
-          "prompt": "*'Oku ou fie ako, ___ 'oku 'ikai té u fie ngāue.*",
+          "prompt": "*'Oku ou fie ako, \\_\\_\\_ 'oku 'ikai té u fie ngāue.*",
           "answer": "*ka* (but, before tense marker *'oku*)"
         },
         {
           "id": "ch24-ex5-4",
-          "prompt": "*Na'e 'alu 'a Tēvita ___ nofo 'a Ana.*",
+          "prompt": "*Na'e 'alu 'a Tēvita \\_\\_\\_ nofo 'a Ana.*",
           "answer": "*kae* (but, before verb *nofo*)"
         },
         {
           "id": "ch24-ex5-5",
-          "prompt": "*'Oku fiefia ___ 'ita?*",
+          "prompt": "*'Oku fiefia \\_\\_\\_ 'ita?*",
           "answer": "*pe* (or)"
         },
         {
           "id": "ch24-ex5-6",
-          "prompt": "*Na'a mau nofo 'i 'api ___ fuoloa.* ---",
+          "prompt": "*Na'a mau nofo 'i 'api \\_\\_\\_ fuoloa.* ---",
           "answer": "*'o* (time expression: for a long time)"
         }
       ]
@@ -4908,46 +4885,46 @@
       "id": "ch25-ex2",
       "number": 2,
       "title": "Add the correct plural or dual marker (*ngaahi*, *kau*, *fanga*, *'ū*, or *ongo*)",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch25-ex2-1",
-          "prompt": "*ha ___ moa* (some chickens)",
+          "prompt": "*ha \\_\\_\\_ moa* (some chickens)",
           "answer": "*fanga* (animals)"
         },
         {
           "id": "ch25-ex2-2",
-          "prompt": "*e ___ faiakó* (the teachers)",
+          "prompt": "*e \\_\\_\\_ faiakó* (the teachers)",
           "answer": "*kau* (people)"
         },
         {
           "id": "ch25-ex2-3",
-          "prompt": "*ha ___ fale* (some houses)",
+          "prompt": "*ha \\_\\_\\_ fale* (some houses)",
           "answer": "*ngaahi* (general)"
         },
         {
           "id": "ch25-ex2-4",
-          "prompt": "*e ___ tangatá* (the two men)",
+          "prompt": "*e \\_\\_\\_ tangatá* (the two men)",
           "answer": "*ongo* (dual)"
         },
         {
           "id": "ch25-ex2-5",
-          "prompt": "*ha ___ hele* (some knives)",
+          "prompt": "*ha \\_\\_\\_ hele* (some knives)",
           "answer": "*'ū* or *ngaahi* (things)"
         },
         {
           "id": "ch25-ex2-6",
-          "prompt": "*e ___ fefiné* (the women)",
+          "prompt": "*e \\_\\_\\_ fefiné* (the women)",
           "answer": "*kau* (people)"
         },
         {
           "id": "ch25-ex2-7",
-          "prompt": "*ha ___ puaka* (some pigs)",
+          "prompt": "*ha \\_\\_\\_ puaka* (some pigs)",
           "answer": "*fanga* (animals)"
         },
         {
           "id": "ch25-ex2-8",
-          "prompt": "*'eku ___ tohí* (my books)",
+          "prompt": "*'eku \\_\\_\\_ tohí* (my books)",
           "answer": "*ngaahi* or *'ū* (things)"
         }
       ]
@@ -4960,27 +4937,27 @@
       "items": [
         {
           "id": "ch25-ex3-1",
-          "prompt": "*kau hiva* — (a) songs (b) singers",
+          "prompt": "*kau hiva*. (a) songs (b) singers",
           "answer": "(b) singers"
         },
         {
           "id": "ch25-ex3-2",
-          "prompt": "*ngaahi hiva* — (a) songs (b) singers",
+          "prompt": "*ngaahi hiva*. (a) songs (b) singers",
           "answer": "(a) songs"
         },
         {
           "id": "ch25-ex3-3",
-          "prompt": "*kau ako* — (a) schools (b) students",
+          "prompt": "*kau ako*. (a) schools (b) students",
           "answer": "(b) students"
         },
         {
           "id": "ch25-ex3-4",
-          "prompt": "*ngaahi lotu* — (a) worshippers (b) religions",
+          "prompt": "*ngaahi lotu*. (a) worshippers (b) religions",
           "answer": "(b) religions"
         },
         {
           "id": "ch25-ex3-5",
-          "prompt": "*kau ngāue* — (a) tasks (b) workers",
+          "prompt": "*kau ngāue*. (a) tasks (b) workers",
           "answer": "(b) workers"
         }
       ]
@@ -5124,32 +5101,32 @@
       "items": [
         {
           "id": "ch26-ex2-1",
-          "prompt": "*'Oku ou ha'u ___ u sio ki he faiakó.*",
+          "prompt": "*'Oku ou ha'u \\_\\_\\_ u sio ki he faiakó.*",
           "answer": "*koe'uhi ke* (or *ke*)"
         },
         {
           "id": "ch26-ex2-2",
-          "prompt": "*'Okú ke tōmui, ___ kuo 'osi hoko.*",
+          "prompt": "*'Okú ke tōmui, \\_\\_\\_ kuo 'osi hoko.*",
           "answer": "*he*"
         },
         {
           "id": "ch26-ex2-3",
-          "prompt": "*Kuo nau ō mai ___ nau lau 'a e tohí.*",
+          "prompt": "*Kuo nau ō mai \\_\\_\\_ nau lau 'a e tohí.*",
           "answer": "*ke*"
         },
         {
           "id": "ch26-ex2-4",
-          "prompt": "*'Oua té ke hiva, ___ 'okú ne mohe.*",
+          "prompt": "*'Oua té ke hiva, \\_\\_\\_ 'okú ne mohe.*",
           "answer": "*he*"
         },
         {
           "id": "ch26-ex2-5",
-          "prompt": "*Na'á ku 'alu ___ u fakatau mai ha ika.*",
+          "prompt": "*Na'á ku 'alu \\_\\_\\_ u fakatau mai ha ika.*",
           "answer": "*ke* (or *koe'uhi ke*)"
         },
         {
           "id": "ch26-ex2-6",
-          "prompt": "*'Oku nau nofo 'i 'api, ___ 'oku 'uha.*",
+          "prompt": "*'Oku nau nofo 'i 'api, \\_\\_\\_ 'oku 'uha.*",
           "answer": "*he*"
         }
       ]
@@ -5158,36 +5135,36 @@
       "id": "ch26-ex3",
       "number": 3,
       "title": "Choose *ma'a* or *mo'o*",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch26-ex3-1",
-          "prompt": "*Ko e ika eni ___ Mele.* (fish)",
+          "prompt": "*Ko e ika eni \\_\\_\\_ Mele.* (fish)",
           "answer": "*ma'a* (fish is food, 'e-class)"
         },
         {
           "id": "ch26-ex3-2",
-          "prompt": "*'Oku langa e falé ___ Sione.* (house)",
+          "prompt": "*'Oku langa e falé \\_\\_\\_ Sione.* (house)",
           "answer": "*mo'o* (house shelters, ho-class)"
         },
         {
           "id": "ch26-ex3-3",
-          "prompt": "*Na'a nau tānaki 'a e pa'angá ___ e kau tamaikí.* (money)",
+          "prompt": "*Na'a nau tānaki 'a e pa'angá \\_\\_\\_ e kau tamaikí.* (money)",
           "answer": "*ma'a* (money is controlled, 'e-class)"
         },
         {
           "id": "ch26-ex3-4",
-          "prompt": "*Ko e ki'i vaka eni ___ Tēvita.* (boat)",
+          "prompt": "*Ko e ki'i vaka eni \\_\\_\\_ Tēvita.* (boat)",
           "answer": "*mo'o* (boat carries, ho-class)"
         },
         {
           "id": "ch26-ex3-5",
-          "prompt": "*'Ave e valá ___ Siale.* (clothes)",
+          "prompt": "*'Ave e valá \\_\\_\\_ Siale.* (clothes)",
           "answer": "*ma'a* (clothes are worn/controlled, 'e-class)"
         },
         {
           "id": "ch26-ex3-6",
-          "prompt": "*Ko e tohi eni ___ Sēmisi.* (book)",
+          "prompt": "*Ko e tohi eni \\_\\_\\_ Sēmisi.* (book)",
           "answer": "*ma'a* (book is read/acted upon, 'e-class)"
         }
       ]
@@ -5346,32 +5323,32 @@
       "items": [
         {
           "id": "ch27-ex3-1",
-          "prompt": "*'Oku sai ______ 'a Tonga 'i Fisi.*",
+          "prompt": "*'Oku sai \\_\\_\\_\\_\\_\\_ 'a Tonga 'i Fisi.*",
           "answer": "*ange*"
         },
         {
           "id": "ch27-ex3-2",
-          "prompt": "*'Oku lelei ______ 'a e ngāué 'a Fifita.*",
+          "prompt": "*'Oku lelei \\_\\_\\_\\_\\_\\_ 'a e ngāué 'a Fifita.*",
           "answer": "*taha*"
         },
         {
           "id": "ch27-ex3-3",
-          "prompt": "*'Okú na ______ 'aupito.*",
+          "prompt": "*'Okú na \\_\\_\\_\\_\\_\\_ 'aupito.*",
           "answer": "*fai kehekehe*"
         },
         {
           "id": "ch27-ex3-4",
-          "prompt": "*'Oku ______ 'a e ongo valá.*",
+          "prompt": "*'Oku \\_\\_\\_\\_\\_\\_ 'a e ongo valá.*",
           "answer": "*tatau*"
         },
         {
           "id": "ch27-ex3-5",
-          "prompt": "*Na'e lea 'a Peni 'o ______ ko e faiako.*",
+          "prompt": "*Na'e lea 'a Peni 'o \\_\\_\\_\\_\\_\\_ ko e faiako.*",
           "answer": "*hangē*"
         },
         {
           "id": "ch27-ex3-6",
-          "prompt": "*'Oku fu'u lahi ______ 'a e falé ni.*",
+          "prompt": "*'Oku fu'u lahi \\_\\_\\_\\_\\_\\_ 'a e falé ni.*",
           "answer": "*ange*"
         }
       ]
@@ -5478,27 +5455,27 @@
       "items": [
         {
           "id": "ch27-ex7-1",
-          "prompt": "*'Oku ___ 'a e vela 'i Fisi he vela 'i Ha'amoá.* — The heat in Fiji is surpassed by the heat in Samoa.",
+          "prompt": "*'Oku \\_\\_\\_ 'a e vela 'i Fisi he vela 'i Ha'amoá.* The heat in Fiji is surpassed by the heat in Samoa.",
           "answer": "*'ange'ange*"
         },
         {
           "id": "ch27-ex7-2",
-          "prompt": "*Kapau na'e lava ia 'e Mele, ___ 'a Tēvita.* — If Mele could do it, how much more Tēvita.",
+          "prompt": "*Kapau na'e lava ia 'e Mele, \\_\\_\\_ 'a Tēvita.* If Mele could do it, how much more Tēvita.",
           "answer": "*huanoa*"
         },
         {
           "id": "ch27-ex7-3",
-          "prompt": "*Na'á ne lea 'o ___ ko e faiakó.* — He spoke as though he were the teacher.",
+          "prompt": "*Na'á ne lea 'o \\_\\_\\_ ko e faiakó.* He spoke as though he were the teacher.",
           "answer": "*hangē*"
         },
         {
           "id": "ch27-ex7-4",
-          "prompt": "*Kapau 'oku fiefia 'a e tamaikí, ___ 'a e mātu'á.* — If the children are happy, how much more the parents.",
+          "prompt": "*Kapau 'oku fiefia 'a e tamaikí, \\_\\_\\_ 'a e mātu'á.* If the children are happy, how much more the parents.",
           "answer": "*huanoa*"
         },
         {
           "id": "ch27-ex7-5",
-          "prompt": "*'Oku ___ 'a e ngāué 'a Sione he ngāué 'a Mele.* — Sione's work is surpassed by Mele's work.",
+          "prompt": "*'Oku \\_\\_\\_ 'a e ngāué 'a Sione he ngāué 'a Mele.* Sione's work is surpassed by Mele's work.",
           "answer": "*'ange'ange*"
         }
       ]
@@ -5583,6 +5560,21 @@
           "id": "ch28-ex1-8",
           "prompt": "*'Okú ne 'ave ange 'a e me'akaí ki he kau tamaikí.*",
           "answer": "She is taking the food to the children. (toward a third party)"
+        },
+        {
+          "id": "ch28-ex1-9",
+          "prompt": "*Hanga 'o tāpuni 'a e matapaá.*",
+          "answer": "Close the door. (polite)"
+        },
+        {
+          "id": "ch28-ex1-10",
+          "prompt": "*Hanga mu'a 'o fakaava 'a e matapaá.*",
+          "answer": "Please open the door."
+        },
+        {
+          "id": "ch28-ex1-11",
+          "prompt": "*Hanga ange mu'a 'e Sēmisi 'o fufulu 'a e ipú.*",
+          "answer": "Sēmisi, would you please wash the cup."
         }
       ]
     },
@@ -5642,32 +5634,32 @@
       "items": [
         {
           "id": "ch28-ex3-1",
-          "prompt": "*Ha'u ______!* (Come here!)",
+          "prompt": "*Ha'u \\_\\_\\_\\_\\_\\_!* (Come here!)",
           "answer": "*mai*"
         },
         {
           "id": "ch28-ex3-2",
-          "prompt": "*'Alu ______!* (Go away!)",
+          "prompt": "*'Alu \\_\\_\\_\\_\\_\\_!* (Go away!)",
           "answer": "*atu*"
         },
         {
           "id": "ch28-ex3-3",
-          "prompt": "*Tala ______ ke ha'u!* (Tell him to come!)",
+          "prompt": "*Tala \\_\\_\\_\\_\\_\\_ ke ha'u!* (Tell him to come!)",
           "answer": "*ange*"
         },
         {
           "id": "ch28-ex3-4",
-          "prompt": "*Na'e tō ______ 'a e kató.* (The basket fell down.)",
+          "prompt": "*Na'e tō \\_\\_\\_\\_\\_\\_ 'a e kató.* (The basket fell down.)",
           "answer": "*hifo*"
         },
         {
           "id": "ch28-ex3-5",
-          "prompt": "*Na'a mau ō ______ 'o mamata.* (We went around and looked.)",
+          "prompt": "*Na'a mau ō \\_\\_\\_\\_\\_\\_ 'o mamata.* (We went around and looked.)",
           "answer": "*holo*"
         },
         {
           "id": "ch28-ex3-6",
-          "prompt": "*Sio ______ ki he laní!* (Look up at the sky!)",
+          "prompt": "*Sio \\_\\_\\_\\_\\_\\_ ki he laní!* (Look up at the sky!)",
           "answer": "*hake*"
         }
       ]
@@ -5681,22 +5673,22 @@
         {
           "id": "ch28-ex4-1",
           "prompt": "*'Okú ne lele mai.* → (atu)",
-          "answer": "*'Okú ne lele atu.* — He/she is running away."
+          "answer": "*'Okú ne lele atu.* He/she is running away."
         },
         {
           "id": "ch28-ex4-2",
           "prompt": "*Na'e 'alu hifo 'a Mele.* → (hake)",
-          "answer": "*Na'e 'alu hake 'a Mele.* — Mele went up."
+          "answer": "*Na'e 'alu hake 'a Mele.* Mele went up."
         },
         {
           "id": "ch28-ex4-3",
           "prompt": "*Na'a mau ō holo.* → (atu)",
-          "answer": "*Na'a mau ō atu.* — We went away."
+          "answer": "*Na'a mau ō atu.* We went away."
         },
         {
           "id": "ch28-ex4-4",
           "prompt": "*Tala ange ke ha'u!* → (mai: change *ange* to *mai*)",
-          "answer": "*Tala mai ke ha'u!* — Tell me to come! (sending the message toward the speaker)"
+          "answer": "*Tala mai ke ha'u!* Tell me to come! (sending the message toward the speaker)"
         }
       ]
     },
@@ -5749,32 +5741,32 @@
         {
           "id": "ch29-ex1-1",
           "prompt": "*'eku tokoni*",
-          "answer": "*'eku tokoni* — doer: my helping (I do the helping)"
+          "answer": "*'eku tokoni*. doer: my helping (I do the helping)"
         },
         {
           "id": "ch29-ex1-2",
           "prompt": "*hono fili*",
-          "answer": "*hono fili* — receiver: his being chosen"
+          "answer": "*hono fili*. receiver: his being chosen"
         },
         {
           "id": "ch29-ex1-3",
           "prompt": "*'ene hiva*",
-          "answer": "*'ene hiva* — doer: his singing (he does the singing)"
+          "answer": "*'ene hiva*. doer: his singing (he does the singing)"
         },
         {
           "id": "ch29-ex1-4",
           "prompt": "*hoku fili*",
-          "answer": "*hoku fili* — receiver: my being chosen"
+          "answer": "*hoku fili*. receiver: my being chosen"
         },
         {
           "id": "ch29-ex1-5",
           "prompt": "*'enau ngāue*",
-          "answer": "*'enau ngāue* — doer: their working"
+          "answer": "*'enau ngāue*. doer: their working"
         },
         {
           "id": "ch29-ex1-6",
           "prompt": "*hono tohi*",
-          "answer": "*hono tohi* — receiver: his being written about"
+          "answer": "*hono tohi*. receiver: his being written about"
         }
       ]
     },
@@ -5782,46 +5774,46 @@
       "id": "ch29-ex2",
       "number": 2,
       "title": "Choose the correct possessive class",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch29-ex2-1",
-          "prompt": "*______ hele* (my knife, I use it)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ hele* (my knife, I use it)",
           "answer": "*'eku* hele ('e-class, tool)"
         },
         {
           "id": "ch29-ex2-2",
-          "prompt": "*______ fale* (my house, it shelters me)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ fale* (my house, it shelters me)",
           "answer": "*hoku* fale (ho-class, shelter)"
         },
         {
           "id": "ch29-ex2-3",
-          "prompt": "*______ me'akai* (my food, I eat it)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ me'akai* (my food, I eat it)",
           "answer": "*'eku* me'akai ('e-class, food)"
         },
         {
           "id": "ch29-ex2-4",
-          "prompt": "*______ kofu* (my clothes, they cover me)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ kofu* (my clothes, they cover me)",
           "answer": "*hoku* kofu (ho-class, clothing)"
         },
         {
           "id": "ch29-ex2-5",
-          "prompt": "*______ kumala* (my sweet potato plants, crops)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ kumala* (my sweet potato plants, crops)",
           "answer": "*'eku* kumala ('e-class, crop)"
         },
         {
           "id": "ch29-ex2-6",
-          "prompt": "*______ niu* (my coconut palms, trees)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ niu* (my coconut palms, trees)",
           "answer": "*hoku* niu (ho-class, tree)"
         },
         {
           "id": "ch29-ex2-7",
-          "prompt": "*______ tamai* (my father)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ tamai* (my father)",
           "answer": "*'eku* tamai ('e-class, parent exception)"
         },
         {
           "id": "ch29-ex2-8",
-          "prompt": "*______ tokoua* (my sibling)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_ tokoua* (my sibling)",
           "answer": "*hoku* tokoua (ho-class, relative)"
         }
       ]
@@ -5868,31 +5860,31 @@
       "id": "ch29-ex4",
       "number": 4,
       "title": "Possessives with prepositions",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch29-ex4-1",
-          "prompt": "*_______ falé* — to my house (*ki* + ho-class)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_\\_ falé*. to my house (*ki* + ho-class)",
           "answer": "*ki hoku* falé"
         },
         {
           "id": "ch29-ex4-2",
-          "prompt": "*_______ tamaí* — from my father (*mei* + 'e-class)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_\\_ tamaí*. from my father (*mei* + 'e-class)",
           "answer": "*mei he'eku* tamaí"
         },
         {
           "id": "ch29-ex4-3",
-          "prompt": "*_______ lokí* — in his room (*'i* + ho-class)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_\\_ lokí*. in his room (*'i* + ho-class)",
           "answer": "*'i hono* lokí"
         },
         {
           "id": "ch29-ex4-4",
-          "prompt": "*_______ faiakó* — by their teacher (*'e* + 'e-class)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_\\_ faiakó*. by their teacher (*'e* + 'e-class)",
           "answer": "*'e he 'enau* faiakó"
         },
         {
           "id": "ch29-ex4-5",
-          "prompt": "*_______ 'apí* — from our (excl.) home (*mei* + ho-class)",
+          "prompt": "*\\_\\_\\_\\_\\_\\_\\_ 'apí*. from our (excl.) home (*mei* + ho-class)",
           "answer": "*mei homau* 'apí"
         }
       ]
@@ -6280,42 +6272,42 @@
         {
           "id": "ch32-ex1-1",
           "prompt": "*Tonga*",
-          "answer": "*faka-Tonga* — Tongan, in the Tongan way"
+          "answer": "*faka-Tonga*. Tongan, in the Tongan way"
         },
         {
           "id": "ch32-ex1-2",
           "prompt": "*mohe*",
-          "answer": "*fakamohe* — to put to sleep"
+          "answer": "*fakamohe*. to put to sleep"
         },
         {
           "id": "ch32-ex1-3",
           "prompt": "*'aho*",
-          "answer": "*faka'aho* — daily"
+          "answer": "*faka'aho*. daily"
         },
         {
           "id": "ch32-ex1-4",
           "prompt": "*tu'i*",
-          "answer": "*fakatu'i* — kingly, royal"
+          "answer": "*fakatu'i*. kingly, royal"
         },
         {
           "id": "ch32-ex1-5",
           "prompt": "*lelei*",
-          "answer": "*fakalelei* — to mend, to make good"
+          "answer": "*fakalelei*. to mend, to make good"
         },
         {
           "id": "ch32-ex1-6",
           "prompt": "*uike*",
-          "answer": "*fakauike* — weekly"
+          "answer": "*fakauike*. weekly"
         },
         {
           "id": "ch32-ex1-7",
           "prompt": "*taha*",
-          "answer": "*fakataha* — to assemble, to gather together"
+          "answer": "*fakataha*. to assemble, to gather together"
         },
         {
           "id": "ch32-ex1-8",
           "prompt": "*totonu*",
-          "answer": "*fakatotonu* — to straighten"
+          "answer": "*fakatotonu*. to straighten"
         }
       ]
     },
@@ -6403,27 +6395,27 @@
       "items": [
         {
           "id": "ch32-ex4-1",
-          "prompt": "*'Oku ou hiva ___.* (in the Tongan way)",
+          "prompt": "*'Oku ou hiva \\_\\_\\_.* (in the Tongan way)",
           "answer": "*faka-Tonga*"
         },
         {
           "id": "ch32-ex4-2",
-          "prompt": "*Na'á ne ___ 'ene tamasi'í.* (put to sleep)",
+          "prompt": "*Na'á ne \\_\\_\\_ 'ene tamasi'í.* (put to sleep)",
           "answer": "*fakamohe*"
         },
         {
           "id": "ch32-ex4-3",
-          "prompt": "*'Oku ou lotu ___.* (daily)",
+          "prompt": "*'Oku ou lotu \\_\\_\\_.* (daily)",
           "answer": "*faka'aho*"
         },
         {
           "id": "ch32-ex4-4",
-          "prompt": "*Na'á ku ___ 'a e falá.* (straightened)",
+          "prompt": "*Na'á ku \\_\\_\\_ 'a e falá.* (straightened)",
           "answer": "*fakatotonu*"
         },
         {
           "id": "ch32-ex4-5",
-          "prompt": "*Kuo nau ___ 'i heni.* (assembled)",
+          "prompt": "*Kuo nau \\_\\_\\_ 'i heni.* (assembled)",
           "answer": "*fakataha*"
         }
       ]
@@ -6483,7 +6475,7 @@
       "items": [
         {
           "id": "ch33-ex2-1",
-          "prompt": "I helped Tevita. (use *tokoni'i*)",
+          "prompt": "I helped Tēvita. (use *tokoni'i*)",
           "answer": "*Na'á ku tokoni'i 'a Tēvita.*"
         },
         {
@@ -6544,27 +6536,27 @@
       "items": [
         {
           "id": "ch33-ex4-1",
-          "prompt": "*Fufulu ___ ho falá e vai māfaná.* (with, instrument)",
+          "prompt": "*Fufulu \\_\\_\\_ ho falá e vai māfaná.* (with, instrument)",
           "answer": "*'aki* (separate word)"
         },
         {
           "id": "ch33-ex4-2",
-          "prompt": "*Na'á ku tokoni___ 'a Mele.* (helped, transitive)",
+          "prompt": "*Na'á ku tokoni\\_\\_\\_ 'a Mele.* (helped, transitive)",
           "answer": "*'i* (→ *tokoni'i*)"
         },
         {
           "id": "ch33-ex4-3",
-          "prompt": "*'Oku mau ngāue___ 'ene tohí.* (using)",
+          "prompt": "*'Oku mau ngāue\\_\\_\\_ 'ene tohí.* (using)",
           "answer": "*'aki* (→ *ngāue'aki*)"
         },
         {
           "id": "ch33-ex4-4",
-          "prompt": "*Na'á ne puke 'a e helé 'o ne tā ___ e iká.* (with it)",
+          "prompt": "*Na'á ne puke 'a e helé 'o ne tā \\_\\_\\_ e iká.* (with it)",
           "answer": "*'aki* (pronominal adverb)"
         },
         {
           "id": "ch33-ex4-5",
-          "prompt": "*Na'á ku tāpuni___ e katō.* (closed completely)",
+          "prompt": "*Na'á ku tāpuni\\_\\_\\_ e katō.* (closed completely)",
           "answer": "*'i* (→ *tāpuni'i*)"
         }
       ]
@@ -6578,12 +6570,12 @@
         {
           "id": "ch33-ex5-1",
           "prompt": "*'Oku ou manatu kia Sēmisi.*",
-          "answer": "I remember Semisi (with feeling, nostalgically)."
+          "answer": "I remember Sēmisi (with feeling, nostalgically)."
         },
         {
           "id": "ch33-ex5-2",
           "prompt": "*'Oku ou manatu'i 'a Sēmisi.*",
-          "answer": "I remember Semisi (I can recall him, factually)."
+          "answer": "I remember Sēmisi (I can recall him, factually)."
         },
         {
           "id": "ch33-ex5-3",
@@ -6752,22 +6744,22 @@
         {
           "id": "ch34-ex4-1",
           "prompt": "Kuo 'alu 'a Sēmisi ki Ha'amoa. (reportative)",
-          "answer": "*Tokua kuo 'alu 'a Sēmisi ki Ha'amoa.* — It is said that Sēmisi has gone to Samoa."
+          "answer": "*Tokua kuo 'alu 'a Sēmisi ki Ha'amoa.* It is said that Sēmisi has gone to Samoa."
         },
         {
           "id": "ch34-ex4-2",
           "prompt": "'Oku mo'oni. (discovery)",
-          "answer": "*Tā 'oku mo'oni.* — So it is true."
+          "answer": "*Tā 'oku mo'oni.* So it is true."
         },
         {
           "id": "ch34-ex4-3",
           "prompt": "Na'e 'ikai té ke foki. (discovery)",
-          "answer": "*Tā na'e 'ikai té ke foki.* — So you did not return after all."
+          "answer": "*Tā na'e 'ikai té ke foki.* So you did not return after all."
         },
         {
           "id": "ch34-ex4-4",
           "prompt": "Kuo ngāue 'a Mele 'i he falekoloa. (reportative) ---",
-          "answer": "*Tokua kuo ngāue 'a Mele 'i he falekoloa.* — It is said that Mele has been working at the store."
+          "answer": "*Tokua kuo ngāue 'a Mele 'i he falekoloa.* It is said that Mele has been working at the store."
         }
       ]
     }
@@ -6842,32 +6834,32 @@
       "items": [
         {
           "id": "ch35-ex3-1",
-          "prompt": "______ me'a ______ (lahi — big)",
+          "prompt": "______ me'a ______ (lahi: big)",
           "answer": "*ha me'a lahi* (postposed: standard adjective)"
         },
         {
           "id": "ch35-ex3-2",
-          "prompt": "______ fale ______ (fu'u — big)",
+          "prompt": "______ fale ______ (fu'u: big)",
           "answer": "*ha fu'u fale* (preposed: *fu'u* always goes before the noun)"
         },
         {
           "id": "ch35-ex3-3",
-          "prompt": "______ tamasi'i ______ (ki'i — small)",
+          "prompt": "______ tamasi'i ______ (ki'i: small)",
           "answer": "*ha ki'i tamasi'i* (preposed: *ki'i* always goes before the noun)"
         },
         {
           "id": "ch35-ex3-4",
-          "prompt": "______ me'a ______ (kehe — different)",
+          "prompt": "______ me'a ______ (kehe: different)",
           "answer": "*ha me'a kehe* (postposed: *kehe* is a standard adjective)"
         },
         {
           "id": "ch35-ex3-5",
-          "prompt": "______ tohi ______ ('uluaki — first)",
+          "prompt": "______ tohi ______ ('uluaki: first)",
           "answer": "*ha 'uluaki tohi* (preposed: *'uluaki* always goes before the noun)"
         },
         {
           "id": "ch35-ex3-6",
-          "prompt": "______ me'a ______ (toe — additional)",
+          "prompt": "______ me'a ______ (toe: additional)",
           "answer": "*ha toe me'a* (preposed: *toe* always goes before the noun)"
         }
       ]
@@ -6881,32 +6873,32 @@
         {
           "id": "ch35-ex4-1",
           "prompt": "*fu'u mango*",
-          "answer": "*fu'u mango* — a mango tree (tree classifier)"
+          "answer": "*fu'u mango*. a mango tree (tree classifier)"
         },
         {
           "id": "ch35-ex4-2",
           "prompt": "*fu'u lahi*",
-          "answer": "*fu'u lahi* — really big (size intensifier)"
+          "answer": "*fu'u lahi*. really big (size intensifier)"
         },
         {
           "id": "ch35-ex4-3",
           "prompt": "*fu'u niu*",
-          "answer": "*fu'u niu* — a coconut palm (tree classifier)"
+          "answer": "*fu'u niu*. a coconut palm (tree classifier)"
         },
         {
           "id": "ch35-ex4-4",
           "prompt": "*fu'u lelei*",
-          "answer": "*fu'u lelei* — really good (size intensifier)"
+          "answer": "*fu'u lelei*. really good (size intensifier)"
         },
         {
           "id": "ch35-ex4-5",
           "prompt": "*fu'u mei*",
-          "answer": "*fu'u mei* — a breadfruit tree (tree classifier)"
+          "answer": "*fu'u mei*. a breadfruit tree (tree classifier)"
         },
         {
           "id": "ch35-ex4-6",
           "prompt": "*fu'u helaʻia*",
-          "answer": "*fu'u helaʻia* — really tired (size intensifier)"
+          "answer": "*fu'u helaʻia*. really tired (size intensifier)"
         }
       ]
     },
@@ -6965,32 +6957,32 @@
       "id": "ch35-ex7",
       "number": 7,
       "title": "Build *loto* compounds",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch35-ex7-1",
-          "prompt": "*'Oku ou ______ 'i he me'a na'e hoko.* (sad/upset about what happened)",
-          "answer": "*'Oku ou loto mamahi 'i he me'a na'e hoko.* — I am upset about what happened."
+          "prompt": "*'Oku ou \\_\\_\\_\\_\\_\\_ 'i he me'a na'e hoko.* (sad/upset about what happened)",
+          "answer": "*'Oku ou loto mamahi 'i he me'a na'e hoko.* I am upset about what happened."
         },
         {
           "id": "ch35-ex7-2",
-          "prompt": "*Ko e tangata ______ 'a Sione.* (courageous man)",
-          "answer": "*Ko e tangata loto to'a 'a Sione.* — Sione is a courageous man."
+          "prompt": "*Ko e tangata \\_\\_\\_\\_\\_\\_ 'a Sione.* (courageous man)",
+          "answer": "*Ko e tangata loto to'a 'a Sione.* Sione is a courageous man."
         },
         {
           "id": "ch35-ex7-3",
-          "prompt": "*'Ai ké ke ______!* (be agreeable)",
-          "answer": "*'Ai ké ke loto lelei!* — Work on being agreeable."
+          "prompt": "*'Ai ké ke \\_\\_\\_\\_\\_\\_!* (be agreeable)",
+          "answer": "*'Ai ké ke loto lelei!* Work on being agreeable."
         },
         {
           "id": "ch35-ex7-4",
-          "prompt": "*'Oua té ke ______!* (do not be cowardly)",
-          "answer": "*'Oua té ke loto fo'i!* — Do not be a coward."
+          "prompt": "*'Oua té ke \\_\\_\\_\\_\\_\\_!* (do not be cowardly)",
+          "answer": "*'Oua té ke loto fo'i!* Do not be a coward."
         },
         {
           "id": "ch35-ex7-5",
-          "prompt": "*'Oku ______ 'a Lupe ké ne ako.* (eager to study) ---",
-          "answer": "*'Oku loto lahi 'a Lupe ké ne ako.* — Lupe is eager to study."
+          "prompt": "*'Oku \\_\\_\\_\\_\\_\\_ 'a Lupe ké ne ako.* (eager to study) ---",
+          "answer": "*'Oku loto lahi 'a Lupe ké ne ako.* Lupe is eager to study."
         }
       ]
     }
@@ -7157,32 +7149,32 @@
         {
           "id": "ch36-ex5-1",
           "prompt": "Ko Sione ______ ne kai 'a e mā. (*na'á* / *na'e* / *'e*)",
-          "answer": "*na'á* — the tense marker *na'a* takes an acute accent before the one-syllable pronoun *ne*"
+          "answer": "*na'á*. the tense marker *na'a* takes an acute accent before the one-syllable pronoun *ne*"
         },
         {
           "id": "ch36-ex5-2",
           "prompt": "Ko e tangata ______ na'e 'ita. (*ia* / *ai* / *eni*)",
-          "answer": "*ia* — the emphatic pronoun reinforcing the subject's identity"
+          "answer": "*ia*. the emphatic pronoun reinforcing the subject's identity"
         },
         {
           "id": "ch36-ex5-3",
           "prompt": "Ko e me'a ia 'oku ou loto mamahi ______. (*ia* / *ai* / *eni*)",
-          "answer": "*ai* — refers back to *ko e me'a ia*"
+          "answer": "*ai*. refers back to *ko e me'a ia*"
         },
         {
           "id": "ch36-ex5-4",
           "prompt": "Ko e me'a ______ 'oku ou hela'ia ai. (*ia* / *eni* / *foki*)",
-          "answer": "*ia* — completing the set phrase *ko e me'a ia ... ai*"
+          "answer": "*ia*. completing the set phrase *ko e me'a ia ... ai*"
         },
         {
           "id": "ch36-ex5-5",
           "prompt": "Ko Mele ______ e faiako. (*'a* / *ko e* / *'e*)",
-          "answer": "*ko e* — the second *ko* introduces the predicate in an emphatic equational sentence"
+          "answer": "*ko e*. the second *ko* introduces the predicate in an emphatic equational sentence"
         },
         {
           "id": "ch36-ex5-6",
           "prompt": "Ko e ika eni na'á ku ______. (*kaí* / *kai* / *'ita*) ---",
-          "answer": "*kaí* — a transitive verb with the definitive accent marking the end of the relative clause; *'ita* (angry) is intransitive and would not take an unexpressed object"
+          "answer": "*kaí*. a transitive verb with the definitive accent marking the end of the relative clause; *'ita* (angry) is intransitive and would not take an unexpressed object"
         }
       ]
     }
@@ -7621,32 +7613,32 @@
       "items": [
         {
           "id": "ch38-ex7-1",
-          "prompt": "*Té ke ha'u _____ pe 'ikai?* [requesting a definite answer]",
+          "prompt": "*Té ke ha'u \\_\\_\\_\\_\\_ pe 'ikai?* [requesting a definite answer]",
           "answer": "*koā*"
         },
         {
           "id": "ch38-ex7-2",
-          "prompt": "*'E ha'u _____ 'a e vakapuná 'apongipongi?* [gentle conjecture]",
+          "prompt": "*'E ha'u \\_\\_\\_\\_\\_ 'a e vakapuná 'apongipongi?* [gentle conjecture]",
           "answer": "*'apē*"
         },
         {
           "id": "ch38-ex7-3",
-          "prompt": "*'Oku 'i fē _____ 'a Mele?* [wondering]",
+          "prompt": "*'Oku 'i fē \\_\\_\\_\\_\\_ 'a Mele?* [wondering]",
           "answer": "*nai*"
         },
         {
           "id": "ch38-ex7-4",
-          "prompt": "*Ko e hā _____ 'a e me'a 'oku 'ita ai 'a e pulé?* [what could the reason be]",
+          "prompt": "*Ko e hā \\_\\_\\_\\_\\_ 'a e me'a 'oku 'ita ai 'a e pulé?* [what could the reason be]",
           "answer": "*'apē*"
         },
         {
           "id": "ch38-ex7-5",
-          "prompt": "*'Oku toko fiha _____ ho'o fānau?* [polite, softened]",
+          "prompt": "*'Oku toko fiha \\_\\_\\_\\_\\_ ho'o fānau?* [polite, softened]",
           "answer": "*nai*"
         },
         {
           "id": "ch38-ex7-6",
-          "prompt": "*'Oku nofo _____ heni 'a Sione pe 'ikai?* [I need a clear answer]",
+          "prompt": "*'Oku nofo \\_\\_\\_\\_\\_ heni 'a Sione pe 'ikai?* [I need a clear answer]",
           "answer": "*koā*"
         }
       ]
@@ -7655,56 +7647,56 @@
       "id": "ch38-ex8",
       "number": 8,
       "title": "Mixed Adverb Review",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch38-ex8-1",
-          "prompt": "*'Oku _____ tangi 'a e pēpē.* (the baby cries repeatedly)",
+          "prompt": "*'Oku \\_\\_\\_\\_\\_ tangi 'a e pēpē.* (the baby cries repeatedly)",
           "answer": "*toutou*"
         },
         {
           "id": "ch38-ex8-2",
-          "prompt": "*Na'á ku _____ tō 'i he halá.* (I almost fell on the road)",
+          "prompt": "*Na'á ku \\_\\_\\_\\_\\_ tō 'i he halá.* (I almost fell on the road)",
           "answer": "*meimei*"
         },
         {
           "id": "ch38-ex8-3",
-          "prompt": "*Ko e ha'u 'eni 'o 'Isileli _____ ki heni.* (Isileli comes here as always)",
+          "prompt": "*Ko e ha'u 'eni 'o 'Isileli \\_\\_\\_\\_\\_ ki heni.* (Isileli comes here as always)",
           "answer": "*ai pē*"
         },
         {
           "id": "ch38-ex8-4",
-          "prompt": "*'Oku 'ikai ke _____ sai e ngāué.* (the work is not quite good)",
+          "prompt": "*'Oku 'ikai ke \\_\\_\\_\\_\\_ sai e ngāué.* (the work is not quite good)",
           "answer": "*loko*"
         },
         {
           "id": "ch38-ex8-5",
-          "prompt": "*'Oku 'i fē _____ 'a ho'o tohí?* (I wonder where your book is)",
+          "prompt": "*'Oku 'i fē \\_\\_\\_\\_\\_ 'a ho'o tohí?* (I wonder where your book is)",
           "answer": "*nai*"
         },
         {
           "id": "ch38-ex8-6",
-          "prompt": "*'E 'ikai té u _____ 'alu ki ai.* (I will not go there at all)",
+          "prompt": "*'E 'ikai té u \\_\\_\\_\\_\\_ 'alu ki ai.* (I will not go there at all)",
           "answer": "*teitei*"
         },
         {
           "id": "ch38-ex8-7",
-          "prompt": "*'Oku _____ mālohi 'a e falé ni.* (this house is extremely strong)",
+          "prompt": "*'Oku \\_\\_\\_\\_\\_ mālohi 'a e falé ni.* (this house is extremely strong)",
           "answer": "*matu'aki*"
         },
         {
           "id": "ch38-ex8-8",
-          "prompt": "*'Oku _____ nofo 'a Siosaia 'i Nuku'alofa.* (Siosaia lives mostly in Nuku'alofa)",
+          "prompt": "*'Oku \\_\\_\\_\\_\\_ nofo 'a Siosaia 'i Nuku'alofa.* (Siosaia lives mostly in Nuku'alofa)",
           "answer": "*lahi pē*"
         },
         {
           "id": "ch38-ex8-9",
-          "prompt": "*Té ke ō _____ pe 'ikai?* (are you going or not: I need an answer)",
+          "prompt": "*Té ke ō \\_\\_\\_\\_\\_ pe 'ikai?* (are you going or not: I need an answer)",
           "answer": "*koā*"
         },
         {
           "id": "ch38-ex8-10",
-          "prompt": "*'E lava _____ 'o fai 'a e ngāué 'apongipongi?* (can the work perhaps be done tomorrow) ---",
+          "prompt": "*'E lava \\_\\_\\_\\_\\_ 'o fai 'a e ngāué 'apongipongi?* (can the work perhaps be done tomorrow) ---",
           "answer": "*'apē*"
         }
       ]
@@ -7730,7 +7722,7 @@
         {
           "id": "ch39-ex1-3",
           "prompt": "*Na'a mo Sēmisi, na'e 'ikai fie tokoni mai.*",
-          "answer": "Even Semisi did not want to help."
+          "answer": "Even Sēmisi did not want to help."
         },
         {
           "id": "ch39-ex1-4",
@@ -7848,32 +7840,32 @@
       "items": [
         {
           "id": "ch39-ex4-1",
-          "prompt": "*'I he 'ahó _____ 'oku ou ngāue.* (this day = today)",
+          "prompt": "*'I he 'ahó \\_\\_\\_\\_\\_ 'oku ou ngāue.* (this day = today)",
           "answer": "*ni*"
         },
         {
           "id": "ch39-ex4-2",
-          "prompt": "*Ko _____!* (There it is, pointing)",
+          "prompt": "*Ko \\_\\_\\_\\_\\_!* (There it is, pointing)",
           "answer": "*ē*"
         },
         {
           "id": "ch39-ex4-3",
-          "prompt": "*Fai _____.* (Do it like that.)",
+          "prompt": "*Fai \\_\\_\\_\\_\\_.* (Do it like that.)",
           "answer": "*pehē*"
         },
         {
           "id": "ch39-ex4-4",
-          "prompt": "*Ko _____ pē.* (That is all.)",
+          "prompt": "*Ko \\_\\_\\_\\_\\_ pē.* (That is all.)",
           "answer": "*ia*"
         },
         {
           "id": "ch39-ex4-5",
-          "prompt": "*Nofo _____.* (Stay here.)",
+          "prompt": "*Nofo \\_\\_\\_\\_\\_.* (Stay here.)",
           "answer": "*heni*"
         },
         {
           "id": "ch39-ex4-6",
-          "prompt": "*Ko ho'o kató _____ 'i he tēpilé.* (There is your basket, near you, on the table.)",
+          "prompt": "*Ko ho'o kató \\_\\_\\_\\_\\_ 'i he tēpilé.* (There is your basket, near you, on the table.)",
           "answer": "*ena*"
         }
       ]
@@ -7932,7 +7924,7 @@
         {
           "id": "ch40-ex1-3",
           "prompt": "*'Oku tu'u 'a Sēmisi he tu'a falé.*",
-          "answer": "Semisi is standing outside the house."
+          "answer": "Sēmisi is standing outside the house."
         },
         {
           "id": "ch40-ex1-4",
@@ -7997,42 +7989,42 @@
       "items": [
         {
           "id": "ch40-ex3-1",
-          "prompt": "*'Oku tuku 'a e me'akaí he _____ tēpilé.* (The food is on top of the table.)",
+          "prompt": "*'Oku tuku 'a e me'akaí he \\_\\_\\_\\_\\_ tēpilé.* (The food is on top of the table.)",
           "answer": "*funga*"
         },
         {
           "id": "ch40-ex3-2",
-          "prompt": "*Na'á ku nofo 'i _____ falé.* (I stayed inside the house.)",
+          "prompt": "*Na'á ku nofo 'i \\_\\_\\_\\_\\_ falé.* (I stayed inside the house.)",
           "answer": "*loto*"
         },
         {
           "id": "ch40-ex3-3",
-          "prompt": "*'Oku tu'u 'a e vaká he _____ matatahí.* (The boat stands by the beach.)",
+          "prompt": "*'Oku tu'u 'a e vaká he \\_\\_\\_\\_\\_ matatahí.* (The boat stands by the beach.)",
           "answer": "*ve'e*"
         },
         {
           "id": "ch40-ex3-4",
-          "prompt": "*'Oku va'inga e fānaú he _____ falé.* (The children are playing outside the house.)",
+          "prompt": "*'Oku va'inga e fānaú he \\_\\_\\_\\_\\_ falé.* (The children are playing outside the house.)",
           "answer": "*tu'a*"
         },
         {
           "id": "ch40-ex3-5",
-          "prompt": "*Na'e tuku 'a e tohí 'i he _____ mohengá.* (The book was put under the bed.)",
+          "prompt": "*Na'e tuku 'a e tohí 'i he \\_\\_\\_\\_\\_ mohengá.* (The book was put under the bed.)",
           "answer": "*lalo*"
         },
         {
           "id": "ch40-ex3-6",
-          "prompt": "*'Oku nofo ia he _____ falé.* (She is sitting in front of the house.)",
+          "prompt": "*'Oku nofo ia he \\_\\_\\_\\_\\_ falé.* (She is sitting in front of the house.)",
           "answer": "*mata*"
         },
         {
           "id": "ch40-ex3-7",
-          "prompt": "*'Oku tu'u 'a e fu'u 'akau he _____ falé.* (The tree stands by the side of the house.)",
+          "prompt": "*'Oku tu'u 'a e fu'u 'akau he \\_\\_\\_\\_\\_ falé.* (The tree stands by the side of the house.)",
           "answer": "*tafa'aki*"
         },
         {
           "id": "ch40-ex3-8",
-          "prompt": "*'Oku 'i ai ha fale koloa he _____ halá.* (There is a store at the end of the road.)",
+          "prompt": "*'Oku 'i ai ha fale koloa he \\_\\_\\_\\_\\_ halá.* (There is a store at the end of the road.)",
           "answer": "*mui*"
         }
       ]
@@ -8070,33 +8062,33 @@
       "items": [
         {
           "id": "ch41-ex1-1",
-          "prompt": "*Na'e 'uha lahi 'anepō.* — It rained hard last night. (*'uha*)",
-          "answer": "verb — *'uha* (rain) takes a tense marker, so it is acting as a verb"
+          "prompt": "*Na'e 'uha lahi 'anepō.* It rained hard last night. (*'uha*)",
+          "answer": "verb: *'uha* (rain) takes a tense marker, so it is acting as a verb"
         },
         {
           "id": "ch41-ex1-2",
-          "prompt": "*Ha tohi lelei.* — A good book. (*tohi*)",
-          "answer": "noun — *tohi* (book) is introduced by the article *ha*"
+          "prompt": "*Ha tohi lelei.* A good book. (*tohi*)",
+          "answer": "noun: *tohi* (book) is introduced by the article *ha*"
         },
         {
           "id": "ch41-ex1-3",
-          "prompt": "*'Oku nau nofo matatahi.* — They live on the coast. (*matatahi*)",
-          "answer": "adverb — *matatahi* (coast) modifies the verb *nofo*, telling where"
+          "prompt": "*'Oku nau nofo matatahi.* They live on the coast. (*matatahi*)",
+          "answer": "adverb: *matatahi* (coast) modifies the verb *nofo*, telling where"
         },
         {
           "id": "ch41-ex1-4",
-          "prompt": "*Ha tangata tau.* — A fighting man. (*tau*)",
-          "answer": "adjective — *tau* (fight) modifies *tangata*, describing the type of man"
+          "prompt": "*Ha tangata tau.* A fighting man. (*tau*)",
+          "answer": "adjective: *tau* (fight) modifies *tangata*, describing the type of man"
         },
         {
           "id": "ch41-ex1-5",
-          "prompt": "*Ha 'ā maka.* — A stone fence. (*maka*)",
-          "answer": "adjective — *maka* (stone) modifies *'ā*, describing the type of fence"
+          "prompt": "*Ha 'ā maka.* A stone fence. (*maka*)",
+          "answer": "adjective: *maka* (stone) modifies *'ā*, describing the type of fence"
         },
         {
           "id": "ch41-ex1-6",
-          "prompt": "*Ha pō māhina.* — A moonlight night. (*māhina*)",
-          "answer": "adjective — *māhina* (moon) modifies *pō*, describing the type of night"
+          "prompt": "*Ha pō māhina.* A moonlight night. (*māhina*)",
+          "answer": "adjective: *māhina* (moon) modifies *pō*, describing the type of night"
         }
       ]
     },
@@ -8180,37 +8172,37 @@
       "id": "ch41-ex4",
       "number": 4,
       "title": "Choose *ngali* or *ngalingali* for each blank",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch41-ex4-1",
-          "prompt": "*'Oku ___ lelei 'a e me'akaí.* — The food looks good.",
-          "answer": "*ngali* — firm assessment, adjective follows directly"
+          "prompt": "*'Oku \\_\\_\\_ lelei 'a e me'akaí.* The food looks good.",
+          "answer": "*ngali*. firm assessment, adjective follows directly"
         },
         {
           "id": "ch41-ex4-2",
-          "prompt": "*'Oku ___ 'e 'uha 'apongipongi.* — It looks like it will rain tomorrow.",
-          "answer": "*ngalingali* — tentative, full clause with *'e* follows"
+          "prompt": "*'Oku \\_\\_\\_ 'e 'uha 'apongipongi.* It looks like it will rain tomorrow.",
+          "answer": "*ngalingali*. tentative, full clause with *'e* follows"
         },
         {
           "id": "ch41-ex4-3",
-          "prompt": "*'Oku ta'e ___ ho'o leá.* — Your speech is unbecoming.",
-          "answer": "*ngali* — fixed expression *ta'e ngali*"
+          "prompt": "*'Oku ta'e \\_\\_\\_ ho'o leá.* Your speech is unbecoming.",
+          "answer": "*ngali*. fixed expression *ta'e ngali*"
         },
         {
           "id": "ch41-ex4-4",
-          "prompt": "*'Oku ___ 'e 'ikai ke ha'u 'a Sione.* — It looks like Sione will not come.",
-          "answer": "*ngalingali* — tentative, full clause with *'e 'ikai ke* follows"
+          "prompt": "*'Oku \\_\\_\\_ 'e 'ikai ke ha'u 'a Sione.* It looks like Sione will not come.",
+          "answer": "*ngalingali*. tentative, full clause with *'e 'ikai ke* follows"
         },
         {
           "id": "ch41-ex4-5",
-          "prompt": "*'Oku ___ fe'unga 'a e pa'angá.* — The money looks like enough.",
-          "answer": "*ngali* — firm assessment, adjective follows directly"
+          "prompt": "*'Oku \\_\\_\\_ fe'unga 'a e pa'angá.* The money looks like enough.",
+          "answer": "*ngali*. firm assessment, adjective follows directly"
         },
         {
           "id": "ch41-ex4-6",
-          "prompt": "*Na'e ___ sai ange 'a e fakakaukau ko iá.* — That idea seemed better.",
-          "answer": "*ngalingali* — tentative assessment as preposed modifier"
+          "prompt": "*Na'e \\_\\_\\_ sai ange 'a e fakakaukau ko iá.* That idea seemed better.",
+          "answer": "*ngalingali*. tentative assessment as preposed modifier"
         }
       ]
     },
@@ -8333,23 +8325,23 @@
       "items": [
         {
           "id": "ch42-ex3-1",
-          "prompt": "*Na'á ku ha'u _____ 'Epeleli.* ('i / 'i he)",
-          "answer": "*'i* — months use *'i* alone, with no article"
+          "prompt": "*Na'á ku ha'u \\_\\_\\_\\_\\_ 'Epeleli.* ('i / 'i he)",
+          "answer": "*'i*. months use *'i* alone, with no article"
         },
         {
           "id": "ch42-ex3-2",
-          "prompt": "*_____ e ngāué pea nau ō.* (Hilí / Talu)",
-          "answer": "*Hilí* — \"after\" an event; *talu* means \"since\""
+          "prompt": "*\\_\\_\\_\\_\\_ e ngāué pea nau ō.* (Hilí / Talu)",
+          "answer": "*Hilí*. \"after\" an event; *talu* means \"since\""
         },
         {
           "id": "ch42-ex3-3",
-          "prompt": "*Ko e _____ tohi eni na'á ku lau.* (fuofua / 'uluaki)",
-          "answer": "*fuofua* — \"first\" in the sense of \"initial,\" emphasising a first occurrence"
+          "prompt": "*Ko e \\_\\_\\_\\_\\_ tohi eni na'á ku lau.* (fuofua / 'uluaki)",
+          "answer": "*fuofua*. \"first\" in the sense of \"initial,\" emphasising a first occurrence"
         },
         {
           "id": "ch42-ex3-4",
-          "prompt": "*Talu _____ ha'ú mo 'ene momoko.* (ho'o / ho)",
-          "answer": "*ho'o* — possessive before the verbal noun *ha'ú* (your coming)"
+          "prompt": "*Talu \\_\\_\\_\\_\\_ ha'ú mo 'ene momoko.* (ho'o / ho)",
+          "answer": "*ho'o*. possessive before the verbal noun *ha'ú* (your coming)"
         }
       ]
     },
@@ -8459,7 +8451,7 @@
         {
           "id": "ch43-ex1-8",
           "prompt": "*Na'á ku ngāue kia Sēmisi ta'e té u ma'u ha me'a.*",
-          "answer": "I worked for Semisi without receiving anything."
+          "answer": "I worked for Sēmisi without receiving anything."
         }
       ]
     },
@@ -8486,7 +8478,7 @@
         },
         {
           "id": "ch43-ex2-4",
-          "prompt": "No wonder Tevita ran away.",
+          "prompt": "No wonder Tēvita ran away.",
           "answer": "*Ne'ine'i hola 'a Tēvita ia.*"
         },
         {
@@ -8712,27 +8704,27 @@
         {
           "id": "ch45-ex1-1",
           "prompt": "*Na'á ne hiva 'i he fale lotu.* (He sang in the church.)",
-          "answer": "*'i he'ene hiva 'i he fale lotu* — when he sang in the church"
+          "answer": "*'i he'ene hiva 'i he fale lotu*. when he sang in the church"
         },
         {
           "id": "ch45-ex1-2",
           "prompt": "*Na'á ku tohi 'a e tohí.* (I wrote the book.)",
-          "answer": "*'i he'eku tohi 'a e tohí* — when I wrote the book"
+          "answer": "*'i he'eku tohi 'a e tohí*. when I wrote the book"
         },
         {
           "id": "ch45-ex1-3",
           "prompt": "*Na'a nau kai 'a e me'akaí.* (They ate the food.)",
-          "answer": "*'i he 'enau kai 'a e me'akaí* — when they ate the food"
+          "answer": "*'i he 'enau kai 'a e me'akaí*. when they ate the food"
         },
         {
           "id": "ch45-ex1-4",
           "prompt": "*Na'á ke ngāue 'i he ngoué.* (You worked in the garden.)",
-          "answer": "*'i he ho'o ngāue 'i he ngoué* — when you worked in the garden"
+          "answer": "*'i he ho'o ngāue 'i he ngoué*. when you worked in the garden"
         },
         {
           "id": "ch45-ex1-5",
           "prompt": "*Na'á ne 'alu ki Fisi.* (She went to Fiji.)",
-          "answer": "*'i he'ene 'alu ki Fisi* — when she went to Fiji"
+          "answer": "*'i he'ene 'alu ki Fisi*. when she went to Fiji"
         }
       ]
     },
@@ -8745,17 +8737,17 @@
         {
           "id": "ch45-ex2-1",
           "prompt": "*Na'e 'alu 'a Mele ki kolo.* (Mele went to town.)",
-          "answer": "*'I he 'alu 'a Mele ki kolo* — When Mele went to town"
+          "answer": "*'I he 'alu 'a Mele ki kolo*. When Mele went to town"
         },
         {
           "id": "ch45-ex2-2",
           "prompt": "*Na'e fufulu 'e Ana 'a e valá.* (Ana washed the clothes.)",
-          "answer": "*'I he fufulu 'e Ana 'a e valá* — When Ana washed the clothes"
+          "answer": "*'I he fufulu 'e Ana 'a e valá*. When Ana washed the clothes"
         },
         {
           "id": "ch45-ex2-3",
           "prompt": "*Na'e nofo 'a Tēvita 'i fale.* (Tēvita stayed at the house.)",
-          "answer": "*'I he nofo 'a Tēvita 'i fale* — When Tēvita stayed at the house"
+          "answer": "*'I he nofo 'a Tēvita 'i fale*. When Tēvita stayed at the house"
         }
       ]
     },
@@ -8796,17 +8788,17 @@
         {
           "id": "ch45-ex4-1",
           "prompt": "*'Oku hiva mālie 'a Lupe.* (Lupe sings superbly.)",
-          "answer": "*'Oku mālie e hiva 'a Lupe.* — Lupe's singing is superb."
+          "answer": "*'Oku mālie e hiva 'a Lupe.* Lupe's singing is superb."
         },
         {
           "id": "ch45-ex4-2",
           "prompt": "*'Oku ngāue mālohi 'a Sēmisi.* (Sēmisi works hard.)",
-          "answer": "*'Oku mālohi e ngāue 'a Sēmisi.* — Sēmisi's working is hard."
+          "answer": "*'Oku mālohi e ngāue 'a Sēmisi.* Sēmisi's working is hard."
         },
         {
           "id": "ch45-ex4-3",
           "prompt": "*Na'e ako lelei 'a Ana.* (Ana studied well.)",
-          "answer": "*Na'e lelei e ako 'a Ana.* — Ana's studying was good."
+          "answer": "*Na'e lelei e ako 'a Ana.* Ana's studying was good."
         }
       ]
     },
@@ -8844,32 +8836,32 @@
         {
           "id": "ch46-ex1-1",
           "prompt": "Na'á ku 'alu ___ Fisi. (ki)",
-          "answer": "*Na'á ku 'alu ki Fisi.* — I went to Fiji. (local noun: standard *ki*)"
+          "answer": "*Na'á ku 'alu ki Fisi.* I went to Fiji. (local noun: standard *ki*)"
         },
         {
           "id": "ch46-ex1-2",
           "prompt": "Na'á ku lea ___ Lupe. (ki)",
-          "answer": "*Na'á ku lea kia Lupe.* — I spoke to Lupe. (personal noun: *kia*)"
+          "answer": "*Na'á ku lea kia Lupe.* I spoke to Lupe. (personal noun: *kia*)"
         },
         {
           "id": "ch46-ex1-3",
           "prompt": "Na'á ne nofo ___ Sēmisi. ('i)",
-          "answer": "*Na'á ne nofo 'ia Sēmisi.* — He stayed with Sēmisi. (personal noun: *'ia*)"
+          "answer": "*Na'á ne nofo 'ia Sēmisi.* He stayed with Sēmisi. (personal noun: *'ia*)"
         },
         {
           "id": "ch46-ex1-4",
           "prompt": "Te mau folau ___ Ha'apai. (mei)",
-          "answer": "*Te mau folau mei Ha'apai.* — We will sail from Ha'apai. (local noun: standard *mei*)"
+          "answer": "*Te mau folau mei Ha'apai.* We will sail from Ha'apai. (local noun: standard *mei*)"
         },
         {
           "id": "ch46-ex1-5",
           "prompt": "Na'á ne tokoni ___ faiakó. (ki)",
-          "answer": "*Na'á ne tokoni ki he faiakó.* — He helped the teacher. (common noun: *ki he*)"
+          "answer": "*Na'á ne tokoni ki he faiakó.* He helped the teacher. (common noun: *ki he*)"
         },
         {
           "id": "ch46-ex1-6",
           "prompt": "Te nau foki ___ Siaosi. (mei)",
-          "answer": "*Te nau foki meia Siaosi.* — They will return from Siaosi. (personal noun: *meia*)"
+          "answer": "*Te nau foki meia Siaosi.* They will return from Siaosi. (personal noun: *meia*)"
         }
       ]
     },
@@ -8882,32 +8874,32 @@
         {
           "id": "ch46-ex2-1",
           "prompt": "*Mele*",
-          "answer": "*Mele* — personal: *kia Mele*"
+          "answer": "*Mele*. personal: *kia Mele*"
         },
         {
           "id": "ch46-ex2-2",
           "prompt": "*kolo*",
-          "answer": "*kolo* — local: *ki kolo*"
+          "answer": "*kolo*. local: *ki kolo*"
         },
         {
           "id": "ch46-ex2-3",
           "prompt": "*tamasi'i* (definite)",
-          "answer": "*tamasi'i* (definite) — common: *ki he tamasi'í*"
+          "answer": "*tamasi'i* (definite). Common: *ki he tamasi'í*"
         },
         {
           "id": "ch46-ex2-4",
           "prompt": "*Nuku'alofa*",
-          "answer": "*Nuku'alofa* — local: *ki Nuku'alofa*"
+          "answer": "*Nuku'alofa*. local: *ki Nuku'alofa*"
         },
         {
           "id": "ch46-ex2-5",
           "prompt": "*hou'eiki*",
-          "answer": "*hou'eiki* — personal (quasi-personal): *kia hou'eiki*"
+          "answer": "*hou'eiki*. personal (quasi-personal): *kia hou'eiki*"
         },
         {
           "id": "ch46-ex2-6",
           "prompt": "*tahi*",
-          "answer": "*tahi* — local (quasi-local): *ki tahi*"
+          "answer": "*tahi*. local (quasi-local): *ki tahi*"
         }
       ]
     },
@@ -9039,32 +9031,32 @@
         {
           "id": "ch47-ex1-1",
           "prompt": "___ ha'u 'a Ana, pea ke tala ki ai. (She is expected.)",
-          "answer": "*Ka* ha'u 'a Ana, pea ke tala ki ai. — When Ana comes, tell her. (*ka*: she is expected)"
+          "answer": "*Ka* ha'u 'a Ana, pea ke tala ki ai.* *When Ana comes, tell her. (*ka*: she is expected)"
         },
         {
           "id": "ch47-ex1-2",
           "prompt": "___ 'e ha'u 'a Ana, pea ke tala ki ai. (You are not sure she will come.)",
-          "answer": "*Kapau* 'e ha'u 'a Ana, pea ke tala ki ai. — If Ana comes, tell her. (*kapau*: uncertain)"
+          "answer": "*Kapau* 'e ha'u 'a Ana, pea ke tala ki ai.* *If Ana comes, tell her. (*kapau*: uncertain)"
         },
         {
           "id": "ch47-ex1-3",
           "prompt": "___ ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní.",
-          "answer": "*Ka ne* ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní. — Had you come last night, this thing would not have happened. (*ka ne*: past counterfactual)"
+          "answer": "*Ka ne* ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní.* *Had you come last night, this thing would not have happened. (*ka ne*: past counterfactual)"
         },
         {
           "id": "ch47-ex1-4",
           "prompt": "___ 'i ai ha ngāue, pea ke tala mai.",
-          "answer": "*Ka* 'i ai ha ngāue, pea ke tala mai. — Whenever there is work, tell me. (*ka*: expected or recurring)"
+          "answer": "*Ka* 'i ai ha ngāue, pea ke tala mai.* *Whenever there is work, tell me. (*ka*: expected or recurring)"
         },
         {
           "id": "ch47-ex1-5",
           "prompt": "___ u feinga, na'á ku lava.",
-          "answer": "*Ka ne* u feinga, na'á ku lava. — Had I tried, I would have succeeded. (*ka ne*: past counterfactual)"
+          "answer": "*Ka ne* u feinga, na'á ku lava.* *Had I tried, I would have succeeded. (*ka ne*: past counterfactual)"
         },
         {
           "id": "ch47-ex1-6",
           "prompt": "___ ke ka 'alu ki kolo, pea ke fakatau mai ha mā.",
-          "answer": "*Ka* ke *ka* 'alu ki kolo, pea ke fakatau mai ha mā. — Whenever you go to town, buy bread. (*ka ... ka*: pronoun subject, conditional future)"
+          "answer": "*Ka* ke *ka* 'alu ki kolo, pea ke fakatau mai ha mā.* *Whenever you go to town, buy bread. (*ka ... ka*: pronoun subject, conditional future)"
         }
       ]
     },
@@ -9275,22 +9267,22 @@
       "items": [
         {
           "id": "ch48-ex4-1",
-          "prompt": "*Ko e mohe___ 'o Siale 'oku fo'ou.* (Siale's ___ is new.)",
+          "prompt": "*Ko e mohe\\_\\_\\_ 'o Siale 'oku fo'ou.* (Siale's ___ is new.)",
           "answer": "*mohenga* (bed): Siale's bed is new."
         },
         {
           "id": "ch48-ex4-2",
-          "prompt": "*Ko e nofo___ ko ení 'oku lahi.* (This dwelling-___ is big.)",
+          "prompt": "*Ko e nofo\\_\\_\\_ ko ení 'oku lahi.* (This dwelling-___ is big.)",
           "answer": "*nofo'anga* (dwelling-place): This dwelling-place is big."
         },
         {
           "id": "ch48-ex4-3",
-          "prompt": "*Ko e tu'u___ 'o e faiakó 'oku mālohi.* (The teacher's ___ is strong.)",
+          "prompt": "*Ko e tu'u\\_\\_\\_ 'o e faiakó 'oku mālohi.* (The teacher's ___ is strong.)",
           "answer": "*tu'unga* (rank, standing): The teacher's standing is strong."
         },
         {
           "id": "ch48-ex4-4",
-          "prompt": "*Ko e mohe___ 'o e fānau 'oku 'i lalo.* (The children's sleeping-___ is downstairs.)",
+          "prompt": "*Ko e mohe\\_\\_\\_ 'o e fānau 'oku 'i lalo.* (The children's sleeping-___ is downstairs.)",
           "answer": "*mohe'anga* (sleeping-place): The children's sleeping-place is downstairs."
         }
       ]
@@ -9303,28 +9295,28 @@
       "items": [
         {
           "id": "ch48-ex5-1",
-          "prompt": "*'Oku kumā___ 'a e falé.* — The house is infested with rats.",
-          "answer": "*kumā'ia* — The house is infested with rats."
+          "prompt": "*'Oku kumā\\_\\_\\_ 'a e falé.* The house is infested with rats.",
+          "answer": "*kumā'ia*. The house is infested with rats."
         },
         {
           "id": "ch48-ex5-2",
-          "prompt": "*'Oku mau sipinga___ 'ene ngāué.* — We use his work as an example.",
-          "answer": "*sipinga'aki* — We use his work as an example."
+          "prompt": "*'Oku mau sipinga\\_\\_\\_ 'ene ngāué.* We use his work as an example. (*sipinga* = pattern, from Chapter 33)",
+          "answer": "*sipinga'aki*. We use his work as an example."
         },
         {
           "id": "ch48-ex5-3",
-          "prompt": "*'Oku langu___ 'a e me'akái.* — The food is infested with flies. (from *lango*)",
-          "answer": "*langoa* — The food is infested with flies."
+          "prompt": "*'Oku langu\\_\\_\\_ 'a e me'akái.* The food is infested with flies. (from *lango*)",
+          "answer": "*langoa*. The food is infested with flies."
         },
         {
           "id": "ch48-ex5-4",
-          "prompt": "*'Oku ma'u___ 'a e iká 'i he tahí.* — Fish is easy to get in the sea.",
-          "answer": "*ma'ungofua* — Fish is easy to get in the sea."
+          "prompt": "*'Oku ma'u\\_\\_\\_ 'a e iká 'i he tahí.* Fish is easy to get in the sea.",
+          "answer": "*ma'ungofua*. Fish is easy to get in the sea."
         },
         {
           "id": "ch48-ex5-5",
-          "prompt": "*'Oku fai___ ke ako e lea faka-Tongá.* — It is difficult to learn the Tongan language. ---",
-          "answer": "*faingata'a* — It is difficult to learn the Tongan language."
+          "prompt": "*'Oku fai\\_\\_\\_ ke ako e lea faka-Tongá.* It is difficult to learn the Tongan language. ---",
+          "answer": "*faingata'a*. It is difficult to learn the Tongan language."
         }
       ]
     }
@@ -9481,27 +9473,27 @@
         {
           "id": "ch49-ex5-1",
           "prompt": "Na'e ___ 'a e falá. (The mat was torn.) [prefix: ___]",
-          "answer": "*mahae* — *ma-* (resultative prefix)"
+          "answer": "*mahae*. *ma-* (resultative prefix)"
         },
         {
           "id": "ch49-ex5-2",
           "prompt": "Na'a nau ___'aki 'i he efiafí. (They talked to one another in the evening.) [prefix + suffix: ___]",
-          "answer": "*fetalanoa'aki* — *fe-...-'aki* (reciprocal)"
+          "answer": "*fetalanoa'aki*. *fe-...-'aki* (reciprocal)"
         },
         {
           "id": "ch49-ex5-3",
           "prompt": "Kuo ___ 'a Mele. (Mele has overslept.) [prefix: ___]",
-          "answer": "*mo'umohea* — *mo'u-* (continuation)"
+          "answer": "*mo'umohea*. *mo'u-* (continuation)"
         },
         {
           "id": "ch49-ex5-4",
           "prompt": "Ko hoku ___ 'a Sēmisi. (Sēmisi is my fellow-worker.) [prefix: ___]",
-          "answer": "*kaungāngāue* — *kaungā-* (fellow)"
+          "answer": "*kaungāngāue*. *kaungā-* (fellow)"
         },
         {
           "id": "ch49-ex5-5",
           "prompt": "'Okú na ___ ma'u pē. (They two communicate constantly.) [verb with prefix: ___] ---",
-          "answer": "*fetu'utaki* — *fe-* (communal, no *-'aki* suffix)"
+          "answer": "*fetu'utaki*. *fe-* (communal, no *-'aki* suffix)"
         }
       ]
     }
@@ -9696,31 +9688,31 @@
       "id": "ch50-ex6",
       "number": 6,
       "title": "Complete reduplication or *faka-* + reduplication?",
-      "type": "fill_blank",
+      "type": "free",
       "items": [
         {
           "id": "ch50-ex6-1",
-          "prompt": "*'Oku _____ 'a e vaí.* (The water is lukewarm.) [*māfana*]",
+          "prompt": "*'Oku \\_\\_\\_\\_\\_ 'a e vaí.* (The water is lukewarm.) [*māfana*]",
           "answer": "*māmāfana*"
         },
         {
           "id": "ch50-ex6-2",
-          "prompt": "*'Oku _____ 'a Sēmisi.* (Sēmisi is wise.) [*poto*]",
+          "prompt": "*'Oku \\_\\_\\_\\_\\_ 'a Sēmisi.* (Sēmisi is wise.) [*poto*]",
           "answer": "*fakapotopoto*"
         },
         {
           "id": "ch50-ex6-3",
-          "prompt": "*Na'e _____ 'a e halá.* (The road was full of holes.) [*luo*]",
+          "prompt": "*Na'e \\_\\_\\_\\_\\_ 'a e halá.* (The road was full of holes.) [*luo*]",
           "answer": "*luoluo*"
         },
         {
           "id": "ch50-ex6-4",
-          "prompt": "*Na'á ne _____ 'a e me'á.* (He estimated the thing.) [*fua*]",
+          "prompt": "*Na'á ne \\_\\_\\_\\_\\_ 'a e me'á.* (He estimated the thing.) [*fua*]",
           "answer": "*fakafuofua*"
         },
         {
           "id": "ch50-ex6-5",
-          "prompt": "*'Oku _____ 'a e langi hé.* (The sky over there is black.) [*'uli*]",
+          "prompt": "*'Oku \\_\\_\\_\\_\\_ 'a e langi hé.* (The sky over there is black.) [*'uli*]",
           "answer": "*'uli'uli*"
         }
       ]
@@ -9733,12 +9725,12 @@
       "items": [
         {
           "id": "ch50-ex7-1",
-          "prompt": "*la——hi*",
+          "prompt": "*la––hi*",
           "answer": "(a) Vowel protraction for superlativeness."
         },
         {
           "id": "ch50-ex7-2",
-          "prompt": "*Tue——!*",
+          "prompt": "*Tue––!*",
           "answer": "(d) A customary shout (joy/exultation)."
         },
         {
@@ -9748,22 +9740,22 @@
         },
         {
           "id": "ch50-ex7-4",
-          "prompt": "*Fakafeta'i e—— toka kava!*",
+          "prompt": "*Fakafeta'i e–– toka kava!*",
           "answer": "(c) Ceremonial protraction of the definite article."
         },
         {
           "id": "ch50-ex7-5",
-          "prompt": "*no——fo*",
+          "prompt": "*no––fo*",
           "answer": "(b) Vowel protraction for duration (sitting/staying for a very long time)."
         },
         {
           "id": "ch50-ex7-6",
-          "prompt": "*si——'i*",
+          "prompt": "*si––'i*",
           "answer": "(a) Vowel protraction for superlativeness (extremely small)."
         },
         {
           "id": "ch50-ex7-7",
-          "prompt": "*'Iohoe——!*",
+          "prompt": "*'Iohoe––!*",
           "answer": "(d) A customary shout (grief/distress)."
         }
       ]
@@ -9777,12 +9769,12 @@
         {
           "id": "ch50-ex8-1",
           "prompt": "*'Oku lahi 'a e falé.* → (The house is absolutely enormous.)",
-          "answer": "*'Oku la——hi 'a e falé.*"
+          "answer": "*'Oku la––hi 'a e falé.*"
         },
         {
           "id": "ch50-ex8-2",
           "prompt": "*Na'á ne nofo 'i he kolo ko iá.* → (He stayed in that town for a very long time.)",
-          "answer": "*Na'á ne no——fo 'i he kolo ko iá.*"
+          "answer": "*Na'á ne no––fo 'i he kolo ko iá.*"
         },
         {
           "id": "ch50-ex8-3",
@@ -9792,12 +9784,12 @@
         {
           "id": "ch50-ex8-4",
           "prompt": "*'Oku si'i 'a e me'á.* → (The thing is absolutely tiny.)",
-          "answer": "*'Oku si——'i 'a e me'á.*"
+          "answer": "*'Oku si––'i 'a e me'á.*"
         },
         {
           "id": "ch50-ex8-5",
           "prompt": "*Na'á ne tu'u 'i he hala ko iá.* → (He stood on that road for a very long time.) ---",
-          "answer": "*Na'á ne tū——'u 'i he hala ko iá.*"
+          "answer": "*Na'á ne tū––'u 'i he hala ko iá.*"
         }
       ]
     }
@@ -9974,7 +9966,7 @@
         {
           "id": "ch52-ex1-1",
           "prompt": "*'Oku tangi si'i pēpē 'a Mele.*",
-          "answer": "Mary's poor baby is crying."
+          "answer": "Mele's poor baby is crying."
         },
         {
           "id": "ch52-ex1-2",
@@ -10121,7 +10113,7 @@
         {
           "id": "ch52-ex5-2",
           "prompt": "*Ko e fē si'i fānau 'a Pita?*",
-          "answer": "**Affection.** The speaker is asking about Peter's children with warmth and care."
+          "answer": "**Affection.** The speaker is asking about Pita's children with warmth and care."
         },
         {
           "id": "ch52-ex5-3",
@@ -10184,42 +10176,42 @@
         {
           "id": "ch53-ex1-1",
           "prompt": "*kai*",
-          "answer": "*kai* — ordinary"
+          "answer": "*kai*. ordinary"
         },
         {
           "id": "ch53-ex1-2",
           "prompt": "*taumafa*",
-          "answer": "*taumafa* — regal"
+          "answer": "*taumafa*. regal"
         },
         {
           "id": "ch53-ex1-3",
           "prompt": "*mama*",
-          "answer": "*mama* — derogatory"
+          "answer": "*mama*. derogatory"
         },
         {
           "id": "ch53-ex1-4",
           "prompt": "*tokoni* (in the sense of \"eat\")",
-          "answer": "*tokoni* — polite"
+          "answer": "*tokoni*. polite"
         },
         {
           "id": "ch53-ex1-5",
           "prompt": "*'ilo* (in the sense of \"eat\")",
-          "answer": "*'ilo* — honorific"
+          "answer": "*'ilo*. honorific"
         },
         {
           "id": "ch53-ex1-6",
           "prompt": "*hā'ele*",
-          "answer": "*hā'ele* — regal"
+          "answer": "*hā'ele*. regal"
         },
         {
           "id": "ch53-ex1-7",
           "prompt": "*faka'au*",
-          "answer": "*faka'au* — polite"
+          "answer": "*faka'au*. polite"
         },
         {
           "id": "ch53-ex1-8",
           "prompt": "*me'a* (in the sense of \"go\")",
-          "answer": "*me'a* — honorific"
+          "answer": "*me'a*. honorific"
         }
       ]
     },
@@ -10241,8 +10233,8 @@
         },
         {
           "id": "ch53-ex2-3",
-          "prompt": "You are greeting the sovereign. You say *Mālō e _______.*",
-          "answer": "*lakoifuá* (*Mālō e lakoifuá* — regal greeting for the sovereign)"
+          "prompt": "You are greeting the sovereign. You say *Mālō e \\_\\_\\_\\_\\_\\_\\_.*",
+          "answer": "*lakoifuá* (*Mālō e lakoifuá*. regal greeting for the sovereign)"
         },
         {
           "id": "ch53-ex2-4",
@@ -10251,20 +10243,20 @@
         },
         {
           "id": "ch53-ex2-5",
-          "prompt": "You are greeting a friend informally. You say *Mālō e _______.*",
-          "answer": "*leleí* (*Mālō e leleí* — ordinary greeting)"
+          "prompt": "You are greeting a friend informally. You say *Mālō e \\_\\_\\_\\_\\_\\_\\_.*",
+          "answer": "*leleí* (*Mālō e leleí*. ordinary greeting)"
         },
         {
           "id": "ch53-ex2-6",
           "prompt": "The sovereign is departing. You say _______ *ā!*",
-          "answer": "*Hā'ele* (*Hā'ele ā!* — regal farewell for the sovereign)"
+          "answer": "*Hā'ele* (*Hā'ele ā!* regal farewell for the sovereign)"
         }
       ]
     },
     {
       "id": "ch53-ex3",
       "number": 3,
-      "title": "*Tapu mo* — Insert the correct phrase",
+      "title": "*Tapu mo*: Insert the correct phrase",
       "type": "fill_blank",
       "items": [
         {
