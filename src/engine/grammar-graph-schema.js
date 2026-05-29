@@ -132,7 +132,12 @@ const NODE_REQUIRED = ['label', 'description', 'words', 'next']
 // menu should additionally surface the adjuncts_hub edges (see
 // graph-walker.getHubExtensions). Optional/closed: unknown sibling keys still
 // hard-error.
-const NODE_ALLOWED = new Set([...NODE_REQUIRED, 'constraints', 'word_filter', 'route_to_hub'])
+// P2-4: `terminal_idiom` is an optional boolean marking a node whose single-pick
+// completion is a LINGUISTICALLY CORRECT fixed idiom, not an over-restriction gap
+// (the exclamatory ko-ka / meʻa heads, predicative-possessive / equational / ko
+// subjects — see plans/Terminal-Build-Analysis.md §A5/§A6, §5). getHubExtensions
+// skips these nodes so the FINISH-only tail is a documented decision, not a defect.
+const NODE_ALLOWED = new Set([...NODE_REQUIRED, 'constraints', 'word_filter', 'route_to_hub', 'terminal_idiom'])
 
 const EDGE_REQUIRED = ['node', 'label', 'min_chapter']
 const EDGE_ALLOWED = new Set([

@@ -308,6 +308,14 @@ function getHubExtensions(state) {
   if (!tail) return []
   const anchorNode = grammarGraph.nodes[tail]
   if (!anchorNode || !anchorNode.route_to_hub) return []
+  // P2-4: never widen an intentional terminal idiom (the exclamatory ko-ka / meʻa
+  // heads and the predicative-possessive / equational / ko subjects). Their
+  // single pick IS the whole grammatical sentence, so the hub must not re-open
+  // them — the FINISH-only tail is a documented decision, not an §A gap. These
+  // nodes carry no route_to_hub today (so this is defensive), but the guard
+  // pins the contract and survives a future route_to_hub addition.
+  // See plans/Terminal-Build-Analysis.md §A5/§A6, §5.
+  if (anchorNode.terminal_idiom) return []
   const hub = grammarGraph.nodes[HUB_NODE_ID]
   if (!hub || !Array.isArray(hub.next)) return []
 

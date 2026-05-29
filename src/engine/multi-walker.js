@@ -502,6 +502,46 @@ export function getCurrentOptions(state) {
 
 // ── Extension options ───────────────────────────────────────────────────
 
+// P2-3: authoritative per-walker acceptance test for an extension target.
+// This is the SAME call the pick path (pickExtension / the IN_PROGRESS branch
+// of pickWord) makes, so the menu and the pick can never disagree: if this
+// returns true, takeExtension on that walker will succeed; if it returns false
+// for every surviving walker, the option is dropped from the menu and so can
+// never be picked. takeExtension re-runs edgeAllowed (chapter, conditions,
+// hub licensing), so this validates against THIS walker's real menu, not the
+// union — an option no surviving walker accepts is never surfaced. It cannot
+// over-prune a valid option, because an option is kept as soon as ANY one
+// surviving walker accepts it (we never require unanimous acceptance).
+function walkerAcceptsExtension(walker, targetNodeId) {
+  try {
+    takeExtension(walker.walkerState, targetNodeId)
+    return true
+  } catch {
+    return false
+  }
+}
+
+// P2-3: authoritative per-walker acceptance test for a terminator. Mirrors
+// pickTerminator: collapse sub-frames, then attempt finishSentence. Returns
+// true only if this walker can actually finish with the given terminator.
+function walkerAcceptsTerminator(walker, terminatorId) {
+  let ws = walker.walkerState
+  while (ws.frames.length > 1) {
+    try {
+      ws = finishFrame(ws)
+    } catch {
+      break
+    }
+  }
+  if (ws.frames.length !== 1) return false
+  try {
+    finishSentence(ws, terminatorId)
+    return true
+  } catch {
+    return false
+  }
+}
+
 function collectExtensionOptions(walkersInProgress) {
   const extMap = {}
   const termMap = {}
@@ -518,25 +558,32 @@ function collectExtensionOptions(walkersInProgress) {
 
     const menu = getExtensionMenu(w.walkerState)
     for (const ext of menu.extensions) {
-      if (!extMap[ext.node]) {
-        const node = getNode(ext.node)
-        extMap[ext.node] = {
-          id: ext.node,
-          label: ext.label || (node ? node.label : ext.node),
-          contextHint: ext.context_hint || null,
-        }
+      if (extMap[ext.node]) continue
+      // P2-3: only surface this candidate if at least ONE surviving walker
+      // would actually accept it (re-validated per walker via takeExtension).
+      // `w` produced it from its own getExtensionMenu, so it normally passes
+      // here; the cross-walker check guards the case where the option survives
+      // in the union but is dead on the path the user is really on.
+      if (!walkersInProgress.some(other => walkerAcceptsExtension(other, ext.node))) continue
+      const node = getNode(ext.node)
+      extMap[ext.node] = {
+        id: ext.node,
+        label: ext.label || (node ? node.label : ext.node),
+        contextHint: ext.context_hint || null,
       }
     }
     for (const term of menu.terminators) {
-      if (!termMap[term.node]) {
-        // Determine punctuation from entry point category
-        const isCommand = w.entryPointCategory === 'Commands'
-        const isExclamatory = w.entryPointCategory === 'Exclamatory'
-        let punct = '.'
-        if (term.node === 'FINISH_QUESTION') punct = '?'
-        else if (term.node === 'FINISH_EXCLAMATION' || isCommand || isExclamatory) punct = '!'
-        termMap[term.node] = { id: term.node, punct }
-      }
+      if (termMap[term.node]) continue
+      // P2-3: only surface a terminator that at least one surviving walker can
+      // truly finish with (re-validated per walker, mirroring pickTerminator).
+      if (!walkersInProgress.some(other => walkerAcceptsTerminator(other, term.node))) continue
+      // Determine punctuation from entry point category
+      const isCommand = w.entryPointCategory === 'Commands'
+      const isExclamatory = w.entryPointCategory === 'Exclamatory'
+      let punct = '.'
+      if (term.node === 'FINISH_QUESTION') punct = '?'
+      else if (term.node === 'FINISH_EXCLAMATION' || isCommand || isExclamatory) punct = '!'
+      termMap[term.node] = { id: term.node, punct }
     }
   }
 

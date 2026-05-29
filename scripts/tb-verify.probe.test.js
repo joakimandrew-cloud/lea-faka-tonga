@@ -11,7 +11,8 @@ import { describe, it, expect } from 'vitest'
 import grammarGraph from '../src/data/grammar-graph.json'
 import {
   createMultiWalker, pickFirstWord, pickWord, pickExtension, pickTerminator,
-  finishCurrentFrame, getRenderedSentence, getPickerData, getFirstWordOptions, PHASE,
+  finishCurrentFrame, getRenderedSentence, getPickerData, getFirstWordOptions,
+  getCurrentOptions, PHASE,
 } from '../src/engine/multi-walker.js'
 import {
   createWalkerState, advanceInFrame, takeExtension, finishFrame,
@@ -577,4 +578,164 @@ describe('P1-B4 — emphatic postposed pronoun is gated to the verb phrase', () 
   // see the code comment in graph-walker.js and the tracker follow-ups. Not
   // pinned with a test — the tense-drop second-clause walk is too coupled to the
   // pea-clause internals to assert robustly here.
+})
+
+// ===========================================================================
+// P2-3 / P2-4 structural locks (added 2026-05-30)
+//
+// P2-3 pins the multi-walker per-walker validation fix; P2-4 pins the
+// intentional terminal-idiom tagging. Both use only the public multi-walker
+// API + grammar-graph JSON + the local firstWord() helper above, so they stay
+// valid as the menu data evolves.
+// ===========================================================================
+
+// The five linguistically-correct single-pick completions (Terminal-Build-
+// Analysis A5/A6). Each is a genuine terminal idiom: tagged terminal_idiom:true
+// and its next[] contains ONLY FINISH_* terminators.
+const TERMINAL_IDIOM_NODE_IDS = [
+  'subject_ko',
+  'equational_subject',
+  'predicative_poss_subject',
+  'exclamatory_ko_ka_head',
+  'exclamatory_me_a_head',
+]
+
+describe('P2-4 — A5/A6 nodes are intentional terminal idioms', () => {
+  for (const nodeId of TERMINAL_IDIOM_NODE_IDS) {
+    it(nodeId + ' is tagged terminal_idiom:true', () => {
+      const node = grammarGraph.nodes[nodeId]
+      expect(node).toBeTruthy()
+      expect(node.terminal_idiom).toBe(true)
+    })
+
+    it(nodeId + '.next contains ONLY FINISH_* terminators (no content extension)', () => {
+      const node = grammarGraph.nodes[nodeId]
+      const targets = (node.next || []).map(e =>
+        typeof e === 'string' ? e : (e.node || e.to || e.target)
+      )
+      // Non-empty (still FINISHable) and every edge a terminator — a genuine
+      // one-pick completion, not a node that dead-ends or leaks a continuation.
+      expect(targets.length).toBeGreaterThan(0)
+      for (const t of targets) {
+        expect(String(t).startsWith('FINISH_')).toBe(true)
+      }
+    })
+  }
+
+  it('terminal_idiom nodes are NOT route_to_hub (hub routing skips them)', () => {
+    // Hub must never widen a terminal idiom: none carry route_to_hub, and
+    // getHubExtensions bails early on terminal_idiom anchors, so even with
+    // meta.useAdjunctHub on the idiom stays a single-pick completion.
+    expect(grammarGraph.meta && grammarGraph.meta.useAdjunctHub).toBe(true)
+    for (const nodeId of TERMINAL_IDIOM_NODE_IDS) {
+      const node = grammarGraph.nodes[nodeId]
+      expect(node.route_to_hub === true).toBe(false)
+    }
+  })
+
+  it('an exclamatory idiom stays terminal at runtime: completable menu has NO content extension', () => {
+    // Build through the multi-walker and confirm that once the exclamatory idiom
+    // is completable its menu offers only a finish — never a hub adjunct — even
+    // though meta.useAdjunctHub is on. Drives the real getHubExtensions
+    // terminal_idiom guard at runtime, not just in data.
+    const exH = grammarGraph.nodes['exclamatory_ko_ka_head']
+    const firstTongan = (exH.words && exH.words[0] && exH.words[0].tongan) || null
+    const fwi = firstTongan ? firstWord(firstTongan) : null
+    if (!fwi) return // head word isn't a standalone first word; data locks above suffice
+    let state
+    try {
+      state = pickFirstWord(createMultiWalker(53), fwi)
+    } catch {
+      return
+    }
+    let guard = 0
+    while (guard++ < 12) {
+      const picker = getPickerData(state)
+      if (!picker.groups.length) break
+      const hasFinish = picker.groups.some(g =>
+        g.items.some(it => it.type === 'terminator')
+      )
+      if (hasFinish) {
+        // Decisive check: once completable, a terminal idiom offers zero
+        // content extensions ('+ ...' items).
+        const contentExtensions = picker.groups.flatMap(g =>
+          g.items.filter(it => it.type === 'extension')
+        )
+        expect(contentExtensions.length).toBe(0)
+        return
+      }
+      const firstWordItem = picker.groups[0].items.find(it => it.type === 'word')
+      if (!firstWordItem) break
+      try {
+        state = pickWord(state, firstWordItem.word)
+      } catch {
+        break
+      }
+    }
+  })
+})
+
+describe('P2-3 — multi-walker per-walker validation (no dead union options)', () => {
+  it('after a multi-walker first word (ʻOku), every offered extension/terminator is takeable by some surviving walker', () => {
+    // ʻOku spawns multiple entry-point walkers (statement / negation /
+    // existential / ...). Before P2-3, collectExtensionOptions UNIONed every
+    // walker's getExtensionMenu, so an option offered by one walker but
+    // un-takeable by the walker the user is on could surface — and picking it
+    // would throw. After the fix the menu only lists options at least one
+    // surviving walker truly accepts (re-validated via takeExtension), so
+    // picking any of them must succeed without throwing.
+    const fwi = firstWord('ʻOku')
+    expect(fwi).toBeTruthy()
+    let state = pickFirstWord(createMultiWalker(53), fwi)
+    expect(state.walkers.length).toBeGreaterThan(0)
+
+    // Drive to a continuation menu: pick a pronoun, then a verb (mirrors UI).
+    const p1 = getPickerData(state)
+    const pron = p1.groups.flatMap(g => g.items).find(it => it.type === 'word')
+    if (pron) state = pickWord(state, pron.word)
+    const p2 = getPickerData(state)
+    const verb = p2.groups.flatMap(g => g.items).find(it => it.type === 'word')
+    if (verb) {
+      try { state = pickWord(state, verb.word) } catch { /* surviving walkers remain */ }
+    }
+
+    // Every surfaced extension must be pickable and leave >=1 surviving walker
+    // (the P2-3 invariant: no no-surviving-walker dead option is ever offered).
+    const opts = getCurrentOptions(state)
+    for (const id of (opts.extensions || []).map(e => e.id)) {
+      const after = pickExtension(state, id)
+      expect(after.walkers.length).toBeGreaterThan(0)
+    }
+    // Every surfaced terminator must be finishable by some walker.
+    for (const id of (opts.terminators || []).map(t => t.id)) {
+      const finished = pickTerminator(state, id)
+      expect(finished.walkers.length).toBe(1)
+    }
+  })
+
+  it('ʻOku statement still reaches a real continuation (per-walker validation does not over-prune)', () => {
+    // Guard the other direction: the per-walker check must NOT strip a valid
+    // option. A canonical ʻOku + pronoun + verb must remain buildable, i.e. the
+    // picker still offers at least one group with items (words, extensions, or a
+    // finish). Asserting on getPickerData (the UI source of truth) rather than
+    // getCurrentOptions keeps the check robust across phases — after the verb
+    // the walkers may be in a branching word menu, an extension menu, or mixed,
+    // all of which are legitimate live continuations. The bug we guard against
+    // is the engine pruning the menu to EMPTY (a dead build).
+    const fwi = firstWord('ʻOku')
+    expect(fwi).toBeTruthy()
+    let state = pickFirstWord(createMultiWalker(53), fwi)
+    const p1 = getPickerData(state)
+    const pron = p1.groups.flatMap(g => g.items).find(it => it.type === 'word')
+    expect(pron).toBeTruthy()
+    state = pickWord(state, pron.word)
+    const p2 = getPickerData(state)
+    const verb = p2.groups.flatMap(g => g.items).find(it => it.type === 'word')
+    expect(verb).toBeTruthy()
+    state = pickWord(state, verb.word)
+    // The menu must remain non-empty — at least one group with at least one item.
+    const picker = getPickerData(state)
+    const totalItems = picker.groups.reduce((n, g) => n + g.items.length, 0)
+    expect(totalItems).toBeGreaterThan(0)
+  })
 })

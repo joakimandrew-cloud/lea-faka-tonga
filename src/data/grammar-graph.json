@@ -867,6 +867,7 @@
     },
 
     "subject_ko": {
+      "terminal_idiom": true,
       "label": "Subject",
       "description": "Choose what/who is or is not this thing. Ch 16 adds ʻa + name so Ch 16 equational negation ('ʻOku ʻikai ko e faiako ʻa Tēvita') walks through the existing ko_negation entry point.",
       "words": [
@@ -1684,6 +1685,7 @@
     },
 
     "equational_subject": {
+      "terminal_idiom": true,
       "label": "Equational subject",
       "description": "The subject of an equational sentence — either a postposed pronoun (au, koe, ia) or ʻa + proper name. With pronoun subjects the focus marker ʻa drops away (Ch 16 rule); with proper-name subjects ʻa is retained. Each entry bakes the correct surface form so no render-time substitution is needed.",
       "words": [
@@ -2249,6 +2251,7 @@
     },
 
     "predicative_poss_subject": {
+      "terminal_idiom": true,
       "label": "Subject (this / the basket...)",
       "description": "The subject of the predicative possessive sentence per spec §37 (Ch 37). Either a demonstrative (eni = this, ia = that) or ʻa e + definite noun with definitive accent (ʻa e kató = the basket). The ʻa e prefix is the focus marker ʻa + definite article e — per project convention ʻa is never dropped before e. Compound noun-phrase entries store the accent-bearing form directly (no separate render-pass needed). Deferred: (a) full noun inventory (currently a representative sample); (b) ʻa e + proper name subject (ʻa e meʻa ʻa Sione).",
       "words": [
@@ -2277,6 +2280,7 @@
     },
 
     "exclamatory_ko_ka_head": {
+      "terminal_idiom": true,
       "label": "What a tremendous X!",
       "description": "Pick an exclamation using the ko e X ka ko ha X! pattern (spec §50, Ch 52). Each entry is a complete exclamation — compound entries pre-bake the doubled construction because the graph walker has no template mechanism to render a single-noun pick into the doubled pattern. The first clause uses the semi-definite e (this kind of thing), the second uses the indefinite ha (one of its kind, standing out), producing emphasis through article contrast.",
       "words": [
@@ -2292,6 +2296,7 @@
     },
 
     "exclamatory_me_a_head": {
+      "terminal_idiom": true,
       "label": "X was a [quality] thing!",
       "description": "Pick an admiration sentence using the meʻa + modifier + ko e X pattern (spec §50, Ch 52). Each entry is a complete evaluative sentence — compound entries pre-bake the full construction because the graph walker has no template mechanism to render modifier+noun picks into the pattern. The construction uses meʻa (thing) followed by a quality modifier (fakaʻofoʻofa, mālie, lelei) and ko e + definite noun to express admiration. Unlike exclamatory_ko_ka which ends with !, this pattern ends with . (period) — the spec examples consistently use declarative punctuation despite the exclamatory meaning.",
       "words": [
