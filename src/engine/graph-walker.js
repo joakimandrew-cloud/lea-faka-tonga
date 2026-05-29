@@ -1030,6 +1030,55 @@ function replaceTopFrame(state, newFrame) {
   }
 }
 
+// ── P2-1: the single menu validation gate ──────────────────────────────────
+//
+// Every candidate edge in getExtensionMenu's union (anchor ∪ clause-connectors
+// ∪ adjuncts-hub) passes through here, so ONE function decides whether an option
+// is offered and how it is classified. This is the chokepoint the P2-2 repetition
+// layer (role tags + a seenContentKeys set) will extend; today it reproduces the
+// legacy per-source filtering EXACTLY so the P2-1 refactor is behavior-preserving
+// (parity proven against the reachability probe — plans/Terminal-Build-Fix-Tracker.md).
+//
+// `candidate.source` records where the edge came from so the repeat-hiding scope
+// matches the pre-P2-1 behavior:
+//   - 'anchor'    : a native edge off the frame's extensionMenuAnchor. Hidden once
+//                   its target is already in THIS frame's extensionsTaken (unless
+//                   the edge owns a count/visit rule — hasOwnRepetitionRule).
+//   - 'connector' : a clause-connector edge surfaced from the clause root. Already
+//                   chapter/condition-filtered and scoped to the clause root's
+//                   extensionsTaken inside getClauseConnectorEdges, so it passes.
+//   - 'hub'       : an adjuncts-hub edge. Already chapter/condition-filtered,
+//                   clause-chain-scoped, and placement-licensed inside
+//                   getHubExtensions, so it passes.
+//
+// Terminators only ever arrive on the 'anchor' source (neither getClauseConnectorEdges
+// nor getHubExtensions emits a FINISH_* edge — connectors are CLAUSE_CONNECTOR_NODES,
+// the hub holds only optional adjuncts), so the allowed-terminator filter runs once,
+// on the anchor's own terminator edges, exactly as the legacy body did.
+//
+// Returns { ok, kind } — kind is 'terminator' | 'extension'; ok === false means drop.
+function validateOption(state, candidate) {
+  const { edge, source } = candidate
+  const frame = currentFrame(state)
+  if (isTerminatorEdge(edge)) {
+    const allowed = getAllowedTerminators(frame.entryPoint)
+    return { ok: allowed.includes(edge.node), kind: 'terminator' }
+  }
+  // A required edge is a forced continuation, never an optional menu item; the
+  // walker handles it via the SELECTING phase, so it is never offered here.
+  if (edge.required) return { ok: false, kind: 'extension' }
+  // Per-frame extensionsTaken hiding applies only to the anchor's native edges.
+  // Connector / hub candidates arrive already scope-filtered by their producers.
+  if (
+    source === 'anchor' &&
+    frame.extensionsTaken.includes(edge.node) &&
+    !hasOwnRepetitionRule(edge)
+  ) {
+    return { ok: false, kind: 'extension' }
+  }
+  return { ok: true, kind: 'extension' }
+}
+
 /**
  * Compute the extension menu visible at the current frame's tail.
  *
@@ -1072,8 +1121,48 @@ export function getExtensionMenu(state) {
   }
 
   const flatSteps = getFlatSteps(state)
-  const edges = getAvailableEdges(tail, state.chapter, flatSteps)
+
+  // P2-1: stop treating the menu as the single anchor node's edge list. The
+  // post-P1 walker draws continuations from THREE sources — the frame's own
+  // anchor, the clause root's connectors (getClauseConnectorEdges, surfaced from
+  // any descendant sub-frame), and the adjuncts hub (getHubExtensions, the
+  // verified union of optional post-verbal adjuncts on route_to_hub anchors).
+  // Behind meta.useAdjunctHub the candidate edges are the UNION of those sources,
+  // and EVERY candidate runs through one validation gate (validateOption) instead
+  // of three ad-hoc merge passes each carrying its own inline filter. The clause
+  // and hub producers still own their source-specific reachability + repeat
+  // scoping; the gate owns the offer/classify decision and is the seam P2-2
+  // extends. Behavior-preserving: candidate order (anchor → connectors → hub),
+  // the per-frame extensionsTaken hiding on anchor edges, and the cross-source
+  // de-dup all match the legacy body below, so which edges are offered is
+  // unchanged (parity proven against the reachability probe).
+  if (grammarGraph.meta && grammarGraph.meta.useAdjunctHub) {
+    const candidates = [
+      ...getAvailableEdges(tail, state.chapter, flatSteps).map(edge => ({ edge, source: 'anchor' })),
+      ...getClauseConnectorEdges(state).map(edge => ({ edge, source: 'connector' })),
+      ...getHubExtensions(state).map(edge => ({ edge, source: 'hub' })),
+    ]
+    const terminators = []
+    const extensions = []
+    const seenExtension = new Set()
+    for (const candidate of candidates) {
+      const { ok, kind } = validateOption(state, candidate)
+      if (!ok) continue
+      if (kind === 'terminator') {
+        terminators.push(candidate.edge)
+      } else if (!seenExtension.has(candidate.edge.node)) {
+        seenExtension.add(candidate.edge.node)
+        extensions.push(candidate.edge)
+      }
+    }
+    return { extensions, terminators, requiredNodeId: null }
+  }
+
+  // Legacy path (meta.useAdjunctHub off): the anchor-only menu with connectors
+  // and the hub bolted on as separate passes. Retained verbatim so the P2-1
+  // structural change is revertible by a one-line flag flip.
   const allowed = getAllowedTerminators(frame.entryPoint)
+  const edges = getAvailableEdges(tail, state.chapter, flatSteps)
 
   const terminators = []
   const extensions = []
