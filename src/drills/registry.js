@@ -64,39 +64,39 @@ export const drillRegistry = {
   // ── Six existing drills ─────────────────────────────────────
   'tense-swapper': {
     Core: TenseSwapperCore,
-    meta: { title: 'Tense Swapper', blurb: 'Swap the particle. The verb stays still.' },
+    meta: { title: `How Tongan marks tense`, blurb: `Mark past, present, perfect, and future by changing one word in front of the verb.` },
   },
   'first-word-quiz': {
     Core: FirstWordQuizCore,
-    meta: { title: 'First-Word Quiz', blurb: 'Predict the sentence shape from its opener.' },
+    meta: { title: `Name the sentence from its first word`, blurb: `See only the start and call it: statement, command, negation, or "X is Y".` },
   },
   'possessive-sorter': {
     Core: PossessiveSorterCore,
-    meta: { title: 'Possessive Sorter', blurb: 'ʻeku or hoku? Doer or receiver?' },
+    meta: { title: `Saying "my": ʻeku or hoku?`, blurb: `Pick ʻeku or hoku for "my," one noun at a time.` },
   },
   'adjective-flip': {
     Core: AdjectiveFlipCore,
-    meta: { title: 'Adjective Flip', blurb: 'Click words in Tongan order. Noun leads.' },
+    meta: { title: `Noun first, then the describing word`, blurb: `Build phrases in Tongan order: the noun comes before the word that describes it.` },
   },
   'skeleton-filler': {
     Core: SkeletonFillerCore,
-    meta: { title: 'Skeleton Filler', blurb: 'Fill the slots; the pattern tells you what goes where.' },
+    meta: { title: `Build a Tongan sentence`, blurb: `Put the tense marker, pronoun, and verb in the right order.` },
   },
   'clusivity-corner': {
     Core: ClusivityCornerCore,
-    meta: { title: 'Clusivity Corner', blurb: 'Four "we"s. Pick the one that includes (or excludes) the listener.' },
+    meta: { title: `Which "we"?`, blurb: `Tongan has four words for "we." Is the listener in the group, and is it two or three-plus?` },
   },
 
   // ── New-shape sorter ────────────────────────────────────────
   'faka-pattern-sorter': {
     Core: FakaSorterCore,
-    meta: { title: 'Faka- Pattern Sorter', blurb: 'One prefix, four jobs. Which is faka- doing here?' },
+    meta: { title: `Sort faka- words by job`, blurb: `faka- does four jobs (manner, cause, every-X, one-particular). Read the word and sort it.` },
   },
 
   // ── New-shape pickers (PickerCore variants) ─────────────────
   'preposition-selector': {
     Core: PrepositionSelectorCore,
-    meta: { title: 'Preposition Selector', blurb: 'ʻi / ki / mei plus the right form for the noun class.' },
+    meta: { title: `ʻi / ki / mei (and the form they take)`, blurb: `at/to/from and its shape: bare before a place, -a before a name, -ate before a pronoun.` },
   },
   'ai-substitution': {
     Core: AiSubstitutionCore,
@@ -104,63 +104,63 @@ export const drillRegistry = {
   },
   'article-picker': {
     Core: ArticlePickerCore,
-    meta: { title: 'Article Picker', blurb: 'ha, ʻa e, or he? Definiteness × position.' },
+    meta: { title: `a, the, or the-after-a-preposition?`, blurb: `Choose ha, ʻa e, or he by definiteness and whether a preposition comes first.` },
   },
   'question-word-picker': {
     Core: QuestionWordPickerCore,
-    meta: { title: 'Question-Word Picker', blurb: 'The question word sits where the answer goes. Which one?' },
+    meta: { title: `Which question word?`, blurb: `where / when / how / how-many — the question word sits where the answer would go.` },
   },
   'ka-or-kae-picker': {
     Core: KaOrKaePickerCore,
-    meta: { title: 'Ka or Kae?', blurb: 'Tongan splits "but" by the next word\u2019s class.' },
+    meta: { title: `"but": ka or kae`, blurb: `ka before a tense-marker/pronoun/preposition, kae before a verb or adjective.` },
   },
   'plural-marker-picker': {
     Core: PluralMarkerPickerCore,
-    meta: { title: 'Plural Marker Picker', blurb: 'ngaahi / kau / fanga / ʻū / ongo by noun type.' },
+    meta: { title: `Plural markers`, blurb: `ngaahi (general), kau (people), fanga (animals), ʻū (a few), ongo (exactly two).` },
   },
   'conditional-picker': {
     Core: ConditionalPickerCore,
-    meta: { title: 'Conditional Picker', blurb: 'kapau / ka / ka ne — by the speaker\u2019s confidence.' },
+    meta: { title: `if / when / had-I`, blurb: `kapau (uncertain), ka (expected), ka ne (didn't-happen, "had I…").` },
   },
   'modifier-order': {
     Core: ModifierOrderCore,
-    meta: { title: 'Modifier Order', blurb: 'Modifiers go after the verb. (faʻa is the one that doesn\u2019t.)' },
+    meta: { title: `Where the describing word goes`, blurb: `Describing words follow the verb (sing well); faʻa is the one that goes before.` },
   },
   'audience-picker': {
     Core: AudiencePickerCore,
-    meta: { title: 'Audience Picker', blurb: 'Pick the right command form: bare / mo / mou.' },
+    meta: { title: `Commands: one, two, or many`, blurb: `Pick the command form by how many you address: bare verb / mo / mou.` },
   },
   'demonstrative-picker': {
     Core: DemonstrativePickerCore,
-    meta: { title: 'Demonstrative Picker', blurb: 'heni (near me) / hena (near you) / hē (over there).' },
+    meta: { title: `here / there / over there`, blurb: `heni (by me), hena (by you), hē (the spot I point to).` },
   },
   'te-or-ke-picker': {
     Core: TeOrKePickerCore,
-    meta: { title: 'Te or Ke?', blurb: 'After ʻikai: te before pronouns, ke before verbs.' },
+    meta: { title: `After ʻikai: te or ke?`, blurb: `te before a pronoun, ke before a bare verb.` },
   },
   'aspect-picker': {
     Core: AspectPickerCore,
-    meta: { title: 'Aspect Picker', blurb: 'kei / ʻosi / teʻeki ai / lolotonga / toe / toki / leva.' },
+    meta: { title: `Still / Already / Not yet`, blurb: `Pick the word before the verb: kei, ʻosi, teʻeki ai, lolotonga, toe, toki.` },
   },
   'comparative-picker': {
     Core: ComparativePickerCore,
-    meta: { title: 'Comparative or Superlative?', blurb: 'ange (more) vs taha (most).' },
+    meta: { title: `More or Most`, blurb: `ange (more, + a "than" phrase) vs. taha (most).` },
   },
   'direction-picker': {
     Core: DirectionPickerCore,
-    meta: { title: 'Direction Picker', blurb: 'mai / atu / ange / hake / hifo / holo.' },
+    meta: { title: `Which direction`, blurb: `mai (toward me), atu (toward you), ange (toward them), hake/hifo (up/down).` },
   },
   'temporal-conjunction-picker': {
     Core: TemporalConjunctionPickerCore,
-    meta: { title: 'Temporal Conjunction Picker', blurb: 'kapau / lolotonga / kaeʻoua ke / ʻi he / neongo.' },
+    meta: { title: `if / while / until / when / although`, blurb: `kapau, lolotonga, kaeʻoua ke, ʻi he…, neongo.` },
   },
   'naa-three-way-picker': {
     Core: NaaThreeWayPickerCore,
-    meta: { title: 'Naʻa: Three Jobs', blurb: 'Past TM, warning "lest", or uncertainty "perhaps"?' },
+    meta: { title: `Which naʻa? (past / lest / perhaps)`, blurb: `Tell past-tense naʻa from "lest" (after a command) and "perhaps" (clause-initial).` },
   },
   'spatial-noun-picker': {
     Core: SpatialNounPickerCore,
-    meta: { title: 'Spatial Noun Picker', blurb: 'loto / lalo / tuʻa / mata / funga / veʻe.' },
+    meta: { title: `inside / under / on top / beside`, blurb: `loto, lalo, funga, veʻe, tuʻa, mata, mui, tafaʻaki.` },
   },
   'word-class-picker': {
     Core: WordClassPickerCore,
@@ -168,7 +168,7 @@ export const drillRegistry = {
   },
   'te-disambiguator': {
     Core: TeDisambiguatorCore,
-    meta: { title: 'Te: Three Jobs', blurb: 'Future TM, negation connector, or impersonal "one"?' },
+    meta: { title: `The three jobs of te`, blurb: `Future marker, negation connector after ʻikai, or "one" — by position.` },
   },
   'ko-question-picker': {
     Core: KoQuestionPickerCore,
@@ -180,11 +180,11 @@ export const drillRegistry = {
   },
   'tm-by-context-picker': {
     Core: TmByContextPickerCore,
-    meta: { title: 'Tense Marker by Context', blurb: 'naʻa vs naʻe, te vs ʻe — by what comes next.' },
+    meta: { title: `Naʻa or Naʻe? Te or ʻE?`, blurb: `Use the pronoun form before a pronoun, the other form before a noun or "ʻikai."` },
   },
   'equational-subject-picker': {
     Core: EquationalSubjectPickerCore,
-    meta: { title: 'Equational Subject', blurb: 'ʻa before names, no marker before pronouns.' },
+    meta: { title: `ʻa before a name?`, blurb: `In "X is a Y," ʻa appears before a name but drops before a pronoun.` },
   },
   'classifier-picker': {
     Core: ClassifierPickerCore,
@@ -192,11 +192,11 @@ export const drillRegistry = {
   },
   'auxiliary-picker': {
     Core: AuxiliaryPickerCore,
-    meta: { title: 'Auxiliary Picker', blurb: 'fie / lava ʻo / saiʻia by the role they play.' },
+    meta: { title: `Want / Can / Like`, blurb: `fie + verb, lava ʻo + verb, saiʻia + phrase — pick by what links to the verb.` },
   },
   'should-or-must-picker': {
     Core: ShouldOrMustPickerCore,
-    meta: { title: 'Should or Must?', blurb: 'ʻoku totonu ke (should) vs kuo pau ke (must).' },
+    meta: { title: `Should or Must`, blurb: `ʻoku totonu ke (should) vs. kuo pau ke (must).` },
   },
   'aki-suffix-picker': {
     Core: AkiSuffixPickerCore,
@@ -220,15 +220,15 @@ export const drillRegistry = {
   },
   'doer-receiver-picker': {
     Core: DoerReceiverPickerCore,
-    meta: { title: 'Doer or Receiver?', blurb: 'ʻene fili (his choosing) vs hono fili (his being chosen).' },
+    meta: { title: `his choosing vs. his being chosen`, blurb: `ʻene fili (he does it) vs. hono fili (it's done to him).` },
   },
   'classifier-extended-picker': {
     Core: ClassifierExtendedPickerCore,
-    meta: { title: 'Classifier Picker (extended)', blurb: 'ʻe / toko / foʻi by what\u2019s being counted.' },
+    meta: { title: `Counting: ʻe, toko, or foʻi?`, blurb: `ʻe for things, toko for people, foʻi for single round/whole items.` },
   },
   'relative-ai-picker': {
     Core: RelativeAiPickerCore,
-    meta: { title: 'Relative Ai Picker', blurb: 'Pick the right ai-form by which preposition the original used.' },
+    meta: { title: `the place he works IN / came FROM`, blurb: `Pick ai, ki ai, or mei ai by the preposition the plain sentence would use.` },
   },
   'suffix-picker': {
     Core: SuffixPickerCore,
@@ -244,11 +244,11 @@ export const drillRegistry = {
   },
   'subject-marker-picker': {
     Core: SubjectMarkerPickerCore,
-    meta: { title: 'Subject Marker Picker', blurb: 'ʻa / ʻe / ʻe he by transitivity.' },
+    meta: { title: `Who did it: ʻa, ʻe, or ʻe he?`, blurb: `Intransitive subjects take ʻa; transitive doers take ʻe (name) / ʻe he (common noun).` },
   },
   'pronoun-object-drop-picker': {
     Core: PronounObjectDropPickerCore,
-    meta: { title: 'Pronoun Object Drop', blurb: 'With ʻa before names, no marker before pronouns.' },
+    meta: { title: `When the object loses its ʻa`, blurb: `A name-object keeps ʻa; a pronoun-object drops it.` },
   },
   'time-pair-matcher': {
     Core: TimePairMatcherCore,
@@ -256,26 +256,26 @@ export const drillRegistry = {
   },
   'definiteness-flip': {
     Core: DefinitenessFlipCore,
-    meta: { title: 'Definiteness Flip', blurb: 'Toggle "some" ↔ "the" and watch the Tongan sentence rebuild.' },
+    meta: { title: `Some bread vs. the bread`, blurb: `Change "some" → "the" and watch the sentence rebuild, including the ʻa/ʻe subject.` },
   },
   'cleft-builder': {
     Core: CleftBuilderCore,
-    meta: { title: 'Cleft Builder', blurb: 'Build the cleft tile-by-tile: ko + subject + TM + ne + verb.' },
+    meta: { title: `Say who did it (Ko …)`, blurb: `Front the doer with Ko: "It was Sione who ate it."` },
   },
   'accent-placement-picker': {
     Core: AccentPlacementPickerCore,
-    meta: { title: 'Accent Placement', blurb: 'Where does the definitive accent fall in the noun group?' },
+    meta: { title: `Where the accent lands`, blurb: `Spot which word in a noun phrase carries the accent — and which sit outside the group.` },
   },
   'verbal-noun-converter': {
     Core: VerbalNounConverterCore,
-    meta: { title: 'Verbal Noun Converter', blurb: 'Pronoun → possessive (heʻeku / heʻene / he ʻenau).' },
+    meta: { title: `Say "when / because he read it"`, blurb: `Turn "he read it" into a "when/because" clause; pick heʻene, heʻeku, he hoʻo…` },
   },
   'reciprocity-picker': {
     Core: ReciprocityPickerCore,
-    meta: { title: 'Reciprocity Picker', blurb: 'Build the fe-…-ʻaki form for "X each other".' },
+    meta: { title: `"each other" verbs (fe-…-ʻaki)`, blurb: `Pick the fe-…-ʻaki form for people doing it to each other.` },
   },
   'emotional-article-matrix': {
     Core: EmotionalArticleMatrixCore,
-    meta: { title: 'Emotional Article 2×2', blurb: 'Definite × emotional. e / ha / siʻi / siʻa.' },
+    meta: { title: `Adding feeling: siʻi and siʻa`, blurb: `Choose the emotional "the/a" to add pity or affection.` },
   },
 }

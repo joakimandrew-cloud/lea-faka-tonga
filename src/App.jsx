@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ChapterProvider } from './contexts/ChapterContext'
 import Layout from './components/Layout'
 import Landing from './pages/Landing'
@@ -23,9 +23,8 @@ import DefinitenessFlip from './pages/DefinitenessFlip'
 import CleftBuilder from './pages/CleftBuilder'
 import AccentPlacementPicker from './pages/AccentPlacementPicker'
 import VerbalNounConverter from './pages/VerbalNounConverter'
-import ReciprocityPicker from './pages/ReciprocityPicker'
-import EmotionalArticleMatrix from './pages/EmotionalArticleMatrix'
 import DrillsMenu from './pages/DrillsMenu'
+import DrillPage from './pages/DrillPage'
 
 export default function App() {
   return (
@@ -55,9 +54,13 @@ export default function App() {
             <Route path="/cleft-builder" element={<CleftBuilder />} />
             <Route path="/accent-placement" element={<AccentPlacementPicker />} />
             <Route path="/verbal-noun" element={<VerbalNounConverter />} />
-            <Route path="/reciprocity" element={<ReciprocityPicker />} />
-            <Route path="/emotional-article" element={<EmotionalArticleMatrix />} />
+            {/* reciprocity-picker + emotional-article-matrix were demoted to
+                chapter-only (see Exercise-Recuration-Tracker). Their bespoke
+                pages are gone; redirect old deep links to the generic route. */}
+            <Route path="/reciprocity" element={<Navigate to="/drill/reciprocity-picker" replace />} />
+            <Route path="/emotional-article" element={<Navigate to="/drill/emotional-article-matrix" replace />} />
             <Route path="/drills" element={<DrillsMenu />} />
+            <Route path="/drill/:id" element={<DrillPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

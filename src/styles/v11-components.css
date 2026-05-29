@@ -1055,6 +1055,47 @@
   .panel-cards.cards-7 .panel-card { grid-column: span 1; }
 }
 
+/* ── Drills board: compact tiered card grid ──────────────────────────────
+   The Practice Drills menu surfaces ~37 curated drills across three tiers,
+   each with a descriptive phrase title — far more, and far wordier, than the
+   six big poster cards .panel-card was built for. Scoped under .drills-board
+   so Landing / QuizIndex panel-cards keep the original treatment. Reuses the
+   .panel-card shell (plane bg, stripe, hover lift) at a smaller scale: an
+   auto-filling grid, a head row (glyph + chapter), and a right-sized title.
+   Higher specificity than the bare .panel-cards rules above, so this wins at
+   every breakpoint and the grid reflows on its own. */
+.drills-board .panel-cards {
+  grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
+  column-gap: 16px;
+  row-gap: 16px;
+  padding-bottom: 32px;
+}
+.drills-board .panel-card { min-height: 0; }
+.drills-board .panel-card-body { padding: 18px 18px 14px; gap: 9px; }
+.drills-board .panel-card-head {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.drills-board .panel-card-glyph { display: inline-flex; color: var(--red-light); opacity: 0.9; }
+.drills-board .panel-card-icon { display: block; width: 26px; height: 26px; }
+.drills-board .panel-card-ch {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cream-light); opacity: 0.45;
+}
+.drills-board .panel-card-title {
+  font-size: clamp(19px, 1.5vw, 23px);
+  line-height: 1.08;
+  margin: 2px 0 0;
+}
+.drills-board .panel-card-desc {
+  max-width: none;
+  font-size: 12.5px;
+  line-height: 1.5;
+  opacity: 0.6;
+  margin: 0;
+}
+.drills-board .panel-card-foot { padding: 9px 16px; }
+
 /* ============================================================
    CHAPTERS PAGE — /chapters route
    Brand band + hero + info card + filter bar + grouped rows.
