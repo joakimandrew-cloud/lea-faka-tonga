@@ -5,6 +5,123 @@ function normalize(s) {
   return s.toLowerCase().replace(/[\u02BB\u2018\u2019\u0060\u00B4]/g, "'")
 }
 
+// ============================================================================
+// P2-2 — one coherent adjunct-repetition model (role tags + seenContentKeys)
+// ============================================================================
+//
+// A single pure derived view over getFlatSteps replaces the scattered B1-B3/B6
+// repeat guards with ONE model: every adjunct step carries a ROLE, each role has
+// a budget (max count), and each content role carries a set of normalized content
+// keys used to forbid repeating the same filler (plans/Terminal-Build-Analysis.md
+// B6, 3). Two surfaces read the SAME view, so there is one place that answers
+// "has this role been used up / has this filler already been said?":
+//   - validateOption (the menu chokepoint) enforces the role-count budgets;
+//   - getAvailableWords enforces the per-role content de-dup (replacing the two
+//     P0 word_filters no_repeat_at_node / no_duplicate_prep_complement).
+//
+// The model reproduces the existing guards EXACTLY on the open-builder surface
+// (byte-identical against the reachability probe), so it SUBSUMES them there. The
+// modifier_count_max / node_visit_count_max / clause_count_max conditions and the
+// per-frame extensionsTaken stay in place: they also drive the legacy linear
+// DynamicBuilder API (a getAvailableEdges consumer the probe does not exercise)
+// and encode the self-loop-vs-single-shot distinction extensionsTaken needs, so
+// ripping them out is the deferred cross-surface migration the analysis flags as
+// highest-risk ("do not rip it out up front"). This layer is the seam that proves
+// they are redundant on the builder surface and makes their removal a later, fully
+// parity-gated step.
+
+// Which adjunct role a STEP fills (keyed by the step's nodeId). Mirrors the slots
+// the legacy count guards governed: manner = a modifier; locative = a preposition
+// slot; companion = a companion name.
+//
+// The EMPHATIC pronoun (postposed_pronoun / emphatic_pronoun) is deliberately NOT
+// a role here. Its "one per clause" rule is enforced by the per-frame
+// extensionsTaken single-shot (plus no_complement_yet for placement). That guard
+// is a frame-stack property — it transiently permits a second emphatic inside a
+// sub-frame before the pop-merge — which a flat-steps view cannot reproduce
+// without altering reachability (proven: a sentence-global emphatic budget shifts
+// the probe's "Emphasis" reach). So emphatic stays on extensionsTaken and is part
+// of the same deferred extensionsTaken removal the analysis gates on parity.
+const ADJUNCT_STEP_ROLE = {
+  modifier: 'manner',
+  modifier_ns: 'manner',
+  preposition: 'locative',
+  companion: 'companion',
+}
+
+// Which role an EXTENSION target opens (the menu edge whose budget we check).
+// manner self-loops on modifier / modifier_ns; locative attaches via `preposition`;
+// companion re-enters via `mo_fixed`.
+const ADJUNCT_TARGET_ROLE = {
+  modifier: 'manner',
+  modifier_ns: 'manner',
+  preposition: 'locative',
+  mo_fixed: 'companion',
+}
+
+// Per-role budget caps — the exact maxima the legacy count conditions enforced:
+//   manner    modifier_count_max max 2          (one content modifier + aupito)
+//   locative  node_visit_count_max preposition 2 (Ch 46 dual preposition)
+//   companion node_visit_count_max companion 4
+const ADJUNCT_ROLE_BUDGET = { manner: 2, locative: 2, companion: 4 }
+
+/**
+ * Pure derived view over a flat step list: per-role step counts plus, for the
+ * two content-de-dup roles, the set of normalized keys already used.
+ *
+ * Returns `{ counts, keys, currentPrep }`:
+ *   - counts: { manner, locative, companion } — step counts per role.
+ *   - keys.companion: Set of normalized companion names (one per `companion` step).
+ *   - keys.locative:  Set of `prep|complement` pairs (one per preposition+
+ *                     prep_phrase pair) — the same key the no_duplicate_prep_
+ *                     complement filter built.
+ *   - currentPrep:    the most recently seen preposition word (normalized), used
+ *                     to scope the locative word-de-dup to the slot being filled.
+ *
+ * No state mutation; pure function of the step array.
+ */
+function deriveAdjunctRoles(steps) {
+  const counts = { manner: 0, locative: 0, companion: 0 }
+  const keys = { companion: new Set(), locative: new Set() }
+  let pendingPrep = null   // a preposition awaiting its complement (for pairing)
+  let currentPrep = null   // the last preposition seen (paired or not)
+  for (const s of steps) {
+    const role = ADJUNCT_STEP_ROLE[s.nodeId]
+    if (role) counts[role]++
+    if (!s.word) continue
+    if (s.nodeId === 'companion') {
+      keys.companion.add(normalize(s.word.tongan))
+    } else if (s.nodeId === 'preposition') {
+      pendingPrep = normalize(s.word.tongan)
+      currentPrep = pendingPrep
+    } else if (s.nodeId === 'prep_phrase' && pendingPrep != null) {
+      keys.locative.add(pendingPrep + '|' + normalize(s.word.tongan))
+      pendingPrep = null // pair consumed; the next preposition opens a new pair
+    }
+  }
+  return { counts, keys, currentPrep }
+}
+
+/**
+ * Adjunct-role budget gate for the menu chokepoint (validateOption). Returns
+ * false when opening another `targetNodeId` would exceed its role's budget
+ * (manner <=2, locative <=2, companion <=4). `view` is a clause-scoped view
+ * (deriveAdjunctRoles over the current clause's steps). Non-adjunct targets pass.
+ *
+ * The budget is CLAUSE-scoped to match extensionsTaken's per-frame reset: the
+ * legacy guards cap a role per clause (a coordinated second clause may open the
+ * role afresh), so a sentence-global budget would over-restrict the second
+ * clause's first modifier / preposition. The cross-clause global ceiling stays
+ * on the kept modifier_count_max / node_visit_count_max conditions, which gate
+ * the self-loop / re-entry edges in getAvailableEdges before this runs. Together
+ * the two are byte-identical to the pre-P2-2 reachability.
+ */
+function roleBudgetAllowsTarget(targetNodeId, view) {
+  const role = ADJUNCT_TARGET_ROLE[targetNodeId]
+  if (!role) return true
+  return view.counts[role] < ADJUNCT_ROLE_BUDGET[role]
+}
+
 /**
  * Get available entry points for a given chapter level.
  */
@@ -67,35 +184,25 @@ export function getAvailableWords(nodeId, chapter, steps) {
     }
   }
 
-  // B2: de-dup at the same node. Drops any word already chosen at THIS node id
-  // earlier in the sentence, so a companion chain can't repeat a name
-  // (`mo Sione mo Sione`). Distinct companions (`mo Sione mo Mele`) are fine.
-  if (node.word_filter && node.word_filter.type === 'no_repeat_at_node') {
-    const used = new Set(
-      steps.filter(s => s.nodeId === nodeId && s.word).map(s => normalize(s.word.tongan))
-    )
-    words = words.filter(w => !used.has(normalize(w.tongan)))
-  }
-
-  // B3: in a dual-preposition phrase, forbid repeating the SAME (preposition,
-  // complement) pair — `ʻi ʻapi ʻi ʻapi` is empty repetition. A different
-  // complement under the same prep (`ʻi he fale … ʻi Lonitoni`) or the same
-  // complement under a different prep (`mei he potu ki he potu`) stay legal.
-  if (node.word_filter && node.word_filter.type === 'no_duplicate_prep_complement') {
-    // Build prior (prepWord → complementWord) pairs and find the preposition
-    // governing the slot now being filled (the most recent `preposition` step).
-    let lastPrep = null
-    const priorPairs = new Set()
-    let currentPrep = null
-    for (const s of steps) {
-      if (s.nodeId === 'preposition' && s.word) { lastPrep = normalize(s.word.tongan); currentPrep = lastPrep }
-      else if (s.nodeId === nodeId && s.word && lastPrep != null) {
-        priorPairs.add(lastPrep + '|' + normalize(s.word.tongan))
-        lastPrep = null // pair consumed; the next prep opens a new pair
-      }
-    }
-    if (currentPrep != null) {
-      words = words.filter(w => !priorPairs.has(currentPrep + '|' + normalize(w.tongan)))
+  // P2-2: content de-dup for the companion and locative roles, driven by the
+  // shared adjunct-role view (deriveAdjunctRoles) instead of the per-node
+  // word_filters no_repeat_at_node / no_duplicate_prep_complement (now removed
+  // from grammar-graph.json). One model, consumed here at the word level and in
+  // validateOption at the menu level. Behavior is identical to the old filters:
+  //   - companion (B2): drop a name already chosen in a `mo X` slot earlier in
+  //     the sentence, so a chain can't repeat a name (`mo Sione mo Sione`).
+  //     Distinct companions (`mo Sione mo Mele`) stay legal.
+  //   - prep_phrase (B3): drop a complement that would repeat the SAME
+  //     (preposition, complement) pair (`ʻi ʻapi ʻi ʻapi`). A different complement
+  //     under the same preposition (`ʻi he fale … ʻi Lonitoni`), or the same
+  //     complement under a different preposition (`mei he potu ki he potu`), stays
+  //     legal — keyed on the preposition now governing this slot (view.currentPrep).
+  if (nodeId === 'companion' || nodeId === 'prep_phrase') {
+    const view = deriveAdjunctRoles(steps)
+    if (nodeId === 'companion') {
+      words = words.filter(w => !view.keys.companion.has(normalize(w.tongan)))
+    } else if (view.currentPrep != null) {
+      words = words.filter(w => !view.keys.locative.has(view.currentPrep + '|' + normalize(w.tongan)))
     }
   }
 
@@ -1076,7 +1183,35 @@ function validateOption(state, candidate) {
   ) {
     return { ok: false, kind: 'extension' }
   }
+  // P2-2: role-budget gate — drop a role-opening extension once its per-clause
+  // budget is spent (manner <=2, locative <=2, companion <=4). This is the single
+  // menu-level statement of the adjunct budgets, reading the same deriveAdjunctRoles
+  // view getAvailableWords uses for content de-dup. Clause-scoped to match
+  // extensionsTaken's per-frame reset; the cross-clause global ceiling stays on the
+  // kept modifier_count_max / node_visit_count_max conditions. On the open-builder
+  // surface this is redundant with those guards (proven byte-identical against the
+  // reachability probe) — it is the seam that lets them be retired later without
+  // re-deriving the budgets. (Emphatic "one per clause" stays on extensionsTaken;
+  // see ADJUNCT_STEP_ROLE.)
+  if (ADJUNCT_TARGET_ROLE[edge.node]) {
+    const view = deriveAdjunctRoles(clauseScopedSteps(state))
+    if (!roleBudgetAllowsTarget(edge.node, view)) {
+      return { ok: false, kind: 'extension' }
+    }
+  }
   return { ok: true, kind: 'extension' }
+}
+
+// Flatten the steps of the CURRENT clause only (the clause root frame outward),
+// mirroring extensionsTaken's per-frame reset. Used by the role-budget gate so a
+// coordinated second clause budgets its adjuncts independently of the first.
+function clauseScopedSteps(state) {
+  const { depth } = findClauseRootFrame(state)
+  const out = []
+  for (let i = depth; i < state.frames.length; i++) {
+    for (const step of state.frames[i].path) out.push(step)
+  }
+  return out
 }
 
 /**

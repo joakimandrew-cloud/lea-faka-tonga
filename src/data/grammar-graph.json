@@ -351,7 +351,6 @@
       "route_to_hub": true,
       "label": "Prepositional complement",
       "description": "Choose a place, person, or thing — the preposition form adjusts to match",
-      "word_filter": { "type": "no_duplicate_prep_complement" },
       "words": [
         { "tongan": "ʻapi", "english": "home", "min_chapter": 6, "noun_class": "local", "animacy": "thing", "possessive_class": "ho_class", "kaunga_form": { "tongan": "kaungā ʻapi", "english": "neighbour(s)", "min_chapter": 49 } },
         { "tongan": "kolo", "english": "town", "min_chapter": 6, "noun_class": "local", "animacy": "thing", "possessive_class": "ho_class" },
@@ -423,7 +422,6 @@
       "route_to_hub": true,
       "label": "Companion",
       "description": "Choose who you were with",
-      "word_filter": { "type": "no_repeat_at_node" },
       "words": [
         { "tongan": "Sione", "english": "Sione", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },
         { "tongan": "Mele", "english": "Mele", "min_chapter": 10, "noun_class": "personal", "animacy": "person", "possessive_class": "ho_class" },

@@ -739,3 +739,84 @@ describe('P2-3 — multi-walker per-walker validation (no dead union options)', 
     expect(totalItems).toBeGreaterThan(0)
   })
 })
+
+// ===========================================================================
+// P2-2 — one coherent adjunct-repetition model (role tags + seenContentKeys)
+// (added 2026-05-30)
+//
+// deriveAdjunctRoles is the single pure view over getFlatSteps. getAvailableWords
+// reads it for content de-dup (replacing the no_repeat_at_node /
+// no_duplicate_prep_complement word_filters, now removed from grammar-graph.json);
+// validateOption reads it for the per-clause role budgets (manner <=2, locative
+// <=2, companion <=4). Emphatic "one per clause" stays on extensionsTaken (a
+// frame-stack property the flat-steps view can't reproduce). The locative budget
+// also makes the Ch 46 dual-preposition cap of 2 hold at EVERY anchor — the old
+// node_visit_count_max:2 only gated the prep_phrase re-entry edge, leaking a 3rd
+// preposition via a different anchor.
+// ===========================================================================
+describe('P2-2 — role-budget + seenContentKeys model', () => {
+  it('content de-dup (companion): a used name is filtered from the next mo X slot', () => {
+    let s = addCompanion(naaKuAlu(), 'Sione')
+    s = takeExtension(s, 'mo_fixed')
+    s = advanceInFrame(s, { tongan: 'mo' })
+    const names = getCurrentFrameWords(s).map(w => w.tongan)
+    expect(names).toContain('Mele')      // a distinct companion is still offered
+    expect(names).not.toContain('Sione') // the used name is de-duped (no `mo Sione mo Sione`)
+  })
+
+  it('content de-dup (locative): the SAME (preposition, complement) pair cannot repeat; a different complement can', () => {
+    let s = naaKuAlu()
+    s = takeExtension(s, 'preposition')
+    s = advanceInFrame(s, { tongan: 'ʻi' })
+    s = advanceInFrame(s, { tongan: 'ʻapi' })
+    s = takeExtension(s, 'preposition') // dual-prep re-entry (Ch 46)
+    s = advanceInFrame(s, { tongan: 'ʻi' })
+    const places = getCurrentFrameWords(s).map(w => w.tongan)
+    expect(places).not.toContain('ʻapi') // ʻi ʻapi already used → no `ʻi ʻapi ʻi ʻapi`
+    expect(places).toContain('kolo')     // ʻi kolo is a new pair → still offered
+  })
+
+  it('manner budget: at most 2 modifiers in a clause (the role budget mirrors modifier_count_max)', () => {
+    let s = naaKuAlu()
+    s = takeExtension(s, 'modifier'); s = advanceInFrame(s, { tongan: 'lelei' })
+    s = takeExtension(s, 'modifier'); s = advanceInFrame(s, { tongan: 'lahi' })
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).not.toContain('modifier')
+  })
+
+  it('locative budget: the Ch 46 cap of 2 holds at EVERY anchor — no 3rd preposition, two-prep phrase preserved', () => {
+    let s = naaKuAlu()
+    s = takeExtension(s, 'preposition'); s = advanceInFrame(s, { tongan: 'ki' }); s = advanceInFrame(s, { tongan: 'kolo' })
+    s = takeExtension(s, 'preposition'); s = advanceInFrame(s, { tongan: 'ʻi' }); s = advanceInFrame(s, { tongan: 'ʻapi' })
+    s = finishFrame(s) // back toward the verb anchor
+    // Before P2-2 a 3rd preposition leaked in here (node_visit_count_max:2 only
+    // gated the prep_phrase re-entry edge, not the verb/modifier/object anchors).
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).not.toContain('preposition')
+    // ...but the legitimate two-preposition dual phrase still builds.
+    expect(render(s)).toContain('ki kolo')
+    expect(render(s)).toContain('ʻi ʻapi')
+  })
+
+  it('companion budget: the chain still stops after 4 (role budget mirrors node_visit_count_max:4)', () => {
+    let s = naaKuAlu()
+    for (const n of ['Sione', 'Mele', 'Pita', 'Ana']) s = addCompanion(s, n)
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).not.toContain('mo_fixed')
+  })
+
+  it('budgets are clause-scoped: a coordinated second clause opens its own fresh modifier', () => {
+    // Regression guard for clause-scoping: clause 1 maxing its modifiers must not
+    // starve clause 2 (a sentence-global budget would). Build `Naʻa ku ʻalu lelei
+    // lahi pea u nofo ...` and confirm clause 2's verb still offers a modifier.
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' }); s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb'); s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'modifier'); s = advanceInFrame(s, { tongan: 'lelei' })
+    s = takeExtension(s, 'modifier'); s = advanceInFrame(s, { tongan: 'lahi' }) // clause 1 maxed at 2
+    s = takeExtension(s, 'clause_connector_pea'); s = advanceInFrame(s, { tongan: 'pea' })
+    s = takeExtension(s, 'pronoun'); s = advanceInFrame(s, { tongan: 'ku' })      // pea ku
+    s = takeExtension(s, 'verb'); s = advanceInFrame(s, { tongan: 'nofo' })       // ... nofo
+    // clause 2's verb anchor must still offer a modifier (manner budget reset per clause)
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).toContain('modifier')
+    s = takeExtension(s, 'modifier'); s = advanceInFrame(s, { tongan: 'lelei' })
+    expect(render(s)).toContain('nofo lelei')
+  })
+})
