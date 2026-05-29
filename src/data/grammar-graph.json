@@ -167,7 +167,7 @@
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "question_word", "label": "Add question word", "min_chapter": 6, "context_hint": "Ask where, when, or how" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "context_hint": "Say who {subject} did it with" },
-        { "node": "postposed_pronoun", "label": "Add emphasis (I myself, you yourself...)", "min_chapter": 5, "context_hint": "Emphasize: {subject} myself / yourself / etc." },
+        { "node": "postposed_pronoun", "label": "Add emphasis (I myself, you yourself...)", "min_chapter": 5, "condition": { "type": "no_complement_yet" }, "context_hint": "Emphasize: {subject} myself / yourself / etc." },
         { "node": "subordinator_ke_purpose", "label": "Add purpose (in order to...)", "min_chapter": 26, "child_entry_point": "purpose_bare_verb", "context_hint": "Say WHY — {subject} {verb_past} in order to do something" },
         { "node": "subordinator_koeuhi_ke", "label": "Add emphatic purpose (koeʻuhi ke... so that...)", "min_chapter": 26, "child_entry_point": "reason_clause_koeuhi_ke", "context_hint": "Emphasize WHY with koeʻuhi ke — the stronger form of ke" },
         { "node": "clause_connector_he", "label": "Add reason (he... because...)", "min_chapter": 26, "child_entry_point": "reason_clause_he", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Give the reason: ...because..." },
@@ -203,7 +203,7 @@
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when {subject} {verb_past}" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "context_hint": "Say who {subject} did it with" },
-        { "node": "postposed_pronoun", "label": "Add emphasis", "min_chapter": 5, "context_hint": "Emphasize: {subject} myself / yourself / etc." }
+        { "node": "postposed_pronoun", "label": "Add emphasis", "min_chapter": 5, "condition": { "type": "no_complement_yet" }, "context_hint": "Emphasize: {subject} myself / yourself / etc." }
       ]
     },
 
@@ -264,7 +264,7 @@
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when {subject} {verb_past}" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "context_hint": "Say who {subject} did it with" },
-        { "node": "postposed_pronoun", "label": "Add emphasis", "min_chapter": 5, "context_hint": "Emphasize: {subject} myself / yourself / etc." },
+        { "node": "postposed_pronoun", "label": "Add emphasis", "min_chapter": 5, "condition": { "type": "no_complement_yet" }, "context_hint": "Emphasize: {subject} myself / yourself / etc." },
         { "node": "benefactive_preposition_ma", "label": "Add beneficiary (maʻa / moʻo + name)", "min_chapter": 26, "child_entry_point": "benefactive_name", "context_hint": "Say who it was for — maʻa / moʻo + name" },
         { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who it was for — for me, you, him..." },
         { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "context_hint": "Say the action continues unchanged — as usual, as always" },
@@ -564,7 +564,7 @@
         { "node": "object", "label": "Add object (what)", "min_chapter": 8, "condition": { "type": "verb_has_tag", "tag": "transitive" }, "context_hint": "Say what to {verb_base}" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where to {verb_base}" },
         { "node": "polite_particle", "label": "Add please (muʻa)", "min_chapter": 5, "condition": { "type": "not_already_visited_node", "node": "emphatic_pronoun" }, "context_hint": "Make it polite with muʻa (please)" },
-        { "node": "emphatic_pronoun", "label": "Add emphasis (you!)", "min_chapter": 5, "context_hint": "Emphasize who you're talking to" },
+        { "node": "emphatic_pronoun", "label": "Add emphasis (you!)", "min_chapter": 5, "condition": { "type": "no_complement_yet" }, "context_hint": "Emphasize who you're talking to" },
         { "node": "clause_connector_o", "label": "Add serial verb (ʻo... and...)", "min_chapter": 24, "child_entry_point": "serial_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Link a second action: come ʻo eat, go ʻo study" },
         { "node": "clause_connector_pea_serial", "label": "Add sequential command (pea... and then...)", "min_chapter": 24, "child_entry_point": "serial_clause", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Say what to do next: ...and then..." }
       ]
@@ -2315,7 +2315,7 @@
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "condition": { "type": "not_already_visited_node", "node": "preposition" }, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "condition": { "type": "not_already_visited_node", "node": "companion" }, "context_hint": "Say who it was with" },
-        { "node": "postposed_pronoun", "label": "Add emphasis (I myself, you yourself...)", "min_chapter": 5, "context_hint": "Emphasize the subject" },
+        { "node": "postposed_pronoun", "label": "Add emphasis (I myself, you yourself...)", "min_chapter": 5, "condition": { "type": "no_complement_yet" }, "context_hint": "Emphasize the subject" },
         { "node": "benefactive_preposition_ma", "label": "Add beneficiary (maʻa / moʻo + name)", "min_chapter": 26, "child_entry_point": "benefactive_name", "context_hint": "Say who the action is for — maʻa / moʻo + name" },
         { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who the action is for — for me, for you, for him..." },
         { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "context_hint": "Say the action continues unchanged — as usual, as always" },

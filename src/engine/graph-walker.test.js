@@ -486,41 +486,54 @@ describe('stack walker — user-reported symptoms (regression guards)', () => {
   //   (b) "wrong-position postposed pronouns" — postposed pronouns were
   //       offered before a verb had been picked. Per spec §40 / the data in
   //       grammar-graph.json, postposed_pronoun is only ever reachable from
-  //       verb-downstream nodes (verb, modifier, object, prep_phrase,
-  //       companion) — never from tense_marker or pronoun.
+  //       verb-downstream nodes (verb, modifier, object) — never from
+  //       tense_marker or pronoun. P1-B4 additionally gates it (no_complement_yet)
+  //       so it is offered only while it still abuts the verb phrase (no
+  //       object / locative / companion / time complement has intervened).
 
-  it('symptom (a): every untaken extension survives after a sibling is taken — location, time, companion, postposed pronoun coexist', () => {
+  it('symptom (a): the open content extensions (location, time, companion) coexist after a sibling is taken; the emphatic pronoun is placement-gated (P1-B4)', () => {
     let s = createWalkerState('statement', 999)
     s = advanceInFrame(s, { tongan: 'Naʻa' })
     s = advanceInFrame(s, { tongan: 'ku' })
     s = takeExtension(s, 'verb')
     s = advanceInFrame(s, { tongan: 'ʻalu' }) // intransitive motion verb
 
-    // Baseline at the verb anchor: all four sibling extensions available.
+    // Baseline at the verb anchor (no complement yet): the three open content
+    // extensions AND the emphatic pronoun are all available. The emphatic
+    // pronoun is offered here because it still abuts the verb phrase.
     const ids = () => getExtensionMenu(s).extensions.map(e => e.node)
     expect(ids()).toEqual(
       expect.arrayContaining(['preposition', 'time_word', 'mo_fixed', 'postposed_pronoun'])
     )
 
-    // Add a location (preposition → prep_phrase). Sibling extensions stay.
+    // Add a location (preposition → prep_phrase). The other OPEN content
+    // extensions survive (Rule 1) — but the emphatic pronoun is now gated off:
+    // once a complement intervenes, `… au` would render in the wrong slot
+    // (`… ki kolo au`), so postposed_pronoun is no longer offered (P1-B4).
     s = takeExtension(s, 'preposition')
     s = advanceInFrame(s, { tongan: 'ki' })
     s = advanceInFrame(s, { tongan: 'kolo' })
     s = finishFrame(s)
     expect(ids()).not.toContain('preposition')
     expect(ids()).toEqual(
-      expect.arrayContaining(['time_word', 'mo_fixed', 'postposed_pronoun'])
+      expect.arrayContaining(['time_word', 'mo_fixed'])
     )
+    expect(ids()).not.toContain('postposed_pronoun') // P1-B4: gated by the locative
+    // The gate is real: trying to take it now throws.
+    expect(() => takeExtension(s, 'postposed_pronoun'))
+      .toThrow(/not available in the current menu/)
 
-    // Add a companion (mo + Sione). time_word and postposed_pronoun still there.
+    // Add a companion (mo + Sione). time_word still survives; the emphatic
+    // pronoun stays gated.
     s = takeExtension(s, 'mo_fixed')
     s = advanceInFrame(s, { tongan: 'mo' })
     s = advanceInFrame(s, { tongan: 'Sione' })
     s = finishFrame(s)
     expect(ids()).not.toContain('mo_fixed')
     expect(ids()).toEqual(
-      expect.arrayContaining(['time_word', 'postposed_pronoun'])
+      expect.arrayContaining(['time_word'])
     )
+    expect(ids()).not.toContain('postposed_pronoun')
 
     // Add time_word last (it's terminal — no more extensions from inside).
     s = takeExtension(s, 'time_word')
@@ -544,9 +557,11 @@ describe('stack walker — user-reported symptoms (regression guards)', () => {
     expect(tongan).toBe('Naʻa ku ʻalu ki kolo mo Sione ʻaneafi')
   })
 
-  it('symptom (a), reversed order: same four extensions coexist when time/companion taken first', () => {
+  it('symptom (a), reversed order: open content extensions coexist when time/companion taken first; emphatic pronoun stays gated (P1-B4)', () => {
     // Same sentence shape, different user pick order — locks in that the
-    // order of extension selection doesn't prune siblings either.
+    // order of extension selection doesn't prune the OPEN content siblings,
+    // and that the emphatic pronoun gate is order-independent (any complement
+    // closes it).
     let s = createWalkerState('statement', 999)
     s = advanceInFrame(s, { tongan: 'Naʻa' })
     s = advanceInFrame(s, { tongan: 'ku' })
@@ -555,14 +570,16 @@ describe('stack walker — user-reported symptoms (regression guards)', () => {
 
     const ids = () => getExtensionMenu(s).extensions.map(e => e.node)
 
-    // Add companion first.
+    // Add companion first. location + time survive; the emphatic pronoun is
+    // gated off (the companion is a complement → `mo Sione au` would leak).
     s = takeExtension(s, 'mo_fixed')
     s = advanceInFrame(s, { tongan: 'mo' })
     s = advanceInFrame(s, { tongan: 'Sione' })
     s = finishFrame(s)
     expect(ids()).toEqual(
-      expect.arrayContaining(['preposition', 'time_word', 'postposed_pronoun'])
+      expect.arrayContaining(['preposition', 'time_word'])
     )
+    expect(ids()).not.toContain('postposed_pronoun') // P1-B4: gated by the companion
 
     // Add location second.
     s = takeExtension(s, 'preposition')
@@ -570,10 +587,11 @@ describe('stack walker — user-reported symptoms (regression guards)', () => {
     s = advanceInFrame(s, { tongan: 'kolo' })
     s = finishFrame(s)
     expect(ids()).toEqual(
-      expect.arrayContaining(['time_word', 'postposed_pronoun'])
+      expect.arrayContaining(['time_word'])
     )
     expect(ids()).not.toContain('preposition')
     expect(ids()).not.toContain('mo_fixed')
+    expect(ids()).not.toContain('postposed_pronoun')
   })
 
   it('symptom (b): postposed_pronoun is NOT offered before a verb has been picked', () => {
@@ -635,11 +653,14 @@ describe('stack walker — user-reported symptoms (regression guards)', () => {
     const menu = getExtensionMenu(s)
     const extIds = menu.extensions.map(e => e.node)
     // Modifier frame offers: another modifier (self-loop), location,
-    // companion, emphasis. time_word is hidden (propagated to this
-    // frame's extensionsTaken during the pop).
+    // companion. time_word is hidden (propagated to this frame's
+    // extensionsTaken during the pop). The emphatic pronoun is NOT offered:
+    // an object (mā) and a time word (ʻaneafi) have intervened, so P1-B4's
+    // no_complement_yet gate has closed the emphatic slot (`… au` after the
+    // object/time would render in the wrong place).
     expect(extIds).toContain('preposition')
     expect(extIds).toContain('mo_fixed')
-    expect(extIds).toContain('postposed_pronoun')
+    expect(extIds).not.toContain('postposed_pronoun') // P1-B4: gated by object + time
     expect(extIds).not.toContain('time_word')
 
     // FINISH terminators remain available — the user isn't forced to

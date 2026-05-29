@@ -167,6 +167,44 @@ const CLAUSE_COMPLETION_NODE_IDS = new Set([
   'prep_pronoun',
 ])
 
+// P1-B4: post-verbal complement / adjunct slots. Their presence in the flat
+// step history means the emphatic pronoun would no longer abut the verb phrase,
+// so the `no_complement_yet` condition stops offering it. This gates BOTH the
+// statement-path emphatic `postposed_pronoun` (`au`) and the command-path
+// emphatic `emphatic_pronoun` (`koe`) — same Ch 5 placement rule, two nodes.
+// Ch 5 ("the postposed pronoun appears right after the verb or verb phrase";
+// Shumway L9 `Te u nofo au ʻi ʻapi`): the emphatic pronoun precedes every
+// complement — object, locative, companion — and precedes a trailing time word
+// (`Naʻa mau hiva kimautolu ʻanepō`). For transitive emphasis after an object
+// the book uses the distinct `ʻe + pronoun` agent construction (`Te u fai ia
+// ʻe au`), so listing `object`/`article` here also retires the suspect bare-
+// pronoun edge off `object` (plans/Terminal-Build-Analysis.md §B4).
+//
+// Verb-phrase-internal slots (manner `modifier`, `directional`, comparatives,
+// post-verbal aspect) are deliberately NOT listed: a manner modifier must NOT
+// close the emphatic slot, so `kai lelei au` (manner before the emphatic) stays
+// legal. This set only controls what CLOSES the slot (i.e. when the emphatic
+// EDGE is offered); it does not by itself forbid a VP-internal adjunct from
+// being RE-offered AFTER the emphatic (e.g. `nofo au lelei` via the manner
+// edges / adjuncts hub). That inverse ordering is a separate VP-internal-order
+// concern, tracked as a follow-up in plans/Terminal-Build-Fix-Tracker.md.
+const COMPLEMENT_ADJUNCT_NODE_IDS = new Set([
+  // direct object (bare, with-article, and the §16 transitive object slots)
+  'object', 'article', 'object_phrase', 'object_phrase_cleft',
+  // locative / prepositional complement (incl. interrogative locatives ʻi fē / ki fē)
+  'preposition', 'prep_phrase', 'preposition_possessive', 'question_word',
+  // companion
+  'mo_fixed', 'companion',
+  // time adjunct (the emphatic pronoun comes before a time word)
+  'time_word',
+  // beneficiary
+  'benefactive_preposition_ma', 'benefactive_pronoun_fused',
+  // count attached to a noun, and the count predicate
+  'numeral', 'personal_count',
+  // possessed object
+  'possessive_pronoun', 'possessor_preposition',
+])
+
 // Walk the stack top-down to find the current clause's root frame. A new
 // clause starts whenever a frame was pushed via a clause connector edge
 // (parentExtension is in CLAUSE_CONNECTOR_NODES). Anything above that frame
@@ -633,6 +671,22 @@ function evaluateCondition(condition, steps) {
 
   if (condition.type === 'not_already_visited_node') {
     return !steps.some(s => s.nodeId === condition.node)
+  }
+
+  // P1-B4: offer the emphatic postposed pronoun only while it still abuts the
+  // verb phrase — i.e. no object / locative / companion / time (etc.) complement
+  // has been added yet. Evaluated against the flat step history, so once any
+  // complement step exists anywhere in the sentence the emphatic edge disappears
+  // from the verb / modifier / object anchors (and the hub, which copies it).
+  // This closes the §B4 statement-path leaks `… ki kolo au` / `… mo Sione au`
+  // (the renderer orders by insertion, so an emphatic pronoun added after a
+  // complement rendered in the wrong slot). The cross-clause approximation
+  // matches the existing flat-step conditions (modifier_count_max,
+  // clause_count_max): an emphatic pronoun in a second clause whose first clause
+  // already has a complement is the only thing this over-restricts, which is a
+  // rare construction the book does not demonstrate.
+  if (condition.type === 'no_complement_yet') {
+    return !steps.some(s => COMPLEMENT_ADJUNCT_NODE_IDS.has(s.nodeId))
   }
 
   // Phase 2E.6: generalized node-visit counter — allows up to `max` visits

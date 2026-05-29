@@ -435,8 +435,146 @@ describe('P1-A2 — count predicates extend with the enclitic pē + a time word 
   })
 })
 
-// KNOWN-REMAINING (tracked as P1 in plans/Terminal-Build-Fix-Tracker.md):
-// statement-path "...complement au" (e.g. ʻOku ... ki kolo au / mo Sione au)
-// still leaks because postposed_pronoun is offered from the verb anchor and the
-// renderer orders by insertion. Full fix needs a placement gate + rewriting the
-// "Rule 1 coexistence" tests in graph-walker.test.js (lines ~492-577).
+describe('P1-B4 — emphatic postposed pronoun is gated to the verb phrase', () => {
+  // The statement-path leaks `… ki kolo au` / `… mo Sione au` used to slip
+  // through: postposed_pronoun was offered from the verb anchor with no
+  // condition, so after returning from a locative / companion sub-walk the
+  // user could still append `au`, which the insertion-ordered renderer placed
+  // AFTER the complement (Ch 5: the emphatic pronoun must abut the verb phrase,
+  // before complements — Shumway L9 `Te u nofo au ʻi ʻapi`). P1-B4 gates the
+  // edge with `no_complement_yet`.
+  //
+  // These are DETERMINISTIC builds, not BFS `reachable` rejects: post-P1-A4 the
+  // adjunct hub widened every menu, so the bounded BFS (depth<=11, max=30k)
+  // exhausts its budget long before reaching the depth-8 `… complement au`
+  // states — a BFS reject would pass vacuously whether or not the leak exists.
+  // The graph-walker unit tests (symptom (a)/(a)-reversed) assert the same gate
+  // from the other direction. Empirically confirmed pre-fix: the menu DID offer
+  // postposed_pronoun after a locative/companion; it no longer does.
+
+  it('locative closes the emphatic slot — no `… ki kolo au` (Naʻa ku ʻalu ki kolo)', () => {
+    let s = naaKuAlu()
+    s = takeExtension(s, 'preposition')
+    s = advanceInFrame(s, { tongan: 'ki' })
+    s = advanceInFrame(s, { tongan: 'kolo' })
+    s = finishFrame(s) // back to the verb anchor
+    const ext = getExtensionMenu(s).extensions.map(e => e.node)
+    expect(ext).toContain('time_word')          // open content extensions survive
+    expect(ext).toContain('mo_fixed')
+    expect(ext).not.toContain('postposed_pronoun')
+    expect(() => takeExtension(s, 'postposed_pronoun'))
+      .toThrow(/not available in the current menu/)
+  })
+
+  it('companion closes the emphatic slot — no `… mo Sione au` (Naʻa ku ʻalu mo Sione)', () => {
+    let s = addCompanion(naaKuAlu(), 'Sione')
+    s = finishFrame(s) // back to the verb anchor
+    const ext = getExtensionMenu(s).extensions.map(e => e.node)
+    expect(ext).not.toContain('postposed_pronoun')
+    expect(() => takeExtension(s, 'postposed_pronoun'))
+      .toThrow(/not available in the current menu/)
+  })
+
+  it('a bare object closes the emphatic slot — the suspect bare-pronoun edge off `object` is retired (Naʻa ku kai mā)', () => {
+    // Transitive emphasis uses the distinct `ʻe + pronoun` agent construction
+    // after the object (`Te u fai ia ʻe au`), never a bare postposed pronoun.
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'kai' })
+    s = takeExtension(s, 'object')
+    s = advanceInFrame(s, { tongan: 'mā' })
+    const ext = getExtensionMenu(s).extensions.map(e => e.node)
+    expect(ext).not.toContain('postposed_pronoun')
+  })
+
+  it('verb + au still builds (Naʻa ku ʻalu au)', () => {
+    let s = naaKuAlu()
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).toContain('postposed_pronoun')
+    s = takeExtension(s, 'postposed_pronoun')
+    s = advanceInFrame(s, { tongan: 'au' })
+    expect(render(s)).toBe('Naʻa ku ʻalu au')
+  })
+
+  it('verb + au + time word still builds, in the canonical order (Naʻa ku ʻalu au ʻaneafi — cf. Ch 5 `Naʻa mau hiva kimautolu ʻanepō`)', () => {
+    let s = naaKuAlu()
+    s = takeExtension(s, 'postposed_pronoun')
+    s = advanceInFrame(s, { tongan: 'au' })
+    s = takeExtension(s, 'time_word') // postposed_pronoun.next offers a trailing time word
+    s = advanceInFrame(s, { tongan: 'ʻaneafi' })
+    expect(render(s)).toBe('Naʻa ku ʻalu au ʻaneafi')
+  })
+
+  it('a manner modifier does NOT close the emphatic slot — `kai lelei au` still builds (the verb phrase includes manner)', () => {
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'kai' })
+    s = takeExtension(s, 'modifier')
+    s = advanceInFrame(s, { tongan: 'lelei' })
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).toContain('postposed_pronoun')
+    s = takeExtension(s, 'postposed_pronoun')
+    s = advanceInFrame(s, { tongan: 'au' })
+    expect(render(s)).toBe('Naʻa ku kai lelei au')
+  })
+
+  // The command path uses a SEPARATE emphatic node `emphatic_pronoun` (koe),
+  // distinct from the statement `postposed_pronoun` (au). P1-B4 gates that edge
+  // with the same `no_complement_yet` condition so the addressee-emphatic also
+  // abuts the verb (Ch 5: `ʻAlu koe!`, `Nofo koe!`). Surfaced by the adversarial
+  // review — the time_word / benefactive auto-pop back to the command_verb anchor
+  // used to re-offer `koe` after a complement (`Kai ʻapongipongi koe`).
+
+  it('command emphatic is gated too — a time word closes the slot (no `Kai ʻapongipongi koe`)', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Kai' })
+    s = takeExtension(s, 'time_word')
+    s = advanceInFrame(s, { tongan: 'ʻapongipongi' }) // auto-pops back to command_verb
+    const ext = getExtensionMenu(s).extensions.map(e => e.node)
+    expect(ext).not.toContain('emphatic_pronoun')
+    expect(() => takeExtension(s, 'emphatic_pronoun'))
+      .toThrow(/not available in the current menu/)
+  })
+
+  it('command emphatic is gated too — a beneficiary closes the slot (no `Kai maʻa Sione koe`)', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Kai' })
+    s = takeExtension(s, 'benefactive_preposition_ma')
+    s = advanceInFrame(s, { tongan: 'maʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' }) // auto-pops back to command_verb
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).not.toContain('emphatic_pronoun')
+  })
+
+  it('command + emphatic still builds adjacent to the verb (Kai koe), and a time word may follow it (Kai koe ʻapongipongi)', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Kai' })
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).toContain('emphatic_pronoun')
+    s = takeExtension(s, 'emphatic_pronoun')
+    s = advanceInFrame(s, { tongan: 'koe' }) // emphatic_pronoun.next = FINISH only → auto-pops
+    expect(render(s)).toBe('Kai koe')
+    s = takeExtension(s, 'time_word')
+    s = advanceInFrame(s, { tongan: 'ʻapongipongi' })
+    expect(render(s)).toBe('Kai koe ʻapongipongi') // emphatic precedes the time word — correct order
+  })
+
+  it('command + please + you (Kai muʻa koe) is unaffected — the polite particle is not a complement', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Kai' })
+    s = takeExtension(s, 'polite_particle')
+    s = advanceInFrame(s, { tongan: 'muʻa' }) // auto-pops back to command_verb
+    expect(getExtensionMenu(s).extensions.map(e => e.node)).toContain('emphatic_pronoun')
+    s = takeExtension(s, 'emphatic_pronoun')
+    s = advanceInFrame(s, { tongan: 'koe' })
+    expect(render(s)).toBe('Kai muʻa koe')
+  })
+
+  // NOTE (documented, not tested here): the gate scans the whole flat step
+  // history, so an emphatic in a coordinated 2nd clause is suppressed once the
+  // FIRST clause has a complement. This is an accepted trade-off matching the
+  // existing sentence-global conditions (modifier_count_max / clause_count_max);
+  // see the code comment in graph-walker.js and the tracker follow-ups. Not
+  // pinned with a test — the tense-drop second-clause walk is too coupled to the
+  // pea-clause internals to assert robustly here.
+})

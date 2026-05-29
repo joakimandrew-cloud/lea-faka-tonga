@@ -57,6 +57,10 @@ export const CONDITION_TYPES = new Set([
   'not_already_visited_node',
   'clause_count_max',
   'node_visit_count_max',
+  // P1-B4: gate the emphatic postposed pronoun so it is offered only while it
+  // still abuts the verb phrase (no object / locative / companion / time
+  // complement has intervened). Carries no extra fields beyond `type`.
+  'no_complement_yet',
 ])
 
 // Phase 2B tags — all currently optional. Each 2B sub-batch populates one.
