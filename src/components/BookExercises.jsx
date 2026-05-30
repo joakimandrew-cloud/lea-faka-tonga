@@ -40,7 +40,7 @@ function renderPromptText(text) {
     if (text.startsWith('**', i)) {
       const end = text.indexOf('**', i + 2)
       if (end !== -1) {
-        parts.push(<strong key={key++} className="text-[#1F1E1D] font-semibold">{text.slice(i + 2, end)}</strong>)
+        parts.push(<strong key={key++} className="text-[var(--text-strong)] font-semibold">{text.slice(i + 2, end)}</strong>)
         i = end + 2
         continue
       }
@@ -82,10 +82,10 @@ function ExerciseItem({ item, index, exerciseType }) {
   }
 
   return (
-    <div className="py-2 border-b border-[#F0EEE6] last:border-b-0">
+    <div className="py-2 border-b border-[var(--border)] last:border-b-0">
       <div className="flex items-start gap-2 mb-1">
-        <span className="text-[#87867F] text-sm mt-0.5 w-6 flex-shrink-0">{index + 1}.</span>
-        <div className="flex-1 text-[#1F1E1D] text-sm leading-relaxed">
+        <span className="text-[var(--text-muted)] text-sm mt-0.5 w-6 flex-shrink-0">{index + 1}.</span>
+        <div className="flex-1 text-[var(--text-strong)] text-sm leading-relaxed">
           {renderPromptText(item.prompt)}
         </div>
       </div>
@@ -97,18 +97,18 @@ function ExerciseItem({ item, index, exerciseType }) {
             value={input}
             onChange={(e) => { setInput(e.target.value); setSubmitted(false) }}
             placeholder="Your answer..."
-            className="flex-1 bg-white border border-[#E8E6DC] text-[#1F1E1D] text-sm px-2 py-1 focus:outline-none focus:border-[#5E7EDF]/50 font-tongan"
+            className="flex-1 bg-[var(--surface)] border border-[var(--border)] text-[var(--text-strong)] text-sm px-2 py-1 focus:outline-none focus:border-[var(--accent)]/50 font-tongan"
           />
           <button
             type="submit"
-            className="text-xs text-[#87867F] hover:text-[#5E7EDF] border border-[#E8E6DC] hover:border-[#5E7EDF]/50 px-2 py-1 transition-colors cursor-pointer"
+            className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] border border-[var(--border)] hover:border-[var(--accent)]/50 px-2 py-1 transition-colors cursor-pointer"
           >
             Check
           </button>
           <button
             type="button"
             onClick={() => setRevealed(true)}
-            className="text-xs text-[#5E5D59] hover:text-[#87867F] transition-colors cursor-pointer"
+            className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors cursor-pointer"
           >
             Show
           </button>
@@ -125,7 +125,7 @@ function ExerciseItem({ item, index, exerciseType }) {
         <div className="ml-8 mt-1">
           <button
             onClick={() => setRevealed(true)}
-            className="text-xs text-[#5E5D59] hover:text-[#5E7EDF] transition-colors cursor-pointer"
+            className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors cursor-pointer"
           >
             Show answer
           </button>
@@ -133,8 +133,8 @@ function ExerciseItem({ item, index, exerciseType }) {
       )}
 
       {revealed && hasAnswer && (
-        <div className="ml-8 mt-1 text-sm text-[#87867F]">
-          <span className="text-[#5E7EDF]/70 text-xs mr-2">Answer:</span>
+        <div className="ml-8 mt-1 text-sm text-[var(--text-muted)]">
+          <span className="text-[var(--accent)]/70 text-xs mr-2">Answer:</span>
           {renderPromptText(item.answer)}
         </div>
       )}
@@ -154,7 +154,7 @@ export default function BookExercises({ chapterNum }) {
 
   return (
     <div className="mb-8">
-      <h2 className="text-sm text-[#5E7EDF] uppercase tracking-widest border-b border-[#E8E6DC] pb-2 mb-4">
+      <h2 className="text-sm text-[var(--accent)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4">
         Book Exercises
       </h2>
 
@@ -162,24 +162,24 @@ export default function BookExercises({ chapterNum }) {
         {exercises.map((ex) => {
           const isOpen = openExerciseId === ex.id
           return (
-            <div key={ex.id} className="border border-[#E8E6DC]">
+            <div key={ex.id} className="border border-[var(--border)]">
               <button
                 onClick={() => setOpenExerciseId(isOpen ? null : ex.id)}
-                className="w-full text-left px-4 py-3 hover:bg-[#F5F2EC] transition-colors cursor-pointer flex justify-between items-center"
+                className="w-full text-left px-4 py-3 hover:bg-[var(--bg-tone)] transition-colors cursor-pointer flex justify-between items-center"
               >
                 <div>
-                  <div className="text-[#1F1E1D] text-sm">
+                  <div className="text-[var(--text-strong)] text-sm">
                     Exercise {ex.number}{ex.title ? `: ${ex.title}` : ''}
                   </div>
-                  <div className="text-xs text-[#5E5D59] mt-0.5">
+                  <div className="text-xs text-[var(--text-muted)] mt-0.5">
                     {ex.items.length} item{ex.items.length === 1 ? '' : 's'}
                   </div>
                 </div>
-                <span className="text-[#5E7EDF] text-xs">{isOpen ? '\u25BC' : '\u25B6'}</span>
+                <span className="text-[var(--accent)] text-xs">{isOpen ? '\u25BC' : '\u25B6'}</span>
               </button>
 
               {isOpen && (
-                <div className="px-4 pb-3 border-t border-[#F0EEE6]">
+                <div className="px-4 pb-3 border-t border-[var(--border)]">
                   {ex.items.map((item, i) => (
                     <ExerciseItem key={item.id} item={item} index={i} exerciseType={ex.type} />
                   ))}

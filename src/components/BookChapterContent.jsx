@@ -39,6 +39,17 @@ function normalizeExamplesFence(md) {
   return md.replace(/^:::\s*\{\.examples\}\s*$/gm, ':::examples')
 }
 
+// The ### Exercises / ### Answers tail is rendered interactively by
+// <BookExercises> in ChapterPractice, so strip it from the static markdown here
+// to avoid a double render. (Quick Practice blocks are NOT touched — only the
+// dedicated ### Exercises section, which is also what extract-book-exercises.mjs
+// reads.) The optional dashes group consumes the `---` separator that precedes
+// the heading so no dangling <hr> is left behind.
+function stripExercisesSection(md) {
+  if (!md) return md
+  return md.replace(/\n+(?:-{3,}[^\n]*\n+)?###[ \t]+Exercises[\s\S]*$/, '\n')
+}
+
 // Styled renderers that match the warm ivory theme.
 const baseComponents = {
   h1: ({ children }) => (
@@ -185,7 +196,7 @@ export default function BookChapterContent({ chapterNum }) {
         rehypePlugins={[rehypeRaw, rehypeTableLabels]}
         components={components}
       >
-        {normalizeExamplesFence(stripLeadingTitle(md))}
+        {normalizeExamplesFence(stripExercisesSection(stripLeadingTitle(md)))}
       </ReactMarkdown>
     </div>
   )

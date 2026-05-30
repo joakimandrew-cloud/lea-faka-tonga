@@ -6,6 +6,7 @@ import sentencePatterns from '../data/sentence-patterns.json'
 import TeachingPanel from '../components/TeachingPanel'
 import SlotBuilder from '../components/SlotBuilder'
 import BookChapterContent from '../components/BookChapterContent'
+import BookExercises from '../components/BookExercises'
 
 // ---------------------------------------------------------------------------
 // Entry-point → pattern-ID mapping
@@ -136,6 +137,10 @@ export default function ChapterPractice() {
 
       {/* Full book chapter content */}
       <BookChapterContent chapterNum={chapterNum} />
+
+      {/* This chapter's own book exercises, rendered interactively in place of
+          the static ### Exercises / ### Answers sections (stripped above). */}
+      <BookExercises chapterNum={chapterNum} />
 
       {/* Teaching summary (shown only when no book content exists) */}
       {!chapterNum && chapter.teaching && <TeachingPanel teaching={chapter.teaching} />}
