@@ -244,6 +244,124 @@
   margin-top: 10px;
 }
 
+/* ── Refused-price banner (high anchor) ───────────────────────────────── */
+.v11-landing .offer-refused {
+  background: #ffffff;
+  padding: 40px 48px 48px;
+  border-top: 1px solid var(--rule);
+}
+.v11-landing .orf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 2px solid var(--ink);
+}
+.v11-landing .orf-block {
+  padding: 26px 28px;
+  text-align: center;
+}
+.v11-landing .orf-block:first-child { border-right: 2px solid var(--ink); }
+.v11-landing .orf-label {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 10px;
+}
+.v11-landing .orf-big {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--ink);
+  line-height: 1;
+}
+.v11-landing .orf-big.free { color: var(--red); }
+.v11-landing .orf-line {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink);
+  text-align: center;
+  max-width: 64ch;
+  margin: 22px auto 0;
+}
+.v11-landing .orf-line strong { color: var(--red-dark); }
+
+/* ── Founders counter ─────────────────────────────────────────────────── */
+.v11-landing .offer-counter {
+  border: 2px solid var(--red);
+  padding: 18px 22px;
+  margin-bottom: 28px;
+}
+.v11-landing .ocnt-text {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.v11-landing .ocnt-text strong { color: var(--red-dark); }
+.v11-landing .ocnt-bar {
+  height: 6px;
+  background: var(--rule);
+  margin: 12px 0 8px;
+  overflow: hidden;
+}
+.v11-landing .ocnt-bar span { display: block; height: 100%; background: var(--red); }
+.v11-landing .ocnt-note {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ── Bonus stack ──────────────────────────────────────────────────────── */
+.v11-landing .offer-bonuses {
+  border-top: 1px solid var(--rule);
+  margin: 4px 0 30px;
+}
+.v11-landing .offer-bonus {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.v11-landing .obn-check { color: var(--red); font-size: 13px; }
+.v11-landing .obn-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.v11-landing .obn-kill {
+  grid-column: 2;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--mid);
+}
+.v11-landing .obn-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--red);
+  white-space: nowrap;
+}
+.v11-landing .offer-bonus.total {
+  grid-template-columns: 1fr auto;
+  border-bottom: none;
+  border-top: 2px solid var(--ink);
+  padding-top: 16px;
+}
+.v11-landing .offer-bonus.total .obn-name { font-size: 19px; }
+
 /* ── Patronage tiers ──────────────────────────────────────────────────── */
 .v11-landing .offer-join-lede {
   font-family: 'Source Serif 4', Georgia, serif;
@@ -520,15 +638,131 @@
   max-width: 74ch;
 }
 
+/* ── 4-up tiers, confers line, keepers link ───────────────────────────── */
+.v11-landing .offer-tiers.four { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.v11-landing .ot-confers {
+  display: block;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--ink);
+  margin-top: 8px;
+  min-height: 2.7em;
+}
+.v11-landing .offer-keepers-link { text-align: center; margin-top: 22px; }
+
+/* ── Institutional licensing ──────────────────────────────────────────── */
+.v11-landing .offer-inst {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 28px;
+  align-items: center;
+}
+.v11-landing .oin-main p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.v11-landing .oin-main em { color: var(--red-dark); font-style: italic; }
+.v11-landing .oin-sub { margin-top: 12px; font-size: 15px !important; color: var(--mid) !important; }
+.v11-landing .oin-card {
+  border: 2px solid var(--ink);
+  padding: 26px 24px;
+  text-align: center;
+}
+.v11-landing .oin-range {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--red);
+  line-height: 1;
+}
+.v11-landing .oin-range-label {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin: 8px 0 18px;
+}
+
+/* ── Artifact tweaks (hero bundle + subtitle) ─────────────────────────── */
+.v11-landing .offer-artifact.hero { border-width: 2px; border-color: var(--red); box-shadow: 5px 5px 0 var(--red-light); }
+.v11-landing .oa-art-sub {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 14px;
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+/* ── Roll of Keepers ──────────────────────────────────────────────────── */
+.v11-landing .keepers-empty { text-align: center; border: 2px solid var(--ink); padding: 56px 32px; }
+.v11-landing .keepers-empty-mark {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 64px; color: var(--red); line-height: 1; display: block;
+}
+.v11-landing .keepers-empty-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem);
+  text-transform: uppercase; color: var(--ink); margin: 10px 0 14px;
+}
+.v11-landing .keepers-empty-body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px; line-height: 1.6; color: var(--ink);
+  max-width: 54ch; margin: 0 auto 28px;
+}
+.v11-landing .keepers-group { margin-bottom: 36px; }
+.v11-landing .keepers-group-head {
+  display: flex; align-items: baseline; gap: 14px;
+  border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 16px;
+}
+.v11-landing .kgh-ton {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 24px; text-transform: uppercase; color: var(--ink);
+}
+.v11-landing .kgh-sub {
+  font-family: 'Source Serif 4', Georgia, serif; font-style: italic;
+  font-size: 15px; color: var(--mid);
+}
+.v11-landing .keepers-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 24px;
+}
+.v11-landing .keeper { padding: 6px 0; border-bottom: 1px dashed var(--rule); }
+.v11-landing .keeper-name {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+  font-size: 18px; letter-spacing: 0.01em; color: var(--ink);
+}
+.v11-landing .keeper-ded {
+  display: block; font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic; font-size: 13px; color: var(--mid);
+}
+
 /* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .v11-landing .offer-tiers.four { grid-template-columns: repeat(2, 1fr); }
+  .v11-landing .keepers-list { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 820px) {
   .v11-landing .offer-tiers { grid-template-columns: 1fr; }
   .v11-landing .offer-why { grid-template-columns: 1fr; }
   .v11-landing .offer-artifacts { grid-template-columns: 1fr; }
+  .v11-landing .offer-inst { grid-template-columns: 1fr; }
   .v11-landing .offer-tier.featured { box-shadow: 4px 4px 0 var(--red-light); }
+}
+@media (max-width: 620px) {
+  .v11-landing .offer-tiers.four { grid-template-columns: 1fr; }
+  .v11-landing .orf-grid { grid-template-columns: 1fr; }
+  .v11-landing .orf-block:first-child { border-right: none; border-bottom: 2px solid var(--ink); }
 }
 @media (max-width: 560px) {
   .v11-landing .offer-stack-row { flex-direction: column; gap: 10px; }
   .v11-landing .osr-worth { text-align: left; }
   .v11-landing .offer-hero { padding-bottom: 44px; }
+  .v11-landing .offer-bonus { grid-template-columns: 18px 1fr; }
+  .v11-landing .obn-value { grid-column: 2; }
 }

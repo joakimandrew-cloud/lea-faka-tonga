@@ -3,6 +3,8 @@ import { ChapterProvider } from './contexts/ChapterContext'
 import Layout from './components/Layout'
 import Landing from './pages/Landing'
 import Offer from './pages/Offer'
+import GrandmotherQuiz from './pages/GrandmotherQuiz'
+import Keepers from './pages/Keepers'
 import Builder from './pages/Builder'
 import OpenBuilder from './pages/OpenBuilder'
 import GuidedBuild from './pages/GuidedBuild'
@@ -35,6 +37,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/support" element={<Offer />} />
+          <Route path="/quiz" element={<GrandmotherQuiz />} />
+          <Route path="/keepers" element={<Keepers />} />
           <Route path="/chapters" element={<ChapterBrowser />} />
           <Route element={<Layout />}>
             <Route path="/build" element={<Builder />} />

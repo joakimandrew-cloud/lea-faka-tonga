@@ -1,0 +1,183 @@
+/* =========================================================================
+   quiz.css — "Can you still understand your grandmother?" diagnostic lead
+   magnet. Scoped under .v11-landing; uses only existing brand tokens
+   (--ink, --red, --red-dark, --red-light, --mid, --rule, --cream-light=white).
+   Imports offer.css indirectly via the shared .offer-sec colophon styling —
+   but it also pulls offer.css through v11-landing usage, so colophon is styled.
+   ========================================================================= */
+
+.v11-landing.quiz-page { padding-bottom: 0; min-height: 100vh; }
+
+.v11-landing .quiz-stage {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 24px 64px;
+}
+
+/* progress */
+.v11-landing .quiz-progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 22px;
+}
+.v11-landing .quiz-bar { flex: 1; height: 4px; background: var(--rule); overflow: hidden; }
+.v11-landing .quiz-bar span { display: block; height: 100%; background: var(--red); transition: width 0.4s ease; }
+
+/* card */
+.v11-landing .quiz-card { border: 2px solid var(--ink); padding: 34px 30px; background: #fff; }
+.v11-landing .quiz-grandma {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--mid);
+}
+.v11-landing .quiz-phrase {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 6px 0 14px;
+}
+.v11-landing .quiz-q {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red-dark);
+  margin-bottom: 18px;
+}
+.v11-landing .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+.v11-landing .quiz-opt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  width: 100%;
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  padding: 14px 16px;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.v11-landing .quiz-opt:hover:not(:disabled) { background: var(--red); color: #fff; border-color: var(--red); }
+.v11-landing .quiz-opt:hover:not(:disabled) .quiz-opt-letter { border-color: #fff; color: #fff; }
+.v11-landing .quiz-opt:disabled { cursor: default; }
+.v11-landing .quiz-opt-letter {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--ink);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+}
+.v11-landing .quiz-opt.correct { background: #eaf5ee; border-color: #2f7d4e; color: #1f5c38; }
+.v11-landing .quiz-opt.correct .quiz-opt-letter { border-color: #2f7d4e; color: #2f7d4e; }
+.v11-landing .quiz-opt.wrong { background: #fbeeec; border-color: var(--red-dark); color: var(--red-dark); }
+.v11-landing .quiz-opt.wrong .quiz-opt-letter { border-color: var(--red-dark); color: var(--red-dark); }
+.v11-landing .quiz-opt.dim { opacity: 0.5; }
+
+.v11-landing .quiz-next-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+.v11-landing .quiz-feedback {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink);
+}
+.v11-landing .quiz-skip {
+  display: block;
+  text-align: center;
+  margin-top: 22px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+}
+.v11-landing .quiz-skip:hover { color: var(--red); }
+
+/* result */
+.v11-landing .quiz-result { text-align: center; border: 2px solid var(--ink); padding: 44px 32px; background: #fff; }
+.v11-landing .quiz-score {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  color: var(--red);
+  line-height: 1;
+}
+.v11-landing .quiz-result-band {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  text-transform: uppercase;
+  line-height: 1.02;
+  color: var(--ink);
+  margin: 14px 0 18px;
+}
+.v11-landing .quiz-result-body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 56ch;
+  margin: 0 auto;
+}
+.v11-landing .quiz-result-cta {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0 26px;
+}
+.v11-landing .quiz-signup {
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.v11-landing .quiz-signup-label {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.v11-landing .quiz-signup-label em { color: var(--red-dark); font-style: italic; }
+.v11-landing .quiz-signup-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.v11-landing .quiz-signup-row input[type="email"] {
+  flex: 1; min-width: 220px; max-width: 320px;
+  border: 2px solid var(--ink); padding: 11px 15px;
+  font-family: 'Inter', sans-serif; font-size: 15px; color: var(--ink);
+}
+.v11-landing .quiz-share {
+  margin-top: 24px;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 15px;
+  color: var(--mid);
+}
+.v11-landing .quiz-share a { color: var(--red); }
+
+@media (max-width: 560px) {
+  .v11-landing .quiz-card { padding: 24px 20px; }
+  .v11-landing .quiz-next-row { flex-direction: column; align-items: stretch; }
+}
