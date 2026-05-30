@@ -418,9 +418,10 @@ describe('grammar-graph schema — exported enum sanity', () => {
     expect(CATEGORIES.size).toBe(8)
   })
 
-  it('CONDITION_TYPES contains the 6 current condition types', () => {
-    expect(CONDITION_TYPES.size).toBe(6)
+  it('CONDITION_TYPES contains the 7 current condition types', () => {
+    expect(CONDITION_TYPES.size).toBe(7)
     expect(CONDITION_TYPES.has('no_complement_yet')).toBe(true) // P1-B4
+    expect(CONDITION_TYPES.has('no_emphatic_yet')).toBe(true)   // P1-B4 follow-up #1
   })
 
   it('NOUN_CLASSES is the fixed 4-value enum', () => {

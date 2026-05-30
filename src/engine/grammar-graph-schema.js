@@ -61,6 +61,12 @@ export const CONDITION_TYPES = new Set([
   // still abuts the verb phrase (no object / locative / companion / time
   // complement has intervened). Carries no extra fields beyond `type`.
   'no_complement_yet',
+  // P1-B4 follow-up #1: the inverse ordering gate. Once the emphatic pronoun is
+  // placed it is the LAST element of the verb phrase, so verb-phrase-internal
+  // adjuncts (manner modifier, directional, post-verbal aspect, comparative,
+  // superlative) may not be re-offered after it. Carries no extra fields beyond
+  // `type`. Often AND-composed with an existing gate via an array condition.
+  'no_emphatic_yet',
 ])
 
 // Phase 2B tags — all currently optional. Each 2B sub-batch populates one.
@@ -1054,8 +1060,18 @@ function validateEdges(path, edges, add) {
 }
 
 function validateCondition(path, cond, add) {
+  // A condition may be a single condition object, or an ARRAY of condition
+  // objects that are AND-composed (every element must hold). Arrays let one edge
+  // carry both an existing gate (verb_has_tag / modifier_count_max) and the
+  // P1-B4 follow-up `no_emphatic_yet` VP-internal-order gate. Evaluated by
+  // graph-walker.evaluateCondition, which short-circuits on arrays the same way.
+  if (Array.isArray(cond)) {
+    if (cond.length === 0) add(path, 'must be a non-empty array of conditions')
+    cond.forEach((c, i) => validateCondition(`${path}[${i}]`, c, add))
+    return
+  }
   if (!isPlainObject(cond)) {
-    add(path, 'must be an object')
+    add(path, 'must be an object or an array of condition objects')
     return
   }
   validateFields(path, cond, CONDITION_REQUIRED, CONDITION_ALLOWED, add)

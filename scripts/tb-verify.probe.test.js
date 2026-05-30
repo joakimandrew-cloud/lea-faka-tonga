@@ -820,3 +820,109 @@ describe('P2-2 — role-budget + seenContentKeys model', () => {
     expect(render(s)).toContain('nofo lelei')
   })
 })
+
+// ===========================================================================
+// P1-B4 follow-up #1 — VP-internal adjunct ordering after the emphatic
+// (added 2026-05-30)
+//
+// The emphatic postposed pronoun is the LAST element of the verb phrase
+// (book/Chapter-05.md:198 "the postposed pronoun appears right after the verb or
+// verb phrase"; grammar-spec §24a "ʻOku ʻalu au ai pe — NOT attested;
+// ungrammatical"). Once it is placed, a verb-phrase-internal adjunct (manner
+// modifier, directional, post-verbal aspect, comparative ange, superlative taha)
+// must NOT be re-offered after it — those belong before the emphatic
+// (`nofo lelei au`, never `nofo au lelei`). A time word and the clause connectors
+// MAY still follow it. Enforced by the `no_emphatic_yet` edge condition gating
+// the VP-internal adjunct edges (and array-composed with the existing
+// modifier_count_max / verb_has_tag gates where present). All five elements were
+// confirmed gating_safe=true (high confidence) by a 5-element adversarial
+// book/Churchward/Shumway/spec verification.
+// ===========================================================================
+describe('P1-B4 follow-up #1 — VP-internal adjuncts cannot follow the emphatic pronoun', () => {
+  const extIds = (s) => getExtensionMenu(s).extensions.map(e => e.node)
+
+  it('statement: a manner modifier is NOT re-offered after the emphatic — `nofo au lelei` is unreachable', () => {
+    // Naʻa ku nofo au — at the emphatic (lingering, route_to_hub) anchor the hub
+    // used to offer `modifier` (the `nofo au lelei` leak); no_emphatic_yet gates it.
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'nofo' })
+    s = takeExtension(s, 'postposed_pronoun')
+    s = advanceInFrame(s, { tongan: 'au' })
+    expect(extIds(s)).not.toContain('modifier')
+    expect(() => takeExtension(s, 'modifier')).toThrow(/not available in the current menu/)
+    // finishing back to the verb anchor must not re-offer the manner modifier either
+    const back = finishFrame(s)
+    expect(extIds(back)).not.toContain('modifier')
+  })
+
+  it('statement: a manner modifier still PRECEDES the emphatic — `nofo lelei au` builds', () => {
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'nofo' })
+    s = takeExtension(s, 'modifier')          // no emphatic yet → manner offered
+    s = advanceInFrame(s, { tongan: 'lelei' })
+    expect(extIds(s)).toContain('postposed_pronoun')
+    s = takeExtension(s, 'postposed_pronoun')
+    s = advanceInFrame(s, { tongan: 'au' })
+    expect(render(s)).toBe('Naʻa ku nofo lelei au')
+  })
+
+  it('statement: a time word MAY still follow the emphatic — `Naʻa ku ʻalu au ʻaneafi` builds (NOT gated)', () => {
+    let s = naaKuAlu()
+    s = takeExtension(s, 'postposed_pronoun')
+    s = advanceInFrame(s, { tongan: 'au' })
+    s = takeExtension(s, 'time_word')         // time_word carries no no_emphatic_yet gate
+    s = advanceInFrame(s, { tongan: 'ʻaneafi' })
+    expect(render(s)).toBe('Naʻa ku ʻalu au ʻaneafi')
+  })
+
+  it('command: a manner modifier is available BEFORE the emphatic but NOT after it (no `Kai koe lelei`)', () => {
+    // The command emphatic is `koe` (emphatic_pronoun) — the analog of the
+    // statement `au` in the prompt's `Kai lelei au`. The manner modifier comes
+    // via the route_to_hub command_verb anchor; gated off once `koe` is placed.
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Kai' })
+    expect(extIds(s)).toContain('modifier')        // manner available pre-emphatic
+    s = takeExtension(s, 'emphatic_pronoun')
+    s = advanceInFrame(s, { tongan: 'koe' })       // emphatic_pronoun.next = FINISH → auto-pops to command_verb
+    expect(extIds(s)).not.toContain('modifier')    // gated after the emphatic
+    expect(() => takeExtension(s, 'modifier')).toThrow(/not available in the current menu/)
+  })
+
+  it('command: a manner modifier still PRECEDES the emphatic — `Kai lelei koe` builds (the prompt’s `Kai lelei au`)', () => {
+    let s = createWalkerState('command', 999)
+    s = advanceInFrame(s, { tongan: 'Kai' })
+    s = takeExtension(s, 'modifier')               // via the route_to_hub command_verb anchor
+    s = advanceInFrame(s, { tongan: 'lelei' })
+    s = finishFrame(s)                             // back to command_verb for the addressee emphatic
+    expect(extIds(s)).toContain('emphatic_pronoun')
+    s = takeExtension(s, 'emphatic_pronoun')
+    s = advanceInFrame(s, { tongan: 'koe' })
+    expect(render(s)).toBe('Kai lelei koe')
+  })
+
+  it('data lock: the VP-internal adjunct edges carry the no_emphatic_yet gate; time_word does not', () => {
+    const gated = (cond) => Array.isArray(cond)
+      ? cond.some(c => c && c.type === 'no_emphatic_yet')
+      : !!(cond && cond.type === 'no_emphatic_yet')
+    const findEdge = (nodeId, target) =>
+      (grammarGraph.nodes[nodeId].next || []).find(e => e.node === target)
+    // verb.next: manner modifier + directional + post-verbal aspect + comparative/superlative
+    for (const target of ['modifier', 'directional', 'aspect_marker_post', 'aspect_marker_post_frequency', 'comparative_ange', 'superlative_taha']) {
+      expect(gated(findEdge('verb', target).condition), `verb.next ${target} must be no_emphatic_yet-gated`).toBe(true)
+    }
+    // the manner modifier self-loop keeps its cap AND gains the gate (array condition)
+    expect(gated(findEdge('modifier', 'modifier').condition), 'modifier self-loop').toBe(true)
+    // the adjuncts hub: manner modifier + aspect frequency
+    for (const target of ['modifier', 'aspect_marker_post_frequency']) {
+      expect(gated(findEdge('adjuncts_hub', target).condition), `adjuncts_hub ${target} must be no_emphatic_yet-gated`).toBe(true)
+    }
+    // a time word is NOT gated — it may legitimately follow the emphatic
+    expect(gated(findEdge('verb', 'time_word').condition), 'verb.next time_word stays ungated').toBe(false)
+  })
+})

@@ -157,10 +157,10 @@
         { "node": "FINISH_STATEMENT", "label": "Finish as statement (.)", "min_chapter": 1, "context_hint": "End here: {subject} {verb_past}" },
         { "node": "FINISH_QUESTION", "label": "Finish as question (?)", "min_chapter": 1, "context_hint": "Ask: did {subject} {verb_base}?" },
         { "node": "travel_compound", "label": "Add transport (by plane, bus...)", "min_chapter": 7, "condition": { "type": "verb_has_tag", "tag": "motion" }, "context_hint": "Say how {subject} traveled — plane, bus, boat..." },
-        { "node": "directional", "label": "Add direction (mai, atu, hake, hifo...)", "min_chapter": 28, "context_hint": "Say the direction — toward me (mai), toward you (atu), toward someone else (ange), up (hake), down (hifo), around (holo)" },
-        { "node": "comparative_ange", "label": "Add comparative (more...)", "min_chapter": 27, "condition": { "type": "verb_has_tag", "tag": "adjective" }, "context_hint": "Say 'more X' — attach ange after an adjective (§31, Ch 27)" },
-        { "node": "superlative_taha", "label": "Add superlative (the most...)", "min_chapter": 27, "condition": { "type": "verb_has_tag", "tag": "adjective" }, "context_hint": "Say 'the most X' — attach taha after an adjective (§31, Ch 27)" },
-        { "node": "modifier", "label": "Add modifier (how/how much)", "min_chapter": 3, "context_hint": "Describe how — well, a lot, hard, etc." },
+        { "node": "directional", "label": "Add direction (mai, atu, hake, hifo...)", "min_chapter": 28, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Say the direction — toward me (mai), toward you (atu), toward someone else (ange), up (hake), down (hifo), around (holo)" },
+        { "node": "comparative_ange", "label": "Add comparative (more...)", "min_chapter": 27, "condition": [{ "type": "verb_has_tag", "tag": "adjective" }, { "type": "no_emphatic_yet" }], "context_hint": "Say 'more X' — attach ange after an adjective (§31, Ch 27)" },
+        { "node": "superlative_taha", "label": "Add superlative (the most...)", "min_chapter": 27, "condition": [{ "type": "verb_has_tag", "tag": "adjective" }, { "type": "no_emphatic_yet" }], "context_hint": "Say 'the most X' — attach taha after an adjective (§31, Ch 27)" },
+        { "node": "modifier", "label": "Add modifier (how/how much)", "min_chapter": 3, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Describe how — well, a lot, hard, etc." },
         { "node": "object", "label": "Add object (bare, no article)", "min_chapter": 3, "condition": { "type": "verb_has_tag", "tag": "transitive" }, "context_hint": "Say what {subject} {verb_past} — generic noun without an article (mā, vai, ika, ...)" },
         { "node": "article", "label": "Add object with article (ha / e)", "min_chapter": 8, "condition": { "type": "verb_has_tag", "tag": "transitive" }, "context_hint": "Say what {subject} {verb_past} — with an article: ha (a/some) or e (the)" },
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when {subject} {verb_past}" },
@@ -171,8 +171,8 @@
         { "node": "subordinator_ke_purpose", "label": "Add purpose (in order to...)", "min_chapter": 26, "child_entry_point": "purpose_bare_verb", "context_hint": "Say WHY — {subject} {verb_past} in order to do something" },
         { "node": "subordinator_koeuhi_ke", "label": "Add emphatic purpose (koeʻuhi ke... so that...)", "min_chapter": 26, "child_entry_point": "reason_clause_koeuhi_ke", "context_hint": "Emphasize WHY with koeʻuhi ke — the stronger form of ke" },
         { "node": "clause_connector_he", "label": "Add reason (he... because...)", "min_chapter": 26, "child_entry_point": "reason_clause_he", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Give the reason: ...because..." },
-        { "node": "aspect_marker_post", "label": "Add leva (immediately)", "min_chapter": 22, "context_hint": "Say the action happened right away" },
-        { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "context_hint": "Say the action continues unchanged — as usual, as always" },
+        { "node": "aspect_marker_post", "label": "Add leva (immediately)", "min_chapter": 22, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Say the action happened right away" },
+        { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Say the action continues unchanged — as usual, as always" },
         { "node": "tuo_numeral", "label": "Add count of times (tuʻo + numeral)", "min_chapter": 22, "context_hint": "Say how many times — once, twice, many times..." },
         { "node": "benefactive_preposition_ma", "label": "Add beneficiary (maʻa / moʻo + name)", "min_chapter": 26, "child_entry_point": "benefactive_name", "context_hint": "Say who the action is for — maʻa / moʻo + name" },
         { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who the action is for — for me, for you, for him..." },
@@ -199,7 +199,7 @@
       "next": [
         { "node": "FINISH_STATEMENT", "label": "Finish as statement (.)", "min_chapter": 3 },
         { "node": "FINISH_QUESTION", "label": "Finish as question (?)", "min_chapter": 3 },
-        { "node": "modifier", "label": "Add another modifier", "min_chapter": 3, "condition": { "type": "modifier_count_max", "max": 2 }, "context_hint": "Add another — ʻaupito (very) must go last" },
+        { "node": "modifier", "label": "Add another modifier", "min_chapter": 3, "condition": [{ "type": "modifier_count_max", "max": 2 }, { "type": "no_emphatic_yet" }], "context_hint": "Add another — ʻaupito (very) must go last" },
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when {subject} {verb_past}" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "context_hint": "Say who {subject} did it with" },
@@ -260,14 +260,14 @@
       "next": [
         { "node": "FINISH_STATEMENT", "label": "Finish as statement (.)", "min_chapter": 3 },
         { "node": "FINISH_QUESTION", "label": "Finish as question (?)", "min_chapter": 3 },
-        { "node": "modifier", "label": "Add modifier (how/how much)", "min_chapter": 3, "context_hint": "Describe how — well, a lot, hard, etc." },
+        { "node": "modifier", "label": "Add modifier (how/how much)", "min_chapter": 3, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Describe how — well, a lot, hard, etc." },
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when {subject} {verb_past}" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "context_hint": "Say who {subject} did it with" },
         { "node": "postposed_pronoun", "label": "Add emphasis", "min_chapter": 5, "condition": { "type": "no_complement_yet" }, "context_hint": "Emphasize: {subject} myself / yourself / etc." },
         { "node": "benefactive_preposition_ma", "label": "Add beneficiary (maʻa / moʻo + name)", "min_chapter": 26, "child_entry_point": "benefactive_name", "context_hint": "Say who it was for — maʻa / moʻo + name" },
         { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who it was for — for me, you, him..." },
-        { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "context_hint": "Say the action continues unchanged — as usual, as always" },
+        { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Say the action continues unchanged — as usual, as always" },
         { "node": "numeral", "label": "Add a count (ʻe ono = six...)", "min_chapter": 20, "context_hint": "Say how many — ʻe taha, ʻe ua, ʻe ono... the ʻe particle attaches a count to a non-personal noun (§26, Ch 20)" }
       ]
     },
@@ -1005,9 +1005,9 @@
         { "tongan": "puke", "english": "sick", "min_chapter": 15, "tags": ["adjective"] }
       ],
       "next": [
-        { "node": "modifier_ns", "label": "Add modifier (before subject)", "min_chapter": 15 },
-        { "node": "comparative_ange", "label": "Add comparative (more...)", "min_chapter": 27, "condition": { "type": "verb_has_tag", "tag": "adjective" }, "context_hint": "Say 'more X' — attach ange after an adjective (§31, Ch 27)" },
-        { "node": "superlative_taha", "label": "Add superlative (the most...)", "min_chapter": 27, "condition": { "type": "verb_has_tag", "tag": "adjective" }, "context_hint": "Say 'the most X' — attach taha after an adjective (§31, Ch 27)" },
+        { "node": "modifier_ns", "label": "Add modifier (before subject)", "min_chapter": 15, "condition": { "type": "no_emphatic_yet" } },
+        { "node": "comparative_ange", "label": "Add comparative (more...)", "min_chapter": 27, "condition": [{ "type": "verb_has_tag", "tag": "adjective" }, { "type": "no_emphatic_yet" }], "context_hint": "Say 'more X' — attach ange after an adjective (§31, Ch 27)" },
+        { "node": "superlative_taha", "label": "Add superlative (the most...)", "min_chapter": 27, "condition": [{ "type": "verb_has_tag", "tag": "adjective" }, { "type": "no_emphatic_yet" }], "context_hint": "Say 'the most X' — attach taha after an adjective (§31, Ch 27)" },
         { "node": "focus_marker", "label": "ʻa + subject (who did it)", "min_chapter": 15 }
       ]
     },
@@ -1023,7 +1023,7 @@
         { "tongan": "pē", "english": "just/only", "min_chapter": 15 }
       ],
       "next": [
-        { "node": "modifier_ns", "label": "Add another modifier", "min_chapter": 15, "condition": { "type": "modifier_count_max", "max": 2 } },
+        { "node": "modifier_ns", "label": "Add another modifier", "min_chapter": 15, "condition": [{ "type": "modifier_count_max", "max": 2 }, { "type": "no_emphatic_yet" }] },
         { "node": "focus_marker", "label": "ʻa + subject (who did it)", "min_chapter": 15 }
       ]
     },
@@ -1089,7 +1089,7 @@
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 15, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 15, "context_hint": "Say who they were with" },
         { "node": "time_word", "label": "Add time word", "min_chapter": 15, "context_hint": "Say when" },
-        { "node": "directional", "label": "Add direction (mai, atu, hake, hifo...)", "min_chapter": 28, "context_hint": "Say the direction after the subject" },
+        { "node": "directional", "label": "Add direction (mai, atu, hake, hifo...)", "min_chapter": 28, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Say the direction after the subject" },
         { "node": "tuo_numeral", "label": "Add count of times (tuʻo + numeral)", "min_chapter": 22, "context_hint": "Say how many times" },
         { "node": "clause_connector_kae", "label": "Add contrasting clause (kae... while/and...)", "min_chapter": 24, "child_entry_point": "contrast_clause_kae", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Contrast a second subject: ...while X..." },
         { "node": "clause_connector_ka", "label": "Add contrasting clause (ka... but...)", "min_chapter": 24, "child_entry_point": "negation", "condition": { "type": "clause_count_max", "max": 2 }, "context_hint": "Contrast: ...but..." },
@@ -1417,7 +1417,7 @@
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 19, "context_hint": "Say where — ʻi (at), ki (to), or mei (from)" },
         { "node": "time_word",   "label": "Add time word (when)",   "min_chapter": 19, "context_hint": "Say when the action happened" },
         { "node": "mo_fixed",    "label": "Add companion (with someone)", "min_chapter": 19, "context_hint": "Say who the agent was with" },
-        { "node": "directional", "label": "Add direction (mai, atu, hake, hifo...)", "min_chapter": 28, "context_hint": "Say the direction of the action" },
+        { "node": "directional", "label": "Add direction (mai, atu, hake, hifo...)", "min_chapter": 28, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Say the direction of the action" },
         { "node": "tuo_numeral", "label": "Add count of times (tuʻo + numeral)", "min_chapter": 22, "context_hint": "Say how many times" },
         { "node": "benefactive_preposition_ma", "label": "Add beneficiary (maʻa / moʻo + name)", "min_chapter": 26, "child_entry_point": "benefactive_name", "context_hint": "Say who the action was for — maʻa / moʻo + name" },
         { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who the action was for — for me, you, him..." }
@@ -2314,14 +2314,14 @@
       "description": "P1-A4 reference node (not a walkable slot). Its next[] is the verified union of the optional post-verbal adjunct targets; getHubExtensions surfaces these edges on any node flagged route_to_hub, filtered by chapter, edge condition, clause-scoped extensionsTaken, and per-target placement licensing. Behind meta.useAdjunctHub.",
       "words": [],
       "next": [
-        { "node": "modifier", "label": "Add modifier (how/how much)", "min_chapter": 3, "condition": { "type": "modifier_count_max", "max": 2 }, "context_hint": "Describe how — well, a lot, hard, etc." },
+        { "node": "modifier", "label": "Add modifier (how/how much)", "min_chapter": 3, "condition": [{ "type": "modifier_count_max", "max": 2 }, { "type": "no_emphatic_yet" }], "context_hint": "Describe how — well, a lot, hard, etc." },
         { "node": "time_word", "label": "Add time word (when)", "min_chapter": 4, "context_hint": "Say when" },
         { "node": "preposition", "label": "Add location/direction", "min_chapter": 6, "condition": { "type": "not_already_visited_node", "node": "preposition" }, "context_hint": "Say where with ʻi (at), ki (to), or mei (from)" },
         { "node": "mo_fixed", "label": "Add companion (with someone)", "min_chapter": 10, "condition": { "type": "not_already_visited_node", "node": "companion" }, "context_hint": "Say who it was with" },
         { "node": "postposed_pronoun", "label": "Add emphasis (I myself, you yourself...)", "min_chapter": 5, "condition": { "type": "no_complement_yet" }, "context_hint": "Emphasize the subject" },
         { "node": "benefactive_preposition_ma", "label": "Add beneficiary (maʻa / moʻo + name)", "min_chapter": 26, "child_entry_point": "benefactive_name", "context_hint": "Say who the action is for — maʻa / moʻo + name" },
         { "node": "benefactive_pronoun_fused", "label": "Add beneficiary (maʻaku / moʻoku...)", "min_chapter": 26, "child_entry_point": "benefactive_pronoun", "context_hint": "Say who the action is for — for me, for you, for him..." },
-        { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "context_hint": "Say the action continues unchanged — as usual, as always" },
+        { "node": "aspect_marker_post_frequency", "label": "Add ai pē (as always)", "min_chapter": 22, "condition": { "type": "no_emphatic_yet" }, "context_hint": "Say the action continues unchanged — as usual, as always" },
         { "node": "numeral", "label": "Add a count (ʻe ono = six...)", "min_chapter": 20, "context_hint": "Say how many — ʻe taha, ʻe ua, ʻe ono..." },
         { "node": "possessor_preposition", "label": "Add whose (Sione’s, Mele’s...)", "min_chapter": 17, "child_entry_point": "possessive_phrase_name", "context_hint": "Say whose thing — Sione’s house, Mele’s book..." },
         { "node": "attributive_adjective", "label": "Add adjective (big, new, bad...)", "min_chapter": 35, "context_hint": "Describe the thing — ha fale foʻou (a new house)" }

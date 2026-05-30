@@ -312,6 +312,19 @@ const COMPLEMENT_ADJUNCT_NODE_IDS = new Set([
   'possessive_pronoun', 'possessor_preposition',
 ])
 
+// P1-B4 follow-up #1: the emphatic postposed pronoun is the LAST element of the
+// verb phrase (book/Chapter-05.md:198 "the postposed pronoun appears right after
+// the verb or verb phrase"; Ch 3 keeps manner modifiers + ʻaupito inside the
+// verb cluster). Once an emphatic step exists, no verb-phrase-INTERNAL adjunct
+// (manner `modifier`/`modifier_ns`, `directional`, post-verbal `aspect_marker_post`
+// /`aspect_marker_post_frequency`, `comparative_ange`, `superlative_taha`) may be
+// re-offered after it — those belong before the emphatic (`nofo lelei au`, not
+// `nofo au lelei`). A time word and the clause connectors MAY still follow it
+// (`Naʻa ku ʻalu au ʻaneafi`, Ch 5), so they are NOT gated. The `no_emphatic_yet`
+// edge condition (in evaluateCondition) reads this set. Statement path =
+// `postposed_pronoun` (au); command path = `emphatic_pronoun` (koe).
+const EMPHATIC_NODE_IDS = new Set(['postposed_pronoun', 'emphatic_pronoun'])
+
 // Walk the stack top-down to find the current clause's root frame. A new
 // clause starts whenever a frame was pushed via a clause connector edge
 // (parentExtension is in CLAUSE_CONNECTOR_NODES). Anything above that frame
@@ -750,6 +763,15 @@ function computeNextFromEdges(nodeId, chapter, steps) {
 function evaluateCondition(condition, steps) {
   if (!condition) return true
 
+  // A condition may be an ARRAY of conditions, AND-composed: every element must
+  // hold. This lets one edge carry both an existing gate (verb_has_tag /
+  // modifier_count_max) and the no_emphatic_yet VP-internal-order gate (P1-B4
+  // follow-up #1). Stored as an array in grammar-graph.json and validated
+  // element-by-element in grammar-graph-schema.validateCondition.
+  if (Array.isArray(condition)) {
+    return condition.every(c => evaluateCondition(c, steps))
+  }
+
   if (condition.type === 'verb_has_tag') {
     // Phase 2A.5 slice: scan backwards for the MOST RECENT verb step,
     // not the first one in the flat steps. In multi-clause sentences the
@@ -802,6 +824,17 @@ function evaluateCondition(condition, steps) {
   // rare construction the book does not demonstrate.
   if (condition.type === 'no_complement_yet') {
     return !steps.some(s => COMPLEMENT_ADJUNCT_NODE_IDS.has(s.nodeId))
+  }
+
+  // P1-B4 follow-up #1: the emphatic pronoun closes the verb phrase, so a
+  // verb-phrase-internal adjunct (manner modifier, directional, post-verbal
+  // aspect, comparative ange, superlative taha) must not be re-offered after it
+  // (`nofo lelei au`, never `nofo au lelei`). Offered only while no emphatic
+  // pronoun step exists yet. Time words / clause connectors are NOT gated, so
+  // `Naʻa ku ʻalu au ʻaneafi` (Ch 5) still builds. Mirrors no_complement_yet:
+  // scans the flat step history (same documented cross-clause approximation).
+  if (condition.type === 'no_emphatic_yet') {
+    return !steps.some(s => EMPHATIC_NODE_IDS.has(s.nodeId))
   }
 
   // Phase 2E.6: generalized node-visit counter — allows up to `max` visits
@@ -1397,10 +1430,15 @@ export function getAvailableTerminators(state) {
  */
 function hasOwnRepetitionRule(edge) {
   if (!edge.condition) return false
-  return (
-    edge.condition.type === 'modifier_count_max' ||
-    edge.condition.type === 'not_already_visited_node' ||
-    edge.condition.type === 'node_visit_count_max'
+  // condition may be an array (AND-composed); the edge owns a repetition rule if
+  // ANY element is a count/visit rule, so e.g. the hub `modifier` edge gated
+  // `[modifier_count_max, no_emphatic_yet]` stays exempt from the extensionsTaken
+  // de-dup — its own cap, not the de-dup, decides when it disappears.
+  const conds = Array.isArray(edge.condition) ? edge.condition : [edge.condition]
+  return conds.some(c =>
+    c.type === 'modifier_count_max' ||
+    c.type === 'not_already_visited_node' ||
+    c.type === 'node_visit_count_max'
   )
 }
 

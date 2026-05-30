@@ -2282,8 +2282,14 @@ describe('Docs.4 — spec-graph conformance: extension catalog (Docs.3 main tabl
             selfEdge,
             `"${ext.name}" self_loop_count_max catalog declares a self-edge but none exists in grammar-graph.json`,
           ).toBeDefined()
-          expect(selfEdge.condition?.type).toBe(ext.enforcement.type)
-          expect(selfEdge.condition?.max).toBe(ext.enforcement.max)
+          // A condition may be a single object or an AND-composed array (P1-B4
+          // follow-up #1 gates the modifier / modifier_ns self-loops with
+          // no_emphatic_yet alongside their modifier_count_max cap). Find the
+          // count condition either way.
+          const selfCond = (Array.isArray(selfEdge.condition) ? selfEdge.condition : [selfEdge.condition])
+            .find(c => c && c.type === ext.enforcement.type)
+          expect(selfCond, `"${ext.name}" self-loop missing a ${ext.enforcement.type} condition`).toBeDefined()
+          expect(selfCond.max).toBe(ext.enforcement.max)
         })
       }
 
@@ -2329,8 +2335,13 @@ describe('Docs.4 — spec-graph conformance: extension catalog (Docs.3 main tabl
         it(`gate: ${ext.primary_parent}→${ext.name} edge has condition ${ext.gate.type}:${ext.gate.tag}`, () => {
           const edge = edgeFromParent(ext.primary_parent, ext.name)
           expect(edge).not.toBeNull()
-          expect(edge.condition?.type).toBe(ext.gate.type)
-          expect(edge.condition?.tag).toBe(ext.gate.tag)
+          // The gate may be AND-composed in an array (P1-B4 follow-up #1 adds
+          // no_emphatic_yet to the comparative_ange / superlative_taha edges
+          // alongside their verb_has_tag adjective gate). Find the gate either way.
+          const gateCond = (Array.isArray(edge.condition) ? edge.condition : [edge.condition])
+            .find(c => c && c.type === ext.gate.type)
+          expect(gateCond, `"${ext.primary_parent}→${ext.name}" missing a ${ext.gate.type} gate condition`).toBeDefined()
+          expect(gateCond.tag).toBe(ext.gate.tag)
         })
       }
 
@@ -4054,8 +4065,11 @@ describe('2C.4a — §31 comparative + superlative (ange / taha)', () => {
     const superEdge = verbEdges.find(e => e.node === 'superlative_taha')
     expect(compEdge, 'verb.next missing comparative_ange edge').toBeDefined()
     expect(superEdge, 'verb.next missing superlative_taha edge').toBeDefined()
-    expect(compEdge.condition).toEqual({ type: 'verb_has_tag', tag: 'adjective' })
-    expect(superEdge.condition).toEqual({ type: 'verb_has_tag', tag: 'adjective' })
+    // P1-B4 follow-up #1: comparative/superlative now AND-compose the adjective
+    // gate with the no_emphatic_yet VP-internal-order gate (array condition), so
+    // `lelei ange au`/`lelei taha au` build but `… au ange`/`… au taha` do not.
+    expect(compEdge.condition).toEqual([{ type: 'verb_has_tag', tag: 'adjective' }, { type: 'no_emphatic_yet' }])
+    expect(superEdge.condition).toEqual([{ type: 'verb_has_tag', tag: 'adjective' }, { type: 'no_emphatic_yet' }])
     expect(compEdge.min_chapter).toBe(27)
     expect(superEdge.min_chapter).toBe(27)
   })
@@ -10598,8 +10612,10 @@ describe('2F.5 integration: noun-subject comparative/superlative', () => {
     const superEdge = verbNsEdges.find(e => e.node === 'superlative_taha')
     expect(compEdge).toBeDefined()
     expect(superEdge).toBeDefined()
-    expect(compEdge.condition).toEqual({ type: 'verb_has_tag', tag: 'adjective' })
-    expect(superEdge.condition).toEqual({ type: 'verb_has_tag', tag: 'adjective' })
+    // P1-B4 follow-up #1: array condition AND-composing the adjective gate with
+    // no_emphatic_yet (a no-op on the noun-subject path, which has no emphatic).
+    expect(compEdge.condition).toEqual([{ type: 'verb_has_tag', tag: 'adjective' }, { type: 'no_emphatic_yet' }])
+    expect(superEdge.condition).toEqual([{ type: 'verb_has_tag', tag: 'adjective' }, { type: 'no_emphatic_yet' }])
   })
 })
 
