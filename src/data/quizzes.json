@@ -1325,7 +1325,7 @@
             "label": "A",
             "text": "*Kai mu'a!*",
             "correct": false,
-            "explanation": "This means \"Please eat!\" — the opposite of the intended sentence."
+            "explanation": "This means \"Please eat!\", the opposite of the intended sentence."
           },
           {
             "label": "B",
@@ -1463,13 +1463,13 @@
             "label": "D",
             "text": "*Ke kai!*",
             "correct": true,
-            "explanation": "Singular preposed *ke* does not occur with imperatives. A command to one person uses the bare verb — *Kai!*, not *Ke kai!*."
+            "explanation": "Singular preposed *ke* does not occur with imperatives. A command to one person uses the bare verb, *Kai!*, not *Ke kai!*."
           }
         ]
       },
       {
         "id": "q9",
-        "prompt": "What does *Tau hiva kimautolu!* mean in English?",
+        "prompt": "What does *Tau hiva kitautolu!* mean in English?",
         "options": [
           {
             "label": "A",
@@ -1479,15 +1479,15 @@
           },
           {
             "label": "B",
-            "text": "Let's sing! (emphatic — we ourselves!)",
+            "text": "Let's sing! (emphatic: we ourselves!)",
             "correct": true,
-            "explanation": "The preposed *tau* is first-person plural inclusive (\"let's\"), and the postposed *kimautolu* adds emphasis: \"let's sing, we ourselves.\""
+            "explanation": "The preposed *tau* is first-person plural inclusive (\"let's\"), and the postposed *kitautolu* echoes it for emphasis: \"let's sing, we ourselves.\" The postposed pronoun must match the preposed one (inclusive *tau* ↔ *kitautolu*; exclusive *mau* ↔ *kimautolu*)."
           },
           {
             "label": "C",
             "text": "They will sing.",
             "correct": false,
-            "explanation": "Third-person \"they\" would use *nau* / *kinautolu*, not *tau* / *kimautolu*."
+            "explanation": "Third-person \"they\" would use *nau* / *kinautolu*, not *tau* / *kitautolu*."
           },
           {
             "label": "D",
@@ -3023,7 +3023,7 @@
             "label": "D",
             "text": "*Na'a mau hiva mo Sione mo Mele.*",
             "correct": true,
-            "explanation": "For three or more listed names, *mo* repeats before each. Here *mo* introduces the accompanier and then links the two names."
+            "explanation": "The first *mo* is the comitative \"with,\" introducing the accompaniers after the verb, and the second *mo* links the two names Sione and Mele as \"and\" (*Sione mo Mele*)."
           }
         ]
       },
@@ -4007,7 +4007,7 @@
             "label": "D",
             "text": "Love or kindness",
             "correct": false,
-            "explanation": "The word for \"love\" or \"kindness\" is *'ofa*, which appears in the thanks formula *Mālō e 'ofa* — a different word entirely from *mālō*."
+            "explanation": "The word for \"love\" or \"kindness\" is *'ofa*, which appears in the thanks formula *Mālō e 'ofa*, a different word entirely from *mālō*."
           }
         ]
       },
@@ -4025,7 +4025,7 @@
             "label": "B",
             "text": "*Nofo ā!*",
             "correct": false,
-            "explanation": "The imperative *nofo* means \"stay,\" so *Nofo ā* is said to the person who remains behind — the opposite of what the situation calls for."
+            "explanation": "The imperative *nofo* means \"stay,\" so *Nofo ā* is said to the person who remains behind, the opposite of what the situation calls for."
           },
           {
             "label": "C",
@@ -4269,7 +4269,7 @@
           },
           {
             "label": "C",
-            "text": "Because *'io* confirms what was said, roughly \"It is as you say\" — so it endorses the negative in a negative question.",
+            "text": "Because *'io* confirms what was said, roughly \"It is as you say\", so it endorses the negative in a negative question.",
             "correct": true,
             "explanation": "The answer *'Io, na'e 'ikai té u 'alu* means \"Yes (as you say), I didn't go.\" The *'io* agrees with the questioner's framing rather than with the English-style polarity."
           },
@@ -4607,7 +4607,7 @@
             "label": "B",
             "text": "Farmer",
             "correct": false,
-            "explanation": "The word for \"farmer\" is *tangata faama*, built from *faama* (\"farm\"). *Tōketā* names a profession that requires different training."
+            "explanation": "The word for \"farmer\" is *tangata fāma*, built from *fāma* (\"farm\"). *Tōketā* names a profession that requires different training."
           },
           {
             "label": "C",
@@ -4659,7 +4659,7 @@
         "options": [
           {
             "label": "A",
-            "text": "It puts the spotlight on the subject — Peau, and no one else.",
+            "text": "It puts the spotlight on the subject, Peau, and no one else.",
             "correct": true,
             "explanation": "Subject-first order with *Ko* + subject + *ko e* + predicate stresses *who* the person is, in contrast with the normal predicate-first emphasis."
           },
@@ -4703,7 +4703,7 @@
             "label": "C",
             "text": "It is a very small (tiny) book.",
             "correct": true,
-            "explanation": "Preposed *ki'i* and postposed *si'isi'i* can combine on the same noun; the effect is intensified smallness — \"very small\" or \"tiny.\""
+            "explanation": "Preposed *ki'i* and postposed *si'isi'i* can combine on the same noun; the effect is intensified smallness, \"very small\" or \"tiny.\""
           },
           {
             "label": "D",
@@ -4791,7 +4791,7 @@
           },
           {
             "label": "C",
-            "text": "Twice — once before the subject, once (as *ko e*) before the predicate",
+            "text": "Twice, once before the subject, once (as *ko e*) before the predicate",
             "correct": true,
             "explanation": "The pattern is *Ko* + subject + *ko e* + predicate, as in *Ko Lisiate ko e faiako*. Both halves are introduced by the identifying *ko*."
           },
@@ -5057,7 +5057,7 @@
             "label": "A",
             "text": "*Ko ho'o 'alu ki fē?*",
             "correct": true,
-            "explanation": "The pattern *ko* + possessive + verbal noun uses *ho'o* (\"your\"), giving *Ko ho'o 'alu ki fē?* — literally \"Is your going to where?\"."
+            "explanation": "The pattern *ko* + possessive + verbal noun uses *ho'o* (\"your\"), giving *Ko ho'o 'alu ki fē?* literally \"Is your going to where?\"."
           },
           {
             "label": "B",
@@ -5141,7 +5141,7 @@
       },
       {
         "id": "q9",
-        "prompt": "Which pair of forms is the dual ho-class possessive \"our (the two of us, inclusive)\"?",
+        "prompt": "Which form is the dual ho-class possessive \"our (the two of us, inclusive)\"?",
         "options": [
           {
             "label": "A",
@@ -5153,7 +5153,7 @@
             "label": "B",
             "text": "*'ema* / *homa*",
             "correct": false,
-            "explanation": "These forms are exclusive dual (\"yours/hers and mine\"), not inclusive dual. Inclusive is a different form."
+            "explanation": "These forms are exclusive dual (\"his/hers and mine\"), not inclusive dual. Inclusive is a different form."
           },
           {
             "label": "C",
@@ -6759,7 +6759,7 @@
           },
           {
             "label": "D",
-            "text": "Obligation — \"should\" or \"ought to,\" literally \"it is right that...\"",
+            "text": "Obligation, \"should\" or \"ought to,\" literally \"it is right that...\"",
             "correct": true,
             "explanation": "The word *totonu* means \"right / proper,\" and with *'oku* and *ke* it frames an action as the right thing to do: *'Oku totonu ke ke ako* (\"You should study\")."
           }
@@ -6807,9 +6807,9 @@
           },
           {
             "label": "B",
-            "text": "It has become certain that I will return home — I must go home.",
+            "text": "It has become certain that you must go home.",
             "correct": false,
-            "explanation": "The literal reading is \"it has become certain that I return home.\" *Kuo* signals a completed change of state, and *pau* means \"definite.\""
+            "explanation": "This switches the subject to \"you.\" The pronoun in *kuo pau ke u foki* is *u* (\"I\"), so the necessity is first-person, not addressed to \"you.\""
           },
           {
             "label": "C",
@@ -6933,7 +6933,7 @@
           },
           {
             "label": "C",
-            "text": "It shifts the meaning to \"should have\" — a past obligation that was (or was not) fulfilled.",
+            "text": "It shifts the meaning to \"should have\", a past obligation that was (or was not) fulfilled.",
             "correct": true,
             "explanation": "With *na'e*, *'oku totonu ke* becomes *na'e totonu ke*, meaning \"should have.\" The sentence says Tēvita should have been here, implying he was not."
           },
@@ -7667,7 +7667,7 @@
             "label": "B",
             "text": "It introduces a subordinate clause giving the purpose of the main action.",
             "correct": true,
-            "explanation": "The word *ke* introduces a dependent clause (*ke ne ha'u mai*) that tells why Mele is being asked — the purpose of the asking."
+            "explanation": "The word *ke* introduces a dependent clause (*ke ne ha'u mai*) that tells why Mele is being asked, the purpose of the asking."
           },
           {
             "label": "C",
@@ -7817,7 +7817,7 @@
             "label": "B",
             "text": "*'Oku langa e vaká mo'ou.*",
             "correct": false,
-            "explanation": "A boat carries its occupant (ho-class), so *mo'o* is correct — here with the postposed form *mo'ou* (\"for you\")."
+            "explanation": "A boat carries its occupant (ho-class), so *mo'o* is correct, here with the postposed form *mo'ou* (\"for you\")."
           },
           {
             "label": "C",
@@ -7853,7 +7853,7 @@
             "label": "C",
             "text": "*koe'uhi he Mele*",
             "correct": false,
-            "explanation": "The form *koe'uhi 'oku* introduces a reason clause with a tense marker, not a name. A name requires yet another particle."
+            "explanation": "Here *he* would introduce a reason clause built on a verb (such as *koe'uhi he 'oku 'uha*, \"because it is raining\"), not a bare name. Before a name the introducer is *ko*, giving *koe'uhi ko Mele*."
           },
           {
             "label": "D",
@@ -7913,7 +7913,7 @@
             "label": "C",
             "text": "*'Oua té ke hiva, ka 'okú ne mohe.*",
             "correct": false,
-            "explanation": "The word *ka* means \"but,\" not \"because.\" The sentence would read \"Do not sing, but he is sleeping\" — a contrast, not a reason."
+            "explanation": "The word *ka* means \"but,\" not \"because.\" The sentence would read \"Do not sing, but he is sleeping\", a contrast, not a reason."
           },
           {
             "label": "D",
@@ -8007,9 +8007,9 @@
           },
           {
             "label": "C",
-            "text": "*'Oku mālohi ange 'a Tēvita 'i Sēmisi.*",
+            "text": "*'Oku mālohi ange 'a Tēvita 'ia Sēmisi.*",
             "correct": true,
-            "explanation": "The pattern is: adjective + *ange* + focus phrase + *'i* + thing compared to. Before a proper noun, *'i* becomes *'ia* (*'ia Tēvita*), but before *Sēmisi* here the form *'i Sēmisi* is used in the source chapter."
+            "explanation": "The pattern is: adjective + *ange* + focus phrase + the \"than\" preposition + thing compared to. Before a proper noun the preposition becomes *'ia* (Ch. 27: \"Before a proper noun, use *'ia*\"), so *'ia Sēmisi*."
           },
           {
             "label": "D",
@@ -8087,7 +8087,7 @@
             "label": "A",
             "text": "*eni*",
             "correct": false,
-            "explanation": "The word *eni* means \"this,\" naming one of the two things being compared — not the preposition that introduces the other."
+            "explanation": "The word *eni* means \"this,\" naming one of the two things being compared, not the preposition that introduces the other."
           },
           {
             "label": "B",
@@ -8105,7 +8105,7 @@
             "label": "D",
             "text": "*ē*",
             "correct": false,
-            "explanation": "The demonstrative *ē* means \"that\" (over there), the second item being compared — not the preposition."
+            "explanation": "The demonstrative *ē* means \"that\" (over there), the second item being compared, not the preposition."
           }
         ]
       },
@@ -8189,7 +8189,7 @@
             "label": "C",
             "text": "The cold here is surpassed by the cold in Samoa, so Samoa is colder.",
             "correct": true,
-            "explanation": "The verb *'ange'ange* means \"to be surpassed by,\" and the *he*-phrase names the surpasser — so \"the cold here is beaten by the cold in Samoa.\""
+            "explanation": "The verb *'ange'ange* means \"to be surpassed by,\" and the *he*-phrase names the surpasser, so \"the cold here is beaten by the cold in Samoa.\""
           },
           {
             "label": "D",
@@ -9771,9 +9771,9 @@
           },
           {
             "label": "B",
-            "text": "*māmā* (to be light)",
+            "text": "*mamā* (to be light)",
             "correct": false,
-            "explanation": "The word *māmā* (with macrons) means \"light (in weight)\"; the *faka-* form of it is *fakamamā* (to lighten), not *fakamama'o*."
+            "explanation": "The word *mamā* (macron on the final syllable) means \"light (in weight)\"; the *faka-* form of it is *fakamamā* (to lighten), not *fakamama'o*."
           },
           {
             "label": "C",
@@ -10799,7 +10799,7 @@
             "label": "D",
             "text": "*Ko e mā na'e kai 'e Sione.*",
             "correct": false,
-            "explanation": "This fronts the object *e mā* instead of the subject, producing \"It was the bread that Sione ate\" — a different cleft."
+            "explanation": "This fronts the object *e mā* instead of the subject, producing \"It was the bread that Sione ate\", a different cleft."
           }
         ]
       },
@@ -10835,7 +10835,7 @@
       },
       {
         "id": "q5",
-        "prompt": "Which tense-marker form is correct before the one-syllable pronoun *nau* (they)?",
+        "prompt": "Which tense-marker form is correct before the two-syllable pronoun *nau* (they)?",
         "options": [
           {
             "label": "A",
@@ -10931,7 +10931,7 @@
             "label": "A",
             "text": "Because the definitive accent marks the end of the relative clause describing *fefine*.",
             "correct": true,
-            "explanation": "In Tongan, the final word of a definite noun phrase — including a relative clause on a definite noun — takes an acute accent on its last vowel."
+            "explanation": "In Tongan, the final word of a definite noun phrase, including a relative clause on a definite noun, takes an acute accent on its last vowel."
           },
           {
             "label": "B",
@@ -11375,7 +11375,7 @@
             "label": "C",
             "text": "*Na'a mou fiefia.*",
             "correct": false,
-            "explanation": "A sentence-initial *na'a* before a tense marker expresses uncertainty (\"perhaps you are happy\"), not a wish."
+            "explanation": "To express uncertainty (\"perhaps\"), clause-initial *na'a* must be followed by a tense marker or *ko*; *Na'a mou fiefia* (*na'a* + pronoun *mou*) is not that construction and is not how a hope or blessing is formed."
           },
           {
             "label": "D",
@@ -11501,7 +11501,7 @@
             "label": "D",
             "text": "*telia* (alone)",
             "correct": false,
-            "explanation": "Without *na'a*, *telia* means \"for the sake of\" or \"out of respect for\" — a deferential expression, not a warning."
+            "explanation": "Without *na'a*, *telia* means \"for the sake of\" or \"out of respect for\", a deferential expression, not a warning."
           }
         ]
       },
@@ -11519,7 +11519,7 @@
             "label": "B",
             "text": "*Tuku ke kai!*",
             "correct": false,
-            "explanation": "The phrase *tuku ke kai* means \"let eating happen\" or \"allow the eating\" — permission, not urgency."
+            "explanation": "The phrase *tuku ke kai* means \"let eating happen\" or \"allow the eating\", permission, not urgency."
           },
           {
             "label": "C",
@@ -11531,7 +11531,7 @@
             "label": "D",
             "text": "*'Ofa pē ke kai!*",
             "correct": false,
-            "explanation": "The phrase *'ofa pē ke kai* means \"I hope someone eats\" — a wish, not an urgent instruction."
+            "explanation": "The phrase *'ofa pē ke kai* means \"I hope someone eats\", a wish, not an urgent instruction."
           }
         ]
       },
@@ -11567,7 +11567,7 @@
       },
       {
         "id": "q9",
-        "prompt": "Which postposed adverb is correct for \"Are you coming or not? — I need a clear answer\"?",
+        "prompt": "Which postposed adverb is correct for \"Are you coming or not? I need a clear answer\"?",
         "options": [
           {
             "label": "A",
@@ -14465,7 +14465,7 @@
             "label": "C",
             "text": "*mata 'o e hele*",
             "correct": false,
-            "explanation": "This is the loose form using *'o* (of) — two separate noun phrases. The compound form replaces *'o* with the suffix *-'i*."
+            "explanation": "This is the loose form using *'o* (of), two separate noun phrases. The compound form replaces *'o* with the suffix *-'i*."
           },
           {
             "label": "D",
@@ -14573,7 +14573,7 @@
             "label": "A",
             "text": "*Na'á ku 'uha.*",
             "correct": false,
-            "explanation": "Bare *'uha* means \"rain\" or \"to rain\" — this would read as \"I rained,\" which makes no sense. A state suffix is needed."
+            "explanation": "Bare *'uha* means \"rain\" or \"to rain\", this would read as \"I rained,\" which makes no sense. A state suffix is needed."
           },
           {
             "label": "B",
@@ -14601,9 +14601,9 @@
         "options": [
           {
             "label": "A",
-            "text": "*vahe* → *vahenga*",
+            "text": "*mohe* → *mohenga*",
             "correct": false,
-            "explanation": "The first vowel of *vahe* lengthens, giving *vāhenga* — so the change is real, though this option shows the unchanged form."
+            "explanation": "The base *mohe* (sleep) adds *-nga* regularly to give *mohenga* (bed), with no vowel change."
           },
           {
             "label": "B",
@@ -14633,13 +14633,13 @@
             "label": "A",
             "text": "*Ko e fonua kakai'ia 'a 'Amelika.*",
             "correct": false,
-            "explanation": "Here *kakai'ia* means \"densely populated\" — the \"abounding in people\" sense. Not a \"regarding as\" example."
+            "explanation": "Here *kakai'ia* means \"densely populated\", the \"abounding in people\" sense. Not a \"regarding as\" example."
           },
           {
             "label": "B",
             "text": "*Na'á ku faka'ofa'ia 'ia Siale.*",
             "correct": true,
-            "explanation": "Here *faka'ofa'ia* means \"felt sorry for\" — built on an adjective base, with *-'ia* giving the \"regarding as\" reading."
+            "explanation": "Here *faka'ofa'ia* means \"felt sorry for\", built on an adjective base, with *-'ia* giving the \"regarding as\" reading."
           },
           {
             "label": "C",
@@ -14651,7 +14651,7 @@
             "label": "D",
             "text": "*Ko e fonua koloa'ia.*",
             "correct": false,
-            "explanation": "Here *koloa'ia* means \"wealthy\" — another \"abounding in\" example, built on the noun *koloa* (wealth)."
+            "explanation": "Here *koloa'ia* means \"wealthy\", another \"abounding in\" example, built on the noun *koloa* (wealth)."
           }
         ]
       },
@@ -15755,7 +15755,7 @@
             "label": "D",
             "text": "Whether the possession is something one acts upon/controls ('e-class) or something that characterises or shelters one (ho-class)",
             "correct": true,
-            "explanation": "The same semantic split that divides *'eku* from *'oku* (in regular possessives) divides *si'eku* from *si'oku*. Work is 'e-class; family is ho-class."
+            "explanation": "The same semantic split that divides regular *'eku* ('e-class) from *hoku* (ho-class) divides emotional *si'eku* from *si'oku*. Work is 'e-class; family is ho-class."
           }
         ]
       },

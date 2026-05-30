@@ -11,7 +11,7 @@ English adds "-er" to make comparisons: taller, faster, stronger. Tongan places 
 *Mālohi* *(strong)*. *Vave* *(fast)*.
 
 ::: {.examples}
-*'Oku mālohi ange 'a Tēvita 'i Sēmisi.* Tēvita is stronger than Sēmisi.
+*'Oku mālohi ange 'a Tēvita 'ia Sēmisi.* Tēvita is stronger than Sēmisi.
 :::
 
 The adjective *mālohi* does not change form. The word *ange* after it creates the comparison. The preposition *'i* introduces the thing compared to, like English "than."
