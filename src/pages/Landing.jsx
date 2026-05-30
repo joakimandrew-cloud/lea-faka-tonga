@@ -387,7 +387,7 @@ export default function Landing() {
                       <span className="f">Nouns</span>
                       <span className="f">Phrases</span>
                     </div>
-                    <span className="p2-counter">014 / 512</span>
+                    <span className="p2-counter">014 / 628</span>
                   </div>
                   <div className="p2-card-stack">
                     <div className="p2-card side">
@@ -482,6 +482,7 @@ export default function Landing() {
             <div className="preview-cta">
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
               <Link to="/chapters" className="cta-secondary">See the Contents</Link>
+              <Link to="/support" className="cta-secondary">Keep it free →</Link>
               <div className="cta-meta"><strong>Free, always</strong> · Built in the open</div>
             </div>
           </div>
@@ -501,7 +502,7 @@ export default function Landing() {
           <div className="level">A1–B2</div>
           <div className="scope">Beginner → Advanced</div>
         </div>
-        <div className="free-note">Free, always</div>
+        <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>Free, always →</Link>
       </div>
 
       {/* ========== § 01 · Five Ways In — light panel ========== */}
