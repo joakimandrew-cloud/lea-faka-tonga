@@ -2729,6 +2729,71 @@ describe('2A.6 follow-up — preposition-plus-possessive (§22 + §36)', () => {
     expect(renderTongan(s)).toBe('Naʻa ne ʻalu mei he ʻene ngāue')
   })
 
+  it('SFA-045 exception: 2sg hoʻo connects directly — ki hoʻo tohi (no he)', () => {
+    // Phase P (source-fidelity audit): the second-person e-class possessives
+    // hoʻo / hoʻomo / hoʻomou take NO reinstated article after ki / ʻi / mei —
+    // Shumway L76 note 1; Churchward 16.213(g) `ki hoʻo faitoʻó`. Every other
+    // e-class form keeps `he` (the tests above).
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'preposition_possessive')
+    s = advanceInFrame(s, { tongan: 'ki' })
+    s = advanceInFrame(s, { tongan: 'hoʻo' })
+    s = advanceInFrame(s, { tongan: 'tohi' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('Naʻa ku ʻalu ki hoʻo tohi')
+  })
+
+  it('SFA-045 exception: 2pl hoʻomou connects directly — mei hoʻomou ngāue (no he)', () => {
+    // The book Ch 29 example pair is `ki hoʻo tohi`, `mei hoʻomou ngāue`.
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'preposition_possessive')
+    s = advanceInFrame(s, { tongan: 'mei' })
+    s = advanceInFrame(s, { tongan: 'hoʻomou' })
+    s = advanceInFrame(s, { tongan: 'ngāue' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('Naʻa ku ʻalu mei hoʻomou ngāue')
+  })
+
+  it('SFA-045 exception: 2du hoʻomo connects directly; ho-class 2nd person unaffected (ki ho fale)', () => {
+    // 2du e-class head: direct connection.
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'preposition_possessive')
+    s = advanceInFrame(s, { tongan: 'ki' })
+    s = advanceInFrame(s, { tongan: 'hoʻomo' })
+    s = advanceInFrame(s, { tongan: 'tohi' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('Naʻa ku ʻalu ki hoʻomo tohi')
+    // ho-class head with a 2nd-person possessor never had `he` anyway: the
+    // paradigm substitution flips hoʻo → ho and the article stays dropped.
+    let t = createWalkerState('statement', 999)
+    t = advanceInFrame(t, { tongan: 'Naʻa' })
+    t = advanceInFrame(t, { tongan: 'ku' })
+    t = takeExtension(t, 'verb')
+    t = advanceInFrame(t, { tongan: 'ʻalu' })
+    t = takeExtension(t, 'preposition_possessive')
+    t = advanceInFrame(t, { tongan: 'ki' })
+    t = advanceInFrame(t, { tongan: 'hoʻo' })
+    t = advanceInFrame(t, { tongan: 'fale' })
+    t = finishFrame(t)
+    t = finishWalker(t, 'FINISH_STATEMENT')
+    expect(renderTongan(t)).toBe('Naʻa ku ʻalu ki ho fale')
+  })
+
   it('preposition_possessive extension is NOT gated on transitive (intransitive verbs can take locative possessive)', () => {
     // Spec example `Naʻá ke sio ki hoku tokoua?` uses an intransitive-ish
     // verb; the locative possessive should be available regardless of
@@ -3933,6 +3998,31 @@ describe('2C.3e — §30 directional particles', () => {
     s = finishFrame(s)
     s = finishWalker(s, 'FINISH_STATEMENT')
     expect(renderTongan(s)).toBe('Naʻa ku lele mai')
+  })
+
+  it('Phase P close-out: directional slot is hidden after haʻu (haʻu takes NO directional)', () => {
+    // Corrected spec §30 (SFA-024/042/043 family): haʻu never combines with a
+    // directional particle — Churchward 27.4(v); Shumway L31 "one never says
+    // haʻu mai". The walker would previously have offered the slot and let the
+    // builder produce *haʻu mai. Gated by the `no_directional` tag on haʻu plus
+    // the `verb_lacks_tag` condition on every edge into `directional`.
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'haʻu' })
+    const menu = getExtensionMenu(s)
+    expect(menu.extensions.find(e => e.node === 'directional')).toBeUndefined()
+  })
+
+  it('Phase P close-out: directional slot still offered after ʻalu (control for the haʻu gate)', () => {
+    let s = createWalkerState('statement', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻa' })
+    s = advanceInFrame(s, { tongan: 'ku' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    const menu = getExtensionMenu(s)
+    expect(menu.extensions.find(e => e.node === 'directional')).toBeDefined()
   })
 
   it('directional node has all 6 spec §30 words with correct group tags', () => {

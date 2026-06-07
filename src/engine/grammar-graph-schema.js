@@ -67,6 +67,12 @@ export const CONDITION_TYPES = new Set([
   // superlative) may not be re-offered after it. Carries no extra fields beyond
   // `type`. Often AND-composed with an existing gate via an array condition.
   'no_emphatic_yet',
+  // Phase P (source-fidelity audit) close-out: inverse of verb_has_tag —
+  // the edge is offered only while the head verb LACKS the named tag.
+  // Carries `tag`. Used to hide the directional slot after `haʻu`
+  // (tag `no_directional`): corrected spec §30 says haʻu takes no
+  // directional particle at all (Churchward 27.4(v); Shumway L31).
+  'verb_lacks_tag',
 ])
 
 // Phase 2B tags — all currently optional. Each 2B sub-batch populates one.

@@ -787,6 +787,20 @@ function evaluateCondition(condition, steps) {
     return verbStep.word.tags.includes(condition.tag)
   }
 
+  if (condition.type === 'verb_lacks_tag') {
+    // Phase P (source-fidelity audit) close-out: inverse of verb_has_tag.
+    // Gates the directional slot off after `haʻu` (tag `no_directional`):
+    // spec §30 as corrected says haʻu takes NO directional particle —
+    // movement toward the speaker is built into the verb (Churchward
+    // 27.4(v); Shumway L31 "one never says haʻu mai"). Plain "come here"
+    // is haʻu alone or haʻu ki heni. Same head-verb semantics as
+    // verb_has_tag; with no verb yet (or an untagged verb) nothing
+    // excludes, so the edge stays available.
+    const verbStep = findHeadVerbStep(steps)
+    if (!verbStep || !verbStep.word.tags) return true
+    return !verbStep.word.tags.includes(condition.tag)
+  }
+
   if (condition.type === 'not_already_used') {
     const targetWord = normalize(condition.word)
     return !steps.some(s =>
@@ -1990,7 +2004,15 @@ export function getRenderedPath(state) {
       out[i + 2].nodeId === 'possessive_head_noun'
     ) {
       const headClass = out[i + 2].word && out[i + 2].word.possessive_class
-      if (headClass === 'e_class') {
+      // Phase P (SFA-045) exception: the second-person e-class forms
+      // hoʻo / hoʻomo / hoʻomou connect DIRECTLY to the preposition with
+      // no `he` (`ki hoʻo tohi`, `mei hoʻomou ngāue`) — Shumway L76 note 1;
+      // Churchward 16.213(g) `ki hoʻo faitoʻó`. Every other e-class form
+      // keeps the reinstated article (`ki he ʻeku tohi`). Person is read
+      // off the pronoun's word entry, which covers all three forms.
+      const pronounIsSecondPerson =
+        out[i + 1].word && out[i + 1].word.person === 2
+      if (headClass === 'e_class' && !pronounIsSecondPerson) {
         out[i].renderedTongan = `${out[i].renderedTongan} he`
       }
     }
