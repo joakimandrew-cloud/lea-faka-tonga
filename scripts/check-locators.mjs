@@ -197,6 +197,12 @@ async function main() {
     }
     for (const vd of (x.verify?.verdicts || [])) {
       const loc = vd.locator || ''
+      // A `wrong-locator` / `not-found` verdict's own `locator` field IS the bad
+      // locator the verifier is documenting (the correction is in vd.correction).
+      // Re-flagging it here would double-report an already-adjudicated finding,
+      // so skip it. `confirmed` / `overstated` verdicts assert the locator is
+      // genuine, so those are still resolved against the source.
+      if (vd.status === 'wrong-locator' || vd.status === 'not-found') continue
       const where = `Ch${ch} §3 ${vd.status}`
       const isEald = /EALD|Word-?List/i.test(loc) // EALD word-list line refs (L586) are not Shumway lessons
       if (/Ch\.?\s*\d/i.test(loc)) checkChurchwardLocator(loc, cwIdx, push, where)
