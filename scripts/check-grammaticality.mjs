@@ -44,6 +44,10 @@ const RULES = [
     re: /\bha'u\s+mai\b/i,
     note: "ha'u mai is not a valid directional (cf. SFA-024/028); use foki mai / ha'u ki heni",
     conf: 'high',
+    // Skip lines that TEACH the form is wrong (the Ch 28 rule note quotes
+    // *ha'u mai* as a counter-example: "you will not hear *ha'u mai*…").
+    // Without this guard the lint flags its own corrected rule statement.
+    skipIfLine: /not used with|will not hear|not a valid|never say|do not say|\bincorrect\b/i,
   },
   {
     name: "ho ho'o",
@@ -76,6 +80,7 @@ async function main() {
       const s = normOkina(span)
       for (const rule of RULES) {
         if (rule.re.test(s)) {
+          if (rule.skipIfLine && rule.skipIfLine.test(ch.lines[line - 1] || '')) continue
           const k = `${ch.number}|${line}|${rule.name}`
           if (seen.has(k)) continue
           seen.add(k)
