@@ -18,6 +18,14 @@
     "validate:exercises": "node scripts/validate-exercises.mjs",
     "audit:eva": "npm run audit:eva-build-indexes && npm run validate:exercises",
     "check:style": "node scripts/check-style.mjs",
+    "check:locators": "node scripts/check-locators.mjs",
+    "check:glosses": "node scripts/check-glosses.mjs",
+    "check:grammaticality": "node scripts/check-grammaticality.mjs",
+    "check:consistency": "node scripts/check-internal-consistency.mjs",
+    "check:orthography": "node scripts/check-orthography.mjs",
+    "check:fidelity": "node scripts/check-locators.mjs; node scripts/check-glosses.mjs; node scripts/check-grammaticality.mjs; node scripts/check-internal-consistency.mjs; node scripts/check-orthography.mjs",
+    "build:source-map": "node scripts/build-source-map.mjs",
+    "check:originality": "node scripts/check-originality.mjs",
     "audit:all": "npm run check:style && npm run validate:drills && npm run audit:eva"
   },
   "dependencies": {

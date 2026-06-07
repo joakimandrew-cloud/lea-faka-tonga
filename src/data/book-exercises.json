@@ -937,7 +937,7 @@
       "items": [
         {
           "id": "ch5-ex5-1",
-          "prompt": "*Mou kai ma mu'a!*",
+          "prompt": "*Mou kai mā mu'a!*",
           "answer": "Please eat bread! (all of you)"
         },
         {
@@ -957,7 +957,7 @@
         },
         {
           "id": "ch5-ex5-5",
-          "prompt": "*Tau ō kimautolu!*",
+          "prompt": "*Tau ō kitautolu!*",
           "answer": "Let's go! (emphatic)"
         },
         {
@@ -2251,7 +2251,7 @@
         },
         {
           "id": "ch11-ex6-2",
-          "prompt": "*Na'á ke 'alu 'i he māhina fē?*",
+          "prompt": "*Na'á ke 'alu 'i he māhina feé?*",
           "answer": "In which month did you go?"
         },
         {
@@ -3126,7 +3126,7 @@
         {
           "id": "ch16-ex2-1",
           "prompt": "I am a farmer.",
-          "answer": "*Ko e tangata faama au.*"
+          "answer": "*Ko e tangata fāma au.*"
         },
         {
           "id": "ch16-ex2-2",
@@ -4160,7 +4160,7 @@
         {
           "id": "ch21-ex2-8",
           "prompt": "I like Tonga very much.",
-          "answer": "*'Oku ou sai'ia lahi 'aupito 'ia Tonga.*"
+          "answer": "*'Oku ou sai'ia lahi 'aupito 'i Tonga.*"
         }
       ]
     },
@@ -5178,7 +5178,7 @@
         {
           "id": "ch26-ex4-1",
           "prompt": "I will ask Sione to come.",
-          "answer": "*Té u kole kia Sione ke ne ha'u mai.*"
+          "answer": "*Té u kole kia Sione ke ne ha'u.*"
         },
         {
           "id": "ch26-ex4-2",
@@ -5523,7 +5523,7 @@
       "items": [
         {
           "id": "ch28-ex1-1",
-          "prompt": "*Ha'u mai!*",
+          "prompt": "*Ha'u ki heni!*",
           "answer": "Come here!"
         },
         {
@@ -5597,7 +5597,7 @@
         {
           "id": "ch28-ex2-3",
           "prompt": "She is bringing the basket (toward me).",
-          "answer": "*'Okú ne 'ave mai 'a e kató.*"
+          "answer": "*'Okú ne 'omai 'a e kató.*"
         },
         {
           "id": "ch28-ex2-4",
@@ -5634,31 +5634,26 @@
       "items": [
         {
           "id": "ch28-ex3-1",
-          "prompt": "*Ha'u \\_\\_\\_\\_\\_\\_!* (Come here!)",
-          "answer": "*mai*"
-        },
-        {
-          "id": "ch28-ex3-2",
           "prompt": "*'Alu \\_\\_\\_\\_\\_\\_!* (Go away!)",
           "answer": "*atu*"
         },
         {
-          "id": "ch28-ex3-3",
+          "id": "ch28-ex3-2",
           "prompt": "*Tala \\_\\_\\_\\_\\_\\_ ke ha'u!* (Tell him to come!)",
           "answer": "*ange*"
         },
         {
-          "id": "ch28-ex3-4",
+          "id": "ch28-ex3-3",
           "prompt": "*Na'e tō \\_\\_\\_\\_\\_\\_ 'a e kató.* (The basket fell down.)",
           "answer": "*hifo*"
         },
         {
-          "id": "ch28-ex3-5",
+          "id": "ch28-ex3-4",
           "prompt": "*Na'a mau ō \\_\\_\\_\\_\\_\\_ 'o mamata.* (We went around and looked.)",
           "answer": "*holo*"
         },
         {
-          "id": "ch28-ex3-6",
+          "id": "ch28-ex3-5",
           "prompt": "*Sio \\_\\_\\_\\_\\_\\_ ki he laní!* (Look up at the sky!)",
           "answer": "*hake*"
         }
@@ -5710,7 +5705,7 @@
         },
         {
           "id": "ch28-ex5-3",
-          "prompt": "*Na'á ku 'ave mai 'a e tohí mei he falé.*",
+          "prompt": "*Na'á ku 'omai 'a e tohí mei he falé.*",
           "answer": "I brought the book from the house. (toward me)"
         },
         {
@@ -5847,7 +5842,7 @@
         {
           "id": "ch29-ex3-5",
           "prompt": "I don't have any relatives.",
-          "answer": "*'Oku 'ikai ha'aku kāinga.*"
+          "answer": "*'Oku 'ikai haku kāinga.*"
         },
         {
           "id": "ch29-ex3-6",
@@ -5947,7 +5942,7 @@
         },
         {
           "id": "ch30-ex1-3",
-          "prompt": "*Té u nofo heni kae'oua ke nau ha'u mai.*",
+          "prompt": "*Té u nofo heni kae'oua ke nau foki mai.*",
           "answer": "I will stay here until they come."
         },
         {
@@ -6051,7 +6046,7 @@
         },
         {
           "id": "ch30-ex4-2",
-          "prompt": "Té u nofo heni _____ ke nau ha'u mai.",
+          "prompt": "Té u nofo heni _____ ke nau foki mai.",
           "answer": "*kae'oua*"
         },
         {
@@ -6128,7 +6123,7 @@
         {
           "id": "ch30-ex6-5",
           "prompt": "Na'e 'ikai 'ene pa'anga, _____ ke ne feinga. (He had no money, provided that he try.)",
-          "answer": "*kae kehe*"
+          "answer": "*kehe ke*"
         }
       ]
     },
@@ -6855,7 +6850,7 @@
         {
           "id": "ch35-ex3-5",
           "prompt": "______ tohi ______ ('uluaki: first)",
-          "answer": "*ha 'uluaki tohi* (preposed: *'uluaki* always goes before the noun)"
+          "answer": "*ha 'uluaki tohi* (preposed: the usual construction for *'uluaki*, though it can also follow the noun, as in *ko e kalasi 'uluaki*)"
         },
         {
           "id": "ch35-ex3-6",
@@ -7271,8 +7266,8 @@
         },
         {
           "id": "ch37-ex2-8",
-          "prompt": "The boat is ours (exclusive). ('e-class)",
-          "answer": "*Ko e vaka ia 'amautolu.*"
+          "prompt": "The boat is ours (exclusive). (ho-class)",
+          "answer": "*Ko e vaka ia 'omautolu.*"
         }
       ]
     },
@@ -7310,7 +7305,7 @@
         {
           "id": "ch37-ex3-6",
           "prompt": "Ko e vaka ia _____. (theirs, plural)",
-          "answer": "*'anautolu* (boats can be 'e-class when controlled)"
+          "answer": "*'onautolu* (boats are ho-class: a vessel carries and shelters you, like a house)"
         }
       ]
     },
@@ -7327,8 +7322,8 @@
         },
         {
           "id": "ch37-ex4-2",
-          "prompt": "*Ho'o vaka* → _____ (YOUR boat)",
-          "answer": "*Ho'o vaká 'au*"
+          "prompt": "*Ho vaka* → _____ (YOUR boat)",
+          "answer": "*Ho vaká 'ou*"
         },
         {
           "id": "ch37-ex4-3",
@@ -7449,7 +7444,7 @@
         {
           "id": "ch38-ex2-4",
           "prompt": "Perhaps she is tired.",
-          "answer": "*Na'a kuo ne hela'ia.*"
+          "answer": "*Na'a kuo ne hela.*"
         },
         {
           "id": "ch38-ex2-5",
@@ -8601,8 +8596,8 @@
         },
         {
           "id": "ch44-ex2-5",
-          "prompt": "*Na'á ne 'omai e vala momoko.* (the warm clothes, definite)",
-          "answer": "*Na'á ne 'omai e vala momokó.*"
+          "prompt": "*Na'á ne 'omai e me'a lahi.* (the big thing, definite)",
+          "answer": "*Na'á ne 'omai e me'a lahí.*"
         }
       ]
     },
@@ -8660,13 +8655,8 @@
         },
         {
           "id": "ch44-ex5-2",
-          "prompt": "*Ha'u mai ki heni.*",
-          "answer": "*Ha'u maí ki hení.*"
-        },
-        {
-          "id": "ch44-ex5-3",
           "prompt": "*To'o mai 'a e tohí.*",
-          "answer": "*To'o maí e tohí.*"
+          "answer": "*To'o maí 'a e tohí.*"
         }
       ]
     },
@@ -9829,7 +9819,7 @@
         {
           "id": "ch51-ex1-6",
           "prompt": "*Té mo 'alu mo ia ki he tokonakí?*",
-          "answer": "Will you (two) go with him to the feast?"
+          "answer": "Will you (two) go with him to the provisions?"
         },
         {
           "id": "ch51-ex1-7",

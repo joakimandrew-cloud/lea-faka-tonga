@@ -1838,7 +1838,7 @@
   {
     "id": "book-v0154",
     "tongan": "vaka",
-    "english": "boat",
+    "english": "boat, ship",
     "part_of_speech": "noun",
     "category": "nouns",
     "notes": "",
@@ -2077,7 +2077,7 @@
   },
   {
     "id": "book-v0174",
-    "tongan": "lotū",
+    "tongan": "lotu",
     "english": "prayer, church service",
     "part_of_speech": "noun",
     "category": "nouns",
@@ -2113,7 +2113,7 @@
   },
   {
     "id": "book-v0177",
-    "tongan": "valā",
+    "tongan": "vala",
     "english": "clothes",
     "part_of_speech": "noun",
     "category": "nouns",
@@ -2269,7 +2269,7 @@
   },
   {
     "id": "book-v0190",
-    "tongan": "kumalā",
+    "tongan": "kumala",
     "english": "sweet potato",
     "part_of_speech": "noun",
     "category": "nouns",
@@ -2293,7 +2293,7 @@
   },
   {
     "id": "book-v0192",
-    "tongan": "laupapā",
+    "tongan": "laupapa",
     "english": "board, plank",
     "part_of_speech": "noun",
     "category": "nouns",
@@ -4405,7 +4405,7 @@
   },
   {
     "id": "book-v0375",
-    "tongan": "ufi",
+    "tongan": "'ufi",
     "english": "yam",
     "part_of_speech": "noun",
     "category": "nouns",
@@ -4969,8 +4969,8 @@
   },
   {
     "id": "book-v0422",
-    "tongan": "lavā",
-    "english": "pass by, be sufficient",
+    "tongan": "lava",
+    "english": "be able, manage, be possible",
     "part_of_speech": "verb",
     "category": "verbs",
     "notes": "",
@@ -6458,7 +6458,7 @@
   {
     "id": "book-v0546",
     "tongan": "kavenga",
-    "english": "responsibility, burden",
+    "english": "burden, load, responsibility",
     "part_of_speech": "noun",
     "category": "nouns",
     "notes": "",
@@ -6986,7 +6986,7 @@
   {
     "id": "book-v0590",
     "tongan": "fekumi",
-    "english": "search for one another",
+    "english": "search together",
     "part_of_speech": "verb",
     "category": "verbs",
     "notes": "",
@@ -7106,7 +7106,7 @@
   {
     "id": "book-v0600",
     "tongan": "mahiki",
-    "english": "be able to be pulled out",
+    "english": "be able to lift",
     "part_of_speech": "verb",
     "category": "verbs",
     "notes": "",
@@ -7130,9 +7130,9 @@
   {
     "id": "book-v0602",
     "tongan": "mo'umohea",
-    "english": "drowsy, overly sleepy",
-    "part_of_speech": "adjective",
-    "category": "adjectives",
+    "english": "oversleep, sleep too long",
+    "part_of_speech": "verb",
+    "category": "verbs",
     "notes": "",
     "source": "book",
     "audio": null,
@@ -7202,7 +7202,7 @@
   {
     "id": "book-v0608",
     "tongan": "fanongōnongo",
-    "english": "listen carefully",
+    "english": "announce, publish",
     "part_of_speech": "verb",
     "category": "verbs",
     "notes": "",
@@ -7226,7 +7226,7 @@
   {
     "id": "book-v0610",
     "tongan": "katakata",
-    "english": "chuckle, laugh repeatedly",
+    "english": "smile, laugh slightly",
     "part_of_speech": "verb",
     "category": "verbs",
     "notes": "",
@@ -7274,7 +7274,7 @@
   {
     "id": "book-v0614",
     "tongan": "pakipaki",
-    "english": "clap",
+    "english": "break into many pieces",
     "part_of_speech": "verb",
     "category": "verbs",
     "notes": "",
@@ -7357,7 +7357,7 @@
   },
   {
     "id": "book-v0621",
-    "tongan": "'alofa",
+    "tongan": "pango",
     "english": "pity, pitiable",
     "part_of_speech": "noun/adjective",
     "category": "nouns",
@@ -7381,7 +7381,7 @@
   },
   {
     "id": "book-v0623",
-    "tongan": "masikitā",
+    "tongan": "faka'ofa",
     "english": "miserable, wretched",
     "part_of_speech": "adjective",
     "category": "adjectives",

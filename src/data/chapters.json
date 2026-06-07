@@ -1899,8 +1899,8 @@
       "key_rules": [
         {
           "rule": "Mai marks movement toward the speaker; atu marks movement away",
-          "example_tongan": "Haʻu mai!",
-          "example_english": "Come here! (toward me)"
+          "example_tongan": "ʻOkú ne ʻomai ʻa e tohí.",
+          "example_english": "He is bringing the book (toward me)."
         },
         {
           "rule": "Ange marks movement toward a third person",
@@ -1909,7 +1909,7 @@
         },
         {
           "rule": "Directional particles go right after the verb, before objects or prepositional phrases",
-          "example_tongan": "Naʻā ku ʻave mai e valā mei he falē.",
+          "example_tongan": "Naʻā ku ʻomai e valá mei he falē.",
           "example_english": "I brought the clothes from the house."
         }
       ],
@@ -1924,7 +1924,7 @@
           [
             "mai",
             "toward speaker",
-            "haʻu mai = come here"
+            "ʻomai = bring (toward me)"
           ],
           [
             "atu",
@@ -2291,7 +2291,7 @@
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
-      "summary": "Attributive adjectives normally follow the noun (ha meʻa lahi). A few fixed words (fuʻu, kiʻi, ʻuluaki, toe) always precede the noun. Color words follow the standard postposed pattern.",
+      "summary": "Attributive adjectives normally follow the noun (ha meʻa lahi). A few fixed words (fuʻu, kiʻi, toe) always precede the noun; ʻuluaki (first) usually precedes but can also follow (ko e kalasi ʻuluaki). Color words follow the standard postposed pattern.",
       "key_rules": [
         {
           "rule": "Standard adjectives go after the noun: article + noun + adjective",
@@ -2299,7 +2299,7 @@
           "example_english": "I bought a new boat."
         },
         {
-          "rule": "A few adjectives always precede the noun: fuʻu (big), kiʻi (small), ʻuluaki (first), toe (other)",
+          "rule": "A few adjectives always precede the noun: fuʻu (big), kiʻi (small), toe (other). ʻuluaki (first) usually precedes but can also follow (ko e kalasi ʻuluaki = the first class)",
           "example_tongan": "Ha kiʻi tamasiʻi",
           "example_english": "A small boy"
         },
@@ -2541,7 +2541,7 @@
         },
         {
           "rule": "Naʻa mo means \"even\"; kaeʻumaʻa means \"and also\"",
-          "example_tongan": "Naʻa mo Mele, naʻe ʻikai fie haʻu mai.",
+          "example_tongan": "Naʻa mo Mele, naʻe ʻikai fie haʻu.",
           "example_english": "Even Mele did not want to come."
         }
       ],

@@ -8,8 +8,9 @@
  *
  * Goal: catch the entire class of "a citation was never checked against
  * reality" — broken or fabricated source pointers — so the walkthrough
- * specs, the `/translate` + `/reverse-translate` skills, and Translation-Log.md
- * can never again ship a citation that doesn't resolve on disk.
+ * specs, the `/translate` + `/reverse-translate` skills, Translation-Log.md,
+ * AND all 53 book/Chapter-NN.md files (added in Phase P) can never ship a
+ * citation that doesn't resolve on disk.
  *
  * What it scans (SCAN_FILES, below) and what it verifies per token:
  *
@@ -78,6 +79,15 @@ const SCAN_FILES = [
   '.claude/skills/reverse-translate/SKILL.md',
   'Translation-Log.md',
 ]
+
+// All 53 book chapters are also scanned (Phase P) so any citation added to a
+// chapter during the source-fidelity audit is validated on disk — a broken or
+// fabricated `Churchward Ch. 99` / `Shumway L.999` in the published book is a
+// hard error. Built once at runtime so a renumber never desyncs the list.
+async function bookScanFiles() {
+  const entries = await fs.readdir(BOOK_DIR).catch(() => [])
+  return entries.filter(f => /^Chapter-\d{2}\.md$/.test(f)).sort().map(f => `book/${f}`)
+}
 
 const LFT_CHAPTER_MAX = 53
 const GRAMMAR_SPEC_SECTION_MAX = 50
@@ -263,8 +273,8 @@ function checkLine(file, n, text, ref, push) {
     }
   }
 
-  // 6. Shumway Lesson N / Shumway L###
-  for (const m of text.matchAll(/Shumway (?:Lesson|L)\s*(\d+)/g)) {
+  // 6. Shumway Lesson N / Shumway L### / Shumway L.### (book uses the dotted form)
+  for (const m of text.matchAll(/Shumway (?:Lesson|L)\.?\s*(\d+)/g)) {
     const token = m[0]
     const lesson = parseInt(m[1], 10)
     if (!shumwayInRange(lesson, ref.shumwayRanges)) {
@@ -283,7 +293,9 @@ const REAL_DIR_FOR = {
 
 // ── orchestration ─────────────────────────────────────────────────────────
 
-export async function runCitationCheck(scanFiles = SCAN_FILES) {
+export async function runCitationCheck(scanFiles = null) {
+  // Default scan = the translation specs/skills/log PLUS every book chapter.
+  if (scanFiles == null) scanFiles = [...SCAN_FILES, ...(await bookScanFiles())]
   const ref = await buildReferenceData()
 
   // Verify any NN-Word/ path against disk before flagging, so a future real

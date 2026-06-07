@@ -20,6 +20,11 @@
  *      `Chapter NN` references; verifies each cited number resolves to
  *      an existing chapter. Catches dangling refs after a renumber.
  *
+ *   N. PROSE STYLE (warning only). Scans running prose (skips ::: divs, code
+ *      fences, table rows, Author Verification) for the non-em-dash style
+ *      prohibitions a rewrite might reintroduce: en-dash-as-prose-connector,
+ *      "Let's", hedge openers, filler transitions, prose exclamation marks.
+ *
  *   4. FOCUS-MARKER 'a e (warning only). Scans :::examples blocks for
  *      `<verb> e <lowercase>` patterns where `'a` may have been dropped.
  *      Reports as warnings; false positives are expected (cleft sentences
@@ -151,6 +156,53 @@ async function checkCrossReferences(chapterFiles, validNumbers) {
   return errors
 }
 
+// Warning-only prose-style scan (Phase P). Catches the silent-reintroduction
+// style risks that have ZERO legitimate use in this book, so the baseline is
+// clean (0) and any future warning is a real regression signal: en-dash used
+// as a prose connector, hedge openers, and filler transitions. Scoped to
+// running prose — skips ::: divs (examples/tables), code fences, markdown
+// table rows, numbered exercise/list items, and the Author Verification
+// section. Reports as warnings only (never fails the build).
+//
+// Deliberately NOT mechanically checked here: "Let's" and exclamation marks.
+// This is a command-teaching textbook — `Tau kai!` glosses as "Let's eat!" and
+// command exercises legitimately read "Run!", so a mechanical flag is pure
+// noise. Authorial "Let's"/exclamation in explanatory prose is caught by
+// review-agents/01-style-enforcement.md (judgment-based) at close-out. The
+// U+2014 em-dash hard fail (checkEmDashes) remains the absolute gate.
+//
+// The legitimate en-dashes already in book/ (vowel protraction `la––hi`,
+// table-cell placeholders `| – |`, ranges `§1–4`, `a–f`) do not have the
+// space-en-dash-space shape this flags, so they do not trip it.
+const PROSE_PATTERNS = [
+  { name: 'en-dash-as-prose', re: /\S\s–\s\S/ },
+  { name: 'hedge', re: /\b(It'?s worth noting|It is worth noting|Interestingly,|It'?s important to note|It is important to note|Keep in mind that)\b/i },
+  { name: 'filler', re: /\b(Now that we'?ve covered|Now that we have covered|With that in mind|Having established|Moving on to)\b/i },
+]
+
+async function checkProseStyle(chapterFiles) {
+  const warnings = []
+  for (const f of chapterFiles) {
+    const src = await fs.readFile(path.join(BOOK_DIR, f), 'utf8')
+    const lines = src.split('\n')
+    let inDiv = false, inFence = false, inAuthorVerif = false
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
+      if (/^```/.test(line)) { inFence = !inFence; continue }
+      if (inFence) continue
+      if (/^:::/.test(line)) { inDiv = !/^:::\s*$/.test(line); continue }
+      if (/^#{1,6}\s.*Author Verification/i.test(line)) { inAuthorVerif = true; continue }
+      if (inAuthorVerif || inDiv) continue
+      if (/^\s*\|/.test(line)) continue            // markdown table row
+      if (/^\s*\d+\.\s/.test(line)) continue        // numbered exercise/list item
+      for (const p of PROSE_PATTERNS) {
+        if (p.re.test(line)) warnings.push({ file: f, line: i + 1, hit: p.name, ctx: line.trim().slice(0, 100) })
+      }
+    }
+  }
+  return warnings
+}
+
 async function checkAEPattern(chapterFiles) {
   const warnings = []
   const pat = new RegExp(`\\b(${A_E_PRECEDERS.join('|')})\\s+e\\s+[a-z]`, 'g')
@@ -206,6 +258,15 @@ async function main() {
   } else {
     exitCode = 1
     for (const e of refErrors) console.log(`  ✗ ${e.file}:${e.line}  ${e.ref} (no such chapter)  → ${e.ctx}`)
+  }
+
+  console.log('\n── Prose style (warning) ──')
+  const proseWarn = await checkProseStyle(chapterFiles)
+  if (proseWarn.length === 0) {
+    console.log('  ✓ no en-dash-as-prose / hedge / filler patterns')
+  } else {
+    console.log(`  ${proseWarn.length} prose-style pattern(s) worth a human glance (false positives expected):`)
+    for (const w of proseWarn) console.log(`  ⚠ ${w.file}:${w.line}  [${w.hit}]  → ${w.ctx}`)
   }
 
   console.log("\n── Focus-marker 'a e (warning) ──")

@@ -2735,7 +2735,7 @@
             "label": "B",
             "text": "*Te u teitei 'alu.*",
             "correct": false,
-            "explanation": "Without *'ikai*, the sentence is positive, but *teitei* only appears in negative sentences. A positive *teitei* is ungrammatical."
+            "explanation": "Without *'ikai*, the sentence is positive, and in its \"at all / certainly not\" sense *teitei* sits inside a negative. There is nothing here for it to intensify."
           },
           {
             "label": "C",
@@ -2969,31 +2969,31 @@
       },
       {
         "id": "q8",
-        "prompt": "What does the noun *valā* mean?",
+        "prompt": "What does the noun *vala* mean?",
         "options": [
           {
             "label": "A",
             "text": "Book",
             "correct": false,
-            "explanation": "The word for \"book\" is *tohi*. *Valā* is a different item of new vocabulary."
+            "explanation": "The word for \"book\" is *tohi*. *Vala* is a different item of new vocabulary."
           },
           {
             "label": "B",
             "text": "Basket",
             "correct": false,
-            "explanation": "The word for \"basket\" is *kato*, learned in a neighbouring chapter. *Valā* is not a container."
+            "explanation": "The word for \"basket\" is *kato*, learned in a neighbouring chapter. *Vala* is not a container."
           },
           {
             "label": "C",
             "text": "Clothes",
             "correct": true,
-            "explanation": "The noun *valā* means \"clothes,\" as in *'Alu mo e valá!* (\"Take the clothes!\")."
+            "explanation": "The noun *vala* means \"clothes,\" as in *'Alu mo e valá!* (\"Take the clothes!\")."
           },
           {
             "label": "D",
             "text": "Boat",
             "correct": false,
-            "explanation": "The word for \"boat, canoe\" is *vaka*. *Valā* and *vaka* are distinct nouns."
+            "explanation": "The word for \"boat, ship\" is *vaka*. *Vala* and *vaka* are distinct nouns."
           }
         ]
       },
@@ -3285,9 +3285,9 @@
           },
           {
             "label": "B",
-            "text": "*'I he māhina fē?*",
+            "text": "*'I he māhina feé?*",
             "correct": true,
-            "explanation": "Postposed *fē* sits after the noun as an adjective meaning \"which,\" giving *'i he māhina fē* = \"in which month.\""
+            "explanation": "Postposed *fē* sits after the noun as an adjective meaning \"which.\" Because the phrase is definite and sentence-final, the definitive accent lands on the last vowel, giving *'i he māhina feé* = \"in which month.\""
           },
           {
             "label": "C",
@@ -3633,9 +3633,9 @@
           },
           {
             "label": "D",
-            "text": "Boat, canoe",
+            "text": "Boat, ship",
             "correct": true,
-            "explanation": "The noun *vaka* means \"boat\" or \"canoe,\" and it is the expected answer in *Ko e hā ē? — Ko e vaka*."
+            "explanation": "The noun *vaka* means \"boat\" or \"ship,\" and it is the expected answer in *Ko e hā ē?* *Ko e vaka*."
           }
         ]
       },
@@ -5085,15 +5085,15 @@
         "options": [
           {
             "label": "A",
-            "text": "'E-class pronouns begin with *h*; ho-class pronouns do not.",
+            "text": "The first letter decides it: 'e-class pronouns begin with a glottal stop, ho-class pronouns begin with *h*.",
             "correct": false,
-            "explanation": "The signature runs the other way. Ho-class pronouns begin with *h* (*hoku*, *hono*, *hotau*), not the 'e-class."
+            "explanation": "The first letter is not reliable. The 'e-class second-person forms *ho'o*, *ho'omo*, and *ho'omou* also begin with *h*, yet they are 'e-class because each carries a glottal stop."
           },
           {
             "label": "B",
-            "text": "'E-class pronouns contain a glottal stop (*'eku*, *'ene*, *'etau*); ho-class pronouns begin with *h* and have no glottal stop (*hoku*, *hono*, *hotau*).",
+            "text": "'E-class pronouns contain a glottal stop (*'eku*, *'ene*, *ho'o*, *ho'omo*, *ho'omou*); ho-class pronouns have no glottal stop (*hoku*, *hono*, *hotau*).",
             "correct": true,
-            "explanation": "This contrast is consistent across the whole possessive system, which makes the class of a written form easy to read off."
+            "explanation": "The reliable test is the glottal stop, not the first letter. Even the 'e-class forms that begin with *h* (*ho'o*, *ho'omo*, *ho'omou*) still carry a glottal stop, which marks them as 'e-class."
           },
           {
             "label": "C",
@@ -5105,7 +5105,7 @@
             "label": "D",
             "text": "The two classes are distinguished only by an accent mark on the vowel.",
             "correct": false,
-            "explanation": "Accent marks are not the distinguishing feature. The reliable cue is the initial glottal stop versus *h*, plus the internal shapes."
+            "explanation": "Accent marks are not the distinguishing feature. The reliable cue is the presence or absence of a glottal stop in the possessive element."
           }
         ]
       },
@@ -7655,7 +7655,7 @@
     "questions": [
       {
         "id": "q1",
-        "prompt": "What role does *ke* play in *Té u kole kia Mele ke ne ha'u mai*?",
+        "prompt": "What role does *ke* play in *Té u kole kia Mele ke ne ha'u*?",
         "options": [
           {
             "label": "A",
@@ -7667,7 +7667,7 @@
             "label": "B",
             "text": "It introduces a subordinate clause giving the purpose of the main action.",
             "correct": true,
-            "explanation": "The word *ke* introduces a dependent clause (*ke ne ha'u mai*) that tells why Mele is being asked, the purpose of the asking."
+            "explanation": "The word *ke* introduces a dependent clause (*ke ne ha'u*) that tells why Mele is being asked, the purpose of the asking."
           },
           {
             "label": "C",
@@ -7719,25 +7719,25 @@
         "options": [
           {
             "label": "A",
-            "text": "*Té u kole kia Sione he ne ha'u mai.*",
+            "text": "*Té u kole kia Sione he ne ha'u.*",
             "correct": false,
             "explanation": "The word *he* introduces a reason (\"because\"), not a purpose. To say \"ask to come,\" *ke* is required."
           },
           {
             "label": "B",
-            "text": "*Té u kole kia Sione ka ne ha'u mai.*",
+            "text": "*Té u kole kia Sione ka ne ha'u.*",
             "correct": false,
             "explanation": "The word *ka* means \"but.\" It cannot introduce the thing Sione is being asked to do."
           },
           {
             "label": "C",
-            "text": "*Té u kole kia Sione ke ha'u mai.*",
+            "text": "*Té u kole kia Sione ke ha'u.*",
             "correct": false,
             "explanation": "Without the pronoun *ne*, the *ke* clause has no subject. The sentence needs *ke ne* to say \"that he come.\""
           },
           {
             "label": "D",
-            "text": "*Té u kole kia Sione ke ne ha'u mai.*",
+            "text": "*Té u kole kia Sione ke ne ha'u.*",
             "correct": true,
             "explanation": "The subordinator *ke* plus the pronoun *ne* gives \"that he come,\" forming the purpose clause after *kole*."
           }
@@ -7877,7 +7877,7 @@
             "label": "B",
             "text": "*kole*",
             "correct": true,
-            "explanation": "The verb *kole* means \"ask, request,\" as in *Té u kole kia Mele ke ne ha'u mai* (\"I will ask Mele to come\")."
+            "explanation": "The verb *kole* means \"ask, request,\" as in *Té u kole kia Mele ke ne ha'u* (\"I will ask Mele to come\")."
           },
           {
             "label": "C",
@@ -8273,13 +8273,13 @@
             "label": "A",
             "text": "*atu*",
             "correct": false,
-            "explanation": "The particle *atu* marks movement away from the speaker, often toward the listener — the opposite direction."
+            "explanation": "The particle *atu* marks movement away from the speaker, often toward the listener, the opposite direction."
           },
           {
             "label": "B",
             "text": "*mai*",
             "correct": true,
-            "explanation": "The particle *mai* marks movement toward the speaker, as in *ha'u mai* (\"come here\") and *foki mai* (\"come back to me\")."
+            "explanation": "The particle *mai* marks movement toward the speaker, as in *foki mai* (\"come back to me\") and *tala mai* (\"tell me\")."
           },
           {
             "label": "C",
@@ -8411,7 +8411,7 @@
             "label": "D",
             "text": "*tāpuni*",
             "correct": false,
-            "explanation": "The word *tāpuni* means \"close\" or \"shut,\" the verb that often acts on a door — not the door itself."
+            "explanation": "The word *tāpuni* means \"close\" or \"shut,\" the verb that often acts on a door, not the door itself."
           }
         ]
       },
@@ -8453,7 +8453,7 @@
             "label": "A",
             "text": "After an adjective, *ange* is the comparative \"more\"; after an action verb, it is the directional \"toward a third person.\"",
             "correct": true,
-            "explanation": "The word is genuinely ambiguous in isolation. Context — whether what precedes is an adjective or an action verb — makes the reading unambiguous."
+            "explanation": "The word is genuinely ambiguous in isolation. Context, whether what precedes is an adjective or an action verb, makes the reading unambiguous."
           },
           {
             "label": "B",
@@ -8511,9 +8511,9 @@
         "options": [
           {
             "label": "A",
-            "text": "*Ha'u mai!*",
+            "text": "*Ha'u ki heni!*",
             "correct": false,
-            "explanation": "The verb *ha'u* naturally combines with *mai* to mark motion toward the speaker. This sentence is correct."
+            "explanation": "The verb *ha'u* stands alone for \"come,\" and *ki heni* supplies \"here,\" so \"come here\" is *ha'u ki heni*. This sentence is correct."
           },
           {
             "label": "B",
@@ -8525,7 +8525,7 @@
             "label": "C",
             "text": "*Ha'u hifo ki tahí.*",
             "correct": true,
-            "explanation": "The verb *ha'u* does not combine with *hifo*, *hake*, *atu*, or *ange*. To say \"come down,\" Tongan uses *'alu hifo*, not *ha'u hifo*."
+            "explanation": "The verb *ha'u* combines with no directional particle: not *mai*, *atu*, *hake*, or *hifo*. To say \"come down,\" Tongan uses *'alu hifo*, not *ha'u hifo*."
           },
           {
             "label": "D",
@@ -8549,7 +8549,7 @@
             "label": "B",
             "text": "That Sēmisi is the person being asked to carry out the action.",
             "correct": true,
-            "explanation": "In the polite *hanga* pattern, *'e* names the specific person addressed — the one being asked to perform the verb."
+            "explanation": "In the polite *hanga* pattern, *'e* names the specific person addressed, the one being asked to perform the verb."
           },
           {
             "label": "C",
@@ -11753,7 +11753,7 @@
       },
       {
         "id": "q5",
-        "prompt": "Translate: *Na'a mo Mele, na'e 'ikai fie ha'u mai.*",
+        "prompt": "Translate: *Na'a mo Mele, na'e 'ikai fie ha'u.*",
         "options": [
           {
             "label": "A",
@@ -11771,7 +11771,7 @@
             "label": "C",
             "text": "Mele did not want to come back.",
             "correct": false,
-            "explanation": "The directional *mai* means \"hither/toward the speaker,\" which combined with *ha'u* gives \"come (here),\" not \"come back.\""
+            "explanation": "The verb *ha'u* means \"come,\" not \"come back.\" \"Come back\" would be *foki*. There is nothing here to add the \"back\" sense."
           },
           {
             "label": "D",
@@ -13179,9 +13179,9 @@
           },
           {
             "label": "C",
-            "text": "Responsibility or burden",
+            "text": "Burden or responsibility",
             "correct": true,
-            "explanation": "The noun *kavenga* names a responsibility or burden, as in *'Oku lahi 'a e kavengá* (\"The responsibility is great\")."
+            "explanation": "The noun *kavenga* names a burden (also a load or responsibility), as in *'Oku lahi 'a e kavengá* (\"The burden is great\")."
           },
           {
             "label": "D",
@@ -13197,25 +13197,25 @@
         "options": [
           {
             "label": "A",
-            "text": "Indefinite — any box or other",
+            "text": "Indefinite, any box or other",
             "correct": false,
             "explanation": "The indefinite form uses the article *ha*, as in *ki ha puha*. The article *he* here rules out indefiniteness."
           },
           {
             "label": "B",
-            "text": "Semi-definite — one particular box, not yet singled out for the listener",
+            "text": "Semi-definite, one particular box, not yet singled out for the listener",
             "correct": false,
             "explanation": "Semi-definite uses *e* or *he* without the accent. The accent on *puhá* pushes the phrase past semi-definite."
           },
           {
             "label": "C",
-            "text": "Definite — the specific box both speaker and listener know",
+            "text": "Definite, the specific box both speaker and listener know",
             "correct": true,
             "explanation": "The article *he* plus the definitive accent on the last vowel of the group marks the full definite level: the particular box already in view."
           },
           {
             "label": "D",
-            "text": "Plural — several boxes",
+            "text": "Plural, several boxes",
             "correct": false,
             "explanation": "Plurality in Tongan is marked by *ngaahi* or other means, not by the definitive accent. The accent signals definiteness, not number."
           }
@@ -13277,7 +13277,7 @@
             "label": "D",
             "text": "*Na'á ke 'alu ki ha fakataha lahí.*",
             "correct": false,
-            "explanation": "The article *ha* is indefinite — this would mean \"a big meeting,\" not \"the big meeting.\""
+            "explanation": "The article *ha* is indefinite, this would mean \"a big meeting,\" not \"the big meeting.\""
           }
         ]
       },
@@ -13287,25 +13287,25 @@
         "options": [
           {
             "label": "A",
-            "text": "\"Did you go to yesterday's meeting?\" — the accent moves onto *'aneafí* because it qualifies the meeting.",
+            "text": "\"Did you go to yesterday's meeting?\", the accent moves onto *'aneafí* because it qualifies the meeting.",
             "correct": false,
             "explanation": "If *'aneafi* were qualifying *fakataha*, it would need to come in an adjectival clause like *na'e fai 'aneafí*. Standing alone, it is an adverb."
           },
           {
             "label": "B",
-            "text": "\"Did you go to the meeting yesterday?\" — *'aneafi* is an adverb qualifying *'alu*, so it does not extend the noun group.",
+            "text": "\"Did you go to the meeting yesterday?\", *'aneafi* is an adverb qualifying *'alu*, so it does not extend the noun group.",
             "correct": true,
             "explanation": "Adverbs modify the verb, not the noun, so the accent stays on *fakatahá*. The group ends there."
           },
           {
             "label": "C",
-            "text": "\"Did you go to the meeting?\" — *'aneafi* is untranslated filler.",
+            "text": "\"Did you go to the meeting?\", *'aneafi* is untranslated filler.",
             "correct": false,
             "explanation": "The word *'aneafi* means \"yesterday\" and is never a filler. It carries real temporal meaning."
           },
           {
             "label": "D",
-            "text": "\"Yesterday's meeting went well\" — a statement, not a question.",
+            "text": "\"Yesterday's meeting went well\", a statement, not a question.",
             "correct": false,
             "explanation": "The past-tense pronoun *Na'á ke* plus rising intonation marks this as a question directed at \"you.\" It is not a statement."
           }
@@ -13433,7 +13433,7 @@
       },
       {
         "id": "q10",
-        "prompt": "Which possessive form signals the definite level — \"those specific provisions we are talking about\"?",
+        "prompt": "Which possessive form signals the definite level, \"those specific provisions we are talking about\"?",
         "options": [
           {
             "label": "A",
