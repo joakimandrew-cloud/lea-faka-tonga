@@ -82,7 +82,7 @@ More exchanges:
 *Ko e vaka.* It's a boat.
 :::
 
-The word *vaka* *(boat, canoe)* is new vocabulary. *Ko e hā ē?* is the most common form of this question. The *ē* carries a general "that" meaning broad enough for most pointing situations.
+The word *vaka* *(boat, ship)* is new vocabulary. *Ko e hā ē?* is the most common form of this question. The *ē* carries a general "that" meaning broad enough for most pointing situations.
 
 > *Note:* The word *ko fē* (where, which) also uses *ko*. You may hear it in questions like *Ko fē e tohi?* (Where is the book?). This question word is covered formally in Chapter 13: *Ko* Questions.
 
@@ -136,7 +136,7 @@ The negation pattern is: *'oku 'ikai* + *ko e* + noun (+ demonstrative or pronou
 | *fala* | mat |
 | *hele* | knife |
 | *kato* | basket |
-| *vaka* | boat, canoe |
+| *vaka* | boat, ship |
 | *faiako* | teacher |
 
 ---

@@ -215,11 +215,13 @@ The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to w
 | *ngaohi* | verb | make, create |
 | *pule* | verb | be in charge, govern |
 | *maumau* | verb | be broken, wasted |
+| *puke* | verb | grab, hold, seize |
 | *teuteu* | verb | prepare |
+| *māfana* | adjective | warm |
 | *sipinga* | noun | pattern, model |
 | *fakatātā* | noun | example, illustration |
 | *matā* | verb | watch, observe |
-| *lavā* | verb | pass by, be sufficient |
+| *lava* | verb | be able, manage, be possible |
 | *lotu'i* | verb | pray for (transitive) |
 | *tokoni'i* | verb | help (transitive, specific person) |
 | *langa'i* | verb | build (transitive) |
@@ -241,7 +243,7 @@ The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to w
 
 #### Exercise 2: Translate into Tongan
 
-1. I helped Tevita. (use *tokoni'i*)
+1. I helped Tēvita. (use *tokoni'i*)
 2. She divided the fish completely. (use *vahe'i*)
 3. We are using his mats. (use *ngāue'aki*)
 4. Wash your mat with warm water. (use *'aki* after the verb)
@@ -278,7 +280,7 @@ The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to w
 #### Exercise 1
 
 1. Wash the basket with warm water.
-2. I helped Ana.
+2. I helped 'Ana.
 3. He/she manages the school.
 4. We are using his/her knives.
 5. I closed the basket (completely, securely).
@@ -309,8 +311,8 @@ The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to w
 
 #### Exercise 5
 
-1. I remember Semisi (with feeling, nostalgically).
-2. I remember Semisi (I can recall him, factually).
+1. I remember Sēmisi (with feeling, nostalgically).
+2. I remember Sēmisi (I can recall him, factually).
 3. The house has been prepared.
 4. The house has been decorated.
 5. I closed the house.

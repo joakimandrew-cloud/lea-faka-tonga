@@ -40,7 +40,7 @@ With *mei* and *ki* together, you can describe a complete journey:
 ### Before a Person's Name: The *-a* Forms
 
 ::: {.examples}
-*Na'á ku lea kia Tēvita.* I spoke to David.
+*Na'á ku lea kia Tēvita.* I spoke to Tēvita.
 :::
 
 People's names belong to a second noun type: **personal nouns**. Before a personal noun, the prepositions add *-a*: *ki* becomes *kia*, *'i* becomes *'ia*, and *mei* becomes *meia*.
@@ -65,10 +65,10 @@ Several common verbs connect to their target with *ki* or *kia* rather than taki
 
 | Verb | Meaning | Example |
 |---|---|---|
-| *lea* | speak | *Na'á ku lea kia Tēvita.* I spoke to David. |
+| *lea* | speak | *Na'á ku lea kia Tēvita.* I spoke to Tēvita. |
 | *tokoni* | help | *Té u tokoni kia 'Ofa.* I will help Ofa. |
 | *sio* | see, look at | *Na'á ne sio kia Lupe.* She saw Lupe. |
-| *fanongo* | listen | *'Oku ou fanongo kia Sēmisi.* I listen to Semisi. |
+| *fanongo* | listen | *'Oku ou fanongo kia Sēmisi.* I listen to Sēmisi. |
 
 In English, you "help someone" or "see someone" directly. In Tongan, you "help to someone" or "look to someone." The preposition is always required with these verbs.
 
@@ -150,7 +150,7 @@ With a person's name, *mahino* uses *kia* (not *kiate*), because a name is a per
 The verb *ngalo* *(to be forgotten)* follows a similar pattern. The person who forgot appears after *'iate* (or *'ia* before a name). Where English says "I forgot," Tongan says the equivalent of "it was forgotten from within me."
 
 ::: {.examples}
-*Kuo ngalo 'ia Ana.* Ana has forgotten. (Lit. "Has been forgotten in Ana.")
+*Kuo ngalo 'ia 'Ana.* 'Ana has forgotten. (Lit. "Has been forgotten in 'Ana.")
 
 *Kuo ngalo 'iate koe.* You have forgotten.
 
@@ -181,7 +181,7 @@ The particle *ai* takes the place of a noun after a preposition. Instead of repe
 #### *Ki ai*
 
 ::: {.examples}
-*Té ke lea kia Sione?* Will you speak to John?
+*Té ke lea kia Sione?* Will you speak to Sione?
 *'Io, té u lea ki ai.* Yes, I will speak to him.
 :::
 
@@ -344,7 +344,7 @@ Choose from: *ki / kia / kiate*, *'i / 'ia / 'iate*, *mei / meia / meiate*.
 
 1. *Na'á ku lea \_\_\_ Sione.*
 2. *Té ke 'alu \_\_\_ kolo?*
-3. *'Oku ou sio \_\_\_ Ana.*
+3. *'Oku ou sio \_\_\_ 'Ana.*
 4. *'Oku mahino \_\_\_ au.*
 5. *Na'e ngalo \_\_\_ au.*
 6. *'Oku ou 'ofa lahi \_\_\_ koe.*
@@ -356,7 +356,7 @@ Choose from: *ki / kia / kiate*, *'i / 'ia / 'iate*, *mei / meia / meiate*.
 1. *Na'á ku lea kia Sione.*
 2. *Té ke 'alu ki fē?*
 3. *Na'a mau ha'u vakapuna mei 'Amelika.*
-4. *'Oku ou fanongo kia Ana.*
+4. *'Oku ou fanongo kia 'Ana.*
 5. *Na'á ne 'alu loli ki kolo.*
 6. *'Okú ne 'i ai.*
 7. *Na'á ku tokoni ki ai.*
@@ -399,7 +399,7 @@ Replace the place or name with the correct *ai* form.
 
 1. *kia*. Sione is a personal noun.
 2. *ki*. Kolo is a local noun.
-3. *kia*. Ana is a personal noun.
+3. *kia*. 'Ana is a personal noun.
 4. *kiate*. Au is a pronoun. (*mahino* takes *kiate*)
 5. *'iate*. Au is a pronoun. (*ngalo* takes *'iate*)
 6. *'iate*. Koe is a pronoun. (*'ofa* takes *'iate*)
@@ -408,10 +408,10 @@ Replace the place or name with the correct *ai* form.
 
 #### Exercise 3
 
-1. I spoke to John.
+1. I spoke to Sione.
 2. Where will you go?
 3. We came by plane from America.
-4. I listen to Ana.
+4. I listen to 'Ana.
 5. He went by truck to town.
 6. He is there.
 7. I helped him/her.

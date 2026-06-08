@@ -76,15 +76,15 @@ The verb *foki* *(return)* is new. The word *mai* after it means "toward the spe
 
 ---
 
-### At What Time: *fīha*
+### At What Time: *fiha*
 
 ::: {.examples}
-*Te tau kamata ako he fīha?* When shall we start studying? (Lit. "at what number?")
+*Te tau kamata ako he fiha?* When shall we start studying? (Lit. "at what number?")
 :::
 
-The word *fīha* asks "how many" or "at what time." In time expressions, it combines with *he* (the definite article you learned in Chapter 8: Articles) and a clock number.
+The word *fiha* asks "how many" or "at what time." In time expressions, it combines with *he* (the definite article you learned in Chapter 8: Articles) and a clock number.
 
-The verbs *kamata* *(begin)* and *ako* *(study)* are new. The answer to a *fīha* question gives a specific time:
+The verbs *kamata* *(begin)* and *ako* *(study)* are new. The answer to a *fiha* question gives a specific time:
 
 ::: {.examples}
 *Tau kamata he valu.* We will start at eight.
@@ -126,7 +126,7 @@ This is broader than *hā* (by what means), which you learned earlier for asking
 | *hā* | by what means |
 | *'anefē* | when (past) |
 | *'afē* | when (future) |
-| *fīha* | how many / at what time |
+| *fiha* | how many / at what time |
 | *fēfē* | how |
 
 ---
@@ -166,7 +166,7 @@ As a verbal equivalent, *hā* can stand alone after a tense marker, meaning "why
 The interrogative *fē* *(which)* can appear after a noun as an adjective. The noun + *fē* combination asks the listener to specify which one.
 
 ::: {.examples}
-*'I he māhina fē?* In which month?
+*'I he māhina feé?* In which month?
 
 *'A e hele feé?* Which knife?
 :::
@@ -199,7 +199,7 @@ Choose *hā* or *fē* for each blank.
 ### *Fēfee'i* (how, transitive)
 
 ::: {.examples}
-*'Oku fēfee'i hono langa 'a e falé?* How is the house being built? (Lit. Does how its being-built the house?)
+*Na'á ke langa fēfee'i 'a e falé?* How did you build the house? (Lit. You built how the house?)
 :::
 
 The transitive form *fēfee'i* adds the suffix *-'i* to *fēfē* (how). Where *fēfē* asks about a state or condition (*'Oku fēfē?* = How is it?), *fēfee'i* asks about the manner of doing something to an object.
@@ -216,6 +216,8 @@ The related form *fakafēfee'i* is more deliberate, requesting a precise or deta
 *Te mau langa fakafēfee'i 'a e falé?* Just how are we to build the house? (Please give detailed instructions.)
 :::
 
+> *Note:* The examples in this section place a definite object after the verb, marked with *'a e* (as in *'a e falé* = the house). This full transitive word order is formally covered in Chapter 19: Transitive Word Order. For now, treat these *fēfee'i* sentences as fixed patterns for asking how something is done.
+
 ---
 
 ### Words to Learn
@@ -227,7 +229,7 @@ The related form *fakafēfee'i* is more deliberate, requesting a precise or deta
 | *mei fē* | question phrase | where from |
 | *'anefē* | question word | when (past) |
 | *'afē* | question word | when (future) |
-| *fīha* | question word | how many, at what time |
+| *fiha* | question word | how many, at what time |
 | *fēfē* | question word | how, in what state |
 | *fēfee'i* | transitive question word | how (manner of doing to something) |
 | *fakafēfee'i* | intensive question word | how exactly |
@@ -246,8 +248,8 @@ The related form *fakafēfee'i* is more deliberate, requesting a precise or deta
 | *vahe* | verb | divide |
 | *siasi* | noun | church |
 | *māhina* | noun | month |
-| *laupapā* | noun | board, plank |
-| *kumalā* | noun | sweet potato |
+| *laupapa* | noun | board, plank |
+| *kumala* | noun | sweet potato |
 | *fitu* | number | seven |
 | *valu* | number | eight |
 
@@ -261,7 +263,7 @@ The related form *fakafēfee'i* is more deliberate, requesting a precise or deta
 2. *Na'á ke nofo 'i fē 'anepō?*
 3. *Na'á ke ha'u mei fē?*
 4. *'Okú ke fēfē?*
-5. *Te tau kamata ngāue he fīha?*
+5. *Te tau kamata ngāue he fiha?*
 6. *Na'á ne foki mai 'anefē?*
 
 #### Exercise 2: Translate into Tongan
@@ -287,7 +289,7 @@ The related form *fakafēfee'i* is more deliberate, requesting a precise or deta
 a. *Té ke 'alu ki fē?*
 b. *Na'á ke ha'u mei fē?*
 c. *Na'á ke foki 'anefē?*
-d. *Té ke kamata he fīha?*
+d. *Té ke kamata he fiha?*
 e. *Na'á ke mohe 'i fē?*
 
 1. *Na'á ku ha'u mei Tonga.*
@@ -308,11 +310,11 @@ e. *Na'á ke mohe 'i fē?*
 #### Exercise 6: Translate into English
 
 1. *'Okú ke siasi hā?*
-2. *Na'á ke 'alu 'i he māhina fē?*
+2. *Na'á ke 'alu 'i he māhina feé?*
 3. *'Okú ne ngāue hā?*
 4. *'Okú ke faiako hā?*
 5. *Na'e hā?*
-6. *'Oku fēfee'i hono langa 'a e falé?*
+6. *Na'á ke langa fēfee'i 'a e falé?*
 
 ---
 
@@ -341,7 +343,7 @@ e. *Na'á ke mohe 'i fē?*
 1. *'i fē*
 2. *'afē*
 3. *mei fē*
-4. *he fīha*
+4. *he fiha*
 5. *fēfē*
 6. *'anefē*
 
@@ -369,4 +371,4 @@ e: 5
 3. What work does he do?
 4. What do you teach?
 5. Why not?
-6. How is the house being built?
+6. How did you build the house?

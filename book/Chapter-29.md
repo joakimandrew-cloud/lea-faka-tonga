@@ -76,7 +76,7 @@ Some nouns change class depending on your relationship to them:
 Plants follow the doer/receiver principle with a specific pattern. Crops and fruit take the 'e-class, because you tend and harvest them. Trees take the ho-class, because they stand over you and provide for you.
 
 ::: {.examples}
-*'Eku ufi*. my yam plants (crops, 'e-class)
+*'Eku 'ufi*. my yam plants (crops, 'e-class)
 
 *'Eku kumala*. my sweet potatoes (crops, 'e-class)
 
@@ -153,7 +153,7 @@ The same class rules apply to indefinite possessives. Use the 'e-class indefinit
 
 An earlier chapter showed that ho-class possessives connect directly to *ki* and *'i*, with no article *he*: *ki hoku falé* (to my house), *'i hono lokí* (in his room). The same pattern holds after *mei* (from): *mei homau 'apí* (from our home).
 
-'E-class possessives behave differently. When *ki*, *'i*, *mei*, or *'e* is followed by an 'e-class possessive, the article *he* appears between the preposition and the possessive:
+'E-class possessives behave differently. When *ki*, *'i*, *mei*, or *'e* is followed by an 'e-class possessive, the article *he* appears between the preposition and the possessive (the second-person forms *ho'o*, *ho'omo*, and *ho'omou* are exceptions: they connect directly, with no *he*, as in *ki ho'o tohi*, *mei ho'omou ngāue*):
 
 ::: {.examples}
 *mei he'eku tamaí*. from my father
@@ -194,9 +194,10 @@ An earlier chapter showed that ho-class possessives connect directly to *ki* and
 
 | Tongan | Type | English |
 |--------|------|---------|
-| *ufi* | noun | yam |
+| *'ufi* | noun | yam |
 | *niu* | noun | coconut |
 | *kāinga* | noun | relative, kin |
+| *mātu'a* | noun | parent, parents |
 | *fili* | verb | choose |
 
 ---
@@ -287,7 +288,7 @@ Fill in the blank with the correct preposition and possessive combination. The c
 2. *'Oku 'ikai ha'aku kato.*
 3. *'Oku 'i ai ha'ane tohi?*
 4. *'Oku 'i ai hao fale?*
-5. *'Oku 'ikai ha'aku kāinga.*
+5. *'Oku 'ikai haku kāinga.*
 6. *'Oku 'i ai 'ene pa'anga lahi.*
 
 #### Exercise 4

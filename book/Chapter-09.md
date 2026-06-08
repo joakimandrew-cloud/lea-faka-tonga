@@ -31,8 +31,7 @@ Compare a question with its negative answer:
 
 All the adjectives you already know (*fiefia*, *hela'ia*, *'ita*, *fiekaia*) negate the same way, because adjectives fill the verb slot in Tongan. Three more adjectives follow the same pattern: *puke* *(sick)*, *vela* *(hot)*, and *'afua* *(fine, clear weather)*.
 
-*'Oku 'ikai te u puke* *(sick).*
-I am not sick.
+*'Oku 'ikai te u puke* *(sick).* I am not sick.
 
 ::: {.examples}
 *'Oku 'ikai te ne hela'ia.* He is not tired.
@@ -72,7 +71,7 @@ The same logic explains the future. In a positive sentence, *te* goes before a p
 More examples across tenses:
 
 ::: {.examples}
-*Na'e 'ikai te u tokoni kia Sione.* I did not help John.
+*Na'e 'ikai te u tokoni kia Sione.* I did not help Sione.
 
 *'E 'ikai te ke nofo 'i Tonga.* You will not stay in Tonga.
 
@@ -117,11 +116,9 @@ The word *momoko* *(cold)* works the same way, along with *vela* *(hot)* and *'a
 *'E 'ikai ke momoko 'apongipongi.* It will not be cold tomorrow.
 :::
 
-*'Oku 'ikai ke vela* *(hot).*
-It is not hot.
+*'Oku 'ikai ke vela* *(hot).* It is not hot.
 
-*Na'e 'ikai ke 'afua* *(fine)* *'aneafi.*
-It was not fine yesterday.
+*Na'e 'ikai ke 'afua* *(fine)* *'aneafi.* It was not fine yesterday.
 
 ---
 
@@ -144,14 +141,14 @@ On its own, *'Ikai* is a complete negative response, the counterpart of *'Io* (y
 The preposed modifier *loko* appears after a negative to weaken it. Where *'ikai* alone means "not," adding *loko* produces "not too" or "not particularly."
 
 ::: {.examples}
-*'Oku 'ikai ke loko sai 'a e tá.* The game is not too good.
+*'Oku 'ikai ke loko lelei 'a e ika.* The fish is not too good.
 
-*'Oku 'ikai ke loko tokolahí.* There are not too many.
+*'Oku 'ikai ke loko momoko.* It is not too cold.
 
 *Na'e 'ikai ke loko lelei 'emau ngāué.* Our work was not too good.
 :::
 
-The pattern is always: negative + *ke* + *loko* + verb/stative. Without the negative, *loko* does not appear.
+The pattern is always: negative + *ke* + *loko* + verb. Without the negative, *loko* does not appear.
 
 ---
 
@@ -162,14 +159,14 @@ Where *loko* softens a negative, *teitei* intensifies it. Combined with a negati
 ::: {.examples}
 *'E 'ikai té u teitei 'alu.* I am certainly not going.
 
-*'Oku 'ikai té u teitei loto ki ai.* I absolutely do not agree to it.
+*'Oku 'ikai té u teitei ngāue.* I absolutely do not work.
 
-*Na'e 'ikai té u teitei tohi ki ai.* I absolutely did not write to him.
+*Na'e 'ikai té u teitei kai.* I absolutely did not eat.
 
-*He 'ikai té ke teitei lava he sīvī.* You have not got a chance in the examination.
+*He 'ikai té ke teitei mohe.* You are certainly not sleeping.
 :::
 
-The pattern: negative + TM + pronoun + *teitei* + verb. *Teitei* only appears in negative sentences.
+The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certainly not" sense, *teitei* always sits inside a negative.
 
 ---
 
@@ -214,6 +211,8 @@ The pattern: negative + TM + pronoun + *teitei* + verb. *Teitei* only appears in
 5. It was not cold last night.
 6. You will not eat fish tomorrow.
 
+> *Preview:* A few exercises below use *mo* + a name, meaning "with" (*mo Sione* = "with Sione"). You will study this fully in the next chapter; here you only need to read it as "with."
+
 #### Exercise 3: Change each positive sentence to its negative form
 
 1. *'Oku ou fiefia.*
@@ -243,7 +242,7 @@ The pattern: negative + TM + pronoun + *teitei* + verb. *Teitei* only appears in
 
 #### Exercise 6: Translate into Tongan using *loko* or *teitei*
 
-1. The food is not too good. (*loko*)
+1. The work is not too good. (*loko*)
 2. I am certainly not going to town. (*teitei*)
 3. It is not too cold. (*loko*)
 4. He absolutely did not help. (*teitei*)
@@ -291,15 +290,15 @@ The pattern: negative + TM + pronoun + *teitei* + verb. *Teitei* only appears in
 
 #### Exercise 5
 
-1. I did not go to town with Mary yesterday.
+1. I did not go to town with Mele yesterday.
 2. We will not eat fish at the cafeteria tonight.
-3. They do not live in Vava'u with David.
+3. They do not live in Vava'u with Tēvita.
 4. It was not very windy last night.
 5. He will not come from Fiji tomorrow.
 
 #### Exercise 6
 
-1. *'Oku 'ikai ke loko sai e me'akaí.*
+1. *'Oku 'ikai ke loko lelei 'a e ngāué.*
 2. *'E 'ikai té u teitei 'alu ki kolo.*
 3. *'Oku 'ikai ke loko momoko.*
 4. *Na'e 'ikai té ne teitei tokoni.*

@@ -53,7 +53,7 @@ To express thanks, Tongan uses *mālō* with *'ofa* (love, kindness):
 *Mālō e 'ofa!* Thank you for your kindness.
 :::
 
-The literal meaning is "Your kindness is worthy of praise." The word *'ofa* means "love" or "kindness."
+The literal meaning is "The kindness is worthy of praise." The word *'ofa* means "love" or "kindness."
 
 Several variations use the same *mālō e* pattern. The word *lava* means "to arrive" or "to manage." For example, *Mālō e tokoni mai!* means "Thanks for your help," and *Mālō e lava mai!* is the usual greeting to a visitor on arrival, meaning "Thanks for coming."
 
@@ -165,9 +165,9 @@ You may also hear both words together in more formal requests. The polite reques
 When you address someone by name, Tongan uses the particle *'e* before the name. This signals that you are speaking directly to that person.
 
 ::: {.examples}
-*'E Sione, ha'u!* John, come.
+*'E Sione, ha'u!* Sione, come.
 
-*'E Mele, nofo ā!* Mary, goodbye.
+*'E Mele, nofo ā!* Mele, goodbye.
 :::
 
 This *'e* marks the vocative: it signals direct address. It is sometimes dropped in casual speech, but it is always correct to include it.
@@ -205,7 +205,7 @@ You already know *ko hai* (who) from the previous chapter. The word *hingoa* mea
 The answer uses the *ko* identification pattern:
 
 ::: {.examples}
-*Ko Sione au.* I am John. (Lit. "It-is John I.")
+*Ko Sione au.* I am Sione. (Lit. "It-is Sione I.")
 :::
 
 The postposed pronoun *au* (I) was introduced in Chapter 5: Commands and Emphasis. The sentence follows the same *ko* + noun pattern you already know, with *au* identifying who is being named.
@@ -232,7 +232,7 @@ The answer follows the same pattern:
 
 | Question | Answer |
 |---|---|
-| *Ko hai ho hingoa?*<br><span class="translation">What is your name?</span> | *Ko Sione au.*<br><span class="translation">I am John.</span> |
+| *Ko hai ho hingoa?*<br><span class="translation">What is your name?</span> | *Ko Sione au.*<br><span class="translation">I am Sione.</span> |
 | *Ko ho ta'u fiha eni?*<br><span class="translation">How old are you?</span> | *Ko hoku ta'u uofulu eni.*<br><span class="translation">I am twenty.</span> |
 
 ---
@@ -252,7 +252,7 @@ A typical greeting exchange combines several formulas:
 
 *Ko hai ho hingoa?* What is your name?
 
-*Ko Mele au.* I am Mary.
+*Ko Mele au.* I am Mele.
 
 *Ko ho ta'u fiha eni?* How old are you?
 
@@ -289,6 +289,7 @@ Each line in this exchange uses grammar you can now identify: *ko* identificatio
 | *fakamolemole* | polite word | pardon, excuse me |
 | *kātaki* | polite word | please; sorry |
 | *hingoa* | noun | name |
+| *efiafi* | noun | afternoon, evening |
 
 ---
 
@@ -321,9 +322,9 @@ Each line in this exchange uses grammar you can now identify: *ko* identificatio
 #### Exercise 3: Translate into Tongan
 
 1. What is your name?
-2. I am David.
-3. John, come here.
-4. Mary, goodbye. (You are staying, Mary is leaving.)
+2. I am Tēvita.
+3. Sione, come here.
+4. Mele, goodbye. (You are staying, Mele is leaving.)
 5. Please, sit here.
 
 #### Exercise 4: Fill in the blank with the correct farewell
@@ -345,7 +346,7 @@ f. *'E Tēvita, nofo ā!*
 g. *Ko hoku ta'u uofulu eni.*
 
 1. Sorry.
-2. David, goodbye.
+2. Tēvita, goodbye.
 3. Thank you for your kindness.
 4. I am Siale.
 5. Hello. (response)

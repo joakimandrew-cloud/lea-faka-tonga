@@ -8,13 +8,13 @@ A possessive (sometimes called a "possessive pronoun") is a word that shows who 
 
 ### Two classes of possession
 
-Tongan divides all possession into two classes, called the 'e-class and the ho-class. The class depends on the relationship between the possessor and the thing possessed.
+Tongan possessives come in two classes: the **'e-class** and the **ho-class**. Which one you use depends on your relationship to the thing, not on the thing itself.
 
 **'E-class** is for things you act upon, control, create, or consume. Your money, your food, your work, your animals, your tools.
 
 **Ho-class** is for things that act upon you, shelter you, or define you. Your house, your body parts, your relatives, your clothes, your country.
 
-Churchward formulates the underlying principle this way: 'e-class is for things upon which you impress yourself; ho-class is for things which impress themselves upon you (Churchward Ch. 13, §17).
+A useful image to anchor the difference: 'e-class is for things upon which you impress yourself; ho-class is for things which impress themselves upon you.
 
 A practical guide:
 
@@ -30,7 +30,7 @@ A practical guide:
 Some words shift class depending on context. The word *fala* (mat) illustrates this shift: *'eku fala* is the mat I make ('e-class, because I act upon it), while *hoku fala* is the mat I sit on (ho-class, because it supports me).
 
 > *Note:* Not every noun follows the general rules above.
-> Shumway warns that "what nouns take what possessive pronouns is a never ending headache to native English speakers" (Shumway L.72). Some exceptions are common: *'eku tamai* (my father) and *ho'o fa'ē* (your mother) take 'e-class even though they are relatives. The best strategy is to learn each noun's class as you encounter it.
+> Working out which nouns take which class is, frankly, a never-ending headache for English speakers, so do not expect it to click all at once. Some exceptions are common: *'eku tamai* (my father) and *ho'o fa'ē* (your mother) take 'e-class even though they are relatives. The best strategy is to learn each noun's class as you encounter it.
 
 ---
 
@@ -64,14 +64,14 @@ Inclusive *'etau* includes the listener ("our, yours and mine"). Exclusive *'ema
 | *homou* | your (pl.) | *homou fale* (your house) |
 | *honau* | their | *honau 'api* (their home) |
 
-Notice the pattern: 'e-class pronouns all contain a glottal stop in the possessive element (*'eku*, *'ene*, *'etau*), while ho-class pronouns begin with *h* and have no glottal stop (*hoku*, *hono*, *hotau*). This distinction is consistent across the entire system.
+Notice the pattern: every 'e-class pronoun contains a glottal stop in the possessive element (*'eku*, *'ene*, *'etau*), while no ho-class pronoun does (*hoku*, *hono*, *hotau*). The reliable test is the glottal stop, not the first letter: the 'e-class second-person forms *ho'o*, *ho'omo*, and *ho'omou* also begin with *h*, but each still carries a glottal stop. This distinction holds across the entire system.
 
 When the prepositions *ki* or *'i* appear before a ho-class possessive pronoun, the article *he* does not intervene. The preposition goes directly before the possessive:
 
 ::: {.examples}
 *Na'á ke sio ki hoku tokoua?* Did you see my brother? (*tokoua* = sibling)
 
-*'Oku 'i hoku fale 'a Sione.* John is at my house.
+*'Oku 'i hoku fale 'a Sione.* Sione is at my house.
 :::
 
 Compare this with ordinary nouns, where *ki* and *'i* combine with the article *he*: *ki he fale* (to the house). With ho-class possessives, the *he* disappears: *ki hoku fale* (to my house), not *ki he hoku fale*.
@@ -92,13 +92,13 @@ Tongan also has dual forms for "our (two)" and "their (two)":
 |---|---|---|
 | *'eta* | *hota* | our (yours and mine, two) |
 | *'ema* | *homa* | our (his/hers and mine, two) |
-| *'emo* | *homo* | your (his/hers and yours, two) |
+| *ho'omo* | *homo* | your (his/hers and yours, two) |
 | *'ena* | *hona* | their (two) |
 
 ::: {.examples}
 *Ko fē hona kote?* Where are their coats (the two of them)?
 
-*Kuo mole homa kote.* We (he and I) have lost our coats.
+*Kuo ngalo homa kote.* We (he and I) have forgotten our coats.
 :::
 
 ---
@@ -108,14 +108,14 @@ Tongan also has dual forms for "our (two)" and "their (two)":
 To show possession with a noun (not a pronoun), Tongan uses two prepositions: *'a* for 'e-class and *'o* for ho-class. Both translate as "of" in English, but the class rules apply.
 
 ::: {.examples}
-*Ko e pa'anga 'a Sione.* John's money. (Lit. "The money of John." 'E-class: money is something John controls.)
+*Ko e pa'anga 'a Sione.* Sione's money. (Lit. "The money of Sione." 'E-class: money is something Sione controls.)
 
-*Ko e fale 'o Sione.* John's house. (Lit. "The house of John." Ho-class: a house shelters John.)
+*Ko e fale 'o Sione.* Sione's house. (Lit. "The house of Sione." Ho-class: a house shelters Sione.)
 
-*Ko e vaka 'o Tēvita.* David's boat. (Ho-class: a boat shelters and carries you.)
+*Ko e vaka 'o Tēvita.* Tēvita's boat. (Ho-class: a boat shelters and carries you.)
 :::
 
-The distinction is clearest with abstract nouns: *ko e taki 'a e tu'i* means the guidance of (given by) the king, but *ko e taki 'o e fonua* means the guidance of (given to) the country. The king produces the guidance ('e-class), while the country receives it (ho-class).
+The distinction is clearest with abstract nouns: *ko e tokoni 'a e faiako* means the help given by the teacher, but *ko e tokoni 'o e fonua* means the help given to the country. The teacher produces the help ('e-class), while the country receives it (ho-class).
 
 ---
 
@@ -167,8 +167,8 @@ With *ko*, the action is happening at this very moment. With *'oku*, the stateme
 |---|---|---|
 | 'E-class pronoun + noun | *'eku hele* | my knife |
 | Ho-class pronoun + noun | *hoku fale* | my house |
-| *ko e* + noun + *'a* + name | *Ko e hele 'a Sione.* | John's knife. |
-| *ko e* + noun + *'o* + name | *Ko e fale 'o Sione.* | John's house. |
+| *ko e* + noun + *'a* + name | *Ko e hele 'a Sione.* | Sione's knife. |
+| *ko e* + noun + *'o* + name | *Ko e fale 'o Sione.* | Sione's house. |
 | *ko* + poss. pronoun + verb | *Ko ho'o 'alu ki fē?* | Where are you going? |
 
 ---
@@ -195,7 +195,7 @@ With *ko*, the action is happening at this very moment. With *'oku*, the stateme
 | *hota* | ho-class dual possessive | our (inclusive, two) |
 | *'ema* | 'e-class dual possessive | our (exclusive, two) |
 | *homa* | ho-class dual possessive | our (exclusive, two) |
-| *'emo* | 'e-class dual possessive | your (two) |
+| *ho'omo* | 'e-class dual possessive | your (two) |
 | *homo* | ho-class dual possessive | your (two) |
 | *'ena* | 'e-class dual possessive | their (two) |
 | *hona* | ho-class dual possessive | their (two) |
@@ -219,7 +219,7 @@ With *ko*, the action is happening at this very moment. With *'oku*, the stateme
 | *fai* | verb | do, make |
 | *tō* | verb | plant, sow |
 | *manioke* | noun | cassava |
-| *lālanga* | verb | weave |
+| *lālanga* | noun | weaving |
 | *haka* | verb | dance |
 | *kote* | noun | coat |
 
@@ -244,12 +244,12 @@ For each noun, write the correct possessive pronoun for "my" ('e-class *'eku* or
 
 Fill in the blank with the correct possessive preposition.
 
-1. Ko e hele \_\_\_ Mele. (Mary's knife)
-2. Ko e fale \_\_\_ Sione. (John's house)
-3. Ko e vaka \_\_\_ Tēvita. (David's boat)
+1. Ko e hele \_\_\_ Mele. (Mele's knife)
+2. Ko e fale \_\_\_ Sione. (Sione's house)
+3. Ko e vaka \_\_\_ Tēvita. (Tēvita's boat)
 4. Ko e ngāue \_\_\_ Siale. (Siale's work)
 5. Ko e kofu \_\_\_ 'Ofa. ('Ofa's clothes)
-6. Ko e kato \_\_\_ Ana. (Ana's basket)
+6. Ko e kato \_\_\_ 'Ana. ('Ana's basket)
 
 #### Exercise 3: Translate Tongan to English
 
@@ -263,7 +263,7 @@ Fill in the blank with the correct possessive preposition.
 #### Exercise 4: Translate English to Tongan
 
 1. Where is my hat?
-2. John's money.
+2. Sione's money.
 3. Are you hoeing?
 4. Her house is big.
 5. Our (inclusive) country.
@@ -284,7 +284,7 @@ Use the 'e-class or ho-class pronoun given in parentheses.
 | | Tongan | | English |
 |---|---|---|---|
 | 1. | *Ko e fale 'o Pita.* | a. | His knife. |
-| 2. | *'Eku hele.* | b. | Peter's house. |
+| 2. | *'Eku hele.* | b. | Pita's house. |
 | 3. | *Ko ho'o haka?* | c. | My knife. |
 | 4. | *'Ene hele.* | d. | Where is your hat? |
 | 5. | *Ko fē ho tatā?* | e. | Are you dancing? |
@@ -316,7 +316,7 @@ Use the 'e-class or ho-class pronoun given in parentheses.
 2. I am going to the cafeteria.
 3. What are you doing?
 4. Where is my hat?
-5. Mary's boat.
+5. Mele's boat.
 6. Where is your basket?
 
 #### Exercise 4

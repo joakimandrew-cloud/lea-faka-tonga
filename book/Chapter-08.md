@@ -51,11 +51,9 @@ The nouns *talo* *(taro)*, *ika* *(fish)*, and *tī* *(tea)* are content words t
 
 Four more nouns work the same way: *kato* *(basket)*, *hele* *(knife)*, *fala* *(mat)*, and *moa* *(chicken)*.
 
-*'Oku ou fiema'u ha kato* *(basket).*
-I want a basket.
+*'Oku ou fiema'u ha kato* *(basket).* I want a basket.
 
-*Kai ha moa* *(chicken).*
-Eat some chicken.
+*Kai ha moa* *(chicken).* Eat some chicken.
 
 ---
 
@@ -104,11 +102,9 @@ The noun *fale* *(house)* follows *ki he*, using the *he* form because the prepo
 
 The new nouns follow these same rules:
 
-*Na'á ke sio ki he hele* *(knife)?*
-Did you look at the knife?
+*Na'á ke sio ki he hele* *(knife)?* Did you look at the knife?
 
-*Na'á ku nofo 'i he fala* *(mat).*
-I sat on the mat.
+*Na'á ku nofo 'i he fala* *(mat).* I sat on the mat.
 
 ---
 
@@ -144,11 +140,9 @@ In the third sentence, notice the stress on the last vowel of *talō*. This is t
 
 In spoken Tongan, when *'i* comes directly before *he*, the *'i* is regularly dropped. The result sounds like *he* alone instead of *'i he*:
 
-*Té u nofo 'i he fale.* → *Té u nofo he fale.*
-I will stay in the house.
+*Té u nofo 'i he fale.* → *Té u nofo he fale.* I will stay in the house.
 
-*'Okú ke ngāue 'i he kolo?* → *'Okú ke ngāue he kolo?*
-Do you work in the town? The verb *ngāue* *(to work)* follows the same pattern as other verbs you already know.
+*'Okú ke ngāue 'i he kolo?* → *'Okú ke ngāue he kolo?* Do you work in the town? The verb *ngāue* *(to work)* follows the same pattern as other verbs you already know.
 
 Both forms are correct. In writing, you will see either *'i he* or *he*. In speech, the short form is normal.
 

@@ -1,12 +1,12 @@
 # Chapter 19: Transitive Word Order
 
-Every sentence so far has had either no object at all (*Na'e 'alu 'a Sione*. John went) or an indefinite object fused to the verb (*Na'á ku kai ma*. I ate bread). This chapter introduces a new sentence pattern for saying who does what to whom, using two markers: *'e* for the doer and *'a* for the thing acted upon.
+Every sentence so far has had either no object at all (*Na'e 'alu 'a Sione*. Sione went) or an indefinite object fused to the verb (*Na'á ku kai ma*. I ate bread). This chapter introduces a new sentence pattern for saying who does what to whom, using two markers: *'e* for the doer and *'a* for the thing acted upon.
 
 ---
 
 ### Transitive and intransitive: the core distinction
 
-A transitive sentence has an object, a thing the action is done to. An intransitive sentence has no object.
+Tongan splits sentences into two shapes based on one question: does the verb have an object? Compare:
 
 ::: {.examples}
 *Na'e lea 'a Sione.* Sione spoke. (No object. Intransitive.)
@@ -14,7 +14,9 @@ A transitive sentence has an object, a thing the action is done to. An intransit
 *Na'e lau 'e Sione 'a e tohí.* Sione read the book. (Has an object: *e tohí*. Transitive.)
 :::
 
-The distinction matters because the marker on the subject changes. In the intransitive sentence, the subject takes *'a*: *'a Sione*. In the transitive sentence, the subject takes *'e*: *'e Sione*. This is an absolute rule. The form *Na'e 'alu 'e Sione* is incorrect. The correct form is *Na'e 'alu 'a Sione*, because *'alu* (go) has no object.
+*Lea* (speak) has no object: there is nothing being spoken at. *Lau* (read) has an object: *e tohí*, the book. The first kind is called intransitive (no object); the second is transitive (has an object).
+
+The distinction matters because the marker on the subject changes. In the intransitive sentence, the subject takes *'a*: *'a Sione*. In the transitive sentence, the subject takes *'e*: *'e Sione*. This choice of marker is fixed: a transitive subject is always *'e*, never *'a*. The form *Na'e 'alu 'e Sione* is incorrect, because *'alu* (go) has no object; the correct form is *Na'e 'alu 'a Sione*. (Whether *'a* itself is voiced before some common nouns is a separate, looser question, taken up later in this chapter.)
 
 | | Subject marker | Example |
 |---|---|---|
@@ -25,13 +27,13 @@ The distinction matters because the marker on the subject changes. In the intran
 
 ### The agent marker *'e*
 
-The word *'e* before a noun in a transitive sentence marks the doer of the action, the agent. It introduces the subject of any transitive verb.
-
 ::: {.examples}
-*Na'e 'ave 'e Pita 'a Mele.* Peter took Mary.
+*Na'e 'ave 'e Pita 'a Mele.* Pita took Mele.
 
-*'E kumi 'e Tēvita 'a e tamasi'í.* David will search for the boy.
+*'E kumi 'e Tēvita 'a e tamasi'í.* Tēvita will search for the boy.
 :::
+
+*'E Pita* marks Pita as the doer: the one carrying out the action. The word *'e* before a noun in a transitive sentence does exactly this: it marks the doer. Because grammar books often call the doer of a transitive verb the *agent*, *'e* is called the agent marker. It introduces the subject of any transitive verb.
 
 The agent marker *'e* is a completely different word from the future tense marker *'e* and the vocative *'e* used for addressing someone (*'E Sione*). They look the same in writing but do different jobs in different positions.
 
@@ -44,7 +46,7 @@ Before a proper noun, the agent marker stands alone: *'e Pita*, *'e Sione*. Befo
 When the doer is a common noun rather than a name, the agent marker combines with the article: *'e he* + noun.
 
 ::: {.examples}
-*Kuó ne fai 'e he faiakó 'a e lesoní?* Has the teacher given the lesson?
+*Kuo fai 'e he faiakó 'a e lesoní?* Has the teacher given the lesson?
 
 *Na'e tohi 'e he tamasi'í 'a e tohí.* The boy wrote the book.
 :::
@@ -60,14 +62,14 @@ You already know *'a* from intransitive sentences, where it marks the subject: *
 Think of *'a* as spotlighting whichever noun is most directly involved in the action. In a sentence with no object, the subject is the only noun connected to the verb, so *'a* marks the subject. In a sentence with an object, the object is what the action lands on, so *'a* shifts to the object.
 
 ::: {.examples}
-*Té u 'ave 'a Sēmisi.* I will take Semisi.
+*Té u 'ave 'a Sēmisi.* I will take Sēmisi.
 
-*Na'e 'ave 'e Pita 'a Kepu.* Peter took Kepu.
+*Na'e 'ave 'e Pita 'a Kepu.* Pita took Kepu.
 :::
 
 Before proper nouns, *'a* always appears: *'a Kepu*, *'a Mele*. Before common nouns with the definite article *e*, *'a* also appears: *Te nau fai 'a e ngāué* (They will do the work). Before indefinite nouns (*ha* + noun), *'a* never appears.
 
-> **Written and spoken Tongan.** Some grammars describe *'a* before the article *e* as optional or disappearing in speech. Shumway, for example, states that *'a* "still appears consistently before the article *e* and common noun phrases" in writing, but "has virtually disappeared in the spoken language." Churchward sees it differently. He describes the choice of whether to include *'a* before a definite common noun as "a matter of rhythm or euphonic balance, or even of style or personal preference, rather than of grammatical law" (Churchward Ch.16, §22). In other words, Churchward treats it not as a spoken-versus-written split, but as a stylistic choice that Tongan speakers make naturally. In practice, you will hear both: some speakers include *'a* before *e*, others drop it, sometimes within the same conversation. This book writes *'a e* as the standard form. Learning it this way gives you the complete structure; once you are comfortable with it, your ear will guide you in conversation.
+> **Written and spoken Tongan.** Whether *'a* appears before the article *e* is not fully fixed. In writing it shows up consistently before a definite common noun, but in everyday speech it is often dropped; you will hear both, sometimes within the same conversation. The choice is largely one of rhythm and personal style rather than a hard grammatical rule. This book writes *'a e* as the standard form. Learning it this way gives you the complete structure; once you are comfortable with it, your ear will guide you in conversation.
 
 ---
 
@@ -88,14 +90,14 @@ When the subject is a pronoun, it goes before the verb as usual, and the object 
 ::: {.examples}
 *Na'á ku lau 'a e tohí.* I read the book. (Lit. "Past I read [focus] the book")
 
-*Té ke 'ave 'a Mele?* Are you taking Mary?
+*Té ke 'ave 'a Mele?* Are you taking Mele?
 :::
 
 ---
 
-### Intransitive vs. transitive: the definiteness contrast
+### When the object is general vs. specific
 
-One of the most important contrasts in Tongan is between a verb with an indefinite object and the same verb with a definite object. The indefinite object fuses with the verb, and the whole combination is treated as intransitive:
+One of the most important contrasts in Tongan is between a verb with a general object (any one of a kind, with no article) and the same verb with a specific, definite object (with the article *e*). The general object fuses with the verb, and the whole combination is treated as intransitive:
 
 | Intransitive compound | Transitive |
 |---|---|
@@ -114,15 +116,15 @@ The same contrast applies to any verb-object pair:
 
 ---
 
-### The passive equivalent
-
-Tongan does not have a special passive verb form. To express "the house was built" without naming the builder, you simply drop the *'e* phrase from a transitive sentence. The verb does not change.
+### Saying who did it, or leaving it out
 
 Active: *Na'e langa 'e Sione 'a e falé.* Sione built the house.
 Passive: *Na'e langa 'a e falé.* The house was built.
 
 Active: *Kuo kai 'e he kulī 'a e moá.* The dog has eaten the chicken.
 Passive: *Kuo kai 'a e moá.* The chicken has been eaten.
+
+To leave the doer out, you simply drop the *'e* phrase from a transitive sentence. The verb does not change. Tongan does not have a separate passive verb form. These "passive" sentences are simply transitive sentences without a named doer.
 
 The object remains, marked by the definite article with the definitive accent. The only difference is that no one is named as the doer.
 
@@ -134,10 +136,10 @@ The object remains, marked by the definite article with the definitive accent. T
 
 In intransitive sentences, the third-person singular pronoun *ne* is often dropped. The tense marker stands alone, and the pronoun is understood: *Na'e 'alu 'a Sione*. (He) went, Sione.
 
-In transitive constructions, *ne* is required:
+In transitive constructions, when the doer is the third-person singular pronoun (and not a separately named *'e* agent), *ne* is required:
 
 ::: {.examples}
-*Na'e fai 'e Pita 'a e ngāué?* Did Peter do the work?
+*Na'e fai 'e Pita 'a e ngāué?* Did Pita do the work?
 
 *'Io, na'á ne fai 'a e ngāué.* Yes, he did the work.
 :::
@@ -148,12 +150,12 @@ The pronoun cannot be dropped here. *Na'e fai 'a e ngāue* without *ne* would me
 
 ### Postposed pronouns as transitive objects
 
-The postposed pronouns (*au*, *koe*, *ia*, *kitautolu*, *kimautolu*, *kimoutolu*, *kinautolu*, and the duals) can serve as the object of a transitive verb. When they do, the focus marker *'a* is dropped.
+The postposed pronouns (*au*, *koe*, *ia*, *kitautolu*, *kimautolu*, *kimoutolu*, *kinautolu*, and the duals) can serve as the object of a transitive verb. When they do, the focus marker *'a* is dropped before the singular pronouns and is usually dropped before the dual and plural pronouns.
 
 ::: {.examples}
-*Na'e ui 'e Pita 'a Mele.* Peter called Mary. (Object is a proper noun: *'a* present.)
+*Na'e ui 'e Pita 'a Mele.* Pita called Mele. (Object is a proper noun: *'a* present.)
 
-*Na'e ui ia 'e Pita.* Peter called her. (Object is a pronoun: *'a* dropped.)
+*Na'e ui ia 'e Pita.* Pita called her. (Object is a pronoun: *'a* dropped.)
 
 *Té u 'ave kinautolu.* I will take them.
 
@@ -183,18 +185,18 @@ Rewrite each sentence as instructed.
 When both the subject and the object are nouns, either one can come first:
 
 ::: {.examples}
-*Na'e tāmate'i 'e Tēvita 'a Kōlaiate.* David killed Goliath. (Subject first after the verb.)
+*Na'e tāmate'i 'e Tēvita 'a Kōlaiate.* Tēvita killed Kōlaiate. (Subject first after the verb.)
 
-*Na'e tāmate'i 'a Kōlaiate 'e Tēvita.* Goliath was killed by David. (Object first after the verb.)
+*Na'e tāmate'i 'a Kōlaiate 'e Tēvita.* Kōlaiate was killed by Tēvita. (Object first after the verb.)
 :::
 
-The meaning is the same. The markers *'e* and *'a* make the roles clear regardless of position. In English, "David killed Goliath" means something very different from "Goliath killed David." In Tongan, *'e Tēvita* always means "by David" and *'a Kōlaiate* always means "Goliath (the one acted upon)," no matter where they sit in the sentence.
+The meaning is the same. The markers *'e* and *'a* make the roles clear regardless of position. In English, "Tēvita killed Kōlaiate" means something very different from "Kōlaiate killed Tēvita." In Tongan, *'e Tēvita* always means "by Tēvita" and *'a Kōlaiate* always means "Kōlaiate (the one acted upon)," no matter where they sit in the sentence.
 
-The difference is purely one of emphasis, similar to the difference in English between "David killed Goliath" and "Goliath was killed by David."
+The difference is purely one of emphasis, similar to the difference in English between "Tēvita killed Kōlaiate" and "Kōlaiate was killed by Tēvita."
 
 ---
 
-### Emphatic reflexives in transitive constructions
+### Adding "myself" / "yourself" in transitive sentences
 
 In intransitive sentences, adding the postposed pronoun creates emphasis: *Té u nofo au*. I will stay (emphatic). In transitive sentences, the same emphasis uses *'e* + the postposed pronoun, because the agent marker *'e* is always present in transitive constructions:
 
@@ -206,7 +208,7 @@ In intransitive sentences, adding the postposed pronoun creates emphasis: *Té u
 *Té ke fai ia 'e koe.* You will do it yourself.
 :::
 
-The *'e* here is the same agent marker that introduces any transitive subject. When the agent and the subject pronoun are the same person, the construction has a reflexive or emphatic meaning: "I did it myself," "you yourself will do it."
+The *'e* here is the same agent marker that introduces any transitive subject. When the agent and the subject pronoun are the same person, the construction adds emphasis: "I did it **myself**," "you **yourself** will do it."
 
 ---
 
@@ -239,6 +241,7 @@ Notice that the only difference between the intransitive and transitive negative
 | *'ave* | verb | take, carry |
 | *kumi* | verb | search for |
 | *ui* | verb | call |
+| *kuki* | verb | cook |
 | *tāmate'i* | verb | kill |
 | *faka'osi* | verb | finish |
 | *manatu'i* | verb | remember |
@@ -246,8 +249,6 @@ Notice that the only difference between the intransitive and transitive negative
 | *lesoni* | noun | lesson |
 | *motu* | verb (intransitive) | be severed |
 | *melemo* | verb (intransitive) | be drowned |
-| *Kōlaiate* | name | Goliath |
-| *Nukunuku* | name | Nukunuku (village) |
 
 ---
 
@@ -270,7 +271,7 @@ Fill in the blank with *'a* or *'e*.
 
 1. *Na'e hiva \_\_\_ Siale.* (Siale sang.)
 2. *Na'e tohi \_\_\_ Siale 'a e tohí.* (Siale wrote the book.)
-3. *Na'e 'ave \_\_\_ Pita \_\_\_ Mele.* (Peter took Mary.)
+3. *Na'e 'ave \_\_\_ Pita \_\_\_ Mele.* (Pita took Mele.)
 4. *Na'e lele \_\_\_ e tamasi'í.* (The boy ran.)
 5. *Na'e kai \_\_\_ he fefiné 'a e iká.* (The woman ate the fish.)
 
@@ -279,7 +280,7 @@ Fill in the blank with *'a* or *'e*.
 1. *Na'e 'ave 'e Taniela 'a Seini.*
 2. *Kuo kai 'a e moá.*
 3. *Té u fai ia 'e au.*
-4. *Na'e 'ikai ke fufulu 'e Mele 'a e valá.*
+4. *Na'e 'ikai ke lau 'e Mele 'a e tohí.*
 5. *'Okú ne manatu'i au.*
 
 #### Exercise 4: Translate English to Tongan
@@ -287,7 +288,7 @@ Fill in the blank with *'a* or *'e*.
 1. Sione ate the bread.
 2. The fish was cooked.
 3. I will take them.
-4. Did Peter read the book?
+4. Did Pita read the book?
 5. The teacher did the work.
 
 #### Exercise 5: Convert intransitive to transitive
@@ -303,7 +304,7 @@ Rewrite each intransitive sentence as a transitive sentence with a definite obje
 Remove the agent to create a passive-equivalent sentence. Translate the result.
 
 1. *Na'e lau 'e Sēmisi 'a e tohí.*
-2. *Kuo fufulu 'e Mele 'a e valá.*
+2. *Kuo langa 'e Mele 'a e falé.*
 3. *Na'e kuki 'e he fefiné 'a e iká.*
 
 #### Exercise 7: Emphatic reflexive
@@ -334,10 +335,10 @@ Rewrite each sentence to add emphasis on who did it, using *'e* + the postposed 
 5. *'e* (transitive, has object *e iká*)
 
 #### Exercise 3
-1. Daniel took Seini.
+1. Taniela took Seini.
 2. The chicken has been eaten.
 3. I will do it myself.
-4. Mele did not wash the clothes.
+4. Mele did not read the book.
 5. He/she remembers me.
 
 #### Exercise 4
@@ -354,7 +355,7 @@ Rewrite each sentence to add emphasis on who did it, using *'e* + the postposed 
 
 #### Exercise 6
 1. *Na'e lau 'a e tohí.* The book was read.
-2. *Kuo fufulu 'a e valá.* The clothes have been washed.
+2. *Kuo langa 'a e falé.* The house has been built.
 3. *Na'e kuki 'a e iká.* The fish was cooked.
 
 #### Exercise 7

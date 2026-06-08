@@ -14,23 +14,21 @@ There are six directional particles. They fall into two groups: three based on p
 
 ### *mai*: toward the speaker
 
-The particle *mai* marks movement toward the speaker. When you say *ha'u mai*, you are telling someone to come to where you are.
+The particle *mai* marks movement toward the speaker. When you say *foki mai*, you are telling someone to come back to where you are.
 
 ::: {.examples}
-*Ha'u mai!* Come here! (toward me)
+*Foki mai!* Come back! (toward me)
 
 *'Oku 'alu mai 'a Siale.* Siale is coming (toward us).
-
-*Foki mai!* Come back! (to where I am)
 :::
 
-The verb *ha'u* (come) already implies movement toward the speaker, so *ha'u mai* reinforces the direction. Many verbs that have no inherent direction gain it from *mai*.
+Many verbs that have no inherent direction gain it from *mai*.
 
 ::: {.examples}
-*'Okú ne 'ave mai 'a e tohí.* He is bringing the book (to me/us). (Lit. "He takes-hither the book")
+*'Okú ne 'omai 'a e tohí.* He is bringing the book (to me/us). (Lit. "He brings-hither the book")
 :::
 
-> *Note:* The verb *ha'u* does not combine with the other directional particles (*atu*, *ange*, *hake*, *hifo*). You will not hear *ha'u atu* or *ha'u hifo*. To say "come up" or "come down," Tongan uses *'alu hake* (go up) and *'alu hifo* (go down), even when the movement is toward the speaker.
+> *Note:* The verb *ha'u* (come) is not used with the directional particles *mai*, *atu*, *hake*, or *hifo*: you will not hear *ha'u mai*, *ha'u atu*, or *ha'u hifo*. To say "come up" or "come down," Tongan uses *'alu hake* (go up) and *'alu hifo* (go down), even when the movement is toward the speaker. To say plain "come here," use *ha'u* on its own or *ha'u ki heni*.
 
 ---
 
@@ -50,7 +48,7 @@ Where *mai* pulls action toward the speaker, *atu* pushes it away. The two form 
 
 | Tongan | English |
 |---|---|
-| *ha'u mai* | come here (toward me) |
+| *'omai* | bring here (toward me) |
 | *'alu atu* | go away (from me) |
 | *foki mai* | come back (to me) |
 | *lele atu* | run off (away from me) |
@@ -71,9 +69,9 @@ The three person-based particles work as a set:
 
 | Particle | Direction | Example |
 |---|---|---|
-| *mai* | toward me (1st person) | *'Omi mai e tohí.* = Bring me the book. |
-| *atu* | toward you (2nd person) | *Té u 'oatu e tohí.* = I will give you the book. |
-| *ange* | toward him/her/them (3rd person) | *Tuku ange e tohí.* = Leave the book for him/her. |
+| *mai* | toward me (1st person) | *'Omi mai e tohí.* Bring me the book. |
+| *atu* | toward you (2nd person) | *Té u 'oatu e tohí.* I will give you the book. |
+| *ange* | toward him/her/them (3rd person) | *Tuku ange e tohí.* Leave the book for him/her. |
 
 > *Note:* The word *ange* also serves as the comparative marker meaning "more" (as in *lelei ange*, better). Context makes the meaning clear: after an adjective, *ange* means "more"; after an action verb, it marks direction.
 
@@ -142,11 +140,11 @@ Directional particles fit into sentence patterns already taught. They come immed
 Pattern: TM + (pronoun) + verb + directional particle + (object) + (prepositional phrase)
 
 ::: {.examples}
-*Na'á ku 'ave mai 'a e valá mei he falé.* I brought the clothes from the house. (Lit. "I took-hither the clothes from the house")
+*Na'á ku 'omai 'a e valá mei he falé.* I brought the clothes from the house. (Lit. "I brought-hither the clothes from the house")
 
 *Té ne tala ange 'a e ongoongó ki he fāmilí.* He will tell the news to the family. (toward a third party)
 
-*Na'a mau lele hifo ki he mātāfagá.* We ran down to the beach.
+*Na'a mau lele hifo ki tahí.* We ran down to the sea.
 
 *'Okú na 'alu holo 'i he koló.* They (two) are going around in the village.
 :::
@@ -208,7 +206,9 @@ When a specific person is named as the one being asked, that person takes *'e*:
 | *fakaava* | verb | open |
 | *fufulu* | verb | wash |
 | *matapā* | noun | door |
+| *fāmili* | noun | family |
 | *ipu* | noun | cup |
+| *ongoongo* | noun | news, announcement |
 | *'ai* | verb | place, put, set |
 | *'ā* | verb | wake up |
 | *tō* | verb | fall |
@@ -222,8 +222,11 @@ When a specific person is named as the one being asked, that person takes *'e*:
 | *tuku* | verb | put down, leave |
 | *ofo* | verb | be surprised |
 | *kata* | verb | laugh |
+| *lue* | verb | walk |
 | *mamahi* | verb | be in pain |
+| *hela* | verb | be tired |
 | *manatu* | verb | think of, remember |
+| *falekoloa* | noun | shop, store |
 
 ---
 
@@ -231,7 +234,7 @@ When a specific person is named as the one being asked, that person takes *'e*:
 
 #### Exercise 1: Translate Tongan to English
 
-1. *Ha'u mai!*
+1. *Ha'u ki heni!*
 2. *Na'e 'alu atu 'a Sēmisi ki he falekoloá.*
 3. *Tala ange ke foki mai!*
 4. *Na'a mau ō holo 'o mamata.*
@@ -256,14 +259,13 @@ When a specific person is named as the one being asked, that person takes *'e*:
 
 #### Exercise 3: Fill in the blank
 
-Choose *mai*, *atu*, *ange*, *hake*, *hifo*, or *holo* to complete each sentence.
+Choose *atu*, *ange*, *hake*, *hifo*, or *holo* to complete each sentence.
 
-1. *Ha'u \_\_\_\_\_\_!* (Come here!)
-2. *'Alu \_\_\_\_\_\_!* (Go away!)
-3. *Tala \_\_\_\_\_\_ ke ha'u!* (Tell him to come!)
-4. *Na'e tō \_\_\_\_\_\_ 'a e kató.* (The basket fell down.)
-5. *Na'a mau ō \_\_\_\_\_\_ 'o mamata.* (We went around and looked.)
-6. *Sio \_\_\_\_\_\_ ki he laní!* (Look up at the sky!)
+1. *'Alu \_\_\_\_\_\_!* (Go away!)
+2. *Tala \_\_\_\_\_\_ ke ha'u!* (Tell him to come!)
+3. *Na'e tō \_\_\_\_\_\_ 'a e kató.* (The basket fell down.)
+4. *Na'a mau ō \_\_\_\_\_\_ 'o mamata.* (We went around and looked.)
+5. *Sio \_\_\_\_\_\_ ki he laní!* (Look up at the sky!)
 
 #### Exercise 4: Transform sentences
 
@@ -278,7 +280,7 @@ Change the direction of each sentence by replacing the directional particle with
 
 1. *Na'e folau hake 'a e vaká ki Vava'u.*
 2. *Kuó ne hela he lele holó.*
-3. *Na'á ku 'ave mai 'a e tohí mei he falé.*
+3. *Na'á ku 'omai 'a e tohí mei he falé.*
 4. *'Oku 'alu hifo 'a e kau tamaikí ki tahí.*
 5. *Té ne tala atu 'a e ongoongó.*
 6. *Na'a mau 'ā hake he pongipongi.*
@@ -305,7 +307,7 @@ Change the direction of each sentence by replacing the directional particle with
 
 1. *Foki mai!*
 2. *Na'e lele hifo 'a e kau tamaikí ki tahí.*
-3. *'Okú ne 'ave mai 'a e kató.*
+3. *'Okú ne 'omai 'a e kató.*
 4. *Tala ange ke ha'u!*
 5. *Na'a mau ō hake 'o ngāue.*
 6. *Na'é ne kumi holo 'a e tohí.*
@@ -314,12 +316,11 @@ Change the direction of each sentence by replacing the directional particle with
 
 #### Exercise 3
 
-1. *mai*
-2. *atu*
-3. *ange*
-4. *hifo*
-5. *holo*
-6. *hake*
+1. *atu*
+2. *ange*
+3. *hifo*
+4. *holo*
+5. *hake*
 
 #### Exercise 4
 

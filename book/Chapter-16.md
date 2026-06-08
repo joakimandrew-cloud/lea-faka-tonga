@@ -6,7 +6,7 @@ Building on the *ko* identification pattern, this chapter adds deeper structures
 
 ### Noun subjects in equational sentences: the focus marker *'a*
 
-In the previous chapter, *'a* appeared as the marker before noun subjects in verb-first sentences: *'E 'alu 'a Sione* (John will go). The same marker works in equational sentences. When the subject is a proper noun, *'a* introduces it at the end of the equational sentence:
+In the previous chapter, *'a* appeared as the marker before noun subjects in verb-first sentences: *'E 'alu 'a Sione* (Sione will go). The same marker works in equational sentences. When the subject is a proper noun, *'a* introduces it at the end of the equational sentence:
 
 ::: {.examples}
 *Ko e tangata ngāue 'a Mafi?* Is Mafi a worker? (Lit. "Identity-marker a worker focus Mafi")
@@ -32,7 +32,7 @@ The pattern:
 This also works with *ko fē* (where, which):
 
 ::: {.examples}
-*Ko fē 'a Sione?* Where is John?
+*Ko fē 'a Sione?* Where is Sione?
 :::
 
 ---
@@ -196,8 +196,9 @@ Some equational sentences use *pea* to connect two statements:
 | *si'isi'i* | adjective | small (after the noun) |
 | *si'i* | adjective | small |
 | *poto* | adjective | clever, skilled |
+| *tamasi'i* | noun | boy, child |
 | *fāma* | noun | farm |
-| *Taniela* | name | Daniel |
+| *motu'a* | adjective | old |
 
 ---
 
@@ -221,7 +222,7 @@ Some equational sentences use *pea* to connect two statements:
 3. Lātū is a happy boy.
 4. It is a small basket.
 5. Where is Mele?
-6. John is not a doctor.
+6. Sione is not a doctor.
 7. This is a small mat.
 8. Sione is the teacher. (subject emphasis)
 
@@ -250,15 +251,15 @@ Some equational sentences use *pea* to connect two statements:
 1. Mele is a teacher.
 2. Sēmisi is a worker.
 3. I am a smart boy.
-4. Where is John?
+4. Where is Sione?
 5. What is that?
 6. It is a very small book.
-7. David is not a teacher.
-8. Daniel is the teacher. (subject emphasis)
+7. Tēvita is not a teacher.
+8. Taniela is the teacher. (subject emphasis)
 
 #### Exercise 2
 
-1. *Ko e tangata faama au.*
+1. *Ko e tangata fāma au.*
 2. *Ko e faiako 'a Siale?*
 3. *Ko e tamasi'i fiefia 'a Lātū.*
 4. *Ko e ki'i kato.*

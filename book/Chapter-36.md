@@ -1,12 +1,12 @@
 # Chapter 36: Cleft Sentences and Emphatic Word Order
 
-Every sentence pattern covered so far places the verb first: *na'e kai 'e Sione e fo'i molí* (Sione ate the orange). This chapter shows how to move the subject to the front for emphasis, producing a structure similar to "It was Sione who ate the orange."
+Every verbal sentence pattern covered so far places the verb first: *na'e kai 'e Sione e fo'i molí* (Sione ate the orange). This chapter shows how to move the subject to the front for emphasis, producing a structure similar to "It was Sione who ate the orange."
 
 ---
 
-### Cleft sentences with transitive verbs
+### Moving the subject to the front: transitive verbs
 
-Standard Tongan word order puts the verb first. The subject follows, marked by *'e*:
+In a verbal sentence, standard Tongan word order puts the verb first. The subject follows, marked by *'e*:
 
 ::: {.examples}
 *Na'e kai 'e Tēvita e fo'i niú.* Tēvita ate the coconut.
@@ -28,7 +28,7 @@ The full pattern:
 *Ko Mele na'á ne fufulu 'a e valá.* It was Mele who washed the clothes.
 :::
 
-> **Preview:** The pronoun *ne* in this pattern refers back to *Mele*. This is a relative use of the cardinal pronoun, where *ne* functions like "who" within the cleft sentence. The broader use of cardinal pronouns in relative clauses is covered in Chapter 39: Relative Clauses with *Ai* and Demonstratives. The cleft construction is the pattern to learn.
+> **Preview:** The pronoun *ne* in this pattern refers back to *Mele*. This is a relative use of the cardinal pronoun, where *ne* functions like "who" within the cleft sentence. The broader use of cardinal pronouns in relative clauses is covered in Chapter 51: Special Pronoun Uses. The cleft construction is the pattern to learn.
 
 The pronoun must match the subject:
 
@@ -42,14 +42,14 @@ The pronoun must match the subject:
 |---|---|
 | *Na'e kai 'e Sēmisi e mā.* | *Ko Sēmisi na'á ne kai 'a e mā.* |
 | Sēmisi ate the bread. | It was Sēmisi who ate the bread. |
-| *Na'e 'ave 'e Ana 'a e falá.* | *Ko Ana na'á ne 'ave 'a e falá.* |
-| Ana carried the mat. | It was Ana who carried the mat. |
+| *Na'e 'ave 'e 'Ana 'a e falá.* | *Ko 'Ana na'á ne 'ave 'a e falá.* |
+| 'Ana carried the mat. | It was 'Ana who carried the mat. |
 
 > *Note:* The tense marker accent follows the usual convention. Before the one-syllable pronoun *ne*, accent the tense marker: *na'á ne*. Before *ku*: *na'á ku*. Before the two-syllable pronoun *nau*, no accent: *na'a nau*.
 
 ---
 
-### Cleft sentences with intransitive verbs
+### Moving the subject to the front: intransitive verbs
 
 With intransitive verbs and adjectives used as verbs, no pronoun is needed to repeat the subject. The tense marker connects directly to the verb:
 
@@ -129,15 +129,13 @@ The standard order stresses what the person is. The reversed order stresses who 
 
 ---
 
-### Unexpressed relative pronoun objects
-
-When a relative clause describes a noun that serves as the object of the relative verb, Tongan leaves the object position empty. No word for "whom," "which," or "that" appears:
+### Leaving out "whom," "which," and "that"
 
 ::: {.examples}
 *Ko e fefine eni na'á ku 'iló.* This is the woman whom I found. (Lit. "Is the woman this I found")
 :::
 
-The verb *'ilo* *(to know, to find)* is transitive. The noun being described (*fefine*) is its object, but that object does not appear in the relative clause. The definitive accent on *'iló* marks the end of the relative clause.
+The English sentence uses *whom* to tie the description back to *the woman*. Tongan has no equivalent: the slot where the object would normally go simply stays empty. *'Ilo* (to know, to find) usually takes an object, but here the object IS the noun being described (*fefine*), so it is not repeated. The definitive accent on *'iló* marks where the description ends.
 
 ::: {.examples}
 *Ko e tohi eni na'a nau laú.* This is the book that they read.
@@ -161,9 +159,9 @@ The verb *'ilo* *(to know, to find)* is transitive. The noun being described (*f
 
 | Tongan | Type | English |
 |--------|------|---------|
-| *talanoa* | verb | chat, converse |
 | *faka'amu* | verb | desire, wish for |
 | *loto* | verb | want, be willing |
+| *foki* | particle | also, too (emphatic, placed after the subject; distinct from the verb *foki* "return") |
 
 ---
 
@@ -193,7 +191,7 @@ Rewrite each sentence to emphasize the subject.
 
 #### Exercise 3: Translate into Tongan
 
-1. It was Ana who drank the tea.
+1. It was 'Ana who drank the tea.
 2. That's why he came.
 3. This is the book that I read.
 4. Mele (and no one else) is a teacher.
@@ -246,7 +244,7 @@ Choose the correct word to complete each sentence.
 
 #### Exercise 3
 
-1. *Ko Ana na'á ne inu e tī.*
+1. *Ko 'Ana na'á ne inu e tī.*
 2. *Ko e me'a ia na'á ne ha'u ai.*
 3. *Ko e tohi eni na'á ku laú.*
 4. *Ko Mele ko e faiako.*

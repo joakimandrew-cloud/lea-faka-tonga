@@ -65,7 +65,7 @@ The following household and location words appear frequently in spatial expressi
 
 *Na'e tuku 'a e pa'angá he lalo falá.* The money was put under the mat.
 
-*'Oku nau faikava he lalo mangō.* They are drinking kava under the mango tree.
+*'Oku nau inu kava he lalo mangō.* They are drinking kava under the mango tree.
 :::
 
 > *Note:* Before nouns denoting trees, *lalo* sometimes changes to *lolo*: *'i he lalo mangó* or *'i he lolo mangó* (under the mango tree). Both forms are correct.
@@ -79,7 +79,7 @@ The following household and location words appear frequently in spatial expressi
 ::: {.examples}
 *Na'á ku tu'u pē he tu'a falé.* I stood just outside the house.
 
-*'Oku tatali 'a Sēmisi mei tu'a koló.* Semisi is waiting from outside of town.
+*'Oku tatali 'a Sēmisi mei tu'a koló.* Sēmisi is waiting from outside of town.
 
 *'Oku nofo he tu'a koló.* He lives on the outskirts of town.
 :::
@@ -95,7 +95,7 @@ The preposition *mei* (from) combines naturally with *tu'a*: *mei tu'a koló* = 
 ::: {.examples}
 *'I he mui tēpilé*. At the end of the table
 
-*'Oku 'alu 'a Tēvita ki mui fonuá.* David has gone to the cape. (Lit. "to the end of the land")
+*'Oku 'alu 'a Tēvita ki mui fonuá.* Tēvita has gone to the cape. (Lit. "to the end of the land")
 :::
 
 ---
@@ -133,11 +133,11 @@ Choose the right spatial noun for each blank.
 *Funga* before a noun means "on top of" or "on the surface of."
 
 ::: {.examples}
-*'Oku hilí 'a e tohí he funga tēpilé.* The book is on top of the table. (*hilí*, to put, to place)
+*'Oku tuku 'a e tohí he funga tēpilé.* The book is placed on top of the table.
 
 *Na'a mau nofo pē he funga vaká.* We stayed on deck. (Lit. "on top of the boat")
 
-*Hilí he funga katō!* Put it on top of the basket.
+*Tuku he funga katō!* Put it on top of the basket.
 :::
 
 ---
@@ -151,7 +151,7 @@ Choose the right spatial noun for each blank.
 
 *Hū mai he tafa'aki ko eé!* Enter from that side over there.
 
-*Nofo hifo he tafa'aki 'o Tēvita!* Sit down by the side of David.
+*Nofo hifo he tafa'aki 'o Tēvita!* Sit down by the side of Tēvita.
 :::
 
 ---
@@ -262,6 +262,7 @@ The rule: with things, the spatial noun goes directly before the noun. With peop
 | *funga* | spatial noun | top, surface |
 | *tafa'aki* | spatial noun | side |
 | *ve'e* | spatial noun | beside, at the foot of |
+| *mu'a* | spatial noun | front, ahead of (esp. of people) |
 
 **New vocabulary** (memorize these meanings):
 
@@ -284,7 +285,7 @@ The rule: with things, the spatial noun goes directly before the noun. With peop
 #### Exercise 1: Translate Tongan to English
 
 1. *Na'e tuku 'a e valá 'i loto katō.*
-2. *'Oku hilí 'a e tohí he funga seá.*
+2. *'Oku tuku 'a e tohí he funga seá.*
 3. *'Oku tu'u 'a Sēmisi he tu'a falé.*
 4. *Na'a mau nofo he ve'e halá.*
 5. *Na'á ku 'ilo 'a e pa'angá 'i he lalo mohengá.*
@@ -316,11 +317,11 @@ Choose from: *loto*, *lalo*, *tu'a*, *mui*, *mata*, *funga*, *tafa'aki*, *ve'e*
 
 Replace the object with the person given in parentheses. Adjust the structure to follow the person rule.
 
-Example: *he tu'a falé* (outside the house) → *'i he tu'a 'o Tēvita* (behind David)
+Example: *he tu'a falé* (outside the house) → *'i he tu'a 'o Tēvita* (behind Tēvita)
 
 1. *he tafa'aki vaká* (by the side of the boat) → by the side of Sione
 2. *'i he lalo tēpilé* (under the table) → under Mele
-3. *ki mu'a fale* (in front of the house) → ahead of Ana
+3. *ki mu'a fale* (in front of the house) → ahead of 'Ana
 
 ---
 
@@ -330,7 +331,7 @@ Example: *he tu'a falé* (outside the house) → *'i he tu'a 'o Tēvita* (behind
 
 1. The clothes were put inside the basket.
 2. The book is on top of the chair.
-3. Semisi is standing outside the house.
+3. Sēmisi is standing outside the house.
 4. We stayed by the roadside.
 5. I found the money under the bed.
 6. The woman is sitting in front of the house.
@@ -339,7 +340,7 @@ Example: *he tu'a falé* (outside the house) → *'i he tu'a 'o Tēvita* (behind
 
 1. *Na'e tuku 'a e pa'angá he lalo falá.*
 2. *'Oku va'inga e fānaú he tu'a falé.*
-3. *Hilí e tohí he funga tēpilé!*
+3. *Tuku e tohí he funga tēpilé!*
 4. *Na'a mau nofo he ve'e halá.*
 5. *'Oku 'i loto katō 'a e valá.*
 6. *'Oku nau nofo he ve'e matatahí.*

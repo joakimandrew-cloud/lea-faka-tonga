@@ -50,7 +50,7 @@ The class distinction works the same way as with all other possessive pronouns. 
 ::: {.examples}
 *'Oku totonu ke tauhi 'e te 'ete ngāué.* One should take care of one's work.
 
-*'Oku 'ikai lelei ke fakangalofa'i 'a hoto fāmilí.* It is not good to neglect one's family.
+*'Oku totonu ke tokanga ki hoto fāmilí.* One should care for one's family.
 :::
 
 The postposed forms are *'a'ata* ('e-class) and *'o'ota* (ho-class), meaning "of one's" or "of mine" (humbly). The benefactive forms are *ma'ata* ('e-class) and *mo'ota* (ho-class), meaning "for one" or "for me" (humbly).
@@ -124,7 +124,7 @@ Pronouns you already know as personal ("I," "you," "he") can also function like 
 The second *ou* does not introduce a new person. It refers back to *au* (I) in a relative sense: "I, who am speaking." English would use "who" here. Tongan simply repeats the pronoun.
 
 ::: {.examples}
-*Ko kimoutolu kuó mou toki a'u mai, kuo pau ke mou ō leva ki he 'ofisí.* You who have just arrived must go to the office at once.
+*Ko kimoutolu kuó mou toki a'u mai, kuo pau ke mou ō leva ki he koló.* You who have just arrived must go to town at once.
 :::
 
 The first *mou* functions as "who" (you who have just arrived). The second *mou* is the regular pronoun in the obligation clause.
@@ -132,21 +132,21 @@ The first *mou* functions as "who" (you who have just arrived). The second *mou*
 This works with all persons. The pronoun in the relative clause matches the person it refers back to:
 
 ::: {.examples}
-*'Oku 'aonga kiate kitautolu kotoa pē 'oku tau fie muimui ki he hala totonú.* It is of value to all of us who want to follow the right path.
+*'Oku 'aonga kiate kitautolu kotoa pē 'oku tau fie 'alu 'i he hala totonú.* It is of value to all of us who want to walk the right path.
 :::
 
 Here *tau* (we, inclusive) is used in a relative sense: "all of us who want to follow."
 
 ---
 
-### *te* and *'e* as merely predicative
+### *te* and *'e* without their future meaning
 
-In certain types of clauses, *te* and *'e* do not indicate the future tense. Instead, they simply introduce the predicate (the verb part of a relative clause), with the actual tense determined by the main clause.
+In certain types of clauses, *te* and *'e* do not indicate the future tense. Instead, they simply mark where the verb of the description begins. The actual tense comes from the main clause.
 
 This happens specifically in adjectival clauses (clauses that describe a noun), most commonly when the noun being described is indefinite:
 
 ::: {.examples}
-*'Oku 'ikai ha tamasi'i ako heni té ne ta'e 'ilo 'a e faka'ofo'ofa 'o homou fonuá.* There is not a school child here who does not know the beauty of your country.
+*'Oku 'ikai ha tamasi'i ako heni té ne ta'e 'ofa ki homou fonuá.* There is not a school child here who does not love your country.
 :::
 
 The main clause uses *'oku* (present tense). The relative clause uses *te ne*, but this does not mean "who will not know" (future). It means "who does not know" (present), matching the main clause.
@@ -166,11 +166,11 @@ This usage appears to be confined to adjectival clauses whose antecedent (the no
 You have used *na'a* and *na'e* as past tense markers throughout this book. There is a third form, *ne*, which also marks the past tense but carries an additional shade of meaning: it implies that what happened was "as expected" or "as intended."
 
 ::: {.examples}
-*Na'e 'alu 'a Sione.* John went. (Simple past, neutral.)
+*Na'e 'alu 'a Sione.* Sione went. (Simple past, neutral.)
 
-*Ne 'alu 'a Sione.* John went. (As planned, as expected.)
+*Ne 'alu 'a Sione.* Sione went. (As planned, as expected.)
 
-*Ne 'ikai ke 'alu 'a Sione.* John did not go (as we expected him to).
+*Ne 'ikai ke 'alu 'a Sione.* Sione did not go (as we expected him to).
 :::
 
 This is a subtle distinction. In everyday use, *na'a*/*na'e* and *ne* are often interchangeable. But when you encounter *ne* in texts, you may notice this implication of expectation behind it.
@@ -201,6 +201,7 @@ This is a subtle distinction. In everyday use, *na'a*/*na'e* and *ne* are often 
 |--------|------|---------|
 | *siokita* | verb | be selfish |
 | *ta'esiokita* | verb | be unselfish |
+| *loi* | verb | lie, tell a lie |
 
 ---
 
@@ -230,7 +231,7 @@ This is a subtle distinction. In everyday use, *na'a*/*na'e* and *ne* are often 
 Select the most appropriate pronoun form for each blank.
 
 1. 'Oku 'ikai totonu ke ___ siokita. (*te* / *ou* / *tau*)
-2. ___ 'alu mu'a 'o vakai? (*Kau* / *Ku* / *Ka u*)
+2. ___ 'alu mu'a 'o sio? (*Kau* / *Ku* / *Ka u*)
 3. Na'á ___ nofo mo ia. (I stayed with him.) (*ku* / *ma* / *ta*)
 4. Té ___ haka mo ia? (Will you dance with her?) (*ke* / *mo* / *mou*)
 5. 'Oku totonu ke tauhi 'e te ___ ngāué. (*'ete* / *'eku* / *hoto*)
@@ -262,7 +263,7 @@ In each sentence, identify which pronoun uses the dual-for-singular (or more-inc
 3. May I stay here, please?
 4. I spoke with him. (Lit. We two spoke with him, using dual-for-singular.)
 5. One should take care of one's family.
-6. Will you (two) go with him to the feast?
+6. Will you (two) go with him to the provisions?
 7. There is no one who does not want to go there.
 
 #### Exercise 2

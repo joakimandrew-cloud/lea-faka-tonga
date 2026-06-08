@@ -101,13 +101,13 @@ Unlike a positive command, a prohibition always includes the pronoun, because *'
 | *Mou ō!* Go! (all) | *'Oua te mou ō!* Don't go! (all) |
 | *Hiva!* Sing! | *'Oua te ke hiva!* Don't sing! |
 
-This is illustrated by the phrase *fie poto* (conceited):
+The prohibition pattern also works with the verb prefix *fie* (want to). Place *fie* before the verb:
 
 ::: {.examples}
-*'Oua te ke fie poto.* Don't be conceited.
+*'Oua te ke fie inu.* Don't want to drink.
 :::
 
-The word *fie* normally means "want to." When paired with certain adjectives, it takes on an uncomplimentary tone: *fie poto* (literally "wanting to be clever") means "conceited" or "presumptuous." This is worth recognizing, but *fie* as a helper verb is covered in Chapter 21: Auxiliary Verbs.
+The word *fie* placed before a verb means "want to," so *fie inu* is "want to drink." Here you only need to recognize that *fie* attaches to a verb; its full use as a helper verb is covered in Chapter 21: Auxiliary Verbs.
 
 > *Note:* A softer form of prohibition exists: *'oua na'a* in place of *'oua te*. *'Oua na'a* is less abrupt and preferred in polite speech. Both mean the same thing. The gentler form will be covered formally in Chapter 38: Warnings, Hopes, Permissions, and Uncertainty.
 
@@ -212,12 +212,12 @@ This pattern works with any tense marker, any pronoun, and any verb you already 
 The plural pattern works the same way:
 
 ::: {.examples}
-*Tau hiva kimautolu!* Let's sing! (emphatic)
+*Tau hiva kitautolu!* Let's sing! (emphatic)
 
 *Te mau lele kimautolu!* We will run! (emphatic)
 :::
 
-The contrast between *Tau kai!* (Let's eat!) and *Tau kai kimautolu!* (Let's eat! What are we waiting for?) shows how the postposed pronoun turns a suggestion into an insistent one.
+The contrast between *Tau kai!* (Let's eat!) and *Tau kai kitautolu!* (Let's eat! What are we waiting for?) shows how the postposed pronoun turns a suggestion into an insistent one.
 
 ---
 
@@ -343,11 +343,11 @@ Add the postposed pronoun to make each command emphatic.
 
 #### Exercise 5: Translate into English. These sentences combine commands and emphasis with grammar from previous chapters
 
-1. *Mou kai ma mu'a!*
+1. *Mou kai mā mu'a!*
 2. *'Oua te ke mohe 'apongipongi!*
 3. *Te u lea au.*
 4. *Na'a mau hiva kimautolu 'anepō.*
-5. *Tau ō kimautolu!*
+5. *Tau ō kitautolu!*
 6. *'Oua te mou inu lahi 'aupito!*
 
 ---

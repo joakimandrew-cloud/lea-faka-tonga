@@ -132,7 +132,7 @@ The preposed words *fuofua* and its shorter form *fua* mean "first" or "initial.
 
 *Ko e fuofua tohi eni na'á ku lau.* This is the first book I read.
 
-*Na'á ku fua talanoa mo Tēvita, pea ma toki alea mo e pulé.* I talked with Tevita first, and then we discussed with the boss.
+*Na'á ku fua talanoa mo Tēvita, pea ma toki alea mo e pulé.* I talked with Tēvita first, and then we discussed with the boss.
 :::
 
 *Fuofua* and *fua* differ from *'uluaki* (first) in that they emphasise the initial occurrence of an event, not a position in a sequence. *Ko e fuofua fakataha* means "the first-ever meeting" (emphasising that this is a new event), while *ko e 'uluaki fakataha* means "the first meeting" (in a series, with a second and third to follow).
@@ -185,7 +185,7 @@ Several expressions built from spatial words extend into the domain of time.
 The phrase *ki mu'a* means "before" (in time), "ahead," or "first." It appears after the verb or at the end of the clause.
 
 ::: {.examples}
-*Na'á ku lau 'a e tohí ki mu'a pea u toki foaki ia ma'a Sēmisi.* I read the book first and then gave it to Semisi.
+*Na'á ku lau 'a e tohí ki mu'a pea u toki foaki ia ma'a Sēmisi.* I read the book first and then gave it to Sēmisi.
 
 *Na'á ku ha'u au ki mu'a he onó.* I came before six o'clock.
 
@@ -199,7 +199,7 @@ The phrase *ki mu'a* means "before" (in time), "ahead," or "first." It appears a
 *Ki mui* is the opposite of *ki mu'a*. It means "after" (in time) or "afterward."
 
 ::: {.examples}
-*Na'e toki ha'u 'a Siale ki mui 'ia 'Ana.* Siale came after Ana.
+*Na'e toki ha'u 'a Siale ki mui 'ia 'Ana.* Siale came after 'Ana.
 
 *Na'á ku toki 'ilo ki mui kuo lavea 'a e tamasi'í.* I just found out afterward that the boy was hurt.
 :::
@@ -258,6 +258,7 @@ The phrase *ki mu'a* means "before" (in time), "ahead," or "first." It appears a
 | *'amui* | adverb | later on, in the future |
 | *tōmu'a* | adverb | first of all, before anything else |
 | *liunga* | multiplier | times as much (*liunga ua* = twice as much) |
+| *himi* | noun | hymn |
 
 ---
 
@@ -313,7 +314,7 @@ Match each Tongan expression with its English meaning.
 
 3. She came before Sione. (use *ki mu'a*)
 4. There are many things that will happen in the future. (use *'amui*)
-5. I read the letter first and then gave it to Ana. (use *ki mu'a*)
+5. I read the letter first and then gave it to 'Ana. (use *ki mu'a*)
 6. They will go first. (use *tōmu'a*)
 7. Mele arrived after Sione. (use *ki mui*)
 8. We will find out later on. (use *'amui*)

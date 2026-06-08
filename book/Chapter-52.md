@@ -15,7 +15,7 @@ You already know the three neutral articles: indefinite *ha* and semi-definite/d
 The word *si'i* replaces the ordinary definite article *e* and adds a feeling of pity, affection, or sympathy. The horse is not just "the horse." It is "the poor horse," the one the speaker feels sorry for.
 
 ::: {.examples}
-*Ko e fē si'i tamaiki 'a Tēvita?* Where are David's dear children?
+*Ko e fē si'i tamaiki 'a Tēvita?* Where are Tēvita's dear children?
 :::
 
 Here *si'i* signals affection. The speaker is not making a neutral inquiry. The word "dear" or "poor" is built into the article itself.
@@ -76,7 +76,7 @@ Just as the ordinary articles have emotional counterparts, the ordinary possessi
 | 1pl excl. | *si'emau* | *si'omau* | our (poor/dear) |
 | 1du excl. | *si'ema* | *si'oma* | our two (poor/dear) |
 | 2pl | *si'omou* | *si'omou* | your (poor/dear) |
-| 2du | *si'ono* | *si'ono* | your two (poor/dear) |
+| 2du | *si'omo* | *si'omo* | your two (poor/dear) |
 | 3pl | *si'enau* | *si'onau* | their (poor/dear) |
 | 3du | *si'ena* | *si'ona* | their two (poor/dear) |
 
@@ -110,7 +110,7 @@ The indefinite possessives also have emotional forms. These replace the ordinary
 | 1pl excl. | *si'amau* | *si'amau* | our (poor/dear) |
 | 1du excl. | *si'ama* | *si'ama* | our two (poor/dear) |
 | 2pl | *si'amou* | *si'amou* | your (poor/dear) |
-| 2du | *si'ano* | *si'ano* | your two (poor/dear) |
+| 2du | *si'amo* | *si'amo* | your two (poor/dear) |
 | 3pl | *si'anau* | *si'anau* | their (poor/dear) |
 | 3du | *si'ana* | *si'ana* | their two (poor/dear) |
 
@@ -155,7 +155,7 @@ This idiom is common in spoken Tongan. Its force depends on the distinction betw
 ### Idiomatic *me'a* (exclamatory)
 
 ::: {.examples}
-*Me'a faka'ofo'ofa ko e hihilifaki kalauní.* The coronation was a beautiful thing.
+*Me'a faka'ofo'ofa ko e haká.* The dance was a beautiful thing.
 :::
 
 When something is remarkable or superlative, Tongan uses *me'a* *(thing)* followed by the appropriate modifier. The structure is *me'a* + modifier + *ko e* + noun. This construction conveys admiration, wonder, or emphasis.
@@ -194,8 +194,11 @@ This is an evaluative idiom, not a literal statement about a "thing." It is Tong
 | Tongan | Type | English |
 |--------|------|---------|
 | *faka'ofo'ofa* | adjective | beautiful, admirable |
-| *masikitā* | adjective | miserable, wretched |
-| *'alofa* | noun/adjective | pity, pitiable |
+| *afā* | noun | storm, cyclone |
+| *faka'ofa* | adjective | miserable, wretched |
+| *faingamālie* | noun | chance, opportunity |
+| *pango* | noun/adjective | pity, pitiable |
+| *foha* | noun | son |
 
 ---
 
@@ -225,7 +228,7 @@ Select the appropriate emotional article or possessive for each blank.
 
 1. 'Oku puke ___ foha 'o Sione. (Sione's poor son is sick.) (*si'i* / *si'a* / *si'ono*)
 2. Na'e 'ikai ___ faingamālie ke ha'u. (She never had a chance to come.) (*si'ane* / *si'eno* / *si'ano*)
-3. 'Oku fiefia ___ fānau 'a Ana. (Ana's dear children are happy.) (*si'a* / *si'i* / *si'ene*)
+3. 'Oku fiefia ___ fānau 'a 'Ana. ('Ana's dear children are happy.) (*si'a* / *si'i* / *si'ene*)
 4. Na'e 'ikai ___ me'atokoni ke kai. (They had no food to eat, poor them.) (*si'anau* / *si'enau* / *si'a*)
 5. 'Oku hele'i ___ hōsí. (The poor horse is limping.) (*si'a* / *si'i* / *si'eno*)
 
@@ -263,7 +266,7 @@ For each sentence, explain whether the emotional form expresses pity, affection,
 
 #### Exercise 1
 
-1. Mary's poor baby is crying.
+1. Mele's poor baby is crying.
 2. He had no desire to return home. (poor him)
 3. Has a child been hurt? (poor thing)
 4. My dear little children are staying with him/her.
@@ -298,7 +301,7 @@ For each sentence, explain whether the emotional form expresses pity, affection,
 #### Exercise 5
 
 1. **Pity.** The speaker feels sorry for the tired horse.
-2. **Affection.** The speaker is asking about Peter's children with warmth and care.
+2. **Affection.** The speaker is asking about Pita's children with warmth and care.
 3. **Humility.** The speaker is talking about their own lack (no book to read) with self-deprecation.
 4. **Endearment.** The speaker is expressing tender feeling toward their own baby.
 5. **Pity.** The speaker feels sorry for the person who never had a chance.

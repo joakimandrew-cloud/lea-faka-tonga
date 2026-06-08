@@ -39,7 +39,7 @@ More examples of postposed adjectives:
 
 ### Adjectives before the noun
 
-A few adjectives go before the noun instead of after it. These are fixed words that always take the preposed position:
+A few adjectives go before the noun instead of after it. These words take the preposed position (for *'uluaki* this is the usual construction, though it can also follow the noun, as in *ko e kalasi 'uluaki* = the first class):
 
 *fu'u* (big, large)
 *ki'i* (small, little)
@@ -92,7 +92,7 @@ The word *fu'u* has two uses beyond its role as a preposed adjective meaning "bi
 
 *fu'u lelei*. really good
 
-*Na'e fu'u lele lahi 'a e tangata faka'ulí.* The driver really ran too fast.
+*Na'e fu'u lele lahi 'a e tangata mālohí.* The strong man really ran too fast.
 
 *'Oku fu'u helaʻia 'a Mele.* Mele is really tired.
 :::
@@ -266,6 +266,7 @@ These compounds follow all the standard patterns: they can appear after a noun (
 | *loto fo'i* | compound (loto) | cowardly |
 | *tupenu* | noun | waist-cloth, lava-lava |
 | *'akau* | noun | tree, plant |
+| *mei* | noun | breadfruit |
 | *maka* | noun | stone, rock |
 
 ---
@@ -357,7 +358,7 @@ Complete each sentence with the correct *loto* compound and translate.
 2. *ha fu'u fale* (preposed: *fu'u* always goes before the noun)
 3. *ha ki'i tamasi'i* (preposed: *ki'i* always goes before the noun)
 4. *ha me'a kehe* (postposed: *kehe* is a standard adjective)
-5. *ha 'uluaki tohi* (preposed: *'uluaki* always goes before the noun)
+5. *ha 'uluaki tohi* (preposed: the usual construction for *'uluaki*, though it can also follow the noun, as in *ko e kalasi 'uluaki*)
 6. *ha toe me'a* (preposed: *toe* always goes before the noun)
 
 #### Exercise 4

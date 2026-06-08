@@ -1,6 +1,6 @@
 # Chapter 39: Relative Clauses with *Ai* and Demonstratives
 
-This chapter expands two grammar areas that appeared in basic form earlier: the pronominal adverb *ai* and the demonstrative system. Two useful expressions, *na'a mo* (even) and *kae'uma'a* (and also), round out the chapter.
+This chapter expands two grammar areas that appeared in basic form earlier: the back-reference word *ai* and the demonstrative system. Two useful expressions, *na'a mo* (even) and *kae'uma'a* (and also), round out the chapter.
 
 ---
 
@@ -38,9 +38,9 @@ The pattern: a *ko* clause introduces a noun, and the descriptive clause that fo
 
 ---
 
-### The full demonstrative system
+### All the pointing words in one place
 
-Earlier chapters introduced demonstratives for place (*heni*, *hena*, *hē*) and for identifying nouns (*ni*, *na*, *eni*, *ē*). Tongan has a complete system of demonstratives organized by function and person.
+Earlier chapters introduced demonstratives for place (*heni*, *hena*, *hē*) and for identifying nouns (*ni*, *na*, *eni*, *ē*). The table below gathers all of them in one place, grouped by who they refer to (me, you, both, or something already mentioned) and by how they fit into a sentence.
 
 | | Near me (1st) | Near you (2nd) | Pointing | Mentioned (3rd) |
 |---|---|---|---|---|
@@ -66,7 +66,7 @@ These forms refer to what is near the listener. *Na* is also an enclitic: *fále
 ::: {.examples}
 *Ho valá na 'oku lelei 'aupito.* Those clothes of yours are very nice.
 
-*Ko ho'o kató ena 'i he lalo tēpilé.* There (near you) is your basket under the table.
+*Ko ho'o kató ena 'i he loki.* There (near you) is your basket in the room.
 :::
 
 #### Pointing: *ē*, *hē*, *pehē*
@@ -158,9 +158,9 @@ The expression *na'a mo* before a pronoun or name (or *na'a mo e* before a commo
 ::: {.examples}
 *Na'a mo ia, he 'ikai té ne lava.* Even he cannot.
 
-*Na'a mo Mele, na'e 'ikai fie ha'u mai.* Even Mary did not want to come.
+*Na'a mo Mele, na'e 'ikai fie ha'u.* Even Mele did not want to come.
 
-*Na'a mo e 'ahó ni 'oku kei puke pē 'a Tēvitá.* Even today David is still just sick.
+*Na'a mo e 'ahó ni 'oku kei puke pē 'a Tēvitá.* Even today Tēvita is still just sick.
 :::
 
 #### *Kae'uma'a*: and also, not to mention
@@ -168,7 +168,7 @@ The expression *na'a mo* before a pronoun or name (or *na'a mo e* before a commo
 *Kae'uma'a* adds emphasis to an additional item, meaning "and also," "not to mention," or "as well."
 
 ::: {.examples}
-*'Oku ou tokoni kia Tēvita kae'uma'a hono fāmilí.* I help David and also his family.
+*'Oku ou tokoni kia Tēvita kae'uma'a hono fāmilí.* I help Tēvita and also his family.
 
 *Mou tokanga ki he ngāué kae'uma'a 'a e akó.* Pay attention to work and also to school.
 
@@ -188,7 +188,7 @@ The expression *na'a mo* before a pronoun or name (or *na'a mo e* before a commo
 | *pehena* | manner demonstrative | like that (near you) |
 | *pehē* | manner demonstrative | like that, thus |
 | *na'a mo* | emphatic phrase | even |
-| *kae'uma'ā* | conjunction | not to mention, let alone |
+| *kae'uma'a* | conjunction | not to mention, let alone |
 
 **New vocabulary** (memorize these meanings):
 
@@ -245,7 +245,7 @@ Choose from: *ni*, *na*, *eni*, *ena*, *ē*, *ia*, *heni*, *pehē*
 3. *Fai \_\_\_\_\_.* (Do it like that.)
 4. *Ko \_\_\_\_\_ pē.* (That is all.)
 5. *Nofo \_\_\_\_\_.* (Stay here.)
-6. *Ko ho'o kató \_\_\_\_\_ 'i he tēpilé.* (There is your basket, near you, on the table.)
+6. *Ko ho'o kató \_\_\_\_\_ 'i he loki.* (There is your basket, near you, in the room.)
 
 #### Exercise 5: Translate sentences with *na'a mo* and *kae'uma'a*
 
@@ -263,7 +263,7 @@ Choose from: *ni*, *na*, *eni*, *ena*, *ē*, *ia*, *heni*, *pehē*
 
 1. This is the house I live in.
 2. Now I work in Nuku'alofa.
-3. Even Semisi did not want to help.
+3. Even Sēmisi did not want to help.
 4. That being so, I just stayed at home.
 5. That is the boy I spoke to.
 6. Do it like this (you all).

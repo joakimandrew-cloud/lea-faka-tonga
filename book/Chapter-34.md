@@ -49,7 +49,7 @@ The verb *pehē* means "to say" or "to think." It is one of the most common ways
 The structure is: tense marker + *pehē* + *'e* phrase (naming the speaker) + reported content. The *'e* phrase works the same way as in transitive sentences, marking the person who says or thinks.
 
 ::: {.examples}
-*'Oku pehē 'e he faiakō té ke tali heni.* The teacher thinks you will wait here.
+*'Oku pehē 'e he faiakō té ke nofo heni.* The teacher thinks you will stay here.
 :::
 
 When a common noun is the speaker, *'e he* introduces it, just as in any transitive sentence.
@@ -125,7 +125,7 @@ The word *tokua* signals that the speaker is reporting something without committ
 When *tokua* appears at the start, it colours the whole sentence as secondhand information. When it appears after the verb, it colours only that clause. In both positions, *tokua* tells the listener: this is what others report, not what I personally witnessed.
 
 ::: {.examples}
-*Na'á ne pehē tokua ko hono fo'ui pē.* He said that it was just his own fault.
+*Na'á ne pehē tokua ko hono 'apí pē.* He said that it was just his own home.
 :::
 
 Here *tokua* and *pehē* work together: *pehē* introduces what "he" said, and *tokua* marks the whole report as something the current speaker did not verify.
@@ -187,7 +187,9 @@ The interjection *tā* appears at the start of a sentence and signals the discov
 | *'amanaki* | verb | hope, expect |
 | *fakapapau* | verb | confirm, make certain |
 | *fakahā* | verb | reveal, make known |
+| *mo'oni* | adjective | true, real |
 | *talanoa* | verb | chat, converse |
+| *falekoloa* | noun | shop, store |
 
 ---
 

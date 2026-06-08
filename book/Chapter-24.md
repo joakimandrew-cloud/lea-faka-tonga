@@ -100,7 +100,7 @@ Here *kae* is followed by the stative *puke*.
 *Kae* can also mean "while," depending on context:
 
 ::: {.examples}
-*Na'e hiva 'a Sēmisi kae fanongo 'a Ana.* Sēmisi sang while Ana listened.
+*Na'e hiva 'a Sēmisi kae fanongo 'a 'Ana.* Sēmisi sang while 'Ana listened.
 :::
 
 The rule is straightforward: look at the word immediately after "but." If it is a tense marker, pronoun, or preposition, use *ka*. If it is a verb, adjective, or adverb, use *kae*.
@@ -225,7 +225,7 @@ With first-person singular, the pronoun form *u* is used after *pea* (the same f
 1. *Na'e 'alu 'a Mele \_\_\_ nofo 'a Sione.*
 2. *'Oku ou fiefia, \_\_\_ 'oku 'ikai té u fie va'inga.*
 3. *'Alu koe, \_\_\_ ke foki mai he nimá.*
-4. *Na'e hiva 'a Sēmisi \_\_\_ fanongo 'a Ana.*
+4. *Na'e hiva 'a Sēmisi \_\_\_ fanongo 'a 'Ana.*
 5. *'Oku ou fie mohe, \_\_\_ kuo pau ke u ngāue.*
 
 #### Exercise 4: Join the two sentences using the conjunction in parentheses
@@ -234,14 +234,14 @@ With first-person singular, the pronoun form *u* is used after *pea* (the same f
 2. *Ha'u.* / *Hiva.* (*'o*)
 3. *'Oku ou fie mohe.* / *Kuo pau ke u ngāue.* (*ka*)
 4. *Na'e hiva 'a Siale.* / *Na'e fanongo 'a Lupe.* (*kae*)
-5. *'Oku lelei.* / *'Oku kovi.* (*pe*, form a question)
+5. *'Oku mālohi.* / *'Oku vaivai.* (*pe*, form a question)
 
 #### Exercise 5: Choose the correct conjunction (*pea*, *'o*, *ka*, *kae*, *pe*)
 
 1. *'Alu \_\_\_ hiva.*
 2. *Na'á ku 'alu ki kolo \_\_\_ u fakatau mai ha me'a.*
 3. *'Oku ou fie ako, \_\_\_ 'oku 'ikai té u fie ngāue.*
-4. *Na'e 'alu 'a Tēvita \_\_\_ nofo 'a Ana.*
+4. *Na'e 'alu 'a Tēvita \_\_\_ nofo 'a 'Ana.*
 5. *'Oku fiefia \_\_\_ 'ita?*
 6. *Na'a mau nofo 'i 'api \_\_\_ fuoloa.*
 
@@ -285,7 +285,7 @@ With first-person singular, the pronoun form *u* is used after *pea* (the same f
 2. *Ha'u 'o hiva.*
 3. *'Oku ou fie mohe, ka kuo pau ke u ngāue.*
 4. *Na'e hiva 'a Siale kae fanongo 'a Lupe.*
-5. *'Oku lelei pe kovi?*
+5. *'Oku mālohi pe vaivai?*
 
 #### Exercise 5
 

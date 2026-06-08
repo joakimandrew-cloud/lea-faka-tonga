@@ -90,7 +90,7 @@ The main clause uses a past tense marker to express the imagined result:
 
 > *Note:* The first-person singular pronoun after *ka ne* is *u* (not *ku* or *ou*): *Ka ne u ha'u ...* (Had I come ...).
 
-Tongan uses its past tense forms for imaginary situations, just as English does. "If John *were* here" uses a past-like verb form even though it refers to the present. Tongan follows the same logic with *ka ne*.
+Tongan uses its past tense forms for imaginary situations, just as English does. "If Sione *were* here" uses a past-like verb form even though it refers to the present. Tongan follows the same logic with *ka ne*.
 
 ---
 
@@ -193,8 +193,8 @@ The expression *heiʻilo* stands alone or introduces a clause to signal that the
 
 Choose *ka*, *kapau*, or *ka ne* to complete each sentence.
 
-1. ___ ha'u 'a Ana, pea ke tala ki ai. (She is expected.)
-2. ___ 'e ha'u 'a Ana, pea ke tala ki ai. (You are not sure she will come.)
+1. ___ ha'u 'a 'Ana, pea ke tala ki ai. (She is expected.)
+2. ___ 'e ha'u 'a 'Ana, pea ke tala ki ai. (You are not sure she will come.)
 3. ___ ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní.
 4. ___ 'i ai ha ngāue, pea ke tala mai.
 5. ___ u feinga, na'á ku lava.
@@ -236,8 +236,8 @@ Match each *ka ne* clause (1-5) with the correct main clause (a-e).
 
 #### Exercise 1
 
-1. *Ka* ha'u 'a Ana, pea ke tala ki ai.* *When Ana comes, tell her. (*ka*: she is expected)
-2. *Kapau* 'e ha'u 'a Ana, pea ke tala ki ai.* *If Ana comes, tell her. (*kapau*: uncertain)
+1. *Ka* ha'u 'a 'Ana, pea ke tala ki ai.* *When 'Ana comes, tell her. (*ka*: she is expected)
+2. *Kapau* 'e ha'u 'a 'Ana, pea ke tala ki ai.* *If 'Ana comes, tell her. (*kapau*: uncertain)
 3. *Ka ne* ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní.* *Had you come last night, this thing would not have happened. (*ka ne*: past counterfactual)
 4. *Ka* 'i ai ha ngāue, pea ke tala mai.* *Whenever there is work, tell me. (*ka*: expected or recurring)
 5. *Ka ne* u feinga, na'á ku lava.* *Had I tried, I would have succeeded. (*ka ne*: past counterfactual)

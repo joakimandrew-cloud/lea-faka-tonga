@@ -261,17 +261,18 @@ This is a lexical variant, not a new grammar pattern.
 | *fetalanoa'aki* | verb | converse with one another |
 | *fe'alu'aki* | verb | go back and forth |
 | *fetongi* | verb | exchange, take turns |
-| *fekumi* | verb | search for one another |
+| *fekumi* | verb | search together |
 | *fetu'utaki* | verb | communicate |
-| *mahiki* | verb | be able to be pulled out |
+| *mahiki* | verb | be able to lift |
 | *mafai* | verb | be able to be done |
 | *mahae* | adjective | torn |
-| *mavae* | adjective | separated |
+| *māvae* | adjective | separated |
 | *movete* | adjective | fallen apart |
-| *mo'umohea* | adjective | drowsy, overly sleepy |
+| *mo'umohea* | verb | oversleep, sleep too long |
 | *kaungāngāue* | noun | fellow worker |
 | *kaungālotu* | noun | fellow worshipper |
 | *kaungāme'a* | noun | companion, friend |
+| *puke* | verb | hold, grasp |
 
 ---
 

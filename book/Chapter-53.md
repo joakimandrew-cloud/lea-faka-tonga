@@ -56,7 +56,7 @@ Tongan courtesy requires different words for the same concept depending on the r
 
 - **(a) Ordinary**: the everyday word
 - **(b) Polite**: used for general courtesy, even without chiefs present
-- **(c) Honorific**: used when addressing or referring to chiefs or high officials
+- **(c) Honorific** (word of honor): used when addressing or referring to chiefs or high officials
 - **(d) Regal**: used when addressing or referring to the sovereign or to God
 - **(e) Derogatory**: used to refer to oneself or one's own affairs when speaking to someone of higher rank
 
@@ -85,7 +85,7 @@ A major difficulty for learners is that the polite, honorific, and derogatory wo
 | Honorific | *me'a* | *Me'a ā!* (Goodbye, to a chief.) |
 | Regal | *hā'ele* | *Hā'ele ā!* (Goodbye, to the sovereign.) |
 
-These forms were introduced in the context of farewells in an earlier chapter. Here they reveal a broader pattern: what appears to be a simple word choice is actually a register selection.
+Only the ordinary *'Alu ā!* was introduced earlier, in the greetings and farewells chapter. The polite, honorific, and regal substitutes are new here, and they reveal a broader pattern: what appears to be a simple word choice is actually a choice of respect level.
 
 #### "To be well" (greetings)
 
@@ -100,7 +100,7 @@ The standard greeting *Mālō e lelei* (introduced in an earlier chapter) uses *
 
 > *Note:* The definitive accent falls on the final syllable of the noun in these greetings, as introduced in an earlier chapter.
 
-[FLAG: Community consultation: Additional word sets for common concepts (to speak, to come, to sleep, to die, child, house) should be compiled with native-speaker input. Churchward notes that some concepts have all five levels, while others have fewer.]
+[FLAG: Community consultation: Additional word sets for common concepts (to speak, to come, to sleep, to die, child, house) should be compiled with native-speaker input. Some concepts have all five respect levels, while others have fewer; this should be verified with native speakers.]
 
 ---
 
@@ -148,9 +148,9 @@ This is distinct from *fakamolemole* (pardon, introduced in an earlier chapter),
 
 ### Intermediaries in Formal Speech
 
-Even native Tongan speakers may not command the full respect vocabulary. When a speaker needs to address a high chief but lacks confidence in the correct register, they ask someone else to speak on their behalf. This person, who is thoroughly conversant with the language of respect, serves as an intermediary.
+Even native Tongan speakers may not command the full respect vocabulary. When a speaker needs to address a high chief but lacks confidence in the correct respect level, they ask someone else to speak on their behalf. This person, who is thoroughly conversant with the language of respect, serves as an intermediary.
 
-The speaker remains present during the conversation but sits in silence. The intermediary handles all speech, including greetings and leave-taking. This is not a sign of rudeness or weakness. It is proper protocol: using the wrong register would cause more offence than remaining silent.
+The speaker remains present during the conversation but sits in silence. The intermediary handles all speech, including greetings and leave-taking. This is not a sign of rudeness or weakness. It is proper protocol: using the wrong respect level would cause more offence than remaining silent.
 
 This practice is still observed in formal Tongan settings, particularly at ceremonial events and chiefly gatherings.
 
@@ -164,7 +164,7 @@ The respect system follows consistent principles:
 2. **The same concept has multiple words.** "Eat," "go," "be well," and many other concepts have different forms for different ranks.
 3. **Respect words have other ordinary meanings.** The polite word for "eat" (*tokoni*) ordinarily means "help." Context resolves the ambiguity.
 4. **Physical actions carry social weight.** Passing near someone, reaching over someone, or mentioning certain topics all require verbal acknowledgement.
-5. **Uncertainty calls for help, not guessing.** Using an intermediary is better than using the wrong register.
+5. **Uncertainty calls for help, not guessing.** Using an intermediary is better than using the wrong respect level.
 
 ---
 
@@ -188,6 +188,7 @@ The respect system follows consistent principles:
 | *malakilaki* | adjective (honorific) | well (honorific register) |
 | *lakoifua* | adjective (regal) | well (royal register) |
 | *Ho'o 'Afio* | title | Your Majesty |
+| *'Otua* | noun | God (regal/formal register) |
 | *Tangata'eiki* | noun | Sir (respectful address) |
 | *Fine'eiki* | noun | Madam (respectful address) |
 | *lea faka'apa'apa* | noun phrase | the language of respect |

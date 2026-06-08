@@ -14,7 +14,7 @@ So far, the only tense marker you have seen is *na'a*, which marks the past tens
 *'Okú ke kai.* You eat.
 :::
 
-*'Oku* marks the present tense. Its meaning depends on the type of verb that follows it. With action verbs like *kai* (eat), *'alu* (go), or *mohe* (sleep), *'oku* carries a habitual sense: you do this regularly, not necessarily at this exact moment. With descriptive or feeling words like *'ita* (angry) or *sai'ia* (like), *'oku* describes the current state: you are angry now, you like something now. The verbs in this chapter are all action verbs, so for now, read *'oku* as habitual.
+*'Oku* marks the present tense. Its meaning depends on the type of verb that follows it. With action verbs like *kai* (eat), *'alu* (go), or *mohe* (sleep), *'oku* carries a habitual sense: you do this regularly, not necessarily at this exact moment. With descriptive or feeling words (covered in Chapter 3: Descriptive Words), *'oku* describes a current state rather than a habit. The verbs in this chapter are all action verbs, so for now, read *'oku* as habitual.
 
 ::: {.examples}
 *'Okú ke mohe.* You sleep. (You regularly sleep.)
@@ -22,19 +22,7 @@ So far, the only tense marker you have seen is *na'a*, which marks the past tens
 *'Oku ou kai.* I eat. (Something I do regularly, not "I am eating right now.")
 :::
 
-To say that an action is in progress right now, Tongan uses the auxiliary verb *lolotonga* (to be in progress) before the main verb: *'Oku ou lolotonga kai* (I am currently eating). Just as English has several ways to express an action in progress ("I'm eating," "I'm eating right now," "right now I am eating," "at this time I am eating"), Tongan has its own set of constructions for this idea:
-
-::: {.examples}
-*'Oku ou lolotonga kai.* I am currently eating.
-
-*'Oku ou kai he taimi ni.* I am eating right now.
-
-*Ko 'eni 'oku ou kai.* Right now I am eating.
-
-*'Oku fai 'eku kai.* I am (in the process of) eating.
-:::
-
-Each of these expresses the idea differently. Focus on the building blocks of the simple pattern: tense marker + pronoun + verb.
+Tongan also has ways to say that an action is happening right now, in progress at this moment ("I am eating" rather than "I eat"), using an extra word before the verb. Those constructions are covered in a later chapter. For now, read *'oku* with an action verb as habitual, and focus on the building blocks of the simple pattern: tense marker + pronoun + verb.
 
 #### Future: *te*
 
@@ -48,7 +36,7 @@ Each of these expresses the idea differently. Focus on the building blocks of th
 *Té ke kai.* You will eat.
 :::
 
-> *Note:* Tongan has a second future marker, *'e*, used when no pronoun follows directly. You will learn it in Chapter 9: The Negative. Every future sentence uses *te* followed by a pronoun.
+> *Note:* Tongan has a second future marker, *'e*, used when no pronoun follows directly (for example with a noun subject). You will learn it in Chapter 9: The Negative. Every future sentence in this chapter uses *te* followed by a pronoun.
 
 #### Perfect: *kuo*
 

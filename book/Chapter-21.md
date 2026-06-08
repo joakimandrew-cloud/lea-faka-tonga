@@ -79,7 +79,7 @@ The word *lava* literally means to arrive or achieve. The meaning progresses nat
 When a noun (rather than a pronoun) is the subject, it follows *lava* with the focus marker *'a*, and *'o* still introduces the second verb:
 
 ::: {.examples}
-*'E lava 'e Pita 'o fakatau 'a e me'akái?* Can Peter buy the food?
+*'E lava 'e Pita 'o fakatau 'a e me'akái?* Can Pita buy the food?
 
 *'E lava 'e Sione 'o lau 'a e tohí?* Can Sione read the book?
 :::
@@ -87,9 +87,9 @@ When a noun (rather than a pronoun) is the subject, it follows *lava* with the f
 Notice that when the second verb is transitive, the agent marker *'e* replaces the focus marker *'a* before the noun subject, just as in normal transitive sentences. The subject particle is determined by the second verb.
 
 ::: {.examples}
-*'Oku 'ikai ke lava 'a Mele 'o lea lelei.* Mary cannot speak well.
+*'Oku 'ikai ke lava 'a Mele 'o lea lelei.* Mele cannot speak well.
 
-*'Oku 'ikai ke lava 'a Ana 'o hiva lelei.* Ana cannot sing well.
+*'Oku 'ikai ke lava 'a 'Ana 'o hiva lelei.* 'Ana cannot sing well.
 :::
 
 In the negative, *lava* uses the same negative patterns you already know. With pronoun subjects, use *'oku 'ikai te* + pronoun + *lava*. With noun subjects, use *'oku 'ikai ke lava*.
@@ -98,7 +98,7 @@ In the negative, *lava* uses the same negative patterns you already know. With p
 |---|---|
 | *'Oku 'ikai te u lava 'o 'alu.* | I cannot go. |
 | *Na'e 'ikai té ke lava 'o ha'u?* | Were you not able to come? |
-| *'Oku 'ikai ke lava 'a Tēvita 'o tohi.* | David cannot write. |
+| *'Oku 'ikai ke lava 'a Tēvita 'o tohi.* | Tēvita cannot write. |
 
 > *Note:* Tongan has several other ways to express ability: *ala* (it is practicable), *fa'a* (one has the physical capacity), the *ma-* prefix (able as discovered by trial), and *poto 'i* (skilled at). These appear in later chapters, including Chapter 49: Prefixes. *Lava* is the general-purpose word for "can" or "be able to."
 
@@ -159,7 +159,6 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 | *fakatau* | verb | buy |
 | *fakapikopiko* | adjective | lazy |
 | *fiemohea* | adjective | sleepy |
-| *Siale* | name | Siale |
 
 ---
 
@@ -182,7 +181,7 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 2. I cannot swim.
 3. Sione was able to come yesterday.
 4. Do you like the house?
-5. We want to go to the store tomorrow.
+5. We want to go to the sea tomorrow.
 6. Do not be conceited.
 7. Can Tēvita read the book?
 8. I like Tonga very much.
@@ -202,7 +201,7 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 3. *Té ke \_\_\_ ha'u 'anai?* (Will you be able to come later?)
 4. *Na'á ku \_\_\_ mohe 'anepō.* (I wanted to sleep last night.)
 5. *'Oku 'ikai te u \_\_\_ lahi he kavá.* (I do not like kava much.)
-6. *'E \_\_\_ 'a Ana 'o haka?* (Will Ana be able to dance?)
+6. *'E \_\_\_ 'a 'Ana 'o haka?* (Will 'Ana be able to dance?)
 
 ---
 
@@ -225,10 +224,10 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 2. *'Oku 'ikai te u lava 'o kakau.*
 3. *Na'e lava 'a Sione 'o ha'u 'aneafi.*
 4. *'Okú ke sai'ia he falé?*
-5. *'Oku mau fie 'alu ki he falekoloa 'apongipongi.*
+5. *'Oku mau fie 'alu ki tahi 'apongipongi.*
 6. *'Oua té ke fie poto.*
 7. *'E lava 'e Tēvita 'o lau 'a e tohí?*
-8. *'Oku ou sai'ia lahi 'aupito 'ia Tonga.*
+8. *'Oku ou sai'ia lahi 'aupito 'i Tonga.*
 
 #### Exercise 3
 

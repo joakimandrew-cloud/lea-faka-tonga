@@ -92,14 +92,14 @@ The particle *'e* is the standard form. When the noun has the definite article, 
 
 ---
 
-### Asking "how many" and "how much": *fīha*
+### Asking "how many" and "how much": *fiha*
 
-You have already met *fīha* as an interrogative meaning "when" or "at what time" (*Te ke 'osi he fīha?* What time will you finish?). When *fīha* appears directly after a tense marker, it asks "how much" or "what price":
+You have already met *fiha* as an interrogative meaning "when" or "at what time" (*Te ke 'osi he fiha?* What time will you finish?). When *fiha* appears directly after a tense marker, it asks "how much" or "what price":
 
 ::: {.examples}
-*'Oku fīha 'a e sotē?* How much is the shirt?
+*'Oku fiha 'a e sotē?* How much is the shirt?
 
-*'Oku fīha 'a e iká?* How much is the fish?
+*'Oku fiha 'a e iká?* How much is the fish?
 :::
 
 The answer uses the same *'e* + number pattern:
@@ -111,7 +111,7 @@ The answer uses the same *'e* + number pattern:
 *Fīha* also asks "how many" when combined with a noun:
 
 ::: {.examples}
-*ha kato 'e fīha?* how many baskets?
+*ha kato 'e fiha?* how many baskets?
 :::
 
 ---
@@ -129,10 +129,10 @@ When a number refers to people or living animals, *toko* precedes the number. Th
 The word *kau* *(group)* before a noun marks a group of people: *kau faiakó* *(teachers)*, *kau akó* *(pupils)*. It appears naturally with *toko* when asking about groups:
 
 ::: {.examples}
-*'Oku toko fīha ho'o kau akó?* How many pupils do you have?
+*'Oku toko fiha ho'o kau akó?* How many pupils do you have?
 :::
 
-The pattern is *toko* + number for a specific count, and *toko fīha* for the question "how many people."
+The pattern is *toko* + number for a specific count, and *toko fiha* for the question "how many people."
 
 Two related words use the same *toko* base:
 
@@ -157,7 +157,7 @@ The most common way to ask the time is:
 *Ko e fihá eni?* What time is it?
 :::
 
-Two other forms are also used: *Ko e taimi fīha eni?* and *Ko e hā 'a e taimí?*. The first form is the most frequent.
+Two other forms are also used: *Ko e taimi fiha eni?* and *Ko e hā 'a e taimí?*. The first form is the most frequent.
 
 To answer, state the hour with *ko e*:
 
@@ -318,7 +318,7 @@ Write the Tongan word for each number.
 2. *pa'anga 'e nima*
 3. *ha tohi 'e ua*
 4. *Ko e tamaiki 'e toko fā.*
-5. *'Oku toko fīha e kau faiakó?*
+5. *'Oku toko fiha e kau faiakó?*
 
 #### Exercise 3: Ask and answer prices
 
@@ -350,14 +350,14 @@ Translate into Tongan.
 #### Exercise 6: Mixed translation (English to Tongan)
 
 1. I ate the fish at seven.
-2. Peter bought six baskets.
+2. Pita built six baskets.
 3. The first book.
 4. What time does the teacher arrive?
 
 #### Exercise 7: Mixed translation (Tongan to English)
 
 1. *Tau kamata he valu pongipongi.*
-2. *'Oku fīha e falá?*
+2. *'Oku fiha e falá?*
 3. *Ko e nimá eni.*
 4. *'Oku toko ono pē.*
 5. *Ko hono uá.*
@@ -391,9 +391,9 @@ Translate into Tongan.
 5. How many teachers are there?
 
 #### Exercise 3
-1. *'Oku fīha e kató?* *Pa'anga 'e ua.*
-2. *'Oku fīha e tohí?* *Pa'anga 'e tolu, seniti 'e nima.*
-3. *'Oku fīha e falá?* *Pa'anga 'e taha.*
+1. *'Oku fiha e kató?* *Pa'anga 'e ua.*
+2. *'Oku fiha e tohí?* *Pa'anga 'e tolu, seniti 'e nima.*
+3. *'Oku fiha e falá?* *Pa'anga 'e taha.*
 
 #### Exercise 4
 1. *Ko e fihá eni?*
@@ -404,13 +404,13 @@ Translate into Tongan.
 
 #### Exercise 5
 1. *Ko e tamaiki 'e toko nima.*
-2. *'Oku toko fīha e kau faiakó?*
+2. *'Oku toko fiha e kau faiakó?*
 3. *'Oku toko tolu pē.*
 4. *'Oku nau tokolahi.*
 
 #### Exercise 6
 1. *Na'á ku kai e iká he fitu.*
-2. *Na'e fakatau mai 'e Pita ha kato 'e ono.*
+2. *Na'e langa 'e Pita ha kato 'e ono.*
 3. *Ko e 'uluaki tohí.*
 4. *'E tau mai 'a e faiakó 'i he fihá?*
 

@@ -1,6 +1,6 @@
 # Chapter 22: Aspect Markers and Frequency
 
-Aspect markers tell you *what stage* an action is in. Where tense markers tell you *when* something happens, aspect markers tell you *how far along* it is: still going on, already finished, happening right now, or just starting.
+Tense markers tell you *when* something happens. This chapter adds a second set of markers (placed between the tense marker and the verb) that tell you *what stage* the action is in: still going on, already finished, happening right now, or just starting. These are called **aspect markers**.
 
 tense marker + pronoun + aspect marker + verb
 
@@ -8,7 +8,7 @@ tense marker + pronoun + aspect marker + verb
 
 ### *kei*: still
 
-The word *kei* is placed before the verb to indicate that a state or action is continuing. Something was true before, and it remains true now.
+The word *kei* placed before the verb means "still": something was true before, and it remains true now.
 
 ::: {.examples}
 *'Okú ne kei fiekaia pē.* He is still hungry.
@@ -221,9 +221,9 @@ The markers above describe the stage of an action. A closely related set of modi
 The preposed modifier *toutou* means "repeatedly," "continuously," or "again and again." It comes directly before the verb.
 
 ::: {.examples}
-*'Oku toutou lele 'a Sēmisi ki he maketi.* Sēmisi keeps running to the market.
+*'Oku toutou lele 'a Sēmisi ki kolo.* Sēmisi keeps running to town.
 
-*Na'e toutou lea pehē 'a Tēvita.* Tēvita repeatedly spoke in that manner.
+*Na'e toutou lea 'a Tēvita.* Tēvita repeatedly spoke.
 
 *'Oku totonu ke toutou ako'i kinautolu.* They need to be taught again and again.
 :::
@@ -241,7 +241,7 @@ The adverb *ai pē* means "still," "as always," "as before," or "as usual." It i
 
 *'Oku fakalaka ai pē 'a Tonga ki mu'a.* Tonga is continuing to go forward.
 
-*Ko e tatau ai pē.* It is absolutely the same.
+*'Oku ou nofo ai pē 'i kolo.* I still live in town as always.
 :::
 
 ---
@@ -267,7 +267,7 @@ To say how many times something has happened or will happen, place *tu'o* before
 ::: {.examples}
 *Kuó u 'alu tu'o taha pē ki Vava'u.* I have gone just once to Vava'u.
 
-*Na'e tu'o tolu 'eku kole pa'anga kia Mele.* Three times I asked Mary for money. (Lit. "Was three-times my asking money to Mary")
+*Na'e tu'o tolu 'eku tohi kia Mele.* Three times I wrote to Mele. (Lit. "Was three-times my writing to Mele")
 
 *'Oku mau lotu tu'o ua he Sāpaté.* We attend services twice on Sunday.
 :::
@@ -354,7 +354,9 @@ With higher numerals, *taki* distributes the count: *taki ua* (two each), *taki 
 |--------|------|---------|
 | *tu'o* | frequency word | times (*tu'o ua* = twice) |
 | *tāutaha* | adverb | one by one |
+| *fa'iteliha* | adverb | as one pleases, at will |
 | *tahataha* | adverb | one by one (variant) |
+| *ako'i* | verb | teach |
 
 ---
 
@@ -397,7 +399,7 @@ With higher numerals, *taki* distributes the count: *taki ua* (two each), *taki 
 2. *Kuo 'osi 'alu 'a Sione?* (already)
 3. *Kuo 'osi 'a e fakatahá?* (already)
 4. *Kuó ke 'osi ako?* (not yet)
-5. *Kuo 'osi ha'u 'a Ana?* (not yet)
+5. *Kuo 'osi ha'u 'a 'Ana?* (not yet)
 
 #### Exercise 5: Translate Tongan to English (frequency and distribution)
 

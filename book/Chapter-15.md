@@ -30,9 +30,9 @@ These three changes always happen together. The word order for noun subjects is:
 
 | Pronoun subject | Noun subject |
 |---|---|
-| *Na'á ne 'alu.*<br><span class="translation">He went.</span> | *Na'e 'alu 'a Sione.*<br><span class="translation">John went.</span> |
-| *'Okú ne mohe.*<br><span class="translation">He sleeps.</span> | *'Oku mohe 'a Pita.*<br><span class="translation">Peter sleeps.</span> |
-| *Té ne hiva.*<br><span class="translation">He will sing.</span> | *'E hiva 'a Tēvita.*<br><span class="translation">David will sing.</span> |
+| *Na'á ne 'alu.*<br><span class="translation">He went.</span> | *Na'e 'alu 'a Sione.*<br><span class="translation">Sione went.</span> |
+| *'Okú ne mohe.*<br><span class="translation">He sleeps.</span> | *'Oku mohe 'a Pita.*<br><span class="translation">Pita sleeps.</span> |
+| *Té ne hiva.*<br><span class="translation">He will sing.</span> | *'E hiva 'a Tēvita.*<br><span class="translation">Tēvita will sing.</span> |
 
 ---
 
@@ -43,7 +43,7 @@ The word *'a* is a focus marker: a word that marks the noun closest in thought t
 *'a* + proper noun = noun subject of a verb with no object
 
 ::: {.examples}
-*Na'e lele 'a Mele.* Mary ran.
+*Na'e lele 'a Mele.* Mele ran.
 
 *Kuo ha'u 'a Seini.* Seini has arrived.
 
@@ -69,9 +69,9 @@ Use *na'a* and *te* immediately before a pronoun:
 Use *na'e* and *'e* everywhere else, including before a verb followed by a noun subject:
 
 ::: {.examples}
-*Na'e 'alu 'a Sione.* John went.
+*Na'e 'alu 'a Sione.* Sione went.
 
-*'E lea 'a Mele.* Mary will speak.
+*'E lea 'a Mele.* Mele will speak.
 :::
 
 The rule is: *na'a* is used immediately before a pronominal subject, *na'e* in all other cases; and similarly *te* before pronouns, *'e* before nouns.
@@ -79,7 +79,7 @@ The rule is: *na'a* is used immediately before a pronominal subject, *na'e* in a
 The present tense marker *'oku* and the perfect tense marker *kuo* have only one form each. They do not change:
 
 ::: {.examples}
-*'Oku 'alu 'a Sione.* John is going.
+*'Oku 'alu 'a Sione.* Sione is going.
 
 *Kuo hiva 'a Tēvita.* Tēvita has sung.
 :::
@@ -92,9 +92,9 @@ When a noun subject is present, the third-person singular pronoun *ne* disappear
 
 | With pronoun | With noun subject |
 |---|---|
-| *'Okú ne 'alu.*<br><span class="translation">He is going.</span> | *'Oku 'alu 'a Sione.*<br><span class="translation">John is going.</span> |
-| *Na'á ne mohe.*<br><span class="translation">He slept.</span> | *Na'e mohe 'a Pita.*<br><span class="translation">Peter slept.</span> |
-| *Kuó ne hiva.*<br><span class="translation">He has sung.</span> | *Kuo hiva 'a Tēvita.*<br><span class="translation">David has sung.</span> |
+| *'Okú ne 'alu.*<br><span class="translation">He is going.</span> | *'Oku 'alu 'a Sione.*<br><span class="translation">Sione is going.</span> |
+| *Na'á ne mohe.*<br><span class="translation">He slept.</span> | *Na'e mohe 'a Pita.*<br><span class="translation">Pita slept.</span> |
+| *Kuó ne hiva.*<br><span class="translation">He has sung.</span> | *Kuo hiva 'a Tēvita.*<br><span class="translation">Tēvita has sung.</span> |
 
 > *Note:* This pattern applies only to the third person. To say "I went," you always use *na'á ku 'alu*. You cannot replace first-person or second-person pronouns with a noun-subject construction.
 
@@ -114,8 +114,8 @@ Whether the word after the tense marker is an action verb or a descriptive word,
 
 | Action verb | Descriptive word |
 |---|---|
-| *Na'e 'alu 'a Sione.*<br><span class="translation">John went.</span> | *Na'e hela'ia 'a Sione.*<br><span class="translation">John was tired.</span> |
-| *'Oku lele 'a Mele.*<br><span class="translation">Mary runs.</span> | *'Oku 'ita 'a Mele.*<br><span class="translation">Mary is angry.</span> |
+| *Na'e 'alu 'a Sione.*<br><span class="translation">Sione went.</span> | *Na'e hela'ia 'a Sione.*<br><span class="translation">Sione was tired.</span> |
+| *'Oku lele 'a Mele.*<br><span class="translation">Mele runs.</span> | *'Oku 'ita 'a Mele.*<br><span class="translation">Mele is angry.</span> |
 
 The word *puke* means "sick," *fiefia* means "happy," *hela'ia* means "tired," and *'ita* means "angry."
 
@@ -154,7 +154,7 @@ This chapter uses only verbs that take no object (intransitive verbs): *'alu* (g
 | **No object** (intransitive) | *Na'á ne lea.*<br><span class="translation">He spoke.</span> | *Na'e 'uha.*<br><span class="translation">It rained.</span> |
 | **Has an object** (transitive) | (covered in Chapter 19: Transitive Word Order) | (covered in Chapter 19: Transitive Word Order) |
 
-The transitive pattern with noun subjects uses a different marker (*'e* instead of *'a*) and is covered in Chapter 19: Transitive Word Order. All noun subjects use *'a*.
+The transitive pattern with noun subjects uses a different marker (*'e* instead of *'a*) and is covered in Chapter 19: Transitive Word Order. All noun subjects in this chapter, where the verb takes no object, use *'a*.
 
 ---
 
@@ -165,15 +165,15 @@ When you ask a question about a noun subject, the interrogative word goes betwee
 ::: {.examples}
 *'Oku lele ki fē 'a Mele?* Where is Mele running to?
 
-*Na'e mohe 'i fē 'a Pita?* Where did Peter sleep?
+*Na'e mohe 'i fē 'a Pita?* Where did Pita sleep?
 :::
 
 In statements, the noun subject follows the verb directly, and other phrases come after the subject. In questions, the question word slots in between the verb and the noun subject, pushing the subject to the end:
 
 | Statement | Question |
 |---|---|
-| *'Oku nofo 'a Ana 'i 'api.*<br><span class="translation">Ana lives at home.</span> | *'Oku nofo 'i fē 'a Ana?*<br><span class="translation">Where does Ana live?</span> |
-| *Na'e 'alu 'a Tēvita ki 'api.*<br><span class="translation">David went home.</span> | *Na'e 'alu ki fē 'a Tēvita?*<br><span class="translation">Where did David go?</span> |
+| *'Oku nofo 'a 'Ana 'i 'api.*<br><span class="translation">'Ana lives at home.</span> | *'Oku nofo 'i fē 'a 'Ana?*<br><span class="translation">Where does 'Ana live?</span> |
+| *Na'e 'alu 'a Tēvita ki 'api.*<br><span class="translation">Tēvita went home.</span> | *Na'e 'alu ki fē 'a Tēvita?*<br><span class="translation">Where did Tēvita go?</span> |
 
 This same principle applies to the predicate locational pattern you already know. With a pronoun, you say *'okú ne 'i fē?* (where is he?). With a noun subject:
 
@@ -210,9 +210,9 @@ With pronoun subjects, negation uses *'ikai te* before the pronoun:
 With noun subjects, negation uses *'ikai ke* instead:
 
 ::: {.examples}
-*Na'e 'ikai ke 'alu 'a Sione.* John did not go.
+*Na'e 'ikai ke 'alu 'a Sione.* Sione did not go.
 
-*'Oku 'ikai ke puke 'a Pita.* Peter is not sick.
+*'Oku 'ikai ke puke 'a Pita.* Pita is not sick.
 :::
 
 The key distinction: noun subjects require *'ikai ke*, not *'ikai te*. The contrast:
@@ -231,10 +231,10 @@ Here is the complete set of forms for a single verb (*'alu*, go) comparing prono
 
 | Tense | Pronoun subject (3sg) | Noun subject |
 |---|---|---|
-| Present | *'Okú ne 'alu.*<br><span class="translation">He is going.</span> | *'Oku 'alu 'a Sione.*<br><span class="translation">John is going.</span> |
-| Perfect | *Kuó ne 'alu.*<br><span class="translation">He has gone.</span> | *Kuo 'alu 'a Sione.*<br><span class="translation">John has gone.</span> |
-| Past | *Na'á ne 'alu.*<br><span class="translation">He went.</span> | *Na'e 'alu 'a Sione.*<br><span class="translation">John went.</span> |
-| Future | *Té ne 'alu.*<br><span class="translation">He will go.</span> | *'E 'alu 'a Sione.*<br><span class="translation">John will go.</span> |
+| Present | *'Okú ne 'alu.*<br><span class="translation">He is going.</span> | *'Oku 'alu 'a Sione.*<br><span class="translation">Sione is going.</span> |
+| Perfect | *Kuó ne 'alu.*<br><span class="translation">He has gone.</span> | *Kuo 'alu 'a Sione.*<br><span class="translation">Sione has gone.</span> |
+| Past | *Na'á ne 'alu.*<br><span class="translation">He went.</span> | *Na'e 'alu 'a Sione.*<br><span class="translation">Sione went.</span> |
+| Future | *Té ne 'alu.*<br><span class="translation">He will go.</span> | *'E 'alu 'a Sione.*<br><span class="translation">Sione will go.</span> |
 
 ---
 
@@ -253,9 +253,6 @@ Here is the complete set of forms for a single verb (*'alu*, go) comparing prono
 | *puke* | adjective | sick |
 | *vela* | adjective | hot |
 | *'afua* | adjective | fine, clear (weather) |
-| *Pita* | name | Peter |
-| *Kepu* | name | Kepu |
-| *Lātū* | name | Lātū |
 
 ---
 
@@ -282,9 +279,9 @@ Here is the complete set of forms for a single verb (*'alu*, go) comparing prono
 
 #### Exercise 3: Translate into Tongan
 
-1. Mary is singing.
-2. Peter went to town.
-3. David has arrived.
+1. Mele is singing.
+2. Pita went to town.
+3. Tēvita has arrived.
 4. It rained yesterday.
 5. It is sunny today.
 6. Kepu slept at home.
@@ -299,11 +296,11 @@ Here is the complete set of forms for a single verb (*'alu*, go) comparing prono
 
 #### Exercise 5: Translate into Tongan using noun subjects and the negative
 
-1. John is not going.
-2. Peter did not sleep.
-3. Mary was not happy.
+1. Sione is not going.
+2. Pita did not sleep.
+3. Mele was not happy.
 4. Kepu is not sick.
-5. David did not come.
+5. Tēvita did not come.
 
 #### Exercise 6: Translate into Tongan
 
@@ -319,10 +316,10 @@ Here is the complete set of forms for a single verb (*'alu*, go) comparing prono
 
 #### Exercise 1
 
-1. Mary will go.
-2. Peter slept at home.
+1. Mele will go.
+2. Pita slept at home.
 3. Siale is singing.
-4. David has arrived.
+4. Tēvita has arrived.
 5. Kepu ran.
 6. It rained last night.
 7. It is sunny today.
@@ -347,9 +344,9 @@ Here is the complete set of forms for a single verb (*'alu*, go) comparing prono
 
 #### Exercise 4
 
-1. Where is John going? / John is going to town.
-2. Where did Mary sleep? / Mary slept at home.
-3. Is Peter sick? / Yes, he is very sick.
+1. Where is Sione going? / Sione is going to town.
+2. Where did Mele sleep? / Mele slept at home.
+3. Is Pita sick? / Yes, he is very sick.
 4. Was Kepu happy? / Yes, he was very happy.
 5. Where is Sēmisi? / He is in town.
 

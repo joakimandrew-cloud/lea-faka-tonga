@@ -125,10 +125,10 @@ The word *'ilonga* *(whoever, whatever, whichever)* introduces a clause that ref
 The structure is *'ilonga* + clause describing the kind of person or thing, followed by the main clause. The word *ia* often appears after *'ilonga* as a grammatical filler, though it is not always present.
 
 ::: {.examples}
-*'Ilonga ha feitu'u 'oku mau 'i ai, 'oku 'i ai foki mo e 'Otuá.* Wherever we are, God is also there.
+*'Ilonga ha kolo 'oku mau 'i ai, 'oku 'i ai foki mo e 'Otuá.* Whatever town we are in, God is also there.
 :::
 
-Here *'ilonga* applies to a place (*feitu'u*) rather than a person. The construction works the same way: *'ilonga* + indefinite noun + relative clause, then the main clause.
+Here *'ilonga* applies to a place (*kolo*, town) rather than a person. The construction works the same way: *'ilonga* + indefinite noun + relative clause, then the main clause.
 
 ::: {.examples}
 *'Ilonga 'a kinautolu 'oku nau nofo 'i Vava'ú, 'e fetukutuku kinautolu ki Tongatapu.* All those who live in Vava'u, whoever they are, will be removed to Tongatapu.
@@ -157,7 +157,7 @@ The adjective *kehe* *(different)* has three idiomatic uses that go beyond its b
 
 *Kehe ke*. (or *kae kehe ke*) introduces a condition that must be met. The clause after *ke* states what is required. The meaning is: everything else is flexible, but this one condition matters. Compare this with *kapau* (if): *kapau* introduces a condition that may or may not be true, while *kehe ke* introduces the one condition the speaker insists on.
 
-*Kehe pē ke tau fai ki hotau tūkuingata.* The one thing that matters is that we do our best.
+*Kehe pē ke tau ngāue mālohi.* The one thing that matters is that we work hard.
 :::
 
 Here *kehe pē ke* (with the limiter *pē*) narrows the condition further: just this one thing, nothing else.
@@ -227,6 +227,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 | *'ilonga* | pronoun | whoever, whatever, whichever |
 | *kehe* | adjective/conjunction | different; nevertheless (*kae kehe*); provided that (*kehe ke*) |
 | *faifai* | verb | by and by, as time went on |
+| *mo'oni* | noun/adjective | truth; true |
 
 ---
 
@@ -236,7 +237,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 
 1. *Kapau 'okú ne fiekaia, té u kuki.*
 2. *Na'á ne lele lolotonga na'á ku mohe.*
-3. *Té u nofo heni kae'oua ke nau ha'u mai.*
+3. *Té u nofo heni kae'oua ke nau foki mai.*
 4. *'I he 'osi 'ene ngāue, pea ne kai.*
 5. *Neongo 'eku fiekaia, ka té u ngāue pē.*
 6. *'E sai 'a e me'á 'o kapau té ke tokoni mai.*
@@ -261,9 +262,9 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 #### Exercise 4: Fill in the blank with the correct conjunction
 
 1. _____ té ke ako, 'e sai ho'o ngāue.
-2. Té u nofo heni _____ ke nau ha'u mai.
+2. Té u nofo heni _____ ke nau foki mai.
 3. Na'á ku lau tohi _____ na'á ne mohe.
-4. _____ 'eku mo'ua, ka té u tokoni atu pē.
+4. _____ 'eku hela'ia, ka té u tokoni atu pē.
 5. _____ 'osi 'ene hiva, pea ne kai.
 
 #### Exercise 5: Rewrite each sentence, moving the "if" clause to the opposite position. Remember: use *'o kapau* when the condition follows the result, and *kapau* alone when it comes first
@@ -278,16 +279,16 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 1. _____ ia 'oku fie ako pea ha'u ki he akó. (Whoever wants to study should come to school.)
 2. Na'e mamafa 'a e ngāué, _____, na'á nau 'osi ia. (The work was heavy, nevertheless, they finished it.)
 3. _____ pē ke ke fanongo ki ho'o fa'ē. (The one thing that matters is that you listen to your mother.)
-4. Pea _____ pea mālōlō 'a e matangí. (And by and by the wind died down.)
+4. Pea _____ pea 'osi 'a e matangí. (And by and by the wind stopped.)
 5. Na'e 'ikai 'ene pa'anga, _____ ke ne feinga. (He had no money, provided that he try.)
 
 #### Exercise 7: Translate into English
 
 1. *'Ilonga ia 'oku fie ha'u pea ha'u ki heni.*
 2. *Na'e faingata'a 'a e halá, kae kehe, na'á nau a'u ki he kolo.*
-3. *Pea faifai pea mālōlō 'a e matagi ko iá.*
+3. *Pea faifai pea 'osi 'a e matangí ko iá.*
 4. *Kehe pē ke ke 'alu ki he akó.*
-5. *'Ilonga ha feitu'u 'oku mau 'i ai, 'oku 'i ai foki mo e 'Otuá.*
+5. *'Ilonga ha kolo 'oku mau 'i ai, 'oku 'i ai foki mo e 'Otuá.*
 6. *'I he faifai na'á nau 'ilo 'a e mo'oní.*
 
 ---
@@ -341,13 +342,13 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 2. *kae kehe*
 3. *Kehe*
 4. *faifai*
-5. *kae kehe*
+5. *kehe ke*
 
 #### Exercise 7
 
 1. Whoever wants to come, come here.
 2. The road was difficult, nevertheless, they reached the town.
-3. And by and by that wind died down.
+3. And by and by that wind stopped.
 4. The one thing that matters is that you go to school.
-5. Wherever we are, God is also there.
+5. Whatever town we are in, God is also there.
 6. In the course of time they came to know the truth.

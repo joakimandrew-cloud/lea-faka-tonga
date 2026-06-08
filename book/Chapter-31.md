@@ -62,7 +62,6 @@ You met *fo'i* in Chapter 20 as the classifier that singles out one individual u
 | *ha fo'i moli* | an orange |
 | *ha fo'i moa* | an egg |
 | *ha fo'i mā* | a loaf (of bread) |
-| *ha fo'i maka* | a stone, a rock |
 
 Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some coconuts, or even a coconut tree, depending on context. *Ha fo'i niu* means specifically one coconut.
 
@@ -120,6 +119,7 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 | *kakai* | noun | people |
 | *mahaki* | noun | sickness |
 | *palopalema* | noun | problem |
+| *kātoanga* | noun | celebration, festival |
 
 ---
 

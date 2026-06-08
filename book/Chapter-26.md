@@ -11,10 +11,10 @@ Tongan uses the word *ke* to introduce a part of the sentence that depends on th
 *Kole* *(ask, request)*. *Sio* *(see, look at)*.
 
 ::: {.examples}
-*Té u kole kia Mele ke ne ha'u mai.* I will ask Mele to come. (Lit. "I will ask to Mele that she come hither")
+*Té u kole kia Mele ke ne ha'u.* I will ask Mele to come. (Lit. "I will ask to Mele that she come")
 :::
 
-The main clause (*Té u kole kia Mele*) can stand alone. The *ke* clause (*ke ne ha'u mai*) cannot: it tells you the purpose of asking.
+The main clause (*Té u kole kia Mele*) can stand alone. The *ke* clause (*ke ne ha'u*) cannot: it tells you the purpose of asking.
 
 After *ke*, pronouns take the same forms as after tense markers: *ke u* (that I), *ke ke* (that you), *ke ne* (that he/she), *ke nau* (that they).
 
@@ -38,7 +38,7 @@ The doubled *ke ke* is correct. The first *ke* is the subordinator; the second i
 
 | Tongan | English |
 |---|---|
-| *Té u kole kia Mele ke ne ha'u mai.* | I will ask Mele to come. |
+| *Té u kole kia Mele ke ne ha'u.* | I will ask Mele to come. |
 | *Kuo nau ō mai ke lau 'a e tohí.* | They have come to read the book. |
 | *'Oku lelei ke fufulu leva 'a e valá.* | The clothes had better be washed at once. |
 | *'Oku lelei ke ke fufulu leva 'a e valá.* | You had better wash the clothes at once. |
@@ -95,11 +95,9 @@ Here *koe'uhi ke* means "in order to" or "so that." The *ke* introduces the purp
 
 In everyday speech, *koe'uhi* is frequently dropped before *ko* and *ke*. The meaning stays the same.
 
-*Té u foki koe'uhi ko Mele.* → *Té u foki ko Mele.*
-I will return for Mele's sake.
+*Té u foki koe'uhi ko Mele.* → *Té u foki ko Mele.* I will return for Mele's sake.
 
-*Na'á ku lea koe'uhi ke mahino kiate kinautolu.* → *Na'á ku lea ke mahino kiate kinautolu.*
-I spoke so that they would understand.
+*Na'á ku lea koe'uhi ke mahino kiate kinautolu.* → *Na'á ku lea ke mahino kiate kinautolu.* I spoke so that they would understand.
 
 Both the full and short forms are correct. The short form is more common in conversation.
 
@@ -197,7 +195,9 @@ The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and t
 | Tongan | Type | English |
 |--------|------|---------|
 | *kole* | verb | ask, request |
+| *hoko* | verb | happen, occur |
 | *tōmui* | adjective | late |
+| *tānaki* | verb | collect, gather |
 
 ---
 
@@ -278,7 +278,7 @@ The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and t
 
 #### Exercise 4
 
-1. *Té u kole kia Sione ke ne ha'u mai.*
+1. *Té u kole kia Sione ke ne ha'u.*
 2. *Na'a nau tānaki 'a e pa'angá ma'a Mele.*
 3. *'Oku langa e vaká mo'ou?*
 4. *'Oua té ke hiva, he 'okú ne mohe.*

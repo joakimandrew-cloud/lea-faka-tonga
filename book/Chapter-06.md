@@ -4,8 +4,7 @@ This chapter introduces location: the preposition *'i* (in, at, on), the questio
 
 ### The Preposition *'i*
 
-*Na'á ku mohe 'i fale* *(house).*
-I slept at the house. (Lit. "Was-I sleep at house")
+*Na'á ku mohe 'i fale* *(house).* I slept at the house. (Lit. "Was-I sleep at house")
 
 The word *'i* means "in," "at," or "on." It goes before a noun to show where something happens. A word that goes before a noun or pronoun to show its relationship to the rest of the sentence is called a preposition. English uses the same idea: "in the house," "at school," "on the table." Tongan *'i* does the work of all three, and has other uses you will meet later.
 
@@ -39,20 +38,15 @@ Two new place words: *'api* *(home)* and *kolo* *(town)*. With *'i*, these refer
 
 Five more place words: *siasi* *(church)*, *tahi* *(sea)*, *ngoue* *(plantation, garden)*, *mala'e* *(field, village green)*, and *hala* *(road, path)*. These work with *'i* the same way as *'api* and *kolo*.
 
-*'Oku mau 'alu ki siasi* *(church).*
-We go to church.
+*'Oku mau 'alu ki siasi* *(church).* We go to church.
 
-*Na'á ku nofo 'i tahi* *(sea).*
-I stayed at the sea.
+*Na'á ku nofo 'i tahi* *(sea).* I stayed at the sea.
 
-*'Okú ke ngāue 'i ngoue* *(plantation)?*
-Do you work in the plantation?
+*'Okú ke ngāue 'i ngoue* *(plantation)?* Do you work in the plantation?
 
-*Na'a nau 'alu ki mala'e* *(field).*
-They went to the field.
+*Na'a nau 'alu ki mala'e* *(field).* They went to the field.
 
-*Na'á ku lele 'i hala* *(road).*
-I ran on the road.
+*Na'á ku lele 'i hala* *(road).* I ran on the road.
 
 #### *Fale* + Verb
 
@@ -108,8 +102,7 @@ This chapter introduces three words for pointing to a place:
 
 You met the idea of a demonstrative earlier when you learned that *ni* in *'aho ni* points to something near the speaker. These three words work the same way, but they point to places. *Heni* and *hena* are tied to person: *heni* means where I am, *hena* means where you are. *Hē* is different. It points wherever the speaker indicates, whether near or far, and often comes with a gesture or nod.
 
-*Té u tangutu* *(sit down)* *pē hē.*
-I'll just sit over there.
+*Té u tangutu* *(sit down)* *pē hē.* I'll just sit over there.
 
 When paired with *'i*, the words *heni*, *hena*, and *hē* work as part of a location phrase, just like *'i 'api* or *'i kolo*. Sometimes *'i* is omitted, and the word works on its own as a single location word:
 

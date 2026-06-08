@@ -187,7 +187,7 @@ The short form *'Oku totonu ke 'oua* can stand on its own as an emphatic "don't,
 1. Sēmisi should help. (It is the right thing to do.)
 2. I must go at once. (It is necessary.)
 3. You should pray. (It is proper.)
-4. Ana must be sick. (It is certain.)
+4. 'Ana must be sick. (It is certain.)
 5. We should go back home. (It is the right thing.)
 
 ---
@@ -228,5 +228,5 @@ The short form *'Oku totonu ke 'oua* can stand on its own as an emphatic "don't,
 1. *'Oku totonu ke tokoni 'a Sēmisi.*
 2. *Kuo pau ke u 'alu leva.*
 3. *'Oku totonu ke ke lotu.*
-4. *Kuo pau ke puke 'a Ana.*
+4. *Kuo pau ke puke 'a 'Ana.*
 5. *'Oku totonu ke mau foki ki 'api.*

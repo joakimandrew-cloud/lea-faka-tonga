@@ -1,12 +1,12 @@
 # Chapter 44: The Definitive Accent System
 
-Building on the basic principle that definiteness shifts stress to a noun phrase's last vowel, this chapter covers the complete definitive accent system: semi-definiteness, groups within groups, suppressed groups, phrasal accents, emphasis, and the double-vowel phenomenon.
+Chapter 18: Definiteness and the Definitive Accent introduced the basic stress shift. This chapter shows the full system: how it works with nested phrases, dropped openings, opening phrases that carry the accent, and long vowels under stress.
 
 ---
 
 ### Three levels of definiteness, revisited
 
-Chapter 18: Definiteness and the Definitive Accent showed three levels of specificity. Now that you have worked through forty-four chapters of Tongan grammar, the system deserves a fuller treatment.
+Chapter 18: Definiteness and the Definitive Accent showed three levels of specificity. Here is the system in full.
 
 Consider these three sentences:
 
@@ -39,21 +39,21 @@ The difference between indefinite and semi-definite is subtle but real. Two patt
 The three-level system extends to possessive pronouns. Compare:
 
 ::: {.examples}
-*'Oku 'ikai ha'anau me'atokoní.* They have no provisions. (Indefinite: *ha'anau*.)
+*'Oku 'ikai ha'anau me'akaí.* They have no food. (Indefinite: *ha'anau*.)
 
-*Na'a nau 'omai 'enau me'atokoni.* They brought their provisions. (Semi-definite: *'enau*, no accent.)
+*Na'a nau 'omai 'enau me'akai.* They brought their food. (Semi-definite: *'enau*, no accent.)
 
-*'Oku fu'u si'i 'enau me'atokoní.* Their provisions are insufficient. (Definite: *'enau* with accent on the last vowel of the group.)
+*'Oku fu'u si'i 'enau me'akaí.* Their food is insufficient. (Definite: *'enau* with accent on the last vowel of the group.)
 :::
 
-The indefinite form *ha'anau* signals "any provisions of theirs" or "no provisions of theirs." The semi-definite form *'enau* (without accent) signals "their particular provisions." The definite form *'enau ... me'atokoní* (with accent) signals "those specific provisions we are talking about."
+The indefinite form *ha'anau* signals "any provisions of theirs" or "no provisions of theirs." The semi-definite form *'enau* (without accent) signals "their particular provisions." The definite form *'enau ... me'akaí* (with accent) signals "those specific provisions we are talking about."
 
 #### When English shows no difference, Tongan does
 
 English speakers often map *e*/*he* to "the" and *ha* to "a." This flattens Tongan's three levels into two. But consider:
 
 ::: {.examples}
-*Na'á ku misi 'anepō 'oku ou ta'aki hoku fo'i nifo.* I dreamt last night that I pulled out one of my teeth.
+*Na'á ku misi 'anepō 'oku ou to'o hoku fo'i nifo.* I dreamt last night that I took out one of my teeth.
 :::
 
 The speaker uses *hoku* (semi-definite), not *haku* (indefinite), because the dream was about one particular tooth. English cannot easily show this distinction. Tongan marks it with the possessive form.
@@ -89,15 +89,13 @@ The same principle applies to other nouns. The word *loki* *(room)* extends the 
 | *'i he loki mohé* | in the bedroom |
 | *'i he loki mohe fo'oú* | in the new bedroom |
 
-The nucleus (the core noun) is *fale* or *loki*. Each qualifier (*ako*, *motu'a*, *fo'ou*, *mohe*) extends the group, and the accent travels to the end. Think of the whole group as a single pronunciation unit: the accent always caps it off.
+The core noun is *fale* or *loki*. Each qualifier (*ako*, *motu'a*, *fo'ou*, *mohe*) extends the group, and the accent travels to the end. Think of the whole group as a single pronunciation unit: the accent always caps it off.
 
 Three more examples show the accent on different nouns:
 
-*Na'á ku sio ki he me'angāué* *(tool).*
-I looked at the tool.
+*Na'á ku sio ki he me'angāué* *(tool).* I looked at the tool.
 
-*'Oku lahi 'a e kavengá* *(responsibility).*
-The responsibility is great.
+*'Oku lahi 'a e kavengá* *(responsibility).* The responsibility is great.
 
 ::: {.examples}
 *Na'e 'alu e tangata mo 'ene me'angāue fo'oú.* The man went with his new tool.
@@ -137,35 +135,35 @@ Now *na'e fai 'aneafi* is an adjectival clause qualifying *fakataha*, and the ac
 
 ### Groups within groups
 
-A noun group can contain another noun group inside it. Each group is definite and each has its own definitive accent.
-
 ::: {.examples}
 *Ko e hā 'a e 'uhinga na'e 'ita ai 'a e faiakó kiate aú?* Why was the teacher angry with me?
 :::
 
-Two accents appear here. The inner noun group is *e faiako*, ending with *faiakó*. The outer noun group runs from *e 'uhinga* all the way to *au*, and its accent falls on *aú*. Each accent marks the end of its own group.
+Two accents appear. The smaller group inside is *e faiako* (the teacher), and its accent falls on *faiakó*. The larger group runs all the way from *e 'uhinga* to *au* (it's the whole "the reason why the teacher was angry with me"), and its accent lands on the final *aú*. Each accent marks the end of its own group.
 
-When the inner group happens to fall at the very end of the outer group, only one accent is needed:
+A noun group can contain another noun group inside it. Each one is definite on its own, and each gets its own definitive accent.
+
+When the smaller group falls at the very end of the larger one, a single accent does the job for both:
 
 ::: {.examples}
 *Ko e hā 'a e 'uhinga na'e 'ita ai kiate au 'a e faiakó?* (Same meaning, different word order.)
 :::
 
-Here *au* is no longer the last word of any group, so it loses its accent. The single accent on *faiakó* serves both the inner and outer groups at once.
+Here *au* is no longer the last word of any group, so it loses its accent. The single accent on *faiakó* covers both groups at once.
 
 ---
 
-### Partly suppressed groups
-
-Sometimes the beginning of a noun group, including its nucleus, is understood but not spoken. The definitive accent still appears, marking the end of the implied group.
-
-This happens most often in cleft sentences, the pattern *ko* + subject + *na'a ne* + verb introduced in Chapter 36: Cleft Sentences and Emphatic Word Order.
+### Dropped openings
 
 ::: {.examples}
 *Ko Mele na'á ne fai 'a e ngāué.* It was Mele who did the work.
 :::
 
-The accent on *ngāué* marks the end of the noun group *e ngāue*. But what about the structure of the sentence itself? The implied full form is: "The person who did the work was Mele." The noun group "[the person who] did the work" has its first part suppressed. The accent on the clause-final element signals that this understood group is definite.
+The accent on *ngāué* does two things at once. First, it marks the end of *e ngāue* (the work), the visible noun group. But there is also a larger group hiding behind the sentence: the full thought is "The person who did the work was Mele," and "the person who did the work" is itself a definite noun group. Its opening ("the person") has been dropped because the listener can supply it from context. The accent on *ngāué* also marks the end of *that* group.
+
+Tongan sometimes drops the opening of a noun group when context makes it recoverable. The accent still falls on the last spoken word, marking the end of the unspoken whole.
+
+This pattern is most common in cleft sentences, the *ko* + subject + *na'a ne* + verb structure introduced in Chapter 36: Cleft Sentences and Emphatic Word Order.
 
 Compare the non-cleft version:
 
@@ -173,29 +171,29 @@ Compare the non-cleft version:
 *Na'e fai 'a e ngāué 'e Mele.* Mele did the work.
 :::
 
-Here *ngāué* takes the accent simply as the last word of its own definite noun group, not because of any suppression.
+Here *ngāué* takes the accent simply as the last word of its own definite noun group. Nothing is being dropped.
 
-The same pattern appears in sentences expressing "it is ... that":
+The same pattern appears in sentences expressing "it is … that":
 
 ::: {.examples}
 *Ko ia 'oku ou pehē ai 'e aú, 'oku totonu ke fai leva 'a e ngāué.* That is why I say the work ought to be done at once.
 :::
 
-The accent on *aú* marks the end of the suppressed group "[the reason] for which I say."
+The accent on *aú* marks the end of the dropped opening "[the reason] for which I say."
 
 ---
 
 ### Phrasal and clausal definitive accents
 
-Sometimes a sentence begins with a phrase or clause that presents a definite person, thing, place, time, or situation. The speaker establishes this definite reference first, then says something about it. The last vowel of this opening phrase or clause takes the definitive accent, signalling its definiteness.
-
-#### Phrasal examples
-
 ::: {.examples}
 *Ko ho'o 'alú ki fē?* Where is it that you are going? (Lit. "Your going, to where?")
 :::
 
-Without the accent, *Ko ho'o 'alu ki fē?* is a casual question. With the accent on *'alú*, the question becomes more deliberate: "Where, specifically, is it that you are going?"
+Without the accent on *'alú*, *Ko ho'o 'alu ki fē?* would be a casual question. With the accent, it becomes more deliberate: "Where, specifically, is it that you are going?" The opening *ho'o 'alu* (your going) is functioning here as a definite reference: it picks out a specific thing the rest of the sentence asks about, and because that reference is definite, its last vowel takes the accent.
+
+This pattern extends from single phrases to whole clauses. When a sentence opens by establishing a definite reference (a specific person, thing, place, time, or moment) and then says something about it, the opening element takes the definitive accent, even though it isn't the grammatical subject.
+
+#### Phrasal examples
 
 ::: {.examples}
 *Ko 'eku 'alú ki Ma'ufanga.* My going is to Ma'ufanga. (It is to Ma'ufanga that I am going.)
@@ -203,7 +201,7 @@ Without the accent, *Ko ho'o 'alu ki fē?* is a casual question. With the accent
 *Ko 'ene 'itá kiate kitautolu.* His anger is at us. (It is with us that he is angry.)
 :::
 
-In each case, the opening phrase (*ho'o 'alu*, *'eku 'alu*, *'ene 'ita*) presents something definite, and the accent marks it.
+In each case, the opening phrase (*'eku 'alu*, *'ene 'ita*) presents something definite, and the accent marks it.
 
 #### Clausal examples
 
@@ -251,8 +249,6 @@ When a directional adverb is emphasized this way and is followed by a pronoun or
 
 ::: {.examples}
 *To'o maí iá.* Hand that to me. (emphatic)
-
-*Ha'u maí kiate aú.* Come to me. (emphatic)
 :::
 
 This emphatic use is limited to directional adverbs. It does not occur with verbs like *ha'u* or compound verbs like *'omai* where the adverb is already built into the verb.
@@ -261,9 +257,9 @@ This emphatic use is limited to directional adverbs. It does not occur with verb
 
 ### Double vowels under the definitive accent
 
-Chapter 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel. This section explains the full pattern.
+Chapter 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel. Here is how that works.
 
-The underlying principle: Tongan avoids placing a long vowel in a position where it would also carry the main stress. When the definitive accent forces stress onto a long vowel, the vowel splits into two short vowels, with stress on the second.
+Tongan does not stress long vowels under the definitive accent. When the accent would force stress onto a long vowel, the vowel splits into two short vowels, and the stress lands on the second.
 
 *hū* (to go in) → the verb stem *huufi* (to open officially, with suffix *-fi*)
 *fakahā* (to show) → *fakahaa'i* (to show, with suffix *-'i*)
@@ -274,7 +270,7 @@ When stress moves further along, the double vowel contracts back to a normal lon
 *huúfi* → *hūfí* (with further accent shift)
 *poó ni* → *pō ní* (with the accent carried to *ni*)
 
-#### Synthetic vs. analytic double vowels
+#### Two kinds of double vowels
 
 > *Note:* Not all double vowels in Tongan arise from long vowels splitting under stress. Some occur because two normal vowels from different parts of a compound word come together: *faka-* + *ava* produces *fakaava* (to open), where *aa* is simply two normal *a* vowels side by side. These "compound" double vowels do not contract into long vowels when stress shifts: *fakaavá'i* (not *fakāva'i*). The double vowels described above, which arise from long vowels splitting under stress, do contract back when stress moves away. This distinction is useful to know but rarely causes confusion in practice.
 
@@ -291,7 +287,9 @@ When stress moves further along, the double vowel contracts back to a normal lon
 | *falé* | noun | house (accent example) |
 | *loki* | noun | room |
 | *me'angāue* | noun | tool |
-| *kavenga* | noun | responsibility, burden |
+| *kavenga* | noun | burden (also: load, responsibility) |
+| *nifo* | noun | tooth |
+| *misi* | noun/verb | dream; to dream |
 
 ---
 
@@ -316,7 +314,7 @@ Rewrite each sentence, adding the definitive accent (acute mark on the final vow
 2. *'Oku ou fiema'u ha kato.* (a basket, indefinite)
 3. *Na'á ku 'alu ki he fale ako.* (the school, definite)
 4. *'Oku lahi 'a e ngaahi ika 'i he tahi.* (the sea, definite)
-5. *Na'á ne 'omai e vala momoko.* (the warm clothes, definite)
+5. *Na'á ne 'omai e me'a lahi.* (the big thing, definite)
 
 #### Exercise 3: Groups within groups
 
@@ -338,8 +336,7 @@ Translate each English sentence into Tongan. The opening phrase should carry a p
 Rewrite each command in emphatic form by adding the definitive accent to the directional adverb.
 
 1. *'Alu atu 'o tokoni.*
-2. *Ha'u mai ki heni.*
-3. *To'o mai 'a e tohí.*
+2. *To'o mai 'a e tohí.*
 
 #### Exercise 6: Double vowels
 
@@ -368,7 +365,7 @@ For each word, write the form that appears when the definitive accent falls on t
 2. *'Oku ou fiema'u ha kato.* (no accent, indefinite)
 3. *Na'á ku 'alu ki he fale akó.*
 4. *'Oku lahi 'a e ngaahi ika 'i he tahí.*
-5. *Na'á ne 'omai e vala momokó.*
+5. *Na'á ne 'omai e me'a lahí.*
 
 #### Exercise 3
 
@@ -384,8 +381,7 @@ For each word, write the form that appears when the definitive accent falls on t
 #### Exercise 5
 
 1. *'Alu atú 'o tokoni.*
-2. *Ha'u maí ki hení.*
-3. *To'o maí e tohí.*
+2. *To'o maí 'a e tohí.*
 
 #### Exercise 6
 

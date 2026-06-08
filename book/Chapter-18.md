@@ -64,15 +64,15 @@ The same accent shift applies to other nouns. The word *koloa* *(wealth, goods)*
 *Na'á ku sio ki he koloá.* I looked at the goods.
 :::
 
-The word *talavou* *(young man)* becomes *talavo'ú* when definite:
+The word *talavou* *(young man)* becomes *talavoú* when definite:
 
 ::: {.examples}
-*Na'e ha'u 'a e talavo'ú.* The young man came.
+*Na'e ha'u 'a e talavoú.* The young man came.
 
-*'Oku fiefia 'a e talavo'ú.* The young man is happy.
+*'Oku fiefia 'a e talavoú.* The young man is happy.
 :::
 
-When a definite noun phrase gets longer, the definitive accent always moves to the end of the whole group:
+When a definite noun phrase gets longer, the definitive accent moves to the end of the whole noun group:
 
 | Tongan | English |
 |---|---|
@@ -82,7 +82,7 @@ When a definite noun phrase gets longer, the definitive accent always moves to t
 | *e koloá* | the wealth |
 | *e koloa lahí* | the great wealth |
 
-The word *akó* *(school, to learn)* is a modifier. The word *fo'ou* *(new)* adds another modifier. No matter how many words follow the noun, the stress always lands on the last vowel of the full noun phrase.
+The word *akó* *(school, to learn)* is a modifier. The word *fo'ou* *(new)* adds another modifier. No matter how many adjectives or qualifying words follow the noun, the stress lands on the last vowel of the full noun group.
 
 #### Long vowels and the definitive accent
 

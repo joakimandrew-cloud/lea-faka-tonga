@@ -134,7 +134,7 @@ The word *telia* without *na'a* takes a different meaning entirely: "for the sak
 ::: {.examples}
 *'Ai homou ta'ovala telia 'a Nuku.* Put on your ta'ovalas out of respect for Nuku.
 
-*Kuo fai eni 'e he tu'í telia e kaha'u 'o Tongá.* The king has done this for the sake of Tonga's future.
+*Kuo fai eni 'e he tu'í telia 'a e fonuá.* The king has done this for the sake of the country.
 :::
 
 This *telia* expresses deference or consideration. The speaker is explaining why something should be done (or was done), and the reason is respect or concern for someone or something.
@@ -177,12 +177,12 @@ The expressions in this chapter (warnings, hopes, permissions) share a common th
 
 #### *'Apē*: perhaps, I guess
 
-*'Apē* introduces conjecture or a gentle suggestion. It does not appear after interrogative words (*hai*, *hā*, *fē*).
+*'Apē* introduces conjecture or a gentle suggestion. It is normally avoided directly after the interrogatives *hai* and *fē*, though *hā*-initial questions such as *Ko e hā 'apē...?* ("what could the reason be?") do occur.
 
 ::: {.examples}
 *'E ha'u 'apē 'a e vakapuná 'apongipongi?* Is the airplane coming tomorrow? (I guess it might)
 
-*'Oku kei ngāue 'apē 'a 'Ana pe 'ikai?* Does Ana still work or not?
+*'Oku kei ngāue 'apē 'a 'Ana pe 'ikai?* Does 'Ana still work or not?
 
 *Ko e hā 'apē 'a e me'a 'oku 'ita ai 'a e pulé?* Why is the boss angry? (what could the reason be)
 :::
@@ -194,7 +194,7 @@ The expressions in this chapter (warnings, hopes, permissions) share a common th
 ::: {.examples}
 *Té ke ha'u koā pe 'ikai?* Are you coming or not? (I need a clear answer)
 
-*'Oku nofo koā heni 'a Sione?* Does John live here? (please tell me)
+*'Oku nofo koā heni 'a Sione?* Does Sione live here? (please tell me)
 
 *Ko e hā koā e me'a te tau fai?* What on earth are we going to do?
 :::
@@ -236,7 +236,7 @@ The idiom *'ikai koā* introduces a fact, like "as a matter of fact" or "to tell
 | Tongan | Type | English |
 |--------|------|---------|
 | *siví* | noun | exam, test |
-| *kaā* | noun | car |
+| *kā* | noun | car |
 | *ta'ovala* | noun | waist mat (formal wear) |
 | *fakakaukau* | verb | think, consider |
 | *a'u* | verb | arrive, reach |
@@ -357,7 +357,7 @@ Each sentence below contains a blank. Choose the correct adverb from the box. Ea
 1. *Tuku ke vaʻinga e fānau.*
 2. *'Ofa pē ké ke fiefia.*
 3. *Vave mai na'á ke tōmui.*
-4. *Na'a kuo ne hela'ia.*
+4. *Na'a kuo ne hela.*
 5. *Mou ako mālohi, teliá na'a mou tō he siví.*
 6. *'Ofa pē 'oku nau mo'ui lelei.*
 7. *Tuku ké u tokoni.*

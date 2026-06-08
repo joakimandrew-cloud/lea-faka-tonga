@@ -285,7 +285,7 @@ You already know *faingata'a* (difficult) from earlier chapters. Now you can see
 | *founga* | noun | method, way |
 | *ākonga* | noun | student, pupil |
 | *toenga* | noun | remainder |
-| *tu'unga* | noun | foundation, basis |
+| *tu'unga* | noun | stand, ladder; rank, status |
 | *koloa'ia* | adjective | wealthy |
 | *mamahi'ia* | adjective | in pain, aggrieved |
 | *ilifia* | adjective | afraid |

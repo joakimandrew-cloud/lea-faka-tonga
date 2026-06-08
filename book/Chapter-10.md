@@ -7,23 +7,23 @@ The preposition *mo* means "with" in the sense of "together with." With *mo*, yo
 ### *Mo*: With, Together With
 
 ::: {.examples}
-*Na'á ku 'alu mo Sione.* I went with John.
+*Na'á ku 'alu mo Sione.* I went with Sione.
 :::
 
 The preposition *mo* goes directly before a person's name to show accompaniment. It works like the prepositions you already know: it sits in the sentence after the verb and any location phrases.
 
 ::: {.examples}
-*'Oku ou nofo 'i Vava'u mo Mele.* I live in Vava'u with Mary.
+*'Oku ou nofo 'i Vava'u mo Mele.* I live in Vava'u with Mele.
 
-*Na'á ne ha'u mei Tonga mo Tēvita.* He came from Tonga with David.
+*Na'á ne ha'u mei Tonga mo Tēvita.* He came from Tonga with Tēvita.
 :::
 
 | Tongan | English |
 |---|---|
 | *Na'á ku 'alu mo 'Ofa.* | I went with Ofa. |
 | *'Oku ou ako mo Seini.* | I study with Seini. |
-| *Na'a mau hiva mo Sione.* | We sang with John. |
-| *Té ke nofo mo Ana?* | Will you stay with Ana? |
+| *Na'a mau hiva mo Sione.* | We sang with Sione. |
+| *Té ke nofo mo 'Ana?* | Will you stay with 'Ana? |
 
 The verb *ako* *(to study, to learn)* is intransitive, like *'alu* and *nofo*. It follows the same sentence pattern.
 
@@ -32,9 +32,9 @@ The verb *ako* *(to study, to learn)* is intransitive, like *'alu* and *nofo*. I
 The *mo* phrase fits naturally into longer sentences. Time words still come last:
 
 ::: {.examples}
-*Na'á ku 'alu ki kolo mo Sione 'aneafi.* I went to town with John yesterday.
+*Na'á ku 'alu ki kolo mo Sione 'aneafi.* I went to town with Sione yesterday.
 
-*Te tau hiva mo Mele 'apō.* We will sing with Mary tonight.
+*Te tau hiva mo Mele 'apō.* We will sing with Mele tonight.
 :::
 
 ---
@@ -42,23 +42,23 @@ The *mo* phrase fits naturally into longer sentences. Time words still come last
 ### *Mo* Connecting Names: And
 
 ::: {.examples}
-*Na'á ku lea kia Sione mo Mele.* I spoke to John and Mary.
+*Na'á ku lea kia Sione mo Mele.* I spoke to Sione and Mele.
 :::
 
-When *mo* appears between two names, it means "and." This is the same word doing double duty: *Sione mo Mele* means "John together-with Mary," which in practice means "John and Mary."
+When *mo* appears between two names, it means "and." This is the same word doing double duty: *Sione mo Mele* means "Sione together-with Mele," which in practice means "Sione and Mele."
 
 To list three or more names, repeat *mo* before each:
 
 ::: {.examples}
-*Tēvita mo Seini mo Lupe*. David, Seini, and Lupe
+*Tēvita mo Seini mo Lupe*. Tēvita, Seini, and Lupe
 
-*Na'a mau 'alu ki tahi mo Sēmisi mo Ana.* We went to the sea with Semisi and Ana.
+*Na'a mau 'alu ki tahi mo Sēmisi mo 'Ana.* We went to the sea with Sēmisi and 'Ana.
 :::
 
 | Tongan | English |
 |---|---|
-| *Sione mo 'Ofa* | John and Ofa |
-| *Mele mo Seini mo Ana* | Mary, Seini, and Ana |
+| *Sione mo 'Ofa* | Sione and Ofa |
+| *Mele mo Seini mo 'Ana* | Mele, Seini, and 'Ana |
 
 ---
 
@@ -74,7 +74,7 @@ When a motion verb like *'alu* (go) or *ha'u* (come) combines with *mo* and a th
 
 The word *e* before *tohí* *(book)* and *valá* *(clothes)* is the definite article you learned earlier. It marks a specific item: not any book, but *the* book.
 
-With a person's name, no article is needed. Whether *Na'á ku 'alu mo Sione* means "I went with John" or "I took John along" depends on context. The grammar is the same.
+With a person's name, no article is needed. Whether *Na'á ku 'alu mo Sione* means "I went with Sione" or "I took Sione along" depends on context. The grammar is the same.
 
 > *Note:* You may encounter the word *fakataha* *(together)* alongside *mo*. It reinforces the idea of accompaniment. It is not formally covered in this chapter.
 
@@ -146,9 +146,9 @@ The preposed modifier *kau* *(concerning, about)* is used with the *ki*-phrase t
 ::: {.examples}
 *Na'á ke fanongo kau ki he ngāué?* Did you hear about the work?
 
-*'Oku 'i ai ha me'a kau ki he akó?* Is there anything concerning the school?
+*Na'á ke lau kau ki he akó?* Did you read about the school?
 
-*Na'á ku lau ha tohi kau ki he hisitōlia 'o Tongá.* I read a book about the history of Tonga.
+*Na'á ku lau ha tohi kau ki Tongá.* I read a book about Tonga.
 :::
 
 ---
@@ -169,10 +169,10 @@ The preposed modifier *kau* *(concerning, about)* is used with the *ki*-phrase t
 | *hopo* | verb | jump |
 | *lau* | verb | read |
 | *tohi* | noun/verb | book; write |
-| *valā* | noun | clothes |
+| *vala* | noun | clothes |
 | *va'inga* | noun | game |
 | *hisitōlia* | noun | history |
-| *lotū* | noun | prayer, church service |
+| *lotu* | noun | prayer, church service |
 
 ---
 
@@ -185,16 +185,16 @@ The preposed modifier *kau* *(concerning, about)* is used with the *ki*-phrase t
 3. *Na'a mau hiva mo 'Ofa 'anepō.*
 4. *Té ke nofo mo Seini?*
 5. *Na'á ne ha'u mei Fisi mo Sione.*
-6. *Te tau 'alu ki tahi mo Ana 'apongipongi.*
+6. *Te tau 'alu ki tahi mo 'Ana 'apongipongi.*
 
 #### Exercise 2: Translate into Tongan
 
-1. I sang with David yesterday.
+1. I sang with Tēvita yesterday.
 2. Are you going to town with Ofa?
-3. We lived in Tonga with Semisi.
+3. We lived in Tonga with Sēmisi.
 4. She came from Vava'u with Lupe.
-5. I spoke to John and Mary.
-6. I will study with Ana tomorrow.
+5. I spoke to Sione and Mele.
+6. I will study with 'Ana tomorrow.
 
 #### Exercise 3: Fill in each blank with the correct preposition (*'i*, *ki*, *mei*, or *mo*)
 
@@ -208,7 +208,7 @@ The preposed modifier *kau* *(concerning, about)* is used with the *ki*-phrase t
 
 Example: *Na'á ku 'alu ki kolo.* (+ Sione) → *Na'á ku 'alu ki kolo mo Sione.*
 
-1. *'Oku ou ako.* (+ Ana)
+1. *'Oku ou ako.* (+ 'Ana)
 2. *Na'a mau hiva 'anepō.* (+ Mele)
 3. *Té ke nofo 'i Tonga?* (+ Tēvita)
 4. *Na'á ne ha'u mei Fisi.* (+ Sione)
@@ -219,7 +219,7 @@ Example: *Na'á ku 'alu ki kolo.* (+ Sione) → *Na'á ku 'alu ki kolo mo Sione.
 Example: *Na'á ku 'alu mo Sione.* (ia) → *Na'á ku 'alu mo ia.*
 
 1. *Na'a mau nofo mo Mele.* (ia)
-2. *Té ke ha'u mo Ana?* (kimautolu)
+2. *Té ke ha'u mo 'Ana?* (kimautolu)
 3. *Na'á ne 'alu ki kolo mo Sione.* (au)
 4. *'Oku ou ako mo Tēvita.* (koe)
 5. *Na'a mau hiva mo 'Ofa mo Seini.* (kinaua)
@@ -238,7 +238,7 @@ Example: Eat! (1 person) → *Kai!*
 
 1. *Na'á ku ha'u vakapuna mei Tonga mo ia 'aneafi.*
 2. *Te tau kai 'i fale kai mo Mele 'apongipongi.*
-3. *Na'a mau 'alu loli ki kolo mo Tēvita mo Ana.*
+3. *Na'a mau 'alu loli ki kolo mo Tēvita mo 'Ana.*
 4. *'Oku ou fanongo kia Sēmisi mo Lupe.*
 5. *Na'á ne lea kia 'Ofa mo Seini 'anepō.*
 6. *Mo ō mu'a!*
@@ -258,12 +258,12 @@ Example: Eat! (1 person) → *Kai!*
 
 #### Exercise 1
 
-1. I went to town with Mary.
-2. I study with David.
+1. I went to town with Mele.
+2. I study with Tēvita.
 3. We sang with Ofa last night.
 4. Will you stay with Seini?
-5. He came from Fiji with John.
-6. We will go to the sea with Ana tomorrow.
+5. He came from Fiji with Sione.
+6. We will go to the sea with 'Ana tomorrow.
 
 #### Exercise 2
 
@@ -272,19 +272,19 @@ Example: Eat! (1 person) → *Kai!*
 3. *Na'a mau nofo 'i Tonga mo Sēmisi.*
 4. *Na'á ne ha'u mei Vava'u mo Lupe.*
 5. *Na'á ku lea kia Sione mo Mele.*
-6. *Té u ako mo Ana 'apongipongi.*
+6. *Té u ako mo 'Ana 'apongipongi.*
 
 #### Exercise 3
 
-1. *ki*, *mo*. I went to town with John.
-2. *'i*, *mo*. I live in Tonga with Mary.
-3. *mei*, *mo*. We came from Ha'apai with David.
+1. *ki*, *mo*. I went to town with Sione.
+2. *'i*, *mo*. I live in Tonga with Mele.
+3. *mei*, *mo*. We came from Ha'apai with Tēvita.
 4. *'i*, *mo*. Will you sleep in the dormitory with Ofa?
 5. *ki*, *mo*. He went to the sea with Seini yesterday.
 
 #### Exercise 4
 
-1. *'Oku ou ako mo Ana.*
+1. *'Oku ou ako mo 'Ana.*
 2. *Na'a mau hiva mo Mele 'anepō.*
 3. *Té ke nofo 'i Tonga mo Tēvita?*
 4. *Na'á ne ha'u mei Fisi mo Sione.*
@@ -309,9 +309,9 @@ Example: Eat! (1 person) → *Kai!*
 #### Exercise 7
 
 1. I came by plane from Tonga with him yesterday.
-2. We will eat at the cafeteria with Mary tomorrow.
-3. We went by truck to town with David and Ana.
-4. I listen to Semisi and Lupe.
+2. We will eat at the cafeteria with Mele tomorrow.
+3. We went by truck to town with Tēvita and 'Ana.
+4. I listen to Sēmisi and Lupe.
 5. He spoke to Ofa and Seini last night.
 6. Please go! (you two)
 

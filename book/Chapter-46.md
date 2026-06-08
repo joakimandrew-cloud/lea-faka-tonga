@@ -6,9 +6,7 @@ Building on the personal-noun and local-noun distinction, this chapter covers th
 
 ### Two types of nouns
 
-Tongan divides all nouns into two main classes based on how they signal definiteness.
-
-**Self-defining nouns** are definite on their own. They do not need an article (*e*, *he*, or *ha*) and normally do not carry the definitive accent. The name *Sione* is already specific: there is no need to say "the Sione." The place name *Vava'u* is already specific: there is no need to say "the Vava'u."
+The name *Sione* is already specific: there is no need to say "the Sione." The place name *Vava'u* is already specific: there is no need to say "the Vava'u." Words like these are **self-defining nouns**: they are definite on their own. They do not take an article (*e*, *he*, or *ha*) and normally do not carry the definitive accent.
 
 **Common nouns** are everything else. They need an article to show definiteness. Compare:
 
@@ -27,11 +25,11 @@ Many nouns can be used both ways. The word *tahi* (sea) can be self-defining (*k
 
 Both personal nouns and local nouns are self-defining, but each type has an extension.
 
-#### Quasi-personal nouns
+#### Group words treated like personal names
 
 The collective noun *hou'eiki* (chiefs, nobility) is not a proper name, but Tongan treats it as one: *kia hou'eiki* (to the chiefs).
 
-#### Quasi-local nouns
+#### Other words treated like place names
 
 Beyond proper place names and familiar local nouns like *'api*, *kolo*, *fale*, and *tahi*, Tongan treats several other words as local nouns when they refer to general locations:
 
@@ -64,7 +62,7 @@ The previous chapter covered verbal noun constructions in detail. In the classif
 
 The possessive class signals the difference. The 'e-class (*'ene*) marks the doer. The ho-class (*hono*) marks the one acted upon, or names the thing or quality itself.
 
-This distinction extends to statives used as verbal or abstract nouns:
+The same distinction extends to words like *mālohi* (strong), which describe a state rather than an action:
 
 ::: {.examples}
 *'ene mālohi*. his being strong (a state: verbal noun)
@@ -94,7 +92,7 @@ The pattern applies to other verbs that take *'i* phrases:
 
 | Verb | With common noun (*'i he*) | With personal noun (*'ia*) |
 |---|---|---|
-| *'ofa* (love) | *'ofa he fefiné* | *'ofa 'ia Ana* |
+| *'ofa* (love) | *'ofa he fefiné* | *'ofa 'ia 'Ana* |
 | *'ita* (angry at) | *'ita he tamasi'í* | *'ita 'ia Sione* |
 | *sai'ia* (like) | *sai'ia he me'akaí* | *sai'ia 'ia Mele* |
 | *loto mamahi* (sad about) | *loto mamahi he ngāué* | *loto mamahi 'ia Lupe* |
@@ -155,6 +153,9 @@ Chapter 31: Existential Expressions introduced the classifier *fo'i* for single,
 | *tahi* | noun (quasi-local) | sea (as location type) |
 | *toafa* | noun (quasi-local) | wilderness, bush |
 | *'api* | noun (quasi-local) | homestead (as location type) |
+| *pepa* | noun | paper; a sheet of paper |
+| *papa* | noun | board |
+| *foomu* | noun | form (a document you fill in) |
 
 ---
 
@@ -185,7 +186,7 @@ For each noun, state whether it is personal, local, or common, then write the co
 #### Exercise 3: Translate into English
 
 1. *Na'á ne 'alu ki Vava'u.*
-2. *'Okú ne 'ofa 'ia Ana.*
+2. *'Okú ne 'ofa 'ia 'Ana.*
 3. *'Oku mālohi hono ngāué.*
 4. *Na'á ku lea kia hou'eiki.*
 5. *'Okú ne 'ita 'ia Sēmisi.*
@@ -238,7 +239,7 @@ For each pair of sentences, explain the difference in meaning.
 #### Exercise 3
 
 1. He went to Vava'u.
-2. He loves Ana.
+2. He loves 'Ana.
 3. His work is hard. (abstract noun with ho-class possessive: the quality of his work)
 4. I spoke to the chiefs.
 5. He is angry at Sēmisi.

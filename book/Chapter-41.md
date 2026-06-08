@@ -102,7 +102,7 @@ Some nouns appear directly after a verb to modify it, filling the role of an Eng
 ::: {.examples}
 *'Okú ne mohe 'aho.* He sleeps during the day. (*'aho*, day, acts as "during the day")
 
-*'Oku nau nofo 'uta.* They live in the interior. (*'uta*, inland, acts as "in the interior")
+*'Oku nau nofo tahi.* They live by the sea. (*tahi*, sea, acts as "by the sea")
 
 *'Oku mau nofo matatahi.* We live on the coast. (*matatahi*, coast, acts as "on the coast")
 :::
@@ -234,6 +234,11 @@ The difference between *ngali* and *ngalingali* is one of certainty. *Ngali* is 
 | *taki* | verb | lead |
 | *malanga* | noun/verb | sermon; to preach |
 | *fakakaukau* | noun/verb | thought; to think |
+| *fe'unga* | adjective | enough; suitable |
+| *tunu* | verb | to roast, to grill |
+| *ta'o* | verb | to bake |
+| *ta'ofi* | noun/verb | a brake; to hinder, to stop |
+| *fuhu* | noun/verb | a fight; to box |
 
 ---
 
@@ -252,7 +257,7 @@ State whether the word in parentheses functions as a noun, verb, adjective, or a
 
 #### Exercise 2: Translate Tongan to English
 
-1. *'Oku lā'ā he 'ahō ni.*
+1. *'Oku lā'ā he 'ahó ni.*
 2. *Na'á ku mohe 'aho.*
 3. *Ha loki tohi.*
 4. *'Oku nau fai ngāue.*

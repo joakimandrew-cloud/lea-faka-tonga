@@ -6,7 +6,7 @@ This chapter introduces comparison: how to say something is bigger, better, the 
 
 ### Comparative: adjective + *ange*
 
-English adds "-er" to make comparisons: taller, faster, stronger. Tongan places a separate word, *ange*, after the adjective or stative.
+In English, the adjective itself changes form: tall → taller, fast → faster. In Tongan, the adjective stays the same. You add the word *ange* after it.
 
 *Mālohi* *(strong)*. *Vave* *(fast)*.
 
@@ -78,7 +78,7 @@ Three words can go before the adjective to strengthen or soften the comparison. 
 ::: {.examples}
 *'Oku ki'i vave ange 'a e vaká 'i he pasikalá.* The boat is a little faster than the bicycle.
 
-*'Oku fu'u mālohi ange 'a Lōpeti 'i Simi.* Lōpeti is much stronger than Simi.
+*'Oku fu'u mālohi ange 'a Lōpeti 'ia Simi.* Lōpeti is much stronger than Simi.
 
 *'Oku toe lahi ange 'a e falé ni 'i he fale ko iá.* This house is still bigger than that house.
 :::
@@ -118,7 +118,7 @@ With a dual pronoun subject:
 
 Choose the right word for each blank.
 
-1. *'Oku lōloa \_\_\_ 'a Mele 'ia Ana.* Mele is taller than Ana.
+1. *'Oku lōloa \_\_\_ 'a Mele 'ia 'Ana.* Mele is taller than 'Ana.
 2. *'Oku vave \_\_\_ 'a e hōsi 'a Sione.* Sione's horse is the fastest.
 3. *'Oku \_\_\_ 'a e ongo kató.* The two baskets are the same.
 4. *'Oku \_\_\_ talavou ange 'a Peni 'ia Sione.* Peni is a little better-looking than Sione.
@@ -183,13 +183,13 @@ The preposed modifier *matu'aki* means "extremely," "exceedingly," or "absolutel
 ::: {.examples}
 *'Oku matu'aki 'ita 'a Seini.* Seini is exceedingly angry.
 
-*'Oku matu'aki totonu ke tau feohi.* It is absolutely right that we associate.
+*'Oku matu'aki totonu ke tau ngāue.* It is absolutely right that we work.
 :::
 
 *Matu'aki* can combine with *fu'u* for extra emphasis, with *fu'u* first:
 
 ::: {.examples}
-*Na'e fu'u matu'aki lelei e akó 'a Taniela.* Daniel's schoolwork was absolutely outstanding.
+*Na'e fu'u matu'aki lelei e akó 'a Taniela.* Taniela's schoolwork was absolutely outstanding.
 :::
 
 ---
@@ -291,14 +291,16 @@ The word order may feel inverted compared to English. The thing named first is t
 
 ### *Huanoa* (how much more)
 
+> **Preview:** *Kapau* means "if." It opens the first (lesser) clause of the *huanoa* pattern below. *Kapau* and the full conditional system are taught formally in Chapter 30: Temporal, Conditional, and Concessive Conjunctions. For now, just read *kapau* as "if."
+
 ::: {.examples}
-*Kapau 'okú ne 'ofa ki he fanga puaká, huanoa 'ene 'ofa ki he kakaí!* If he loves the pigs, how much more does he love the people.
+*Kapau 'okú ne 'ofa ki he fanga puaká, huanoa 'ene 'ofa ki he fānaú!* If he loves the pigs, how much more does he love his children.
 :::
 
 The word *huanoa* *(how much more)* introduces a comparison that amplifies the first statement. The pattern is: *kapau* (if) + first clause, *huanoa* + second clause. The logic is: if the lesser thing is true, how much more must the greater thing be true.
 
 ::: {.examples}
-*Kapau na'e lava ia 'e Mele, huanoa 'a Sione.* If Mary was able to do it, how much more Peter.
+*Kapau na'e lava ia 'e Mele, huanoa 'a Sione.* If Mele was able to do it, how much more Sione.
 
 *Kapau 'oku momoko 'a e 'aho ní, huanoa 'a Kanata.* If today is cold, how much more so is Canada.
 :::
@@ -306,7 +308,7 @@ The word *huanoa* *(how much more)* introduces a comparison that amplifies the f
 *Huanoa* does not always require *kapau*. It can appear after a standalone statement for rhetorical emphasis:
 
 ::: {.examples}
-*Na'a mo eni 'oku faka'ofo'ofa. Kae huanoa 'i he kuonga ko iá!* Even now it is beautiful. But how much more at that time.
+*Na'a mo eni 'oku faka'ofo'ofa. Kae huanoa 'i he taimi ko iá!* Even now it is beautiful. But how much more at that time.
 :::
 
 ---
@@ -332,7 +334,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 ::: {.examples}
 *'Oku lahi 'aupito 'a e fiekaiá 'i māmani, kae tautefito ki 'Eulopé.* There is great hunger in the world, particularly in Europe.
 
-*'Oku totonu ke tau tokoni ki he kakai vaivai, kae tautefito kiate kinautolu 'oku nau puké.* We should help people who are weak, especially those who are sick.
+*'Oku totonu ke tau tokoni ki he fānau vaivai, kae tautefito kiate kinautolu 'oku nau puké.* We should help children who are weak, especially those who are sick.
 :::
 
 ---
@@ -355,7 +357,9 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 |--------|------|---------|
 | *vave* | adjective | fast |
 | *talavou* | adjective | handsome, good-looking |
+| *maea* | noun | rope |
 | *kehekehe* | adjective | different |
+| *mātu'a* | noun | parents |
 | *meimei* | adverb | almost, nearly |
 | *mei* | adverb | almost (lighter form of *meimei*) |
 | *matu'aki* | adverb | extremely, absolutely |
@@ -363,6 +367,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 | *tautefito ki* | adverb phrase | especially, particularly |
 | *'āsili* | adverb | more so, increasingly |
 | *laka 'i* | verb phrase | surpass, exceed |
+| *māmani* | noun | world |
 
 ---
 
@@ -374,7 +379,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 2. *'Oku mālohi taha 'a Tēvita.*
 3. *'Okú na tatau.*
 4. *Na'e lele 'a Siaosi 'o hangē ha fu'u hōsí.*
-5. *'Oku ki'i sai ange 'a e me'akaí 'a Mele 'i he me'akaí 'a Ana.*
+5. *'Oku ki'i sai ange 'a e me'akaí 'a Mele 'i he me'akaí 'a 'Ana.*
 6. *'Oku fai kehekehe 'a e lea faka-Tongá mo e lea faka-Pālangi.*
 7. *'Oku meinei tatau 'a e ongo falé.*
 8. *'Oku fu'u vave ange 'a e vakapuná 'i he vaká.*
@@ -387,7 +392,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 4. The children are almost the same.
 5. She works like a teacher.
 6. The truck is a little faster than the bicycle.
-7. Mele's food is still better than Ana's food.
+7. Mele's food is still better than 'Ana's food.
 8. Lōpeti is the strongest.
 
 #### Exercise 3: Fill in the blank
@@ -421,7 +426,7 @@ Change each sentence from comparative to superlative, or from superlative to com
 #### Exercise 6: Translate Tongan to English
 
 1. *'Oku 'ange'ange 'a e momoko 'i Tongá he momoko 'i Nūsīlá.*
-2. *Kapau na'e lava ia 'e Ana, huanoa 'a Sione.*
+2. *Kapau na'e lava ia 'e 'Ana, huanoa 'a Sione.*
 3. *'Oku 'ange'ange ho'o ngāué he'eku ngāué.*
 4. *Kapau 'oku mālohi 'a Simi, huanoa 'a Lōpeti.*
 5. *Na'á ne ngāue 'o hangē ha fu'u hōsí.*
@@ -452,7 +457,7 @@ Change each sentence from comparative to superlative, or from superlative to com
 2. Tēvita is the strongest.
 3. They are the same.
 4. Siaosi ran like a great horse.
-5. Mele's food is a little better than Ana's food.
+5. Mele's food is a little better than 'Ana's food.
 6. The Tongan language is different from the English language.
 7. The two houses are almost the same.
 8. The airplane is much faster than the boat.
@@ -465,7 +470,7 @@ Change each sentence from comparative to superlative, or from superlative to com
 4. *'Oku meinei tatau 'a e kau tamaikí.*
 5. *'Okú ne ngāue 'o hangē ko e faiako.*
 6. *'Oku ki'i vave ange 'a e lolí 'i he pasikalá.*
-7. *'Oku toe sai ange 'a e me'akaí 'a Mele 'i he me'akaí 'a Ana.*
+7. *'Oku toe sai ange 'a e me'akaí 'a Mele 'i he me'akaí 'a 'Ana.*
 8. *'Oku mālohi taha 'a Lōpeti.*
 
 #### Exercise 3
@@ -495,7 +500,7 @@ Change each sentence from comparative to superlative, or from superlative to com
 #### Exercise 6
 
 1. The cold in Tonga is surpassed by the cold in New Zealand. (New Zealand is colder.)
-2. If Ana could do it, how much more Sione.
+2. If 'Ana could do it, how much more Sione.
 3. My work surpasses yours. (Lit. Your work is surpassed by my work.)
 4. If Simi is strong, how much more Lōpeti.
 5. He worked like a big horse.

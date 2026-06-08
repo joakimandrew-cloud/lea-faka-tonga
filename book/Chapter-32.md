@@ -17,17 +17,17 @@ When *faka-* is attached to a noun, it creates an adjective or adverb meaning "i
 
 Here *faka-Tonga* describes the style of *hiva* *(singing)* as Tongan.
 
-When *faka-* is attached to a proper place name, it is written with a hyphen: *faka-Tonga*, *faka-Pālangi*. With common nouns, it is written as one word: *fakatu'i*, *fakaako*.
+When *faka-* is attached to a proper place name, it is written with a hyphen: *faka-Tonga*, *faka-Pālangi*. With common nouns, it is written as one word: *fakatangata*, *fakaako*.
 
 | Noun | *faka-* form | Meaning |
 |---|---|---|
-| *tu'i* (king) | *fakatu'i* | kingly, royal |
+| *tangata* (man) | *fakatangata* | human, in a human manner |
 | *ako* (school, learning) | *fakaako* | pertaining to school, educational |
 | *Tonga* | *faka-Tonga* | Tongan, in the Tongan way |
 | *Pālangi* (European) | *faka-Pālangi* | in the European way |
 
 ::: {.examples}
-*'Okú ne haka fakatu'i.* He dances in a kingly manner.
+*'Okú ne haka fakatangata.* He dances in a human (not stylized) manner.
 :::
 
 ---
@@ -86,7 +86,7 @@ The idea behind *fakataha* is "to cause oneself to become one," to come together
 *Na'á ne fakamama'o mei he kolō.* He departed from the village.
 :::
 
-The distinction between transitive and reflexive causatives depends on the base word. Adjectives and transitive-sense verbs tend to produce transitive *faka-* forms (*fakamohe*, *fakalelei*). Adjectives and intransitive verbs that describe a state tend to produce reflexive *faka-* forms (*fakataha*, *fakamama'o*).
+Whether a *faka-* causative comes out transitive or reflexive is a property of the individual word and is best learned verb by verb. *Fakamohe* and *fakalelei* are transitive: the subject causes the action on someone or something else. *Fakataha* and *fakamama'o* are reflexive: the subject causes the action on themselves, or a group does it collectively.
 
 ---
 
@@ -182,7 +182,7 @@ The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka
 1. *Tonga*
 2. *mohe*
 3. *'aho*
-4. *tu'i*
+4. *tangata*
 5. *lelei*
 6. *uike*
 7. *taha*
@@ -220,9 +220,9 @@ The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka
 |---|---|
 | 1. *fakalelei* | a. daily |
 | 2. *faka-Tonga* | b. to straighten |
-| 3. *faka'aho* | c. kingly, royal |
+| 3. *faka'aho* | c. human, in a human manner |
 | 4. *fakatotonu* | d. to mend, repair |
-| 5. *fakatu'i* | e. Tongan, in the Tongan way |
+| 5. *fakatangata* | e. Tongan, in the Tongan way |
 
 ---
 
@@ -233,7 +233,7 @@ The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka
 1. *faka-Tonga*. Tongan, in the Tongan way
 2. *fakamohe*. to put to sleep
 3. *faka'aho*. daily
-4. *fakatu'i*. kingly, royal
+4. *fakatangata*. human, in a human manner
 5. *fakalelei*. to mend, to make good
 6. *fakauike*. weekly
 7. *fakataha*. to assemble, to gather together

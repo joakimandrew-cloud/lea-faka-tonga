@@ -13,7 +13,7 @@ When *ta'e-* appears before a noun, it means "without" that thing.
 ::: {.examples}
 *Na'e 'alu ta'e su 'a Maikolo.* Maikolo went without shoes.
 
-*'Oku ngāue ta'e totongi 'a Sēmisi.* Semisi is working without pay.
+*'Oku ngāue ta'e totongi 'a Sēmisi.* Sēmisi is working without pay.
 :::
 
 Here *su* *(shoes)* and *totongi* *(pay)* are the nouns being negated. The phrase *ta'e su* means "without shoes" and *ta'e totongi* means "without pay." The rest of the sentence keeps its normal word order.
@@ -39,7 +39,7 @@ When *ta'e-* appears before a verb or adjective, it creates the opposite meaning
 When *ta'e-* + adjective follows a noun, it works as a postposed modifier:
 
 ::: {.examples}
-*Ko e tangata ta'e 'ofa mo'oni 'a Tēvita.* Tevita is a truly unkind man.
+*Ko e tangata ta'e 'ofa mo'oni 'a Tēvita.* Tēvita is a truly unkind man.
 :::
 
 Here *mo'oni* *(truly)* intensifies *ta'e 'ofa*. The whole phrase *tangata ta'e 'ofa mo'oni* modifies the subject.
@@ -55,9 +55,9 @@ When *ta'e-* + word appears with a possessive pronoun, it can function as a noun
 When *ta'e-* introduces a phrase with *te* + pronoun + verb, it means "without someone doing something." This mirrors the *'ikai te* + pronoun pattern, but with *ta'e* in place of *'ikai*.
 
 ::: {.examples}
-*Na'e 'alu 'a Tēvita ta'e té ne tala mai.* Tevita went without telling me.
+*Na'e 'alu 'a Tēvita ta'e té ne tala mai.* Tēvita went without telling me.
 
-*Na'á ku ngāue kia Sēmisi ta'e té u ma'u ha me'a.* I worked for Semisi without receiving anything.
+*Na'á ku ngāue kia Sēmisi ta'e té u ma'u ha me'a.* I worked for Sēmisi without receiving anything.
 :::
 
 #### *Ta'e-* compared with *'ikai*
@@ -89,9 +89,9 @@ The word *tala'ehai* *(let no one say)* is an idiom meaning "let no one suppose"
 ::: {.examples}
 *Tala'ehai kuó ne ngalo'i kitautolu.* Let no one suppose he has forgotten us.
 
-*Na'á ku foki, he tala'ehai 'oku ou ilifia.* I returned, not because I am afraid. (Lit. "I returned, for let-no-one-suppose I am afraid")
+*Na'á ku foki, he tala'ehai 'oku ou puke.* I returned, not because I am sick. (Lit. "I returned, for let-no-one-suppose I am sick")
 
-*Tala'ehai ko Sēmisi na'á ne fai 'a e koví.* Let no one suppose Semisi did the bad deed.
+*Tala'ehai ko Sēmisi na'á ne fai 'a e koví.* Let no one suppose Sēmisi did the bad deed.
 :::
 
 The conjunction *he* (because, for) often introduces a *tala'ehai* clause, as in the second example. Despite being nearly equivalent to *'ikai*, *tala'ehai* always carries its original nuance of challenging what others might assume.
@@ -112,7 +112,7 @@ In the first example, the speaker expected a reply and is disappointed that none
 
 ### *Ne'ine'i*: no wonder
 
-The word *ne'ine'i* means "no wonder" or "it is not surprising that." It replaces the tense marker at the beginning of its clause, so the verb follows directly after it.
+The word *ne'ine'i* means "no wonder" or "it is not surprising that." It replaces the tense marker at the beginning of its clause. When the subject is a noun placed after the verb, as in all the examples below, the verb follows directly after *ne'ine'i*. When the subject is a preposed pronoun, the form becomes *ne'ine'i te* (for example *Ne'ine'i te nau fiefia*, "No wonder they were glad").
 
 ::: {.examples}
 *Ne'ine'i tangi 'a Seini he na'e puké.* No wonder Seini cried, she was sick.
@@ -170,7 +170,7 @@ Here *hola* *(run away)* and *mole* *(lose, be lost)* are verbs that follow *ne'
 3. *'E 'ikai pē ke ta'e 'osi 'a e ngāue ko iá.*
 4. *Koloto ke ne tokoni'i hono fāmilí.*
 5. *Ne'ine'i hola 'a Mele ia.*
-6. *Tala'ehai ko au na'á ku kaiha'a 'a e pa'angá.*
+6. *Tala'ehai ko au na'á ku fai 'a e koví.*
 7. *'Oku ta'e fe'unga 'ene ngāué.*
 8. *Na'á ku ngāue kia Sēmisi ta'e té u ma'u ha me'a.*
 
@@ -179,9 +179,9 @@ Here *hola* *(run away)* and *mole* *(lose, be lost)* are verbs that follow *ne'
 1. Sione is working without pay.
 2. His speech was unintelligible.
 3. I will certainly do this work.
-4. No wonder Tevita ran away.
+4. No wonder Tēvita ran away.
 5. He did not help his family at all.
-6. I returned, not because I am afraid.
+6. I returned, not because I am sick.
 
 #### Exercise 3: Transform with *ta'e-*
 
@@ -217,9 +217,9 @@ Match each Tongan expression with its English meaning.
 3. That work will certainly be completed.
 4. He did not help his family at all.
 5. No wonder Mele ran away.
-6. Let no one suppose I stole the money.
+6. Let no one suppose I did the bad deed.
 7. His work is inadequate.
-8. I worked for Semisi without receiving anything.
+8. I worked for Sēmisi without receiving anything.
 
 #### Exercise 2
 
@@ -228,7 +228,7 @@ Match each Tongan expression with its English meaning.
 3. *'E 'ikai té u ta'e fai e ngāué ni.*
 4. *Ne'ine'i hola 'a Tēvita ia.*
 5. *Koloto ke ne tokoni'i hono fāmilí.*
-6. *Na'á ku foki, he tala'ehai 'oku ou ilifia.*
+6. *Na'á ku foki, he tala'ehai 'oku ou puke.*
 
 #### Exercise 3
 
