@@ -6,10 +6,10 @@ const INTERVAL = 7000
 
 const slides = [
   {
-    eyebrow: 'For the words that connect you home',
-    headline: <>Duolingo<br />doesn&apos;t have<br />Tongan. <span className="accent">So we&apos;re building it.</span></>,
-    sub: '190,000 people speak Tongan. There’s almost nothing online to learn it. This is a free, community-edited course — built in the open for anyone learning, returning to, or keeping the language alive.',
-    provenance: 'Free · Community Edition · v0.x',
+    eyebrow: 'For the Tongan who can’t speak Tongan',
+    headline: <>The language<br />of your <span className="accent">family.</span></>,
+    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. A1 to B2, free, forever.',
+    provenance: 'Free · The only complete Tongan course',
   },
   {
     eyebrow: 'A complete arc, in progress',
