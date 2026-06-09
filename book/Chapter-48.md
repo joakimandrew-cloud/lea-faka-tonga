@@ -269,7 +269,7 @@ You already know *faingata'a* (difficult) from earlier chapters. Now you can see
 | *-ia* | suffix (stative) | state or condition |
 | *-ina* | suffix (stative) | state or condition |
 | *-'ia* | suffix | possessing; regarding as; emphasizing |
-| *-'i* | suffix (compound nouns) | of, pertaining to (replaces *'o*) |
+| *-'i* | suffix (compound nouns) | of, pertaining to (replaces *'o*) (also "makes verb transitive" (Ch 33)) |
 | *-ngata'a* | suffix | hard to, difficult to |
 | *-ngofua* | suffix | easy to |
 
@@ -280,7 +280,6 @@ You already know *faingata'a* (difficult) from earlier chapters. Now you can see
 | *nofo'anga* | noun | dwelling place |
 | *ako'anga* | noun | school, place of learning |
 | *ngāue'anga* | noun | workplace |
-| *mohenga* | noun | bed, sleeping place |
 | *vāhenga* | noun | salary, share |
 | *founga* | noun | method, way |
 | *ākonga* | noun | student, pupil |

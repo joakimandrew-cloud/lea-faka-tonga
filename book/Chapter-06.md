@@ -173,7 +173,7 @@ The question *Na'á ke 'i fē?* is one of the most common greetings in Tongan, a
 | *heni* | demonstrative (place) | here |
 | *hena* | demonstrative (place) | there (near you) |
 | *hē* | demonstrative (place) | over there |
-| *na* | demonstrative enclitic | that (near you) |
+| *na* | demonstrative enclitic | that (near you) (also "they two" (Ch 2)) |
 
 **New vocabulary** (memorize these meanings):
 

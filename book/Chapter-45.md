@@ -195,9 +195,6 @@ The possessive pronoun (*ho'o*, *'eku*) marks the subject using the 'e-class, be
 
 | Tongan | Type | English |
 |--------|------|---------|
-| *tō* | verb | plant |
-| *tā* | verb | strike, hit, build |
-| *fai* | verb | do, make |
 | *mālōlō* | verb | rest |
 | *mālie* | adjective | superb, well done |
 

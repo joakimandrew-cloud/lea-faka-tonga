@@ -285,7 +285,6 @@ When stress moves further along, the double vowel contracts back to a normal lon
 | *puhá* | noun | box (accent example) |
 | *tēpilé* | noun | table (accent example) |
 | *falé* | noun | house (accent example) |
-| *loki* | noun | room |
 | *me'angāue* | noun | tool |
 | *kavenga* | noun | burden (also: load, responsibility) |
 | *nifo* | noun | tooth |

@@ -250,9 +250,6 @@ Here is the complete set of forms for a single verb (*'alu*, go) comparing prono
 
 | Tongan | Type | English |
 |--------|------|---------|
-| *puke* | adjective | sick |
-| *vela* | adjective | hot |
-| *'afua* | adjective | fine, clear (weather) |
 
 ---
 

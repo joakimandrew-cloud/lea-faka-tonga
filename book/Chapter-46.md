@@ -152,7 +152,7 @@ Chapter 31: Existential Expressions introduced the classifier *fo'i* for single,
 | *ngoue* | noun (quasi-local) | garden, plantation |
 | *tahi* | noun (quasi-local) | sea (as location type) |
 | *toafa* | noun (quasi-local) | wilderness, bush |
-| *'api* | noun (quasi-local) | homestead (as location type) |
+| *'api* | noun (quasi-local) | homestead (as location type) (also "home" (Ch 6)) |
 | *pepa* | noun | paper; a sheet of paper |
 | *papa* | noun | board |
 | *foomu* | noun | form (a document you fill in) |

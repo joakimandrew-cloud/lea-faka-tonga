@@ -254,7 +254,7 @@ The rule: with things, the spatial noun goes directly before the noun. With peop
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *loto* | spatial noun | inside, interior |
+| *loto* | spatial noun | inside, interior (also "want" (Ch 36)) |
 | *lalo* | spatial noun | under, underneath |
 | *tu'a* | spatial noun | outside, behind |
 | *mui* | spatial noun | end, space behind |
@@ -262,7 +262,7 @@ The rule: with things, the spatial noun goes directly before the noun. With peop
 | *funga* | spatial noun | top, surface |
 | *tafa'aki* | spatial noun | side |
 | *ve'e* | spatial noun | beside, at the foot of |
-| *mu'a* | spatial noun | front, ahead of (esp. of people) |
+| *mu'a* | spatial noun | front, ahead of (esp. of people) (also "please" (Ch 5)) |
 
 **New vocabulary** (memorize these meanings):
 

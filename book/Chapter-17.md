@@ -197,7 +197,7 @@ With *ko*, the action is happening at this very moment. With *'oku*, the stateme
 | *homa* | ho-class dual possessive | our (exclusive, two) |
 | *ho'omo* | 'e-class dual possessive | your (two) |
 | *homo* | ho-class dual possessive | your (two) |
-| *'ena* | 'e-class dual possessive | their (two) |
+| *'ena* | 'e-class dual possessive | their (two) (also "that" (Ch 12)) |
 | *hona* | ho-class dual possessive | their (two) |
 | *'o* | possessive preposition (ho-class) | of |
 

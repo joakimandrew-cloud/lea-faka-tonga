@@ -186,7 +186,6 @@ The expression *na'a mo* before a pronoun or name (or *na'a mo e* before a commo
 | *ai* (in relative clauses) | relative connector | where, in which, that ... in |
 | *peheni* | manner demonstrative | like this |
 | *pehena* | manner demonstrative | like that (near you) |
-| *pehē* | manner demonstrative | like that, thus |
 | *na'a mo* | emphatic phrase | even |
 | *kae'uma'a* | conjunction | not to mention, let alone |
 

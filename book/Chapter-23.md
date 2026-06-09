@@ -140,7 +140,7 @@ The short form *'Oku totonu ke 'oua* can stand on its own as an emphatic "don't,
 |--------|----------|---------|
 | *totonu* | stative (in obligation) | correct, should (*'oku totonu ke*) |
 | *pau* | stative (in obligation) | certain, must (*kuo pau ke*) |
-| *ke* | subordinator (formalized) | that, to (links obligation to action) |
+| *ke* | subordinator (formalized) | that, to (links obligation to action) (also "you" (Ch 1)) |
 | *'oua na'a* | emphatic prohibition | should not (emphatic) |
 
 **New vocabulary** (memorize these meanings):

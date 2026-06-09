@@ -211,7 +211,7 @@ When a specific person is named as the one being asked, that person takes *'e*:
 | *ongoongo* | noun | news, announcement |
 | *'ai* | verb | place, put, set |
 | *'ā* | verb | wake up |
-| *tō* | verb | fall |
+| *tō* | verb | fall (also "plant" (Ch 17)) |
 | *puna* | verb | fly, jump |
 | *hū* | verb | enter |
 | *heka* | verb | ride, mount |

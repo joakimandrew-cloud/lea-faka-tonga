@@ -215,13 +215,12 @@ The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to w
 | *ngaohi* | verb | make, create |
 | *pule* | verb | be in charge, govern |
 | *maumau* | verb | be broken, wasted |
-| *puke* | verb | grab, hold, seize |
+| *puke* | verb | grab, hold, seize (also "sick" (Ch 9)) |
 | *teuteu* | verb | prepare |
 | *māfana* | adjective | warm |
 | *sipinga* | noun | pattern, model |
 | *fakatātā* | noun | example, illustration |
 | *matā* | verb | watch, observe |
-| *lava* | verb | be able, manage, be possible |
 | *lotu'i* | verb | pray for (transitive) |
 | *tokoni'i* | verb | help (transitive, specific person) |
 | *langa'i* | verb | build (transitive) |

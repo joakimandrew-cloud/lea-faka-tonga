@@ -266,7 +266,7 @@ These compounds follow all the standard patterns: they can appear after a noun (
 | *loto fo'i* | compound (loto) | cowardly |
 | *tupenu* | noun | waist-cloth, lava-lava |
 | *'akau* | noun | tree, plant |
-| *mei* | noun | breadfruit |
+| *mei* | noun | breadfruit (also "from" (Ch 7)) |
 | *maka* | noun | stone, rock |
 
 ---

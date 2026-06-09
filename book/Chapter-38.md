@@ -223,7 +223,7 @@ The idiom *'ikai koā* introduces a fact, like "as a matter of fact" or "to tell
 |--------|----------|---------|
 | *tuku ke* | permission phrase | let, allow |
 | *'ofa ke* | optative phrase | may, I hope that |
-| *na'a* | warning word | lest, or else; perhaps |
+| *na'a* | warning word | lest, or else; perhaps (also "marks an action as past" (Ch 1)) |
 | *telia na'a* | emphatic warning | lest (stronger) |
 | *telia* | preposition | for the sake of, out of respect for |
 | *fai mo ke* | imperative phrase | hurry up and |

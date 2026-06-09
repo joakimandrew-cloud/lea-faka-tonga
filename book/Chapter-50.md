@@ -295,7 +295,6 @@ The pattern is: repeat the verb with no intervening word, optionally lengthen th
 | Tongan | Type | English |
 |--------|------|---------|
 | *katakata* | verb | smile, laugh slightly |
-| *kehekehe* | adjective | different (various) |
 | *mu'omu'a* | adjective | early, in good time |
 | *mamata* | verb | look at, watch |
 | *pakipaki* | verb | break into many pieces |
@@ -310,7 +309,6 @@ The pattern is: repeat the verb with no intervening word, optionally lengthen th
 | *fakaalaala* | verb | be alert, be cautious |
 | *fakama'uma'u* | verb | be moderate, be restrained |
 | *faka'ai'ai* | verb | encourage |
-| *langi* | noun | sky |
 | *vao* | noun | bush, outback |
 | *langi* | noun | sky |
 

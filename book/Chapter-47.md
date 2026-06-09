@@ -180,9 +180,8 @@ The expression *heiʻilo* stands alone or introduces a clause to signal that the
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *ka* | conjunction (conditional) | when, if and when, whenever (future) |
+| *ka* | conjunction (conditional) | when, if and when, whenever (future) (also "but" (Ch 24)) |
 | *ka ne* | past conditional form | if ... had (counterfactual) |
-| *mei* | moderative adverb | nearly, would have |
 | *hei'ilo* | expression | who knows, perhaps |
 
 ---

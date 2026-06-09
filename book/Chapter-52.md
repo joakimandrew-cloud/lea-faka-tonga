@@ -174,7 +174,7 @@ This is an evaluative idiom, not a literal statement about a "thing." It is Tong
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *si'i* | emotional article (definite) | the (with pity, affection, or humility) |
+| *si'i* | emotional article (definite) | the (with pity, affection, or humility) (also "small" (Ch 16)) |
 | *si'a* | emotional article (indefinite) | a (with pity or affection) |
 | *si'eku* | emotional possessive ('e-class) | my (poor/dear) |
 | *si'oku* | emotional possessive (ho-class) | my (poor/dear) |

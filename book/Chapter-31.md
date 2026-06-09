@@ -103,7 +103,7 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 |--------|----------|---------|
 | *'i ai* | existential marker | there is, there are (with tense marker) |
 | *lahi* | quantifier (in existentials) | many, much |
-| *si'i* | quantifier (in existentials) | few, little |
+| *si'i* | quantifier (in existentials) | few, little (also "small" (Ch 16)) |
 | *'oku 'iai* | existential phrase | there is/are |
 | *na'e 'iai* | existential phrase (past) | there was/were |
 
@@ -112,9 +112,6 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 | Tongan | Type | English |
 |--------|------|---------|
 | *moli* | noun | orange |
-| *mango* | noun | mango |
-| *siaine* | noun | banana |
-| *me'akai* | noun | food |
 | *feitu'u* | noun | place, area |
 | *kakai* | noun | people |
 | *mahaki* | noun | sickness |

@@ -176,7 +176,7 @@ The interjection *tā* appears at the start of a sentence and signals the discov
 | *pehe'i* | transitive form of *pehē* | say to, do thus to |
 | *tokua* | reportative word | they say, it is said |
 | *ko ia* | inferential phrase | therefore, that is why |
-| *tā* | interjection | so! (discovery) |
+| *tā* | interjection | so! (discovery) (also "hit" (Ch 33)) |
 | *'oku pehē* | reported speech marker | it is said that, one says |
 
 **New vocabulary** (memorize these meanings):
@@ -187,9 +187,7 @@ The interjection *tā* appears at the start of a sentence and signals the discov
 | *'amanaki* | verb | hope, expect |
 | *fakapapau* | verb | confirm, make certain |
 | *fakahā* | verb | reveal, make known |
-| *mo'oni* | adjective | true, real |
 | *talanoa* | verb | chat, converse |
-| *falekoloa* | noun | shop, store |
 
 ---
 

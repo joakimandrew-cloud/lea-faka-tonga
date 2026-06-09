@@ -257,8 +257,6 @@ The same pattern applies to *si'i*, which means both "small" and "few":
 | Tongan | Type | English |
 |--------|------|---------|
 | *tangata* | noun | man |
-| *tamasi'i* | noun | boy, child |
-| *tamaiki* | noun | children (plural of *tamasi'i*) |
 | *fafine* | noun | women (plural of *fefine*) |
 | *'eiki* | noun | chief, lord |
 | *hou'eiki* | noun | chiefs (plural of *'eiki*) |

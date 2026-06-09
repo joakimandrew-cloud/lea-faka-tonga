@@ -159,7 +159,7 @@ The preposed modifier *kau* *(concerning, about)* is used with the *ki*-phrase t
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *mo* | preposition | with, together with; and |
+| *mo* | preposition | with, together with; and (also "you two" (Ch 2)) |
 | *kau ki* | preposition phrase | concerning, about |
 
 **New vocabulary** (memorize these meanings):

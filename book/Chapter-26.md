@@ -173,7 +173,7 @@ The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and t
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *he* | conjunction | for, because |
+| *he* | conjunction | for, because (also "the" (Ch 4)) |
 | *koe'uhi* | conjunction | because, in order that |
 | *ma'a* | preposition ('e-class) | for (someone's benefit) |
 | *mo'o* | preposition (ho-class) | for (someone's benefit) |

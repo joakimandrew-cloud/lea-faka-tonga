@@ -256,8 +256,8 @@ The expression *me'a e fiha* *(how many)* is a conversational way to ask about q
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *'e* | numeric particle | connects a number to a noun |
-| *mā* | numeric connector | and (in compound numbers) |
+| *'e* | numeric particle | connects a number to a noun (also "will" (Ch 9)) |
+| *mā* | numeric connector | and (in compound numbers) (also "bread" (Ch 3)) |
 | *toko* | people counter | precedes number when counting people |
 | *'uluaki* | ordinal word | first |
 | *kau* | group marker | marks a group of people |
@@ -271,7 +271,7 @@ The expression *me'a e fiha* *(how many)* is a conversational way to ask about q
 | *ua* | number | two |
 | *tolu* | number | three |
 | *fā* | number | four |
-| *nima* | number | five |
+| *nima* | number | five (also "hand" (Ch 17)) |
 | *ono* | number | six |
 | *hongofulu* | number | ten |
 | *uofulu* | number | twenty |
@@ -290,7 +290,6 @@ The expression *me'a e fiha* *(how many)* is a conversational way to ask about q
 | *miniti* | noun | minute |
 | *pongipongi* | time word | morning |
 | *ho'atā* | time word | midday |
-| *efiafi* | time word | afternoon, evening |
 | *po'uli* | time word | nighttime |
 | *mango* | noun | mango |
 | *siaine* | noun | banana |

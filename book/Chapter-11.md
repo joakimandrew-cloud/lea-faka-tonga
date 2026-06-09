@@ -241,12 +241,10 @@ The related form *fakafēfee'i* is more deliberate, requesting a precise or deta
 | Tongan | Type | English |
 |--------|------|---------|
 | *tau mai* | verb phrase | arrive |
-| *foki* | verb | return, go back |
 | *kamata* | verb | begin, start |
 | *langa* | verb | build |
 | *fahi* | verb | split |
 | *vahe* | verb | divide |
-| *siasi* | noun | church |
 | *māhina* | noun | month |
 | *laupapa* | noun | board, plank |
 | *kumala* | noun | sweet potato |

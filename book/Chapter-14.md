@@ -274,7 +274,7 @@ Each line in this exchange uses grammar you can now identify: *ko* identificatio
 | Tongan | Function | English |
 |--------|----------|---------|
 | *ā* | tonal adverb | softens commands, adds warmth |
-| *'e* | vocative particle | marks direct address before names |
+| *'e* | vocative particle | marks direct address before names (also "will" (Ch 9)) |
 | *'etau* | possessive pronoun (preview) | our (inclusive) |
 | *ho* | possessive pronoun (preview) | your |
 
@@ -284,7 +284,6 @@ Each line in this exchange uses grammar you can now identify: *ko* identificatio
 |--------|------|---------|
 | *mālō* | greeting word | congratulations, worthy of praise |
 | *sai* | adjective | good, well, fine |
-| *'ofa* | noun | love, kindness |
 | *lava* | verb | arrive, manage |
 | *fakamolemole* | polite word | pardon, excuse me |
 | *kātaki* | polite word | please; sorry |

@@ -346,7 +346,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 | Tongan | Function | English |
 |--------|----------|---------|
 | *ange* | comparative marker | more (after adjective) |
-| *taha* | superlative marker | most, -est (after adjective) |
+| *taha* | superlative marker | most, -est (after adjective) (also "one" (Ch 20)) |
 | *tatau* | stative | same, identical |
 | *hangē* | comparative verb | be like, as if |
 | *huanoa* | discourse word | how much more |
@@ -356,12 +356,12 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 | Tongan | Type | English |
 |--------|------|---------|
 | *vave* | adjective | fast |
-| *talavou* | adjective | handsome, good-looking |
+| *talavou* | adjective | handsome, good-looking (also "young man" (Ch 18)) |
 | *maea* | noun | rope |
 | *kehekehe* | adjective | different |
 | *mātu'a* | noun | parents |
 | *meimei* | adverb | almost, nearly |
-| *mei* | adverb | almost (lighter form of *meimei*) |
+| *mei* | adverb | almost (lighter form of *meimei*) (also "from" (Ch 7)) |
 | *matu'aki* | adverb | extremely, absolutely |
 | *lahi pē* | adverb phrase | mostly, mainly |
 | *tautefito ki* | adverb phrase | especially, particularly |

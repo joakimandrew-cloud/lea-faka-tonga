@@ -193,7 +193,7 @@ This is a subtle distinction. In everyday use, *na'a*/*na'e* and *ne* are often 
 | *'o'ota* | impersonal postposed possessive (ho-class) | of one's |
 | *ma'ata* | impersonal benefactive ('e-class) | for one |
 | *mo'ota* | impersonal benefactive (ho-class) | for one |
-| *kau* | first-person pronoun (sentence-initial) | I (at start of sentence) |
+| *kau* | first-person pronoun (sentence-initial) | I (at start of sentence) (also "marks a group of people" (Ch 20)) |
 
 **New vocabulary** (memorize these meanings):
 

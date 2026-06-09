@@ -197,7 +197,6 @@ An earlier chapter showed that ho-class possessives connect directly to *ki* and
 | *'ufi* | noun | yam |
 | *niu* | noun | coconut |
 | *kāinga* | noun | relative, kin |
-| *mātu'a* | noun | parent, parents |
 | *fili* | verb | choose |
 
 ---

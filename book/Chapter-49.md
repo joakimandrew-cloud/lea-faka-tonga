@@ -272,7 +272,6 @@ This is a lexical variant, not a new grammar pattern.
 | *kaungāngāue* | noun | fellow worker |
 | *kaungālotu* | noun | fellow worshipper |
 | *kaungāme'a* | noun | companion, friend |
-| *puke* | verb | hold, grasp |
 
 ---
 
