@@ -77,7 +77,7 @@ When *'ikai* and *ta'e-* appear together in the same sentence, the two negatives
 ::: {.examples}
 *'E 'ikai pē ke ta'e 'osi 'a e ngāue ko iá.* That work will certainly be completed. (Lit. "Will not just not-finish the work")
 
-*'E 'ikai té u ta'e fai e ngāué ni.* I will certainly do this work. (Lit. "Will not I not-do this work")
+*'E 'ikai te u ta'e fai e ngāué ni.* I will certainly do this work. (Lit. "Will not I not-do this work")
 :::
 
 The particle *pē* (just) in the first sentence reinforces the certainty. The speaker is saying that the negative outcome is itself impossible.
@@ -226,7 +226,7 @@ Match each Tongan expression with its English meaning.
 
 1. *'Oku ngāue ta'e totongi 'a Sione.*
 2. *Na'e ta'e mahino 'ene leá.*
-3. *'E 'ikai té u ta'e fai e ngāué ni.*
+3. *'E 'ikai te u ta'e fai e ngāué ni.*
 4. *Ne'ine'i hola 'a Tēvita ia.*
 5. *Koloto ke ne tokoni'i hono fāmilí.*
 6. *Na'á ku foki, he tala'ehai 'oku ou puke.*

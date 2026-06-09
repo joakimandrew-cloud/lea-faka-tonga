@@ -135,7 +135,7 @@ This works with all persons. The pronoun in the relative clause matches the pers
 *'Oku 'aonga kiate kitautolu kotoa pē 'oku tau fie 'alu 'i he hala totonú.* It is of value to all of us who want to walk the right path.
 :::
 
-Here *tau* (we, inclusive) is used in a relative sense: "all of us who want to follow."
+Here *tau* (we, inclusive) is used in a relative sense: "all of us who want to walk."
 
 ---
 
@@ -149,7 +149,7 @@ This happens specifically in adjectival clauses (clauses that describe a noun), 
 *'Oku 'ikai ha tamasi'i ako heni té ne ta'e 'ofa ki homou fonuá.* There is not a school child here who does not love your country.
 :::
 
-The main clause uses *'oku* (present tense). The relative clause uses *te ne*, but this does not mean "who will not know" (future). It means "who does not know" (present), matching the main clause.
+The main clause uses *'oku* (present tense). The relative clause uses *te ne*, but this does not mean "who will not love" (future). It means "who does not love" (present), matching the main clause.
 
 ::: {.examples}
 *Na'e 'ikai ha'ane lea 'e fai.* He did not say a word. (Lit. There was not a word of his to say.)
@@ -193,7 +193,7 @@ This is a subtle distinction. In everyday use, *na'a*/*na'e* and *ne* are often 
 | *'o'ota* | impersonal postposed possessive (ho-class) | of one's |
 | *ma'ata* | impersonal benefactive ('e-class) | for one |
 | *mo'ota* | impersonal benefactive (ho-class) | for one |
-| *kau* | first-person pronoun (sentence-initial) | I (at start of sentence) (also "marks a group of people" (Ch 20)) |
+| *kau* | first-person pronoun (sentence-initial) | I (at start of sentence); a separate word *kau* marks groups of people (Ch 20) |
 
 **New vocabulary** (memorize these meanings):
 
@@ -240,7 +240,7 @@ Select the most appropriate pronoun form for each blank.
 
 Rewrite each sentence using the impersonal pronoun *te*/*kita* instead of the given personal pronoun.
 
-1. *'Oku ou fie 'alu ka 'oku 'ikai ke u lava.* →
+1. *'Oku ou fie 'alu ka 'oku 'ikai te u lava.* →
 2. *'Oku 'ikai totonu ke u tokanga pē kiate au.* →
 3. *'Oku ou mā 'aupito.* →
 
@@ -248,7 +248,7 @@ Rewrite each sentence using the impersonal pronoun *te*/*kita* instead of the gi
 
 In each sentence, identify which pronoun uses the dual-for-singular (or more-inclusive) idiom and explain who is actually meant.
 
-1. *Na'á ma 'alu ki he maketí mo ia.*
+1. *Na'á ma 'alu ki he māketí mo ia.*
 2. *Té mo ako mo ia?*
 3. *Na'á nau ngāue fakataha mo ia.*
 

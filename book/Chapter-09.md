@@ -157,13 +157,13 @@ The pattern is always: negative + *ke* + *loko* + verb. Without the negative, *l
 Where *loko* softens a negative, *teitei* intensifies it. Combined with a negative, *teitei* means "at all" or "certainly not."
 
 ::: {.examples}
-*'E 'ikai té u teitei 'alu.* I am certainly not going.
+*'E 'ikai te u teitei 'alu.* I am certainly not going.
 
-*'Oku 'ikai té u teitei ngāue.* I absolutely do not work.
+*'Oku 'ikai te u teitei ngāue.* I absolutely do not work.
 
-*Na'e 'ikai té u teitei kai.* I absolutely did not eat.
+*Na'e 'ikai te u teitei kai.* I absolutely did not eat.
 
-*He 'ikai té ke teitei mohe.* You are certainly not sleeping.
+*He 'ikai te ke teitei mohe.* You are certainly not sleeping.
 :::
 
 The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certainly not" sense, *teitei* always sits inside a negative.
@@ -299,6 +299,6 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 #### Exercise 6
 
 1. *'Oku 'ikai ke loko lelei 'a e ngāué.*
-2. *'E 'ikai té u teitei 'alu ki kolo.*
+2. *'E 'ikai te u teitei 'alu ki kolo.*
 3. *'Oku 'ikai ke loko momoko.*
-4. *Na'e 'ikai té ne teitei tokoni.*
+4. *Na'e 'ikai te ne teitei tokoni.*

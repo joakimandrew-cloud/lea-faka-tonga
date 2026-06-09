@@ -426,7 +426,7 @@ Rewrite each sentence to express the meaning in parentheses.
 2. The sky was black last night.
 3. That man is wise.
 4. The water was cool.
-5. The road to the bush is full of holes.
+5. The road to the interior is full of holes.
 6. He estimated the time.
 
 #### Exercise 4

@@ -108,7 +108,7 @@ The answer uses the same *'e* + number pattern:
 *'Oku pa'anga 'e taha, seniti 'e ua.* One dollar and two cents.
 :::
 
-*Fīha* also asks "how many" when combined with a noun:
+*Fiha* also asks "how many" when combined with a noun:
 
 ::: {.examples}
 *ha kato 'e fiha?* how many baskets?
@@ -282,7 +282,7 @@ The expression *me'a e fiha* *(how many)* is a conversational way to ask about q
 | *afe* | number | one thousand |
 | *noa* | number | zero |
 | *seniti* | noun | cent |
-| *sotē* | noun | shirt |
+| *sote* | noun | shirt |
 | *fo'i* | classifier | piece, individual item |
 | *tokolahi* | adjective | many (people) |
 | *tokosi'i* | adjective | few (people) |

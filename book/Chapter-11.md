@@ -66,7 +66,7 @@ The word *'afē* asks "when" about something that has not happened yet. It fills
 *Te nau foki mai 'afē?* When will they return?
 :::
 
-The verb *foki* *(return)* is new. The word *mai* after it means "toward the speaker": *foki mai* = come back.
+The verb *foki* *(return)* was introduced back in Chapter 1. The word *mai* after it means "toward the speaker": *foki mai* = come back.
 
 ::: {.examples}
 *Te mau foki 'apongipongi.* We will return tomorrow.
@@ -90,7 +90,7 @@ The verbs *kamata* *(begin)* and *ako* *(study)* are new. The answer to a *fiha*
 *Tau kamata he valu.* We will start at eight.
 :::
 
-*Fīha* also carries the broader meaning "how many" and "how much." That use expands in Chapter 20: Numbers and Time, which covers counting, quantities, and prices.
+*Fiha* also carries the broader meaning "how many" and "how much." That use expands in Chapter 20: Numbers and Time, which covers counting, quantities, and prices.
 
 ---
 

@@ -97,7 +97,7 @@ In the negative, *lava* uses the same negative patterns you already know. With p
 | Tongan | English |
 |---|---|
 | *'Oku 'ikai te u lava 'o 'alu.* | I cannot go. |
-| *Na'e 'ikai té ke lava 'o ha'u?* | Were you not able to come? |
+| *Na'e 'ikai te ke lava 'o ha'u?* | Were you not able to come? |
 | *'Oku 'ikai ke lava 'a Tēvita 'o tohi.* | Tēvita cannot write. |
 
 > *Note:* Tongan has several other ways to express ability: *ala* (it is practicable), *fa'a* (one has the physical capacity), the *ma-* prefix (able as discovered by trial), and *poto 'i* (skilled at). These appear in later chapters, including Chapter 49: Prefixes. *Lava* is the general-purpose word for "can" or "be able to."
@@ -232,7 +232,7 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 #### Exercise 3
 
 1. *'Oku 'ikai te u fie 'alu.*
-2. *'E 'ikai té ke lava 'o ha'u.*  (or: *'Oku 'ikai té ke lava 'o ha'u?*)
+2. *'E 'ikai te ke lava 'o ha'u.*  (or: *'Oku 'ikai te ke lava 'o ha'u?*)
 3. *Na'e 'ikai te u sai'ia he me'akai.*
 4. *'Oku 'ikai ke lava 'a Sione 'o ngāue.*
 5. *'Oku 'ikai te u fie nofo 'i kolo.*

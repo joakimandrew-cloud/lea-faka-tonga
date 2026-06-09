@@ -72,7 +72,7 @@ Tongan has two words for "but." The choice depends on the word that comes immedi
 **Use *ka*** before a tense marker, a pronoun, or a preposition:
 
 ::: {.examples}
-*'Oku ou sai'ia he hivá, ka 'oku 'ikai té u sai'ia he ngāué.* I like singing, but I don't like working.
+*'Oku ou sai'ia he hivá, ka 'oku 'ikai te u sai'ia he ngāué.* I like singing, but I don't like working.
 :::
 
 After the comma, *ka* is followed by the tense marker *'oku*, so *ka* is correct.
@@ -126,9 +126,9 @@ The rule is straightforward: look at the word immediately after "but." If it is 
 *Pe* also introduces indirect questions, where it means "whether" or "if." The verb *'ilo* *(to know)* often pairs with *pe* in this pattern:
 
 ::: {.examples}
-*'Oku 'ikai té u 'ilo pe 'oku fiefia pe 'ita.* I don't know whether (she) is happy or angry.
+*'Oku 'ikai te u 'ilo pe 'oku fiefia pe 'ita.* I don't know whether (she) is happy or angry.
 
-*'Oku 'ikai té u 'ilo pe 'oku nau ngāue 'i fē.* I don't know where they work.
+*'Oku 'ikai te u 'ilo pe 'oku nau ngāue 'i fē.* I don't know where they work.
 :::
 
 In the second example, *pe* introduces the indirect question ("where they work") without offering two alternatives. This is a common pattern for reporting questions.
@@ -201,7 +201,7 @@ With first-person singular, the pronoun form *u* is used after *pea* (the same f
 #### Exercise 1: Translate Tongan to English
 
 1. *Ha'u 'o kai.*
-2. *'Oku ou sai'ia he hivá, ka 'oku 'ikai té u sai'ia he ngāué.*
+2. *'Oku ou sai'ia he hivá, ka 'oku 'ikai te u sai'ia he ngāué.*
 3. *Na'e 'alu 'a Sione kae nofo 'a Mele.*
 4. *'Oku mālohi pe vaivai?*
 5. *Té u ngāue peá u toe foki.*
@@ -223,7 +223,7 @@ With first-person singular, the pronoun form *u* is used after *pea* (the same f
 #### Exercise 3: Fill in the blank with *ka* or *kae*
 
 1. *Na'e 'alu 'a Mele \_\_\_ nofo 'a Sione.*
-2. *'Oku ou fiefia, \_\_\_ 'oku 'ikai té u fie va'inga.*
+2. *'Oku ou fiefia, \_\_\_ 'oku 'ikai te u fie va'inga.*
 3. *'Alu koe, \_\_\_ ke foki mai he nimá.*
 4. *Na'e hiva 'a Sēmisi \_\_\_ fanongo 'a 'Ana.*
 5. *'Oku ou fie mohe, \_\_\_ kuo pau ke u ngāue.*
@@ -240,7 +240,7 @@ With first-person singular, the pronoun form *u* is used after *pea* (the same f
 
 1. *'Alu \_\_\_ hiva.*
 2. *Na'á ku 'alu ki kolo \_\_\_ u fakatau mai ha me'a.*
-3. *'Oku ou fie ako, \_\_\_ 'oku 'ikai té u fie ngāue.*
+3. *'Oku ou fie ako, \_\_\_ 'oku 'ikai te u fie ngāue.*
 4. *Na'e 'alu 'a Tēvita \_\_\_ nofo 'a 'Ana.*
 5. *'Oku fiefia \_\_\_ 'ita?*
 6. *Na'a mau nofo 'i 'api \_\_\_ fuoloa.*
@@ -266,10 +266,10 @@ With first-person singular, the pronoun form *u* is used after *pea* (the same f
 2. *Na'e 'alu 'a Siale kae nofo 'a Lupe.*
 3. *Té u ngāue peá u toe mohe.*
 4. *'Oku fiefia pe 'ita?*
-5. *'Oku ou sai'ia he ngāué, ka 'oku 'ikai té u sai'ia he hivá.*
+5. *'Oku ou sai'ia he ngāué, ka 'oku 'ikai te u sai'ia he hivá.*
 6. *Na'a nau ako 'i kolo 'o fuoloa.*
 7. *Na'á ku lotu peá u foki ki 'api.*
-8. *'Oku 'ikai té u 'ilo pe 'oku mālohi pe vaivai.*
+8. *'Oku 'ikai te u 'ilo pe 'oku mālohi pe vaivai.*
 
 #### Exercise 3
 

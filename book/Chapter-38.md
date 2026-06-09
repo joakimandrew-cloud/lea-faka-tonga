@@ -331,7 +331,7 @@ Each sentence below contains a blank. Choose the correct adverb from the box. Ea
 3. *Ko e ha'u 'eni 'o 'Isileli \_\_\_\_\_ ki heni.* (Isileli comes here as always)
 4. *'Oku 'ikai ke \_\_\_\_\_ sai e ngāué.* (the work is not quite good)
 5. *'Oku 'i fē \_\_\_\_\_ 'a ho'o tohí?* (I wonder where your book is)
-6. *'E 'ikai té u \_\_\_\_\_ 'alu ki ai.* (I will not go there at all)
+6. *'E 'ikai te u \_\_\_\_\_ 'alu ki ai.* (I will not go there at all)
 7. *'Oku \_\_\_\_\_ mālohi 'a e falé ni.* (this house is extremely strong)
 8. *'Oku \_\_\_\_\_ nofo 'a Siosaia 'i Nuku'alofa.* (Siosaia lives mostly in Nuku'alofa)
 9. *Té ke ō \_\_\_\_\_ pe 'ikai?* (are you going or not: I need an answer)

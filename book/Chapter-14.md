@@ -136,7 +136,7 @@ These follow the imperative patterns from earlier chapters: singular uses the ba
 
 You already know *'io* (yes) and *'ikai* (no) as response words. In greetings, *'io* serves a broader role: it is the universal acknowledgement. When someone greets you with *Mālō e lelei!*, the proper first word in your response is *'Io!* When someone says *Mālō e ngāue!* (Thanks for working.), the response is *'Io!* A useful way to think of *'io* is "It is as you say."
 
-> *Note:* Tongan uses *'io* when answering negative questions where English would say "no." *Na'e 'ikai té ke 'alu?* (Didn't you go?) receives the answer *'Io, na'e 'ikai té u 'alu.* (No, I didn't go.) The *'io* confirms the negative: "It is as you say (that I did not go)." Once you grasp this meaning, the logic is clear.
+> *Note:* Tongan uses *'io* when answering negative questions where English would say "no." *Na'e 'ikai te ke 'alu?* (Didn't you go?) receives the answer *'Io, na'e 'ikai te u 'alu.* (No, I didn't go.) The *'io* confirms the negative: "It is as you say (that I did not go)." Once you grasp this meaning, the logic is clear.
 
 ---
 

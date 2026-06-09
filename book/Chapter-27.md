@@ -167,9 +167,9 @@ The words *meimei* and *mei* mean "almost" or "nearly." Both come before the ver
 With a negative, *meimei* means "hardly" or "very nearly not":
 
 ::: {.examples}
-*Na'e 'ikai té u meimei mohe.* I hardly slept at all.
+*Na'e 'ikai te u meimei mohe.* I hardly slept at all.
 
-*Na'e 'ikai té u meimei lava ke ha'u.* I was hardly able to come.
+*Na'e 'ikai te u meimei lava ke ha'u.* I was hardly able to come.
 :::
 
 The two forms differ slightly: *mei* is the lighter form. *Meimei* is stronger and more common in everyday speech.
