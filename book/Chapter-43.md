@@ -91,7 +91,7 @@ The word *tala'ehai* *(let no one say)* is an idiom meaning "let no one suppose"
 
 *Na'á ku foki, he tala'ehai 'oku ou puke.* I returned, not because I am sick. (Lit. "I returned, for let-no-one-suppose I am sick")
 
-*Tala'ehai ko Sēmisi na'á ne fai 'a e koví.* Let no one suppose Sēmisi did the bad deed.
+*Tala'ehai ko Sēmisi na'á ne kaiha'a 'a e pa'angá.* Let no one suppose Sēmisi stole the money.
 :::
 
 The conjunction *he* (because, for) often introduces a *tala'ehai* clause, as in the second example. Despite being nearly equivalent to *'ikai*, *tala'ehai* always carries its original nuance of challenging what others might assume.
@@ -158,6 +158,7 @@ Here *hola* *(run away)* and *mole* *(lose, be lost)* are verbs that follow *ne'
 | *ta'efakalao* | adjective | illegal (from *fakalao*, legal) |
 | *ta'efiemālie* | adjective | uncomfortable, dissatisfied |
 | *ta'etotonu* | adjective | unjust, incorrect |
+| *kaiha'a* | verb | steal |
 
 ---
 
@@ -170,7 +171,7 @@ Here *hola* *(run away)* and *mole* *(lose, be lost)* are verbs that follow *ne'
 3. *'E 'ikai pē ke ta'e 'osi 'a e ngāue ko iá.*
 4. *Koloto ke ne tokoni'i hono fāmilí.*
 5. *Ne'ine'i hola 'a Mele ia.*
-6. *Tala'ehai ko au na'á ku fai 'a e koví.*
+6. *Tala'ehai ko au na'á ku kaiha'a 'a e pa'angá.*
 7. *'Oku ta'e fe'unga 'ene ngāué.*
 8. *Na'á ku ngāue kia Sēmisi ta'e té u ma'u ha me'a.*
 
@@ -217,7 +218,7 @@ Match each Tongan expression with its English meaning.
 3. That work will certainly be completed.
 4. He did not help his family at all.
 5. No wonder Mele ran away.
-6. Let no one suppose I did the bad deed.
+6. Let no one suppose I stole the money.
 7. His work is inadequate.
 8. I worked for Sēmisi without receiving anything.
 

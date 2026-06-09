@@ -294,7 +294,7 @@ The word order may feel inverted compared to English. The thing named first is t
 > **Preview:** *Kapau* means "if." It opens the first (lesser) clause of the *huanoa* pattern below. *Kapau* and the full conditional system are taught formally in Chapter 30: Temporal, Conditional, and Concessive Conjunctions. For now, just read *kapau* as "if."
 
 ::: {.examples}
-*Kapau 'okú ne 'ofa ki he fanga puaká, huanoa 'ene 'ofa ki he fānaú!* If he loves the pigs, how much more does he love his children.
+*Kapau 'okú ne 'ofa ki he fanga puaká, huanoa 'ene 'ofa ki he kakaí!* If he loves the pigs, how much more does he love the people.
 :::
 
 The word *huanoa* *(how much more)* introduces a comparison that amplifies the first statement. The pattern is: *kapau* (if) + first clause, *huanoa* + second clause. The logic is: if the lesser thing is true, how much more must the greater thing be true.
@@ -334,7 +334,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 ::: {.examples}
 *'Oku lahi 'aupito 'a e fiekaiá 'i māmani, kae tautefito ki 'Eulopé.* There is great hunger in the world, particularly in Europe.
 
-*'Oku totonu ke tau tokoni ki he fānau vaivai, kae tautefito kiate kinautolu 'oku nau puké.* We should help children who are weak, especially those who are sick.
+*'Oku totonu ke tau tokoni ki he kakai vaivai, kae tautefito kiate kinautolu 'oku nau puké.* We should help people who are weak, especially those who are sick.
 :::
 
 ---
@@ -368,6 +368,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 | *'āsili* | adverb | more so, increasingly |
 | *laka 'i* | verb phrase | surpass, exceed |
 | *māmani* | noun | world |
+| *kakai* | noun | people |
 
 ---
 

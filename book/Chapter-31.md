@@ -113,7 +113,6 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 |--------|------|---------|
 | *moli* | noun | orange |
 | *feitu'u* | noun | place, area |
-| *kakai* | noun | people |
 | *mahaki* | noun | sickness |
 | *palopalema* | noun | problem |
 | *kātoanga* | noun | celebration, festival |
