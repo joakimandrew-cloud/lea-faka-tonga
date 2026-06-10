@@ -204,7 +204,7 @@ Translate each sentence to Tongan.
 With pronoun subjects, negation uses *'ikai te* before the pronoun:
 
 ::: {.examples}
-*Na'e 'ikai te u 'alu.* I did not go.
+*Na'e 'ikai té u 'alu.* I did not go.
 :::
 
 With noun subjects, negation uses *'ikai ke* instead:
@@ -219,9 +219,9 @@ The key distinction: noun subjects require *'ikai ke*, not *'ikai te*. The contr
 
 | | Pronoun subject | Noun subject |
 |---|---|---|
-| **Present** | *'Oku 'ikai te ne 'alu.* | *'Oku 'ikai ke 'alu 'a Sione.* |
-| **Past** | *Na'e 'ikai te ne 'alu.* | *Na'e 'ikai ke 'alu 'a Sione.* |
-| **Future** | *'E 'ikai te ne 'alu.* | *'E 'ikai ke 'alu 'a Sione.* |
+| **Present** | *'Oku 'ikai té ne 'alu.* | *'Oku 'ikai ke 'alu 'a Sione.* |
+| **Past** | *Na'e 'ikai té ne 'alu.* | *Na'e 'ikai ke 'alu 'a Sione.* |
+| **Future** | *'E 'ikai té ne 'alu.* | *'E 'ikai ke 'alu 'a Sione.* |
 
 ---
 

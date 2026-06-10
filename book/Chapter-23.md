@@ -101,7 +101,7 @@ Compare the positive and negative patterns side by side:
 
 There is a second way to express "should not" that sounds more emphatic. Instead of negating *totonu* with *'ikai*, you embed the prohibition word *'oua na'a* inside the *ke* clause.
 
-You first encountered *'oua* in the chapter on commands, where *'oua te ke* means "don't" as a direct prohibition. Here, *'oua na'a* appears inside an obligation expression, giving it a different flavor: "it is right that you should refrain from..."
+You first encountered *'oua* in the chapter on commands, where *'oua té ke* means "don't" as a direct prohibition. Here, *'oua na'a* appears inside an obligation expression, giving it a different flavor: "it is right that you should refrain from..."
 
 ::: {.examples}
 *'Oku totonu ke 'oua na'á ke 'ita.* You shouldn't be angry.

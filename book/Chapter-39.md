@@ -90,7 +90,7 @@ The pronoun *ia* refers to something already mentioned or being discussed, detac
 When *ko ia* begins a sentence followed by a pause, it means "therefore" or "that being so" (covered in Chapter 24: Conjunctions):
 
 ::: {.examples}
-*Ko ia, na'e 'ikai te u 'alu ki he fakatahá.* That being so, I did not go to the meeting.
+*Ko ia, na'e 'ikai té u 'alu ki he fakatahá.* That being so, I did not go to the meeting.
 :::
 
 ---
@@ -156,7 +156,7 @@ The manner demonstrative *pehē* also functions as an adjective meaning "of this
 The expression *na'a mo* before a pronoun or name (or *na'a mo e* before a common noun with an article) means "even" or "even with."
 
 ::: {.examples}
-*Na'a mo ia, he 'ikai te ne lava.* Even he cannot.
+*Na'a mo ia, he 'ikai té ne lava.* Even he cannot.
 
 *Na'a mo Mele, na'e 'ikai fie ha'u.* Even Mele did not want to come.
 
@@ -273,7 +273,7 @@ Choose from: *ni*, *na*, *eni*, *ena*, *ē*, *ia*, *heni*, *pehē*
 
 1. *Ko e koló eni 'oku nau nofo ai.*
 2. *'Oku ou nofo eni 'i Neiafu.*
-3. *Na'a mo ia, he 'ikai te ne lava.*
+3. *Na'a mo ia, he 'ikai té ne lava.*
 4. *Ko e motú ia na'á ku ha'u mei ai.*
 5. *Mou tokanga ki he tamaikí kae'uma'a 'a e kau mātu'á.*
 6. *Fai pehē.*
@@ -299,7 +299,7 @@ Choose from: *ni*, *na*, *eni*, *ena*, *ē*, *ia*, *heni*, *pehē*
 
 #### Exercise 5
 
-1. *Na'a mo au, na'e 'ikai te u fie 'alu.*
+1. *Na'a mo au, na'e 'ikai té u fie 'alu.*
 2. *'Oku ou tokoni ki he tamaikí kae'uma'a 'a e kau mātu'á.*
 3. *Na'a mo e faiakó, na'e 'ikai fie tokoni.*
 4. *Kae'uma'a ha'ane fakapikopiko.*

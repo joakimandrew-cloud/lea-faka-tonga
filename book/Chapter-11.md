@@ -145,7 +145,7 @@ The interrogative *hā* *(what, what kind)* can appear after the verb or noun it
 *'Okú ke faiako hā?* What do you teach?
 :::
 
-The postposed *hā* produces a more casual, conversational question than *ko e hā 'a e siasi 'oku ke kau ki ai?* (What church do you belong to?), which is more formal.
+The postposed *hā* produces a more casual, conversational question than *ko e hā 'a e siasi 'okú ke kau ki ai?* (What church do you belong to?), which is more formal.
 
 As a verbal equivalent, *hā* can stand alone after a tense marker, meaning "why?" or "what's wrong?":
 

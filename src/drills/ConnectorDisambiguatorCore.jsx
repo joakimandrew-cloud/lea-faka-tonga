@@ -4,7 +4,7 @@
  * Tongan splits the work English does with "and" and "but" across five
  * words. The drill makes the learner choose by the join being made:
  *   - mo  — "with / and", joining two nouns (ʻalu mo Sione);
- *   - pea — "and then", chaining two clauses in sequence (… pea u foki);
+ *   - pea — "and then", chaining two clauses in sequence (… peá u foki);
  *   - ʻo  — "and", linking verbs into one combined action (ʻalu ʻo vakai);
  *   - ka  — "but", before a tense marker or pronoun;
  *   - kae — "but", before a verb or adjective.

@@ -18,10 +18,10 @@ const OPTIONS = [
 const PROMPTS = [
   { tongan: 'Naʻe ʻalu ___ ʻa Maikolo.',                                english: 'Maikolo went without shoes. (taʻe su)',                  answer: 'without',     why: 'taʻe + noun (su = shoes) = "without shoes". Marks the absence of a thing.' },
   { tongan: 'ʻOku ___ ʻenau leá.',                                       english: 'Their speech is unintelligible. (taʻe mahino)',          answer: 'un',          why: 'taʻe + verb/adjective (mahino = clear) = "unclear / unintelligible". Negative state.' },
-  { tongan: 'Naʻe ʻalu ʻa Tēvita ___ té ne tala mai.',                   english: 'Tēvita went without telling me. (taʻe te ne…)',          answer: 'without-doing', why: 'taʻe + te + pronoun + verb introduces a whole "without doing X" clause.' },
+  { tongan: 'Naʻe ʻalu ʻa Tēvita ___ té ne tala mai.',                   english: 'Tēvita went without telling me. (taʻe té ne…)',          answer: 'without-doing', why: 'taʻe + te + pronoun + verb introduces a whole "without doing X" clause.' },
   { tongan: 'ʻOku ngāue ___ ʻa Sēmisi.',                                 english: 'Sēmisi is working without pay. (taʻe totongi)',          answer: 'without',     why: 'taʻe + noun (totongi = pay) = "without pay".' },
   { tongan: 'ʻOku ___ ʻene ngāué.',                                       english: 'His work is inadequate. (taʻe feʻunga)',                 answer: 'un',          why: 'taʻe + adjective (feʻunga = suitable) = "unsuitable / inadequate".' },
-  { tongan: 'Naʻá ku ngāue kia Sēmisi ___ té u maʻu ha meʻa.',           english: 'I worked for Sēmisi without receiving anything.',        answer: 'without-doing', why: 'taʻe + te u + verb = whole-clause "without me getting anything".' },
+  { tongan: 'Naʻá ku ngāue kia Sēmisi ___ té u maʻu ha meʻa.',           english: 'I worked for Sēmisi without receiving anything.',        answer: 'without-doing', why: 'taʻe + té u + verb = whole-clause "without me getting anything".' },
   { tongan: 'ʻOku ___ ʻa Sione.',                                        english: 'Sione is inattentive. (taʻe tokanga)',                   answer: 'un',          why: 'taʻe + adjective (tokanga = attentive) = "inattentive / careless".' },
   { tongan: 'Ko e tangata ___ moʻoni ʻa Tēvita.',                        english: 'Tēvita is a truly unkind man. (taʻeʻofa moʻoni)',        answer: 'un',          why: 'taʻe + ʻofa (loving) = taʻeʻofa "unkind". The moʻoni intensifies "truly".' },
 ]

@@ -46,7 +46,7 @@ The emotion *si'i* carries depends on context. It may suggest:
 Where the ordinary indefinite article *ha* is neutral ("a child"), *si'a* adds the same kind of emotional colouring as *si'i* but for indefinite nouns: "some poor child," "some dear little one."
 
 ::: {.examples}
-*Na'á nau 'omi ia ki 'api ke ne ma'u si'a me'atokoní.* They brought him home so he could have some food. (the poor fellow)
+*Na'a nau 'omi ia ki 'api ke ne ma'u si'a me'atokoní.* They brought him home so he could have some food. (the poor fellow)
 :::
 
 The speaker is not simply reporting a fact. The choice of *si'a* over *ha* reveals sympathy for the person being fed.

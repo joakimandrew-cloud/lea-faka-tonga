@@ -310,7 +310,7 @@ Change the direction of each sentence by replacing the directional particle with
 3. *'Okú ne 'omai 'a e kató.*
 4. *Tala ange ke ha'u!*
 5. *Na'a mau ō hake 'o ngāue.*
-6. *Na'é ne kumi holo 'a e tohí.*
+6. *Na'á ne kumi holo 'a e tohí.*
 7. *Na'e tō hifo 'a e falá mei he lolí.*
 8. *'Okú na lue holo 'i he koló.*
 

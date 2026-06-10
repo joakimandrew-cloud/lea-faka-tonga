@@ -90,7 +90,7 @@ This pattern extends across persons:
 Here *mo* means "you two." English says "Will you stay with him?" but Tongan sees the situation as involving both people and chooses the dual pronoun accordingly.
 
 ::: {.examples}
-*Na'á nau talanoa mo ia.* They talked with him.
+*Na'a nau talanoa mo ia.* They talked with him.
 :::
 
 Even if only two people were talking with him, *nau* (they, three or more) is used because, including him, there were three people involved. The pronoun counts everyone in the situation, not just the grammatical subject.
@@ -124,7 +124,7 @@ Pronouns you already know as personal ("I," "you," "he") can also function like 
 The second *ou* does not introduce a new person. It refers back to *au* (I) in a relative sense: "I, who am speaking." English would use "who" here. Tongan simply repeats the pronoun.
 
 ::: {.examples}
-*Ko kimoutolu kuó mou toki a'u mai, kuo pau ke mou ō leva ki he koló.* You who have just arrived must go to town at once.
+*Ko kimoutolu kuo mou toki a'u mai, kuo pau ke mou ō leva ki he koló.* You who have just arrived must go to town at once.
 :::
 
 The first *mou* functions as "who" (you who have just arrived). The second *mou* is the regular pronoun in the obligation clause.
@@ -149,7 +149,7 @@ This happens specifically in adjectival clauses (clauses that describe a noun), 
 *'Oku 'ikai ha tamasi'i ako heni té ne ta'e 'ofa ki homou fonuá.* There is not a school child here who does not love your country.
 :::
 
-The main clause uses *'oku* (present tense). The relative clause uses *te ne*, but this does not mean "who will not love" (future). It means "who does not love" (present), matching the main clause.
+The main clause uses *'oku* (present tense). The relative clause uses *té ne*, but this does not mean "who will not love" (future). It means "who does not love" (present), matching the main clause.
 
 ::: {.examples}
 *Na'e 'ikai ha'ane lea 'e fai.* He did not say a word. (Lit. There was not a word of his to say.)
@@ -240,7 +240,7 @@ Select the most appropriate pronoun form for each blank.
 
 Rewrite each sentence using the impersonal pronoun *te*/*kita* instead of the given personal pronoun.
 
-1. *'Oku ou fie 'alu ka 'oku 'ikai te u lava.* →
+1. *'Oku ou fie 'alu ka 'oku 'ikai té u lava.* →
 2. *'Oku 'ikai totonu ke u tokanga pē kiate au.* →
 3. *'Oku ou mā 'aupito.* →
 
@@ -250,7 +250,7 @@ In each sentence, identify which pronoun uses the dual-for-singular (or more-inc
 
 1. *Na'á ma 'alu ki he māketí mo ia.*
 2. *Té mo ako mo ia?*
-3. *Na'á nau ngāue fakataha mo ia.*
+3. *Na'a nau ngāue fakataha mo ia.*
 
 ---
 
@@ -272,7 +272,7 @@ In each sentence, identify which pronoun uses the dual-for-singular (or more-inc
 2. *Kau nofo mu'a 'i hení?*
 3. *Na'á ma nofo mo ia.*
 4. *'Oku mahu'inga 'a hoto ngāué.*
-5. *Na'á nau talanoa mo ia.*
+5. *Na'a nau talanoa mo ia.*
 6. *'Okú te fie ako ka 'oku 'ikai te lava.*
 
 #### Exercise 3

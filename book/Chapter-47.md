@@ -7,7 +7,7 @@ This chapter introduces *ka*, a marker for conditional and hypothetical situatio
 ### Conditional future *ka*
 
 ::: {.examples}
-*Ka ha'u 'a Siale, pea ke tala ki ai.* When Siale comes, tell him.
+*Ka ha'u 'a Siale, peá ke tala ki ai.* When Siale comes, tell him.
 :::
 
 The word *ka* at the start of a clause marks a condition the speaker expects to happen. Siale is likely coming; the question is when. The main clause follows with *pea* (and then) or stands on its own with a future tense marker.
@@ -15,7 +15,7 @@ The word *ka* at the start of a clause marks a condition the speaker expects to 
 When the subject of the *ka* clause is a noun, *ka* appears once, directly before the verb:
 
 ::: {.examples}
-*Ka puke 'a Mele, pea ke tala mai.* If Mele gets sick, tell me.
+*Ka puke 'a Mele, peá ke tala mai.* If Mele gets sick, tell me.
 :::
 
 The pattern is: *ka* + verb + *'a* + noun subject.
@@ -60,9 +60,9 @@ Chapter 30: Temporal and Conditional Conjunctions introduced *kapau* (if). Both 
 The existential *'i ai* (there is/are) combines with *ka* to express "whenever there is" or "if there is." This is the conditional future form of *'oku 'i ai*:
 
 ::: {.examples}
-*Ka 'i ai ha ngāue, pea ke tala mai.* Whenever there is work, tell me.
+*Ka 'i ai ha ngāue, peá ke tala mai.* Whenever there is work, tell me.
 
-*Ka 'i ai ha me'a ke fai, pea ke ha'u.* If there is something to do, come.
+*Ka 'i ai ha me'a ke fai, peá ke ha'u.* If there is something to do, come.
 :::
 
 ---
@@ -192,12 +192,12 @@ The expression *heiʻilo* stands alone or introduces a clause to signal that the
 
 Choose *ka*, *kapau*, or *ka ne* to complete each sentence.
 
-1. ___ ha'u 'a 'Ana, pea ke tala ki ai. (She is expected.)
-2. ___ 'e ha'u 'a 'Ana, pea ke tala ki ai. (You are not sure she will come.)
+1. ___ ha'u 'a 'Ana, peá ke tala ki ai. (She is expected.)
+2. ___ 'e ha'u 'a 'Ana, peá ke tala ki ai. (You are not sure she will come.)
 3. ___ ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní.
-4. ___ 'i ai ha ngāue, pea ke tala mai.
+4. ___ 'i ai ha ngāue, peá ke tala mai.
 5. ___ u feinga, na'á ku lava.
-6. ___ ke ka 'alu ki kolo, pea ke fakatau mai ha mā.
+6. ___ ke ka 'alu ki kolo, peá ke fakatau mai ha mā.
 
 #### Exercise 2: Translate into English
 
@@ -235,12 +235,12 @@ Match each *ka ne* clause (1-5) with the correct main clause (a-e).
 
 #### Exercise 1
 
-1. *Ka* ha'u 'a 'Ana, pea ke tala ki ai.* *When 'Ana comes, tell her. (*ka*: she is expected)
-2. *Kapau* 'e ha'u 'a 'Ana, pea ke tala ki ai.* *If 'Ana comes, tell her. (*kapau*: uncertain)
+1. *Ka* ha'u 'a 'Ana, peá ke tala ki ai.* *When 'Ana comes, tell her. (*ka*: she is expected)
+2. *Kapau* 'e ha'u 'a 'Ana, peá ke tala ki ai.* *If 'Ana comes, tell her. (*kapau*: uncertain)
 3. *Ka ne* ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní.* *Had you come last night, this thing would not have happened. (*ka ne*: past counterfactual)
-4. *Ka* 'i ai ha ngāue, pea ke tala mai.* *Whenever there is work, tell me. (*ka*: expected or recurring)
+4. *Ka* 'i ai ha ngāue, peá ke tala mai.* *Whenever there is work, tell me. (*ka*: expected or recurring)
 5. *Ka ne* u feinga, na'á ku lava.* *Had I tried, I would have succeeded. (*ka ne*: past counterfactual)
-6. *Ka* ke *ka* 'alu ki kolo, pea ke fakatau mai ha mā.* *Whenever you go to town, buy bread. (*ka ... ka*: pronoun subject, conditional future)
+6. *Ka* ke *ka* 'alu ki kolo, peá ke fakatau mai ha mā.* *Whenever you go to town, buy bread. (*ka ... ka*: pronoun subject, conditional future)
 
 #### Exercise 2
 
@@ -255,10 +255,10 @@ Match each *ka ne* clause (1-5) with the correct main clause (a-e).
 
 1. *Ka ne u ha'u, na'á ku tokoni.*
 2. *Ka ne 'i heni 'a Tēvita, 'e hiva.*
-3. *Ka 'i ai ha ika, pea ke tala mai.*
+3. *Ka 'i ai ha ika, peá ke tala mai.*
 4. *Ka ne 'ikai 'a Siale, 'oku 'ikai ke 'osi e ngāué.*
 5. *Kuo mei 'osi.*
-6. *Ka ke ka 'alu ki kolo, pea ke fakatau mai ha mā.*
+6. *Ka ke ka 'alu ki kolo, peá ke fakatau mai ha mā.*
 
 #### Exercise 4
 

@@ -32,7 +32,7 @@ When the result comes first and the condition follows, *'o* is placed before *ka
 
 This means the same thing as *Kapau té ke foki, té u kuki.* The only difference is clause order. When the "if" clause comes first, use *kapau* alone. When it comes second, use *'o kapau*.
 
-> **Preview:** Tongan has another conditional word, *ka*, which can mean "if and when" or "whenever." It describes conditions that are expected or probable, while *kapau* is for conditions that are uncertain. *Ka ha'u 'a Sione, pea ke tala ki ai 'oku ou 'i heni* (When Sione comes, tell him I am here). This use of *ka* is covered formally in Chapter 47: Conditionals and Counterfactuals. If you encounter *ka* at the beginning of a sentence before a verb or noun subject (rather than before a tense marker or pronoun, where it means "but"), it likely means "when" or "whenever."
+> **Preview:** Tongan has another conditional word, *ka*, which can mean "if and when" or "whenever." It describes conditions that are expected or probable, while *kapau* is for conditions that are uncertain. *Ka ha'u 'a Sione, peá ke tala ki ai 'oku ou 'i heni* (When Sione comes, tell him I am here). This use of *ka* is covered formally in Chapter 47: Conditionals and Counterfactuals. If you encounter *ka* at the beginning of a sentence before a verb or noun subject (rather than before a tense marker or pronoun, where it means "but"), it likely means "when" or "whenever."
 
 ---
 
@@ -83,7 +83,7 @@ The *'osi* here is the same *'osi* (finished, completed) you know as an aspect m
 Another pattern for "when" uses *ko e* with *pē* (just, only) to express "as soon as":
 
 ::: {.examples}
-*Ko e ha'u pē 'e Mele, pea u 'ave leva 'ene kato.* As soon as Mele came, I carried her basket right away.
+*Ko e ha'u pē 'e Mele, peá u 'ave leva 'ene kato.* As soon as Mele came, I carried her basket right away.
 :::
 
 Both patterns use *pea* to begin the main clause. The *'i he* pattern emphasizes a moment in time. The *ko e ... pē* pattern emphasizes immediacy.
@@ -145,7 +145,7 @@ The adjective *kehe* *(different)* has three idiomatic uses that go beyond its b
 #### *kae kehe* (nevertheless, however)
 
 ::: {.examples}
-*Na'e faingata'a 'a e ngāué, kae kehe, na'á nau lava ia.* The work was difficult, nevertheless, they accomplished it.
+*Na'e faingata'a 'a e ngāué, kae kehe, na'a nau lava ia.* The work was difficult, nevertheless, they accomplished it.
 :::
 
 *Kae kehe* appears at the start of a clause, followed by a slight pause (a comma in writing). It signals a contrast or concession, much like "nevertheless" or "however" in English. This is a close relative of *neongo*: both express concession, but *neongo* introduces the conceded fact ("although X") while *kae kehe* introduces the contrasting result ("nevertheless, Y").
@@ -185,7 +185,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 *Faifai* can also be turned into a verbal noun with *'i he*:
 
 ::: {.examples}
-*'I he faifai na'á nau 'ilo 'a e mo'oní.* In the course of time they came to know the truth.
+*'I he faifai na'a nau 'ilo 'a e mo'oní.* In the course of time they came to know the truth.
 :::
 
 ---
@@ -238,7 +238,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 1. *Kapau 'okú ne fiekaia, té u kuki.*
 2. *Na'á ne lele lolotonga na'á ku mohe.*
 3. *Té u nofo heni kae'oua ke nau foki mai.*
-4. *'I he 'osi 'ene ngāue, pea ne kai.*
+4. *'I he 'osi 'ene ngāue, peá ne kai.*
 5. *Neongo 'eku fiekaia, ka té u ngāue pē.*
 6. *'E sai 'a e me'á 'o kapau té ke tokoni mai.*
 
@@ -265,7 +265,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 2. Té u nofo heni _____ ke nau foki mai.
 3. Na'á ku lau tohi _____ na'á ne mohe.
 4. _____ 'eku hela'ia, ka té u tokoni atu pē.
-5. _____ 'osi 'ene hiva, pea ne kai.
+5. _____ 'osi 'ene hiva, peá ne kai.
 
 #### Exercise 5: Rewrite each sentence, moving the "if" clause to the opposite position. Remember: use *'o kapau* when the condition follows the result, and *kapau* alone when it comes first
 
@@ -277,7 +277,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 #### Exercise 6: Complete the sentence with *'ilonga*, *kae kehe*, *kehe ke*, or *faifai*
 
 1. _____ ia 'oku fie ako pea ha'u ki he akó. (Whoever wants to study should come to school.)
-2. Na'e mamafa 'a e ngāué, _____, na'á nau 'osi ia. (The work was heavy, nevertheless, they finished it.)
+2. Na'e mamafa 'a e ngāué, _____, na'a nau 'osi ia. (The work was heavy, nevertheless, they finished it.)
 3. _____ pē ke ke fanongo ki ho'o fa'ē. (The one thing that matters is that you listen to your mother.)
 4. Pea _____ pea 'osi 'a e matangí. (And by and by the wind stopped.)
 5. Na'e 'ikai 'ene pa'anga, _____ ke ne feinga. (He had no money, provided that he try.)
@@ -285,11 +285,11 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 #### Exercise 7: Translate into English
 
 1. *'Ilonga ia 'oku fie ha'u pea ha'u ki heni.*
-2. *Na'e faingata'a 'a e halá, kae kehe, na'á nau a'u ki he kolo.*
+2. *Na'e faingata'a 'a e halá, kae kehe, na'a nau a'u ki he kolo.*
 3. *Pea faifai pea 'osi 'a e matangí ko iá.*
 4. *Kehe pē ke ke 'alu ki he akó.*
 5. *'Ilonga ha kolo 'oku mau 'i ai, 'oku 'i ai foki mo e 'Otuá.*
-6. *'I he faifai na'á nau 'ilo 'a e mo'oní.*
+6. *'I he faifai na'a nau 'ilo 'a e mo'oní.*
 
 ---
 
@@ -309,7 +309,7 @@ The pattern *pea faifai pea* + verb creates a narrative sense of gradual progres
 1. *Kapau té ke ha'u, té u hiva.*
 2. *Na'á ku lau tohi lolotonga na'á ne mohe.*
 3. *Té u ngāue kae'oua ke nau foki mai.*
-4. *'I he 'osi 'ene kai, pea ne mohe.*
+4. *'I he 'osi 'ene kai, peá ne mohe.*
 5. *Neongo 'ene vaivai, ka té ne feinga atu pē.*
 6. *'E nofo ai kae'oua kuo mo'ui.*
 

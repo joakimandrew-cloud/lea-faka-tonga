@@ -58,6 +58,11 @@ function availableTokens(pattern, chapter) {
     set.add(norm('nau'))
   }
 
+  // Stress-accent synthesis: assembleSentence accents te/kuo/ʻoku/naʻa when
+  // the next part starts with a one-syllable enclitic pronoun (Ch 2 + Ch 9:22),
+  // so examples may carry the accented forms wherever the bare marker exists.
+  const STRESS_PAIRS = [['te', 'té'], ['kuo', 'kuó'], ["'oku", "'okú"], ["na'a", "na'á"]]
+
   // Synthetic filler that activates every condition a slot might have.
   // Used to probe conditional slots (e.g. s04 `object` requires a transitive
   // verb in filledSlots) so their vocabulary shows up in the union.
@@ -83,6 +88,9 @@ function availableTokens(pattern, chapter) {
       set.add(norm(o.tongan))
       for (const sub of o.tongan.split(/\s+/)) set.add(norm(sub))
     }
+  }
+  for (const [bare, accented] of STRESS_PAIRS) {
+    if (set.has(norm(bare))) set.add(norm(accented))
   }
   return set
 }

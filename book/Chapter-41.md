@@ -128,7 +128,7 @@ The verbal noun after *fai* is a bare indefinite object. Together, *fai* + noun 
 The verb *'ai* means "to put," "to do," or "to make." It substitutes freely for more specific transitive verbs when the context makes the action clear.
 
 ::: {.examples}
-*Ko 'eku 'alu 'o 'ai 'eku ki'i me'a pea u toe foki.* I am going to take care of a little business and then come back. (Lit. "It is my going and doing my little thing and I again return")
+*Ko 'eku 'alu 'o 'ai 'eku ki'i me'a peá u toe foki.* I am going to take care of a little business and then come back. (Lit. "It is my going and doing my little thing and I again return")
 
 *Ko ho'o 'ai ke hā?* What are you doing that for?
 

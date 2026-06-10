@@ -105,7 +105,7 @@ The word *ai* refers back to *ko e me'a ia*, occupying the same slot after the v
 When *ko e me'a ia* points to a specific thing rather than expressing "that's why," the clause often contains *ki ai*:
 
 ::: {.examples}
-*Ko e me'a ia 'oku 'ikai te u loto ki ai.* That's the thing I don't agree to.
+*Ko e me'a ia 'oku 'ikai té u loto ki ai.* That's the thing I don't agree to.
 :::
 
 ---

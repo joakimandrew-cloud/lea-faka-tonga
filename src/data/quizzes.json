@@ -1241,7 +1241,7 @@
             "label": "B",
             "text": "It turns a command into a prohibition (\"don't\").",
             "correct": true,
-            "explanation": "The prohibition marker *'oua* is followed by *te*, a pronoun, and then the verb: *'Oua te ke lea!* (\"Don't speak!\")."
+            "explanation": "The prohibition marker *'oua* is followed by *te*, a pronoun, and then the verb: *'Oua té ke lea!* (\"Don't speak!\")."
           },
           {
             "label": "C",
@@ -1275,7 +1275,7 @@
           },
           {
             "label": "C",
-            "text": "*Te ke nofo!*",
+            "text": "*Té ke nofo!*",
             "correct": false,
             "explanation": "The marker *te* makes this a future statement (\"You will stay\"), not a direct command."
           },
@@ -1329,13 +1329,13 @@
           },
           {
             "label": "B",
-            "text": "*'Oua te ke kai mu'a.*",
+            "text": "*'Oua té ke kai mu'a.*",
             "correct": true,
             "explanation": "A prohibition is built with *'oua te* + pronoun + verb, and *mu'a* (\"please\") follows the verb to soften it."
           },
           {
             "label": "C",
-            "text": "*'Oua mu'a te ke kai.*",
+            "text": "*'Oua mu'a té ke kai.*",
             "correct": false,
             "explanation": "The word *mu'a* follows the verb, not the prohibition marker. This word order is not used."
           },
@@ -1367,7 +1367,7 @@
             "label": "C",
             "text": "*koe*",
             "correct": true,
-            "explanation": "The postposed second-person singular is *koe*, which pairs with preposed *ke* in sentences like *Te ke mohe koe* (\"You yourself will sleep\")."
+            "explanation": "The postposed second-person singular is *koe*, which pairs with preposed *ke* in sentences like *Té ke mohe koe* (\"You yourself will sleep\")."
           },
           {
             "label": "D",
@@ -1379,7 +1379,7 @@
       },
       {
         "id": "q6",
-        "prompt": "What does the postposed pronoun add to a sentence like *Te u nofo au.*?",
+        "prompt": "What does the postposed pronoun add to a sentence like *Té u nofo au.*?",
         "options": [
           {
             "label": "A",
@@ -1403,7 +1403,7 @@
             "label": "D",
             "text": "It emphasizes who is doing the action (\"I myself will stay\").",
             "correct": true,
-            "explanation": "The postposed pronoun echoes the preposed pronoun and gives weight: *Te u nofo au* reads as \"I myself will stay.\""
+            "explanation": "The postposed pronoun echoes the preposed pronoun and gives weight: *Té u nofo au* reads as \"I myself will stay.\""
           }
         ]
       },
@@ -1431,7 +1431,7 @@
           },
           {
             "label": "D",
-            "text": "*Te ke 'alu koe.*",
+            "text": "*Té ke 'alu koe.*",
             "correct": false,
             "explanation": "This is a future statement (\"You yourself will go\"), not a command."
           }
@@ -1521,7 +1521,7 @@
           },
           {
             "label": "D",
-            "text": "*'Oua te ke mohe 'apongipongi!*",
+            "text": "*'Oua té ke mohe 'apongipongi!*",
             "correct": true,
             "explanation": "The prohibition is *'oua te* + *ke* (you, one person) + verb, and the time word *'apongipongi* sits at the end as usual."
           }
@@ -2499,7 +2499,7 @@
           },
           {
             "label": "C",
-            "text": "*'Oku 'ikai te u fiefia.*",
+            "text": "*'Oku 'ikai té u fiefia.*",
             "correct": true,
             "explanation": "The pattern is TM + *'ikai te* + pronoun + verb, and after *te* the first-person singular pronoun is *u*."
           },
@@ -2513,7 +2513,7 @@
       },
       {
         "id": "q3",
-        "prompt": "Why is the past negative *Na'e 'ikai te u fiefia* (not *Na'á ku 'ikai...*) the correct form?",
+        "prompt": "Why is the past negative *Na'e 'ikai té u fiefia* (not *Na'á ku 'ikai...*) the correct form?",
         "options": [
           {
             "label": "A",
@@ -2669,7 +2669,7 @@
             "label": "A",
             "text": "*Na'á ku 'ikai fiefia.*",
             "correct": false,
-            "explanation": "The past negative is *Na'e 'ikai te u fiefia*. The pronoun-pairing *na'á ku* cannot sit before *'ikai*."
+            "explanation": "The past negative is *Na'e 'ikai té u fiefia*. The pronoun-pairing *na'á ku* cannot sit before *'ikai*."
           },
           {
             "label": "B",
@@ -2733,7 +2733,7 @@
           },
           {
             "label": "B",
-            "text": "*Te u teitei 'alu.*",
+            "text": "*Té u teitei 'alu.*",
             "correct": false,
             "explanation": "Without *'ikai*, the sentence is positive, and in its \"at all / certainly not\" sense *teitei* sits inside a negative. There is nothing here for it to intensify."
           },
@@ -3017,7 +3017,7 @@
             "label": "C",
             "text": "*'Oua mo nofo!*",
             "correct": false,
-            "explanation": "Prohibitions to two people use *'oua te* + *mo* + verb, so *'Oua te mo nofo!* is the correct form."
+            "explanation": "Prohibitions to two people use *'oua te* + *mo* + verb, so *'Oua té mo nofo!* is the correct form."
           },
           {
             "label": "D",
@@ -4535,7 +4535,7 @@
             "label": "A",
             "text": "*Té ne 'alu 'a Sione.*",
             "correct": false,
-            "explanation": "The form *te* is the future before a pronoun. Using both *te ne* and a noun subject doubles the subject slot, which is ungrammatical."
+            "explanation": "The form *te* is the future before a pronoun. Using both *té ne* and a noun subject doubles the subject slot, which is ungrammatical."
           },
           {
             "label": "B",
@@ -6267,9 +6267,9 @@
           },
           {
             "label": "D",
-            "text": "*'Oku 'ikai te u lava 'o 'alu.*",
+            "text": "*'Oku 'ikai té u lava 'o 'alu.*",
             "correct": false,
-            "explanation": "Correct. The negative with a pronoun subject uses *'ikai te u*, followed by *lava 'o* + verb."
+            "explanation": "Correct. The negative with a pronoun subject uses *'ikai té u*, followed by *lava 'o* + verb."
           }
         ]
       },
@@ -6323,7 +6323,7 @@
             "label": "C",
             "text": "Because *fie* plus a stative adjective implies someone is posing as something they are not.",
             "correct": true,
-            "explanation": "When *fie* combines with an adjective like *lahi*, *poto*, or *lelei*, it does not mean \"want to be\"; it means \"wanting to be seen as\" — conceited, show-off, goody-goody. These combinations are always pointed."
+            "explanation": "When *fie* combines with an adjective like *lahi*, *poto*, or *lelei*, it does not mean \"want to be\"; it means \"wanting to be seen as\", conceited, show-off, goody-goody. These combinations are always pointed."
           },
           {
             "label": "D",
@@ -6375,9 +6375,9 @@
           },
           {
             "label": "B",
-            "text": "*'Oku 'ikai te u lava 'a Mele 'o lea lelei.*",
+            "text": "*'Oku 'ikai té u lava 'a Mele 'o lea lelei.*",
             "correct": false,
-            "explanation": "The form *te u* is the pronoun \"I.\" It cannot coexist with a separate noun subject *'a Mele* in the same clause."
+            "explanation": "The form *té u* is the pronoun \"I.\" It cannot coexist with a separate noun subject *'a Mele* in the same clause."
           },
           {
             "label": "C",
@@ -8897,7 +8897,7 @@
             "label": "C",
             "text": "If",
             "correct": true,
-            "explanation": "The word *kapau* introduces a condition — something that may or may not happen — and is always followed by a tense marker or *ko*."
+            "explanation": "The word *kapau* introduces a condition, something that may or may not happen, and is always followed by a tense marker or *ko*."
           },
           {
             "label": "D",
@@ -8945,7 +8945,7 @@
             "label": "A",
             "text": "I slept while she was reading.",
             "correct": true,
-            "explanation": "Here *lolotonga* links two clauses as \"while,\" and each clause keeps its own *na'á* past marker — one action happens during the other."
+            "explanation": "Here *lolotonga* links two clauses as \"while,\" and each clause keeps its own *na'á* past marker, one action happens during the other."
           },
           {
             "label": "B",
@@ -9041,7 +9041,7 @@
             "label": "B",
             "text": "*Lolotonga 'enau hivá, pea nau mohe.*",
             "correct": false,
-            "explanation": "The word *lolotonga* means \"while\" — two events at the same time — not \"at the moment X finished.\""
+            "explanation": "The word *lolotonga* means \"while\", two events at the same time, not \"at the moment X finished.\""
           },
           {
             "label": "C",
@@ -9059,13 +9059,13 @@
       },
       {
         "id": "q7",
-        "prompt": "What does *kae kehe* mean in a sentence like *Na'e faingata'a 'a e ngāué, kae kehe, na'á nau lava ia.*?",
+        "prompt": "What does *kae kehe* mean in a sentence like *Na'e faingata'a 'a e ngāué, kae kehe, na'a nau lava ia.*?",
         "options": [
           {
             "label": "A",
             "text": "Nevertheless, however",
             "correct": true,
-            "explanation": "The phrase *kae kehe* opens a clause that contrasts with what came before, signalling a concession on the result side — \"nevertheless, they did it.\""
+            "explanation": "The phrase *kae kehe* opens a clause that contrasts with what came before, signalling a concession on the result side, \"nevertheless, they did it.\""
           },
           {
             "label": "B",
@@ -9095,7 +9095,7 @@
             "label": "A",
             "text": "*'Ilonga 'oku ou fie ha'u.*",
             "correct": false,
-            "explanation": "This reads as \"Whoever I want to come\" — *'ilonga* needs a clause describing the kind of person or thing, not a first-person wanting clause."
+            "explanation": "This reads as \"Whoever I want to come\", *'ilonga* needs a clause describing the kind of person or thing, not a first-person wanting clause."
           },
           {
             "label": "B",
@@ -9125,7 +9125,7 @@
             "label": "A",
             "text": "*Kapau*",
             "correct": false,
-            "explanation": "\"If I am tired, but I will work anyway\" does not read coherently — *kapau* sets up a hypothetical condition, not a conceded fact."
+            "explanation": "\"If I am tired, but I will work anyway\" does not read coherently, *kapau* sets up a hypothetical condition, not a conceded fact."
           },
           {
             "label": "B",
@@ -9143,7 +9143,7 @@
             "label": "D",
             "text": "*Kae'oua*",
             "correct": false,
-            "explanation": "\"Until I am tired, but I will work anyway\" reverses the logic — *kae'oua* marks an endpoint, not a concession."
+            "explanation": "\"Until I am tired, but I will work anyway\" reverses the logic, *kae'oua* marks an endpoint, not a concession."
           }
         ]
       },
@@ -9155,7 +9155,7 @@
             "label": "A",
             "text": "It means \"quickly, immediately.\"",
             "correct": false,
-            "explanation": "Immediacy is expressed by *ko e ... pē* (as soon as). *Faifai* moves in the opposite direction — slow, gradual."
+            "explanation": "Immediacy is expressed by *ko e ... pē* (as soon as). *Faifai* moves in the opposite direction, slow, gradual."
           },
           {
             "label": "B",
@@ -9171,7 +9171,7 @@
           },
           {
             "label": "D",
-            "text": "It signals gradual progression — \"by and by, as time went on.\"",
+            "text": "It signals gradual progression, \"by and by, as time went on.\"",
             "correct": true,
             "explanation": "The frame *pea faifai pea* + verb creates a narrative sense of an event eventually unfolding after some passage of time."
           }
@@ -9575,7 +9575,7 @@
             "label": "D",
             "text": "She will put her child to sleep.",
             "correct": false,
-            "explanation": "The future would take *te ne* or *'e ne*, not the past-tense *na'á ne*. The tense marker here is unambiguously past."
+            "explanation": "The future would take *té ne* or *'e ne*, not the past-tense *na'á ne*. The tense marker here is unambiguously past."
           }
         ]
       },
@@ -12581,7 +12581,7 @@
       },
       {
         "id": "q2",
-        "prompt": "Translate: *Talu 'eku ha'ú 'oku te'eki te u ongo'i ta'elata.*",
+        "prompt": "Translate: *Talu 'eku ha'ú 'oku te'eki té u ongo'i ta'elata.*",
         "options": [
           {
             "label": "A",
@@ -12777,13 +12777,13 @@
           },
           {
             "label": "C",
-            "text": "*Te u 'alu he Mōnite kaha'ú.*",
+            "text": "*Té u 'alu he Mōnite kaha'ú.*",
             "correct": false,
             "explanation": "With days of the week, *'i* drops and *he* stands alone. This sentence follows that rule correctly."
           },
           {
             "label": "D",
-            "text": "*Hilí 'eku puké pea u foki 'o ngāue.*",
+            "text": "*Hilí 'eku puké peá u foki 'o ngāue.*",
             "correct": false,
             "explanation": "With a possessive (*'eku puké*), no focus marker *'a* is needed after *hilí*. This sentence is well-formed."
           }
@@ -13551,7 +13551,7 @@
           },
           {
             "label": "D",
-            "text": "*'I he'ene lau 'o e tohí, na'a ku mālōlō.*",
+            "text": "*'I he'ene lau 'o e tohí, na'á ku mālōlō.*",
             "correct": false,
             "explanation": "The object stays as *'a e tohi* after a preposed possessive. The *'o e* shift applies only with postposed or absent subjects, and the past-tense pronoun requires *Na'á ku*."
           }
@@ -13623,25 +13623,25 @@
         "options": [
           {
             "label": "A",
-            "text": "\"Seini is singing superbly\" — a standard verb pattern with *hiva* as verb.",
+            "text": "\"Seini is singing superbly\", a standard verb pattern with *hiva* as verb.",
             "correct": false,
             "explanation": "In the standard verb pattern the adverb follows the verb, as in *'Oku hiva mālie 'a Seini*. Word order here is different."
           },
           {
             "label": "B",
-            "text": "\"Seini wants to sing well\" — a desiderative construction.",
+            "text": "\"Seini wants to sing well\", a desiderative construction.",
             "correct": false,
             "explanation": "Desiderative meaning is expressed with *fie-* prefixes, not with *mālie e hiva*. Nothing here means \"want.\""
           },
           {
             "label": "C",
-            "text": "\"Seini's singing is superb\" — the verbal noun *hiva* is the subject, with *'a Seini* as a possessive phrase.",
+            "text": "\"Seini's singing is superb\", the verbal noun *hiva* is the subject, with *'a Seini* as a possessive phrase.",
             "correct": true,
             "explanation": "When a verbal noun serves as the sentence subject, the doer is expressed with *'a* + noun. The stative *mālie* is the predicate."
           },
           {
             "label": "D",
-            "text": "\"Seini will sing superbly\" — a future construction.",
+            "text": "\"Seini will sing superbly\", a future construction.",
             "correct": false,
             "explanation": "The tense marker *'Oku* is present, not future. The future would require *'E* or *Te*."
           }
@@ -14105,7 +14105,7 @@
             "label": "D",
             "text": "A completed state",
             "correct": false,
-            "explanation": "Completed states use *kuo*. *Hei'ilo* signals the opposite — something unknown or unsettled."
+            "explanation": "Completed states use *kuo*. *Hei'ilo* signals the opposite, something unknown or unsettled."
           }
         ]
       },
@@ -14247,7 +14247,7 @@
           },
           {
             "label": "C",
-            "text": "The sense \"nearly\" — *Kuo mei 'osi* means \"It is nearly finished.\"",
+            "text": "The sense \"nearly\", *Kuo mei 'osi* means \"It is nearly finished.\"",
             "correct": true,
             "explanation": "The moderative *mei* placed before a verb softens it to \"nearly,\" and in conditional main clauses it also renders \"would\" or \"might.\""
           },
@@ -14355,25 +14355,25 @@
         "options": [
           {
             "label": "A",
-            "text": "*Ka 'a Mele puke, pea ke tala mai.*",
+            "text": "*Ka 'a Mele puke, peá ke tala mai.*",
             "correct": false,
             "explanation": "The subject marker *'a* follows the verb in this pattern, not the *ka*. The correct order is *Ka puke 'a Mele*."
           },
           {
             "label": "B",
-            "text": "*Ka Mele ka puke, pea ke tala mai.*",
+            "text": "*Ka Mele ka puke, peá ke tala mai.*",
             "correct": false,
             "explanation": "The double *ka* pattern is for pronoun subjects, not noun subjects. A noun uses *ka* + verb + *'a* + noun."
           },
           {
             "label": "C",
-            "text": "*Kapau puke 'a Mele, pea ke tala mai.*",
+            "text": "*Kapau puke 'a Mele, peá ke tala mai.*",
             "correct": false,
             "explanation": "After *kapau*, a tense marker is needed before the verb, as in *Kapau 'e puke 'a Mele*. The bare verb placement shown is ungrammatical."
           },
           {
             "label": "D",
-            "text": "*Ka puke 'a Mele, pea ke tala mai.*",
+            "text": "*Ka puke 'a Mele, peá ke tala mai.*",
             "correct": true,
             "explanation": "With a noun subject, the pattern is *ka* + verb + *'a* + noun, giving *Ka puke 'a Mele* (\"If Mele gets sick\")."
           }
@@ -14697,25 +14697,25 @@
         "options": [
           {
             "label": "A",
-            "text": "Causative meaning — making someone else do the action",
+            "text": "Causative meaning, making someone else do the action",
             "correct": false,
             "explanation": "Causative meaning comes from the prefix *faka-*, not from *fe-...-'aki*. The two prefixes have distinct jobs."
           },
           {
             "label": "B",
-            "text": "Reciprocal or reciprocative meaning — doing the action to each other or back and forth",
+            "text": "Reciprocal or reciprocative meaning, doing the action to each other or back and forth",
             "correct": true,
             "explanation": "Wrapping a verb with *fe-* in front and *-'aki* at the end produces mutual action (love one another) or back-and-forth movement (go back and forth)."
           },
           {
             "label": "C",
-            "text": "Resultative meaning — a state that results from the action",
+            "text": "Resultative meaning, a state that results from the action",
             "correct": false,
             "explanation": "Resultative meaning comes from *ma-/mo-/mā-*, not from *fe-...-'aki*. That prefix describes a state without naming the agent."
           },
           {
             "label": "D",
-            "text": "Continuation or overdoing — the action lasts too long",
+            "text": "Continuation or overdoing, the action lasts too long",
             "correct": false,
             "explanation": "Continuation and overdoing come from *mo'u-* (with final *-a*), as in *mo'umohea* (\"overslept\"), not from *fe-...-'aki*."
           }
@@ -14829,7 +14829,7 @@
           },
           {
             "label": "C",
-            "text": "Potential uses *ma-* only, resultative uses *mo-* only — they never overlap.",
+            "text": "Potential uses *ma-* only, resultative uses *mo-* only, they never overlap.",
             "correct": false,
             "explanation": "Both senses use *ma-*, with *mo-* and *mā-* as variants for the resultative. The same prefix handles both."
           },
@@ -14847,7 +14847,7 @@
         "options": [
           {
             "label": "A",
-            "text": "*Na'é ke mahiki e puha ko iá?*",
+            "text": "*Na'á ke mahiki e puha ko iá?*",
             "correct": true,
             "explanation": "The question asks whether the listener was able to lift the box by trying. That is the potential use of *ma-*."
           },
@@ -15321,7 +15321,7 @@
           },
           {
             "label": "C",
-            "text": "To refer only to two specific people — the speaker and the listener",
+            "text": "To refer only to two specific people, the speaker and the listener",
             "correct": false,
             "explanation": "That is the literal meaning of *te* as the first-person inclusive singular. The impersonal use extends beyond those two people."
           },
@@ -15507,7 +15507,7 @@
           },
           {
             "label": "D",
-            "text": "It is merely predicative — it introduces the predicate without adding tense, with the actual tense coming from the main clause.",
+            "text": "It is merely predicative, it introduces the predicate without adding tense, with the actual tense coming from the main clause.",
             "correct": true,
             "explanation": "In adjectival clauses describing an indefinite antecedent, *te* and *'e* introduce the predicate only. The main clause's *'oku* supplies the present-tense reading."
           }
@@ -15567,7 +15567,7 @@
           },
           {
             "label": "D",
-            "text": "*Ka kau 'alu, te u tokoni.*",
+            "text": "*Ka kau 'alu, té u tokoni.*",
             "correct": false,
             "explanation": "After the conjunction *ka* (\"but/if\"), the regular pronoun *u* is used, giving *ka u 'alu*. This sequence of two separate words is not the same as *kau*."
           }

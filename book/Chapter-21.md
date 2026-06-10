@@ -96,8 +96,8 @@ In the negative, *lava* uses the same negative patterns you already know. With p
 
 | Tongan | English |
 |---|---|
-| *'Oku 'ikai te u lava 'o 'alu.* | I cannot go. |
-| *Na'e 'ikai te ke lava 'o ha'u?* | Were you not able to come? |
+| *'Oku 'ikai té u lava 'o 'alu.* | I cannot go. |
+| *Na'e 'ikai té ke lava 'o ha'u?* | Were you not able to come? |
 | *'Oku 'ikai ke lava 'a Tēvita 'o tohi.* | Tēvita cannot write. |
 
 > *Note:* Tongan has several other ways to express ability: *ala* (it is practicable), *fa'a* (one has the physical capacity), the *ma-* prefix (able as discovered by trial), and *poto 'i* (skilled at). These appear in later chapters, including Chapter 49: Prefixes. *Lava* is the general-purpose word for "can" or "be able to."
@@ -136,7 +136,7 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 | Tongan | English |
 |---|---|
 | *'Oku ou sai'ia he hivá.* | I like the song. |
-| *'Oku 'ikai te u sai'ia he kavá.* | I do not like kava. |
+| *'Oku 'ikai té u sai'ia he kavá.* | I do not like kava. |
 | *Na'á ke sai'ia 'ia Lātū?* | Did you like Lātū? |
 | *'Io, na'á ku sai'ia lahi ai.* | Yes, I liked him a lot. |
 
@@ -169,7 +169,7 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 1. *'Oku ou fie mohe.*
 2. *Té ke lava 'o ha'u 'apongipongi?*
 3. *Na'á ku fie 'alu ki Ha'apai.*
-4. *'Oku 'ikai te u lava 'o hiva.*
+4. *'Oku 'ikai té u lava 'o hiva.*
 5. *'Okú ke sai'ia he ika?*
 6. *'Oua té ke fie lahi.*
 7. *'E lava 'a Mele 'o 'alu?*
@@ -200,7 +200,7 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 2. *'Oku ou \_\_\_ 'alu ki tahi.* (I want to go to the ocean.)
 3. *Té ke \_\_\_ ha'u 'anai?* (Will you be able to come later?)
 4. *Na'á ku \_\_\_ mohe 'anepō.* (I wanted to sleep last night.)
-5. *'Oku 'ikai te u \_\_\_ lahi he kavá.* (I do not like kava much.)
+5. *'Oku 'ikai té u \_\_\_ lahi he kavá.* (I do not like kava much.)
 6. *'E \_\_\_ 'a 'Ana 'o haka?* (Will 'Ana be able to dance?)
 
 ---
@@ -221,7 +221,7 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 #### Exercise 2
 
 1. *'Okú ke fie kai?*
-2. *'Oku 'ikai te u lava 'o kakau.*
+2. *'Oku 'ikai té u lava 'o kakau.*
 3. *Na'e lava 'a Sione 'o ha'u 'aneafi.*
 4. *'Okú ke sai'ia he falé?*
 5. *'Oku mau fie 'alu ki tahi 'apongipongi.*
@@ -231,11 +231,11 @@ The substitute *ai* works here the same way you learned with *ki* phrases: it re
 
 #### Exercise 3
 
-1. *'Oku 'ikai te u fie 'alu.*
-2. *'E 'ikai te ke lava 'o ha'u.*  (or: *'Oku 'ikai te ke lava 'o ha'u?*)
-3. *Na'e 'ikai te u sai'ia he me'akai.*
+1. *'Oku 'ikai té u fie 'alu.*
+2. *'E 'ikai té ke lava 'o ha'u.*  (or: *'Oku 'ikai té ke lava 'o ha'u?*)
+3. *Na'e 'ikai té u sai'ia he me'akai.*
 4. *'Oku 'ikai ke lava 'a Sione 'o ngāue.*
-5. *'Oku 'ikai te u fie nofo 'i kolo.*
+5. *'Oku 'ikai té u fie nofo 'i kolo.*
 
 #### Exercise 4
 

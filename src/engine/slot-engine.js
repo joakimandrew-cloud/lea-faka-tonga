@@ -490,8 +490,10 @@ export function assembleSentence(patternId, filledSlots, isQuestionOverride) {
     }
     // Cleft transitive: accent TM naʻe → naʻá, then inject resumptive pronoun.
     if (slot.id === 'tense_marker' && cleftPronoun) {
+      // One-syllable resumptives (ku, ne) take the stress accent (na\u02BB\u00E1);
+      // two-syllable nau keeps bare na\u02BBa (Ch 2 rule).
       const accented = normalize(value.tongan) === "na'e"
-        ? value.tongan.slice(0, -1) + '\u00E1'
+        ? value.tongan.slice(0, -1) + (cleftPronoun === 'nau' ? 'a' : '\u00E1')
         : value.tongan
       tonganParts.push(accented)
       parts.push({
@@ -517,6 +519,24 @@ export function assembleSentence(patternId, filledSlots, isQuestionOverride) {
       slotId: slot.id,
     })
   }
+  // Stress-accent synthesis (Ch 2 + Ch 9:22): when a tense marker or the
+  // connector te ends a part and the next part begins with a one-syllable
+  // enclitic pronoun, the pair is pronounced as one unit and the marker takes
+  // the acute accent (te → té, kuo → kuó, ʻoku → ʻokú, naʻa → naʻá).
+  // Two-syllable pronouns (ou, mau, tau, mou, nau, kita) leave it bare.
+  const ENCLITICS = new Set(['u', 'ku', 'ke', 'ne', 'na', 'ma', 'ta', 'mo'])
+  const ACCENT_FINAL = { te: 'é', kuo: 'ó', "'oku": 'ú', "na'a": 'á' }
+  for (let i = 0; i < tonganParts.length - 1; i++) {
+    const nextWord = normalize(tonganParts[i + 1]).split(/\s+/)[0]
+    if (!ENCLITICS.has(nextWord)) continue
+    const words = tonganParts[i].split(' ')
+    const lastNorm = normalize(words[words.length - 1])
+    if (!(lastNorm in ACCENT_FINAL)) continue
+    words[words.length - 1] = words[words.length - 1].slice(0, -1) + ACCENT_FINAL[lastNorm]
+    tonganParts[i] = words.join(' ')
+    parts[i].tongan = tonganParts[i]
+  }
+
   const tongan = tonganParts.join(' ')
 
   // Translate via adapter

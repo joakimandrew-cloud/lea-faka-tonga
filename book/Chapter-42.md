@@ -7,7 +7,7 @@ This chapter covers practical time expressions: talking about months and express
 You already know that with days of the week, the preposition *'i* drops and the article *he* stands alone:
 
 ::: {.examples}
-*Te u 'alu he Mōnite kaha'ú.* I will go next Monday.
+*Té u 'alu he Mōnite kaha'ú.* I will go next Monday.
 :::
 
 With months, the pattern reverses: the article *he* drops, and *'i* stands alone.
@@ -58,7 +58,7 @@ Time nouns take ho-class because they characterise a period rather than being so
 The word *talu* (or *talu mei*) means "since" or "ever since," referring to a point in time from which something has continued.
 
 ::: {.examples}
-*Talu 'eku ha'ú 'oku te'eki te u ongo'i ta'elata.* Since I came, I have never felt homesick.
+*Talu 'eku ha'ú 'oku te'eki té u ongo'i ta'elata.* Since I came, I have never felt homesick.
 
 *Talu mei he ta'u kuo 'osí 'oku ou kei mo'ui lelei pē.* Since last year I am still quite healthy.
 :::
@@ -91,7 +91,7 @@ The word *hilí* means "after." It introduces a noun or event that has already h
 ::: {.examples}
 *Hilí 'a e fakatahá pea mau ō 'o kai.* After the meeting we went and ate.
 
-*Hilí 'eku puké pea u foki 'o ngāue.* After my sickness I returned to work.
+*Hilí 'eku puké peá u foki 'o ngāue.* After my sickness I returned to work.
 
 *Hilí ia, na'e toki lea leva 'a e faiakó.* After that, the teacher spoke immediately.
 :::
@@ -132,7 +132,7 @@ The preposed words *fuofua* and its shorter form *fua* mean "first" or "initial.
 
 *Ko e fuofua tohi eni na'á ku lau.* This is the first book I read.
 
-*Na'á ku fua talanoa mo Tēvita, pea ma toki alea mo e pulé.* I talked with Tēvita first, and then we discussed with the boss.
+*Na'á ku fua talanoa mo Tēvita, peá ma toki alea mo e pulé.* I talked with Tēvita first, and then we discussed with the boss.
 :::
 
 *Fuofua* and *fua* differ from *'uluaki* (first) in that they emphasise the initial occurrence of an event, not a position in a sequence. *Ko e fuofua fakataha* means "the first-ever meeting" (emphasising that this is a new event), while *ko e 'uluaki fakataha* means "the first meeting" (in a series, with a second and third to follow).
@@ -185,7 +185,7 @@ Several expressions built from spatial words extend into the domain of time.
 The phrase *ki mu'a* means "before" (in time), "ahead," or "first." It appears after the verb or at the end of the clause.
 
 ::: {.examples}
-*Na'á ku lau 'a e tohí ki mu'a pea u toki foaki ia ma'a Sēmisi.* I read the book first and then gave it to Sēmisi.
+*Na'á ku lau 'a e tohí ki mu'a peá u toki foaki ia ma'a Sēmisi.* I read the book first and then gave it to Sēmisi.
 
 *Na'á ku ha'u au ki mu'a he onó.* I came before six o'clock.
 
@@ -219,7 +219,7 @@ The phrase *ki mu'a* means "before" (in time), "ahead," or "first." It appears a
 *Tōmu'a* is a preposed modifier meaning "first of all" or "before anything else." It goes directly before the verb.
 
 ::: {.examples}
-*Té u tōmu'a tala hono koví pea u toki tala hono leleí.* I will first tell its bad side and then tell its good side.
+*Té u tōmu'a tala hono koví peá u toki tala hono leleí.* I will first tell its bad side and then tell its good side.
 
 *Tau tōmu'a tokanga'i 'a 'apí.* Before anything else, we should take care of home.
 
@@ -363,7 +363,7 @@ Match each Tongan expression with its English meaning.
 2. He went first to the meeting.
 3. *Na'á ne ha'u ki mu'a 'ia Sione.*
 4. *'Oku 'i ai ha ngaahi me'a lahi 'e hoko 'amui.*
-5. *Na'á ku lau 'a e tohí ki mu'a pea u toki foaki ia ma'a 'Ana.*
+5. *Na'á ku lau 'a e tohí ki mu'a peá u toki foaki ia ma'a 'Ana.*
 6. *Te nau tōmu'a ō kinautolu.*
 7. *Na'e toki ha'u 'a Mele ki mui 'ia Sione.*
 8. *Tau toki 'ilo 'amui.*

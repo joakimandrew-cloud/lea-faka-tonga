@@ -135,7 +135,7 @@ Here, *mo* is not the preposition meaning "with." It is the dual pronoun *mo* (y
 
 The plural verb forms apply: *'alu* becomes *ō* with two or more people, just as it does with *mou*.
 
-> *Note:* Prohibitions for two people follow the same pattern as for groups: *'Oua te mo nofo!* (Don't stay, you two!). The structure is *'oua te* + *mo* + verb.
+> *Note:* Prohibitions for two people follow the same pattern as for groups: *'Oua té mo nofo!* (Don't stay, you two!). The structure is *'oua te* + *mo* + verb.
 
 ---
 

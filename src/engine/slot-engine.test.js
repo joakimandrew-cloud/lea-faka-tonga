@@ -67,50 +67,50 @@ describe('assembleSentence — correct Tongan output', () => {
     expect(r.tongan).toBe('\u02BBOku ou kai')
   })
 
-  it('s01: Na\u02BBa ku mohe', () => {
+  it('s01: Na\u02BBá ku mohe', () => {
     const r = assembleSentence('s01', {
       tense_marker: TM.past, subject: PRON._1sg_ku, verb: V.mohe,
     })
-    expect(r.tongan).toBe('Na\u02BBa ku mohe')
+    expect(r.tongan).toBe('Na\u02BBá ku mohe')
   })
 
-  it('s01: Te u \u02BBalu', () => {
+  it('s01: Té u \u02BBalu', () => {
     const r = assembleSentence('s01', {
       tense_marker: TM.future, subject: PRON._1sg_u, verb: V.alu,
     })
-    expect(r.tongan).toBe('Te u \u02BBalu')
+    expect(r.tongan).toBe('Té u \u02BBalu')
   })
 
-  it('s01: Na\u02BBa ne hiva', () => {
+  it('s01: Na\u02BBá ne hiva', () => {
     const r = assembleSentence('s01', {
       tense_marker: TM.past, subject: PRON._3sg, verb: V.hiva,
     })
-    expect(r.tongan).toBe('Na\u02BBa ne hiva')
+    expect(r.tongan).toBe('Na\u02BBá ne hiva')
   })
 
-  it('s02: Na\u02BBa ku ng\u0101ue m\u0101lohi', () => {
+  it('s02: Na\u02BBá ku ng\u0101ue m\u0101lohi', () => {
     const r = assembleSentence('s02', {
       tense_marker: TM.past, subject: PRON._1sg_ku, verb: V.ngaue,
       modifier: { tongan: 'm\u0101lohi', english: 'hard/strongly' },
     })
-    expect(r.tongan).toBe('Na\u02BBa ku ng\u0101ue m\u0101lohi')
+    expect(r.tongan).toBe('Na\u02BBá ku ng\u0101ue m\u0101lohi')
   })
 
-  it('s03: Na\u02BBa ku kai m\u0101', () => {
+  it('s03: Na\u02BBá ku kai m\u0101', () => {
     const r = assembleSentence('s03', {
       tense_marker: TM.past, subject: PRON._1sg_ku, verb: V.kai,
       object: { tongan: 'm\u0101', english: 'bread', tags: ['bare_noun'] },
     })
-    expect(r.tongan).toBe('Na\u02BBa ku kai m\u0101')
+    expect(r.tongan).toBe('Na\u02BBá ku kai m\u0101')
   })
 
-  it('s04: Na\u02BBa ku kai pulu \u02BBanep\u014D', () => {
+  it('s04: Na\u02BBá ku kai pulu \u02BBanep\u014D', () => {
     const r = assembleSentence('s04', {
       tense_marker: TM.past, subject: PRON._1sg_ku, verb: V.kai,
       object: { tongan: 'pulu', english: 'beef', tags: ['bare_noun'] },
       time: { tongan: '\u02BBanep\u014D', english: 'last night', tags: ['past'] },
     })
-    expect(r.tongan).toBe('Na\u02BBa ku kai pulu \u02BBanep\u014D')
+    expect(r.tongan).toBe('Na\u02BBá ku kai pulu \u02BBanep\u014D')
   })
 
   it('s08: Kai (singular command)', () => {
@@ -140,12 +140,12 @@ describe('assembleSentence — correct Tongan output', () => {
     expect(r.tongan).toBe('Mou \u014D')
   })
 
-  it('s10: \u02BBOua te ke kai (prohibition)', () => {
+  it('s10: \u02BBOua té ke kai (prohibition)', () => {
     const r = assembleSentence('s10', {
       subject: { tongan: 'ke', english: 'you (one person)' },
       verb: { tongan: 'kai', english: 'eat', tags: ['action', 'transitive'] },
     })
-    expect(r.tongan).toBe('\u02BBOua te ke kai')
+    expect(r.tongan).toBe('\u02BBOua té ke kai')
   })
 
   it('s11: Tau kai (suggestion)', () => {
@@ -767,7 +767,7 @@ describe('Fix: s10 prohibition verbs are lowercase', () => {
       subject: { tongan: 'ke', english: 'you (one person)' },
       verb: { tongan: 'kai', english: 'eat', tags: ['action', 'transitive'] },
     })
-    expect(r.tongan).toBe('\u02BBOua te ke kai')
+    expect(r.tongan).toBe('\u02BBOua té ke kai')
   })
 })
 
@@ -822,16 +822,16 @@ describe('Ch 6: Location — s05 and s06', () => {
     expect(r.tongan).toBe('\u02BBOku ou \u02BBi \u02BBapi')
   })
 
-  it('s05: Na\u02BBa ke \u02BBi kolo (Were you in town?)', () => {
+  it('s05: Na\u02BBá ke \u02BBi kolo (Were you in town?)', () => {
     const r = assembleSentence('s05', {
       tense_marker: TM.past,
       subject: PRON._2sg,
       place: { tongan: 'kolo', english: 'town' },
     })
-    expect(r.tongan).toBe('Na\u02BBa ke \u02BBi kolo')
+    expect(r.tongan).toBe('Na\u02BBá ke \u02BBi kolo')
   })
 
-  it('s06: Na\u02BBa ku \u02BBalu ki kolo (I went to town)', () => {
+  it('s06: Na\u02BBá ku \u02BBalu ki kolo (I went to town)', () => {
     const r = assembleSentence('s06', {
       tense_marker: TM.past,
       subject: PRON._1sg_ku,
@@ -839,7 +839,7 @@ describe('Ch 6: Location — s05 and s06', () => {
       preposition: { tongan: 'ki', english: 'to/toward' },
       place: { tongan: 'kolo', english: 'town' },
     })
-    expect(r.tongan).toBe('Na\u02BBa ku \u02BBalu ki kolo')
+    expect(r.tongan).toBe('Na\u02BBá ku \u02BBalu ki kolo')
   })
 
   it('s06: \u02BBOku ou nofo \u02BBi Tonga (I live in Tonga)', () => {
@@ -859,7 +859,7 @@ describe('Ch 6: Location — s05 and s06', () => {
 // ===========================================================================
 
 describe('Ch 7: Prepositions and experiencer verbs — s06, s24', () => {
-  it('s06: Na\u02BBa ne ha\u02BBu mei Fisi (He/she came from Fiji)', () => {
+  it('s06: Na\u02BBá ne ha\u02BBu mei Fisi (He/she came from Fiji)', () => {
     const r = assembleSentence('s06', {
       tense_marker: TM.past,
       subject: PRON._3sg,
@@ -867,7 +867,7 @@ describe('Ch 7: Prepositions and experiencer verbs — s06, s24', () => {
       preposition: { tongan: 'mei', english: 'from' },
       place: { tongan: 'Fisi', english: 'Fiji' },
     })
-    expect(r.tongan).toBe('Na\u02BBa ne ha\u02BBu mei Fisi')
+    expect(r.tongan).toBe('Na\u02BBá ne ha\u02BBu mei Fisi')
   })
 
   it('s24: \u02BBOku mahino kiate au (I understand)', () => {
@@ -904,14 +904,14 @@ describe('Ch 8: Articles — s03 with indefinite and definite objects', () => {
     expect(r.tongan).toBe('\u02BBOku ou fiema\u02BBu ha ika')
   })
 
-  it('s03: Na\u02BBa ke kai e m\u0101 (Did you eat the bread?)', () => {
+  it('s03: Na\u02BBá ke kai e m\u0101 (Did you eat the bread?)', () => {
     const r = assembleSentence('s03', {
       tense_marker: TM.past,
       subject: PRON._2sg,
       verb: V.kai,
       object: { tongan: 'e m\u0101', english: 'the bread', tags: ['definite'] },
     })
-    expect(r.tongan).toBe('Na\u02BBa ke kai e m\u0101')
+    expect(r.tongan).toBe('Na\u02BBá ke kai e m\u0101')
   })
 
   it('s03 object options include indefinite and definite at ch 8', () => {
@@ -930,13 +930,13 @@ describe('Ch 8: Articles — s03 with indefinite and definite objects', () => {
 // ===========================================================================
 
 describe('Ch 9: Negation — s12 across tenses', () => {
-  it('s12 present: \u02BBOku \u02BBikai te u \u02BBita (I am not angry)', () => {
+  it('s12 present: \u02BBOku \u02BBikai té u \u02BBita (I am not angry)', () => {
     const r = assembleSentence('s12', {
       tense_marker: { tongan: '\u02BBOku', english: 'present', tags: ['present'] },
       subject: PRON._1sg_u,
       verb: { tongan: '\u02BBita', english: 'angry', tags: ['adjective'] },
     })
-    expect(r.tongan).toBe('\u02BBOku \u02BBikai te u \u02BBita')
+    expect(r.tongan).toBe('\u02BBOku \u02BBikai té u \u02BBita')
   })
 
   it('s12 past: Na\u02BBe \u02BBikai te nau kai (They did not eat)', () => {
@@ -948,13 +948,13 @@ describe('Ch 9: Negation — s12 across tenses', () => {
     expect(r.tongan).toBe('Na\u02BBe \u02BBikai te nau kai')
   })
 
-  it('s12 future: \u02BBE \u02BBikai te u \u02BBalu (I will not go)', () => {
+  it('s12 future: \u02BBE \u02BBikai té u \u02BBalu (I will not go)', () => {
     const r = assembleSentence('s12', {
       tense_marker: { tongan: '\u02BBE', english: 'future', tags: ['future', 'negation'] },
       subject: PRON._1sg_u,
       verb: V.alu,
     })
-    expect(r.tongan).toBe('\u02BBE \u02BBikai te u \u02BBalu')
+    expect(r.tongan).toBe('\u02BBE \u02BBikai té u \u02BBalu')
   })
 })
 
@@ -963,14 +963,14 @@ describe('Ch 9: Negation — s12 across tenses', () => {
 // ===========================================================================
 
 describe('Ch 10: Comitative mo — s07', () => {
-  it('s07: Na\u02BBa ku \u02BBalu mo Sione (I went with Sione)', () => {
+  it('s07: Na\u02BBá ku \u02BBalu mo Sione (I went with Sione)', () => {
     const r = assembleSentence('s07', {
       tense_marker: TM.past,
       subject: PRON._1sg_ku,
       verb: V.alu,
       companion: { tongan: 'Sione', english: 'Sione' },
     })
-    expect(r.tongan).toBe('Na\u02BBa ku \u02BBalu mo Sione')
+    expect(r.tongan).toBe('Na\u02BBá ku \u02BBalu mo Sione')
   })
 
   it('s07: \u02BBOku ou nofo mo Pita (I live with Pita)', () => {
@@ -983,14 +983,14 @@ describe('Ch 10: Comitative mo — s07', () => {
     expect(r.tongan).toBe('\u02BBOku ou nofo mo Pita')
   })
 
-  it('s07: Na\u02BBa ne ha\u02BBu mo Mele (He/she came with Mele)', () => {
+  it('s07: Na\u02BBá ne ha\u02BBu mo Mele (He/she came with Mele)', () => {
     const r = assembleSentence('s07', {
       tense_marker: TM.past,
       subject: PRON._3sg,
       verb: V.hau,
       companion: { tongan: 'Mele', english: 'Mele' },
     })
-    expect(r.tongan).toBe('Na\u02BBa ne ha\u02BBu mo Mele')
+    expect(r.tongan).toBe('Na\u02BBá ne ha\u02BBu mo Mele')
   })
 
   it('s10 prohibition pronouns include mo (dual) at ch 10', () => {
@@ -1004,24 +1004,24 @@ describe('Ch 10: Comitative mo — s07', () => {
 // ===========================================================================
 
 describe('Ch 11: Question words — s14', () => {
-  it("s14: Na\u02BBa ke ha\u02BBu \u02BBanef\u0113 (When did you come?)", () => {
+  it("s14: Na\u02BBá ke ha\u02BBu \u02BBanef\u0113 (When did you come?)", () => {
     const r = assembleSentence('s14', {
       tense_marker: TM.past,
       subject: PRON._2sg,
       verb: V.hau,
       question_word: { tongan: '\u02BBanef\u0113', english: 'when (past)' },
     })
-    expect(r.tongan).toBe('Na\u02BBa ke ha\u02BBu \u02BBanef\u0113')
+    expect(r.tongan).toBe('Na\u02BBá ke ha\u02BBu \u02BBanef\u0113')
   })
 
-  it("s14: Te ke \u02BBalu \u02BBaf\u0113 (When will you go?)", () => {
+  it("s14: Té ke \u02BBalu \u02BBaf\u0113 (When will you go?)", () => {
     const r = assembleSentence('s14', {
       tense_marker: TM.future,
       subject: PRON._2sg,
       verb: V.alu,
       question_word: { tongan: '\u02BBaf\u0113', english: 'when (future)' },
     })
-    expect(r.tongan).toBe('Te ke \u02BBalu \u02BBaf\u0113')
+    expect(r.tongan).toBe('Té ke \u02BBalu \u02BBaf\u0113')
   })
 
   it('s14 question_word options include Ch 11 entries at ch 11', () => {
@@ -1377,14 +1377,14 @@ describe('Ch 21: s33 auxiliary pattern', () => {
     expect(r.tongan).toBe('ʻOku ou fie kai')
   })
 
-  it('s33 assembles Te ke lava ʻo haʻu', () => {
+  it('s33 assembles Té ke lava ʻo haʻu', () => {
     const r = assembleSentence('s33', {
       tense_marker: TM.future,
       subject: pron('ke', 'you', 2, 'singular'),
       auxiliary: { tongan: 'lava ʻo', english: 'can/able to', tags: ['auxiliary'] },
       verb: V.hau,
     })
-    expect(r.tongan).toBe('Te ke lava ʻo haʻu')
+    expect(r.tongan).toBe('Té ke lava ʻo haʻu')
   })
 
   it('s33 auxiliary options include fie and lava ʻo', () => {
@@ -1394,7 +1394,7 @@ describe('Ch 21: s33 auxiliary pattern', () => {
     expect(opts.some(o => o.tongan === 'lava ʻo')).toBe(true)
   })
 
-  it('s33 assembles Naʻa ku fie mohe ʻanepō (auxiliary + optional time)', () => {
+  it('s33 assembles Naʻá ku fie mohe ʻanepō (auxiliary + optional time)', () => {
     const r = assembleSentence('s33', {
       tense_marker: TM.past,
       subject: PRON._1sg_ku,
@@ -1402,7 +1402,7 @@ describe('Ch 21: s33 auxiliary pattern', () => {
       verb: V.mohe,
       time: { tongan: 'ʻanepō', english: 'last night' },
     })
-    expect(r.tongan).toBe('Naʻa ku fie mohe ʻanepō')
+    expect(r.tongan).toBe('Naʻá ku fie mohe ʻanepō')
   })
 })
 
@@ -1421,14 +1421,14 @@ describe('Ch 22: s34 aspect marker pattern', () => {
     expect(r.tongan).toBe('ʻOku ou kei ngāue')
   })
 
-  it('s34 assembles Kuo ne ʻosi ʻalu', () => {
+  it('s34 assembles Kuó ne ʻosi ʻalu', () => {
     const r = assembleSentence('s34', {
       tense_marker: TM.perfect,
       subject: PRON._3sg,
       aspect_marker: { tongan: 'ʻosi', english: 'already/finished', tags: ['completed'] },
       verb: V.alu,
     })
-    expect(r.tongan).toBe('Kuo ne ʻosi ʻalu')
+    expect(r.tongan).toBe('Kuó ne ʻosi ʻalu')
   })
 
   it('s34 aspect_marker options include all 5 markers', () => {
@@ -1603,14 +1603,14 @@ describe('Ch 28: s37 Directional Particles', () => {
     expect(opts.length).toBe(6)
   })
 
-  it('s37: Tē u tala atu', () => {
+  it('s37: Té u tala atu', () => {
     const r = assembleSentence('s37', {
       tense_marker: TM.future,
       subject: PRON._1sg_u,
       verb: { tongan: 'tala', english: 'tell', tags: ['action', 'transitive'] },
       directional: { tongan: 'atu', english: 'away from speaker (thither)', tags: ['person', '2nd'] },
     })
-    expect(r.tongan).toBe('Te u tala atu')
+    expect(r.tongan).toBe('Té u tala atu')
   })
 
   it('s37 verb options expose plural-suppletion ō and transitive tala at Ch 28', () => {
@@ -1867,7 +1867,7 @@ describe('Ch 36: s39 Cleft Sentences', () => {
       verb: { tongan: 'kai', english: 'eat', tags: ['action', 'transitive'] },
       object: { tongan: 'e iká', english: 'the fish', tags: ['definite'] },
     })
-    expect(r.tongan).toBe('Ko kinautolu naʻá nau kai e iká')
+    expect(r.tongan).toBe('Ko kinautolu naʻa nau kai e iká')
   })
 
   it('s39 intransitive cleft: no pronoun, no accent — Ko Pita ʻoku ngāue heni', () => {
@@ -1949,7 +1949,7 @@ describe('Ch 39: demonstratives, days of week, emphasis expressions', () => {
     expect(vocab.manner_demonstratives.some(d => d.tongan === 'peh\u0113')).toBe(true)
   })
 
-  it('emphasis_expressions includes naʻa mo and kaeʻumaʻa', () => {
+  it('emphasis_expressions includes naʻá mo and kaeʻumaʻa', () => {
     expect(vocab.emphasis_expressions.some(e => e.tongan === 'naʻa mo')).toBe(true)
     expect(vocab.emphasis_expressions.some(e => e.tongan === 'kaeʻumaʻa')).toBe(true)
   })

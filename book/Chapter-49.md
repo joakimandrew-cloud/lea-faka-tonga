@@ -95,7 +95,7 @@ One *fe-* verb worth special attention is *fetu'utaki*, meaning "to communicate"
 The prefix *ma-* attached to a transitive verb means "to be able to do" what the verb describes. The ability is discovered by trying: you attempt the action, and *ma-* tells the listener whether you succeed or fail. Many transitive verbs can take *ma-* in this sense.
 
 ::: {.examples}
-*Na'é ke mahiki e puha ko iá?* Were you able to lift that box?
+*Na'á ke mahiki e puha ko iá?* Were you able to lift that box?
 
 *'Oku 'ikai ke mafai 'e ia e ngāué.* He cannot manage the work.
 :::
@@ -310,7 +310,7 @@ Give the *fe-...-'aki* form and its meaning.
 
 For each sentence, state whether *ma-* expresses potential (ability) or resultative (resulting state), then translate.
 
-1. *Na'é ke mahiki e puha ko iá?*
+1. *Na'á ke mahiki e puha ko iá?*
 2. *Na'e mahae 'a e kofú.*
 3. *Na'e movete 'a e katō.*
 4. *'Oku 'ikai ke mafai 'e ia e ngāué.*
@@ -351,7 +351,7 @@ Choose from: *fe-...-'aki*, *ma-*, *mo'u-*, *kaungā-*
 
 1. *'Okú na fetalanoa'aki 'i he 'aho kotoa.*
 2. *Na'e mahae 'a e ngaahi valá.*
-3. *Na'é ne mo'umohea.*
+3. *Na'á ne mo'umohea.*
 4. *Na'a mau kaungā ako fakataha.*
 5. *Na'e movete 'a e vaká.*
 6. *'Ofa ki ho kaungā 'apí.*

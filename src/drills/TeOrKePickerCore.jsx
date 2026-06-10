@@ -2,7 +2,7 @@
  * TeOrKePickerCore — Ch 9.
  *
  * Tongan negation splits the connector word by what follows. Use te
- * before a pronoun (ʻikai te u, ʻikai te ke, ʻikai té ne…). Use ke
+ * before a pronoun (ʻikai té u, ʻikai té ke, ʻikai té ne…). Use ke
  * before a verb with no pronoun (impersonals, weather, noun-subject
  * sentences). Pure syntactic rule.
  */
@@ -15,7 +15,7 @@ const OPTIONS = [
 ]
 
 const PROMPTS = [
-  { tongan: 'ʻOku ʻikai ___ u fiefia.',         english: 'I am not happy.',                              answer: 'te', why: 'Pronoun u (I) follows → te. ʻikai te u + verb is the standard pronoun-subject negation.' },
+  { tongan: 'ʻOku ʻikai ___ u fiefia.',         english: 'I am not happy.',                              answer: 'te', why: 'Pronoun u (I) follows → te. ʻikai té u + verb is the standard pronoun-subject negation.' },
   { tongan: 'Naʻe ʻikai ___ matangi.',          english: 'It was not windy.',                            answer: 'ke', why: 'matangi (windy) is a weather verb with no pronoun subject → ke.' },
   { tongan: 'ʻE ʻikai ___ ke ʻalu ki Tonga.',   english: 'You will not go to Tonga.',                    answer: 'te', why: 'Pronoun ke (you) follows → te. (Note: the second ke here is the pronoun, the first slot needs te.)' },
   { tongan: 'ʻOku ʻikai ___ momoko.',           english: 'It is not cold.',                              answer: 'ke', why: 'momoko (cold) is a weather verb with no pronoun subject → ke.' },

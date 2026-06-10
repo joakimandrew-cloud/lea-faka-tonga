@@ -73,7 +73,7 @@ The singular *'alu* *(to go)* becomes *ō* with a dual or plural subject. The si
 ### Saying "Don't": Prohibitions with *'Oua*
 
 ::: {.examples}
-*'Oua te ke lea!* Don't speak!
+*'Oua té ke lea!* Don't speak!
 :::
 
 A prohibition tells someone *not* to do something. The Tongan word for "don't" in a command is *'oua*. It is followed by *te*, a pronoun, and then the verb.
@@ -83,7 +83,7 @@ The pattern: *'oua te* + pronoun + verb.
 For one person, the pronoun is *ke* (you, singular):
 
 ::: {.examples}
-*'Oua te ke mohe!* Don't sleep!
+*'Oua té ke mohe!* Don't sleep!
 :::
 
 For a group, the pronoun is *mou*:
@@ -96,15 +96,15 @@ Unlike a positive command, a prohibition always includes the pronoun, because *'
 
 | Command | Prohibition |
 |---|---|
-| *Nofo!* Stay! | *'Oua te ke nofo!* Don't stay! |
-| *Kai!* Eat! | *'Oua te ke kai!* Don't eat! |
+| *Nofo!* Stay! | *'Oua té ke nofo!* Don't stay! |
+| *Kai!* Eat! | *'Oua té ke kai!* Don't eat! |
 | *Mou ō!* Go! (all) | *'Oua te mou ō!* Don't go! (all) |
-| *Hiva!* Sing! | *'Oua te ke hiva!* Don't sing! |
+| *Hiva!* Sing! | *'Oua té ke hiva!* Don't sing! |
 
 The prohibition pattern also works with the verb prefix *fie* (want to). Place *fie* before the verb:
 
 ::: {.examples}
-*'Oua te ke fie inu.* Don't want to drink.
+*'Oua té ke fie inu.* Don't want to drink.
 :::
 
 The word *fie* placed before a verb means "want to," so *fie inu* is "want to drink." Here you only need to recognize that *fie* attaches to a verb; its full use as a helper verb is covered in Chapter 21: Auxiliary Verbs.
@@ -132,7 +132,7 @@ Churchward describes it as a word that adds "a touch of courtesy to a command, a
 *Mu'a* combines naturally with prohibitions:
 
 ::: {.examples}
-*'Oua te ke kai mu'a.* Please don't eat.
+*'Oua té ke kai mu'a.* Please don't eat.
 :::
 
 ---
@@ -147,7 +147,7 @@ Translate each English phrase into Tongan.
 4. Don't run! (to one person)
 5. Don't drink! (to a group)
 
-**Answers:** 1. *Lele!* 2. *Mou inu!* 3. *Lea mu'a!* 4. *'Oua te ke lele!* 5. *'Oua te mou inu!*
+**Answers:** 1. *Lele!* 2. *Mou inu!* 3. *Lea mu'a!* 4. *'Oua té ke lele!* 5. *'Oua te mou inu!*
 
 ---
 
@@ -182,29 +182,29 @@ The postposed pronouns have two uses taught in this chapter: emphasis in stateme
 ### Emphatic Statements with Postposed Pronouns
 
 ::: {.examples}
-*Te u nofo au.* I will stay. (emphatic)
+*Té u nofo au.* I will stay. (emphatic)
 :::
 
-When you add the postposed pronoun after the verb, it echoes the preposed pronoun and emphasizes who is doing the action. The sentence *Te u nofo* already means "I will stay." Adding *au* makes it stronger: "**I** will stay" or "I myself will stay."
+When you add the postposed pronoun after the verb, it echoes the preposed pronoun and emphasizes who is doing the action. The sentence *Té u nofo* already means "I will stay." Adding *au* makes it stronger: "**I** will stay" or "I myself will stay."
 
 Compare:
 
 ::: {.examples}
-*Te u nofo.* I will stay.
+*Té u nofo.* I will stay.
 
-*Te u nofo au.* I will stay. (that's certain)
+*Té u nofo au.* I will stay. (that's certain)
 :::
 
 The postposed pronoun appears right after the verb or verb phrase. It does not change the meaning. It adds weight. The sentence says: this person, not anyone else.
 
 ::: {.examples}
-*Na'a ku lea au.* I spoke. (I myself spoke)
+*Na'á ku lea au.* I spoke. (I myself spoke)
 
 *'Oku ou fiefia au.* I am happy. (I myself am happy)
 
 *Na'a mau kai kimautolu.* We ate. (we ourselves ate)
 
-*Te ke mohe koe.* You will sleep. (you yourself will sleep)
+*Té ke mohe koe.* You will sleep. (you yourself will sleep)
 :::
 
 This pattern works with any tense marker, any pronoun, and any verb you already know.
@@ -310,7 +310,7 @@ Add the postposed pronoun to make each command emphatic.
 
 1. *Mohe!*
 2. *Mou ō!*
-3. *'Oua te ke kai!*
+3. *'Oua té ke kai!*
 4. *Ha'u mu'a!*
 5. *'Oua te mou hiva!*
 6. *'Alu koe!*
@@ -335,8 +335,8 @@ Add the postposed pronoun to make each command emphatic.
 
 #### Exercise 4: Add emphasis to each sentence by inserting the correct postposed pronoun
 
-1. *Te u nofo. → Te u nofo \_\_\_.*
-2. *Na'a ku kai. → Na'a ku kai \_\_\_.*
+1. *Té u nofo. → Té u nofo \_\_\_.*
+2. *Na'á ku kai. → Na'á ku kai \_\_\_.*
 3. *'Oku mau hiva. → 'Oku mau hiva \_\_\_.*
 4. *Mou ō! → Mou ō \_\_\_!*
 5. *'Alu! → 'Alu \_\_\_!*
@@ -344,8 +344,8 @@ Add the postposed pronoun to make each command emphatic.
 #### Exercise 5: Translate into English. These sentences combine commands and emphasis with grammar from previous chapters
 
 1. *Mou kai mā mu'a!*
-2. *'Oua te ke mohe 'apongipongi!*
-3. *Te u lea au.*
+2. *'Oua té ke mohe 'apongipongi!*
+3. *Té u lea au.*
 4. *Na'a mau hiva kimautolu 'anepō.*
 5. *Tau ō kitautolu!*
 6. *'Oua te mou inu lahi 'aupito!*
@@ -367,24 +367,24 @@ Add the postposed pronoun to make each command emphatic.
 
 1. *Kai!*
 2. *Mou ō!*
-3. *'Oua te ke mohe!*
+3. *'Oua té ke mohe!*
 4. *Ha'u mu'a!*
 5. *'Oua te mou ō!*
 6. *Nofo koe!*
 
 #### Exercise 3
 
-1. *'Oua te ke nofo!*
+1. *'Oua té ke nofo!*
 2. *'Oua te mou kai!*
-3. *'Oua te ke 'alu!*
-4. *'Oua te ke hiva!*
+3. *'Oua té ke 'alu!*
+4. *'Oua té ke hiva!*
 5. *'Oua te mou ō!*
-6. *'Oua te ke lea!*
+6. *'Oua té ke lea!*
 
 #### Exercise 4
 
-1. *Te u nofo au.*
-2. *Na'a ku kai au.*
+1. *Té u nofo au.*
+2. *Na'á ku kai au.*
 3. *'Oku mau hiva kimautolu.*
 4. *Mou ō kimoutolu!*
 5. *'Alu koe!*

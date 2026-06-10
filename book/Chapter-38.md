@@ -66,7 +66,7 @@ Adding *pē* between *'ofa* and *ke* gives the expression a warmer, more earnest
 
 ### Warnings: suggestive *na'a*
 
-The word *na'a* has appeared before as a past tense marker (*na'a ku kai*, I ate). In this chapter, *na'a* serves a completely different function: it introduces a warning or caution, meaning "lest" or "or else."
+The word *na'a* has appeared before as a past tense marker (*na'á ku kai*, I ate). In this chapter, *na'a* serves a completely different function: it introduces a warning or caution, meaning "lest" or "or else."
 
 ::: {.examples}
 *Lele mai na'á ke tōmui.* Run here or you will be late. (Lit. "Run hither lest you be late")
@@ -91,7 +91,7 @@ When a pronoun immediately follows *na'a*, only context tells you whether this i
 The same word *na'a* can also express uncertainty, meaning "perhaps" or "maybe." In this use, *na'a* stands at the beginning of its clause and is followed by a tense marker or *ko*.
 
 ::: {.examples}
-*Na'a kuo ke hela.* Perhaps you are tired.
+*Na'a kuó ke hela.* Perhaps you are tired.
 
 *Na'a ko hono falé ení.* Perhaps this is his house.
 
@@ -105,7 +105,7 @@ The difference between the two uses is position and function. The warning *na'a*
 | Use | Position | Meaning | Example |
 |---|---|---|---|
 | Warning | After a command | lest, or else | *Ako mālohi na'á ke tō he siví.* |
-| Uncertainty | Beginning of clause, before TM or *ko* | perhaps, maybe | *Na'a kuo ne puke.* |
+| Uncertainty | Beginning of clause, before TM or *ko* | perhaps, maybe | *Na'a kuó ne puke.* |
 
 ---
 
@@ -252,7 +252,7 @@ The idiom *'ikai koā* introduces a fact, like "as a matter of fact" or "to tell
 1. *Tuku ke 'alu e tamasi'í.*
 2. *'Ofa pē ke mou mo'ui lelei.*
 3. *Ngāue mālohi na'á ke masiva.*
-4. *Na'a kuo ne puke.*
+4. *Na'a kuó ne puke.*
 5. *Mou fanongo lelei, teliá na'a mou hala.*
 6. *'Ofa pē kuo nau a'u ki ai.*
 7. *Tuku ké ke nofo heni.*
@@ -276,7 +276,7 @@ Fill in the blank with *tuku ke*, *'ofa pē ke*, *na'a*, or *telia na'a*.
 1. _____ 'alu 'a e fefiné. (Let the woman go.)
 2. Lele mai _____ ke tōmui. (Run here or you'll be late.)
 3. _____ mou fiefia. (May you all be happy.)
-4. _____ kuo ne hela. (Perhaps he is tired.)
+4. _____ kuó ne hela. (Perhaps he is tired.)
 5. Ako mālohi, _____ mou tō he siví. (Study hard, lest you fail.)
 6. _____ nau ō kinautolu. (Let them go.)
 
@@ -294,7 +294,7 @@ For each sentence, state whether *na'a* means "lest/or else" (warning) or "perha
 
 Rewrite each command by adding a warning clause with *telia na'a*.
 
-Example: *Ako mālohi.* → *Ako mālohi, teliá na'a ke tō he siví.*
+Example: *Ako mālohi.* → *Ako mālohi, teliá na'á ke tō he siví.*
 
 1. *Tokanga ki ho'o pa'angá.* (lest it be lost)
 2. *Fakalelei'i 'a e vaká.* (lest it break on the sea)
@@ -331,7 +331,7 @@ Each sentence below contains a blank. Choose the correct adverb from the box. Ea
 3. *Ko e ha'u 'eni 'o 'Isileli \_\_\_\_\_ ki heni.* (Isileli comes here as always)
 4. *'Oku 'ikai ke \_\_\_\_\_ sai e ngāué.* (the work is not quite good)
 5. *'Oku 'i fē \_\_\_\_\_ 'a ho'o tohí?* (I wonder where your book is)
-6. *'E 'ikai te u \_\_\_\_\_ 'alu ki ai.* (I will not go there at all)
+6. *'E 'ikai té u \_\_\_\_\_ 'alu ki ai.* (I will not go there at all)
 7. *'Oku \_\_\_\_\_ mālohi 'a e falé ni.* (this house is extremely strong)
 8. *'Oku \_\_\_\_\_ nofo 'a Siosaia 'i Nuku'alofa.* (Siosaia lives mostly in Nuku'alofa)
 9. *Té ke ō \_\_\_\_\_ pe 'ikai?* (are you going or not: I need an answer)
@@ -357,7 +357,7 @@ Each sentence below contains a blank. Choose the correct adverb from the box. Ea
 1. *Tuku ke vaʻinga e fānau.*
 2. *'Ofa pē ké ke fiefia.*
 3. *Vave mai na'á ke tōmui.*
-4. *Na'a kuo ne hela.*
+4. *Na'a kuó ne hela.*
 5. *Mou ako mālohi, teliá na'a mou tō he siví.*
 6. *'Ofa pē 'oku nau mo'ui lelei.*
 7. *Tuku ké u tokoni.*
@@ -366,9 +366,9 @@ Each sentence below contains a blank. Choose the correct adverb from the box. Ea
 #### Exercise 3
 
 1. *Tuku ke* 'alu 'a e fefiné.
-2. Lele mai *na'a* ke tōmui.
+2. Lele mai *na'á* ke tōmui.
 3. *'Ofa pē ke* mou fiefia.
-4. *Na'a* kuo ne hela.
+4. *Na'a* kuó ne hela.
 5. Ako mālohi, *telia na'a* mou tō he siví.
 6. *Tuku ke* nau ō kinautolu.
 

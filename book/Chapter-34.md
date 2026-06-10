@@ -24,7 +24,7 @@ Here *'ilo* *(to know)* introduces the reported content. The future tense marker
 *'Oku ou tui té u fiefia pē.* I believe I will be happy.
 :::
 
-The verb *tui* *(to believe)* works the same way. The second clause (*te u fiefia pē*) states what the speaker believes.
+The verb *tui* *(to believe)* works the same way. The second clause (*té u fiefia pē*) states what the speaker believes.
 
 This pattern works with any verb of perception or thinking:
 
@@ -77,7 +77,7 @@ The word *pehē* has a second, distinct use: as an adverb meaning "thus," "like 
 
 *'Oku pehē pē mo au.* Same here. (Lit. "Is thus only with me")
 
-*Kapau 'oku pehē, te u 'alu au.* If that is the way it is, I will go.
+*Kapau 'oku pehē, té u 'alu au.* If that is the way it is, I will go.
 :::
 
 When *pehē* follows a verb, it means "in this way" or "in that way":
@@ -145,7 +145,7 @@ The phrase *ko ia* has two uses. As a predicative expression, it means "that is 
 As an inferential expression at the beginning of a sentence (followed by a pause), *ko ia* means "therefore" or "that being so."
 
 ::: {.examples}
-*Ko ia, na'e 'ikai te u 'alu ki he fakatahá.* Therefore, I did not go to the meeting.
+*Ko ia, na'e 'ikai té u 'alu ki he fakatahá.* Therefore, I did not go to the meeting.
 
 *Ko ia, 'oku totonu ke ke nofo 'i 'api.* Therefore, you should stay at home.
 :::
@@ -157,7 +157,7 @@ As an inferential expression at the beginning of a sentence (followed by a pause
 The interjection *tā* appears at the start of a sentence and signals the discovery of something previously unknown, or the emergence of a new fact. It is similar to "So..." or "I see that..." in English, though often it has no exact English equivalent.
 
 ::: {.examples}
-*Tā né 'ikai te ke 'alu.* So you did not go after all.
+*Tā né 'ikai té ke 'alu.* So you did not go after all.
 
 *Tā 'oku mo'oni.* So it is true. (I see now that it is true.)
 :::
@@ -224,13 +224,13 @@ Decide which form fits each blank and write the complete sentence.
 3. 'Oku ______ pē mo au. (Same here.)
 4. 'Oku ou ______ 'e 'alu 'a Tēvita. (I think Tēvita will go.)
 5. Fufulu ______! (Wash it like this.)
-6. Kapau 'oku ______, te u foki au. (If that is the way it is, I will return.)
+6. Kapau 'oku ______, té u foki au. (If that is the way it is, I will return.)
 
 #### Exercise 4: Add *tokua* or *tā* to the beginning of each sentence and translate
 
 1. Kuo 'alu 'a Sēmisi ki Ha'amoa. (reportative)
 2. 'Oku mo'oni. (discovery)
-3. Na'e 'ikai te ke foki. (discovery)
+3. Na'e 'ikai té ke foki. (discovery)
 4. Kuo ngāue 'a Mele 'i he falekoloa. (reportative)
 
 ---
@@ -266,11 +266,11 @@ Decide which form fits each blank and write the complete sentence.
 3. 'Oku **pehē** pē mo au. (thus: adverbial, means "same here")
 4. 'Oku ou **pehē** 'e 'alu 'a Tēvita. (think: introduces reported speech with pronoun subject)
 5. Fufulu **pehe'i**! (do in this way: transitive command)
-6. Kapau 'oku **pehē**, te u foki au. (thus: adverbial, means "like this/that")
+6. Kapau 'oku **pehē**, té u foki au. (thus: adverbial, means "like this/that")
 
 #### Exercise 4
 
 1. *Tokua kuo 'alu 'a Sēmisi ki Ha'amoa.* It is said that Sēmisi has gone to Samoa.
 2. *Tā 'oku mo'oni.* So it is true.
-3. *Tā na'e 'ikai te ke foki.* So you did not return after all.
+3. *Tā na'e 'ikai té ke foki.* So you did not return after all.
 4. *Tokua kuo ngāue 'a Mele 'i he falekoloa.* It is said that Mele has been working at the store.

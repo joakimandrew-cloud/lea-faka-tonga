@@ -121,11 +121,11 @@
           "english": "I eat."
         },
         {
-          "tongan": "Naʻa ku mohe.",
+          "tongan": "Naʻá ku mohe.",
           "english": "I slept."
         },
         {
-          "tongan": "Te u ʻalu.",
+          "tongan": "Té u ʻalu.",
           "english": "I will go."
         }
       ]
@@ -245,7 +245,7 @@
       },
       "examples": [
         {
-          "tongan": "Naʻa ku ngāue mālohi.",
+          "tongan": "Naʻá ku ngāue mālohi.",
           "english": "I worked hard."
         },
         {
@@ -253,7 +253,7 @@
           "english": "I am very tired."
         },
         {
-          "tongan": "Te u kai lahi.",
+          "tongan": "Té u kai lahi.",
           "english": "I will eat a lot."
         }
       ]
@@ -371,7 +371,7 @@
       },
       "examples": [
         {
-          "tongan": "Naʻa ku kai mā.",
+          "tongan": "Naʻá ku kai mā.",
           "english": "I ate bread."
         },
         {
@@ -379,7 +379,7 @@
           "english": "I want some taro."
         },
         {
-          "tongan": "Naʻa ke kai e ika.",
+          "tongan": "Naʻá ke kai e ika.",
           "english": "Did you eat the fish?"
         }
       ]
@@ -513,11 +513,11 @@
       },
       "examples": [
         {
-          "tongan": "Naʻa ku kai ika ʻanepō.",
+          "tongan": "Naʻá ku kai ika ʻanepō.",
           "english": "I ate fish last night."
         },
         {
-          "tongan": "Te ke ʻalu ʻapongipongi.",
+          "tongan": "Té ke ʻalu ʻapongipongi.",
           "english": "Will you go tomorrow?"
         },
         {
@@ -646,11 +646,11 @@
           "english": "I am at home."
         },
         {
-          "tongan": "Naʻa ke ʻi kolo.",
+          "tongan": "Naʻá ke ʻi kolo.",
           "english": "Were you in town?"
         },
         {
-          "tongan": "Naʻa ne ʻi Tonga.",
+          "tongan": "Naʻá ne ʻi Tonga.",
           "english": "He/she was in Tonga."
         }
       ]
@@ -782,11 +782,11 @@
           "english": "I live in Tonga."
         },
         {
-          "tongan": "Naʻa ku ʻalu ki kolo.",
+          "tongan": "Naʻá ku ʻalu ki kolo.",
           "english": "I went to town."
         },
         {
-          "tongan": "Naʻa ne haʻu mei Fisi.",
+          "tongan": "Naʻá ne haʻu mei Fisi.",
           "english": "He/she came from Fiji."
         }
       ]
@@ -915,11 +915,11 @@
       },
       "examples": [
         {
-          "tongan": "Naʻa ku ʻalu mo Sione.",
+          "tongan": "Naʻá ku ʻalu mo Sione.",
           "english": "I went with Sione."
         },
         {
-          "tongan": "Naʻa ne haʻu mo Mele.",
+          "tongan": "Naʻá ne haʻu mo Mele.",
           "english": "He/she came with Mele."
         },
         {
@@ -1029,7 +1029,7 @@
       "pronoun_dependencies": null,
       "assembly_rules": {
         "sentence_type": "command",
-        "notes": "Command to 3+ people. Plural verb forms: ʻalu becomes ō (go), haʻu becomes ō mai (come). Dual variant (Ch 10): Mo + verb commands exactly two people (Mo hopo! = Jump, you two!). Prohibitions for two: ʻoua te mo + verb."
+        "notes": "Command to 3+ people. Plural verb forms: ʻalu becomes ō (go), haʻu becomes ō mai (come). Dual variant (Ch 10): Mo + verb commands exactly two people (Mo hopo! = Jump, you two!). Prohibitions for two: ʻoua té mo + verb."
       },
       "examples": [
         {
@@ -1098,7 +1098,7 @@
       },
       "examples": [
         {
-          "tongan": "ʻOua te ke kai!",
+          "tongan": "ʻOua té ke kai!",
           "english": "Don't eat!"
         },
         {
@@ -1106,7 +1106,7 @@
           "english": "Don't go, all of you!"
         },
         {
-          "tongan": "ʻOua te ke mohe!",
+          "tongan": "ʻOua té ke mohe!",
           "english": "Don't sleep!"
         }
       ]
@@ -1245,7 +1245,7 @@
       },
       "examples": [
         {
-          "tongan": "ʻOku ʻikai te u ʻita.",
+          "tongan": "ʻOku ʻikai té u ʻita.",
           "english": "I am not angry."
         },
         {
@@ -1253,7 +1253,7 @@
           "english": "They did not eat."
         },
         {
-          "tongan": "ʻE ʻikai te u ʻalu.",
+          "tongan": "ʻE ʻikai té u ʻalu.",
           "english": "I will not go."
         }
       ]
@@ -1435,15 +1435,15 @@
       },
       "examples": [
         {
-          "tongan": "Naʻa ke mohe ʻi fē?",
+          "tongan": "Naʻá ke mohe ʻi fē?",
           "english": "Where did you sleep?"
         },
         {
-          "tongan": "Te ke ʻalu ʻafē?",
+          "tongan": "Té ke ʻalu ʻafē?",
           "english": "When will you go?"
         },
         {
-          "tongan": "ʻOku ke fēfē?",
+          "tongan": "ʻOkú ke fēfē?",
           "english": "How are you?"
         }
       ]
@@ -2818,11 +2818,11 @@
           "english": "I want to eat."
         },
         {
-          "tongan": "Te ke lava ʻo haʻu ʻanai?",
+          "tongan": "Té ke lava ʻo haʻu ʻanai?",
           "english": "Will you be able to come later?"
         },
         {
-          "tongan": "Naʻa ku fie mohe ʻanepō.",
+          "tongan": "Naʻá ku fie mohe ʻanepō.",
           "english": "I wanted to sleep last night."
         }
       ]
@@ -2946,7 +2946,7 @@
           "english": "I am still working."
         },
         {
-          "tongan": "Kuo ne ʻosi ʻalu.",
+          "tongan": "Kuó ne ʻosi ʻalu.",
           "english": "He has already gone."
         },
         {
@@ -3305,7 +3305,7 @@
           "english": "I am coming."
         },
         {
-          "tongan": "Te u tala atu.",
+          "tongan": "Té u tala atu.",
           "english": "I will tell you."
         },
         {
@@ -3480,7 +3480,7 @@
       "pronoun_dependencies": null,
       "assembly_rules": {
         "sentence_type": "cleft",
-        "cleft_pronoun_insertion": "When verb is transitive and object is present, auto-insert pronoun between TM and verb. For 3sg proper-noun subjects: insert ne, accent TM (naʻe → naʻá). For 1sg subject (au): insert ku (naʻá ku). For 3pl subject (kinautolu / e fānau): insert nau (naʻá nau). Intransitive verbs with no object: no pronoun inserted.",
+        "cleft_pronoun_insertion": "When verb is transitive and object is present, auto-insert pronoun between TM and verb. For 3sg proper-noun subjects: insert ne, accent TM (naʻe → naʻá). For 1sg subject (au): insert ku (naʻá ku). For 3pl subject (kinautolu / e fānau): insert nau (naʻa nau). Intransitive verbs with no object: no pronoun inserted.",
         "notes": "Cleft sentences front the subject with ko for emphasis: ‘It was X who did Y.’ Transitive pattern: Ko + Subject + TM(accented) + pronoun + Verb + Object. Intransitive pattern: Ko + Subject + TM + Verb (+ Location). TMs: naʻe (past), ʻoku (present)."
       },
       "examples": [

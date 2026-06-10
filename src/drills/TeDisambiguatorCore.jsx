@@ -3,7 +3,7 @@
  *
  * The word te wears three different hats:
  *   1. Future tense marker (Ch 2) — té + pronoun + verb (Té u ʻalu).
- *   2. Negation connector (Ch 9) — ʻikai te + pronoun (ʻOku ʻikai te u).
+ *   2. Negation connector (Ch 9) — ʻikai te + pronoun (ʻOku ʻikai té u).
  *   3. Impersonal pronoun (Ch 51) — te / kita meaning "one" in general.
  *
  * Position and surrounding context disambiguate. Sentence-initial te is

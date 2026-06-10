@@ -9,7 +9,7 @@ Every sentence so far has been a positive statement. This chapter introduces *'i
 ::: {.examples}
 *'Oku ou fiefia.* I am happy.
 
-*'Oku 'ikai te u fiefia.* I am not happy. (Lit. "Is not I happy")
+*'Oku 'ikai té u fiefia.* I am not happy. (Lit. "Is not I happy")
 :::
 
 To negate a sentence that has a pronoun subject, place *'ikai te* between the tense marker and the pronoun. The verb and everything after it stay in their normal positions.
@@ -17,33 +17,33 @@ To negate a sentence that has a pronoun subject, place *'ikai te* between the te
 **Positive:** TM + pronoun + verb
 **Negative:** TM + *'ikai te* + pronoun + verb
 
-After *te*, the first-person singular pronoun is *u*. This is the same form you already use with the future tense marker: *te u 'alu* (I will go). All other pronouns keep their usual forms.
+After *te*, the first-person singular pronoun is *u*. This is the same form you already use with the future tense marker: *té u 'alu* (I will go). All other pronouns keep their usual forms.
 
-The *te* in *'ikai te* is not the future tense marker. It is a connecting word that appears only in the negative pattern, before a pronoun. It has no English translation on its own.
+The *te* in *'ikai te* is not the future tense marker. It is a connecting word that appears only in the negative pattern, before a pronoun. It has no English translation on its own. Even though this *te* is not the future tense marker, the stress rule from Chapter 2 still applies: *te* joins with a one-syllable pronoun as one pronounced unit, and the acute accent marks the shifted stress. That is why this book writes *'ikai té u*, *'ikai té ke*, and *'ikai té ne*.
 
 Compare a question with its negative answer:
 
 ::: {.examples}
 *'Okú ke fiekaia?* Are you hungry?
 
-*'Oku 'ikai te u fiekaia.* I am not hungry.
+*'Oku 'ikai té u fiekaia.* I am not hungry.
 :::
 
 All the adjectives you already know (*fiefia*, *hela'ia*, *'ita*, *fiekaia*) negate the same way, because adjectives fill the verb slot in Tongan. Three more adjectives follow the same pattern: *puke* *(sick)*, *vela* *(hot)*, and *'afua* *(fine, clear weather)*.
 
-*'Oku 'ikai te u puke* *(sick).* I am not sick.
+*'Oku 'ikai té u puke* *(sick).* I am not sick.
 
 ::: {.examples}
-*'Oku 'ikai te ne hela'ia.* He is not tired.
+*'Oku 'ikai té ne hela'ia.* He is not tired.
 
 *'Oku 'ikai te nau 'ita.* They are not angry.
 :::
 
 | Positive | Negative |
 |---|---|
-| *'Oku ou fiefia.* I am happy. | *'Oku 'ikai te u fiefia.* I am not happy. |
-| *'Okú ke mohe.* You are sleeping. | *'Oku 'ikai te ke mohe.* You are not sleeping. |
-| *'Okú ne 'ita.* He is angry. | *'Oku 'ikai te ne 'ita.* He is not angry. |
+| *'Oku ou fiefia.* I am happy. | *'Oku 'ikai té u fiefia.* I am not happy. |
+| *'Okú ke mohe.* You are sleeping. | *'Oku 'ikai té ke mohe.* You are not sleeping. |
+| *'Okú ne 'ita.* He is angry. | *'Oku 'ikai té ne 'ita.* He is not angry. |
 | *'Oku mau hela'ia.* We are tired. | *'Oku 'ikai te mau hela'ia.* We are not tired. |
 | *'Oku nau fiekaia.* They are hungry. | *'Oku 'ikai te nau fiekaia.* They are not hungry. |
 
@@ -55,13 +55,13 @@ The negative pattern works in all three tenses. The tense marker changes, but *'
 
 | Tense | Negative | English |
 |---|---|---|
-| Present | *'Oku 'ikai te u fiefia.* | I am not happy. |
-| Past | *Na'e 'ikai te u fiefia.* | I was not happy. |
-| Future | *'E 'ikai te u fiefia.* | I will not be happy. |
+| Present | *'Oku 'ikai té u fiefia.* | I am not happy. |
+| Past | *Na'e 'ikai té u fiefia.* | I was not happy. |
+| Future | *'E 'ikai té u fiefia.* | I will not be happy. |
 
 In a positive sentence, you say *na'á ku fiefia* because *na'a* goes directly before a pronoun. In the negative, the word immediately after the tense marker is *'ikai*, not a pronoun. The rule you learned earlier applies: *na'a* appears before pronouns, *na'e* appears elsewhere. Since *'ikai* is not a pronoun, the past negative uses *na'e*.
 
-The same logic explains the future. In a positive sentence, *te* goes before a pronoun: *Té u fiefia.* In the negative, the tense marker is followed by *'ikai*, so *'e* is used: *'E 'ikai te u fiefia.*
+The same logic explains the future. In a positive sentence, *te* goes before a pronoun: *Té u fiefia.* In the negative, the tense marker is followed by *'ikai*, so *'e* is used: *'E 'ikai té u fiefia.*
 
 | | Before a pronoun (positive) | Before *'ikai* (negative) |
 |---|---|---|
@@ -71,13 +71,13 @@ The same logic explains the future. In a positive sentence, *te* goes before a p
 More examples across tenses:
 
 ::: {.examples}
-*Na'e 'ikai te u tokoni kia Sione.* I did not help Sione.
+*Na'e 'ikai té u tokoni kia Sione.* I did not help Sione.
 
-*'E 'ikai te ke nofo 'i Tonga.* You will not stay in Tonga.
+*'E 'ikai té ke nofo 'i Tonga.* You will not stay in Tonga.
 
 *Na'e 'ikai te mau kai ika 'anepō.* We did not eat fish last night.
 
-*'Oku 'ikai te ne ngāue mālohi.* He does not work hard.
+*'Oku 'ikai té ne ngāue mālohi.* He does not work hard.
 :::
 
 The verb *ngāue* *(to work)* is intransitive, like the verbs you already know.
@@ -157,13 +157,13 @@ The pattern is always: negative + *ke* + *loko* + verb. Without the negative, *l
 Where *loko* softens a negative, *teitei* intensifies it. Combined with a negative, *teitei* means "at all" or "certainly not."
 
 ::: {.examples}
-*'E 'ikai te u teitei 'alu.* I am certainly not going.
+*'E 'ikai té u teitei 'alu.* I am certainly not going.
 
-*'Oku 'ikai te u teitei ngāue.* I absolutely do not work.
+*'Oku 'ikai té u teitei ngāue.* I absolutely do not work.
 
-*Na'e 'ikai te u teitei kai.* I absolutely did not eat.
+*Na'e 'ikai té u teitei kai.* I absolutely did not eat.
 
-*He 'ikai te ke teitei mohe.* You are certainly not sleeping.
+*He 'ikai té ke teitei mohe.* You are certainly not sleeping.
 :::
 
 The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certainly not" sense, *teitei* always sits inside a negative.
@@ -195,12 +195,12 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 
 #### Exercise 1: Translate into English
 
-1. *'Oku 'ikai te u 'ita.*
-2. *Na'e 'ikai te ke mohe 'anepō?*
+1. *'Oku 'ikai té u 'ita.*
+2. *Na'e 'ikai té ke mohe 'anepō?*
 3. *'E 'ikai te nau ha'u 'apongipongi.*
 4. *'Oku 'ikai te mau fiekaia.*
 5. *Na'e 'ikai ke 'uha 'aneafi.*
-6. *'E 'ikai te ne nofo 'i Tonga.*
+6. *'E 'ikai té ne nofo 'i Tonga.*
 
 #### Exercise 2: Translate into Tongan
 
@@ -234,11 +234,11 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 
 #### Exercise 5: Translate into English. These sentences combine grammar from previous chapters with negation
 
-1. *Na'e 'ikai te u 'alu ki kolo mo Mele 'aneafi.*
+1. *Na'e 'ikai té u 'alu ki kolo mo Mele 'aneafi.*
 2. *'E 'ikai te mau kai ika 'i fale kai 'apō.*
 3. *'Oku 'ikai te nau nofo 'i Vava'u mo Tēvita.*
 4. *Na'e 'ikai ke matangi lahi 'anepō.*
-5. *'E 'ikai te ne ha'u mei Fisi 'apongipongi.*
+5. *'E 'ikai té ne ha'u mei Fisi 'apongipongi.*
 
 #### Exercise 6: Translate into Tongan using *loko* or *teitei*
 
@@ -262,22 +262,22 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 
 #### Exercise 2
 
-1. *'Oku 'ikai te u hela'ia.*
-2. *Na'e 'ikai te ne fiefia 'aneafi.*
+1. *'Oku 'ikai té u hela'ia.*
+2. *Na'e 'ikai té ne fiefia 'aneafi.*
 3. *'E 'ikai te mau 'alu ki Vava'u.*
 4. *'Oku 'ikai te nau 'ita.*
 5. *Na'e 'ikai ke momoko 'anepō.*
-6. *'E 'ikai te ke kai ika 'apongipongi.*
+6. *'E 'ikai té ke kai ika 'apongipongi.*
 
 #### Exercise 3
 
-1. *'Oku 'ikai te u fiefia.*
-2. *Na'e 'ikai te ne 'alu ki kolo.*
+1. *'Oku 'ikai té u fiefia.*
+2. *Na'e 'ikai té ne 'alu ki kolo.*
 3. *'Oku 'ikai te nau mohe.*
-4. *'E 'ikai te ke kai mā 'apongipongi.*
-5. *Na'e 'ikai te u kai ika 'anepō.*
+4. *'E 'ikai té ke kai mā 'apongipongi.*
+5. *Na'e 'ikai té u kai ika 'anepō.*
 6. *Na'e 'ikai te mau hiva mo Sione 'anepō.*
-7. *'Oku 'ikai te ne ngāue mālohi.*
+7. *'Oku 'ikai té ne ngāue mālohi.*
 
 #### Exercise 4
 
@@ -299,6 +299,6 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 #### Exercise 6
 
 1. *'Oku 'ikai ke loko lelei 'a e ngāué.*
-2. *'E 'ikai te u teitei 'alu ki kolo.*
+2. *'E 'ikai té u teitei 'alu ki kolo.*
 3. *'Oku 'ikai ke loko momoko.*
-4. *Na'e 'ikai te ne teitei tokoni.*
+4. *Na'e 'ikai té ne teitei tokoni.*

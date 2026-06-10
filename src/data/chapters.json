@@ -313,7 +313,7 @@
         },
         {
           "rule": "Prohibitions: ʻoua te + pronoun + verb",
-          "example_tongan": "ʻOua te ke kai!",
+          "example_tongan": "ʻOua té ke kai!",
           "example_english": "Don’t eat!"
         },
         {
@@ -619,12 +619,12 @@
       "key_rules": [
         {
           "rule": "Negation with a pronoun: TM + ʻikai te + pronoun + verb",
-          "example_tongan": "ʻOku ʻikai te u fiefia.",
+          "example_tongan": "ʻOku ʻikai té u fiefia.",
           "example_english": "I am not happy."
         },
         {
           "rule": "Tense markers change: naʻe (not naʻa) for past, ʻe (not te) for future",
-          "example_tongan": "Naʻe ʻikai te u kai.",
+          "example_tongan": "Naʻe ʻikai té u kai.",
           "example_english": "I did not eat."
         },
         {
@@ -643,17 +643,17 @@
         "rows": [
           [
             "Present",
-            "ʻOku ʻikai te u kai.",
+            "ʻOku ʻikai té u kai.",
             "I don’t eat."
           ],
           [
             "Past",
-            "Naʻe ʻikai te u kai.",
+            "Naʻe ʻikai té u kai.",
             "I didn’t eat."
           ],
           [
             "Future",
-            "ʻE ʻikai te u kai.",
+            "ʻE ʻikai té u kai.",
             "I won’t eat."
           ]
         ]
@@ -3107,7 +3107,7 @@
       "key_rules": [
         {
           "rule": "Ka + verb expects the condition to happen; translates as \"when\" or \"whenever\"",
-          "example_tongan": "Ka haʻu ʻa Siale, pea ke tala ki ai.",
+          "example_tongan": "Ka haʻu ʻa Siale, peá ke tala ki ai.",
           "example_english": "When Siale comes, tell him."
         },
         {

@@ -30,7 +30,7 @@ The limiter *pē* appears frequently with *kei*. Together they give the sense of
 In the negative, the usual negation patterns apply. With pronoun subjects:
 
 ::: {.examples}
-*'Oku 'ikai te u kei fiekaia.* I am not still hungry. (I am no longer hungry.)
+*'Oku 'ikai té u kei fiekaia.* I am not still hungry. (I am no longer hungry.)
 :::
 
 ---
@@ -131,7 +131,7 @@ Before a verb with a modifier, *toe* combines with *ange* to form comparisons (y
 |---|---|
 | *Na'á ku toe 'alu ki kolo.* | I went to town again. |
 | *'Oku ou fie toe kai.* | I want to eat again. |
-| *'Oku 'ikai te u toe fiekaia.* | I am not hungry anymore. (Lit. I do not again hunger.) |
+| *'Oku 'ikai té u toe fiekaia.* | I am not hungry anymore. (Lit. I do not again hunger.) |
 
 ---
 
@@ -152,7 +152,7 @@ The word *toki* is placed before the verb. It carries two related meanings, both
 ::: {.examples}
 *'E toki kamata 'a e fakatahá 'apongipongi.* The meeting will not begin until tomorrow.
 
-*Te u toki ngāue.* I will work presently. (Not right now, but soon.)
+*Té u toki ngāue.* I will work presently. (Not right now, but soon.)
 :::
 
 The common thread is that *toki* marks the action as happening at a particular point, neither sooner nor later. When referring to the past, it emphasizes recency. When referring to the future, it emphasizes delay.
@@ -203,7 +203,7 @@ Here is a summary of the aspect markers introduced in this chapter:
 These markers slot into the sentence pattern you already know. Multiple markers can combine when the meaning requires it:
 
 ::: {.examples}
-*'Oku 'ikai te u kei fie 'alu.* I no longer want to go. (Lit. I do not still want to go.)
+*'Oku 'ikai té u kei fie 'alu.* I no longer want to go. (Lit. I do not still want to go.)
 
 *Kuó ne 'osi lava 'o ha'u.* He has already been able to come.
 :::
@@ -444,7 +444,7 @@ Example: *Kuó u 'alu ki Vava'u.* (3) → *Kuó u 'alu tu'o tolu ki Vava'u.*
 4. *Na'e toe 'alu 'a Tēvita ki kolo.*
 5. *'E toki kamata 'a e fakatahá 'apongipongi.*
 6. *Na'a nau 'alu leva.*
-7. *'Oku te'eki te u fiekaia.*
+7. *'Oku te'eki té u fiekaia.*
 8. *'Okú ne kei mohe 'a Siale.*
 
 #### Exercise 3

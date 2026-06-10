@@ -81,7 +81,7 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 
 > **Preview:** The word *'aki* is another back-reference word, similar to *ai*. Where *ai* replaces *'i* and *ki* phrases, *'aki* replaces phrases meaning "with" or "by means of": *Na'á ne tohi 'aki* (He wrote with it). This is covered formally in Chapter 33: Instrumental *'aki* and the Suffix *-'i*. Recognize *'aki* as meaning "with it" or "with them" when you encounter it.
 
-> **Preview:** When Tongan expresses "whenever there is," it uses *ka 'i ai* instead of *kapau 'oku 'i ai*: *Ka 'i ai ha kātoanga lahi, pea ke tala mai* (Whenever there is a big celebration, tell me). The conditional *ka* (if and when, whenever) is covered formally in Chapter 47: Conditionals and Counterfactuals. Recognize *ka 'i ai* as meaning "whenever there is."
+> **Preview:** When Tongan expresses "whenever there is," it uses *ka 'i ai* instead of *kapau 'oku 'i ai*: *Ka 'i ai ha kātoanga lahi, peá ke tala mai* (Whenever there is a big celebration, tell me). The conditional *ka* (if and when, whenever) is covered formally in Chapter 47: Conditionals and Counterfactuals. Recognize *ka 'i ai* as meaning "whenever there is."
 
 ---
 

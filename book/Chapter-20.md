@@ -94,7 +94,7 @@ The particle *'e* is the standard form. When the noun has the definite article, 
 
 ### Asking "how many" and "how much": *fiha*
 
-You have already met *fiha* as an interrogative meaning "when" or "at what time" (*Te ke 'osi he fiha?* What time will you finish?). When *fiha* appears directly after a tense marker, it asks "how much" or "what price":
+You have already met *fiha* as an interrogative meaning "when" or "at what time" (*Té ke 'osi he fiha?* What time will you finish?). When *fiha* appears directly after a tense marker, it asks "how much" or "what price":
 
 ::: {.examples}
 *'Oku fiha 'a e sotē?* How much is the shirt?

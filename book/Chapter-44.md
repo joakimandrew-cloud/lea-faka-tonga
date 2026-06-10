@@ -163,7 +163,7 @@ The accent on *ngāué* does two things at once. First, it marks the end of *e n
 
 Tongan sometimes drops the opening of a noun group when context makes it recoverable. The accent still falls on the last spoken word, marking the end of the unspoken whole.
 
-This pattern is most common in cleft sentences, the *ko* + subject + *na'a ne* + verb structure introduced in Chapter 36: Cleft Sentences and Emphatic Word Order.
+This pattern is most common in cleft sentences, the *ko* + subject + *na'á ne* + verb structure introduced in Chapter 36: Cleft Sentences and Emphatic Word Order.
 
 Compare the non-cleft version:
 

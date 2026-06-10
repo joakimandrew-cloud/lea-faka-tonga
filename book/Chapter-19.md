@@ -217,7 +217,7 @@ The *'e* here is the same agent marker that introduces any transitive subject. W
 The negative pattern works the same way in transitive sentences as in intransitive ones. With a pronoun subject, use *'ikai te*:
 
 ::: {.examples}
-*Na'e 'ikai te u fai 'a e ngāué.* I did not do the work.
+*Na'e 'ikai té u fai 'a e ngāué.* I did not do the work.
 :::
 
 With a noun subject, use *'ikai ke*:

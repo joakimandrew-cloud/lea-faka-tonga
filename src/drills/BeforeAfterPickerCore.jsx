@@ -20,7 +20,7 @@ const PROMPTS = [
   { tongan: 'Naʻá ku haʻu au ___ he onó.',                       english: 'I came before six o\u2019clock.',                       answer: 'ki-mua', why: 'ki muʻa = before (in time). Postposed.' },
   { tongan: 'Naʻe toki haʻu ʻa Siale ___ ʻia ʻAna.',              english: 'Siale came after Ana.',                                 answer: 'ki-mui', why: 'ki mui = after / afterward. Postposed, with ʻia + person to mark whom Siale came after.' },
   { tongan: 'Tau toki ʻilo ___.',                                  english: 'We will find out later on.',                            answer: 'amui',   why: 'ʻamui = later on / in the future. Sits at the end.' },
-  { tongan: 'Té u ___ tala hono koví pea u toki tala hono leleí.', english: 'I will first tell its bad side and then tell its good side.', answer: 'tomua', why: 'tōmuʻa = first of all. Preposed (before the verb), unlike the others.' },
+  { tongan: 'Té u ___ tala hono koví peá u toki tala hono leleí.', english: 'I will first tell its bad side and then tell its good side.', answer: 'tomua', why: 'tōmuʻa = first of all. Preposed (before the verb), unlike the others.' },
   { tongan: 'ʻOku ʻi ai ha ngaahi meʻa lahi ʻe hoko ___.',         english: 'There are many things that will happen in the future.', answer: 'amui',   why: 'ʻamui = in the future / later on.' },
   { tongan: 'Mou teuteu ___, naʻa mou tōmui.',                     english: 'Get ready ahead of time, lest you be late.',           answer: 'ki-mua', why: 'ki muʻa = ahead / before. Postposed after the verb.' },
   { tongan: 'Te nau ___ ō kinautolu.',                             english: 'They will go first.',                                   answer: 'tomua',  why: 'tōmuʻa preposed before the verb (ō here).' },
