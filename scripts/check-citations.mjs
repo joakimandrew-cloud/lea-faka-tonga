@@ -44,6 +44,14 @@
  *      one of the available lesson-range files in source-materials/Shumway/
  *      (e.g. shumway_L000-L030.md … shumway_L121-L130.md).
  *
+ *   7. FRAME TAGS. A `**Frame:**` declaration line must start with a
+ *      backticked tag, and that tag (also when mentioned as "the **`tag`**
+ *      frame") must exist in the closed frame set: grammar-spec's
+ *      "Entry Points Summary" table ∪ Function-Templates frame tags.
+ *      Prose-only Frame lines are flagged too. Like §"heading" drift, a
+ *      frame violation is a hard ERROR in the canonical specs/skills and a
+ *      non-blocking WARNING in the historical log and book chapters.
+ *
  * Tokens inside fenced code blocks are skipped: those fences hold only
  * illustrative slot templates ([tense_marker] + [pronoun] + …) and the
  * log's entry-format template, none of which carry real citations. The
@@ -70,6 +78,7 @@ const CHURCHWARD_DIR = path.join(REPO_ROOT, 'source-materials', 'Churchward')
 const SHUMWAY_DIR = path.join(REPO_ROOT, 'source-materials', 'Shumway')
 const GRAMMAR_CONCEPTS = path.join(SPEC_DIR, 'Grammar-Concepts-for-Students.md')
 const GRAMMAR_SPEC = path.join(SPEC_DIR, 'grammar-spec.md')
+const FUNCTION_TEMPLATES = path.join(REPO_ROOT, 'source-materials', 'Function-Templates.md')
 
 // Files scanned for citation tokens. Repo-root-relative — extend freely.
 const SCAN_FILES = [
@@ -183,7 +192,23 @@ async function buildReferenceData() {
     if (m) shumwayRanges.push([parseInt(m[1], 10), parseInt(m[2], 10)])
   }
 
-  return { lftHeadings, conceptIds, specSections, churchwardFiles, shumwayRanges }
+  // Frame tags — the closed set for `**Frame:**` declarations: entry-point
+  // IDs from grammar-spec's "Entry Points Summary" table, plus the frame tags
+  // Function-Templates defines (in its tables and its own **Frame:** lines).
+  const frameTags = new Set()
+  const epStart = specSrc.indexOf('## Entry Points Summary')
+  if (epStart !== -1) {
+    const rest = specSrc.slice(epStart)
+    const end = rest.indexOf('\n## ', 1)
+    const section = end === -1 ? rest : rest.slice(0, end)
+    for (const m of section.matchAll(/^\|\s*`([^`\s]+)`\s*\|/gm)) frameTags.add(m[1])
+  }
+  const entryPointCount = frameTags.size
+  const ftSrc = (await readFileOrNull(FUNCTION_TEMPLATES)) || ''
+  for (const m of ftSrc.matchAll(/\|\s*`([a-zʻ'’_āēīōū]+)`\s*\|/g)) frameTags.add(m[1])
+  for (const m of ftSrc.matchAll(/^\*\*Frame:\*\*\s*`([^`\s]+)`/gm)) frameTags.add(m[1])
+
+  return { lftHeadings, conceptIds, specSections, churchwardFiles, shumwayRanges, frameTags, entryPointCount }
 }
 
 // ── token validators ─────────────────────────────────────────────────────
@@ -282,6 +307,26 @@ function checkLine(file, n, text, ref, push) {
       push(file, { n, token, why: `Shumway Lesson ${lesson} is outside the available lesson files`, suggest: `available lessons are 0..${hi}` })
     }
   }
+
+  // 7. **Frame:** declarations — the tag must be backticked and in the closed
+  //    frame set (Entry Points Summary ∪ Function-Templates tags).
+  {
+    const fm = text.match(/^[\s>*-]*\*\*Frame:\*\*\s*(.*)$/)
+    if (fm) {
+      const idm = fm[1].match(/^`([^`]+)`/)
+      if (!idm) {
+        push(file, { n, token: `**Frame:** ${fm[1].slice(0, 48)}`, kind: 'frame', why: 'Frame line does not start with a backticked frame tag', suggest: 'use a tag from grammar-spec "Entry Points Summary" or Function-Templates (e.g. `statement`, `transitive_statement`)' })
+      } else if (!ref.frameTags.has(idm[1])) {
+        push(file, { n, token: `\`${idm[1]}\``, kind: 'frame', why: `frame tag "${idm[1]}" is not in grammar-spec's Entry Points Summary or Function-Templates`, suggest: 'pick a real tag (e.g. statement, transitive_statement, noun_subject, reported_speech_pehē)' })
+      }
+    }
+  }
+  // 7b. "the **`tag`** frame" prose mentions (reverse-spec style).
+  for (const m of text.matchAll(/\*\*`([^`]+)`\*\*\s+frame\b/g)) {
+    if (!ref.frameTags.has(m[1])) {
+      push(file, { n, token: `\`${m[1]}\``, kind: 'frame', why: `frame tag "${m[1]}" is not in grammar-spec's Entry Points Summary or Function-Templates`, suggest: 'pick a real tag from the closed frame set' })
+    }
+  }
 }
 
 // Known real targets for the three numbered-prefix paths, for nicer hints.
@@ -304,6 +349,12 @@ export async function runCitationCheck(scanFiles = null) {
   const push = (file, v) => {
     if (!byFile.has(file)) byFile.set(file, [])
     byFile.get(file).push(v)
+  }
+
+  // Fail loudly if the frame reference set vanished (spec restructure) —
+  // otherwise frame-tag validation would silently pass everything.
+  if (ref.entryPointCount === 0) {
+    push('spec/grammar-spec.md', { n: 0, token: 'Entry Points Summary', why: 'no entry-point IDs harvested — the "## Entry Points Summary" table is missing or renamed, so frame-tag validation has no reference set', suggest: 'restore the table in spec/grammar-spec.md' })
   }
 
   for (const rel of scanFiles) {
@@ -329,13 +380,13 @@ export async function runCitationCheck(scanFiles = null) {
     byFile.set(file, kept)
   }
 
-  // Severity: a §"heading" mismatch in the historical Translation-Log corpus
-  // (cited chapter exists, but the heading text is abbreviated/paraphrased) is
-  // a WARNING; every other token class, and any mismatch in the canonical
-  // specs/skills, is a hard ERROR. This keeps the source-of-truth specs strict
-  // while surfacing — without blocking — drift in the author-facing log.
+  // Severity: a §"heading" mismatch — and likewise a frame-tag violation — in
+  // the historical Translation-Log corpus (or a book chapter) is a WARNING;
+  // every other token class, and any mismatch in the canonical specs/skills,
+  // is a hard ERROR. This keeps the source-of-truth specs strict while
+  // surfacing — without blocking — drift in the author-facing log.
   const sev = (file, v) =>
-    (v.kind === 'heading' && !STRICT_FILES.has(file)) ? 'warn' : 'error'
+    ((v.kind === 'heading' || v.kind === 'frame') && !STRICT_FILES.has(file)) ? 'warn' : 'error'
 
   let errors = 0
   let warnings = 0
@@ -359,7 +410,7 @@ export async function runCitationCheck(scanFiles = null) {
     }
   }
   if (errors === 0) {
-    console.log(`  ✓ no hard citation violations across ${scanFiles.length} scanned file(s)${warnings ? ` (${warnings} warning(s): log heading drift, non-blocking)` : ''}`)
+    console.log(`  ✓ no hard citation violations across ${scanFiles.length} scanned file(s)${warnings ? ` (${warnings} warning(s): log heading/frame drift, non-blocking)` : ''}`)
   } else {
     console.log(`\n  ${errors} hard citation violation(s)${warnings ? `, ${warnings} warning(s)` : ''}`)
   }
