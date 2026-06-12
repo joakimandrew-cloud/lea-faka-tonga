@@ -5,81 +5,90 @@ import '../styles/v11-components.css'
 import '../styles/offer.css'
 
 // ─────────────────────────────────────────────────────────────────────────
-// Swap-in links + config. Until checkout/email are live these point at safe
-// fallbacks (the email form captures intent with no backend). Replace in ONE
-// place when GitHub Sponsors / Ko-fi / Payhip / Buttondown are set up.
+// Model (ruled 2026-06-12, DECISIONS.md): the BOOK is free — PDF/EPUB, whole,
+// forever. The web practice machine is Membership. Ch 1–3 fully open; Ch 4–53
+// go members-only when the member tools ship. No on-site accounts EVER —
+// checkout lives on a third party (Gumroad/BMC), access via a member token.
+//
+// Swap-in links. Until checkout/email are live these point at safe fallbacks
+// (the email form captures founding-list intent with no backend). Replace in
+// ONE place when the Gumroad products / Buttondown form are set up.
 // ─────────────────────────────────────────────────────────────────────────
 const LINKS = {
-  patron: '#notify',   // TODO: Ko-fi / GitHub Sponsors recurring-tier URL (placeholder captures email intent)
-  book: '#join',       // TODO: Payhip/Gumroad EPUB+PDF (pay-what-you-want)
-  bundle: '#join',     // TODO: Payhip Heirloom Bundle checkout
-  institutional: 'mailto:andrew@montedesign.com?subject=Tongan%20course%20licensing', // TODO: partner form
-  emailAction: '',     // TODO: Buttondown/Formspree POST endpoint; empty = local thank-you
+  foundingAnnual: '#notify',   // TODO: Gumroad "Founding Membership" $59/yr subscription URL
+  foundingLifetime: '#notify', // TODO: Gumroad "Founding Lifetime" $149 one-time URL
+  bookPdf: `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.pdf`,   // the complete book, free
+  bookEpub: `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.epub`, // the complete book, free
+  bundle: '#notify',           // TODO: Payhip/Gumroad Heirloom Bundle checkout
+  donor: 'mailto:andrew@montedesign.com?subject=Tauhi%20Fonua',
+  institutional: 'mailto:andrew@montedesign.com?subject=Tongan%20course%20licensing',
+  emailAction: '',             // TODO: Buttondown/Formspree POST endpoint; empty = local thank-you
 }
 
-// Honest founders counter. Bump `claimed` as real Founders join — never fake it.
+// Honest founding counter. Bump `claimed` as real members join — never fake it.
 const FOUNDERS = { claimed: 0, cap: 250 }
 
-// The value stack — proof of substance (Most-Aware believability, kept below the offer).
+// The value stack — proof of substance, each row marked free or members.
 const STACK = [
-  { title: 'The Grammar Book', detail: '53 chapters · 110,651 words · A1 → B2', worth: '$30–50',
-    blurb: 'From your first three-word sentence to the language of respect. The complete arc, every rule explained.' },
-  { title: 'The Workbook', detail: '218,636 words · 283 exercises', worth: '$20–30',
-    blurb: 'Twice the length of the book. Practice for every pattern, chapter by chapter, with full answer keys.' },
-  { title: 'The Quiz Bank', detail: '530 questions · every answer explained', worth: '$10–20',
+  { title: 'The Grammar Book', detail: '53 chapters · 110,651 words · A1 → B2', worth: '$30–50', badge: 'FREE · PDF + EPUB below',
+    blurb: 'From your first three-word sentence to the language of respect. The complete arc, every rule explained — yours to download, whole, forever.' },
+  { title: 'The Interactive Practice Machine', detail: '62 drills · 4 builders · embedded exercises, every chapter', worth: '$79–149', badge: 'Ch 1–3 free · then members',
+    blurb: 'Build real Tongan sentences and watch the translation update as you go. The whole grammar, playable. This is what makes it stick.' },
+  { title: 'The Quiz Bank', detail: '530 questions · every answer explained', worth: '$10–20', badge: 'Ch 1–3 free · then members',
     blurb: 'Told why, not just whether. Each wrong answer tells you the rule it broke.' },
-  { title: 'The Interactive App', detail: '62 drills · 4 builders · 628 flip cards · live translator', worth: '$79–149',
-    blurb: 'Build real Tongan sentences and watch the translation update as you go. The whole grammar, playable.' },
-  { title: 'The Video Course', detail: '~9 hours · 52 segments', worth: '$40–150', soon: 'In production · Founders get it free',
-    blurb: 'The full course, narrated. The most complete Tongan video course ever made.' },
-  { title: 'Charts & Real-Text Archive', detail: 'Reference charts + authentic Tongan documents', worth: '$10–20',
-    blurb: 'Quick-lookup charts, and real Tongan texts to read once you are ready for the wild.' },
+  { title: 'The Flip-Card Deck', detail: '628 cards · filter by tier and category', worth: '$10–20', badge: 'Starter deck free · full deck members',
+    blurb: 'Build your vocabulary one card at a time — keyboard-fast, phone-friendly.' },
+  { title: 'The Workbook', detail: '218,636 words · 283 exercises · full answer keys', worth: '$20–30', badge: 'Members',
+    blurb: 'Twice the length of the book. Practice for every pattern, chapter by chapter, included as PDFs.' },
+  { title: 'The Video Course', detail: '~9 hours · 52 segments', worth: '$40–150', badge: 'In production · members',
+    blurb: 'The full course, narrated. The most complete Tongan video course ever made — members get it as it ships.' },
+  { title: 'Charts & Real-Text Archive', detail: 'Reference charts + authentic Tongan documents', worth: '$10–20', badge: 'Charts free · archive members',
+    blurb: 'Quick-lookup charts for everyone. Real Tongan texts to read once you are ready for the wild.' },
 ]
 
-// The Founding Keeper bonus stack — each named, dollar-tagged, killing one fear.
-const BONUSES = [
-  { name: 'Elder Voices — Native-Speaker Audio', value: '$39', kills: 'so you never mispronounce a word to your elders' },
-  { name: 'The Heirloom Edition — Printed Book', value: '$49', kills: 'the book your children inherit' },
-  { name: 'The Grandmother Sprint — 7-Day Path', value: 'free bonus', kills: 'your first real conversation, in a week' },
-  { name: 'The Respect-Language Field Guide', value: '$29', kills: 'lea fakaʻapaʻapa for funerals, church and chiefs — the part every phrasebook skips' },
-  { name: 'Your name on the Roll of Keepers', value: 'priceless', kills: 'permanent, public, in your own community' },
+// What membership includes — each line kills one fear.
+const MEMBER_STACK = [
+  { name: 'Every drill, every chapter', value: 'included', kills: '62 drill engines and 4 sentence builders across all 53 chapters — the machine that makes it stick' },
+  { name: 'The full 628-card deck + 530-question quiz bank', value: 'included', kills: 'told why, not just whether — you are never left guessing' },
+  { name: 'The Workbook — 218,636 words, as PDFs', value: '$20–30 value', kills: 'twice the book; practice for every pattern with answer keys' },
+  { name: 'The course on your phone', value: 'shipping with the member tools', kills: 'installable, offline-ready — the whole course in your pocket' },
+  { name: 'Elder Voices — native-speaker audio', value: '$39 value', kills: 'members get it free the day it lands, so you never mispronounce a word to your elders' },
+  { name: 'The video course, in the app, as it ships', value: '$40+ value', kills: '~9 hours, 52 segments, narrated' },
+  { name: 'Your name on the Roll of Keepers', value: 'standing', kills: 'membership keeps the language alive — and says so, permanently, in your own community' },
 ]
 
-// Patronage tiers — lead with the STANDING, price second (Most-Aware surface).
+// Membership tiers. Only the founding tiers are buyable now; the standard
+// ladder is shown so the founding price visibly means something.
 const TIERS = [
-  { ton: 'Kau Tokoni', en: 'Helper', confers: 'Your name on the Roll of Keepers',
-    once: '$25', monthly: '$5 / mo',
-    perks: ['Name on the Roll of Keepers', 'You keep the course free for the next learner'] },
-  { ton: 'Kau Poupou', en: 'Patron', confers: 'A founding patron of the language', featured: true,
-    once: '$100', monthly: '$15 / mo',
-    perks: ['Everything in Helper', 'A dated Founding-Edition badge', 'Elder Voices audio — free, the day it lands'] },
-  { ton: 'Tauhi Lea', en: 'Language-Keeper', confers: 'A keeper of the living language',
-    once: '$250', monthly: '$40 / mo',
-    perks: ['Everything in Patron', 'The Heirloom Edition + an enamel flag pin', 'Early access to new chapters', 'Dedicate your gift in an elder’s name'] },
-  { ton: 'Tauhi Fonua', en: 'Keeper of the Homeland', confers: 'Your name cast into the work itself',
-    once: '$1,000', monthly: 'or more',
-    perks: ['Everything in Language-Keeper', 'Your name engraved in every printed copy', 'A dedication line you write', 'Top of the Roll of Keepers'] },
-]
-
-// À-la-carte artifacts — provenance names, emotional function first.
-const ARTIFACTS = [
-  { title: 'The Heirloom Bundle', sub: 'Printed book + Elder Voices audio + certificate', price: '$79', note: 'Would be $117 apart · we name you in the book', href: LINKS.bundle, hero: true },
-  { title: 'The Book — EPUB + PDF', sub: 'Read it anywhere, keep it forever', price: 'Pay what you want', note: 'Suggested $30 · floor $0', href: LINKS.book },
-  { title: 'Elder Voices — Audio', sub: 'Every example, spoken by a native voice', price: '$39', note: 'Coming · Founders get it free', soon: true },
-  { title: 'The Heirloom Edition — Print', sub: 'Flag-geometry cover · the one your kids inherit', price: '$49', note: 'Coming soon', soon: true },
+  { name: 'Founding Member', price: '$59', per: '/ year · locked for life', featured: true, active: true,
+    confers: 'First 250 only · the price never rises for you',
+    perks: ['Everything members get', '$59/yr for life — even after prices rise', 'Founding badge + top of the Roll of Keepers'],
+    href: LINKS.foundingAnnual, cta: 'Become a Founding Member' },
+  { name: 'Founding Lifetime', price: '$149', per: 'once · yours forever', active: true,
+    confers: 'The Interactive Edition — own it like the book',
+    perks: ['Everything members get, for life', 'No renewals, ever', 'Founding badge + the Roll of Keepers'],
+    href: LINKS.foundingLifetime, cta: 'Own it for life' },
+  { name: 'Membership', price: '$79', per: '/ year · or $12 / mo', active: false,
+    confers: 'Opens when the founding window closes',
+    perks: ['Everything members get', '$99/yr for new members once the native audio ships', 'Founders never pay this'] },
+  { name: 'Lifetime', price: '$199', per: 'once', active: false,
+    confers: 'Opens when the founding window closes',
+    perks: ['The Interactive Edition, at the standard price', 'The gift that doesn’t expire', 'Founding Lifetime is $50 less — now'] },
 ]
 
 const FAQ = [
-  { q: 'Wait — isn’t this free?',
-    a: 'Yes. All 53 chapters, every drill, every quiz, forever. No login, no paywall, no streaks. You only pay if you want to keep it free for the next person, or you want the artifacts (audio, print, certificate).' },
-  { q: 'Then why would I pay?',
-    a: 'Because someone has to. Recording a native speaker, pressing a book, keeping it online — that costs money. Founders carry that cost so every learner who comes after pays nothing. And their name goes on the Roll of Keepers.' },
-  { q: 'You could charge for this. Why don’t you?',
-    a: 'Because Tongan is not ours to sell — it belongs to everyone it came from. Schools and congregations license it for thousands. For a family learning at home, the price is, and always will be, nothing. That is not a discount. It is a refusal.' },
+  { q: 'So what’s actually free?',
+    a: 'The whole book — all 53 chapters, 110,651 words — as PDF and EPUB, free forever, no email wall. On the website, Chapters 1–3 are completely open: the prose, the drills, the flip cards, the quizzes, everything. The Grandmother Quiz and the reference charts are free too. The rest of the practice machine is for members.' },
+  { q: 'Why charge at all?',
+    a: 'Because this stays alive on membership instead of ads. No banners, no investors, no selling your attention or your data. Recording native speakers, building the tools, keeping it online — that costs real money. Members carry it, their names go on the Roll of Keepers, and the book stays free for everyone, forever.' },
+  { q: 'Do I need an account?',
+    a: 'No — and you never will. There are no logins here. You buy membership at our checkout partner, they send you a member token, you enter it once and the site unlocks on your device. We never see your card and never store your password or your data — there is nothing here to hack.' },
   { q: 'Is this really all the way to B2?',
     a: 'Yes — from “I ate” to lea fakaʻapaʻapa, the language of respect for chiefs and royalty. No other Tongan course goes there. Most never leave the tourist phrasebook.' },
+  { q: 'What happens when the founding window closes?',
+    a: 'The price goes to $79 a year ($12 monthly, $199 lifetime). And when the native-speaker audio ships, new members pay $99 a year — founders keep $59 for life. The earlier you join, the better your price, forever.' },
   { q: 'I can’t afford it right now.',
-    a: 'Then this is exactly who it is for. Learn everything, free, with our blessing. The book is pay-what-you-want with a floor of zero. Tauhi ʻa e lea — keep the language.' },
+    a: 'Then start free: the whole book is yours, and Chapters 1–3 are open with every tool. And if money is the only thing between you and the language, email us — there’s a free year waiting. No forms, no proof, no questions. Tauhi ʻa e lea — keep the language.' },
 ]
 
 const Logo = () => (
@@ -126,7 +135,7 @@ export default function Offer() {
           <Logo />
           <span className="wordmark">Lea Faka-Tonga</span>
         </Link>
-        <div className="top-sub">The Most Complete Tongan Course Ever Made · A1–B2 · Free to Learn</div>
+        <div className="top-sub">The Most Complete Tongan Course Ever Made · A1–B2 · The Book Is Free</div>
       </div>
 
       {/* ── Promise / hero ── */}
@@ -138,16 +147,18 @@ export default function Offer() {
         <p className="offer-lede">
           From your very first sentence to the language of respect spoken to chiefs and elders.
           53 chapters, A1 to B2 — the only complete, modern course for a language that has almost
-          nothing online. <strong>Free to learn, forever. Yours to keep alive.</strong>
+          nothing online. <strong>The whole book is free to download, forever. Membership runs the
+          practice machine.</strong>
         </p>
         <div className="offer-hero-cta">
-          <a href="#join" className="cta-btn">Become a Founding Keeper <span style={{ marginLeft: 8 }}>→</span></a>
-          <Link to="/chapters/1" className="cta-secondary">Start Chapter 01 — free</Link>
+          <a href="#join" className="cta-btn">Become a Founding Member <span style={{ marginLeft: 8 }}>→</span></a>
+          <a href="#book" className="cta-secondary">Download the book — free</a>
+          <Link to="/chapters/1" className="cta-secondary">Try Chapter 01 — free</Link>
         </div>
-        <p className="offer-hero-meta">No paywall · No streaks · No login · 187,000 people speak it — almost no one teaches it</p>
+        <p className="offer-hero-meta">First 3 chapters fully open · No ads · No streaks · No accounts, ever</p>
       </section>
 
-      {/* ── The refused price (high anchor, set immediately) ── */}
+      {/* ── The anchor: what institutions pay vs what the book costs ── */}
       <section className="offer-refused">
         <div className="panel-frame">
           <div className="orf-grid">
@@ -156,23 +167,51 @@ export default function Offer() {
               <span className="orf-big">$2,500–$25,000</span>
             </div>
             <div className="orf-block">
-              <span className="orf-label">A family learning at home pays</span>
+              <span className="orf-label">The complete book — all 53 chapters — costs</span>
               <span className="orf-big free">Nothing</span>
             </div>
           </div>
           <p className="orf-line">
-            We could charge $400 for what’s inside. <strong>We never will.</strong> Not because it isn’t worth it —
-            because Tongan is not ours to sell. That isn’t a discount. It’s a refusal.
+            The language is not ours to sell, so the book never costs a cent. What membership pays for
+            is the <strong>machine</strong> — the drills, the cards, the builders, the phone-ready course
+            that makes it stick. $79 a year. Founding members: <strong>$59, locked for life.</strong>
           </p>
         </div>
       </section>
 
-      {/* ── § Everything you get (proof) ── */}
+      {/* ── § The free book ── */}
+      <div className="offer-sec" id="book">
+        <div className="panel-frame">
+          <div className="offer-sec-bar">
+            <span>§ 01 · The book — free, whole, forever</span>
+            <span className="right">No email wall · no catch</span>
+          </div>
+          <div className="offer-inst">
+            <div className="oin-main">
+              <p>
+                Every chapter, every rule, every example — 110,651 words from your first sentence to
+                <em> lea fakaʻapaʻapa</em>. Download it, print it, send it to your cousins. It is the
+                whole course in book form, and it will never cost anything. Judge us by it first;
+                pay only if you want the machine.
+              </p>
+              <p className="oin-sub">Chapters 1–3 are also fully open on the website — prose, drills, cards and quizzes — so you can feel the difference the machine makes.</p>
+            </div>
+            <div className="oin-card">
+              <span className="oin-range">619 pages</span>
+              <span className="oin-range-label">the complete book · free download</span>
+              <a href={LINKS.bookPdf} className="cta-btn" style={{ justifyContent: 'center' }} download>Download PDF — free</a>
+              <a href={LINKS.bookEpub} className="cta-secondary" style={{ justifyContent: 'center', marginTop: 8 }} download>EPUB for e-readers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── § Everything in the course (proof) ── */}
       <div className="offer-sec">
         <div className="panel-frame">
           <div className="offer-sec-bar">
-            <span>§ 01 · Everything you get</span>
-            <span className="right">All of it · free</span>
+            <span>§ 02 · Everything inside</span>
+            <span className="right">The book free · the machine, membership</span>
           </div>
           <div className="offer-stack">
             {STACK.map((s, i) => (
@@ -180,7 +219,7 @@ export default function Offer() {
                 <div className="osr-main">
                   <div className="osr-head">
                     <span className="osr-title">{s.title}</span>
-                    {s.soon && <span className="osr-soon">{s.soon}</span>}
+                    {s.badge && <span className="osr-soon">{s.badge}</span>}
                   </div>
                   <span className="osr-detail">{s.detail}</span>
                   <p className="osr-blurb">{s.blurb}</p>
@@ -199,7 +238,7 @@ export default function Offer() {
       <div className="offer-sec">
         <div className="panel-frame">
           <div className="offer-sec-bar">
-            <span>§ 02 · Why it works when apps don’t</span>
+            <span>§ 03 · Why it works when apps don’t</span>
             <span className="right">Built like a book, not a game</span>
           </div>
           <div className="offer-why">
@@ -207,7 +246,7 @@ export default function Offer() {
               ['Told why, not just whether', 'Every wrong answer explains the rule it broke. You are never left guessing. That is how grammar actually sticks.'],
               ['The whole language, in order', 'One grammar, built one slot per chapter, A1 to B2. Nothing skipped, nothing stranded — the arc no other Tongan resource finishes.'],
               ['The writing system, done right', 'The fakauʻa and the toloi, the definitive accent — set in a font built for the Pacific. The detail that tells your elders we did our homework.'],
-              ['No streaks. No nagging.', 'No dopamine traps, no notifications, no losing a week’s “progress.” It respects you as an adult who wants to speak to their family.'],
+              ['You are the customer, not the product', 'No ads, no streaks, no dopamine traps, no accounts harvesting your data. Membership is why this exists and stays clean.'],
             ].map(([t, d], i) => (
               <div className="offer-why-card scroll-reveal" key={t} style={{ transitionDelay: `${i * 0.06}s` }}>
                 <span className="owc-num">{String(i + 1).padStart(2, '0')}</span>
@@ -219,34 +258,35 @@ export default function Offer() {
         </div>
       </div>
 
-      {/* ── § The Founding Keepers (the offer) ── */}
+      {/* ── § Membership (the offer) ── */}
       <div className="offer-sec" id="join">
         <div className="panel-frame">
           <div className="offer-sec-bar">
-            <span>§ 03 · The Founding Keepers</span>
-            <span className="right">Free to learn · funded by those who can</span>
+            <span>§ 04 · Membership</span>
+            <span className="right">The book free · funded by its members</span>
           </div>
 
-          {/* honest scarcity counter */}
+          {/* honest founding counter */}
           <div className="offer-counter">
             <div className="ocnt-text">
               {FOUNDERS.claimed === 0
-                ? <>The wall is open. Be among the <strong>first {FOUNDERS.cap}</strong> Founding Keepers — names cast into the work, then the charter closes.</>
-                : <><strong>{FOUNDERS.claimed} of {FOUNDERS.cap}</strong> Founding Keepers claimed · {spotsLeft} places left before the charter closes.</>}
+                ? <>The founding window is open. The first <strong>{FOUNDERS.cap}</strong> members lock <strong>$59 a year for life</strong> — names on the Roll of Keepers. Then the window closes.</>
+                : <><strong>{FOUNDERS.claimed} of {FOUNDERS.cap}</strong> Founding Members claimed · {spotsLeft} places left at $59 for life.</>}
             </div>
             <div className="ocnt-bar"><span style={{ width: `${Math.max(2, (FOUNDERS.claimed / FOUNDERS.cap) * 100)}%` }} /></div>
-            <div className="ocnt-note">Founding tiers close the day the audio is recorded. After that the audio is paid, and the Founder price is gone.</div>
+            <div className="ocnt-note">Checkout opens shortly — leave your email below and the founding link reaches you first. Founding pricing ends at member #{FOUNDERS.cap}.</div>
           </div>
 
           <p className="offer-join-lede">
-            This course will never have a paywall — not a chapter, not a drill, not a quiz. But free still costs
-            <em> someone</em>. Founders carry that cost so the next family doesn’t have to. Become one, and here is
-            everything that comes with it:
+            Plainly: the book is free because the language is not ours to sell. The practice machine is
+            how it sticks — and that is what membership pays for. Chapters 1–3 are open in full, tools
+            and all, so you can judge the machine before you pay a cent. When the member tools ship,
+            Chapters 4–53 on the web become members-only. The book stays free, forever.
           </p>
 
-          {/* the named bonus stack */}
+          {/* what members get */}
           <div className="offer-bonuses">
-            {BONUSES.map(b => (
+            {MEMBER_STACK.map(b => (
               <div className="offer-bonus" key={b.name}>
                 <span className="obn-check">✦</span>
                 <span className="obn-name">{b.name}</span>
@@ -255,29 +295,29 @@ export default function Offer() {
               </div>
             ))}
             <div className="offer-bonus total">
-              <span className="obn-name">Everything above, when you become a Founding Keeper</span>
-              <span className="obn-value">$117+ value</span>
+              <span className="obn-name">Everything above, from $59 a year</span>
+              <span className="obn-value">$300+ as sold apart</span>
             </div>
           </div>
 
           {/* tiers */}
           <div className="offer-tiers four">
             {TIERS.map(t => (
-              <div className={`offer-tier${t.featured ? ' featured' : ''}`} key={t.ton}>
-                {t.featured && <span className="ot-flag">Most chosen</span>}
-                <span className="ot-ton">{t.ton}</span>
-                <span className="ot-en">{t.en}</span>
+              <div className={`offer-tier${t.featured ? ' featured' : ''}`} key={t.name}>
+                {t.featured && <span className="ot-flag">The founding price</span>}
+                <span className="ot-ton">{t.name}</span>
+                <span className="ot-en">{t.active ? 'Open now' : 'Later'}</span>
                 <span className="ot-confers">{t.confers}</span>
                 <div className="ot-price">
-                  <span className="ot-once">{t.once}</span>
-                  <span className="ot-or">{t.monthly === 'or more' ? 'or more' : `once · or ${t.monthly}`}</span>
+                  <span className="ot-once">{t.price}</span>
+                  <span className="ot-or">{t.per}</span>
                 </div>
                 <ul className="ot-perks">
                   {t.perks.map(p => <li key={p}>{p}</li>)}
                 </ul>
-                <a href={LINKS.patron} className={t.featured ? 'cta-btn' : 'cta-secondary'} style={{ marginTop: 'auto' }}>
-                  Become a {t.en}
-                </a>
+                {t.active
+                  ? <a href={t.href} className={t.featured ? 'cta-btn' : 'cta-secondary'} style={{ marginTop: 'auto' }}>{t.cta}</a>
+                  : <span className="ot-or" style={{ marginTop: 'auto' }}>Opens when the founding window closes</span>}
               </div>
             ))}
           </div>
@@ -287,9 +327,35 @@ export default function Offer() {
           </div>
 
           <p className="offer-guardrail">
-            Can’t give right now? That’s exactly who this is for. Learn everything, free, with our
-            blessing. <em>Tauhi ʻa e lea — keep the language.</em>
+            If money is the only thing between you and the language, email us — there’s a free year
+            waiting. No forms, no proof, no questions. <em>Tauhi ʻa e lea — keep the language.</em>
           </p>
+        </div>
+      </div>
+
+      {/* ── § For the family that wants to do more ── */}
+      <div className="offer-sec">
+        <div className="panel-frame">
+          <div className="offer-sec-bar">
+            <span>§ 05 · Tauhi Fonua — for the family that wants to do more</span>
+            <span className="right">Standing, not access</span>
+          </div>
+          <div className="offer-inst">
+            <div className="oin-main">
+              <p>
+                Some families want to put real weight behind the language — the way they would at church,
+                or for a funeral, or a wedding. <strong>Tauhi Fonua</strong> — Keeper of the Homeland —
+                is for them: your family’s name engraved in every printed copy of the book, a dedication
+                line you write, and the top of the Roll of Keepers.
+              </p>
+              <p className="oin-sub">It funds the native-speaker recordings outright. A name in every copy, for the price of one family feast.</p>
+            </div>
+            <div className="oin-card">
+              <span className="oin-range">$1,000+</span>
+              <span className="oin-range-label">one gift · permanent recognition</span>
+              <a href={LINKS.donor} className="cta-btn" style={{ justifyContent: 'center' }}>Talk to us</a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -297,11 +363,15 @@ export default function Offer() {
       <div className="offer-sec">
         <div className="panel-frame">
           <div className="offer-sec-bar">
-            <span>§ 04 · Or take home the artifacts</span>
-            <span className="right">One-time · no subscription</span>
+            <span>§ 06 · Or take home the artifacts</span>
+            <span className="right">One-time · physical & recorded</span>
           </div>
           <div className="offer-artifacts">
-            {ARTIFACTS.map(a => (
+            {[
+              { title: 'The Heirloom Bundle', sub: 'Printed book + Elder Voices audio + certificate', price: '$79', note: 'Would be $117 apart · we name you in the book', href: LINKS.bundle, hero: true },
+              { title: 'Elder Voices — Audio', sub: 'Every example, spoken by a native voice', price: '$39', note: 'In production · members get it free', soon: true },
+              { title: 'The Heirloom Edition — Print', sub: 'Flag-geometry cover · the one your kids inherit', price: '$49', note: 'Coming soon', soon: true },
+            ].map(a => (
               <div className={`offer-artifact${a.soon ? ' soon' : ''}${a.hero ? ' hero' : ''}`} key={a.title}>
                 <div className="oa-art-top">
                   <span className="oa-art-title">{a.title}</span>
@@ -320,15 +390,15 @@ export default function Offer() {
       <div className="offer-sec">
         <div className="panel-frame">
           <div className="offer-sec-bar">
-            <span>§ 05 · For schools, churches & wards</span>
-            <span className="right">The license that keeps it free for everyone else</span>
+            <span>§ 07 · For schools, churches & wards</span>
+            <span className="right">The license that keeps the book free for everyone else</span>
           </div>
           <div className="offer-inst">
             <div className="oin-main">
               <p>
                 If you run a Tongan-language program, a Pasifika studies department, a ward, or a community
                 school, you can license the complete course — book, workbook, app, and the forthcoming audio —
-                for your learners. Your fee is what funds the native-speaker recordings and keeps the course
+                for your learners. Your fee is what funds the native-speaker recordings and keeps the book
                 <em> free</em> for every family learning at home.
               </p>
               <p className="oin-sub">One license records the Elder Voices audio outright. That’s the deal: institutions pay so a grandchild never has to.</p>
@@ -346,13 +416,15 @@ export default function Offer() {
       <section className="offer-guarantee">
         <span className="og-seal">The Tauhi Lea Promise</span>
         <p className="og-text">
-          We took the risk out by making it <em>free</em> — you learn the whole thing before you ever pay a cent.
-          And every artifact carries a 30-day, no-quibble refund. If a rule ever stumps you, ask, and we’ll
-          explain it. The point was never to take your money; it was to make sure the language outlives all of us.
+          Annual and founding memberships carry a 60-day promise: if you haven’t said your first real
+          sentences to your family, every cent back — and you keep the book; it was always yours.
+          Artifacts carry a 30-day, no-quibble refund. And if a rule ever stumps you, ask — we’ll
+          explain it until it clicks. The point was never to take your money; it’s that the language
+          outlives all of us.
         </p>
       </section>
 
-      {/* ── Email capture ── */}
+      {/* ── Email capture (the founding list) ── */}
       <section className="offer-signup" id="notify">
         {!sent ? (
           <form
@@ -360,10 +432,12 @@ export default function Offer() {
             {...(LINKS.emailAction ? { action: LINKS.emailAction, method: 'post', target: '_blank' } : {})}
             onSubmit={handleSubmit}
           >
-            <h2 className="offer-signup-title">Not ready? Take the 60-second test.</h2>
+            <h2 className="offer-signup-title">Checkout opens shortly. Be first through the door.</h2>
             <p className="offer-signup-sub">
-              <Link to="/quiz" style={{ color: 'var(--red-light)' }}>Can you still understand your grandmother?</Link> Find out,
-              then get the next chapter and the audio pack the day it lands. No streaks, no spam.
+              Leave your email and the founding-member link reaches you the moment it’s live — the first 250
+              lock $59 a year for life. Not sure yet? Take the 60-second test:{' '}
+              <Link to="/quiz" style={{ color: 'var(--red-light)' }}>Can you still understand your grandmother?</Link>{' '}
+              No streaks, no spam.
             </p>
             <div className="offer-signup-row">
               <input type="email" name="email" required placeholder="your@email"
@@ -390,8 +464,8 @@ export default function Offer() {
       <div className="offer-sec">
         <div className="panel-frame">
           <div className="offer-sec-bar">
-            <span>§ 06 · The honest questions</span>
-            <span className="right">Yes, it’s really free</span>
+            <span>§ 08 · The honest questions</span>
+            <span className="right">Straight answers</span>
           </div>
           <div className="offer-faq">
             {FAQ.map(f => (
@@ -410,14 +484,14 @@ export default function Offer() {
           <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> Keep the Language</div>
           <div className="bottom-spec">
             53 Chapters · Full Grammar Arc · Reviewed in the open
-            <span className="counter"> · Free to learn. Funded by its Keepers.</span>
+            <span className="counter"> · The book free, forever. The machine, membership.</span>
           </div>
         </div>
         <div className="cefr-badge">
           <div className="level">A1–B2</div>
           <div className="scope">Beginner → Advanced</div>
         </div>
-        <div className="free-note">Free, always</div>
+        <a href="#book" className="free-note" style={{ textDecoration: 'none' }}>The book is free</a>
       </div>
 
       <div className="offer-sec">

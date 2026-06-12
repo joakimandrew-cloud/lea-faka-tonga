@@ -152,7 +152,7 @@ export default function GrandmotherQuiz() {
       <div className="offer-sec">
         <div className="panel-frame">
           <div className="colophon">
-            <div><strong>Lea Faka-Tonga</strong> · Free to learn · Built in the open</div>
+            <div><strong>Lea Faka-Tonga</strong> · The book is free · Built in the open</div>
             <Link to="/" style={{ color: 'var(--red)', textDecoration: 'none' }}>← Home</Link>
           </div>
         </div>
