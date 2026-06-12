@@ -20,7 +20,7 @@ const PROMPTS = [
   { tongan: 'Té u tangutu pē ___.',  english: "I'll just sit over there. (gesturing to a third spot)", answer: 'he',  why: 'hē points wherever the speaker indicates — neither near speaker nor near listener.' },
   { tongan: 'Nofo ʻi ___!',          english: "Sit there! (where I'm pointing)",                       answer: 'he',   why: 'hē when the speaker is pointing at a place neither near themselves nor near the listener.' },
   { tongan: 'Tau hiva ___.',         english: "Let's sing here. (where the speaker is)",               answer: 'heni', why: 'heni = "here" near me.' },
-  { tongan: 'Kató ___.',             english: "The basket is there. (close to you)",                   answer: 'hena', why: 'hena = "there" near the listener.' },
+  { tongan: 'Tau nofo ʻi ___.',      english: "Let's stay there. (near you)",                          answer: 'hena', why: 'hena = "there" near the listener.' },
   { tongan: 'Kai ʻi ___!',           english: "Eat over there! (gesturing to a place)",                answer: 'he',   why: 'hē for a place the speaker is pointing to.' },
 ]
 

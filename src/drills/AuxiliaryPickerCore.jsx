@@ -11,7 +11,7 @@ import PickerCore from './PickerCore'
 
 const OPTIONS = [
   { id: 'fie',   label: 'fie',     detail: 'want to (+ verb)' },
-  { id: 'lava',  label: 'lava ʻo', detail: 'be able to (+ ʻo + verb)' },
+  { id: 'lava',  label: 'lava',    detail: 'be able to (+ ʻo + verb)' },
   { id: 'saiia', label: 'saiʻia',  detail: 'like (+ he/ʻia + thing/person)' },
 ]
 
@@ -23,7 +23,7 @@ const PROMPTS = [
   { tongan: 'Té ke ___ ʻo haʻu ʻapongipongi?',  english: 'Will you be able to come tomorrow?',        answer: 'lava',  why: 'lava ʻo + verb in the future tense.' },
   { tongan: 'ʻOku ou ___ ʻia Seini.',           english: 'I like Seini.',                             answer: 'saiia', why: 'With proper names, saiʻia takes ʻia (the personal form of ʻi).' },
   { tongan: 'ʻOku mau ___ ʻalu ki kolo.',       english: 'We want to go to town.',                    answer: 'fie',   why: 'fie + verb → "want to go".' },
-  { tongan: 'Naʻe ___ ʻa Sēmisi ʻo hiva lelei.', english: 'Sēmisi was able to sing well.',            answer: 'lava',  why: 'lava ʻo with a noun-subject construction (ʻa Sēmisi).' },
+  { tongan: 'Naʻe ___ ʻa Sēmisi ʻo hiva lelei.', english: 'Sēmisi was able to sing well.',            answer: 'lava',  why: 'With a noun subject, the subject (ʻa Sēmisi) follows lava, and ʻo still introduces the second verb.' },
 ]
 
 export default function AuxiliaryPickerCore() {

@@ -78,6 +78,7 @@ export default function SlotBuilder({
   const [phase, setPhase] = useState('building') // building | punctuation | finished
   const [isQuestion, setIsQuestion] = useState(forceQuestion)
   const [notesOpen, setNotesOpen] = useState(false)
+  const [dropAlignRight, setDropAlignRight] = useState(false)
   const activeSlotWrapperRef = useRef(null)
 
   // Dismiss dropdown on outside click or Escape
@@ -165,8 +166,13 @@ export default function SlotBuilder({
     setActiveSlot(nextRequired ? nextRequired.id : null)
   }
 
-  const handleSlotTap = (slotId) => {
+  const handleSlotTap = (slotId, e) => {
     if (phase === 'finished') return
+    // Anchor the dropdown to whichever side keeps it on screen: slot pills
+    // wrap on phones, and a left-anchored dropdown on a right-edge pill
+    // would overflow the viewport. Measured from the tapped pill.
+    const rect = e?.currentTarget?.getBoundingClientRect()
+    setDropAlignRight(!!rect && rect.left > window.innerWidth / 2)
     setActiveSlot(activeSlot === slotId ? null : slotId)
   }
 
@@ -225,7 +231,7 @@ export default function SlotBuilder({
         style={{ padding: '10px 12px' }}
       >
         <span className="font-tongan whitespace-nowrap">{opt.tongan}</span>
-        <span className="text-xs text-[var(--text-muted)] whitespace-nowrap">{opt.english}</span>
+        <span className="text-xs text-[var(--text-muted)] text-right">{opt.english}</span>
       </button>
     )
   }
@@ -343,7 +349,7 @@ export default function SlotBuilder({
             if (state === 'filled') {
               slotButton = (
                 <button
-                  onClick={() => handleSlotTap(slot.id)}
+                  onClick={(e) => handleSlotTap(slot.id, e)}
                   className={`px-3 py-2 font-tongan text-lg transition-colors cursor-pointer inline-flex items-center gap-1 ${
                     isActive
                       ? 'border border-[var(--text-strong)] text-[var(--text-strong)] bg-[var(--accent-faint)]'
@@ -357,7 +363,7 @@ export default function SlotBuilder({
             } else if (state === 'empty-required') {
               slotButton = (
                 <button
-                  onClick={() => handleSlotTap(slot.id)}
+                  onClick={(e) => handleSlotTap(slot.id, e)}
                   className={`px-3 py-2 transition-colors cursor-pointer inline-flex items-center gap-1 ${
                     isActive
                       ? 'border border-[var(--text-strong)] text-[var(--text-strong)]'
@@ -372,7 +378,7 @@ export default function SlotBuilder({
               // empty-optional
               slotButton = (
                 <button
-                  onClick={() => handleSlotTap(slot.id)}
+                  onClick={(e) => handleSlotTap(slot.id, e)}
                   className={`px-3 py-2 transition-colors cursor-pointer inline-flex items-center gap-1 ${
                     isActive
                       ? 'border border-[var(--text-strong)] text-[var(--text-strong)]'
@@ -394,12 +400,13 @@ export default function SlotBuilder({
                 {slotButton}
                 {isActive && activeSlotDef && (
                   <div
-                    className="absolute left-0 top-full overflow-y-auto"
+                    className={`absolute top-full overflow-y-auto ${dropAlignRight ? 'right-0' : 'left-0'}`}
                     style={{
                       marginTop: '4px',
                       minWidth: '160px',
+                      maxWidth: 'calc(100vw - 1rem)',
                       maxHeight: '280px',
-                      background: '#ffffff',
+                      background: 'var(--bg)',
                       border: '0.5px solid var(--border)',
                       borderRadius: '6px',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
@@ -408,7 +415,7 @@ export default function SlotBuilder({
                     }}
                   >
                     {options.length === 0 ? (
-                      <div className="text-sm text-[var(--text-faint)] italic px-3 py-2 whitespace-nowrap">
+                      <div className="text-sm text-[var(--text-faint)] italic px-3 py-2">
                         {activeSlotDef.depends_on && !filledSlots[activeSlotDef.depends_on]
                           ? `Select ${pattern.slots.find(s => s.id === activeSlotDef.depends_on)?.label || 'the required slot'} first`
                           : 'No options available'}
@@ -448,7 +455,7 @@ export default function SlotBuilder({
                 className="relative"
               >
                 <button
-                  onClick={() => setActiveSlot(punctActive ? null : '__punct__')}
+                  onClick={(e) => handleSlotTap('__punct__', e)}
                   className={`px-3 py-2 transition-colors cursor-pointer inline-flex items-center gap-1 ${
                     punctActive
                       ? 'border border-[var(--text-strong)] text-[var(--text-strong)]'
@@ -460,12 +467,13 @@ export default function SlotBuilder({
                 </button>
                 {punctActive && (
                   <div
-                    className="absolute left-0 top-full overflow-y-auto"
+                    className={`absolute top-full overflow-y-auto ${dropAlignRight ? 'right-0' : 'left-0'}`}
                     style={{
                       marginTop: '4px',
                       minWidth: '160px',
+                      maxWidth: 'calc(100vw - 1rem)',
                       maxHeight: '280px',
-                      background: '#ffffff',
+                      background: 'var(--bg)',
                       border: '0.5px solid var(--border)',
                       borderRadius: '6px',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.06)',

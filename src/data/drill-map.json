@@ -8,7 +8,6 @@
   ],
   "3":  [{ "drillId": "modifier-order",              "after": "modifiers" }],
   "4":  [{ "drillId": "time-pair-matcher",           "after": "future-time-words" }],
-  "5":  [{ "drillId": "audience-picker",             "after": "emphasis-in-commands-alu-koe" }],
   "6":  [{ "drillId": "demonstrative-picker",        "after": "here-there-over-there" }],
   "7":  [
     { "drillId": "preposition-selector",             "after": "before-a-pronoun-the-ate-forms" },
@@ -19,6 +18,10 @@
     { "drillId": "tense-swapper",                    "after": "negation-across-tenses" },
     { "drillId": "te-or-ke-picker",                  "after": "when-there-is-no-pronoun-ikai-ke" }
   ],
+  "10": [
+    { "drillId": "connector-disambiguator",          "after": "mo-with-pronouns" },
+    { "drillId": "audience-picker",                  "after": "commands-to-two-people-mo-verb" }
+  ],
   "11": [{ "drillId": "question-word-picker",        "after": "all-question-words-so-far" }],
   "12": [{ "drillId": "first-word-quiz",             "after": "what-ko-does" }],
   "13": [{ "drillId": "ko-question-picker",          "after": "summary-of-ko-question-words" }],
@@ -26,6 +29,7 @@
   "15": [{ "drillId": "tm-by-context-picker",        "after": "why-the-tense-marker-changes-nae-and-e-with-noun-subjects" }],
   "16": [{ "drillId": "equational-subject-picker",   "after": "pronoun-subjects-in-equational-sentences" }],
   "17": [{ "drillId": "possessive-sorter",           "after": "two-classes-of-possession" }],
+  "18": [{ "drillId": "definiteness-three-way-picker", "after": "summary-of-the-article-system" }],
   "19": [
     { "drillId": "subject-marker-picker",            "after": "the-basic-transitive-pattern" },
     { "drillId": "definiteness-flip",                "after": "when-the-object-is-general-vs-specific" },
@@ -40,7 +44,10 @@
   "23": [{ "drillId": "should-or-must-picker",       "after": "kuo-pau-ke-must-certainly" }],
   "24": [{ "drillId": "ka-or-kae-picker",            "after": "ka-and-kae-but" }],
   "25": [{ "drillId": "plural-marker-picker",        "after": "choosing-the-right-plural-marker" }],
-  "26": [{ "drillId": "benefactive-sorter",          "after": "maa-and-moo-for-someones-benefit" }],
+  "26": [
+    { "drillId": "connector-disambiguator",          "after": "he-for-because" },
+    { "drillId": "benefactive-sorter",               "after": "maa-and-moo-for-someones-benefit" }
+  ],
   "27": [{ "drillId": "comparative-picker",          "after": "modifying-the-comparison" }],
   "28": [{ "drillId": "direction-picker",            "after": "holo-around-about" }],
   "29": [
@@ -54,6 +61,7 @@
   "34": [{ "drillId": "pehee-picker",                "after": "pehei-to-do-or-treat-in-this-way" }],
   "35": [{ "drillId": "adjective-flip",              "after": "adjectives-before-the-noun" }],
   "36": [{ "drillId": "cleft-builder",               "after": "moving-the-subject-to-the-front-transitive-verbs" }],
+  "37": [{ "drillId": "postposed-possessive-picker", "after": "standing-in-as-the-verb-this-is-his" }],
   "38": [{ "drillId": "naa-three-way-picker",        "after": "uncertainty-naa-as-perhaps" }],
   "39": [{ "drillId": "relative-ai-picker",          "after": "ai-in-relative-clauses" }],
   "40": [{ "drillId": "spatial-noun-picker",         "after": "summary-of-spatial-nouns" }],
@@ -62,6 +70,7 @@
   "43": [{ "drillId": "tae-prefix-picker",           "after": "the-prefix-tae" }],
   "44": [{ "drillId": "accent-placement-picker",     "after": "the-definitive-accent-at-group-end" }],
   "45": [{ "drillId": "verbal-noun-converter",       "after": "pronoun-subjects-become-possessives" }],
+  "46": [{ "drillId": "noun-class-sorter",           "after": "summary-of-the-classification-system" }],
   "47": [{ "drillId": "conditional-picker",          "after": "ka-versus-kapau" }],
   "48": [{ "drillId": "suffix-picker",               "after": "nga-thing-not-place" }],
   "49": [{ "drillId": "reciprocity-picker",          "after": "fe-with-aki-reciprocal-and-reciprocative-verbs" }],

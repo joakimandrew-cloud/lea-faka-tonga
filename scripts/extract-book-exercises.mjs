@@ -54,14 +54,21 @@ const OUT_FILE = path.resolve(__dirname, '..', 'src', 'data', 'book-exercises.js
 /**
  * Strip markdown italics (*...*) for display while preserving the text.
  * We keep the asterisks in the source but the UI component will render them.
+ * Also unescape markdown-escaped underscores/asterisks (the book writes
+ * blanks as \_\_\_) so the UI never shows literal backslashes.
  */
 function cleanText(s) {
-  return s.replace(/\s+$/g, '').replace(/^\s+/g, '')
+  return s.replace(/\\([_*])/g, '$1').replace(/\s+$/g, '').replace(/^\s+/g, '')
 }
+
+/** A markdown horizontal rule (---) — never part of an item's text. */
+const HR_RE = /^\s*-{3,}\s*$/
 
 /**
  * Split a markdown exercise section into numbered items.
  * Handles both "1. ..." and "1\\. ..." and multi-line items.
+ * A horizontal rule (---) terminates the current item instead of being
+ * absorbed into it.
  */
 function splitNumberedItems(block) {
   const lines = block.split(/\n/)
@@ -72,6 +79,12 @@ function splitNumberedItems(block) {
     if (match) {
       if (current) items.push(cleanText(current.text))
       current = { num: parseInt(match[1], 10), text: match[2] }
+    } else if (HR_RE.test(line)) {
+      // Horizontal rule: end of the items run — never a continuation.
+      if (current) {
+        items.push(cleanText(current.text))
+        current = null
+      }
     } else if (current && line.trim() !== '') {
       // Continuation of the previous item
       current.text += ' ' + line.trim()
@@ -79,6 +92,22 @@ function splitNumberedItems(block) {
   }
   if (current) items.push(cleanText(current.text))
   return items
+}
+
+/**
+ * Capture the instruction text between the exercise heading and the first
+ * item (numbered line, lettered line, or table row). Returns '' if none.
+ */
+function extractInstructions(block) {
+  const lines = block.split(/\n/)
+  const out = []
+  for (const line of lines) {
+    const t = line.trim()
+    if (/^\d+\.\s+/.test(t) || /^[a-h]\.\s+/.test(t) || t.startsWith('|')) break
+    if (t === '' || HR_RE.test(t)) continue
+    out.push(t)
+  }
+  return cleanText(out.join(' '))
 }
 
 /**
@@ -135,23 +164,197 @@ function splitByExercise(block) {
 }
 
 /**
- * Classify an exercise into a type based on its title / heading.
+ * Classify a single piece of text (title or instructions) into a type.
+ * Returns null when the text gives no signal.
  */
-function classify(title, body) {
-  const t = (title || '').toLowerCase()
-  if (/translate.*\btongan\b.*\benglish\b/.test(t) || /translate\s+into\s+english/.test(t)) {
+function classifyText(s) {
+  if (!s) return null
+  if (
+    /translate.*\btongan\b.*\benglish\b/.test(s) ||
+    /translation.*\btongan\s+to\s+english\b/.test(s) ||
+    /\binto\s+english\b/.test(s)
+  ) {
     return 'translate_to_english'
   }
-  if (/translate.*\benglish\b.*\btongan\b/.test(t) || /translate\s+into\s+tongan/.test(t)) {
+  if (
+    /translate.*\benglish\b.*\btongan\b/.test(s) ||
+    /translation.*\benglish\s+to\s+tongan\b/.test(s) ||
+    /\binto\s+tongan\b/.test(s)
+  ) {
     return 'translate_to_tongan'
   }
-  if (/fill\s+in/.test(t) || /complete\s+each/.test(t) || /complete\s+the/.test(t)) {
+  if (/fill\s+in/.test(s) || /complete\s+each/.test(s) || /complete\s+the/.test(s)) {
     return 'fill_blank'
+  }
+  return null
+}
+
+/**
+ * Classify an exercise into a type based on its title, then its
+ * instructions, then body heuristics. Direction-less "translate" titles
+ * fall back to a content sniff: mostly-italic (Tongan) prompts mean the
+ * student translates into English, plain English prompts mean into Tongan.
+ */
+function classify(title, body, instructions, prompts) {
+  const t = (title || '').toLowerCase()
+  const instr = (instructions || '').toLowerCase()
+  const byTitle = classifyText(t)
+  if (byTitle) return byTitle
+  const byInstr = classifyText(instr)
+  if (byInstr) return byInstr
+  if (/translat/.test(t) || /translat/.test(instr)) {
+    const list = prompts || []
+    const italic = list.filter((p) => /^\*/.test(p)).length
+    return italic > list.length / 2 ? 'translate_to_english' : 'translate_to_tongan'
   }
   // Heuristic: if any prompt contains ___ treat as fill_blank
   if (/___/.test(body || '')) return 'fill_blank'
   // Otherwise generic
   return 'free'
+}
+
+// ---------------------------------------------------------------------------
+// Accepted-answer variants (lenient checking data for the app)
+// ---------------------------------------------------------------------------
+
+/**
+ * Expand an answer key into the set of strings a student should be allowed
+ * to type. The keys often carry annotations that are not part of the answer:
+ *
+ *   *te* (pronoun *u* follows)            → *te*
+ *   *ha*. I want some water. (indefinite) → *ha*
+ *   *Te mau nofo heni.* (or *Te mau nofo 'i heni.*) → either sentence
+ *   He/she has fallen asleep.             → He … / She …
+ *
+ * Returns an array of variants (always includes the raw key).
+ */
+function expandAnswerVariants(raw) {
+  const out = new Set()
+  const visit = (input) => {
+    const s = input.trim()
+    if (!s || out.has(s)) return
+    out.add(s)
+    // "(or ...)" alternates: accept both the base and the alternate.
+    const orM = s.match(/\(\s*or:?\s+([^)]+)\)/i)
+    if (orM) {
+      visit(s.replace(orM[0], '').trim())
+      visit(orM[1])
+    }
+    // Trailing parenthetical annotation.
+    const parM = s.match(/^(.*\S)\s*\([^()]*\)$/)
+    if (parM) visit(parM[1])
+    // Parenthetical annotations anywhere ("We (exclusive) drank."):
+    // accept the sentence without them.
+    const noParens = s.replace(/\s*\([^()]*\)/g, ' ').replace(/\s+/g, ' ').trim()
+    if (noParens !== s) visit(noParens)
+    // Leading italic chunk followed by a prose gloss/explanation. Skipped
+    // when the remainder itself starts with another italic segment — that
+    // shape is a multi-part answer, not an annotation.
+    const chunkM = s.match(/^(\*[^*]+\*)[.,;:]?\s+(\S[\s\S]*)$/)
+    if (chunkM && !chunkM[2].startsWith('*')) visit(chunkM[1])
+    // " / " separated alternates.
+    if (s.includes(' / ')) s.split(' / ').forEach(visit)
+    // Word-level slash alternates (He/she, him/her, ...).
+    const slashM = s.match(/\b([A-Za-z]+)\/([A-Za-z]+)\b/)
+    if (slashM) {
+      visit(s.replace(slashM[0], slashM[1]))
+      visit(s.replace(slashM[0], slashM[2]))
+    }
+  }
+  visit(raw)
+  return [...out]
+}
+
+// ---------------------------------------------------------------------------
+// Matching exercises (lettered lists and tables)
+// ---------------------------------------------------------------------------
+
+/**
+ * Parse a table-based matching exercise:
+ *
+ *   | 1. *ne* | a. we (inclusive, three+) |          (2-col, combined cells)
+ *   | 1 | *talu mei ai* | a. the past |              (3-col)
+ *   | 1. | *Ko e fale 'o Pita.* | a. | His knife. |  (4-col, split cells)
+ *
+ * with a number→letter key in the answers body ("1. d", "1: b", "1-c, 2-a").
+ * Returns [{ prompt, answer }] or null if the body is not such a table.
+ */
+function parseTableMatching(body, ansBody) {
+  const numToPrompt = {}
+  const letterToOption = {}
+  const order = []
+  for (const line of body.split(/\n/)) {
+    const t = line.trim()
+    if (!t.startsWith('|')) continue
+    const cells = t.replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim())
+    if (cells.every((c) => c === '' || /^:?-{2,}:?$/.test(c))) continue // separator row
+    let pendingNum = null
+    let pendingLetter = null
+    for (const cell of cells) {
+      if (!cell) continue
+      let m
+      if (pendingNum !== null) {
+        order.push(pendingNum)
+        numToPrompt[pendingNum] = cleanText(cell)
+        pendingNum = null
+      } else if (pendingLetter !== null) {
+        letterToOption[pendingLetter] = cleanText(cell)
+        pendingLetter = null
+      } else if ((m = cell.match(/^(\d+)[.)]?$/))) {
+        pendingNum = m[1]
+      } else if ((m = cell.match(/^([a-h])[.)]?$/))) {
+        pendingLetter = m[1]
+      } else if ((m = cell.match(/^(\d+)[.)]\s+(.+)$/))) {
+        order.push(m[1])
+        numToPrompt[m[1]] = cleanText(m[2])
+      } else if ((m = cell.match(/^([a-h])[.)]\s+(.+)$/))) {
+        letterToOption[m[1]] = cleanText(m[2])
+      }
+    }
+  }
+  if (order.length < 2 || Object.keys(letterToOption).length < 2) return null
+
+  // Key: pairs like "1. d", "1: b (...)", "1-c"
+  const key = {}
+  const keyRe = /\b(\d+)\s*[-:.]\s*([a-h])\b/g
+  let km
+  while ((km = keyRe.exec(ansBody || '')) !== null) key[km[1]] = km[2]
+
+  return order
+    .filter((n) => numToPrompt[n])
+    .map((n) => ({
+      prompt: numToPrompt[n],
+      answer: key[n] && letterToOption[key[n]] ? letterToOption[key[n]] : null,
+    }))
+}
+
+/**
+ * Parse a lettered matching exercise (questions a–g, options 1–7, key
+ * "a: 3" / "a. 3" in the answers). Returns [{ prompt, answer }] or null.
+ */
+function parseLetteredMatching(body, ansBody) {
+  const questions = []
+  const options = {}
+  for (const line of body.split(/\n/)) {
+    let m
+    if ((m = line.match(/^([a-h])\.\s+(.+)$/))) {
+      questions.push({ letter: m[1], text: cleanText(m[2]) })
+    } else if ((m = line.match(/^(\d+)\.\s+(.+)$/))) {
+      options[m[1]] = cleanText(m[2])
+    }
+  }
+  if (questions.length < 2 || Object.keys(options).length < 2) return null
+
+  const key = {}
+  const keyRe = /\b([a-h])\s*[:.]\s*(\d+)\b/g
+  let km
+  while ((km = keyRe.exec(ansBody || '')) !== null) key[km[1]] = km[2]
+  if (Object.keys(key).length < 2) return null
+
+  return questions.map((q) => ({
+    prompt: q.text,
+    answer: key[q.letter] && options[key[q.letter]] ? options[key[q.letter]] : null,
+  }))
 }
 
 // ---------------------------------------------------------------------------
@@ -166,22 +369,51 @@ function extractChapter(chapterNum, md) {
 
   const output = []
   for (const [num, ex] of Object.entries(exercises)) {
-    const prompts = splitNumberedItems(ex.body)
     const ans = answers[num]
-    const answerItems = ans ? splitNumberedItems(ans.body) : []
-    const type = classify(ex.title, ex.body)
+    const instructions = extractInstructions(ex.body)
+    const isMatch = /\bmatch\b/i.test(`${ex.title} ${instructions}`)
 
-    const items = prompts.map((prompt, i) => ({
-      id: `ch${chapterNum}-ex${num}-${i + 1}`,
-      prompt,
-      answer: answerItems[i] || null,
-    }))
+    // Matching exercises (tables, or lettered question lists) need their
+    // own pairing logic — the generic numbered split produces orphaned
+    // options (lettered) or nothing at all (tables).
+    let pairs = null
+    let type = null
+    if (isMatch) {
+      pairs =
+        parseTableMatching(ex.body, ans ? ans.body : '') ||
+        parseLetteredMatching(ex.body, ans ? ans.body : '')
+      if (pairs) type = 'free' // reveal-style: show the matched text
+    }
+
+    if (!pairs) {
+      const prompts = splitNumberedItems(ex.body)
+      const answerItems = ans ? splitNumberedItems(ans.body) : []
+      type = classify(ex.title, ex.body, instructions, prompts)
+      pairs = prompts.map((prompt, i) => ({
+        prompt,
+        answer: answerItems[i] || null,
+      }))
+    }
+
+    const items = pairs.map((pair, i) => {
+      const item = {
+        id: `ch${chapterNum}-ex${num}-${i + 1}`,
+        prompt: pair.prompt,
+        answer: pair.answer,
+      }
+      if (pair.answer) {
+        const accept = expandAnswerVariants(pair.answer).filter((v) => v !== pair.answer)
+        if (accept.length > 0) item.accept = accept
+      }
+      return item
+    })
 
     output.push({
       id: `ch${chapterNum}-ex${num}`,
       number: parseInt(num, 10),
       title: ex.title,
       type,
+      instructions: instructions || '',
       items,
     })
   }

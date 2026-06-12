@@ -25,13 +25,13 @@ const OPTIONS = [
 
 const PROMPTS = [
   { tongan: 'ha kato ___ ono',            english: 'six baskets',                               answer: 'e',    why: 'Baskets are things → ʻe before the number.' },
-  { tongan: 'Ko e tamaiki ___ tolu.',     english: 'Three children.',                           answer: 'toko', why: 'Children are people → toko before the number, no ʻe.' },
+  { tongan: 'Ko e tamaiki ʻe ___ tolu.',  english: 'Three children.',                           answer: 'toko', why: 'Children are people → toko before the number. After a noun, ʻe still comes first; it is only between toko and the number that ʻe never appears.' },
   { tongan: 'paʻanga ___ taha',           english: 'one dollar',                                answer: 'e',    why: 'Money — a thing → ʻe.' },
   { tongan: 'ha ___ moli',                english: 'a (single) orange',                         answer: 'foi',  why: 'foʻi singles out one individual fruit from the category.' },
   { tongan: 'ha tohi ___ tolu',           english: 'three books',                               answer: 'e',    why: 'Books are things → ʻe.' },
   { tongan: 'ha ___ moa',                 english: 'an egg (a single one)',                     answer: 'foi',  why: 'foʻi for a single self-contained item like an egg.' },
   { tongan: 'ʻOku ___ hiva pē.',          english: 'Only nine (people).',                       answer: 'toko', why: 'Counting people → toko. The clue: people are implied by the context.' },
-  { tongan: 'ʻOku ___ fīha e kau akó?',   english: 'How many pupils are there?',                answer: 'toko', why: 'Pupils are people → toko fīha for "how many people".' },
+  { tongan: 'ʻOku ___ fiha e kau akó?',   english: 'How many pupils are there?',                answer: 'toko', why: 'Pupils are people → toko fiha for "how many people".' },
   { tongan: 'ha ___ mā',                  english: 'a loaf of bread',                           answer: 'foi',  why: 'foʻi marks one complete unit — here, one loaf.' },
   { tongan: 'ha vaka ___ ua',             english: 'two boats',                                 answer: 'e',    why: 'Boats are things → ʻe.' },
   { tongan: 'ha hele ___ fā',             english: 'four knives',                               answer: 'e',    why: 'Knives are things → ʻe.' },

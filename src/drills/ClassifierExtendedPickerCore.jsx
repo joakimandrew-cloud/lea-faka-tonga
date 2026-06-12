@@ -18,7 +18,7 @@ const OPTIONS = [
 const PROMPTS = [
   { tongan: 'ha ___ niu',                  english: 'a single coconut (the fruit)',         answer: 'foi',  why: 'foʻi singles out one self-contained item — especially round things like fruit, eggs, stones.' },
   { tongan: 'ha kato ___ ono',             english: 'six baskets',                          answer: 'e',    why: 'Counting general things → ʻe before the number.' },
-  { tongan: 'Ko e tamaiki ___ tolu.',      english: 'Three children.',                      answer: 'toko', why: 'Counting people → toko.' },
+  { tongan: 'Ko e tamaiki ʻe ___ tolu.',   english: 'Three children.',                      answer: 'toko', why: 'Counting people → toko. After a noun, ʻe still precedes toko; ʻe only disappears between toko and the number.' },
   { tongan: 'ha ___ moa',                  english: 'an egg',                               answer: 'foi',  why: 'foʻi for a single round item.' },
   { tongan: 'ha ___ maka',                 english: 'a stone (a single one)',               answer: 'foi',  why: 'foʻi singles out one stone.' },
   { tongan: 'ha tohi ___ tolu',            english: 'three books',                          answer: 'e',    why: 'Counting things → ʻe.' },

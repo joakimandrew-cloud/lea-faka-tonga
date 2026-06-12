@@ -66,6 +66,9 @@ import CountTimeCore from './CountTimeCore'
 import ConnectorDisambiguatorCore from './ConnectorDisambiguatorCore'
 import KinshipPossessiveCore from './KinshipPossessiveCore'
 import VocabClozeCore from './VocabClozeCore'
+import DefinitenessThreeWayPickerCore from './DefinitenessThreeWayPickerCore'
+import PostposedPossessivePickerCore from './PostposedPossessivePickerCore'
+import NounClassSorterCore from './NounClassSorterCore'
 
 export const drillRegistry = {
   // ── Six existing drills ─────────────────────────────────────
@@ -297,7 +300,7 @@ export const drillRegistry = {
   },
   'there-is-have': {
     Core: ThereIsHaveCore,
-    meta: { title: `There is / I have`, blurb: `ʻi ai for "there is" and "have"; the negative drops ʻi ai. Pick the right opener and tense.` },
+    meta: { title: `There is / I have`, blurb: `ʻi ai for "there is" and "have"; the negative "have" drops ʻi ai, but the negative "there is" keeps it (ʻikai ke ʻi ai). Pick the right opener and tense.` },
   },
   'count-time': {
     Core: CountTimeCore,
@@ -305,7 +308,7 @@ export const drillRegistry = {
   },
   'connector-disambiguator': {
     Core: ConnectorDisambiguatorCore,
-    meta: { title: `Which connector: mo / pea / ʻo / ka / kae`, blurb: `Three words for "and" (mo, pea, ʻo) and two for "but" (ka, kae) — choose by what is being joined.` },
+    meta: { title: `Which connector: and / with / but / because`, blurb: `Three words for "and" (mo, pea, ʻo), two for "but" (ka, kae), ke for purpose, he for reason — choose by what is being joined.` },
   },
   'kinship-possessive': {
     Core: KinshipPossessiveCore,
@@ -314,5 +317,19 @@ export const drillRegistry = {
   'vocab-cloze': {
     Core: VocabClozeCore,
     meta: { title: `Fill the blank (vocabulary)`, blurb: `A known frame with one word missing and an English cue — recall the Tongan word.` },
+  },
+
+  // ── Coverage drills for previously undrilled TEACH chapters (Ch 18 / 37 / 46) ──
+  'definiteness-three-way-picker': {
+    Core: DefinitenessThreeWayPickerCore,
+    meta: { title: `any basket, a basket, or THE basket?`, blurb: `Three levels: ha (any one), e (a particular one), e + stress on the last vowel (the one you both know).` },
+  },
+  'postposed-possessive-picker': {
+    Core: PostposedPossessivePickerCore,
+    meta: { title: `That one is MINE`, blurb: `Ownership after the noun: ʻaʻaku (things you control) vs. ʻoʻoku (things that shelter or define you) — and ʻa hai / ʻo hai for "whose?".` },
+  },
+  'noun-class-sorter': {
+    Core: NounClassSorterCore,
+    meta: { title: `Person, place, or thing: which "to"?`, blurb: `kia Mele, ki kolo, ki he motú — names and places skip the article; everything else takes he and the accent.` },
   },
 }

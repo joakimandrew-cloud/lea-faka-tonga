@@ -33,6 +33,7 @@ import {
   getEntryPoints,
 } from '../engine/graph-walker'
 import OpenBuilderSlot from '../components/OpenBuilderSlot'
+import { mapErrorToFriendly } from '../lib/error-messages'
 import { useChapter } from '../contexts/ChapterContext'
 
 const CATEGORY_ORDER = [
@@ -81,7 +82,8 @@ export default function OpenBuilder() {
       setEntryPointId(epId)
       setWalkerState(newState)
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }
 
@@ -97,7 +99,8 @@ export default function OpenBuilder() {
       setError(null)
       setWalkerState(createWalkerState(entryPointId, chapter))
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }
 
@@ -106,7 +109,8 @@ export default function OpenBuilder() {
       setError(null)
       setWalkerState(prev => advanceInFrame(prev, word))
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }
 
@@ -115,7 +119,8 @@ export default function OpenBuilder() {
       setError(null)
       setWalkerState(prev => walkerTakeExtension(prev, targetId))
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }
 
@@ -124,7 +129,8 @@ export default function OpenBuilder() {
       setError(null)
       setWalkerState(prev => walkerFinishFrame(prev))
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }
 
@@ -133,7 +139,8 @@ export default function OpenBuilder() {
       setError(null)
       setWalkerState(prev => walkerFinishSentence(prev, terminatorId))
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }
 
@@ -148,7 +155,8 @@ export default function OpenBuilder() {
       setError(null)
       setWalkerState(prev => walkerSetStepDefiniteness(prev, flatStepIndex, level))
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }
 
@@ -172,7 +180,8 @@ export default function OpenBuilder() {
         setError(null)
         setWalkerState(createWalkerState(entryPointId, next))
       } catch (err) {
-        setError(err.message)
+        console.error(err)
+        setError(mapErrorToFriendly(err.message))
       }
     }
   }
@@ -234,7 +243,7 @@ export default function OpenBuilder() {
           </div>
         )}
         {error && (
-          <div className="border border-[var(--clay)] text-[var(--clay)] text-xs px-4 py-2 mb-4">
+          <div className="border border-[var(--wrong-border)] text-[var(--wrong)] text-xs px-4 py-2 mb-4">
             {error}
           </div>
         )}
@@ -258,7 +267,7 @@ export default function OpenBuilder() {
     <div>
       {header}
       {error && (
-        <div className="border border-[var(--clay)] text-[var(--clay)] text-xs px-4 py-2 mb-4">
+        <div className="border border-[var(--wrong-border)] text-[var(--wrong)] text-xs px-4 py-2 mb-4">
           {error}
         </div>
       )}

@@ -67,18 +67,19 @@ const beginner = [
   { id: 'first-word-quiz',      ch: 12, title: `Name the sentence from its first word`, blurb: `See only the start and call it: statement, command, negation, or "X is Y".`,          action: 'Name',    icon: ICONS.predict },
   { id: 'skeleton-filler',      ch: 1,  title: `Build a Tongan sentence`,                blurb: `Put the tense marker, pronoun, and verb in the right order.`,                          action: 'Build',   icon: ICONS.blocks },
   { id: 'article-picker',       ch: 8,  title: `a, the, or the-after-a-preposition?`,    blurb: `Choose ha, ʻa e, or he by definiteness and whether a preposition comes first.`,       action: 'Pick',    icon: ICONS.article },
+  { id: 'definiteness-three-way-picker', ch: 18, title: `any basket, a basket, or THE basket?`, blurb: `Three levels: ha (any one), e (a particular one), e + stress on the last vowel (the one you both know).`, action: 'Pick', icon: ICONS.article },
   { id: 'preposition-selector', ch: 7,  title: `ʻi / ki / mei (and the form they take)`, blurb: `at/to/from and its shape: bare before a place, -a before a name, -ate before a pronoun.`, action: 'Pick', icon: ICONS.prep },
   { id: 'possessive-sorter',    ch: 17, title: `Saying "my": ʻeku or hoku?`,             blurb: `Pick ʻeku or hoku for "my," one noun at a time.`,                                       action: 'Sort',    icon: ICONS.possess },
   { id: 'te-or-ke-picker',      ch: 9,  title: `After ʻikai: te or ke?`,                 blurb: `te before a pronoun, ke before a bare verb.`,                                          action: 'Pick',    icon: ICONS.negate },
   { id: 'question-word-picker', ch: 11, title: `Which question word?`,                   blurb: `where / when / how / how-many — the question word sits where the answer would go.`,    action: 'Pick',    icon: ICONS.question },
   { id: 'demonstrative-picker', ch: 6,  title: `here / there / over there`,              blurb: `heni (by me), hena (by you), hē (the spot I point to).`,                               action: 'Pick',    icon: ICONS.here },
   { id: 'modifier-order',       ch: 3,  title: `Where the describing word goes`,         blurb: `Describing words follow the verb (sing well); faʻa is the one that goes before.`,      action: 'Order',   icon: ICONS.flip },
-  { id: 'audience-picker',      ch: 5,  title: `Commands: one, two, or many`,            blurb: `Pick the command form by how many you address: bare verb / mo / mou.`,                action: 'Pick',    icon: ICONS.people },
+  { id: 'audience-picker',      ch: 10, title: `Commands: one, two, or many`,            blurb: `Pick the command form by how many you address: bare verb / mo / mou.`,                action: 'Pick',    icon: ICONS.people },
   { id: 'tm-by-context-picker', ch: 15, title: `Naʻa or Naʻe? Te or ʻE?`,               blurb: `Use the pronoun form before a pronoun, the other form before a noun or "ʻikai."`,      action: 'Pick',    icon: ICONS.fork },
   { id: 'clusivity-corner',     ch: 2,  title: `Which "we"?`,                            blurb: `Tongan has four words for "we." Is the listener in the group, and is it two or three-plus?`, action: 'Choose', icon: ICONS.weGroup },
   { id: 'pronoun-paradigm',     ch: 2,  title: `Name the pronoun`,                       blurb: `Recall the right preposed pronoun by its cell: singular / dual / plural, "we" with or without you.`, action: 'Recall', icon: ICONS.people },
   { id: 'count-time',           ch: 20, title: `Count and tell the time`,                blurb: `The numbers 1-10 in their frames: ʻe for things, toko for people, the clock, prices.`, action: 'Count', icon: ICONS.count },
-  { id: 'vocab-cloze',          ch: 3,  title: `Fill the blank (vocabulary)`,            blurb: `A known frame with one word missing and an English cue — recall the Tongan word.`, action: 'Recall', icon: ICONS.article },
+  { id: 'vocab-cloze',          ch: 19, title: `Fill the blank (vocabulary)`,            blurb: `A known frame with one word missing and an English cue — recall the Tongan word.`, action: 'Recall', icon: ICONS.article },
 ]
 
 const intermediate = [
@@ -97,8 +98,8 @@ const intermediate = [
   { id: 'classifier-extended-picker',   ch: 31, title: `Counting: ʻe, toko, or foʻi?`,            blurb: `ʻe for things, toko for people, foʻi for single round/whole items.`,                    action: 'Pick',   icon: ICONS.count },
   { id: 'spatial-noun-picker',          ch: 40, title: `inside / under / on top / beside`,        blurb: `loto, lalo, funga, veʻe, tuʻa, mata, mui, tafaʻaki.`,                                    action: 'Pick',   icon: ICONS.spatial },
   { id: 'conditional-picker',           ch: 47, title: `if / when / had-I`,                       blurb: `kapau (uncertain), ka (expected), ka ne (didn't-happen, "had I…").`,                     action: 'Pick',   icon: ICONS.fork },
-  { id: 'there-is-have',                ch: 29, title: `There is / I have`,                        blurb: `ʻi ai for "there is" and "have"; the negative drops ʻi ai. Pick the right opener and tense.`, action: 'Pick', icon: ICONS.possess },
-  { id: 'connector-disambiguator',      ch: 24, title: `Which connector: mo / pea / ʻo / ka / kae`, blurb: `Three words for "and" (mo, pea, ʻo) and two for "but" (ka, kae) — choose by what is being joined.`, action: 'Pick', icon: ICONS.linked },
+  { id: 'there-is-have',                ch: 31, title: `There is / I have`,                        blurb: `ʻi ai for "there is" and "have"; the negative drops ʻi ai. Pick the right opener and tense.`, action: 'Pick', icon: ICONS.possess },
+  { id: 'connector-disambiguator',      ch: 26, title: `Which connector: and / with / but / because`, blurb: `Three words for "and" (mo, pea, ʻo), two for "but" (ka, kae), ke for purpose, he for reason — choose by what is being joined.`, action: 'Pick', icon: ICONS.linked },
   { id: 'kinship-possessive',           ch: 29, title: `Family: my / your / his`,                  blurb: `Relatives are ho-class — but parents and children flip to e-class (ʻeku tamai, hoku tokoua).`, action: 'Pick', icon: ICONS.weGroup },
 ]
 
@@ -108,8 +109,10 @@ const advanced = [
   { id: 'terminal-builder-classic',  ch: 19, title: `Classic terminal builder`,             blurb: `The original free-build: jump straight into building one word at a time, no opening menu.`, action: 'Build', icon: ICONS.terminal },
   { id: 'verbal-noun-converter',     ch: 45, title: `Say "when / because he read it"`,    blurb: `Turn "he read it" into a "when/because" clause; pick heʻene, heʻeku, he hoʻo…`,        action: 'Convert', icon: ICONS.convert },
   { id: 'doer-receiver-picker',      ch: 29, title: `his choosing vs. his being chosen`,   blurb: `ʻene fili (he does it) vs. hono fili (it's done to him).`,                              action: 'Pick',    icon: ICONS.possess },
+  { id: 'postposed-possessive-picker', ch: 37, title: `That one is MINE`,                  blurb: `Ownership after the noun: ʻaʻaku (things you control) vs. ʻoʻoku (things that shelter or define you) — and ʻa hai / ʻo hai for "whose?".`, action: 'Pick', icon: ICONS.possess },
   { id: 'cleft-builder',             ch: 36, title: `Say who did it (Ko …)`,               blurb: `Front the doer with Ko: "It was Sione who ate it."`,                                   action: 'Build',   icon: ICONS.cleft },
   { id: 'relative-ai-picker',        ch: 39, title: `the place he works IN / came FROM`,   blurb: `Pick ai, ki ai, or mei ai by the preposition the plain sentence would use.`,           action: 'Pick',    icon: ICONS.relative },
+  { id: 'noun-class-sorter',         ch: 46, title: `Person, place, or thing: which "to"?`, blurb: `kia Mele, ki kolo, ki he motú — names and places skip the article; everything else takes he and the accent.`, action: 'Sort', icon: ICONS.prep },
   { id: 'faka-pattern-sorter',       ch: 32, title: `Sort faka- words by job`,            blurb: `faka- does four jobs (manner, cause, every-X, one-particular). Read the word and sort it.`, action: 'Sort', icon: ICONS.grid },
   { id: 'naa-three-way-picker',      ch: 38, title: `Which naʻa? (past / lest / perhaps)`, blurb: `Tell past-tense naʻa from "lest" (after a command) and "perhaps" (clause-initial).`,    action: 'Pick',    icon: ICONS.fan },
   { id: 'te-disambiguator',          ch: 51, title: `The three jobs of te`,                blurb: `Future marker, negation connector after ʻikai, or "one" — by position.`,               action: 'Pick',    icon: ICONS.trefoil },
@@ -158,7 +161,7 @@ function DrillCard({ drill, colorIndex }) {
 
 const TIERS = [
   { key: 'beginner',     label: 'Beginner', level: 'A1–A2', note: 'Start here.',                             drills: beginner },
-  { key: 'intermediate', label: 'Intermediate', level: 'A2–B1', note: 'The ergative core and the systems built on it.', drills: intermediate },
+  { key: 'intermediate', label: 'Intermediate', level: 'A2–B1', note: `The ergative core — Tongan's way of marking who did what with ʻa and ʻe — and the systems built on it.`, drills: intermediate },
   { key: 'advanced',     label: 'Advanced', level: 'B1–B2', note: 'Once you reach these chapters.',          drills: advanced },
 ]
 

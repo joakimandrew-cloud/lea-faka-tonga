@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useChapter } from '../contexts/ChapterContext'
 import chapters from '../data/chapters.json'
@@ -56,13 +56,17 @@ export default function ChapterPractice() {
   const [earlierOpen, setEarlierOpen] = useState(false)
   const [earlierPatternId, setEarlierPatternId] = useState(null)
 
+  // Keep global chapter context in sync. Must run in an effect, not the
+  // render body: setChapter updates ChapterProvider's state AND writes
+  // localStorage, neither of which may happen during render.
+  useEffect(() => {
+    setChapter(chapterNum)
+  }, [chapterNum, setChapter])
+
   const chapter = chapters.find(c => c.chapter === chapterNum)
   if (!chapter) {
     return <div className="text-[var(--text-muted)]">Chapter not found.</div>
   }
-
-  // Keep global chapter context in sync
-  setChapter(chapterNum)
 
   const chapterPatterns = useMemo(() => getPatternsForChapter(chapterNum), [chapterNum])
   const earlierPatterns = useMemo(() => getEarlierPatterns(chapterNum), [chapterNum])
@@ -179,10 +183,10 @@ export default function ChapterPractice() {
                   {showHint ? 'Hide hint' : 'Show hint'}
                 </button>
                 {showHint && selectedPattern.examples?.length > 0 && (
-                  <div className="mt-2 border-l-2 border-[var(--clay)]/50 pl-3">
+                  <div className="mt-2 border-l-2 border-[var(--accent)]/50 pl-3">
                     {selectedPattern.examples.map((ex, i) => (
                       <div key={i} className="mb-1">
-                        <span className="text-[var(--clay)] font-tongan">{ex.tongan}</span>
+                        <span className="text-[var(--accent)] font-tongan">{ex.tongan}</span>
                         <span className="text-[var(--text-muted)] text-sm ml-2">{ex.english}</span>
                       </div>
                     ))}

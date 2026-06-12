@@ -21,7 +21,7 @@ const CARDS = [
   { tongan: 'vaka',       english: 'a boat',                             category: 'moo', why: 'A boat carries / shelters you → ho-class. moʻo.' },
   { tongan: 'meʻakai',    english: 'food',                               category: 'maa', why: 'Food is something you eat / consume → ʻe-class. maʻa.' },
   { tongan: 'kupenga',    english: 'a fishing net (a tool)',             category: 'maa', why: 'A tool you wield → ʻe-class. maʻa.' },
-  { tongan: 'kele',       english: 'land / a piece of land',             category: 'moo', why: 'Land defines / characterises you → ho-class. moʻo.' },
+  { tongan: 'kelekele',   english: 'land / a piece of land',             category: 'moo', why: 'Land defines / characterises you → ho-class. moʻo.' },
   { tongan: 'kofu',       english: 'clothing',                           category: 'moo', why: 'Clothing characterises you (worn ON your person) → ho-class. moʻo.' },
 ]
 

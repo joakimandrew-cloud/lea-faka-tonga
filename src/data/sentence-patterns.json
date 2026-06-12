@@ -367,7 +367,7 @@
       },
       "assembly_rules": {
         "sentence_type": "statement",
-        "notes": "Three object types: bare noun (indefinite compound), ha + noun (indefinite with article), e + noun (definite)."
+        "notes": "Three object types: bare noun (indefinite compound), ha + noun (indefinite with article), ʻa e + noun (definite — the focus marker ʻa is never dropped before a definite object)."
       },
       "examples": [
         {
@@ -379,7 +379,7 @@
           "english": "I want some taro."
         },
         {
-          "tongan": "Naʻá ke kai e ika.",
+          "tongan": "Naʻá ke kai ʻa e ika?",
           "english": "Did you eat the fish?"
         }
       ]
@@ -2127,11 +2127,11 @@
       "pronoun_dependencies": null,
       "assembly_rules": {
         "sentence_type": "transitive",
-        "notes": "Full transitive pattern. ʻa marks proper noun objects only; before definite common nouns (tagged 'definite'), ʻa is omitted. ʻe marks the agent: ʻe + name for proper nouns, ʻe he + noun for common nouns. TMs: naʻe/ʻe/ʻoku/kuo with noun subjects (never naʻa or te). Passive variant: omit agent phrase entirely."
+        "notes": "Full transitive pattern. ʻa marks the postposed object: ʻa + name for proper nouns, ʻa e + noun for definite common nouns — ʻa is never dropped before a definite object. ʻe marks the agent: ʻe + name for proper nouns, ʻe he + noun for common nouns. TMs: naʻe/ʻe/ʻoku/kuo with noun subjects (never naʻa or te). Passive variant: omit agent phrase entirely."
       },
       "examples": [
         {
-          "tongan": "Naʻe lau ʻe Sione e tohí.",
+          "tongan": "Naʻe lau ʻa e tohí ʻe Sione.",
           "english": "Sione read the book."
         },
         {
@@ -2139,7 +2139,7 @@
           "english": "Pita took Mele."
         },
         {
-          "tongan": "Naʻe kai ʻe he fefiné e iká.",
+          "tongan": "Naʻe kai ʻe he fefiné ʻa e iká.",
           "english": "The woman ate the fish."
         }
       ]
@@ -2393,15 +2393,15 @@
       "examples": [
         {
           "tongan": "Ko e hele ʻa Sione.",
-          "english": "Johnʻs knife."
+          "english": "Sione's knife."
         },
         {
           "tongan": "Ko e fale ʻo Sione.",
-          "english": "Johnʻs house."
+          "english": "Sione's house."
         },
         {
           "tongan": "Ko e vaka ʻo Tēvita.",
-          "english": "Davidʻs boat."
+          "english": "Tēvita's boat."
         }
       ]
     },
@@ -2533,7 +2533,7 @@
       "subcategory": null,
       "title": "Prices — How much is the shirt?",
       "label_en": "How much is the shirt?",
-      "label_to": "ʻoku fīha e + Noun",
+      "label_to": "ʻoku fiha ʻa e + Noun",
       "book_chapters": [
         20
       ],
@@ -2559,7 +2559,7 @@
           "required": true,
           "locked": true,
           "locked_value": {
-            "tongan": "fīha",
+            "tongan": "fiha",
             "english": "how much"
           },
           "position": 1,
@@ -2572,7 +2572,7 @@
           "required": true,
           "locked": true,
           "locked_value": {
-            "tongan": "e",
+            "tongan": "ʻa e",
             "english": "the"
           },
           "position": 2,
@@ -2595,15 +2595,15 @@
       },
       "examples": [
         {
-          "tongan": "ʻOku fīha e iká?",
+          "tongan": "ʻOku fiha ʻa e iká?",
           "english": "How much is the fish?"
         },
         {
-          "tongan": "ʻOku fīha e kató?",
+          "tongan": "ʻOku fiha ʻa e kató?",
           "english": "How much is the basket?"
         },
         {
-          "tongan": "ʻOku fīha e falá?",
+          "tongan": "ʻOku fiha ʻa e falá?",
           "english": "How much is the mat?"
         }
       ]
@@ -2678,15 +2678,15 @@
       "examples": [
         {
           "tongan": "Ko e tolú eni.",
-          "english": "It is three oʻclock."
+          "english": "It is three o'clock."
         },
         {
           "tongan": "Ko e valú eni.",
-          "english": "It is eight oʻclock."
+          "english": "It is eight o'clock."
         },
         {
           "tongan": "Ko e onó eni.",
-          "english": "It is six oʻclock."
+          "english": "It is six o'clock."
         }
       ]
     },
@@ -3489,7 +3489,7 @@
           "english": "It was Tēvita who ate the coconut."
         },
         {
-          "tongan": "Ko Mele naʻá ne fufulu e valá.",
+          "tongan": "Ko Mele naʻá ne fufulu ʻa e valá.",
           "english": "It was Mele who washed the clothes."
         },
         {

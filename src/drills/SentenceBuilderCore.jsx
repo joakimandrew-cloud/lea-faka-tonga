@@ -26,7 +26,7 @@
  * label does not give the choice away.
  */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 const PHRASES = [
   {
@@ -121,17 +121,18 @@ const PHRASES = [
     english: 'The teachers went.',
     parts: [
       { id: 'tm', tongan: 'Naʻe', gloss: 'past' },
-      { id: 'v',  tongan: 'ʻalu', gloss: 'went' },
+      { id: 'v',  tongan: 'ō',    gloss: 'went', accepts: ['d-alu'] },
       { id: 'sm', tongan: 'ʻa e', gloss: '' },
       { id: 'pl', tongan: 'kau',  gloss: 'plural' },
       { id: 'noun', tongan: 'faiako', gloss: 'teacher' },
     ],
     distractors: [
+      { id: 'd-alu', tongan: 'ʻalu', gloss: 'went' },
       { id: 'd-ngaahi', tongan: 'ngaahi', gloss: 'plural' },
       { id: 'd-e', tongan: 'ʻe', gloss: '' },
       { id: 'd-ha', tongan: 'ha', gloss: '' },
     ],
-    why: 'Intransitive subject takes ʻa e. Teachers are people, so the plural marker is kau (not ngaahi, which is for things): ʻa e kau faiako.',
+    why: 'Intransitive subject takes ʻa e. Teachers are people, so the plural marker is kau (not ngaahi, which is for things): ʻa e kau faiako. With a plural subject, ʻalu takes its plural form ō (Ch 25) — ō is the book’s plural form; ʻalu is also commonly heard in speech, so both are accepted here.',
   },
   {
     id: 'i-not-eat',
@@ -139,7 +140,7 @@ const PHRASES = [
     parts: [
       { id: 'tm',   tongan: 'Naʻe', gloss: 'past' },
       { id: 'neg',  tongan: 'ʻikai', gloss: 'not' },
-      { id: 'conn', tongan: 'te',   gloss: '' },
+      { id: 'conn', tongan: 'té',   gloss: '' },
       { id: 'pr',   tongan: 'u',    gloss: 'I' },
       { id: 'v',    tongan: 'kai',  gloss: 'eat' },
     ],
@@ -148,7 +149,7 @@ const PHRASES = [
       { id: 'd-a',  tongan: 'ʻa', gloss: '' },
       { id: 'd-oku', tongan: 'ʻoku', gloss: 'present' },
     ],
-    why: 'Past negative: Naʻe (the next word ʻikai is not a pronoun) + ʻikai + te before the pronoun u. Use te before a pronoun, ke before a bare verb.',
+    why: 'Past negative: Naʻe (the next word ʻikai is not a pronoun) + ʻikai + té before the pronoun u (the accent marks the stress shift onto te before a one-syllable pronoun). Use te before a pronoun, ke before a bare verb.',
   },
   {
     id: 'my-book',
@@ -263,15 +264,24 @@ export default function SentenceBuilderCore() {
   const correctOrder = current.parts.map(p => p.id)
   const slotCount = correctOrder.length
 
+  // A tile fits a slot if it IS the correct tile, or the correct part
+  // explicitly accepts it as an alternate (e.g. ō / ʻalu, both correct
+  // for a plural subject in speech).
+  const fitsSlot = useCallback(
+    (tileId, slotIdx) =>
+      tileId === current.parts[slotIdx].id || (current.parts[slotIdx].accepts || []).includes(tileId),
+    [current]
+  )
+
   useEffect(() => {
     if (answered !== null) return
     if (selected.length !== slotCount) return
     const ordered = selected.map(i => pool[i].id)
-    const isCorrect = ordered.every((id, i) => id === correctOrder[i])
+    const isCorrect = ordered.every((id, i) => fitsSlot(id, i))
     setAnswered(isCorrect ? 'correct' : 'wrong')
     setScore(s => ({ right: s.right + (isCorrect ? 1 : 0), total: s.total + 1 }))
     setStreak(s => isCorrect ? s + 1 : 0)
-  }, [selected, pool, slotCount, answered, correctOrder])
+  }, [selected, pool, slotCount, answered, fitsSlot])
 
   const handleTileClick = (i) => {
     if (answered !== null) return
@@ -360,7 +370,7 @@ export default function SentenceBuilderCore() {
           const isPicked = pickedPos !== -1
           let stateCls = ''
           if (answered !== null && isPicked) {
-            stateCls = pool[i].id === correctOrder[pickedPos] ? 'is-right' : 'is-wrong'
+            stateCls = fitsSlot(pool[i].id, pickedPos) ? 'is-right' : 'is-wrong'
           } else if (isPicked) {
             stateCls = 'is-picked'
           }

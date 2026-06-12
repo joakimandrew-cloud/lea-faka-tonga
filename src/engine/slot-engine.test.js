@@ -1333,11 +1333,11 @@ describe('Ch 20: Numbers and time — s28, s29, s30, s31', () => {
     expect(r.tongan).toBe('toko nima')
   })
 
-  it('s30: ʻOku fīha e iká (How much is the fish?)', () => {
+  it('s30: ʻOku fiha ʻa e iká (How many are the fish?)', () => {
     const r = assembleSentence('s30', {
       noun: { tongan: 'iká', english: 'fish' },
     })
-    expect(r.tongan).toBe('ʻOku fīha e iká')
+    expect(r.tongan).toBe('ʻOku fiha ʻa e iká')
   })
 
   it('s31: Ko e tolú eni (It is three o\'clock)', () => {

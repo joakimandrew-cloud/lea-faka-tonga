@@ -129,9 +129,9 @@ export default function SentenceChallenge({ section }) {
                 disabled={result === 'correct'}
                 className={`px-4 py-2 bg-[var(--bg-tone)] border text-[var(--text)] font-tongan appearance-none cursor-pointer transition-colors focus:outline-none min-w-[180px] disabled:opacity-60 ${
                   isWrong
-                    ? 'border-[var(--clay)]'
+                    ? 'border-[var(--wrong)]'
                     : result === 'correct'
-                      ? 'border-[var(--accent)]'
+                      ? 'border-[var(--correct)]'
                       : 'border-[var(--border)] hover:border-[var(--accent)] focus:border-[var(--accent)]'
                 }`}
               >
@@ -168,13 +168,13 @@ export default function SentenceChallenge({ section }) {
       </div>
 
       {result === 'correct' && (
-        <div className="border border-[var(--accent-faint)] bg-[var(--accent-faint)] px-4 py-3 text-[var(--accent)] text-sm">
+        <div className="border border-[var(--correct-border)] bg-[var(--correct-bg)] px-4 py-3 text-[var(--correct)] text-sm">
           Correct!
         </div>
       )}
 
       {result === 'wrong' && challenge.feedback_on_wrong && (
-        <div className="border border-[var(--clay)] opacity-80 bg-[var(--bg-tone)] px-4 py-3 text-[var(--clay)] text-sm font-tongan">
+        <div className="border border-[var(--wrong-border)] bg-[var(--wrong-bg)] px-4 py-3 text-[var(--wrong)] text-sm font-tongan">
           {challenge.feedback_on_wrong}
         </div>
       )}

@@ -5,8 +5,10 @@
  * cue beside it; the learner recalls the Tongan word. The grammar of the
  * frame is already settled, so the test is pure vocabulary recall in
  * context (the way words are actually met). This seed deck blanks common
- * verbs from the early chapters; the frames reuse patterns already taught
- * (TM + pronoun + verb + object).
+ * verbs from the early chapters. The frames use ʻa e definite objects and
+ * ki / ʻi he phrases, so the menu card is tagged Ch 19 — the chapter by
+ * which every frame here has been taught (ʻa e object marking is Ch 19;
+ * the prepositions are Ch 7–8).
  *
  * (A future enhancement could weight missed words and pull from a larger
  * frequency list — a light SRS; for now the deck reshuffles uniformly.)

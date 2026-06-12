@@ -41,6 +41,7 @@ import { getLivePreview } from '../engine/sentence-preview'
 import { getFlatSteps } from '../engine/graph-walker'
 import { InlinePicker, MobilePicker } from '../components/TerminalPicker'
 import { useIsTouchPrimary, expandAddMoreGroup } from '../lib/terminal-picker-utils'
+import { mapErrorToFriendly } from '../lib/error-messages'
 import ExplainPanel from '../components/ExplainPanel'
 
 // The merged builder is a free sandbox: every structure unlocked, like the
@@ -199,7 +200,10 @@ export default function SentenceBuilder() {
         setItemIdx(0)
       }
     } catch (e) {
-      setError(e.message)
+      // Keep the technical detail for debugging; show the learner a
+      // plain-language version instead of engine-speak.
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }, [currentItem, mwState])
 

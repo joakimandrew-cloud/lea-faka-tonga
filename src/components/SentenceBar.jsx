@@ -55,7 +55,7 @@ export default function SentenceBar({ steps, isFinished, isQuestion = false, onU
       {!isFinished && steps.length > 0 && (
         <div className="flex items-center gap-2 mt-2">
           <span className={`inline-block w-2 h-2 rounded-full ${
-            completeness === 'incomplete' ? 'bg-[var(--clay)]' :
+            completeness === 'incomplete' ? 'bg-[var(--wrong)]' :
             completeness === 'completable' ? 'bg-[var(--accent)]' :
             'bg-[var(--accent)]'
           }`} />

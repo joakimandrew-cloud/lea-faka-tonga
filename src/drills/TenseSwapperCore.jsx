@@ -29,11 +29,11 @@ const ALL_EXAMPLES = [
     body: 'ʻalu',
     perTense: {
       affirmative: { present: 'ʻOku ou', past: 'Naʻá ku', perfect: 'Kuó u', future: 'Té u' },
-      negative:    { present: 'ʻOku ʻikai te u', past: 'Naʻe ʻikai te u', perfect: 'Kuo ʻikai te u', future: 'ʻE ʻikai te u' },
+      negative:    { present: 'ʻOku ʻikai té u', past: 'Naʻe ʻikai té u', perfect: 'ʻOku teʻeki té u', future: 'ʻE ʻikai té u' },
     },
     english: {
       affirmative: { present: 'I am going.', past: 'I went.', perfect: 'I have gone.', future: 'I will go.' },
-      negative:    { present: 'I am not going.', past: 'I did not go.', perfect: 'I have not gone.', future: 'I will not go.' },
+      negative:    { present: 'I am not going.', past: 'I did not go.', perfect: 'I have not gone (yet).', future: 'I will not go.' },
     },
   },
   {
@@ -44,11 +44,11 @@ const ALL_EXAMPLES = [
     body: 'kai',
     perTense: {
       affirmative: { present: 'ʻOkú ne', past: 'Naʻá ne', perfect: 'Kuó ne', future: 'Té ne' },
-      negative:    { present: 'ʻOku ʻikai té ne', past: 'Naʻe ʻikai té ne', perfect: 'Kuo ʻikai té ne', future: 'ʻE ʻikai té ne' },
+      negative:    { present: 'ʻOku ʻikai té ne', past: 'Naʻe ʻikai té ne', perfect: 'ʻOku teʻeki té ne', future: 'ʻE ʻikai té ne' },
     },
     english: {
       affirmative: { present: 'He is eating.', past: 'He ate.', perfect: 'He has eaten.', future: 'He will eat.' },
-      negative:    { present: 'He is not eating.', past: 'He did not eat.', perfect: 'He has not eaten.', future: 'He will not eat.' },
+      negative:    { present: 'He is not eating.', past: 'He did not eat.', perfect: 'He has not eaten (yet).', future: 'He will not eat.' },
     },
   },
   {
@@ -59,11 +59,11 @@ const ALL_EXAMPLES = [
     body: 'hiva',
     perTense: {
       affirmative: { present: 'ʻOku tau', past: 'Naʻa tau', perfect: 'Kuo tau', future: 'Te tau' },
-      negative:    { present: 'ʻOku ʻikai te tau', past: 'Naʻe ʻikai te tau', perfect: 'Kuo ʻikai te tau', future: 'ʻE ʻikai te tau' },
+      negative:    { present: 'ʻOku ʻikai te tau', past: 'Naʻe ʻikai te tau', perfect: 'ʻOku teʻeki te tau', future: 'ʻE ʻikai te tau' },
     },
     english: {
       affirmative: { present: 'We are singing.', past: 'We sang.', perfect: 'We have sung.', future: 'We will sing.' },
-      negative:    { present: 'We are not singing.', past: 'We did not sing.', perfect: 'We have not sung.', future: 'We will not sing.' },
+      negative:    { present: 'We are not singing.', past: 'We did not sing.', perfect: 'We have not sung (yet).', future: 'We will not sing.' },
     },
   },
   {
@@ -74,11 +74,11 @@ const ALL_EXAMPLES = [
     body: 'mohe',
     perTense: {
       affirmative: { present: 'ʻOku nau', past: 'Naʻa nau', perfect: 'Kuo nau', future: 'Te nau' },
-      negative:    { present: 'ʻOku ʻikai te nau', past: 'Naʻe ʻikai te nau', perfect: 'Kuo ʻikai te nau', future: 'ʻE ʻikai te nau' },
+      negative:    { present: 'ʻOku ʻikai te nau', past: 'Naʻe ʻikai te nau', perfect: 'ʻOku teʻeki te nau', future: 'ʻE ʻikai te nau' },
     },
     english: {
       affirmative: { present: 'They are sleeping.', past: 'They slept.', perfect: 'They have slept.', future: 'They will sleep.' },
-      negative:    { present: 'They are not sleeping.', past: 'They did not sleep.', perfect: 'They have not slept.', future: 'They will not sleep.' },
+      negative:    { present: 'They are not sleeping.', past: 'They did not sleep.', perfect: 'They have not slept (yet).', future: 'They will not sleep.' },
     },
   },
 
@@ -91,11 +91,11 @@ const ALL_EXAMPLES = [
     body: 'ʻalu ʻa Sione',
     perTense: {
       affirmative: { present: 'ʻOku', past: 'Naʻe', perfect: 'Kuo', future: 'ʻE' },
-      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'Kuo ʻikai ke', future: 'ʻE ʻikai ke' },
+      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'ʻOku teʻeki', future: 'ʻE ʻikai ke' },
     },
     english: {
       affirmative: { present: 'Sione is going.', past: 'Sione went.', perfect: 'Sione has gone.', future: 'Sione will go.' },
-      negative:    { present: 'Sione is not going.', past: 'Sione did not go.', perfect: 'Sione has not gone.', future: 'Sione will not go.' },
+      negative:    { present: 'Sione is not going.', past: 'Sione did not go.', perfect: 'Sione has not gone (yet).', future: 'Sione will not go.' },
     },
   },
 
@@ -108,11 +108,11 @@ const ALL_EXAMPLES = [
     body: 'ʻi ai ha tōketā ʻi ʻapi',
     perTense: {
       affirmative: { present: 'ʻOku', past: 'Naʻe', perfect: 'Kuo', future: 'ʻE' },
-      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'Kuo ʻikai ke', future: 'ʻE ʻikai ke' },
+      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'ʻOku teʻeki ke', future: 'ʻE ʻikai ke' },
     },
     english: {
       affirmative: { present: 'There is a doctor at home.', past: 'There was a doctor at home.', perfect: 'There has been a doctor at home.', future: 'There will be a doctor at home.' },
-      negative:    { present: 'There is no doctor at home.', past: 'There was no doctor at home.', perfect: 'There has been no doctor at home.', future: 'There will be no doctor at home.' },
+      negative:    { present: 'There is no doctor at home.', past: 'There was no doctor at home.', perfect: 'There is not yet a doctor at home.', future: 'There will be no doctor at home.' },
     },
   },
   {
@@ -123,11 +123,11 @@ const ALL_EXAMPLES = [
     body: 'lele ʻa e kulī ki kolo',
     perTense: {
       affirmative: { present: 'ʻOku', past: 'Naʻe', perfect: 'Kuo', future: 'ʻE' },
-      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'Kuo ʻikai ke', future: 'ʻE ʻikai ke' },
+      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'ʻOku teʻeki', future: 'ʻE ʻikai ke' },
     },
     english: {
       affirmative: { present: 'The dog is running to town.', past: 'The dog ran to town.', perfect: 'The dog has run to town.', future: 'The dog will run to town.' },
-      negative:    { present: 'The dog is not running to town.', past: 'The dog did not run to town.', perfect: 'The dog has not run to town.', future: 'The dog will not run to town.' },
+      negative:    { present: 'The dog is not running to town.', past: 'The dog did not run to town.', perfect: 'The dog has not run to town (yet).', future: 'The dog will not run to town.' },
     },
   },
 ]

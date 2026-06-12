@@ -139,9 +139,9 @@ const ALL_EXERCISES = [
     parts: [
       { type: 'fixed', text: 'Ko e' },
       { type: 'slot',  role: 'NOUN', answer: 'tamasiʻi', hint: 'boy' },
-      { type: 'slot',  role: 'DEMO', answer: 'eni',      hint: 'this' },
+      { type: 'slot',  role: 'DEMO', answer: 'ʻeni',     hint: 'this' },
     ],
-    pool: ['tamasiʻi', 'tangata', 'taʻahine', 'eni', 'ena', 'ē'],
+    pool: ['tamasiʻi', 'tangata', 'taʻahine', 'ʻeni', 'ʻena', 'ē'],
   },
 
   // ── Ch 19: Transitive command with definite object ───────────────────

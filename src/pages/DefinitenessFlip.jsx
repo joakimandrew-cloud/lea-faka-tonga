@@ -5,7 +5,7 @@ export default function DefinitenessFlip() {
   return (
     <div className="pcs-page">
       <header className="pcs-header">
-        <div className="pcs-eyebrow">Chapter 19 · Ergative Pivot Drill</div>
+        <div className="pcs-eyebrow">Chapter 19 · The ʻa / ʻe Flip</div>
         <h1 className="pcs-title">Toggle &ldquo;some&rdquo; ↔ &ldquo;the.&rdquo;</h1>
         <p className="pcs-sub">
           Tongan&rsquo;s most surprising structural moment: changing one
@@ -35,9 +35,11 @@ export default function DefinitenessFlip() {
           the bread).
         </p>
         <p className="pcs-lesson-foot">
-          This is the ergative pivot — the same pattern that shows up in
-          all transitive clauses from Chapter 19 onward. Master the flip
-          here and every later chapter clicks into place.
+          This is Tongan&rsquo;s way of marking who did what with{' '}
+          <em>ʻa</em> and <em>ʻe</em> (linguists call it the ergative
+          pattern) — the same pattern that shows up in every
+          doer-plus-done-to sentence from Chapter 19 onward. Master the
+          flip here and every later chapter clicks into place.
         </p>
       </aside>
     </div>

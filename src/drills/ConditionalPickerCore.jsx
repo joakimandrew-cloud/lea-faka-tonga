@@ -21,7 +21,7 @@ const PROMPTS = [
   { tongan: '___ ʻi ai ha ngāue, peá ke tala mai.',                  english: 'Whenever there is work, tell me.',                  answer: 'ka',    why: 'A recurring/expected condition — "whenever". ka, not kapau. (ʻi ai is the existential.)' },
   { tongan: '___ u feinga, naʻá ku lava.',                           english: 'Had I tried, I would have succeeded.',              answer: 'ka-ne', why: 'Past counterfactual: I did NOT try. The main clause uses past tense to express the imagined result.' },
   { tongan: '___ ʻi heni ʻa Tēvita, ʻe hiva.',                       english: 'If Tēvita were here, he would sing. (he isn\u2019t)', answer: 'ka-ne', why: 'Present counterfactual: Tēvita is NOT here. ka ne also covers present-untrue conditions.' },
-  { tongan: '___ ʻuhá, te mau nofo ʻi fale.',                        english: 'If it rains, we will stay in the house. (uncertain)', answer: 'kapau', why: 'Uncertain weather — may or may not rain. kapau leaves the outcome genuinely open.' },
+  { tongan: '___ ʻe ʻuhá, te mau nofo ʻi fale.',                     english: 'If it rains, we will stay in the house. (uncertain)', answer: 'kapau', why: 'Uncertain weather — may or may not rain. kapau leaves the outcome genuinely open (and keeps its tense marker ʻe).' },
 ]
 
 export default function ConditionalPickerCore() {

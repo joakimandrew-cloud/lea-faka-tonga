@@ -19,6 +19,7 @@
  * needed context and does NOT reveal the e/ho class.
  */
 import { useState, useEffect, useRef } from 'react'
+import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
 
 function shuffle(arr) {
   const out = [...arr]
@@ -44,7 +45,9 @@ export default function SorterCore({
   const [guess, setGuess] = useState(null)
   const [score, setScore] = useState({ right: 0, total: 0 })
   const [streak, setStreak] = useState(0)
+  const [finished, setFinished] = useState(false)
   const cardRef = useRef(null)
+  const isTouch = useIsTouchPrimary()
 
   const current = deck[idx]
   const isAnswered = guess !== null
@@ -69,10 +72,23 @@ export default function SorterCore({
     if (idx < deck.length - 1) {
       setIdx(idx + 1)
     } else {
-      setDeck(shuffle(cards))
-      setIdx(0)
+      // End of deck: pause on a completion moment instead of looping silently.
+      setFinished(true)
     }
     setGuess(null)
+  }
+
+  // "Go again" from the completion screen: reshuffle, but never let the new
+  // deck open with the card the student just answered.
+  const handleContinue = () => {
+    const next = shuffle(cards)
+    if (next.length > 1 && next[0] === current) {
+      ;[next[0], next[1]] = [next[1], next[0]]
+    }
+    setDeck(next)
+    setIdx(0)
+    setGuess(null)
+    setFinished(false)
   }
 
   const handleReset = () => {
@@ -81,6 +97,7 @@ export default function SorterCore({
     setGuess(null)
     setScore({ right: 0, total: 0 })
     setStreak(0)
+    setFinished(false)
   }
 
   useEffect(() => {
@@ -92,6 +109,13 @@ export default function SorterCore({
       if (!rect) return
       const centerY = window.innerHeight / 2
       if (rect.top > centerY || rect.bottom < centerY) return
+      if (finished) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          handleContinue()
+        }
+        return
+      }
       if (isAnswered) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault()
@@ -112,7 +136,9 @@ export default function SorterCore({
   })
 
   const perfect = score.total > 0 && score.right === score.total
-  const pct = deck.length > 0 ? ((idx + (isAnswered ? 1 : 0)) / deck.length) * 100 : 0
+  const pct = finished
+    ? 100
+    : deck.length > 0 ? ((idx + (isAnswered ? 1 : 0)) / deck.length) * 100 : 0
   const use3Cols = categories.length >= 3
 
   const renderCategory = (c, keyIndex) => {
@@ -133,7 +159,7 @@ export default function SorterCore({
         disabled={isAnswered}
         className={`pcs-btn ${cls}`}
       >
-        {keyIndex <= 9 && !isAnswered && (
+        {keyIndex <= 9 && !isAnswered && !isTouch && (
           <span className="pcs-btn-key" aria-hidden="true">{keyIndex}</span>
         )}
         <span className="pcs-btn-label">{c.label}</span>
@@ -185,7 +211,7 @@ export default function SorterCore({
     <section ref={cardRef} className={`pcs-card${isAnswered ? ' is-answered' : ''}`}>
       <div className="pcs-card-row">
         <div className="pcs-progress-wrap">
-          <span className="pcs-progress">{idx + 1} / {deck.length}</span>
+          <span className="pcs-progress">{finished ? deck.length : idx + 1} / {deck.length}</span>
           <div className="pcs-progress-bar">
             <div className="pcs-progress-fill" style={{ width: `${pct}%` }} />
           </div>
@@ -205,24 +231,53 @@ export default function SorterCore({
         </div>
       </div>
 
-      <div className="pcs-noun-frame">
-        <div className="pcs-noun">{current.tongan}</div>
-        <div className={`pcs-noun-gloss${hideGloss ? ' pcs-noun-gloss-reveal' : ''}`}>{current.english}</div>
-      </div>
+      {finished ? (
+        <>
+          <div className="pcs-noun-frame">
+            <div className="pcs-prompt-label">Deck complete</div>
+            <div className="pcs-noun">{score.right} / {score.total} correct</div>
+            <div className="pcs-noun-gloss">
+              {perfect
+                ? 'Perfect \u2014 every answer right.'
+                : 'You made it through the whole deck.'}
+            </div>
+          </div>
+          <div className="pcs-next-container">
+            {!isTouch && (
+              <span className="pcs-keyboard-hint">Press <kbd>{'\u21B5'}</kbd> to go again</span>
+            )}
+            <button onClick={handleReset} className="pcs-reset" type="button">
+              start fresh
+            </button>
+            <button onClick={handleContinue} className="pcs-next" type="button">
+              Go again {'\u2192'}
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="pcs-noun-frame">
+            <div className="pcs-noun">{current.tongan}</div>
+            <div className={`pcs-noun-gloss${hideGloss ? ' pcs-noun-gloss-reveal' : ''}`}>{current.english}</div>
+          </div>
 
-      <div className="pcs-question">{question}</div>
+          <div className="pcs-question">{question}</div>
 
-      <div className={`pcs-buttons${use3Cols ? ' pcs-buttons-3' : ''}`}>
-        {categories.map((c, i) => renderCategory(c, i + 1))}
-      </div>
+          <div className={`pcs-buttons${use3Cols ? ' pcs-buttons-3' : ''}`}>
+            {categories.map((c, i) => renderCategory(c, i + 1))}
+          </div>
 
-      {isAnswered && (
-        <div className="pcs-next-container">
-          <span className="pcs-keyboard-hint">Press <kbd>{'\u21B5'}</kbd> to continue</span>
-          <button onClick={handleNext} className="pcs-next" type="button">
-            Next {'\u2192'}
-          </button>
-        </div>
+          {isAnswered && (
+            <div className="pcs-next-container">
+              {!isTouch && (
+                <span className="pcs-keyboard-hint">Press <kbd>{'\u21B5'}</kbd> to continue</span>
+              )}
+              <button onClick={handleNext} className="pcs-next" type="button">
+                Next {'\u2192'}
+              </button>
+            </div>
+          )}
+        </>
       )}
     </section>
   )

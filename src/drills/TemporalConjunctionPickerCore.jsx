@@ -24,7 +24,7 @@ const PROMPTS = [
   { tongan: '___ ʻeku helaʻia, ka té u ngāue pē.',                   english: 'Although I am tired, I will work anyway.',          answer: 'neongo',    why: 'neongo = although / even though. Often paired with ka (but) in the main clause.' },
   { tongan: '___ ʻokú ne fiekaia, té u kuki.',                       english: 'If she is hungry, I will cook.',                    answer: 'kapau',     why: 'A genuine condition (may or may not be true) → kapau.' },
   { tongan: 'Naʻe lele ʻa Mele ___ naʻa mau kai.',                   english: 'Mele ran while we were eating.',                    answer: 'lolotonga', why: 'lolotonga = simultaneous events.' },
-  { tongan: 'ʻE nofo ai ___ kuo mālohi.',                            english: 'She will stay there until she is well.',            answer: 'kaeoua',    why: 'kaeʻoua ke (or kaeʻoua kuo for a state of completion) = until. The endpoint sense.' },
+  { tongan: 'ʻE nofo ai ___ foki mai ʻa Mele.',                      english: 'She will stay there until Mele comes back.',        answer: 'kaeoua',    why: 'kaeʻoua ke = until — the endpoint sense. (For a completed state, ke is replaced by kuo: kaeʻoua kuo mālohi.)' },
 ]
 
 export default function TemporalConjunctionPickerCore() {

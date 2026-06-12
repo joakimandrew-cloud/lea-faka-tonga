@@ -1,5 +1,6 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useEffect } from 'react'
 import vocabulary from '../data/book-vocabulary.json'
+import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
 import '../styles/v11-components.css'
 
 const categories = [...new Set(vocabulary.map(v => v.category))].sort()
@@ -86,14 +87,28 @@ export default function FlipCards() {
     setFlipped(f => !f)
   }, [])
 
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === 'ArrowLeft') handlePrev()
-    else if (e.key === 'ArrowRight') handleNext()
-    else if (e.key === ' ' || e.key === 'Enter') {
-      e.preventDefault()
-      handleFlip()
+  // Window-level keyboard listener so the advertised shortcuts work without
+  // the container needing focus first (same approach as PickerCore). Skips
+  // form fields, and lets Space/Enter on focused buttons keep their native
+  // click behavior instead of also flipping the card.
+  useEffect(() => {
+    const onKey = (e) => {
+      const tag = e.target?.tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target?.isContentEditable) return
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+      if (tag === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return
+      if (e.key === 'ArrowLeft') handlePrev()
+      else if (e.key === 'ArrowRight') handleNext()
+      else if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault()
+        handleFlip()
+      }
     }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [handlePrev, handleNext, handleFlip])
+
+  const isTouch = useIsTouchPrimary()
 
   // Count words per tier for the current category
   const tierCounts = useMemo(() => {
@@ -121,7 +136,7 @@ export default function FlipCards() {
   const backLabel = reversed ? 'Tongan' : 'English'
 
   return (
-    <div onKeyDown={handleKeyDown} tabIndex={0} className="flip-cards">
+    <div className="flip-cards">
 
       {/* Toolbar: tier chips + category + direction, counter right */}
       <div className="fc-toolbar">
@@ -195,8 +210,10 @@ export default function FlipCards() {
         <button className="fc-btn-nav" onClick={handleNext}>Next ›</button>
       </div>
 
-      {/* Keyboard hint */}
-      <div className="fc-hint">Arrow keys to navigate · Space to flip</div>
+      {/* Keyboard hint (pointless on touch devices, so hidden there) */}
+      {!isTouch && (
+        <div className="fc-hint">Arrow keys to navigate · Space to flip</div>
+      )}
 
     </div>
   )

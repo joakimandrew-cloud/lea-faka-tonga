@@ -9,6 +9,7 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { mapErrorToFriendly } from '../lib/error-messages'
 import {
   createMultiWalker,
   pickFirstWord,
@@ -136,7 +137,8 @@ export default function TerminalBuilder() {
         setItemIdx(0)
       }
     } catch (e) {
-      setError(e.message)
+      console.error(e)
+      setError(mapErrorToFriendly(e.message))
     }
   }, [currentItem, mwState])
 

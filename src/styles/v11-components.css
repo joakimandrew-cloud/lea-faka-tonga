@@ -2,16 +2,20 @@
 /* Scoped redesign for Flip Cards, Quizzes, and Reference Charts.         */
 /* Do NOT put anything here that could affect Chapters or global layout.  */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap');
+/* Barlow Condensed is loaded once, via the <link> in index.html (richer
+   weight set incl. italics) — no @import here, it double-fetches and
+   render-blocks. */
 
 /* ── Shared tokens (light-mode defaults) ─────────────────────────────── */
+/* Reds aligned to the canonical v11 chord (#c24a1f / #8a2e14 / #e6653a);
+   surface-0 white per the 2026-06-13 white-is-canonical ruling. */
 .flip-cards,
 .quiz,
 .ref {
-  --fc-red:        #c1272d;
-  --fc-red-dark:   #8b1a1f;
-  --fc-red-light:  #e85a5f;
-  --fc-surface-0:  #f5f0e6;
+  --fc-red:        #c24a1f;
+  --fc-red-dark:   #8a2e14;
+  --fc-red-light:  #e6653a;
+  --fc-surface-0:  #ffffff;
   --fc-surface-1:  #ffffff;
   --fc-surface-2:  #ebe5d8;
   --fc-border:     #d8d4cc;

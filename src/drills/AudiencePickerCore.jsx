@@ -1,16 +1,21 @@
 /**
- * AudiencePickerCore — Ch 5.
+ * AudiencePickerCore — Ch 10.
  *
  * Tongan commands take a different form depending on audience size.
  * One person: bare verb. Two people: mo + verb. Three or more: mou + verb.
  * The drill makes the student commit to the audience marker before
  * speaking.
+ *
+ * Anchored at Ch 10, not Ch 5: bare-verb and Mou commands are taught in
+ * Chapter 5, but the dual command (Mo + verb) first appears in the
+ * Nofo! / Mo nofo! / Mou nofo! paradigm of book/Chapter-10.md ("Commands
+ * to Two People"), so the full three-way contrast belongs there.
  */
 
 import PickerCore from './PickerCore'
 
 const OPTIONS = [
-  { id: 'bare', label: '(no marker)', detail: '1 person' },
+  { id: 'bare', label: '(no marker)', fill: '', detail: '1 person' },
   { id: 'mo',   label: 'Mo',          detail: '2 people' },
   { id: 'mou',  label: 'Mou',         detail: '3 or more' },
 ]

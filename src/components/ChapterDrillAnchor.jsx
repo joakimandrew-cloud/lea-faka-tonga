@@ -65,7 +65,7 @@ export default function ChapterDrillAnchor({ drillId, chapterNum }) {
   const entry = drillRegistry[drillId]
   if (!entry) {
     return (
-      <div className="my-6 text-xs text-amber-600 border border-amber-300 px-3 py-2">
+      <div className="my-6 text-xs text-[var(--wrong)] border border-[var(--wrong-border)] px-3 py-2">
         Unknown drill id: <code>{drillId}</code>
       </div>
     )
