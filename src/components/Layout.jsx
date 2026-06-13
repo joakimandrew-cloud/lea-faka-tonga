@@ -18,9 +18,6 @@ export default function Layout() {
   const quizMatch = path.match(/^\/quizzes\/(\d+)/)
   const currentQuizNum = quizMatch ? parseInt(quizMatch[1], 10) : null
 
-  const isFreeBuild = path === '/build'
-  const isOpenBuild = path === '/open-build'
-  const isGuidedBuild = path === '/guided'
   const isChapterBrowser = path === '/chapters'
   const isFlipCards = path === '/cards'
   const isTerminalBuild = path === '/terminal-build'
@@ -33,14 +30,12 @@ export default function Layout() {
   const isClusivity = path === '/clusivity'
   const isQuizIndex = path === '/quizzes'
   const isDrillsMenu = path === '/drills'
-  const isSubPage = isFreeBuild || isOpenBuild || isGuidedBuild || isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu
+  const isSubPage = isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu
 
   let breadcrumbLabel = ''
   let backTo = '/'
   if (isDrillsMenu) {
     breadcrumbLabel = 'Practice Drills'
-  } else if (isFreeBuild) {
-    breadcrumbLabel = 'Free Build'
   } else if (isTerminalBuild) {
     breadcrumbLabel = 'Build a Sentence'
   } else if (isSentenceBuilder) {
@@ -57,10 +52,6 @@ export default function Layout() {
     breadcrumbLabel = 'Skeleton Filler'
   } else if (isClusivity) {
     breadcrumbLabel = 'Clusivity Corner'
-  } else if (isOpenBuild) {
-    breadcrumbLabel = 'Open Build'
-  } else if (isGuidedBuild) {
-    breadcrumbLabel = 'What Do You Want to Say?'
   } else if (currentChapterNum) {
     const ch = chapters.find(c => c.chapter === currentChapterNum)
     breadcrumbLabel = ch ? `Ch. ${ch.chapter}: ${ch.title}` : ''

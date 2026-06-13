@@ -1100,6 +1100,98 @@
 }
 .drills-board .panel-card-foot { padding: 9px 16px; }
 
+/* ── Drills board: grouped-browser furniture (2026-06-13) ─────────────────
+   Search + level chips, per-group "view all" / "in the chapters" footers,
+   and the dotted-leader rows for chapter-embedded drills. All on the dark
+   band, reusing the panel tokens — no new hues, no new families. */
+.drills-board .drills-filter {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding: 4px 0 22px;
+}
+.drills-board .drills-search {
+  flex: 1 1 280px; max-width: 420px;
+  background: var(--plane);
+  border: 1px solid var(--rule-dark);
+  color: var(--cream-light);
+  font-family: 'Inter', sans-serif; font-size: 13px;
+  padding: 9px 14px;
+  outline: none;
+}
+.drills-board .drills-search::placeholder { color: var(--cream-light); opacity: 0.35; }
+.drills-board .drills-search:focus { border-color: var(--red); }
+.drills-board .drills-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.drills-board .drills-chip {
+  background: transparent;
+  border: 1px solid var(--rule-dark);
+  color: var(--cream-light); opacity: 0.7;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 7px 13px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+.drills-board .drills-chip:hover { opacity: 1; border-color: var(--red); }
+.drills-board .drills-chip.is-active {
+  opacity: 1; border-color: var(--red); color: var(--red-light);
+}
+.drills-board .drills-empty {
+  font-family: 'Source Serif 4', Georgia, serif; font-style: italic;
+  font-size: 14px; color: var(--cream-light); opacity: 0.6;
+  padding: 8px 0 28px;
+}
+.drills-board .drills-group-foot {
+  display: flex; align-items: center; gap: 22px;
+  padding: 0 0 26px;
+}
+.drills-board .drills-more,
+.drills-board .drills-chapters-toggle {
+  background: transparent; border: none; cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 2px 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+.drills-board .drills-more { color: var(--red-light); }
+.drills-board .drills-more:hover { color: var(--red); }
+.drills-board .drills-chapters-toggle { color: var(--cream-light); opacity: 0.5; }
+.drills-board .drills-chapters-toggle:hover { opacity: 0.9; }
+.drills-board .drills-toc {
+  list-style: none; margin: -12px 0 26px; padding: 0;
+  columns: 2; column-gap: 40px;
+}
+.drills-board .drills-toc li { break-inside: avoid; }
+.drills-board .drills-toc-row {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 6px 0;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rule-dark);
+}
+.drills-board .drills-toc-label {
+  font-family: 'Inter', sans-serif; font-size: 12.5px;
+  color: var(--cream-light); opacity: 0.65;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.drills-board .drills-toc-leader {
+  flex: 1; min-width: 24px;
+  border-bottom: 1px dotted var(--rule-dark);
+  transform: translateY(-3px);
+}
+.drills-board .drills-toc-ch {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cream-light); opacity: 0.45;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.drills-board .drills-toc-row:hover .drills-toc-label,
+.drills-board .drills-toc-row:hover .drills-toc-ch {
+  color: var(--red-light); opacity: 1;
+}
+@media (max-width: 720px) {
+  .drills-board .drills-toc { columns: 1; }
+  .drills-board .drills-filter { padding-bottom: 16px; }
+}
+
 /* ============================================================
    CHAPTERS PAGE — /chapters route
    Brand band + hero + info card + filter bar + grouped rows.

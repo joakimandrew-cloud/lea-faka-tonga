@@ -190,7 +190,7 @@ export const drillRegistry = {
   },
   'tm-by-context-picker': {
     Core: TmByContextPickerCore,
-    meta: { title: `Naʻa or Naʻe? Te or ʻE?`, blurb: `Use the pronoun form before a pronoun, the other form before a noun or "ʻikai."` },
+    meta: { title: `Naʻa or Naʻe? Te or ʻE? te or ke?`, blurb: `One rule, three pairs: use the pronoun form when a pronoun follows — past, future, and negation after ʻikai.` },
   },
   'equational-subject-picker': {
     Core: EquationalSubjectPickerCore,
@@ -198,7 +198,7 @@ export const drillRegistry = {
   },
   'classifier-picker': {
     Core: ClassifierPickerCore,
-    meta: { title: 'Classifier Picker', blurb: 'ʻe for things, toko for people.' },
+    meta: { title: 'Classifier Picker', blurb: 'ʻe for things, toko for people, foʻi for single round/whole items.' },
   },
   'auxiliary-picker': {
     Core: AuxiliaryPickerCore,

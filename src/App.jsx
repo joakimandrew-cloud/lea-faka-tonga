@@ -5,9 +5,6 @@ import Landing from './pages/Landing'
 import Offer from './pages/Offer'
 import GrandmotherQuiz from './pages/GrandmotherQuiz'
 import Keepers from './pages/Keepers'
-import Builder from './pages/Builder'
-import OpenBuilder from './pages/OpenBuilder'
-import GuidedBuild from './pages/GuidedBuild'
 import ChapterBrowser from './pages/ChapterBrowser'
 import ChapterPractice from './pages/ChapterPractice'
 import FlipCards from './pages/FlipCards'
@@ -23,7 +20,6 @@ import ClusivityCorner from './pages/ClusivityCorner'
 import FakaSorter from './pages/FakaSorter'
 import QuizIndex from './pages/QuizIndex'
 import QuizPlay from './pages/QuizPlay'
-import DefinitenessFlip from './pages/DefinitenessFlip'
 import CleftBuilder from './pages/CleftBuilder'
 import AccentPlacementPicker from './pages/AccentPlacementPicker'
 import VerbalNounConverter from './pages/VerbalNounConverter'
@@ -41,9 +37,6 @@ export default function App() {
           <Route path="/keepers" element={<Keepers />} />
           <Route path="/chapters" element={<ChapterBrowser />} />
           <Route element={<Layout />}>
-            <Route path="/build" element={<Builder />} />
-            <Route path="/open-build" element={<OpenBuilder />} />
-            <Route path="/guided" element={<GuidedBuild />} />
             <Route path="/chapters/:num" element={<ChapterPractice />} />
             <Route path="/cards" element={<FlipCards />} />
             <Route path="/charts" element={<ReferenceCharts />} />
@@ -58,15 +51,18 @@ export default function App() {
             <Route path="/faka-sort" element={<FakaSorter />} />
             <Route path="/quizzes" element={<QuizIndex />} />
             <Route path="/quizzes/:num" element={<QuizPlay />} />
-            <Route path="/definiteness-flip" element={<DefinitenessFlip />} />
             <Route path="/cleft-builder" element={<CleftBuilder />} />
             <Route path="/accent-placement" element={<AccentPlacementPicker />} />
             <Route path="/verbal-noun" element={<VerbalNounConverter />} />
-            {/* reciprocity-picker + emotional-article-matrix were demoted to
-                chapter-only (see Exercise-Recuration-Tracker). Their bespoke
-                pages are gone; redirect old deep links to the generic route. */}
+            {/* Drills demoted to chapter-only lose their bespoke pages;
+                redirect old deep links to the generic route. The legacy
+                slot-engine builders (/build, /open-build, /guided) were
+                deleted outright 2026-06-13 (exercise-overwhelm review X05) —
+                /sentence-builder supersedes them; /terminal-build remains
+                as the engine fallback. */}
             <Route path="/reciprocity" element={<Navigate to="/drill/reciprocity-picker" replace />} />
             <Route path="/emotional-article" element={<Navigate to="/drill/emotional-article-matrix" replace />} />
+            <Route path="/definiteness-flip" element={<Navigate to="/drill/definiteness-flip" replace />} />
             <Route path="/drills" element={<DrillsMenu />} />
             <Route path="/drill/:id" element={<DrillPage />} />
           </Route>
