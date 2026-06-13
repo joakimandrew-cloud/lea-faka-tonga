@@ -9,6 +9,21 @@
    vocabulary (.x-*) used by both the /cards deck and the in-chapter deck.
    ========================================================================== */
 
+/* ---- the shared drill frame --------------------------------------------- *
+   DrillFrame's header reuses the .pcs-* chrome from index.css; the only new
+   piece is the quiet "← All drills" back link above the eyebrow.            */
+.x-frame-back {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 0.85rem;
+  transition: color 0.15s;
+}
+.x-frame-back:hover { color: var(--accent); }
+
 /* ---- the shared flashcard ----------------------------------------------- */
 .xcard-scene {
   position: relative;

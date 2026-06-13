@@ -18,9 +18,10 @@
  * aside) keep their own route; the menu links those cards there instead.
  */
 
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import DrillFrame from '../drills/DrillFrame'
 import { drillRegistry } from '../drills/registry'
+import { drillEyebrow } from '../drills/drill-eyebrow'
 
 export default function DrillPage() {
   const { id } = useParams()
@@ -32,18 +33,13 @@ export default function DrillPage() {
   const { Core, meta } = entry
 
   return (
-    <div className="pcs-page">
-      <header className="pcs-header">
-        <Link to="/drills" className="pcs-eyebrow" style={{ display: 'inline-block', textDecoration: 'none' }}>
-          {'←'} All drills
-        </Link>
-        <h1 className="pcs-title">{meta.title}</h1>
-        {meta.blurb && <p className="pcs-sub">{meta.blurb}</p>}
-      </header>
-
-      <DrillFrame mode="full">
-        <Core />
-      </DrillFrame>
-    </div>
+    <DrillFrame
+      backTo="/drills"
+      eyebrow={drillEyebrow(id)}
+      title={meta.title}
+      blurb={meta.blurb}
+    >
+      <Core />
+    </DrillFrame>
   )
 }
