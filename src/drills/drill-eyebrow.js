@@ -28,6 +28,7 @@ const LEVEL_OVERRIDES = {
   'clusivity-corner': 'beginner',
   'adjective-flip': 'beginner',
   'vocab-cloze': 'beginner',
+  'sentence-lab': 'intermediate',
 }
 for (const [id, level] of Object.entries(LEVEL_OVERRIDES)) {
   FRAME_META[id] = { ...(FRAME_META[id] || {}), level }

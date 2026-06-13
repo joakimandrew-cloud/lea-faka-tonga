@@ -20,6 +20,7 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   createGuidedMultiWalker,
   getEntryPointCategories,
@@ -333,6 +334,10 @@ export default function SentenceBuilder() {
         >
           {'›'} or just start building {'→'}
         </button>
+
+        <Link to="/terminal-build" className="tb-chooser-skip" style={{ opacity: 0.7 }}>
+          {'›'} or use the bare terminal canvas {'→'}
+        </Link>
 
         {error && <div className="tb-error">{error}</div>}
       </div>

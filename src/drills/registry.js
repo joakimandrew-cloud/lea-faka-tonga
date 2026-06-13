@@ -69,6 +69,7 @@ import VocabClozeCore from './VocabClozeCore'
 import DefinitenessThreeWayPickerCore from './DefinitenessThreeWayPickerCore'
 import PostposedPossessivePickerCore from './PostposedPossessivePickerCore'
 import NounClassSorterCore from './NounClassSorterCore'
+import SentenceLabCore from './SentenceLabCore'
 
 export const drillRegistry = {
   // ── Six existing drills ─────────────────────────────────────
@@ -331,5 +332,11 @@ export const drillRegistry = {
   'noun-class-sorter': {
     Core: NounClassSorterCore,
     meta: { title: `Person, place, or thing: which "to"?`, blurb: `kia Mele, ki kolo, ki he motú — names and places skip the article; everything else takes he and the accent.` },
+  },
+
+  // ── Sentence Lab: manipulate a taught sentence (word-swap) ──
+  'sentence-lab': {
+    Core: SentenceLabCore,
+    meta: { title: `Swap a word, watch the meaning change`, blurb: `Take a taught sentence and change one word at a time — the English re-translates live as you swap.` },
   },
 }
