@@ -30,7 +30,7 @@ const FOUNDERS = { claimed: 0, cap: 250 }
 
 // The value stack — proof of substance, each row marked free or members.
 const STACK = [
-  { title: 'The Grammar Book', detail: '53 chapters · 110,651 words · A1 → B2', worth: '$30–50', badge: 'FREE · PDF + EPUB below',
+  { title: 'The Grammar Book', detail: '53 chapters · 110,651 words · beginner → advanced', worth: '$30–50', badge: 'FREE · PDF + EPUB below',
     blurb: 'From your first three-word sentence to the language of respect. The complete arc, every rule explained — yours to download, whole, forever.' },
   { title: 'The Interactive Practice Machine', detail: '62 drills · 4 builders · embedded exercises, every chapter', worth: '$79–149', badge: 'Ch 1–3 free · then members',
     blurb: 'Build real Tongan sentences and watch the translation update as you go. The whole grammar, playable. This is what makes it stick.' },
@@ -83,7 +83,7 @@ const FAQ = [
     a: 'Because this stays alive on membership instead of ads. No banners, no investors, no selling your attention or your data. Recording native speakers, building the tools, keeping it online — that costs real money. Members carry it, their names go on the Roll of Keepers, and the book stays free for everyone, forever.' },
   { q: 'Do I need an account?',
     a: 'No — and you never will. There are no logins here. You buy membership at our checkout partner, they send you a member token, you enter it once and the site unlocks on your device. We never see your card and never store your password or your data — there is nothing here to hack.' },
-  { q: 'Is this really all the way to B2?',
+  { q: 'Does it really go all the way to advanced?',
     a: 'Yes — from “I ate” to lea fakaʻapaʻapa, the language of respect for chiefs and royalty. No other Tongan course goes there. Most never leave the tourist phrasebook.' },
   { q: 'What happens when the founding window closes?',
     a: 'The price goes to $79 a year ($12 monthly, $199 lifetime). And when the native-speaker audio ships, new members pay $99 a year — founders keep $59 for life. The earlier you join, the better your price, forever.' },
@@ -135,7 +135,7 @@ export default function Offer() {
           <Logo />
           <span className="wordmark">Lea Faka-Tonga</span>
         </Link>
-        <div className="top-sub">The Most Complete Tongan Course Ever Made · A1–B2 · The Book Is Free</div>
+        <div className="top-sub">The Most Complete Tongan Course Ever Made · Beginner to Advanced · The Book Is Free</div>
       </div>
 
       {/* ── Promise / hero ── */}
@@ -146,7 +146,7 @@ export default function Offer() {
         </h1>
         <p className="offer-lede">
           From your very first sentence to the language of respect spoken to chiefs and elders.
-          53 chapters, A1 to B2 — the only complete, modern course for a language that has almost
+          53 chapters, beginner to advanced — the only complete, modern course for a language that has almost
           nothing online. <strong>The whole book is free to download, forever. Membership runs the
           practice machine.</strong>
         </p>
@@ -244,7 +244,7 @@ export default function Offer() {
           <div className="offer-why">
             {[
               ['Told why, not just whether', 'Every wrong answer explains the rule it broke. You are never left guessing. That is how grammar actually sticks.'],
-              ['The whole language, in order', 'One grammar, built one slot per chapter, A1 to B2. Nothing skipped, nothing stranded — the arc no other Tongan resource finishes.'],
+              ['The whole language, in order', 'One grammar, built one slot per chapter, beginner to advanced. Nothing skipped, nothing stranded — the arc no other Tongan resource finishes.'],
               ['The writing system, done right', 'The fakauʻa and the toloi, the definitive accent — set in a font built for the Pacific. The detail that tells your elders we did our homework.'],
               ['You are the customer, not the product', 'No ads, no streaks, no dopamine traps, no accounts harvesting your data. Membership is why this exists and stays clean.'],
             ].map(([t, d], i) => (
@@ -488,7 +488,7 @@ export default function Offer() {
           </div>
         </div>
         <div className="cefr-badge">
-          <div className="level">A1–B2</div>
+          <div className="level">Full Arc</div>
           <div className="scope">Beginner → Advanced</div>
         </div>
         <a href="#book" className="free-note" style={{ textDecoration: 'none' }}>The book is free</a>

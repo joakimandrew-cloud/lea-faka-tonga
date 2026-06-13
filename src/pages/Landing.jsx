@@ -8,14 +8,14 @@ const slides = [
   {
     eyebrow: 'For the Tongan who can’t speak Tongan',
     headline: <>The language<br />of your <span className="accent">family.</span></>,
-    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. A1 to B2. The whole book is free — membership runs the practice tools.',
+    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. Beginner to advanced. The whole book is free — membership runs the practice tools.',
     provenance: 'The only complete Tongan course · The book is free',
   },
   {
     eyebrow: 'A complete arc, in progress',
     headline: <>53 chapters.<br />One <span className="accent">grammar</span>,<br />built in the open.</>,
-    sub: 'From greetings to cleft constructions. A1 to B2, chapter by chapter — published as it’s written, reviewed by fluent speakers as it grows.',
-    provenance: 'A1–B2 · Beginner to Advanced',
+    sub: 'From greetings to cleft constructions, chapter by chapter — published as it’s written, reviewed by fluent speakers as it grows.',
+    provenance: 'Beginner to Advanced · 53 Chapters',
   },
   {
     eyebrow: 'Every answer teaches the rule',
@@ -277,7 +277,7 @@ export default function Landing() {
           </svg>
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">A Community Edition · 53 Chapters · A1–B2 · The Book Is Free</div>
+        <div className="top-sub">A Community Edition · 53 Chapters · Beginner to Advanced · The Book Is Free</div>
       </div>
 
       {/* ========== HERO CANVAS ========== */}
@@ -462,7 +462,7 @@ export default function Landing() {
                     <li><span className="num">11</span><span className="t">Possession, Inclusive &amp; Exclusive</span><span className="dots" /><span className="p">p.118</span></li>
                     <li><span className="num">23</span><span className="t">The Four Tenses That Aren&apos;t Tenses</span><span className="dots" /><span className="p">p.224</span></li>
                     <li><span className="num">38</span><span className="t">Cleft Constructions</span><span className="sub">Ko e…</span><span className="dots" /><span className="p">p.358</span></li>
-                    <li className="final"><span className="num">53</span><span className="t">…The Full Arc → B2</span><span className="dots" /><span className="p">p.512</span></li>
+                    <li className="final"><span className="num">53</span><span className="t">…The Full Arc, Complete</span><span className="dots" /><span className="p">p.512</span></li>
                   </ul>
                 </div>
               </div>
@@ -499,7 +499,7 @@ export default function Landing() {
           </div>
         </div>
         <div className="cefr-badge">
-          <div className="level">A1–B2</div>
+          <div className="level">Full Arc</div>
           <div className="scope">Beginner → Advanced</div>
         </div>
         <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>The book is free →</Link>

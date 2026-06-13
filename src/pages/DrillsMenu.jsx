@@ -56,9 +56,9 @@ const ICONS = {
 }
 
 const LEVELS = {
-  beginner: 'A1–A2',
-  intermediate: 'A2–B1',
-  advanced: 'B1–B2',
+  beginner: 'Beginner',
+  intermediate: 'Intermediate',
+  advanced: 'Advanced',
 }
 
 // ── The 28 menu drills, grouped by skill family ────────────────────────────
