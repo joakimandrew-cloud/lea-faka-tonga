@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import FlipCard from './FlipCard'
 
 /**
  * VocabPracticeBlock — drop-in replacement for a chapter's "Words to Learn"
@@ -123,43 +124,33 @@ export default function VocabPracticeBlock({ rows, tableClass, children }) {
       {view === 'cards' && (
         <div className="vp-deck">
           <div
-            className="vp-deck-wrap"
+            className="x-deck"
             ref={sceneRef}
             tabIndex={0}
             onKeyDown={onKeyDown}
             aria-label="Vocabulary flashcard. Press space to flip, arrow keys to navigate."
           >
-            <div className="vp-peek vp-peek-2" aria-hidden="true" />
-            <div className="vp-peek vp-peek-1" aria-hidden="true" />
-            <div className="vp-card-scene" onClick={flip}>
-              <div className={`vp-card-inner${flipped ? ' is-flipped' : ''}`}>
-                <div className="vp-card-face">
-                  <span className="vp-face-label">{frontLabel}</span>
-                  <span className={`vp-word${frontIsTongan ? ' font-tongan' : ''}`}>
-                    {front}
-                  </span>
-                  {card.type && <span className="vp-pos">{card.type}</span>}
-                  <span className="vp-hint">click to flip</span>
-                </div>
-                <div className="vp-card-face is-back">
-                  <span className="vp-face-label">{backLabel}</span>
-                  <span className={`vp-meaning${!frontIsTongan ? ' font-tongan' : ''}`}>
-                    {back}
-                  </span>
-                  {card.type && <span className="vp-pos">{card.type}</span>}
-                </div>
-              </div>
-            </div>
+            <FlipCard
+              front={front}
+              back={back}
+              frontLabel={frontLabel}
+              backLabel={backLabel}
+              pos={card.type}
+              frontIsTongan={frontIsTongan}
+              flipped={flipped}
+              onFlip={flip}
+              peek
+            />
           </div>
 
           <div className="vp-nav-row">
-            <button type="button" className="vp-nav-btn" onClick={goPrev} aria-label="Previous card">
+            <button type="button" className="x-nav" onClick={goPrev} aria-label="Previous card">
               ‹
             </button>
-            <span className="vp-counter" aria-live="polite">
+            <span className="x-counter" aria-live="polite">
               {index + 1} / {total}
             </span>
-            <button type="button" className="vp-nav-btn" onClick={goNext} aria-label="Next card">
+            <button type="button" className="x-nav" onClick={goNext} aria-label="Next card">
               ›
             </button>
           </div>
@@ -168,7 +159,7 @@ export default function VocabPracticeBlock({ rows, tableClass, children }) {
             <span className="vp-dir-label">Show first:</span>
             <button
               type="button"
-              className={`vp-chip${dir === 'tongan' ? ' is-active' : ''}`}
+              className={`x-chip${dir === 'tongan' ? ' is-active' : ''}`}
               onClick={() => {
                 setDir('tongan')
                 setFlipped(false)
@@ -178,7 +169,7 @@ export default function VocabPracticeBlock({ rows, tableClass, children }) {
             </button>
             <button
               type="button"
-              className={`vp-chip${dir === 'english' ? ' is-active' : ''}`}
+              className={`x-chip${dir === 'english' ? ' is-active' : ''}`}
               onClick={() => {
                 setDir('english')
                 setFlipped(false)

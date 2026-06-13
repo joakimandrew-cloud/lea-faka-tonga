@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Unified exercise layer — "Tactile Deck" anatomy on the app's REAL tokens.
+   Owner pick 2026-06-13. Shape + motion live here; every colour/font comes
+   from index.css tokens (--accent #8b3a2a, --border #d4c5a8, --correct/--wrong,
+   white --bg) and the app fonts (Source Serif 4 italic Tongan, Inter UI).
+   No bespoke palette. Loaded after index.css (see main.jsx).
+
+   Phase 4a: the one shared flashcard (FlipCard.jsx) + a shared Tactile control
+   vocabulary (.x-*) used by both the /cards deck and the in-chapter deck.
+   ========================================================================== */
+
+/* ---- the shared flashcard ----------------------------------------------- */
+.xcard-scene {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 4px auto;
+  aspect-ratio: 4 / 5;
+  perspective: 1200px;
+  cursor: pointer;
+  user-select: none;
+}
+.xcard {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.xcard.is-flipped { transform: rotateY(180deg); }
+
+.xcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg);
+  box-shadow: 0 10px 28px rgba(42, 31, 20, 0.12);
+}
+.xcard-face.is-back {
+  transform: rotateY(180deg);
+  background: var(--accent-faint);
+}
+.xcard-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  opacity: 0.75;
+}
+.xcard-word {
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--text-strong);
+  text-align: center;
+  line-height: 1.15;
+  word-break: break-word;
+}
+.xcard-word.font-tongan {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 42px;
+}
+.xcard-pos {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.xcard-hint {
+  position: absolute;
+  bottom: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  opacity: 0.55;
+}
+
+/* stacked-deck peek (the Tactile signature) */
+.xcard-peek {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg);
+  box-shadow: 0 8px 18px rgba(42, 31, 20, 0.07);
+  z-index: -1;
+}
+.xcard-peek.p2 { transform: translate(10px, 10px) rotate(2.4deg); opacity: 0.5; }
+.xcard-peek.p1 { transform: translate(5px, 5px) rotate(1.2deg); opacity: 0.8; }
+
+.dark .xcard-face { box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5); }
+.dark .xcard-peek { box-shadow: none; }
+
+/* ---- shared deck wrapper (in-chapter keyboard/focus host) ---------------- *
+   Needs a definite width: its parent (.vp-deck) is a column flex with
+   align-items:center, so without an explicit width the card's width:100%
+   collapses to min-content. */
+.x-deck {
+  outline: none;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.x-deck:focus-visible .xcard-face {
+  box-shadow: 0 0 0 2px var(--accent), 0 10px 28px rgba(42, 31, 20, 0.12);
+}
+
+/* ---- shared Tactile control vocabulary ---------------------------------- *
+   Used by BOTH flip-card toolbars so the chrome reads as one family even
+   though the standalone deck (tier/category/shuffle) and the in-chapter deck
+   (table-toggle/direction) expose different controls.                        */
+.x-chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  padding: 7px 15px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-strong);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.x-chip:hover { border-color: var(--accent); }
+.x-chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.x-select {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 7px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-strong);
+  cursor: pointer;
+}
+.x-nav {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  padding: 9px 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-strong);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.x-nav:hover { border-color: var(--accent); color: var(--accent); }
+.x-counter {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.x-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-align: center;
+  opacity: 0.6;
+}

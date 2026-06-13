@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import vocabulary from '../data/book-vocabulary.json'
 import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
+import FlipCard from '../components/FlipCard'
 import '../styles/v11-components.css'
 
 const categories = [...new Set(vocabulary.map(v => v.category))].sort()
@@ -14,10 +15,6 @@ function shuffle(arr) {
     ;[a[i], a[j]] = [a[j], a[i]]
   }
   return a
-}
-
-function formatCount(n) {
-  return n.toLocaleString()
 }
 
 export default function FlipCards() {
@@ -110,18 +107,6 @@ export default function FlipCards() {
 
   const isTouch = useIsTouchPrimary()
 
-  // Count words per tier for the current category
-  const tierCounts = useMemo(() => {
-    const inCategory = category === 'all'
-      ? vocabulary
-      : vocabulary.filter(v => v.category === category)
-    return {
-      essential: inCategory.filter(v => v.tier === 1).length,
-      useful: inCategory.filter(v => v.tier <= 2).length,
-      all: inCategory.length
-    }
-  }, [category])
-
   if (!card) {
     return (
       <div className="flip-cards">
@@ -145,7 +130,7 @@ export default function FlipCards() {
             <button
               key={t}
               onClick={() => handleTierChange(t)}
-              className={`fc-chip${tier === t ? ' is-active' : ''}`}
+              className={`x-chip${tier === t ? ' is-active' : ''}`}
             >
               {tierLabels[t]}
             </button>
@@ -153,7 +138,7 @@ export default function FlipCards() {
           <select
             value={category}
             onChange={e => handleCategoryChange(e.target.value)}
-            className="fc-select"
+            className="x-select"
           >
             <option value="all">All categories</option>
             {categories.map(cat => (
@@ -164,7 +149,7 @@ export default function FlipCards() {
           </select>
           <button
             onClick={() => setReversed(r => !r)}
-            className={`fc-btn${reversed ? ' is-active' : ''}`}
+            className={`x-chip${reversed ? ' is-active' : ''}`}
           >
             {reversed ? 'English \u2192 Tongan' : 'Tongan \u2192 English'}
           </button>
@@ -174,45 +159,34 @@ export default function FlipCards() {
         </span>
       </div>
 
-      {/* Card */}
-      <div className="fc-card-scene" onClick={handleFlip}>
-        <div className={`fc-card-inner${flipped ? ' is-flipped' : ''}`}>
-          {/* Front */}
-          <div className="fc-card-face">
-            {card.part_of_speech && (
-              <span className="fc-cat">{card.part_of_speech}</span>
-            )}
-            <span className="fc-face-label">{frontLabel}</span>
-            <span className="fc-word">{front}</span>
-            <span className="fc-flip">↻ flip</span>
-          </div>
-
-          {/* Back */}
-          <div className="fc-card-face is-back">
-            <span className="fc-face-label">{backLabel}</span>
-            <span className="fc-meaning">{back}</span>
-            {card.part_of_speech && (
-              <span className="fc-pos">{card.part_of_speech}</span>
-            )}
-          </div>
-        </div>
-      </div>
+      {/* Card — the shared FlipCard (identical to the in-chapter deck) */}
+      <FlipCard
+        front={front}
+        back={back}
+        frontLabel={frontLabel}
+        backLabel={backLabel}
+        pos={card.part_of_speech}
+        frontIsTongan={!reversed}
+        flipped={flipped}
+        onFlip={handleFlip}
+        peek
+      />
 
       {/* Controls */}
       <div className="fc-controls">
-        <button className="fc-btn-nav" onClick={handlePrev}>‹ Prev</button>
+        <button className="x-nav" onClick={handlePrev}>‹ Prev</button>
         <button
-          className={`fc-btn${shuffled ? ' is-active' : ''}`}
+          className={`x-chip${shuffled ? ' is-active' : ''}`}
           onClick={handleShuffle}
         >
           ⇄ Shuffle
         </button>
-        <button className="fc-btn-nav" onClick={handleNext}>Next ›</button>
+        <button className="x-nav" onClick={handleNext}>Next ›</button>
       </div>
 
       {/* Keyboard hint (pointless on touch devices, so hidden there) */}
       {!isTouch && (
-        <div className="fc-hint">Arrow keys to navigate · Space to flip</div>
+        <div className="x-hint">Arrow keys to navigate · Space to flip</div>
       )}
 
     </div>
