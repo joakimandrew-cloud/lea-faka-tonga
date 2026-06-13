@@ -1059,51 +1059,159 @@
   .panel-cards.cards-7 .panel-card { grid-column: span 1; }
 }
 
-/* ── Drills board: compact tiered card grid ──────────────────────────────
-   The Practice Drills menu surfaces ~37 curated drills across three tiers,
-   each with a descriptive phrase title — far more, and far wordier, than the
-   six big poster cards .panel-card was built for. Scoped under .drills-board
-   so Landing / QuizIndex panel-cards keep the original treatment. Reuses the
-   .panel-card shell (plane bg, stripe, hover lift) at a smaller scale: an
-   auto-filling grid, a head row (glyph + chapter), and a right-sized title.
-   Higher specificity than the bare .panel-cards rules above, so this wins at
-   every breakpoint and the grid reflows on its own. */
-.drills-board .panel-cards {
-  grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
-  column-gap: 16px;
-  row-gap: 16px;
-  padding-bottom: 32px;
+/* ── Drills board: theme-aware tokens (2026-06-13) ─────────────────────────
+   /drills follows the app theme toggle: a white page in light mode (the
+   white-not-cream ruling, DECISIONS.md) and the original dark-band palette
+   in dark mode. The shared .panel-section block above stays dark for the
+   Landing band; these overrides win because they come later at equal
+   specificity. --accent-strong is the red that stays readable as TEXT on
+   each background (red-dark on white, red-light on the dark plane). */
+.drills-board {
+  --ink:           #1a1612;
+  --mid:           #7a7570;
+  --plane:         #ffffff;
+  --plane-dark:    #ffffff;
+  --rule-dark:     #e0dacd;
+  --cream-light:   #1a1612;
+  --card-foot-bg:  #fafafa;
+  --accent-strong: #8a2e14;
 }
-.drills-board .panel-card { min-height: 0; }
-.drills-board .panel-card-body { padding: 18px 18px 14px; gap: 9px; }
-.drills-board .panel-card-head {
-  display: flex; align-items: center; justify-content: space-between;
+.dark .drills-board {
+  --ink:           #ffffff;
+  --mid:           rgba(255, 255, 255, 0.55);
+  --plane:         #252019;
+  --plane-dark:    #1a1612;
+  --rule-dark:     #35302a;
+  --cream-light:   #ffffff;
+  --card-foot-bg:  #17130f;
+  --accent-strong: #e6653a;
 }
-.drills-board .panel-card-glyph { display: inline-flex; color: var(--red-light); opacity: 0.9; }
-.drills-board .panel-card-icon { display: block; width: 26px; height: 26px; }
-.drills-board .panel-card-ch {
+.drills-board .panel-heading .lead { color: var(--mid); }
+.drills-board .panel-heading .lead .tongan { color: var(--accent-strong); }
+.drills-board .panel-colophon .tonga-sig { color: var(--accent-strong); }
+
+/* ── Drills board: Netflix shelves (Andrew's ruling, 2026-06-13) ──────────
+   Each skill family is one horizontally swipeable reel of large cards
+   (drag / trackpad / the ‹ › arrows). The top half of a card previews a
+   real item from that drill's deck — q / Tongan line / answer chips — and
+   the text below uses the calmer editorial style. Replaces the compact
+   tiered card grid; Landing / QuizIndex .panel-card keeps the original
+   poster treatment. */
+.drills-board .drill-shelf { position: relative; padding-bottom: 4px; }
+.drills-board .drill-shelf-head {
+  display: flex; align-items: baseline; gap: 14px;
+  border-top: 1px solid var(--rule-dark);
+  margin-top: 26px; padding: 12px 0;
+}
+.drills-board .drill-shelf-name {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+  font-size: 17px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cream-light); white-space: nowrap;
+}
+.drills-board .drill-shelf-name .cnt { color: var(--mid); font-weight: 700; }
+.drills-board .drill-shelf-note {
+  flex: 1; font-family: 'Source Serif 4', serif; font-style: italic;
+  font-size: 12.5px; color: var(--mid); text-align: right;
+}
+.drills-board .drill-shelf-arrows { display: flex; gap: 6px; flex-shrink: 0; align-self: center; }
+.drills-board .drill-shelf-arrow {
+  width: 30px; height: 30px;
+  border: 1px solid var(--rule-dark); background: var(--plane);
+  color: var(--cream-light); opacity: 0.75;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 17px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.drills-board .drill-shelf-arrow:hover { opacity: 1; border-color: var(--red); color: var(--accent-strong); }
+.drills-board .drill-reel {
+  display: flex; gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 2px 2px 18px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-dark) transparent;
+}
+.drills-board .drill-reel::-webkit-scrollbar { height: 5px; }
+.drills-board .drill-reel::-webkit-scrollbar-thumb { background: var(--rule-dark); }
+.drills-board .drill-ncard {
+  flex: 0 0 290px; scroll-snap-align: start;
+  background: var(--plane);
+  border: 1px solid var(--rule-dark);
+  display: flex; flex-direction: column;
+  text-decoration: none; color: var(--cream-light);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.drills-board .drill-ncard:hover,
+.drills-board .drill-ncard:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--red);
+  box-shadow: 0 14px 36px rgba(194, 74, 31, 0.16);
+  outline: none;
+}
+.drills-board .drill-screen {
+  background: var(--card-foot-bg);
+  border-bottom: 1px solid var(--rule-dark);
+  padding: 16px 16px 14px;
+  min-height: 130px;
+  display: flex; flex-direction: column; gap: 9px; justify-content: center;
+}
+.drills-board .drill-screen .q {
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mid);
+}
+.drills-board .drill-screen .ton {
+  font-family: 'Source Serif 4', serif; font-style: italic; font-weight: 600;
+  font-size: 16.5px; line-height: 1.3; color: var(--cream-light);
+}
+.drills-board .drill-screen .opts { display: flex; gap: 6px; flex-wrap: wrap; }
+.drills-board .drill-screen .opt {
+  border: 1px solid var(--rule-dark); background: var(--plane);
+  padding: 4px 10px; font-family: 'Inter', sans-serif; font-size: 11.5px;
+  color: var(--cream-light); opacity: 0.85;
+}
+.drills-board .drill-screen .opt.sel {
+  border-color: var(--red); color: var(--accent-strong);
+  font-weight: 600; opacity: 1;
+}
+.drills-board .drill-nbody { padding: 13px 16px 10px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.drills-board .drill-ntitle {
   font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-size: 19.5px; line-height: 1.1; color: var(--cream-light);
+  transition: color 0.3s ease;
+}
+.drills-board .drill-ncard:hover .drill-ntitle,
+.drills-board .drill-ncard:focus-visible .drill-ntitle { color: var(--accent-strong); }
+.drills-board .drill-ndesc {
+  font-family: 'Source Serif 4', serif; font-size: 12px; line-height: 1.5;
+  color: var(--cream-light); opacity: 0.65; margin: 0;
+}
+.drills-board .drill-nfoot { display: flex; justify-content: space-between; align-items: center; padding: 0 16px 13px; }
+.drills-board .drill-nmeta {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--cream-light); opacity: 0.45;
 }
-.drills-board .panel-card-title {
-  font-size: clamp(19px, 1.5vw, 23px);
-  line-height: 1.08;
-  margin: 2px 0 0;
+.drills-board .drill-ngo {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent-strong);
 }
-.drills-board .panel-card-desc {
-  max-width: none;
-  font-size: 12.5px;
-  line-height: 1.5;
-  opacity: 0.6;
-  margin: 0;
+@media (max-width: 720px) {
+  .drills-board .drill-ncard { flex-basis: 255px; }
+  .drills-board .drill-shelf-note { display: none; }
 }
-.drills-board .panel-card-foot { padding: 9px 16px; }
+@media (prefers-reduced-motion: reduce) {
+  .drills-board .drill-ncard { transition: none; }
+  .drills-board .drill-reel { scroll-behavior: auto; }
+}
 
 /* ── Drills board: grouped-browser furniture (2026-06-13) ─────────────────
-   Search + level chips, per-group "view all" / "in the chapters" footers,
-   and the dotted-leader rows for chapter-embedded drills. All on the dark
-   band, reusing the panel tokens — no new hues, no new families. */
+   Search + level chips, per-shelf "in the chapters" footers, and the
+   dotted-leader rows for chapter-embedded drills. All token-driven, so the
+   theme-aware .drills-board overrides above carry both modes — no new hues,
+   no new families. */
 .drills-board .drills-filter {
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px; flex-wrap: wrap;
@@ -1133,7 +1241,7 @@
 }
 .drills-board .drills-chip:hover { opacity: 1; border-color: var(--red); }
 .drills-board .drills-chip.is-active {
-  opacity: 1; border-color: var(--red); color: var(--red-light);
+  opacity: 1; border-color: var(--red); color: var(--accent-strong);
 }
 .drills-board .drills-empty {
   font-family: 'Source Serif 4', Georgia, serif; font-style: italic;
@@ -1144,17 +1252,14 @@
   display: flex; align-items: center; gap: 22px;
   padding: 0 0 26px;
 }
-.drills-board .drills-more,
 .drills-board .drills-chapters-toggle {
   background: transparent; border: none; cursor: pointer;
   font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   padding: 2px 0;
   transition: color 0.3s ease, opacity 0.3s ease;
+  color: var(--cream-light); opacity: 0.5;
 }
-.drills-board .drills-more { color: var(--red-light); }
-.drills-board .drills-more:hover { color: var(--red); }
-.drills-board .drills-chapters-toggle { color: var(--cream-light); opacity: 0.5; }
 .drills-board .drills-chapters-toggle:hover { opacity: 0.9; }
 .drills-board .drills-toc {
   list-style: none; margin: -12px 0 26px; padding: 0;
@@ -1185,7 +1290,7 @@
 }
 .drills-board .drills-toc-row:hover .drills-toc-label,
 .drills-board .drills-toc-row:hover .drills-toc-ch {
-  color: var(--red-light); opacity: 1;
+  color: var(--accent-strong); opacity: 1;
 }
 @media (max-width: 720px) {
   .drills-board .drills-toc { columns: 1; }
