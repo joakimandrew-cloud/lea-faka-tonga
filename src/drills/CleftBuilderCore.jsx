@@ -302,7 +302,7 @@ export default function CleftBuilderCore() {
   const correctSentence = `${current.correct_order.map(id => current.tiles.find(t => t.id === id).tongan).join(' ')} ${current.fixed_suffix}.`
 
   return (
-    <section className="afl-card">
+    <section className="pcs-card">
       <div className="afl-card-row">
         <div className="afl-progress">{idx + 1} / {deck.length}</div>
         <div className="afl-stats">

@@ -82,7 +82,7 @@ export default function EmotionalArticleMatrixCore() {
   const pct = deck.length > 0 ? ((idx + (answered ? 1 : 0)) / deck.length) * 100 : 0
 
   return (
-    <section className="clu-card">
+    <section className="pcs-card">
       <div className="clu-card-row">
         <div className="clu-progress-wrap">
           <span className="clu-progress">{idx + 1} / {deck.length}</span>

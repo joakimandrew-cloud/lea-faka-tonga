@@ -1269,33 +1269,6 @@ body::before {
   margin: 0 auto;
 }
 
-.tense-swap-header {
-  margin-bottom: 2.5rem;
-}
-
-.tense-swap-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.tense-swap-title {
-  font-size: 2.25rem;
-  line-height: 1.1;
-  color: var(--text-strong);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.tense-swap-sub {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 56ch;
-}
-
 .tense-swap-card {
   border: 0.5px solid var(--border);
   padding: 2rem 2.25rem 2.25rem;
@@ -1447,37 +1420,6 @@ body::before {
   opacity: 0.75;
 }
 
-.tense-swap-lesson {
-  border-left: 2px solid var(--accent);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  color: var(--text-muted);
-}
-
-.tense-swap-lesson-heading {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-}
-
-.tense-swap-lesson p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin-bottom: 0.75rem;
-}
-
-.tense-swap-lesson p:last-child {
-  margin-bottom: 0;
-}
-
-.tense-swap-lesson-foot {
-  font-size: 12px !important;
-  color: var(--text-faint);
-  font-style: italic;
-}
-
 /* ── First-Word Commitment Quiz (/first-word) ────────────────────────────── */
 /* Week 1 signature drill. The Tongan sentence has its opening cluster
  * rendered crisply and the remainder rendered blurred until the student
@@ -1487,41 +1429,6 @@ body::before {
 .fwq-page {
   max-width: 720px;
   margin: 0 auto;
-}
-
-.fwq-header {
-  margin-bottom: 2rem;
-}
-
-.fwq-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.fwq-title {
-  font-size: 2.25rem;
-  line-height: 1.1;
-  color: var(--text-strong);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.fwq-sub {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 56ch;
-}
-
-.fwq-card {
-  border: 0.5px solid var(--border);
-  padding: 1.5rem 2rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 4px;
-  background-color: var(--bg);
 }
 
 .fwq-card-row {
@@ -1790,37 +1697,6 @@ body::before {
   background-color: var(--accent-hover);
 }
 
-.fwq-lesson {
-  border-left: 2px solid var(--accent);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  color: var(--text-muted);
-}
-
-.fwq-lesson-heading {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-}
-
-.fwq-lesson p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin-bottom: 0.75rem;
-}
-
-.fwq-lesson p:last-child {
-  margin-bottom: 0;
-}
-
-.fwq-lesson-foot {
-  font-size: 12px !important;
-  color: var(--text-faint);
-  font-style: italic;
-}
-
 /* ── Possessive Class Sorter (/possessive-sort) ──────────────────────────── */
 /* Week 4 trap drill. The noun sits large and central; the two class
  * buttons each carry a prefix example and a principle-statement so the
@@ -1858,14 +1734,21 @@ body::before {
   max-width: 56ch;
 }
 
+/* Tactile Deck card (4b-ii, owner pick 2026-06-13): rounded + soft shadow,
+   matching the shared flashcard (.xcard-face in styles/exercises.css). One
+   skin for every drill — the ~50 pickers use .pcs-card directly, and the four
+   bespoke Cores (FirstWordQuiz, AdjectiveFlip, SkeletonFiller, ClusivityCorner)
+   now mount on it too. Colours stay on tokens; shape lives here. */
 .pcs-card {
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   padding: 1.5rem 2rem 2rem;
   margin-bottom: 2rem;
-  border-radius: 4px;
+  border-radius: 16px;
   background-color: var(--bg);
+  box-shadow: 0 10px 28px rgba(42, 31, 20, 0.12);
   position: relative;
 }
+.dark .pcs-card { box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5); }
 
 .pcs-card-row {
   display: flex;
@@ -2453,45 +2336,6 @@ body::before {
   margin: 0 auto;
 }
 
-.afl-header { margin-bottom: 2rem; }
-
-.afl-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.afl-title {
-  font-size: 2.25rem;
-  line-height: 1.1;
-  color: var(--text-strong);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.afl-sub {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 56ch;
-}
-
-.afl-sub em {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-style: italic;
-  color: var(--text-strong);
-}
-
-.afl-card {
-  border: 0.5px solid var(--border);
-  padding: 1.5rem 2rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 4px;
-  background-color: var(--bg);
-}
-
 .afl-card-row {
   display: flex;
   align-items: center;
@@ -2774,41 +2618,6 @@ body::before {
 
 .afl-next:hover { background-color: var(--accent-hover); }
 
-.afl-lesson {
-  border-left: 2px solid var(--accent);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  color: var(--text-muted);
-}
-
-.afl-lesson-heading {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-}
-
-.afl-lesson p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin-bottom: 0.75rem;
-}
-
-.afl-lesson p em {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-style: italic;
-  color: var(--text-strong);
-}
-
-.afl-lesson p:last-child { margin-bottom: 0; }
-
-.afl-lesson-foot {
-  font-size: 12px !important;
-  color: var(--text-faint);
-  font-style: italic;
-}
-
 /* ── Skeleton Filler (/skeleton-filler) ──────────────────────────────────── */
 /* Week 3 pattern drill. The skeleton is a row of labelled slot-pills
  * interleaved with plain fixed-text tokens ("ʻi ai ha", "ʻikai ke", etc.)
@@ -2818,39 +2627,6 @@ body::before {
 .skf-page {
   max-width: 760px;
   margin: 0 auto;
-}
-
-.skf-header { margin-bottom: 2rem; }
-
-.skf-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.skf-title {
-  font-size: 2.25rem;
-  line-height: 1.1;
-  color: var(--text-strong);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.skf-sub {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 56ch;
-}
-
-.skf-card {
-  border: 0.5px solid var(--border);
-  padding: 1.5rem 2rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 4px;
-  background-color: var(--bg);
 }
 
 .skf-card-row {
@@ -3177,35 +2953,6 @@ body::before {
 
 .skf-next:hover { background-color: var(--accent-hover); }
 
-.skf-lesson {
-  border-left: 2px solid var(--accent);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  color: var(--text-muted);
-}
-
-.skf-lesson-heading {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-}
-
-.skf-lesson p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin-bottom: 0.75rem;
-}
-
-.skf-lesson p:last-child { margin-bottom: 0; }
-
-.skf-lesson-foot {
-  font-size: 12px !important;
-  color: var(--text-faint);
-  font-style: italic;
-}
-
 /* ── Clusivity Corner (/clusivity) ───────────────────────────────────────── */
 /* Week 2 cultural drill. The 2×2 matrix IS the lesson — number on one
  * axis, clusivity on the other. The student sees the system structure
@@ -3214,39 +2961,6 @@ body::before {
 .clu-page {
   max-width: 760px;
   margin: 0 auto;
-}
-
-.clu-header { margin-bottom: 2rem; }
-
-.clu-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.clu-title {
-  font-size: 2.25rem;
-  line-height: 1.1;
-  color: var(--text-strong);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.clu-sub {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 56ch;
-}
-
-.clu-card {
-  border: 0.5px solid var(--border);
-  padding: 1.5rem 2rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 4px;
-  background-color: var(--bg);
 }
 
 .clu-card-row {
@@ -3536,40 +3250,6 @@ body::before {
 }
 
 .clu-next:hover { background-color: var(--accent-hover); }
-
-.clu-lesson {
-  border-left: 2px solid var(--accent);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  color: var(--text-muted);
-}
-
-.clu-lesson-heading {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-}
-
-.clu-lesson p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin-bottom: 0.75rem;
-}
-
-.clu-lesson p em {
-  font-style: italic;
-  color: var(--text-strong);
-}
-
-.clu-lesson p:last-child { margin-bottom: 0; }
-
-.clu-lesson-foot {
-  font-size: 12px !important;
-  color: var(--text-faint);
-  font-style: italic;
-}
 
 /* Example-aware tables (.ch-ex): on desktop the example shows in its normal
    column; the mobile toggle + detail rows are hidden. (Mobile rules below.) */

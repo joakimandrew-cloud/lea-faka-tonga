@@ -325,7 +325,7 @@ export default function SentenceBuilderCore() {
   const pct = deck.length > 0 ? ((idx + (answered !== null ? 1 : 0)) / deck.length) * 100 : 0
 
   return (
-    <section className="afl-card">
+    <section className="pcs-card">
       <div className="afl-card-row">
         <div className="afl-progress-wrap">
           <span className="afl-progress">{idx + 1} / {deck.length}</span>

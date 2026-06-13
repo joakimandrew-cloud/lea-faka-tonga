@@ -133,7 +133,7 @@ export default function FirstWordQuizCore({ chapterNum }) {
   const pct = deck.length > 0 ? ((idx + (isAnswered ? 1 : 0)) / deck.length) * 100 : 0
 
   return (
-    <section className="fwq-card">
+    <section className="pcs-card">
       <div className="fwq-card-row">
         <div className="fwq-progress-wrap">
           <span className="fwq-progress">{idx + 1} / {deck.length}</span>

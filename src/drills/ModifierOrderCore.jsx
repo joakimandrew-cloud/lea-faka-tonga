@@ -189,7 +189,7 @@ export default function ModifierOrderCore() {
   const correctSentence = `${current.fixed_prefix} ${current.correct_order.map(id => current.tiles.find(t => t.id === id).tongan).join(' ')}`
 
   return (
-    <section className="afl-card">
+    <section className="pcs-card">
       <div className="afl-card-row">
         <div className="afl-progress">{idx + 1} / {deck.length}</div>
         <div className="afl-stats">

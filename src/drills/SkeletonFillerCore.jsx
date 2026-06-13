@@ -339,7 +339,7 @@ export default function SkeletonFillerCore({ chapterNum }) {
   const pct = deck.length > 0 ? ((idx + (answered !== null ? 1 : 0)) / deck.length) * 100 : 0
 
   return (
-    <section className="skf-card">
+    <section className="pcs-card">
       <div className="skf-card-row">
         <div className="skf-progress-wrap">
           <div className="skf-progress">
