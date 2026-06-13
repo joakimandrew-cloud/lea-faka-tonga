@@ -393,7 +393,7 @@
       "id": "ch2-ex6",
       "number": 6,
       "title": "Build the sentence",
-      "type": "free",
+      "type": "transform",
       "instructions": "You are given a tense, a pronoun meaning, and a verb. Write the complete Tongan sentence.",
       "items": [
         {
@@ -630,7 +630,7 @@
       "id": "ch3-ex5",
       "number": 5,
       "title": "Build the sentence",
-      "type": "translate_to_english",
+      "type": "transform",
       "instructions": "Arrange the words into a correct Tongan sentence, then translate to English.",
       "items": [
         {
@@ -895,7 +895,7 @@
       "id": "ch4-ex5",
       "number": 5,
       "title": "Build the sentence",
-      "type": "translate_to_english",
+      "type": "transform",
       "instructions": "Arrange the words into a correct Tongan sentence, then translate to English.",
       "items": [
         {
@@ -3651,7 +3651,7 @@
       "id": "ch16-ex3",
       "number": 3,
       "title": "Transform the sentence from normal word order to subject-first emphasis",
-      "type": "free",
+      "type": "transform",
       "instructions": "",
       "items": [
         {
@@ -4872,7 +4872,7 @@
       "id": "ch21-ex3",
       "number": 3,
       "title": "Transform: make each sentence negative",
-      "type": "free",
+      "type": "transform",
       "instructions": "",
       "items": [
         {
@@ -5053,7 +5053,7 @@
       "id": "ch22-ex3",
       "number": 3,
       "title": "Transform: add the aspect marker in parentheses",
-      "type": "free",
+      "type": "transform",
       "instructions": "",
       "items": [
         {
@@ -5165,7 +5165,7 @@
       "id": "ch22-ex6",
       "number": 6,
       "title": "Transform using *tu'o*",
-      "type": "free",
+      "type": "transform",
       "instructions": "Rewrite each sentence to include the number of times given in parentheses. Example: *Kuó u 'alu ki Vava'u.* (3) → *Kuó u 'alu tu'o tolu ki Vava'u.*",
       "items": [
         {
@@ -6218,7 +6218,7 @@
       "id": "ch27-ex4",
       "number": 4,
       "title": "Transform sentences",
-      "type": "free",
+      "type": "transform",
       "instructions": "Change each sentence from comparative to superlative, or from superlative to comparative (adding an *'i* phrase where needed).",
       "items": [
         {
@@ -6551,7 +6551,7 @@
       "id": "ch28-ex4",
       "number": 4,
       "title": "Transform sentences",
-      "type": "translate_to_english",
+      "type": "transform",
       "instructions": "Change the direction of each sentence by replacing the directional particle with the one given in parentheses. Translate the new sentence.",
       "items": [
         {
@@ -8854,7 +8854,7 @@
       "id": "ch38-ex5",
       "number": 5,
       "title": "Transform sentences",
-      "type": "free",
+      "type": "transform",
       "instructions": "Rewrite each command by adding a warning clause with *telia na'a*. Example: *Ako mālohi.* → *Ako mālohi, teliá na'á ke tō he siví.*",
       "items": [
         {
@@ -9909,7 +9909,7 @@
       "id": "ch43-ex3",
       "number": 3,
       "title": "Transform with *ta'e-*",
-      "type": "free",
+      "type": "transform",
       "instructions": "Rewrite each sentence by replacing the *'ikai ke* construction with *ta'e-*.",
       "items": [
         {
@@ -11689,7 +11689,7 @@
       "id": "ch50-ex8",
       "number": 8,
       "title": "Transform using vowel protraction or repetition",
-      "type": "free",
+      "type": "transform",
       "instructions": "Rewrite each sentence to express the meaning in parentheses.",
       "items": [
         {
@@ -11865,7 +11865,7 @@
       "id": "ch51-ex4",
       "number": 4,
       "title": "Transform these sentences",
-      "type": "free",
+      "type": "transform",
       "instructions": "Rewrite each sentence using the impersonal pronoun *te*/*kita* instead of the given personal pronoun.",
       "items": [
         {
@@ -12067,7 +12067,7 @@
       "id": "ch52-ex4",
       "number": 4,
       "title": "Transform neutral sentences to emotional",
-      "type": "free",
+      "type": "transform",
       "instructions": "Rewrite each sentence replacing the ordinary article or possessive with the emotional equivalent.",
       "items": [
         {

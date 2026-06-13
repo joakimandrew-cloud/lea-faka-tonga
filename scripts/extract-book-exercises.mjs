@@ -169,6 +169,21 @@ function splitByExercise(block) {
  */
 function classifyText(s) {
   if (!s) return null
+  // Assemble / transform tasks first: "Build the sentence", "Arrange the
+  // words …", "Transform sentences", "Change the direction …". These often
+  // also say "translate to English", which used to send them down the
+  // italic-sniff translate fallback and mislabel them translate_to_english.
+  if (
+    /\barrange\b/.test(s) ||
+    /\brearrange\b/.test(s) ||
+    /\bunscramble\b/.test(s) ||
+    /\bbuild the sentence\b/.test(s) ||
+    /\bassemble\b/.test(s) ||
+    /\btransform\b/.test(s) ||
+    /\bchange the direction\b/.test(s)
+  ) {
+    return 'transform'
+  }
   if (
     /translate.*\btongan\b.*\benglish\b/.test(s) ||
     /translation.*\btongan\s+to\s+english\b/.test(s) ||
