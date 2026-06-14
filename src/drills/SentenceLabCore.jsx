@@ -210,7 +210,7 @@ function GradedLab({ chapterNum }) {
         </div>
       ) : solved ? (
         <div className="x-lab-grade is-correct" aria-live="polite">
-          ✓ Tonu! <span className="font-tongan">{assembled.tongan}</span>
+          ✓ Correct! <span className="font-tongan">{assembled.tongan}</span>
         </div>
       ) : checked ? (
         <div className="x-lab-grade is-wrong" aria-live="polite">
