@@ -87,12 +87,26 @@ const PATTERN_NODES = {
   s18: { ko_particle: 'ko_e_fixed', article: '_MERGE', noun: 'noun_ko', demonstrative: 'demonstrative' },
   s22: { tense_marker: 'tense_marker_ns', verb: 'verb_ns', focus_marker: '_SKIP', noun_subject: 'noun_subject_name' },
   s24: { tense_marker: 'tense_marker_exp', verb: 'verb_experiencer', prep_pronoun: 'prep_pronoun' },
+  s35: { subject: 'obligation_pronoun' },
 }
 
 function resolveNodeId(patternId, slotId) {
   const map = PATTERN_NODES[patternId]
   if (map && slotId in map) return map[slotId]
   return DEFAULT_NODE[slotId] || slotId
+}
+
+// The single modal_frame slot (s35 should/must; future Ch 38 let/may) carries
+// different modal heads — ʻOku totonu = should, Kuo pau = must, Tuku ke = let,
+// ʻOfa ke = may. Route each to the nodeId composeObligationTranslation expects
+// so the English composes ("You should study") instead of glossing word-salad.
+function modalHeadNodeId(tongan) {
+  const t = (tongan || '').toLowerCase()
+  if (t.includes('totonu')) return 'totonu_phrase'
+  if (t.includes('pau')) return 'pau_phrase'
+  if (t.includes('tuku')) return 'tuku_ke_phrase'
+  if (t.includes('ofa')) return 'ofa_ke_phrase'
+  return 'modal_frame'
 }
 
 // ---------------------------------------------------------------------------
@@ -610,7 +624,7 @@ export function slotsToSteps(patternId, filledSlots) {
   const steps = []
 
   for (const slot of sortedSlots) {
-    const nodeId = resolveNodeId(patternId, slot.id)
+    let nodeId = resolveNodeId(patternId, slot.id)
 
     if (nodeId === '_SKIP') continue
 
@@ -624,6 +638,9 @@ export function slotsToSteps(patternId, filledSlots) {
 
     const value = slot.locked ? slot.locked_value : filledSlots[slot.id]
     if (!value) continue
+
+    // A modal_frame slot's value decides which obligation head it is.
+    if (nodeId === 'modal_frame') nodeId = modalHeadNodeId(value.tongan)
 
     // Build word; normalise english to match grammar-graph.json labels
     // so that buildLiteralTranslation produces identical output.

@@ -2094,13 +2094,21 @@ function composeObligationTranslation(steps, isQuestion) {
   const verbBase = verb ? verb.base : verbStep.word.english.split(',')[0].trim()
   const isAdj = verb && verb.type === 'adjective'
 
+  // Subject for "should/must": a pronoun (obligation_pronoun, ke u -> "I"), or a
+  // focus noun-subject (noun_subject_name, ʻa Sione -> "Sione"); "One" for the
+  // subjectless frame ("ʻOku totonu ke ʻalu" = "one should go").
+  const nounSubjStep = steps.find(s => s.nodeId === 'noun_subject_name')
+  const cleanSubject = (st) =>
+    capitalize((st.word.subject || st.word.english.replace(/\s*\([^)]*\)/g, '')).trim())
+  const headSubject = pronStep ? cleanSubject(pronStep)
+    : nounSubjStep ? cleanSubject(nounSubjStep)
+    : 'One'
+
   let sentence
 
   if (headStep.nodeId === 'totonu_phrase') {
     const isPast = normalize(headStep.word.tongan).includes("na'e")
-    const subject = pronStep
-      ? capitalize(pronStep.word.subject || pronStep.word.english.replace(/\s*\([^)]*\)/g, '').trim())
-      : 'One'
+    const subject = headSubject
 
     if (isPast) {
       const pp = verb ? verb.past_participle : verbBase + 'ed'
@@ -2125,9 +2133,7 @@ function composeObligationTranslation(steps, isQuestion) {
       }
     }
   } else if (headStep.nodeId === 'pau_phrase') {
-    const subject = pronStep
-      ? capitalize(pronStep.word.subject || pronStep.word.english.replace(/\s*\([^)]*\)/g, '').trim())
-      : 'One'
+    const subject = headSubject
     if (isAdj) {
       sentence = isQuestion
         ? `Must ${subject.toLowerCase()} be ${verbBase}?`

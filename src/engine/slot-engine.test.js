@@ -1452,6 +1452,8 @@ describe('Ch 23: s35 modal pattern', () => {
       verb: { tongan: 'ako', english: 'study', tags: ['action', 'intransitive'] },
     })
     expect(r.tongan).toBe('ʻOku totonu ke ke ako')
+    expect(r.english).toBe('Should you study?')
+    expect(r.method).toBe('composed')
   })
 
   it('s35 assembles Kuo pau ke u foki', () => {
@@ -1461,6 +1463,8 @@ describe('Ch 23: s35 modal pattern', () => {
       verb: { tongan: 'foki', english: 'return', tags: ['action', 'intransitive', 'motion'] },
     })
     expect(r.tongan).toBe('Kuo pau ke u foki')
+    expect(r.english).toBe('I must return.')
+    expect(r.method).toBe('composed')
   })
 
   it('s35 modal_frame options include totonu and pau', () => {
@@ -1479,6 +1483,8 @@ describe('Ch 23: s35 modal pattern', () => {
       place: { tongan: 'ʻapi', english: 'home', noun_class: 'local' },
     })
     expect(r.tongan).toBe('Kuo pau ke u foki ki ʻapi')
+    expect(r.english).toBe('I must return to/toward home.')
+    expect(r.method).toBe('composed')
   })
 
   it('s35 assembles ʻOku totonu ke tokoni ʻa Sione (noun-subject variant)', () => {
@@ -1488,6 +1494,19 @@ describe('Ch 23: s35 modal pattern', () => {
       noun_subject: { tongan: 'ʻa Sione', english: 'Sione' },
     })
     expect(r.tongan).toBe('ʻOku totonu ke tokoni ʻa Sione')
+    expect(r.english).toBe('Sione should help.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s35 composes natural English, not a word-salad gloss (Ch 23 fix)', () => {
+    // The subjectless seed the Sentence Lab renders: "ʻOku totonu ke mohe".
+    const r = assembleSentence('s35', {
+      modal_frame: { tongan: 'ʻOku totonu', english: 'should/ought to', tags: ['obligation'] },
+      verb: { tongan: 'mohe', english: 'sleep', tags: ['action', 'intransitive'] },
+    })
+    expect(r.tongan).toBe('ʻOku totonu ke mohe')
+    expect(r.english).toBe('One should sleep.')
+    expect(r.method).toBe('composed')
   })
 })
 
