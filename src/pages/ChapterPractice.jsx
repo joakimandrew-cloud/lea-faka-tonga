@@ -7,6 +7,7 @@ import TeachingPanel from '../components/TeachingPanel'
 import SlotBuilder from '../components/SlotBuilder'
 import BookChapterContent from '../components/BookChapterContent'
 import BookExercises from '../components/BookExercises'
+import SentenceLabCore from '../drills/SentenceLabCore'
 
 // ---------------------------------------------------------------------------
 // Entry-point → pattern-ID mapping
@@ -221,10 +222,23 @@ export default function ChapterPractice() {
         </div>
       )}
 
-      {/* No practice available */}
-      {chapterPatterns.length === 0 && !chapter.teaching && (
-        <div className="text-[var(--text-muted)] text-sm mb-8">
-          No interactive practice available for this chapter yet.
+      {/* No own-pattern practice → the Sentence Lab. Chapters that teach
+          morphology / phonology / fixed formulas / register (faka-, suffixes,
+          reduplication, the definitive accent, greetings, respect language…)
+          have no NEW buildable sentence frame; instead of faking one, we anchor
+          the Sentence Lab here. It seeds from structures ALREADY taught by this
+          chapter, so the learner gets real swap-a-word practice with no
+          invented Tongan. (Coverage-cliff ruling, DECISIONS.md 2026-06-13.) */}
+      {chapterPatterns.length === 0 && (
+        <div className="mb-8">
+          <h2 className="text-sm text-[var(--accent)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4">
+            Practice
+          </h2>
+          <p className="text-sm text-[var(--text-muted)] mb-4">
+            This chapter builds on structures you have already learned. Take a sentence you
+            can already make and swap a word to watch the English meaning change.
+          </p>
+          <SentenceLabCore chapterNum={chapterNum} />
         </div>
       )}
 

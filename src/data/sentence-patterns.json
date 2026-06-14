@@ -3501,6 +3501,102 @@
           "english": "It was the children who sang."
         }
       ]
+    },
+    {
+      "id": "s40",
+      "data_status": "complete",
+      "category": "Location and Direction",
+      "subcategory": null,
+      "title": "Noun Classes — to Mele, to the teacher",
+      "label_en": "I spoke to Mele. / He helped the teacher. / We sailed from Haʻapai.",
+      "label_to": "TM + Pronoun + Verb + Preposition + Place",
+      "book_chapters": [46],
+      "min_chapter": 46,
+      "slots": [
+        { "id": "tense_marker", "type": "tense_marker", "label": "Tense Marker", "required": true, "locked": false, "position": 0, "options_source": "tense_markers" },
+        { "id": "subject", "type": "pronoun", "label": "Pronoun", "required": true, "locked": false, "position": 1, "depends_on": "tense_marker", "options_source": "pronouns" },
+        { "id": "verb", "type": "verb", "label": "Verb", "required": true, "locked": false, "position": 2, "options_source": "verbs_intransitive" },
+        { "id": "preposition", "type": "preposition", "label": "Preposition", "required": true, "locked": false, "position": 3, "options_source": "prepositions" },
+        { "id": "place", "type": "location", "label": "Place", "required": true, "locked": false, "position": 4, "options_source": "locations" }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": ["ku", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "ʻoku": ["ou", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "kuo": ["u", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "te": ["u", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Ch 46 noun classes: the preposition form is governed by the noun class of the place. Personal nouns take kia/ʻia/meia (kia Mele), local nouns take ki/ʻi/mei (ki Vavaʻu), common nouns take ki he/ʻi he/mei he (ki he faiakó). The engine auto-pairs the place to the matching preposition form."
+      },
+      "examples": [
+        { "tongan": "Naʻá ne lea kia Tēvita.", "english": "He spoke to Tēvita. (personal: kia)" },
+        { "tongan": "Te mau folau mei Haʻapai.", "english": "We will sail from Haʻapai. (local: mei)" },
+        { "tongan": "Naʻá ku ʻalu ki kolo.", "english": "I went to town. (local: ki)" }
+      ]
+    },
+    {
+      "id": "s41",
+      "data_status": "complete",
+      "category": "Statements",
+      "subcategory": null,
+      "title": "Describing Character — I am eager",
+      "label_en": "I am upset. / She is courageous. / They are kind.",
+      "label_to": "TM + Pronoun + Adjective",
+      "book_chapters": [35],
+      "min_chapter": 35,
+      "slots": [
+        { "id": "tense_marker", "type": "tense_marker", "label": "Tense Marker", "required": true, "locked": false, "position": 0, "options_source": "tense_markers" },
+        { "id": "subject", "type": "pronoun", "label": "Pronoun", "required": true, "locked": false, "position": 1, "depends_on": "tense_marker", "options_source": "pronouns" },
+        { "id": "verb", "type": "verb", "label": "Adjective", "required": true, "locked": false, "position": 2, "options_source": "predicate_adjectives_ch35" }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": ["ku", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "ʻoku": ["ou", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "kuo": ["u", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "te": ["u", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Ch 35: compound adjectives (loto- emotional states, anga-/sino- character compounds) sit in the verb slot with a tense marker, exactly like any Tongan adjective. 'ʻOku ou loto mamahi' = 'I am upset'."
+      },
+      "examples": [
+        { "tongan": "ʻOku ou loto mamahi.", "english": "I am upset." },
+        { "tongan": "ʻOkú ne loto ʻofa.", "english": "He/she is kind." },
+        { "tongan": "Naʻa nau anga-lelei.", "english": "They were well-behaved." }
+      ]
+    },
+    {
+      "id": "s42",
+      "data_status": "complete",
+      "category": "Numbers and Time",
+      "subcategory": null,
+      "title": "When It Happened — months and time",
+      "label_en": "I came in January. / He will return in November.",
+      "label_to": "TM + Pronoun + Verb + Time",
+      "book_chapters": [42],
+      "min_chapter": 42,
+      "slots": [
+        { "id": "tense_marker", "type": "tense_marker", "label": "Tense Marker", "required": true, "locked": false, "position": 0, "options_source": "tense_markers" },
+        { "id": "subject", "type": "pronoun", "label": "Pronoun", "required": true, "locked": false, "position": 1, "depends_on": "tense_marker", "options_source": "pronouns" },
+        { "id": "verb", "type": "verb", "label": "Verb", "required": true, "locked": false, "position": 2, "options_source": "verbs_intransitive" },
+        { "id": "time", "type": "time_phrase", "label": "Time", "required": true, "locked": false, "position": 3, "options_source": "month_time_phrases" }
+      ],
+      "pronoun_dependencies": {
+        "naʻa": ["ku", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "ʻoku": ["ou", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "kuo": ["u", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"],
+        "te": ["u", "ke", "ne", "nau", "mau", "tau", "mou", "na", "ma", "ta", "mo"]
+      },
+      "assembly_rules": {
+        "sentence_type": "statement",
+        "notes": "Ch 42: month names take a bare ʻi with no article (ʻi Sānuali = in January, never ʻi he Sānuali). The time phrase goes last."
+      },
+      "examples": [
+        { "tongan": "Naʻá ku haʻu ʻi Sānuali.", "english": "I came in January." },
+        { "tongan": "Té u foki ʻi Nōvema.", "english": "I will return in November." },
+        { "tongan": "Naʻá ne haʻu ʻi Maʻasi.", "english": "He/she came in March." }
+      ]
     }
   ]
 }

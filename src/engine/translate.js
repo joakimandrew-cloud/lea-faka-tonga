@@ -582,7 +582,8 @@ function buildStatement(subject, verbPhrase, tense, verb) {
   if (verb.type === 'adjective') {
     switch (tense) {
       case 'past':
-        return `${subject} was ${verbPhrase}.`
+        // "I/He/She was", but plural and 2nd-person subjects take "were"
+        return `${subject} ${subject === 'I' || subject === 'He/she' ? 'was' : 'were'} ${verbPhrase}.`
       case 'present':
         if (subject === 'He/she') return `${subject} is ${verbPhrase}.`
         return `${subject} ${subject === 'I' ? 'am' : 'are'} ${verbPhrase}.`

@@ -6000,5 +6000,38 @@
         "flat_object"
       ]
     }
+  ],
+  "predicate_adjectives_ch35": [
+    { "tongan": "loto lelei", "english": "agreeable", "min_chapter": 35, "tags": ["adjective", "loto"] },
+    { "tongan": "loto mamahi", "english": "sad/upset", "min_chapter": 35, "tags": ["adjective", "loto"] },
+    { "tongan": "loto toʻa", "english": "courageous", "min_chapter": 35, "tags": ["adjective", "loto"] },
+    { "tongan": "loto lahi", "english": "brave/eager", "min_chapter": 35, "tags": ["adjective", "loto"] },
+    { "tongan": "loto ʻofa", "english": "kind", "min_chapter": 35, "tags": ["adjective", "loto"] },
+    { "tongan": "loto kovi", "english": "malicious", "min_chapter": 35, "tags": ["adjective", "loto"] },
+    { "tongan": "loto foʻi", "english": "cowardly", "min_chapter": 35, "tags": ["adjective", "loto"] },
+    { "tongan": "anga-lelei", "english": "well-behaved", "min_chapter": 35, "tags": ["adjective", "compound"] },
+    { "tongan": "anga-kovi", "english": "ill-behaved", "min_chapter": 35, "tags": ["adjective", "compound"] },
+    { "tongan": "sino-mālohi", "english": "strong-bodied", "min_chapter": 35, "tags": ["adjective", "compound"] },
+    { "tongan": "sino-vaivai", "english": "weak-bodied", "min_chapter": 35, "tags": ["adjective", "compound"] },
+    { "tongan": "faingofua", "english": "easy", "min_chapter": 35, "tags": ["adjective", "compound"] },
+    { "tongan": "faingataʻa", "english": "difficult", "min_chapter": 35, "tags": ["adjective", "compound"] },
+    { "tongan": "tuʻumālie", "english": "prosperous", "min_chapter": 35, "tags": ["adjective", "compound"] },
+    { "tongan": "tuʻutāmaki", "english": "unfortunate", "min_chapter": 35, "tags": ["adjective", "compound"] }
+  ],
+  "month_time_phrases": [
+    { "tongan": "ʻi Sānuali", "english": "in January", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Fēpueli", "english": "in February", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Maʻasi", "english": "in March", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi ʻEpeleli", "english": "in April", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Mē", "english": "in May", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Sune", "english": "in June", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Siulai", "english": "in July", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi ʻAokosi", "english": "in August", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Sepitema", "english": "in September", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi ʻOkatopa", "english": "in October", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Nōvema", "english": "in November", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻi Tisema", "english": "in December", "min_chapter": 42, "tags": ["time", "month"] },
+    { "tongan": "ʻamui", "english": "later on", "min_chapter": 42, "tags": ["time", "adverb"] },
+    { "tongan": "ki mui", "english": "afterward", "min_chapter": 42, "tags": ["time", "adverb"] }
   ]
 }
