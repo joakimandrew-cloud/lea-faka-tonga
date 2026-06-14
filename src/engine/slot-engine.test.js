@@ -1511,6 +1511,105 @@ describe('Ch 23: s35 modal pattern', () => {
 })
 
 // ===========================================================================
+// Ch 38 — Optative / permission (s43): tuku ke (let) + ʻofa ke (may)
+// ===========================================================================
+
+describe('Ch 38: s43 optative pattern', () => {
+  const TUKU = { tongan: 'Tuku ke', english: 'let', tags: ['optative', 'permission'] }
+  const OFA = { tongan: 'ʻOfa ke', english: 'may', tags: ['optative', 'hope'] }
+
+  it('s43 assembles Tuku ké u tokoni (let me help — book Ex2 #7)', () => {
+    const r = assembleSentence('s43', {
+      modal_frame: TUKU,
+      subject: { tongan: 'u', english: 'I', person: 1, number: 'singular' },
+      verb: { tongan: 'tokoni', english: 'help', tags: ['action', 'intransitive'] },
+    })
+    // ke takes the stress accent before the one-syllable enclitic u (Ch 38)
+    expect(r.tongan).toBe('Tuku ké u tokoni')
+    expect(r.english).toBe('Let me help.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s43 renders 2nd-person singular as a reflexive (Tuku ké ke nofo)', () => {
+    const r = assembleSentence('s43', {
+      modal_frame: TUKU,
+      subject: { tongan: 'ke', english: 'you (sg.)', person: 2, number: 'singular' },
+      verb: { tongan: 'nofo', english: 'stay', tags: ['action', 'intransitive'] },
+    })
+    expect(r.tongan).toBe('Tuku ké ke nofo')
+    expect(r.english).toBe('Let yourself stay.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s43 keeps ke bare before a two-syllable pronoun (Tuku ke nau ō)', () => {
+    const r = assembleSentence('s43', {
+      modal_frame: TUKU,
+      subject: { tongan: 'nau', english: 'they', person: 3, number: 'plural' },
+      verb: { tongan: 'ō', english: 'go (plural)', tags: ['action', 'intransitive'] },
+    })
+    expect(r.tongan).toBe('Tuku ke nau ō')
+    expect(r.english).toBe('Let them go.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s43 assembles the focus noun-subject variant (Tuku ke ʻalu ʻa Sione)', () => {
+    const r = assembleSentence('s43', {
+      modal_frame: TUKU,
+      verb: { tongan: 'ʻalu', english: 'go', tags: ['action', 'intransitive'] },
+      noun_subject: { tongan: 'ʻa Sione', english: 'Sione' },
+    })
+    expect(r.tongan).toBe('Tuku ke ʻalu ʻa Sione')
+    expect(r.english).toBe('Let Sione go.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s43 assembles ʻOfa ke mou fiefia (may you all be happy — stative)', () => {
+    const r = assembleSentence('s43', {
+      modal_frame: OFA,
+      subject: { tongan: 'mou', english: 'you all', person: 2, number: 'plural' },
+      verb: { tongan: 'fiefia', english: 'happy', tags: ['stative'] },
+    })
+    expect(r.tongan).toBe('ʻOfa ke mou fiefia')
+    expect(r.english).toBe('May you all be happy.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s43 renders the dual in standard objective English (Tuku ké na ʻalu)', () => {
+    const r = assembleSentence('s43', {
+      modal_frame: TUKU,
+      subject: { tongan: 'na', english: 'they two', person: 3, number: 'dual' },
+      verb: { tongan: 'ʻalu', english: 'go', tags: ['action', 'intransitive'] },
+    })
+    expect(r.tongan).toBe('Tuku ké na ʻalu')
+    expect(r.english).toBe('Let the two of them go.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s43 keeps the first-person pronoun capitalized (ʻOfa ké u foki)', () => {
+    const r = assembleSentence('s43', {
+      modal_frame: OFA,
+      subject: { tongan: 'u', english: 'I', person: 1, number: 'singular' },
+      verb: { tongan: 'foki', english: 'return', tags: ['action', 'intransitive'] },
+    })
+    expect(r.tongan).toBe('ʻOfa ké u foki')
+    expect(r.english).toBe('May I return.')
+    expect(r.method).toBe('composed')
+  })
+
+  it('s43 optative_frames options are Tuku ke and ʻOfa ke at Ch 38', () => {
+    const opts = getOptionsForSlot('s43', 'modal_frame', {}, 38)
+    expect(opts.length).toBe(2)
+    expect(opts.some(o => o.tongan === 'Tuku ke')).toBe(true)
+    expect(opts.some(o => o.tongan === 'ʻOfa ke')).toBe(true)
+  })
+
+  it('s43 surfaces on book Chapter 38', () => {
+    const pats = getPatternsByCategory('Auxiliaries and Modals', null, 38)
+    expect(pats.some(p => p.id === 's43')).toBe(true)
+  })
+})
+
+// ===========================================================================
 // Ch 24 — Conjunctions (vocabulary expansion, no new pattern)
 // ===========================================================================
 

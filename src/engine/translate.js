@@ -1421,7 +1421,12 @@ function composePossessiveEnglish(pronStep, nounStep) {
 function subjectToObjective(subject) {
   const map = {
     'I': 'me', 'he/she': 'him/her', 'they': 'them',
-    'we': 'us', 'we all': 'us all', 'we two': 'us two'
+    'we': 'us', 'we all': 'us all',
+    // Duals read as standard objective English ("Let the two of them go"),
+    // not the dialectal "them two" — keeps the dual number explicit. This
+    // objective path only goes live with the Ch 38 optative (s43).
+    'we two': 'the two of us', 'they two': 'the two of them',
+    'you two': 'the two of you'
   }
   return map[subject] || subject.toLowerCase()
 }
@@ -2144,22 +2149,35 @@ function composeObligationTranslation(steps, isQuestion) {
         : `${subject} must ${verbBase}.`
     }
   } else if (headStep.nodeId === 'tuku_ke_phrase') {
-    // "Let" takes objective case: "Let me study", not "Let I study"
+    // "Let" takes objective case: "Let me study", not "Let I study". Second
+    // person singular reads as a reflexive ("Let yourself stay" — the Ch 38
+    // book gloss). A focus noun-subject (ʻa Sione) renders as the bare name
+    // (proper names don't inflect for case).
     if (pronStep) {
       const subj = pronStep.word.subject || pronStep.word.english.replace(/\s*\([^)]*\)/g, '').trim()
-      const objForm = subjectToObjective(subj)
+      const objForm = (pronStep.word.person === 2 && pronStep.word.number === 'singular')
+        ? 'yourself'
+        : subjectToObjective(subj)
       sentence = isAdj
         ? `Let ${objForm} be ${verbBase}.`
         : `Let ${objForm} ${verbBase}.`
+    } else if (nounSubjStep) {
+      const name = cleanSubject(nounSubjStep)
+      sentence = isAdj ? `Let ${name} be ${verbBase}.` : `Let ${name} ${verbBase}.`
     } else {
       sentence = isAdj ? `Let be ${verbBase}.` : `Let ${verbBase}.`
     }
   } else if (headStep.nodeId === 'ofa_ke_phrase') {
     if (pronStep) {
       const subject = pronStep.word.subject || pronStep.word.english.replace(/\s*\([^)]*\)/g, '').trim()
+      // Lowercase mid-sentence, but never the first-person pronoun "I".
+      const subjForm = subject === 'I' ? 'I' : subject.toLowerCase()
       sentence = isAdj
-        ? `May ${subject.toLowerCase()} be ${verbBase}.`
-        : `May ${subject.toLowerCase()} ${verbBase}.`
+        ? `May ${subjForm} be ${verbBase}.`
+        : `May ${subjForm} ${verbBase}.`
+    } else if (nounSubjStep) {
+      const name = cleanSubject(nounSubjStep)
+      sentence = isAdj ? `May ${name} be ${verbBase}.` : `May ${name} ${verbBase}.`
     } else {
       sentence = isAdj ? `May be ${verbBase}.` : `May ${verbBase}.`
     }

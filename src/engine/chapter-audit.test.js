@@ -62,6 +62,9 @@ function availableTokens(pattern, chapter) {
   // the next part starts with a one-syllable enclitic pronoun (Ch 2 + Ch 9:22),
   // so examples may carry the accented forms wherever the bare marker exists.
   const STRESS_PAIRS = [['te', 'té'], ['kuo', 'kuó'], ["'oku", "'okú"], ["na'a", "na'á"]]
+  // Optative patterns (s43, Ch 38) also accent the subordinator ke → ké before a
+  // one-syllable enclitic pronoun ("Tuku ké u"), matching assembleSentence.
+  if (pattern.assembly_rules?.sentence_type === 'optative') STRESS_PAIRS.push(['ke', 'ké'])
 
   // Synthetic filler that activates every condition a slot might have.
   // Used to probe conditional slots (e.g. s04 `object` requires a transitive

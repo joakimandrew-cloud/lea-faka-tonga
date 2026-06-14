@@ -2731,6 +2731,26 @@
       ]
     }
   ],
+  "optative_frames": [
+    {
+      "tongan": "Tuku ke",
+      "english": "let",
+      "min_chapter": 38,
+      "tags": [
+        "optative",
+        "permission"
+      ]
+    },
+    {
+      "tongan": "ʻOfa ke",
+      "english": "may",
+      "min_chapter": 38,
+      "tags": [
+        "optative",
+        "hope"
+      ]
+    }
+  ],
   "modal_pronouns": [
     {
       "tongan": "u",

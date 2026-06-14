@@ -3597,6 +3597,65 @@
         { "tongan": "Té u foki ʻi Nōvema.", "english": "I will return in November." },
         { "tongan": "Naʻá ne haʻu ʻi Maʻasi.", "english": "He/she came in March." }
       ]
+    },
+    {
+      "id": "s43",
+      "data_status": "complete",
+      "category": "Auxiliaries and Modals",
+      "subcategory": null,
+      "title": "Let / May — permission and hopes",
+      "label_en": "Let me help. / May they return.",
+      "label_to": "Tuku ke / ʻOfa ke + (Pronoun | ʻa + Noun) + Verb",
+      "book_chapters": [38],
+      "min_chapter": 38,
+      "slots": [
+        {
+          "id": "modal_frame",
+          "type": "modal_frame",
+          "label": "Optative",
+          "required": true,
+          "locked": false,
+          "position": 0,
+          "options_source": "optative_frames"
+        },
+        {
+          "id": "subject",
+          "type": "pronoun",
+          "label": "Pronoun",
+          "required": false,
+          "locked": false,
+          "position": 1,
+          "options_source": "modal_pronouns"
+        },
+        {
+          "id": "verb",
+          "type": "verb",
+          "label": "Verb",
+          "required": true,
+          "locked": false,
+          "position": 2,
+          "options_source": ["verbs_intransitive", "verbs_stative"]
+        },
+        {
+          "id": "noun_subject",
+          "type": "noun_subject",
+          "label": "Noun Subject",
+          "required": false,
+          "locked": false,
+          "position": 3,
+          "options_source": "noun_subject_phrases_with_focus"
+        }
+      ],
+      "pronoun_dependencies": null,
+      "assembly_rules": {
+        "sentence_type": "optative",
+        "notes": "Ch 38 optative. tuku ke (let / allow) grants permission; ʻofa ke (may / I hope that) expresses a hope. Both wrap a ke-clause, so the verb follows the subject: Tuku ke u ʻalu (let me go). Fill EITHER a pronoun OR a focus noun-subject (ʻa + name), not both; with a noun-subject the verb comes first (Tuku ke ʻalu ʻa Sione). The subordinator ke takes the stress accent before a one-syllable pronoun (Tuku ké u, Tuku ké ke), but stays bare before a two-syllable pronoun or a noun (Tuku ke nau ō, Tuku ke ʻalu ʻa Sione). 'Let' renders second person as a reflexive (Tuku ké ke nofo = Let yourself stay). Warnings (naʻa / telia naʻa), uncertainty naʻa, and the adverbs nai / ʻapē / koā are recognition-only in this chapter and are not built here."
+      },
+      "examples": [
+        { "tongan": "Tuku ke ʻalu ʻa Sione.", "english": "Let Sione go." },
+        { "tongan": "Tuku ké u tokoni.", "english": "Let me help." },
+        { "tongan": "ʻOfa ke mou fiefia.", "english": "May you all be happy." }
+      ]
     }
   ]
 }

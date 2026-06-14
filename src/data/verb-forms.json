@@ -256,6 +256,42 @@
       "type": "adjective",
       "copula": true
     },
+    "mālohi": {
+      "base": "strong",
+      "past": "was strong",
+      "past_participle": "been strong",
+      "gerund": "strong",
+      "third_sg": "is strong",
+      "type": "adjective",
+      "copula": true
+    },
+    "fakapikopiko": {
+      "base": "lazy",
+      "past": "was lazy",
+      "past_participle": "been lazy",
+      "gerund": "lazy",
+      "third_sg": "is lazy",
+      "type": "adjective",
+      "copula": true
+    },
+    "tōmui": {
+      "base": "late",
+      "past": "was late",
+      "past_participle": "been late",
+      "gerund": "late",
+      "third_sg": "is late",
+      "type": "adjective",
+      "copula": true
+    },
+    "lavea": {
+      "base": "hurt",
+      "past": "was hurt",
+      "past_participle": "been hurt",
+      "gerund": "hurt",
+      "third_sg": "is hurt",
+      "type": "adjective",
+      "copula": true
+    },
     "ʻave": {
       "base": "take",
       "past": "took",

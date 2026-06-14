@@ -88,6 +88,7 @@ const PATTERN_NODES = {
   s22: { tense_marker: 'tense_marker_ns', verb: 'verb_ns', focus_marker: '_SKIP', noun_subject: 'noun_subject_name' },
   s24: { tense_marker: 'tense_marker_exp', verb: 'verb_experiencer', prep_pronoun: 'prep_pronoun' },
   s35: { subject: 'obligation_pronoun' },
+  s43: { subject: 'obligation_pronoun' },
 }
 
 function resolveNodeId(patternId, slotId) {
@@ -540,6 +541,11 @@ export function assembleSentence(patternId, filledSlots, isQuestionOverride) {
   // Two-syllable pronouns (ou, mau, tau, mou, nau, kita) leave it bare.
   const ENCLITICS = new Set(['u', 'ku', 'ke', 'ne', 'na', 'ma', 'ta', 'mo'])
   const ACCENT_FINAL = { te: 'é', kuo: 'ó', "'oku": 'ú', "na'a": 'á' }
+  // Ch 38 optative (s43): the subordinator ke in "Tuku ke" / "ʻOfa ke" also
+  // takes the stress accent before a one-syllable enclitic pronoun — "Tuku ké u",
+  // "Tuku ké ke" (Chapter 38). Scoped to optative patterns so the Ch 23
+  // obligation builder (sentence_type 'modal') keeps its bare "ke u".
+  if (pattern.assembly_rules?.sentence_type === 'optative') ACCENT_FINAL['ke'] = 'é'
   for (let i = 0; i < tonganParts.length - 1; i++) {
     const nextWord = normalize(tonganParts[i + 1]).split(/\s+/)[0]
     if (!ENCLITICS.has(nextWord)) continue
