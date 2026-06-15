@@ -54,7 +54,7 @@ function renderPromptText(text) {
 
 function AnswerLine({ answer }) {
   return (
-    <div className="ml-8 mt-2 flex items-baseline gap-2 text-sm">
+    <div className="ml-8 mt-2 flex items-baseline gap-2 text-[17px]">
       <span className="text-[var(--accent)]/70 text-xs flex-shrink-0">Answer</span>
       <span className="text-[var(--text-muted)]">{renderPromptText(answer)}</span>
     </div>
@@ -88,7 +88,7 @@ function McqItem({ item, index }) {
       <div className="flex items-start gap-2 mb-1">
         <span className="text-[var(--text-muted)] text-sm mt-0.5 w-6 flex-shrink-0">{index + 1}.</span>
         {item.prompt ? (
-          <div className="flex-1 text-[var(--text-strong)] text-sm leading-relaxed">
+          <div className="flex-1 text-[var(--text-strong)] text-[17px] leading-relaxed">
             {renderPromptText(item.prompt)}
           </div>
         ) : (
@@ -142,7 +142,7 @@ function RevealItem({ item, index }) {
     <div className="py-3 border-b border-[var(--border)] last:border-b-0">
       <div className="flex items-start gap-2">
         <span className="text-[var(--text-muted)] text-sm mt-0.5 w-6 flex-shrink-0">{index + 1}.</span>
-        <div className="flex-1 text-[var(--text-strong)] text-sm leading-relaxed">
+        <div className="flex-1 text-[var(--text-strong)] text-[17px] leading-relaxed">
           {renderPromptText(item.prompt)}
         </div>
       </div>
@@ -157,7 +157,7 @@ function RevealItem({ item, index }) {
           className="ml-8 mt-2 flex items-baseline gap-2 text-sm text-left cursor-pointer rounded focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]"
         >
           <span className="text-[var(--accent)]/70 text-xs flex-shrink-0">Answer</span>
-          <span className="text-[var(--text-muted)] blur-[7px] select-none transition-[filter] duration-[400ms]">
+          <span className="text-[var(--text-muted)] text-[17px] blur-[7px] select-none transition-[filter] duration-[400ms]">
             {renderPromptText(item.answer)}
           </span>
           <span className="text-[var(--accent)]/50 text-xs flex-shrink-0">tap to reveal</span>
@@ -284,7 +284,7 @@ export default function BookExercises({ chapterNum }) {
               {isOpen && (
                 <div className="px-4 pb-3 border-t border-[var(--border)]">
                   {ex.instructions ? (
-                    <div className="pt-3 pb-1 text-sm text-[var(--text-muted)]">
+                    <div className="pt-3 pb-1 text-[17px] text-[var(--text-muted)]">
                       {renderPromptText(ex.instructions)}
                     </div>
                   ) : null}
