@@ -847,6 +847,7 @@ describe('stack walker — user-reported symptoms (regression guards)', () => {
     // noun_subject_name (which are now stored bare).
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -868,6 +869,7 @@ describe('stack walker — user-reported symptoms (regression guards)', () => {
     // article prepend. Focus marker still attaches: `ʻa Sione`.
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -3313,6 +3315,7 @@ describe('2C.1 full — §17 pea multi-clause (Ch 24)', () => {
     s = advanceInFrame(s, { tongan: 'he' })
     s = takeExtension(s, 'tense_marker_ns')
     s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'fiekaia' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10592,6 +10595,7 @@ describe('2F.5 integration: noun-subject directional', () => {
   it("ʻOku ʻalu ʻa Sione hifo → 'Sione goes downward.' (noun-subject + directional)", () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     // verb_ns.next is branching (no FINISH) → inline focus_marker
     s = takeExtension(s, 'focus_marker')
@@ -10612,6 +10616,7 @@ describe('2F.5 integration: noun-subject directional', () => {
   it("Naʻe ʻalu ʻa Mele hake → 'Mele went upward.' (noun-subject + directional past)", () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10634,6 +10639,7 @@ describe('2F.5 integration: noun-subject tuo_numeral', () => {
   it("ʻOku ʻalu ʻa Sione tuʻo ua → 'Sione goes twice.' (noun-subject + count)", () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10663,6 +10669,7 @@ describe('2F.5 integration: noun-subject comparative/superlative', () => {
   it("ʻOku fiefia ange ʻa Sione → 'Sione is happier.' (noun-subject comparative)", () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'fiefia' })
     // verb_ns.next is branching → inline comparative_ange
     s = takeExtension(s, 'comparative_ange')
@@ -10682,6 +10689,7 @@ describe('2F.5 integration: noun-subject comparative/superlative', () => {
   it("ʻOku puke taha ʻa Mele → 'Mele is the sickest.' (noun-subject superlative)", () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'puke' })
     s = takeExtension(s, 'superlative_taha')
     s = advanceInFrame(s, { tongan: 'taha' })
@@ -10706,6 +10714,285 @@ describe('2F.5 integration: noun-subject comparative/superlative', () => {
     // no_emphatic_yet (a no-op on the noun-subject path, which has no emphatic).
     expect(compEdge.condition).toEqual([{ type: 'verb_has_tag', tag: 'adjective' }, { type: 'no_emphatic_yet' }])
     expect(superEdge.condition).toEqual([{ type: 'verb_has_tag', tag: 'adjective' }, { type: 'no_emphatic_yet' }])
+  })
+})
+
+// ===========================================================================
+// 2F.6 integration: preposed modifier faʻa in the noun-subject path
+// ===========================================================================
+//
+// faʻa (= often) attaches at tense_marker_ns.next, which is now a branching
+// menu (verb_ns | preposed_modifier_ns), mirroring preposed_modifier on the
+// pronoun path. preposed_modifier_ns.next requires verb_ns, so a verb is still
+// forced. composeNounSubjectTranslation inserts "often" before the verb, or
+// after a leading auxiliary (will/has) so future/perfect read naturally.
+
+describe('2F.6 integration: noun-subject preposed faʻa', () => {
+  it("ʻOku faʻa ʻalu ʻa Sione → 'Sione often goes.' (present)", () => {
+    let s = createWalkerState('noun_subject', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    // tense_marker_ns.next is now a menu → take the faʻa branch
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    // preposed_modifier_ns.next has verb_ns required → auto-advance
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('ʻOku faʻa ʻalu ʻa Sione')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione often goes.')
+  })
+
+  it("Naʻe faʻa ʻalu ʻa Sione → 'Sione often went.' (past)", () => {
+    let s = createWalkerState('noun_subject', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione often went.')
+  })
+
+  it("ʻE faʻa ʻalu ʻa Sione → 'Sione will often go.' (future — 'often' after the auxiliary)", () => {
+    let s = createWalkerState('noun_subject', 999)
+    s = advanceInFrame(s, { tongan: 'ʻE' })
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione will often go.')
+  })
+
+  it("ʻOku faʻa ʻalu ʻa e tamasiʻi → 'The boy often goes.' (common-noun subject, 'a e rule)", () => {
+    let s = createWalkerState('noun_subject', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'tamasiʻi' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('ʻOku faʻa ʻalu ʻa e tamasiʻi')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('The boy often goes.')
+  })
+
+  it('tense_marker_ns.next branches to verb_ns + preposed_modifier_ns; preposed_modifier_ns requires verb_ns', () => {
+    const tmNs = grammarGraph.nodes.tense_marker_ns
+    const edges = tmNs.next.map(e => e.node)
+    expect(edges).toContain('verb_ns')
+    expect(edges).toContain('preposed_modifier_ns')
+    // Neither edge is forced → branching menu, so faʻa is actually reachable.
+    expect(tmNs.next.every(e => !e.required)).toBe(true)
+    const pmNs = grammarGraph.nodes.preposed_modifier_ns
+    expect(pmNs).toBeDefined()
+    expect(pmNs.words.map(w => w.tongan)).toEqual(['faʻa'])
+    expect(pmNs.next.find(e => e.node === 'verb_ns').required).toBe(true)
+  })
+})
+
+// ===========================================================================
+// 2F.6 integration: directional + count-of-times in noun-subject negation
+// ===========================================================================
+//
+// The noun-subject negation path (negation_word → neg_connector_ns → verb_ns →
+// focus_marker → noun_subject_name) reaches the same noun_subject_name.next
+// extensions as the plain noun-subject path, so directional + tuo_numeral are
+// already walkable here. 2F.6 teaches composeNegationTranslation's
+// neg_connector_ns branch to render them, for parity with the plain path.
+
+describe('2F.6 integration: noun-subject negation directional / count', () => {
+  it("ʻOku ʻikai ke ʻalu ʻa Sione hifo → 'Sione does not go downward.' (NS negation + directional)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')  // ke + verb + name (noun-subject negation)
+    s = advanceInFrame(s, { tongan: 'ke' })
+    // neg_connector_ns.next has verb_ns required → auto-advance
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = takeExtension(s, 'directional')
+    s = advanceInFrame(s, { tongan: 'hifo' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke ʻalu ʻa Sione hifo')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione does not go downward.')
+  })
+
+  it("Naʻe ʻikai ke ʻalu ʻa Mele hake → 'Mele did not go upward.' (NS negation + directional past)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Mele' })
+    s = takeExtension(s, 'directional')
+    s = advanceInFrame(s, { tongan: 'hake' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Mele did not go upward.')
+  })
+
+  it("ʻOku ʻikai ke ʻalu ʻa Sione tuʻo ua → 'Sione does not go twice.' (NS negation + count)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = takeExtension(s, 'tuo_numeral')
+    s = advanceInFrame(s, { tongan: 'tuʻo ua' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione does not go twice.')
+  })
+})
+
+// ===========================================================================
+// 2F.6 integration: adjective + question word in negation
+// ===========================================================================
+//
+// question_word is on verb.next, so it is reachable after an adjective-typed
+// verb in the negation path. 2F.4 handled the verb case but gated out
+// adjectives; 2F.6 prepends the question word to the already-built yes/no
+// adjective question ("Am i not happy?" → "Where am i not happy?"). Subject
+// stays lower-case, matching the 2F.4 verb-negation convention.
+
+describe('2F.6 integration: adjective + question word in negation', () => {
+  it("ʻOku ʻikai te u fiefia ʻi fē? → 'Where am i not happy?' (1sg present)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector')
+    s = advanceInFrame(s, { tongan: 'te' })
+    s = advanceInFrame(s, { tongan: 'u' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'fiefia' })  // adjective-typed verb
+    s = takeExtension(s, 'question_word')
+    s = advanceInFrame(s, { tongan: 'ʻi fē' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_QUESTION')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai te u fiefia ʻi fē')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Where am i not happy?')
+  })
+
+  it("Naʻe ʻikai te u fiefia ʻi fē? → 'Where was i not happy?' (1sg past)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector')
+    s = advanceInFrame(s, { tongan: 'te' })
+    s = advanceInFrame(s, { tongan: 'u' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'fiefia' })
+    s = takeExtension(s, 'question_word')
+    s = advanceInFrame(s, { tongan: 'ʻi fē' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_QUESTION')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Where was i not happy?')
+  })
+
+  it("ʻOku ʻikai te ne fiefia ʻi fē? → 'Where is he/she not happy?' (3sg present)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector')
+    s = advanceInFrame(s, { tongan: 'te' })
+    s = advanceInFrame(s, { tongan: 'ne' })
+    s = takeExtension(s, 'verb')
+    s = advanceInFrame(s, { tongan: 'fiefia' })
+    s = takeExtension(s, 'question_word')
+    s = advanceInFrame(s, { tongan: 'ʻi fē' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_QUESTION')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Where is he/she not happy?')
+  })
+})
+
+// ===========================================================================
+// 2F.6 (d): composition gloss audit — touched frames stay 'composed'
+// ===========================================================================
+//
+// Representative ch-999 walks across the frames 2F.6 touched, including the
+// untested-but-now-walkable combinations (faʻa + adjective; common-noun
+// noun-subject negation + directional). Each asserts method === 'composed'
+// (never the gloss fallback). Together with the 11 integration tests above,
+// this is the 2F.6 composition audit: no gloss fallbacks remain on these paths.
+
+describe('2F.6 (d): composition gloss audit', () => {
+  it("faʻa + adjective noun-subject: ʻOku faʻa puke ʻa Sione → 'Sione is often sick.'", () => {
+    let s = createWalkerState('noun_subject', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    // preposed_modifier_ns.next has verb_ns required → auto-advance
+    s = advanceInFrame(s, { tongan: 'puke' })  // adjective
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione is often sick.')
+  })
+
+  it("common-noun NS negation + directional: ʻOku ʻikai ke ʻalu ʻa e tamasiʻi hifo → 'The boy does not go downward.'", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'tamasiʻi' })
+    s = takeExtension(s, 'directional')
+    s = advanceInFrame(s, { tongan: 'hifo' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('The boy does not go downward.')
   })
 })
 
@@ -10769,6 +11056,7 @@ describe('FINISH_QUESTION threading through remaining composers', () => {
   it('noun-subject + FINISH_QUESTION → "Does the boy sleep?"', () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'mohe' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10784,6 +11072,7 @@ describe('FINISH_QUESTION threading through remaining composers', () => {
   it('noun-subject past + FINISH_QUESTION → "Did Sione go?"', () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })

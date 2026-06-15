@@ -978,6 +978,18 @@
         { "tongan": "Kuo", "english": "perfect", "min_chapter": 15 }
       ],
       "next": [
+        { "node": "verb_ns", "label": "Add verb", "min_chapter": 15 },
+        { "node": "preposed_modifier_ns", "label": "Add faʻa (often)", "min_chapter": 15 }
+      ]
+    },
+
+    "preposed_modifier_ns": {
+      "label": "Preposed Modifier",
+      "description": "faʻa = often, habitually (goes before the verb, noun-subject path — §14 + §3). Twin of preposed_modifier for the noun-subject frame, parallel to verb_ns / modifier_ns / tense_marker_ns.",
+      "words": [
+        { "tongan": "faʻa", "english": "often", "min_chapter": 15 }
+      ],
+      "next": [
         { "node": "verb_ns", "label": "Add verb", "min_chapter": 15, "required": true }
       ]
     },

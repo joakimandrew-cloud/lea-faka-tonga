@@ -1047,6 +1047,17 @@ function composeNegationTranslation(steps, isQuestion = false) {
     const timeStep = steps.find(s => s.nodeId === 'time_word')
     if (timeStep) sentence = insertObject(sentence, timeStep.word.english)
 
+    // Phase 2F.6: directional + count-of-times in noun-subject negation, for
+    // parity with composeNounSubjectTranslation. Both attach on
+    // noun_subject_name.next, which the negation path also reaches.
+    const directionalNegNsStep = steps.find(s => s.nodeId === 'directional')
+    if (directionalNegNsStep) {
+      const dirEnglish = directionalNegNsStep.word.english.replace(/\s*\(.*\)/g, '').trim()
+      sentence = insertObject(sentence, dirEnglish)
+    }
+    const tuoNegNsStep = steps.find(s => s.nodeId === 'tuo_numeral')
+    if (tuoNegNsStep) sentence = insertObject(sentence, tuoNegNsStep.word.english)
+
     // Phase 2F.1: benefactive phrase
     sentence = insertBenefactivePhrase(sentence, steps)
 
@@ -1159,24 +1170,36 @@ function composeNegationTranslation(steps, isQuestion = false) {
   // Phase 2F.1: benefactive phrase
   sentence = insertBenefactivePhrase(sentence, steps)
 
-  // Phase 2F.4: question word in verbal negation ("Where do I not go?")
-  // verb.next includes question_word so it can appear after the verb in negation sentences.
-  // Adjective-negation question-word ("Where am I not happy?") is deferred.
+  // Phase 2F.4 + 2F.6: question word in verbal negation.
+  // verb.next includes question_word, so it can appear after the verb OR an
+  // adjective in negation sentences. 2F.4 handled the verb case
+  // ("Where do i not go?"); 2F.6 adds the adjective case
+  // ("Where am i not happy?") by prepending the question word to the already-
+  // built yes/no adjective question. Subject stays lower-case to match the
+  // 2F.4 verb-negation convention.
   const qWordNegStep = steps.find(s => s.nodeId === 'question_word')
-  if (qWordNegStep && !isAdj) {
+  if (qWordNegStep) {
     const qWordMap = {
       'where (at)': 'Where', 'where (to)': 'Where', 'where (from)': 'Where',
       'when (past)': 'When', 'when (future)': 'When', 'how': 'How'
     }
     const qWord = qWordMap[qWordNegStep.word.english] || capitalize(qWordNegStep.word.english.replace(/\s*\(.*\)/, ''))
-    const subLow = subject.toLowerCase()
-    const baseSentence = sentence.replace(/\.$/, '')
-    const verbAndRest = baseSentence.replace(new RegExp(`^${subject}\\s+\\w+\\s+not\\s+`, 'i'), '')
-    switch (tenseFrame.tense) {
-      case 'present': sentence = `${qWord} do ${subLow} not ${verbAndRest}?`; break
-      case 'past': sentence = `${qWord} did ${subLow} not ${verbAndRest}?`; break
-      case 'future': sentence = `${qWord} will ${subLow} not ${verbAndRest}?`; break
-      default: sentence = `${qWord} do ${subLow} not ${verbAndRest}?`
+    if (isAdj) {
+      // `sentence` is already a yes/no adjective question, e.g. "Am i not happy?".
+      // Lower-case the leading auxiliary (Am/Is/Are/Was/Were/Will) and prepend
+      // the question word → "Where am i not happy?".
+      const q = sentence.replace(/\?$/, '')
+      sentence = `${qWord} ${q.charAt(0).toLowerCase()}${q.slice(1)}?`
+    } else {
+      const subLow = subject.toLowerCase()
+      const baseSentence = sentence.replace(/\.$/, '')
+      const verbAndRest = baseSentence.replace(new RegExp(`^${subject}\\s+\\w+\\s+not\\s+`, 'i'), '')
+      switch (tenseFrame.tense) {
+        case 'present': sentence = `${qWord} do ${subLow} not ${verbAndRest}?`; break
+        case 'past': sentence = `${qWord} did ${subLow} not ${verbAndRest}?`; break
+        case 'future': sentence = `${qWord} will ${subLow} not ${verbAndRest}?`; break
+        default: sentence = `${qWord} do ${subLow} not ${verbAndRest}?`
+      }
     }
   }
 
@@ -1235,41 +1258,53 @@ function composeNounSubjectTranslation(steps, isQuestion = false) {
     ? `the ${nameStep.word.english}`
     : name
 
+  // Phase 2F.6: preposed modifier faʻa (= often) attaches at tense_marker_ns.next
+  // (before verb_ns), mirroring preposed_modifier on the pronoun path. Render
+  // "often" before the verb/adjective, or after a leading auxiliary (will/has)
+  // so future/perfect read naturally ("will often go", not "often will go").
+  const preModNsStep = steps.find(s => s.nodeId === 'preposed_modifier_ns')
+  const oft = preModNsStep ? 'often ' : ''
+
   let sentence
   if (isAdj) {
     const adj = verbPhrase || verb.base
     if (isQuestion) {
       switch (tenseFrame.tense) {
-        case 'present': sentence = `Is ${nameLower} ${adj}?`; break
-        case 'past': sentence = `Was ${nameLower} ${adj}?`; break
-        case 'perfect': sentence = `Has ${nameLower} been ${adj}?`; break
-        case 'future': sentence = `Will ${nameLower} be ${adj}?`; break
-        default: sentence = `Is ${nameLower} ${adj}?`
+        case 'present': sentence = `Is ${nameLower} ${oft}${adj}?`; break
+        case 'past': sentence = `Was ${nameLower} ${oft}${adj}?`; break
+        case 'perfect': sentence = `Has ${nameLower} been ${oft}${adj}?`; break
+        case 'future': sentence = `Will ${nameLower} be ${oft}${adj}?`; break
+        default: sentence = `Is ${nameLower} ${oft}${adj}?`
       }
     } else {
       switch (tenseFrame.tense) {
-        case 'present': sentence = `${name} is ${adj}.`; break
-        case 'past': sentence = `${name} was ${adj}.`; break
-        case 'perfect': sentence = `${name} has been ${adj}.`; break
-        case 'future': sentence = `${name} will be ${adj}.`; break
-        default: sentence = `${name} is ${adj}.`
+        case 'present': sentence = `${name} is ${oft}${adj}.`; break
+        case 'past': sentence = `${name} was ${oft}${adj}.`; break
+        case 'perfect': sentence = `${name} has been ${oft}${adj}.`; break
+        case 'future': sentence = `${name} will be ${oft}${adj}.`; break
+        default: sentence = `${name} is ${oft}${adj}.`
       }
     }
   } else if (isQuestion) {
     switch (tenseFrame.tense) {
-      case 'past': sentence = `Did ${nameLower} ${verb.base}?`; break
-      case 'perfect': sentence = `Has ${nameLower} ${verb.past_participle}?`; break
-      case 'future': sentence = `Will ${nameLower} ${verb.base}?`; break
-      default: sentence = `Does ${nameLower} ${verb.base}?`
+      case 'past': sentence = `Did ${nameLower} ${oft}${verb.base}?`; break
+      case 'perfect': sentence = `Has ${nameLower} ${oft}${verb.past_participle}?`; break
+      case 'future': sentence = `Will ${nameLower} ${oft}${verb.base}?`; break
+      default: sentence = `Does ${nameLower} ${oft}${verb.base}?`
     }
     if (modPhrases.length > 0) {
       sentence = insertModifiers(sentence, modPhrases)
     }
   } else {
-    const verbForm = tenseFrame.tense === 'past' ? verb.past :
-                     tenseFrame.tense === 'perfect' ? `has ${verb.past_participle}` :
-                     tenseFrame.tense === 'future' ? `will ${verb.base}` :
-                     (verb.third_sg || verb.base)
+    let verbForm = tenseFrame.tense === 'past' ? verb.past :
+                   tenseFrame.tense === 'perfect' ? `has ${verb.past_participle}` :
+                   tenseFrame.tense === 'future' ? `will ${verb.base}` :
+                   (verb.third_sg || verb.base)
+    if (oft) {
+      verbForm = /^(will|has|have) /.test(verbForm)
+        ? verbForm.replace(/^(\S+) /, `$1 ${oft}`)
+        : `${oft}${verbForm}`
+    }
     sentence = `${name} ${verbForm}.`
     if (!isAdj && modPhrases.length > 0) {
       sentence = insertModifiers(sentence, modPhrases)

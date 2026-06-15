@@ -246,6 +246,7 @@ describe('P1-A3 — second clauses reach commands / noun-subject / prohibition',
   it('noun-subject + kae + second noun-subject clause builds (Naʻe ʻalu ʻa Sione kae nofo ʻa Mele)', () => {
     let s = createWalkerState('noun_subject', 999)
     s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = takeExtension(s, 'verb_ns')  // tense_marker_ns.next is now a menu (verb_ns | preposed_modifier_ns)
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
