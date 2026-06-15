@@ -334,6 +334,10 @@
    option inherits the option's state colour (the global .font-tongan otherwise
    forces --text-strong, which would mask the --correct/--wrong feedback).      */
 .x-opt-list { display: flex; flex-direction: column; gap: 8px; }
+/* Compact word-bank: short options (ki / kia / kiate) wrap as inline pills
+   instead of a stacked list. Reuses every .x-opt state (correct/wrong/dim/hover). */
+.x-bank { display: flex; flex-wrap: wrap; gap: 8px; }
+.x-bank .x-opt { width: auto; }
 .x-opt {
   display: flex;
   align-items: baseline;

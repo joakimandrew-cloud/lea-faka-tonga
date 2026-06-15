@@ -106,33 +106,58 @@
       "id": "ch1-ex4",
       "number": 4,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Complete each sentence with the correct pronoun (*ke* or *ku*).",
       "items": [
         {
           "id": "ch1-ex4-1",
           "prompt": "*Na'a ___ kai.* (I ate.)",
-          "answer": "*ku*"
+          "answer": "*ku*",
+          "options": [
+            "*ke*",
+            "*ku*"
+          ],
+          "correct": "*ku*"
         },
         {
           "id": "ch1-ex4-2",
           "prompt": "*Na'a ___ inu?* (Did you drink?)",
-          "answer": "*ke*"
+          "answer": "*ke*",
+          "options": [
+            "*ke*",
+            "*ku*"
+          ],
+          "correct": "*ke*"
         },
         {
           "id": "ch1-ex4-3",
           "prompt": "*Na'a ___ mohe.* (I slept.)",
-          "answer": "*ku*"
+          "answer": "*ku*",
+          "options": [
+            "*ke*",
+            "*ku*"
+          ],
+          "correct": "*ku*"
         },
         {
           "id": "ch1-ex4-4",
           "prompt": "*Na'a ___ lea?* (Did you speak?)",
-          "answer": "*ke*"
+          "answer": "*ke*",
+          "options": [
+            "*ke*",
+            "*ku*"
+          ],
+          "correct": "*ke*"
         },
         {
           "id": "ch1-ex4-5",
           "prompt": "*Na'a ___ ha'u.* (I came.)",
-          "answer": "*ku*"
+          "answer": "*ku*",
+          "options": [
+            "*ke*",
+            "*ku*"
+          ],
+          "correct": "*ku*"
         }
       ]
     }
@@ -251,38 +276,74 @@
       "id": "ch2-ex3",
       "number": 3,
       "title": "Fill in the correct form of \"I\"",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Complete each sentence with *ku*, *ou*, or *u*.",
       "items": [
         {
           "id": "ch2-ex3-1",
           "prompt": "*Na'a ___ mohe.*",
-          "answer": "*ku*"
+          "answer": "*ku*",
+          "options": [
+            "*ku*",
+            "*ou*",
+            "*u*"
+          ],
+          "correct": "*ku*"
         },
         {
           "id": "ch2-ex3-2",
           "prompt": "*'Oku ___ kai.*",
-          "answer": "*ou*"
+          "answer": "*ou*",
+          "options": [
+            "*ku*",
+            "*ou*",
+            "*u*"
+          ],
+          "correct": "*ou*"
         },
         {
           "id": "ch2-ex3-3",
           "prompt": "*Te ___ 'alu.*",
-          "answer": "*u*"
+          "answer": "*u*",
+          "options": [
+            "*ku*",
+            "*ou*",
+            "*u*"
+          ],
+          "correct": "*u*"
         },
         {
           "id": "ch2-ex3-4",
           "prompt": "*Kuo ___ ha'u.*",
-          "answer": "*u*"
+          "answer": "*u*",
+          "options": [
+            "*ku*",
+            "*ou*",
+            "*u*"
+          ],
+          "correct": "*u*"
         },
         {
           "id": "ch2-ex3-5",
           "prompt": "*'Oku ___ lea.*",
-          "answer": "*ou*"
+          "answer": "*ou*",
+          "options": [
+            "*ku*",
+            "*ou*",
+            "*u*"
+          ],
+          "correct": "*ou*"
         },
         {
           "id": "ch2-ex3-6",
           "prompt": "*Na'a ___ hiva.*",
-          "answer": "*ku*"
+          "answer": "*ku*",
+          "options": [
+            "*ku*",
+            "*ou*",
+            "*u*"
+          ],
+          "correct": "*ku*"
         }
       ]
     },
@@ -591,38 +652,92 @@
       "id": "ch3-ex4",
       "number": 4,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose the correct word from the list: *pē, fa'a, lahi, 'aupito, lelei, mālohi*",
       "items": [
         {
           "id": "ch3-ex4-1",
           "prompt": "*Na'á ku inu vai ___.* (I drank only water.)",
-          "answer": "*pē*"
+          "answer": "*pē*",
+          "options": [
+            "*pē*",
+            "*fa'a*",
+            "*lahi*",
+            "*'aupito*",
+            "*lelei*",
+            "*mālohi*"
+          ],
+          "correct": "*pē*"
         },
         {
           "id": "ch3-ex4-2",
           "prompt": "*'Oku ou ___ hela'ia.* (I am often tired.)",
-          "answer": "*fa'a*"
+          "answer": "*fa'a*",
+          "options": [
+            "*pē*",
+            "*fa'a*",
+            "*lahi*",
+            "*'aupito*",
+            "*lelei*",
+            "*mālohi*"
+          ],
+          "correct": "*fa'a*"
         },
         {
           "id": "ch3-ex4-3",
           "prompt": "*'Okú ne hiva ___.* (She sings well.)",
-          "answer": "*lelei*"
+          "answer": "*lelei*",
+          "options": [
+            "*pē*",
+            "*fa'a*",
+            "*lahi*",
+            "*'aupito*",
+            "*lelei*",
+            "*mālohi*"
+          ],
+          "correct": "*lelei*"
         },
         {
           "id": "ch3-ex4-4",
           "prompt": "*Na'a mau ngāue ___.* (We worked hard.)",
-          "answer": "*mālohi*"
+          "answer": "*mālohi*",
+          "options": [
+            "*pē*",
+            "*fa'a*",
+            "*lahi*",
+            "*'aupito*",
+            "*lelei*",
+            "*mālohi*"
+          ],
+          "correct": "*mālohi*"
         },
         {
           "id": "ch3-ex4-5",
           "prompt": "*'Oku ou fiekaia ___.* (I am very hungry.)",
-          "answer": "*'aupito*"
+          "answer": "*'aupito*",
+          "options": [
+            "*pē*",
+            "*fa'a*",
+            "*lahi*",
+            "*'aupito*",
+            "*lelei*",
+            "*mālohi*"
+          ],
+          "correct": "*'aupito*"
         },
         {
           "id": "ch3-ex4-6",
           "prompt": "*Na'a nau kai ___.* (They ate a lot.)",
-          "answer": "*lahi*"
+          "answer": "*lahi*",
+          "options": [
+            "*pē*",
+            "*fa'a*",
+            "*lahi*",
+            "*'aupito*",
+            "*lelei*",
+            "*mālohi*"
+          ],
+          "correct": "*lahi*"
         }
       ]
     },
@@ -799,38 +914,92 @@
       "id": "ch4-ex3",
       "number": 3,
       "title": "Add the time word",
-      "type": "free",
+      "type": "mcq",
       "instructions": "The English in parentheses tells you when. Add the correct Tongan time word to the end of the sentence.",
       "items": [
         {
           "id": "ch4-ex3-1",
           "prompt": "*Na'á ku kai mā ___.* (yesterday)",
-          "answer": "*'aneafi*"
+          "answer": "*'aneafi*",
+          "options": [
+            "*'aneafi*",
+            "*'apō*",
+            "*'anenai*",
+            "*'apongipongi*",
+            "*'anepō*",
+            "*he 'ahó ni*"
+          ],
+          "correct": "*'aneafi*"
         },
         {
           "id": "ch4-ex3-2",
           "prompt": "*Te mau hiva ___.* (tonight)",
-          "answer": "*'apō*"
+          "answer": "*'apō*",
+          "options": [
+            "*'aneafi*",
+            "*'apō*",
+            "*'anenai*",
+            "*'apongipongi*",
+            "*'anepō*",
+            "*he 'ahó ni*"
+          ],
+          "correct": "*'apō*"
         },
         {
           "id": "ch4-ex3-3",
           "prompt": "*Na'a nau mohe ___.* (a while ago)",
-          "answer": "*'anenai*"
+          "answer": "*'anenai*",
+          "options": [
+            "*'aneafi*",
+            "*'apō*",
+            "*'anenai*",
+            "*'apongipongi*",
+            "*'anepō*",
+            "*he 'ahó ni*"
+          ],
+          "correct": "*'anenai*"
         },
         {
           "id": "ch4-ex3-4",
           "prompt": "*Té u 'alu ___.* (tomorrow)",
-          "answer": "*'apongipongi*"
+          "answer": "*'apongipongi*",
+          "options": [
+            "*'aneafi*",
+            "*'apō*",
+            "*'anenai*",
+            "*'apongipongi*",
+            "*'anepō*",
+            "*he 'ahó ni*"
+          ],
+          "correct": "*'apongipongi*"
         },
         {
           "id": "ch4-ex3-5",
           "prompt": "*Na'á ke ngāue ___.* (last night)",
-          "answer": "*'anepō*"
+          "answer": "*'anepō*",
+          "options": [
+            "*'aneafi*",
+            "*'apō*",
+            "*'anenai*",
+            "*'apongipongi*",
+            "*'anepō*",
+            "*he 'ahó ni*"
+          ],
+          "correct": "*'anepō*"
         },
         {
           "id": "ch4-ex3-6",
           "prompt": "*'Oku ou fiefia ___.* (today)",
-          "answer": "*he 'ahó ni*"
+          "answer": "*he 'ahó ni*",
+          "options": [
+            "*'aneafi*",
+            "*'apō*",
+            "*'anenai*",
+            "*'apongipongi*",
+            "*'anepō*",
+            "*he 'ahó ni*"
+          ],
+          "correct": "*he 'ahó ni*"
         }
       ]
     },
@@ -838,7 +1007,7 @@
       "id": "ch4-ex4",
       "number": 4,
       "title": "Choose past or future",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Each sentence is missing its tense marker. The time word tells you whether the action is past or future. Fill in *na'a* (or *na'á*) for past, or *te* (or *té*) for future. Remember: the tense marker takes an accent before a one-syllable pronoun.",
       "items": [
         {
@@ -847,7 +1016,14 @@
           "answer": "*Na'á* (past: *'aneafi* = yesterday; accent before *ku*)",
           "accept": [
             "*Na'á*"
-          ]
+          ],
+          "options": [
+            "*na'a*",
+            "*na'á*",
+            "*te*",
+            "*té*"
+          ],
+          "correct": "*na'a*"
         },
         {
           "id": "ch4-ex4-2",
@@ -855,7 +1031,14 @@
           "answer": "*Té* (future: *'apongipongi* = tomorrow; accent before *u*)",
           "accept": [
             "*Té*"
-          ]
+          ],
+          "options": [
+            "*na'a*",
+            "*na'á*",
+            "*te*",
+            "*té*"
+          ],
+          "correct": "*te*"
         },
         {
           "id": "ch4-ex4-3",
@@ -863,7 +1046,14 @@
           "answer": "*Na'a* (past: *'anepō* = last night; no accent before *nau*)",
           "accept": [
             "*Na'a*"
-          ]
+          ],
+          "options": [
+            "*na'a*",
+            "*na'á*",
+            "*te*",
+            "*té*"
+          ],
+          "correct": "*na'a*"
         },
         {
           "id": "ch4-ex4-4",
@@ -871,7 +1061,14 @@
           "answer": "*Té* (future: *'apō* = tonight; accent before *ke*)",
           "accept": [
             "*Té*"
-          ]
+          ],
+          "options": [
+            "*na'a*",
+            "*na'á*",
+            "*te*",
+            "*té*"
+          ],
+          "correct": "*te*"
         },
         {
           "id": "ch4-ex4-5",
@@ -879,7 +1076,14 @@
           "answer": "*Na'a* (past: *'anenai* = a while ago; no accent before *mau*)",
           "accept": [
             "*Na'a*"
-          ]
+          ],
+          "options": [
+            "*na'a*",
+            "*na'á*",
+            "*te*",
+            "*té*"
+          ],
+          "correct": "*na'a*"
         },
         {
           "id": "ch4-ex4-6",
@@ -887,7 +1091,14 @@
           "answer": "*Té* (future: *'anai* = in a little while; accent before *ne*)",
           "accept": [
             "*Té*"
-          ]
+          ],
+          "options": [
+            "*na'a*",
+            "*na'á*",
+            "*te*",
+            "*té*"
+          ],
+          "correct": "*te*"
         }
       ]
     },
@@ -1273,38 +1484,80 @@
       "id": "ch6-ex3",
       "number": 3,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Supply the missing word so the Tongan matches the English.",
       "items": [
         {
           "id": "ch6-ex3-1",
           "prompt": "*Na'á ku mohe ___ fale mohe.* (I slept in the dormitory.)",
-          "answer": "*'i*"
+          "answer": "*'i*",
+          "options": [
+            "*'i*",
+            "*'i fē*",
+            "*heni*",
+            "*hē*"
+          ],
+          "correct": "*'i*"
         },
         {
           "id": "ch6-ex3-2",
           "prompt": "*'Okú ke ngāue ___?* (Where do you work?)",
-          "answer": "*'i fē*"
+          "answer": "*'i fē*",
+          "options": [
+            "*'i*",
+            "*'i fē*",
+            "*heni*",
+            "*hē*"
+          ],
+          "correct": "*'i fē*"
         },
         {
           "id": "ch6-ex3-3",
           "prompt": "*Tau hiva ___.* (Let's sing here.)",
-          "answer": "*heni*"
+          "answer": "*heni*",
+          "options": [
+            "*'i*",
+            "*'i fē*",
+            "*heni*",
+            "*hē*"
+          ],
+          "correct": "*heni*"
         },
         {
           "id": "ch6-ex3-4",
           "prompt": "*Té u nofo pē ___.* (I'll just stay over there.)",
-          "answer": "*hē*"
+          "answer": "*hē*",
+          "options": [
+            "*'i*",
+            "*'i fē*",
+            "*heni*",
+            "*hē*"
+          ],
+          "correct": "*hē*"
         },
         {
           "id": "ch6-ex3-5",
           "prompt": "*Na'á ne nofo ___ 'api 'aneafi.* (He stayed at home yesterday.)",
-          "answer": "*'i*"
+          "answer": "*'i*",
+          "options": [
+            "*'i*",
+            "*'i fē*",
+            "*heni*",
+            "*hē*"
+          ],
+          "correct": "*'i*"
         },
         {
           "id": "ch6-ex3-6",
           "prompt": "*Na'a mou kai ___ 'anepō?* (Where did you eat last night?)",
-          "answer": "*'i fē*"
+          "answer": "*'i fē*",
+          "options": [
+            "*'i*",
+            "*'i fē*",
+            "*heni*",
+            "*hē*"
+          ],
+          "correct": "*'i fē*"
         }
       ]
     },
@@ -1357,7 +1610,7 @@
       "id": "ch7-ex1",
       "number": 1,
       "title": "Fill in the blank with *'i*, *ki*, or *mei*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
@@ -1366,7 +1619,13 @@
           "answer": "*ki*. I went to Vava'u.",
           "accept": [
             "*ki*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*"
+          ],
+          "correct": "*ki*"
         },
         {
           "id": "ch7-ex1-2",
@@ -1374,7 +1633,13 @@
           "answer": "*'i*. We live at home.",
           "accept": [
             "*'i*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*"
+          ],
+          "correct": "*'i*"
         },
         {
           "id": "ch7-ex1-3",
@@ -1382,7 +1647,13 @@
           "answer": "*mei*. He came from Fiji.",
           "accept": [
             "*mei*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*"
+          ],
+          "correct": "*mei*"
         },
         {
           "id": "ch7-ex1-4",
@@ -1390,7 +1661,13 @@
           "answer": "*ki*. Will you sail to Ha'apai?",
           "accept": [
             "*ki*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*"
+          ],
+          "correct": "*ki*"
         },
         {
           "id": "ch7-ex1-5",
@@ -1398,7 +1675,13 @@
           "answer": "*'i*. I slept in the dormitory.",
           "accept": [
             "*'i*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*"
+          ],
+          "correct": "*'i*"
         },
         {
           "id": "ch7-ex1-6",
@@ -1406,7 +1689,13 @@
           "answer": "*mei*. We came from town.",
           "accept": [
             "*mei*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*"
+          ],
+          "correct": "*mei*"
         },
         {
           "id": "ch7-ex1-7",
@@ -1414,7 +1703,13 @@
           "answer": "*ki*. We will go to the sea.",
           "accept": [
             "*ki*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*"
+          ],
+          "correct": "*ki*"
         }
       ]
     },
@@ -1422,7 +1717,7 @@
       "id": "ch7-ex2",
       "number": 2,
       "title": "Fill in the blank with the correct preposition form",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose from: *ki / kia / kiate*, *'i / 'ia / 'iate*, *mei / meia / meiate*.",
       "items": [
         {
@@ -1431,7 +1726,19 @@
           "answer": "*kia*. Sione is a personal noun.",
           "accept": [
             "*kia*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*kia*"
         },
         {
           "id": "ch7-ex2-2",
@@ -1439,7 +1746,19 @@
           "answer": "*ki*. Kolo is a local noun.",
           "accept": [
             "*ki*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*ki*"
         },
         {
           "id": "ch7-ex2-3",
@@ -1447,7 +1766,19 @@
           "answer": "*kia*. 'Ana is a personal noun.",
           "accept": [
             "*kia*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*kia*"
         },
         {
           "id": "ch7-ex2-4",
@@ -1456,7 +1787,19 @@
           "accept": [
             "*kiate*. Au is a pronoun.",
             "*kiate*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*kiate*"
         },
         {
           "id": "ch7-ex2-5",
@@ -1465,7 +1808,19 @@
           "accept": [
             "*'iate*. Au is a pronoun.",
             "*'iate*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*'iate*"
         },
         {
           "id": "ch7-ex2-6",
@@ -1474,7 +1829,19 @@
           "accept": [
             "*'iate*. Koe is a pronoun.",
             "*'iate*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*'iate*"
         },
         {
           "id": "ch7-ex2-7",
@@ -1482,7 +1849,19 @@
           "answer": "*meiate*. Kimautolu is a pronoun.",
           "accept": [
             "*meiate*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*meiate*"
         },
         {
           "id": "ch7-ex2-8",
@@ -1490,7 +1869,19 @@
           "answer": "*kiate*. Ia is a pronoun.",
           "accept": [
             "*kiate*"
-          ]
+          ],
+          "options": [
+            "*ki*",
+            "*kia*",
+            "*kiate*",
+            "*'i*",
+            "*'ia*",
+            "*'iate*",
+            "*mei*",
+            "*meia*",
+            "*meiate*"
+          ],
+          "correct": "*kiate*"
         }
       ]
     },
@@ -1546,7 +1937,7 @@
       "id": "ch7-ex4",
       "number": 4,
       "title": "Answer the question using *ai*",
-      "type": "free",
+      "type": "mcq",
       "instructions": "Replace the place or name with the correct *ai* form.",
       "items": [
         {
@@ -1555,7 +1946,13 @@
           "answer": "*ki ai*. Ki ai replaces *ki Vava'u*.",
           "accept": [
             "*ki ai*"
-          ]
+          ],
+          "options": [
+            "*ki ai*",
+            "*'i ai*",
+            "*mei ai*"
+          ],
+          "correct": "*ki ai*"
         },
         {
           "id": "ch7-ex4-2",
@@ -1563,7 +1960,13 @@
           "answer": "*'i ai*. 'I ai replaces *'i Tonga*.",
           "accept": [
             "*'i ai*"
-          ]
+          ],
+          "options": [
+            "*ki ai*",
+            "*'i ai*",
+            "*mei ai*"
+          ],
+          "correct": "*'i ai*"
         },
         {
           "id": "ch7-ex4-3",
@@ -1571,7 +1974,13 @@
           "answer": "*mei ai*. Mei ai replaces *mei Fisi*.",
           "accept": [
             "*mei ai*"
-          ]
+          ],
+          "options": [
+            "*ki ai*",
+            "*'i ai*",
+            "*mei ai*"
+          ],
+          "correct": "*mei ai*"
         },
         {
           "id": "ch7-ex4-4",
@@ -1579,7 +1988,13 @@
           "answer": "*ki ai*. Ki ai replaces *kia Mele*.",
           "accept": [
             "*ki ai*"
-          ]
+          ],
+          "options": [
+            "*ki ai*",
+            "*'i ai*",
+            "*mei ai*"
+          ],
+          "correct": "*ki ai*"
         },
         {
           "id": "ch7-ex4-5",
@@ -1587,7 +2002,13 @@
           "answer": "*mei ai*. Mei ai replaces *mei 'api*.",
           "accept": [
             "*mei ai*"
-          ]
+          ],
+          "options": [
+            "*ki ai*",
+            "*'i ai*",
+            "*mei ai*"
+          ],
+          "correct": "*mei ai*"
         },
         {
           "id": "ch7-ex4-6",
@@ -1595,7 +2016,13 @@
           "answer": "*'i ai*. 'I ai replaces *'i kolo*.",
           "accept": [
             "*'i ai*"
-          ]
+          ],
+          "options": [
+            "*ki ai*",
+            "*'i ai*",
+            "*mei ai*"
+          ],
+          "correct": "*'i ai*"
         }
       ]
     },
@@ -1652,7 +2079,7 @@
       "id": "ch8-ex1",
       "number": 1,
       "title": "Fill in the blank with *ha* or *'a e*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
@@ -1662,7 +2089,12 @@
           "accept": [
             "*ha*. I want some water.",
             "*ha*"
-          ]
+          ],
+          "options": [
+            "*ha*",
+            "*'a e*"
+          ],
+          "correct": "*ha*"
         },
         {
           "id": "ch8-ex1-2",
@@ -1671,7 +2103,12 @@
           "accept": [
             "*'a e*. Did you eat the bread?",
             "*'a e*"
-          ]
+          ],
+          "options": [
+            "*ha*",
+            "*'a e*"
+          ],
+          "correct": "*'a e*"
         },
         {
           "id": "ch8-ex1-3",
@@ -1680,7 +2117,12 @@
           "accept": [
             "*ha*. I will drink some tea.",
             "*ha*"
-          ]
+          ],
+          "options": [
+            "*ha*",
+            "*'a e*"
+          ],
+          "correct": "*ha*"
         },
         {
           "id": "ch8-ex1-4",
@@ -1689,7 +2131,12 @@
           "accept": [
             "*ha*. Do you want some fish?",
             "*ha*"
-          ]
+          ],
+          "options": [
+            "*ha*",
+            "*'a e*"
+          ],
+          "correct": "*ha*"
         },
         {
           "id": "ch8-ex1-5",
@@ -1698,7 +2145,12 @@
           "accept": [
             "*'a e*. I ate the taro.",
             "*'a e*"
-          ]
+          ],
+          "options": [
+            "*ha*",
+            "*'a e*"
+          ],
+          "correct": "*'a e*"
         },
         {
           "id": "ch8-ex1-6",
@@ -1707,7 +2159,12 @@
           "accept": [
             "*ha*. We wanted some kava.",
             "*ha*"
-          ]
+          ],
+          "options": [
+            "*ha*",
+            "*'a e*"
+          ],
+          "correct": "*ha*"
         }
       ]
     },
@@ -1715,7 +2172,7 @@
       "id": "ch8-ex2",
       "number": 2,
       "title": "Fill in the blank with *'a e* or *he*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
@@ -1724,7 +2181,12 @@
           "answer": "*he*. After *ki*, use *he*.",
           "accept": [
             "*he*"
-          ]
+          ],
+          "options": [
+            "*'a e*",
+            "*he*"
+          ],
+          "correct": "*he*"
         },
         {
           "id": "ch8-ex2-2",
@@ -1732,7 +2194,12 @@
           "answer": "*he*. After *'i*, use *he*.",
           "accept": [
             "*he*"
-          ]
+          ],
+          "options": [
+            "*'a e*",
+            "*he*"
+          ],
+          "correct": "*he*"
         },
         {
           "id": "ch8-ex2-3",
@@ -1741,7 +2208,12 @@
           "accept": [
             "*'a e*. No preposition before the article, so use *'a e* .",
             "*'a e*"
-          ]
+          ],
+          "options": [
+            "*'a e*",
+            "*he*"
+          ],
+          "correct": "*'a e*"
         },
         {
           "id": "ch8-ex2-4",
@@ -1749,7 +2221,12 @@
           "answer": "*he*. After *mei*, use *he*.",
           "accept": [
             "*he*"
-          ]
+          ],
+          "options": [
+            "*'a e*",
+            "*he*"
+          ],
+          "correct": "*he*"
         },
         {
           "id": "ch8-ex2-5",
@@ -1757,7 +2234,12 @@
           "answer": "*he*. After *ki*, use *he*.",
           "accept": [
             "*he*"
-          ]
+          ],
+          "options": [
+            "*'a e*",
+            "*he*"
+          ],
+          "correct": "*he*"
         },
         {
           "id": "ch8-ex2-6",
@@ -1766,7 +2248,12 @@
           "accept": [
             "*'a e*. No preposition before the article, so use *'a e* .",
             "*'a e*"
-          ]
+          ],
+          "options": [
+            "*'a e*",
+            "*he*"
+          ],
+          "correct": "*'a e*"
         }
       ]
     },
@@ -2060,7 +2547,7 @@
       "id": "ch9-ex4",
       "number": 4,
       "title": "Fill in each blank with *te* or *ke*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
@@ -2069,7 +2556,12 @@
           "answer": "*te* (pronoun *u* follows)",
           "accept": [
             "*te*"
-          ]
+          ],
+          "options": [
+            "*te*",
+            "*ke*"
+          ],
+          "correct": "*te*"
         },
         {
           "id": "ch9-ex4-2",
@@ -2077,7 +2569,12 @@
           "answer": "*ke* (verb *matangi* follows, no pronoun)",
           "accept": [
             "*ke*"
-          ]
+          ],
+          "options": [
+            "*te*",
+            "*ke*"
+          ],
+          "correct": "*ke*"
         },
         {
           "id": "ch9-ex4-3",
@@ -2085,7 +2582,12 @@
           "answer": "*te* (pronoun *ke* follows)",
           "accept": [
             "*te*"
-          ]
+          ],
+          "options": [
+            "*te*",
+            "*ke*"
+          ],
+          "correct": "*te*"
         },
         {
           "id": "ch9-ex4-4",
@@ -2093,7 +2595,12 @@
           "answer": "*ke* (verb *momoko* follows, no pronoun)",
           "accept": [
             "*ke*"
-          ]
+          ],
+          "options": [
+            "*te*",
+            "*ke*"
+          ],
+          "correct": "*ke*"
         },
         {
           "id": "ch9-ex4-5",
@@ -2101,7 +2608,12 @@
           "answer": "*te* (pronoun *nau* follows)",
           "accept": [
             "*te*"
-          ]
+          ],
+          "options": [
+            "*te*",
+            "*ke*"
+          ],
+          "correct": "*te*"
         },
         {
           "id": "ch9-ex4-6",
@@ -2109,7 +2621,12 @@
           "answer": "*ke* (verb *'uha* follows, no pronoun)",
           "accept": [
             "*ke*"
-          ]
+          ],
+          "options": [
+            "*te*",
+            "*ke*"
+          ],
+          "correct": "*ke*"
         }
       ]
     },
@@ -2260,33 +2777,68 @@
       "id": "ch10-ex3",
       "number": 3,
       "title": "Fill in each blank with the correct preposition (*'i*, *ki*, *mei*, or *mo*)",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch10-ex3-1",
           "prompt": "*Na'á ku 'alu ___ kolo ___ Sione.*",
-          "answer": "*ki*, *mo*. I went to town with Sione."
+          "answer": "*ki*, *mo*. I went to town with Sione.",
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*",
+            "*mo*"
+          ],
+          "correct": "*ki*"
         },
         {
           "id": "ch10-ex3-2",
           "prompt": "*'Oku ou nofo ___ Tonga ___ Mele.*",
-          "answer": "*'i*, *mo*. I live in Tonga with Mele."
+          "answer": "*'i*, *mo*. I live in Tonga with Mele.",
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*",
+            "*mo*"
+          ],
+          "correct": "*'i*"
         },
         {
           "id": "ch10-ex3-3",
           "prompt": "*Na'a mau ha'u ___ Ha'apai ___ Tēvita.*",
-          "answer": "*mei*, *mo*. We came from Ha'apai with Tēvita."
+          "answer": "*mei*, *mo*. We came from Ha'apai with Tēvita.",
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*",
+            "*mo*"
+          ],
+          "correct": "*mei*"
         },
         {
           "id": "ch10-ex3-4",
           "prompt": "*Té ke mohe ___ fale mohe ___ 'Ofa?*",
-          "answer": "*'i*, *mo*. Will you sleep in the dormitory with Ofa?"
+          "answer": "*'i*, *mo*. Will you sleep in the dormitory with Ofa?",
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*",
+            "*mo*"
+          ],
+          "correct": "*'i*"
         },
         {
           "id": "ch10-ex3-5",
           "prompt": "*Na'á ne 'alu ___ tahi ___ Seini 'aneafi.*",
-          "answer": "*ki*, *mo*. He went to the sea with Seini yesterday."
+          "answer": "*ki*, *mo*. He went to the sea with Seini yesterday.",
+          "options": [
+            "*'i*",
+            "*ki*",
+            "*mei*",
+            "*mo*"
+          ],
+          "correct": "*ki*"
         }
       ]
     },
@@ -2634,38 +3186,68 @@
       "id": "ch11-ex5",
       "number": 5,
       "title": "Fill in the blank with *hā* or *fē*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch11-ex5-1",
           "prompt": "*'Okú ke ngāue ___?* What work do you do?",
-          "answer": "*hā*"
+          "answer": "*hā*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*hā*"
         },
         {
           "id": "ch11-ex5-2",
           "prompt": "*'I he māhina ___?* In which month?",
-          "answer": "*fē*"
+          "answer": "*fē*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*fē*"
         },
         {
           "id": "ch11-ex5-3",
           "prompt": "*Na'e ___?* Why not?",
-          "answer": "*hā*"
+          "answer": "*hā*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*hā*"
         },
         {
           "id": "ch11-ex5-4",
           "prompt": "*Na'á ke mohe 'i he fale ___?* Which house did you sleep in?",
-          "answer": "*fē*"
+          "answer": "*fē*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*fē*"
         },
         {
           "id": "ch11-ex5-5",
           "prompt": "*'Oku ___?* What's wrong?",
-          "answer": "*hā*"
+          "answer": "*hā*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*hā*"
         },
         {
           "id": "ch11-ex5-6",
           "prompt": "*'Okú ne 'alu ki he kolo ___?* Which town is he going to?",
-          "answer": "*fē*"
+          "answer": "*fē*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*fē*"
         }
       ]
     },
@@ -3705,38 +4287,86 @@
       "id": "ch16-ex4",
       "number": 4,
       "title": "Fill in the blank with *'a*, a postposed pronoun, or *ki'i*/*si'isi'i*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch16-ex4-1",
           "prompt": "*Ko e faiako _____ Mele.* (Mele is a teacher.)",
-          "answer": "*'a*"
+          "answer": "*'a*",
+          "options": [
+            "*'a*",
+            "*au*",
+            "*ki'i*",
+            "*si'isi'i*",
+            "*koe*"
+          ],
+          "correct": "*'a*"
         },
         {
           "id": "ch16-ex4-2",
           "prompt": "*Ko e tangata faama _____.* (I am a farmer.)",
-          "answer": "*au*"
+          "answer": "*au*",
+          "options": [
+            "*'a*",
+            "*au*",
+            "*ki'i*",
+            "*si'isi'i*",
+            "*koe*"
+          ],
+          "correct": "*au*"
         },
         {
           "id": "ch16-ex4-3",
           "prompt": "*Ko e _____ vaka.* (It is a small boat.) (*vaka* = boat)",
-          "answer": "*ki'i*"
+          "answer": "*ki'i*",
+          "options": [
+            "*'a*",
+            "*au*",
+            "*ki'i*",
+            "*si'isi'i*",
+            "*koe*"
+          ],
+          "correct": "*ki'i*"
         },
         {
           "id": "ch16-ex4-4",
           "prompt": "*Ko e kato _____.* (It is a small basket.)",
-          "answer": "*si'isi'i*"
+          "answer": "*si'isi'i*",
+          "options": [
+            "*'a*",
+            "*au*",
+            "*ki'i*",
+            "*si'isi'i*",
+            "*koe*"
+          ],
+          "correct": "*si'isi'i*"
         },
         {
           "id": "ch16-ex4-5",
           "prompt": "*'Oku 'ikai ko e faiako _____.* (You are not a teacher.)",
-          "answer": "*koe*"
+          "answer": "*koe*",
+          "options": [
+            "*'a*",
+            "*au*",
+            "*ki'i*",
+            "*si'isi'i*",
+            "*koe*"
+          ],
+          "correct": "*koe*"
         },
         {
           "id": "ch16-ex4-6",
           "prompt": "*Ko e tamasi'i poto _____ Siaosi.* (Siaosi is a smart boy.)",
-          "answer": "*'a*"
+          "answer": "*'a*",
+          "options": [
+            "*'a*",
+            "*au*",
+            "*ki'i*",
+            "*si'isi'i*",
+            "*koe*"
+          ],
+          "correct": "*'a*"
         }
       ]
     }
@@ -3867,7 +4497,7 @@
       "id": "ch17-ex2",
       "number": 2,
       "title": "Complete with *'a* or *'o*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Fill in the blank with the correct possessive preposition.",
       "items": [
         {
@@ -3876,7 +4506,12 @@
           "answer": "*'a* (knife: 'e-class, tool)",
           "accept": [
             "*'a*"
-          ]
+          ],
+          "options": [
+            "*'a*",
+            "*'o*"
+          ],
+          "correct": "*'a*"
         },
         {
           "id": "ch17-ex2-2",
@@ -3884,7 +4519,12 @@
           "answer": "*'o* (house: ho-class, shelter)",
           "accept": [
             "*'o*"
-          ]
+          ],
+          "options": [
+            "*'a*",
+            "*'o*"
+          ],
+          "correct": "*'o*"
         },
         {
           "id": "ch17-ex2-3",
@@ -3894,7 +4534,12 @@
             "*'o*",
             "*'o* (boat: ho-class, shelters)",
             "*'o* (boat: ho-class, carries)"
-          ]
+          ],
+          "options": [
+            "*'a*",
+            "*'o*"
+          ],
+          "correct": "*'o*"
         },
         {
           "id": "ch17-ex2-4",
@@ -3902,7 +4547,12 @@
           "answer": "*'a* (work: 'e-class, activity)",
           "accept": [
             "*'a*"
-          ]
+          ],
+          "options": [
+            "*'a*",
+            "*'o*"
+          ],
+          "correct": "*'a*"
         },
         {
           "id": "ch17-ex2-5",
@@ -3910,7 +4560,12 @@
           "answer": "*'o* (clothes: ho-class, characterizes)",
           "accept": [
             "*'o*"
-          ]
+          ],
+          "options": [
+            "*'a*",
+            "*'o*"
+          ],
+          "correct": "*'o*"
         },
         {
           "id": "ch17-ex2-6",
@@ -3920,7 +4575,12 @@
             "*'a*",
             "*'a* (basket: 'e-class, tool you use)",
             "*'a* (basket: 'e-class, container you use)"
-          ]
+          ],
+          "options": [
+            "*'a*",
+            "*'o*"
+          ],
+          "correct": "*'a*"
         }
       ]
     },
@@ -4091,7 +4751,7 @@
       "id": "ch18-ex1",
       "number": 1,
       "title": "Identify the definiteness level",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each sentence, state whether the noun phrase in bold is indefinite, semi-definite, or definite.",
       "items": [
         {
@@ -4100,7 +4760,13 @@
           "answer": "Indefinite (*ha ika*, some fish, any fish)",
           "accept": [
             "Indefinite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "indefinite"
         },
         {
           "id": "ch18-ex1-2",
@@ -4108,7 +4774,13 @@
           "answer": "Definite (*he falé*, the house, stress on final vowel)",
           "accept": [
             "Definite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "definite"
         },
         {
           "id": "ch18-ex1-3",
@@ -4116,7 +4788,13 @@
           "answer": "Semi-definite (*e tohi*, a particular book, no accent shift)",
           "accept": [
             "Semi-definite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "semi-definite"
         },
         {
           "id": "ch18-ex1-4",
@@ -4124,7 +4802,13 @@
           "answer": "Definite (*e iká*, the fish, stress on final vowel)",
           "accept": [
             "Definite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "definite"
         },
         {
           "id": "ch18-ex1-5",
@@ -4132,7 +4816,13 @@
           "answer": "Indefinite (*ha vai*, any water)",
           "accept": [
             "Indefinite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "indefinite"
         }
       ]
     },
@@ -4975,38 +5665,80 @@
       "id": "ch21-ex4",
       "number": 4,
       "title": "Fill in the blank with *fie*, *lava 'o*, or *sai'ia*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch21-ex4-1",
           "prompt": "*'Okú ke ___ he lea faka-Tongá?* (Do you like the Tongan language?)",
-          "answer": "*sai'ia*"
+          "answer": "*sai'ia*",
+          "options": [
+            "*fie*",
+            "*lava 'o*",
+            "*sai'ia*",
+            "*lava*"
+          ],
+          "correct": "*sai'ia*"
         },
         {
           "id": "ch21-ex4-2",
           "prompt": "*'Oku ou ___ 'alu ki tahi.* (I want to go to the ocean.)",
-          "answer": "*fie*"
+          "answer": "*fie*",
+          "options": [
+            "*fie*",
+            "*lava 'o*",
+            "*sai'ia*",
+            "*lava*"
+          ],
+          "correct": "*fie*"
         },
         {
           "id": "ch21-ex4-3",
           "prompt": "*Té ke ___ ha'u 'anai?* (Will you be able to come later?)",
-          "answer": "*lava 'o*"
+          "answer": "*lava 'o*",
+          "options": [
+            "*fie*",
+            "*lava 'o*",
+            "*sai'ia*",
+            "*lava*"
+          ],
+          "correct": "*lava 'o*"
         },
         {
           "id": "ch21-ex4-4",
           "prompt": "*Na'á ku ___ mohe 'anepō.* (I wanted to sleep last night.)",
-          "answer": "*fie*"
+          "answer": "*fie*",
+          "options": [
+            "*fie*",
+            "*lava 'o*",
+            "*sai'ia*",
+            "*lava*"
+          ],
+          "correct": "*fie*"
         },
         {
           "id": "ch21-ex4-5",
           "prompt": "*'Oku 'ikai té u ___ lahi he kavá.* (I do not like kava much.)",
-          "answer": "*sai'ia*"
+          "answer": "*sai'ia*",
+          "options": [
+            "*fie*",
+            "*lava 'o*",
+            "*sai'ia*",
+            "*lava*"
+          ],
+          "correct": "*sai'ia*"
         },
         {
           "id": "ch21-ex4-6",
           "prompt": "*'E ___ 'a 'Ana 'o haka?* (Will 'Ana be able to dance?)",
-          "answer": "*lava*"
+          "answer": "*lava*",
+          "options": [
+            "*fie*",
+            "*lava 'o*",
+            "*sai'ia*",
+            "*lava*"
+          ],
+          "correct": "*lava*"
         }
       ]
     }
@@ -5530,7 +6262,7 @@
       "id": "ch24-ex3",
       "number": 3,
       "title": "Fill in the blank with *ka* or *kae*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
@@ -5539,7 +6271,12 @@
           "answer": "*kae* (before verb *nofo*)",
           "accept": [
             "*kae*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kae*"
+          ],
+          "correct": "*kae*"
         },
         {
           "id": "ch24-ex3-2",
@@ -5547,7 +6284,12 @@
           "answer": "*ka* (before tense marker *'oku*)",
           "accept": [
             "*ka*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kae*"
+          ],
+          "correct": "*ka*"
         },
         {
           "id": "ch24-ex3-3",
@@ -5555,7 +6297,12 @@
           "answer": "*ka* (before pronoun *ke*)",
           "accept": [
             "*ka*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kae*"
+          ],
+          "correct": "*ka*"
         },
         {
           "id": "ch24-ex3-4",
@@ -5563,7 +6310,12 @@
           "answer": "*kae* (before verb *fanongo*)",
           "accept": [
             "*kae*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kae*"
+          ],
+          "correct": "*kae*"
         },
         {
           "id": "ch24-ex3-5",
@@ -5571,7 +6323,12 @@
           "answer": "*ka* (before tense marker *kuo*)",
           "accept": [
             "*ka*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kae*"
+          ],
+          "correct": "*ka*"
         }
       ]
     },
@@ -5769,7 +6526,7 @@
       "id": "ch25-ex2",
       "number": 2,
       "title": "Add the correct plural or dual marker (*ngaahi*, *kau*, *fanga*, *'ū*, or *ongo*)",
-      "type": "free",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
@@ -5778,7 +6535,15 @@
           "answer": "*fanga* (animals)",
           "accept": [
             "*fanga*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*fanga*"
         },
         {
           "id": "ch25-ex2-2",
@@ -5786,7 +6551,15 @@
           "answer": "*kau* (people)",
           "accept": [
             "*kau*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*kau*"
         },
         {
           "id": "ch25-ex2-3",
@@ -5794,7 +6567,15 @@
           "answer": "*ngaahi* (general)",
           "accept": [
             "*ngaahi*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*ngaahi*"
         },
         {
           "id": "ch25-ex2-4",
@@ -5802,7 +6583,15 @@
           "answer": "*ongo* (dual)",
           "accept": [
             "*ongo*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*ongo*"
         },
         {
           "id": "ch25-ex2-5",
@@ -5811,7 +6600,15 @@
           "accept": [
             "*'ū* or *ngaahi*",
             "*'ū*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*ngaahi*"
         },
         {
           "id": "ch25-ex2-6",
@@ -5819,7 +6616,15 @@
           "answer": "*kau* (people)",
           "accept": [
             "*kau*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*kau*"
         },
         {
           "id": "ch25-ex2-7",
@@ -5827,7 +6632,15 @@
           "answer": "*fanga* (animals)",
           "accept": [
             "*fanga*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*fanga*"
         },
         {
           "id": "ch25-ex2-8",
@@ -5836,7 +6649,15 @@
           "accept": [
             "*ngaahi* or *'ū*",
             "*ngaahi*"
-          ]
+          ],
+          "options": [
+            "*ngaahi*",
+            "*kau*",
+            "*fanga*",
+            "*'ū*",
+            "*ongo*"
+          ],
+          "correct": "*ngaahi*"
         }
       ]
     },
@@ -6060,7 +6881,7 @@
       "id": "ch26-ex2",
       "number": 2,
       "title": "Fill in the blank with *ke*, *he*, or *koe'uhi ke*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
@@ -6070,22 +6891,46 @@
           "accept": [
             "*koe'uhi ke*",
             "*ke*"
-          ]
+          ],
+          "options": [
+            "*ke*",
+            "*he*",
+            "*koe'uhi ke*"
+          ],
+          "correct": "*koe'uhi ke*"
         },
         {
           "id": "ch26-ex2-2",
           "prompt": "*'Okú ke tōmui, ___ kuo 'osi hoko.*",
-          "answer": "*he*"
+          "answer": "*he*",
+          "options": [
+            "*ke*",
+            "*he*",
+            "*koe'uhi ke*"
+          ],
+          "correct": "*he*"
         },
         {
           "id": "ch26-ex2-3",
           "prompt": "*Kuo nau ō mai ___ nau lau 'a e tohí.*",
-          "answer": "*ke*"
+          "answer": "*ke*",
+          "options": [
+            "*ke*",
+            "*he*",
+            "*koe'uhi ke*"
+          ],
+          "correct": "*ke*"
         },
         {
           "id": "ch26-ex2-4",
           "prompt": "*'Oua té ke hiva, ___ 'okú ne mohe.*",
-          "answer": "*he*"
+          "answer": "*he*",
+          "options": [
+            "*ke*",
+            "*he*",
+            "*koe'uhi ke*"
+          ],
+          "correct": "*he*"
         },
         {
           "id": "ch26-ex2-5",
@@ -6094,12 +6939,24 @@
           "accept": [
             "*ke*",
             "*koe'uhi ke*"
-          ]
+          ],
+          "options": [
+            "*ke*",
+            "*he*",
+            "*koe'uhi ke*"
+          ],
+          "correct": "*koe'uhi ke*"
         },
         {
           "id": "ch26-ex2-6",
           "prompt": "*'Oku nau nofo 'i 'api, ___ 'oku 'uha.*",
-          "answer": "*he*"
+          "answer": "*he*",
+          "options": [
+            "*ke*",
+            "*he*",
+            "*koe'uhi ke*"
+          ],
+          "correct": "*he*"
         }
       ]
     },
@@ -6347,38 +7204,86 @@
       "id": "ch27-ex3",
       "number": 3,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose *ange*, *taha*, *tatau*, *fai kehekehe*, or *hangē* to complete each sentence.",
       "items": [
         {
           "id": "ch27-ex3-1",
           "prompt": "*'Oku sai ______ 'a Tonga 'i Fisi.*",
-          "answer": "*ange*"
+          "answer": "*ange*",
+          "options": [
+            "*ange*",
+            "*taha*",
+            "*tatau*",
+            "*fai kehekehe*",
+            "*hangē*"
+          ],
+          "correct": "*ange*"
         },
         {
           "id": "ch27-ex3-2",
           "prompt": "*'Oku lelei ______ 'a e ngāué 'a Fifita.*",
-          "answer": "*taha*"
+          "answer": "*taha*",
+          "options": [
+            "*ange*",
+            "*taha*",
+            "*tatau*",
+            "*fai kehekehe*",
+            "*hangē*"
+          ],
+          "correct": "*taha*"
         },
         {
           "id": "ch27-ex3-3",
           "prompt": "*'Okú na ______ 'aupito.*",
-          "answer": "*fai kehekehe*"
+          "answer": "*fai kehekehe*",
+          "options": [
+            "*ange*",
+            "*taha*",
+            "*tatau*",
+            "*fai kehekehe*",
+            "*hangē*"
+          ],
+          "correct": "*fai kehekehe*"
         },
         {
           "id": "ch27-ex3-4",
           "prompt": "*'Oku ______ 'a e ongo valá.*",
-          "answer": "*tatau*"
+          "answer": "*tatau*",
+          "options": [
+            "*ange*",
+            "*taha*",
+            "*tatau*",
+            "*fai kehekehe*",
+            "*hangē*"
+          ],
+          "correct": "*tatau*"
         },
         {
           "id": "ch27-ex3-5",
           "prompt": "*Na'e lea 'a Peni 'o ______ ko e faiako.*",
-          "answer": "*hangē*"
+          "answer": "*hangē*",
+          "options": [
+            "*ange*",
+            "*taha*",
+            "*tatau*",
+            "*fai kehekehe*",
+            "*hangē*"
+          ],
+          "correct": "*hangē*"
         },
         {
           "id": "ch27-ex3-6",
           "prompt": "*'Oku fu'u lahi ______ 'a e falé ni.*",
-          "answer": "*ange*"
+          "answer": "*ange*",
+          "options": [
+            "*ange*",
+            "*taha*",
+            "*tatau*",
+            "*fai kehekehe*",
+            "*hangē*"
+          ],
+          "correct": "*ange*"
         }
       ]
     },
@@ -6489,33 +7394,63 @@
       "id": "ch27-ex7",
       "number": 7,
       "title": "Fill in the blank with *'ange'ange*, *huanoa*, or *hangē*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch27-ex7-1",
           "prompt": "*'Oku ___ 'a e vela 'i Fisi he vela 'i Ha'amoá.* The heat in Fiji is surpassed by the heat in Samoa.",
-          "answer": "*'ange'ange*"
+          "answer": "*'ange'ange*",
+          "options": [
+            "*'ange'ange*",
+            "*huanoa*",
+            "*hangē*"
+          ],
+          "correct": "*'ange'ange*"
         },
         {
           "id": "ch27-ex7-2",
           "prompt": "*Kapau na'e lava ia 'e Mele, ___ 'a Tēvita.* If Mele could do it, how much more Tēvita.",
-          "answer": "*huanoa*"
+          "answer": "*huanoa*",
+          "options": [
+            "*'ange'ange*",
+            "*huanoa*",
+            "*hangē*"
+          ],
+          "correct": "*huanoa*"
         },
         {
           "id": "ch27-ex7-3",
           "prompt": "*Na'á ne lea 'o ___ ko e faiakó.* He spoke as though he were the teacher.",
-          "answer": "*hangē*"
+          "answer": "*hangē*",
+          "options": [
+            "*'ange'ange*",
+            "*huanoa*",
+            "*hangē*"
+          ],
+          "correct": "*hangē*"
         },
         {
           "id": "ch27-ex7-4",
           "prompt": "*Kapau 'oku fiefia 'a e tamaikí, ___ 'a e mātu'á.* If the children are happy, how much more the parents.",
-          "answer": "*huanoa*"
+          "answer": "*huanoa*",
+          "options": [
+            "*'ange'ange*",
+            "*huanoa*",
+            "*hangē*"
+          ],
+          "correct": "*huanoa*"
         },
         {
           "id": "ch27-ex7-5",
           "prompt": "*'Oku ___ 'a e ngāué 'a Sione he ngāué 'a Mele.* Sione's work is surpassed by Mele's work.",
-          "answer": "*'ange'ange*"
+          "answer": "*'ange'ange*",
+          "options": [
+            "*'ange'ange*",
+            "*huanoa*",
+            "*hangē*"
+          ],
+          "correct": "*'ange'ange*"
         }
       ]
     },
@@ -6685,33 +7620,73 @@
       "id": "ch28-ex3",
       "number": 3,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose *atu*, *ange*, *hake*, *hifo*, or *holo* to complete each sentence.",
       "items": [
         {
           "id": "ch28-ex3-1",
           "prompt": "*'Alu ______!* (Go away!)",
-          "answer": "*atu*"
+          "answer": "*atu*",
+          "options": [
+            "*atu*",
+            "*ange*",
+            "*hake*",
+            "*hifo*",
+            "*holo*"
+          ],
+          "correct": "*atu*"
         },
         {
           "id": "ch28-ex3-2",
           "prompt": "*Tala ______ ke ha'u!* (Tell him to come!)",
-          "answer": "*ange*"
+          "answer": "*ange*",
+          "options": [
+            "*atu*",
+            "*ange*",
+            "*hake*",
+            "*hifo*",
+            "*holo*"
+          ],
+          "correct": "*ange*"
         },
         {
           "id": "ch28-ex3-3",
           "prompt": "*Na'e tō ______ 'a e kató.* (The basket fell down.)",
-          "answer": "*hifo*"
+          "answer": "*hifo*",
+          "options": [
+            "*atu*",
+            "*ange*",
+            "*hake*",
+            "*hifo*",
+            "*holo*"
+          ],
+          "correct": "*hifo*"
         },
         {
           "id": "ch28-ex3-4",
           "prompt": "*Na'a mau ō ______ 'o mamata.* (We went around and looked.)",
-          "answer": "*holo*"
+          "answer": "*holo*",
+          "options": [
+            "*atu*",
+            "*ange*",
+            "*hake*",
+            "*hifo*",
+            "*holo*"
+          ],
+          "correct": "*holo*"
         },
         {
           "id": "ch28-ex3-5",
           "prompt": "*Sio ______ ki he laní!* (Look up at the sky!)",
-          "answer": "*hake*"
+          "answer": "*hake*",
+          "options": [
+            "*atu*",
+            "*ange*",
+            "*hake*",
+            "*hifo*",
+            "*holo*"
+          ],
+          "correct": "*hake*"
         }
       ]
     },
@@ -6869,7 +7844,7 @@
       "id": "ch29-ex2",
       "number": 2,
       "title": "Choose the correct possessive class",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Fill in the blank with *'eku* or *hoku* to complete each phrase.",
       "items": [
         {
@@ -6879,7 +7854,12 @@
           "accept": [
             "*'eku* hele",
             "*'eku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*"
         },
         {
           "id": "ch29-ex2-2",
@@ -6888,7 +7868,12 @@
           "accept": [
             "*hoku* fale",
             "*hoku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*"
         },
         {
           "id": "ch29-ex2-3",
@@ -6897,7 +7882,12 @@
           "accept": [
             "*'eku* me'akai",
             "*'eku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*"
         },
         {
           "id": "ch29-ex2-4",
@@ -6906,7 +7896,12 @@
           "accept": [
             "*hoku* kofu",
             "*hoku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*"
         },
         {
           "id": "ch29-ex2-5",
@@ -6915,7 +7910,12 @@
           "accept": [
             "*'eku* kumala",
             "*'eku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*"
         },
         {
           "id": "ch29-ex2-6",
@@ -6924,7 +7924,12 @@
           "accept": [
             "*hoku* niu",
             "*hoku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*"
         },
         {
           "id": "ch29-ex2-7",
@@ -6933,7 +7938,12 @@
           "accept": [
             "*'eku* tamai",
             "*'eku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*"
         },
         {
           "id": "ch29-ex2-8",
@@ -6942,7 +7952,12 @@
           "accept": [
             "*hoku* tokoua",
             "*hoku*"
-          ]
+          ],
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*"
         }
       ]
     },
@@ -6961,7 +7976,7 @@
         {
           "id": "ch29-ex3-2",
           "prompt": "I don't have a basket.",
-          "answer": "*'Oku 'ikai ha'aku kato.*"
+          "answer": "*'Oku 'ikai ke 'i ai ha'aku kato.*"
         },
         {
           "id": "ch29-ex3-3",
@@ -6976,7 +7991,7 @@
         {
           "id": "ch29-ex3-5",
           "prompt": "I don't have any relatives.",
-          "answer": "*'Oku 'ikai haku kāinga.*"
+          "answer": "*'Oku 'ikai ke 'i ai haku kāinga.*"
         },
         {
           "id": "ch29-ex3-6",
@@ -7059,7 +8074,7 @@
         {
           "id": "ch29-ex5-4",
           "prompt": "I don't have any food.",
-          "answer": "*'Oku 'ikai ha'aku me'akai.*"
+          "answer": "*'Oku 'ikai ke 'i ai ha'aku me'akai.*"
         },
         {
           "id": "ch29-ex5-5",
@@ -7254,33 +8269,73 @@
       "id": "ch30-ex6",
       "number": 6,
       "title": "Complete the sentence with *'ilonga*, *kae kehe*, *kehe ke*, or *faifai*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch30-ex6-1",
           "prompt": "_____ ia 'oku fie ako pea ha'u ki he akó. (Whoever wants to study should come to school.)",
-          "answer": "*'Ilonga*"
+          "answer": "*'Ilonga*",
+          "options": [
+            "*'ilonga*",
+            "*kae kehe*",
+            "*kehe ke*",
+            "*faifai*",
+            "*kehe*"
+          ],
+          "correct": "*'ilonga*"
         },
         {
           "id": "ch30-ex6-2",
           "prompt": "Na'e mamafa 'a e ngāué, _____, na'a nau 'osi ia. (The work was heavy, nevertheless, they finished it.)",
-          "answer": "*kae kehe*"
+          "answer": "*kae kehe*",
+          "options": [
+            "*'ilonga*",
+            "*kae kehe*",
+            "*kehe ke*",
+            "*faifai*",
+            "*kehe*"
+          ],
+          "correct": "*kae kehe*"
         },
         {
           "id": "ch30-ex6-3",
           "prompt": "_____ pē ke ke fanongo ki ho'o fa'ē. (The one thing that matters is that you listen to your mother.)",
-          "answer": "*Kehe*"
+          "answer": "*Kehe*",
+          "options": [
+            "*'ilonga*",
+            "*kae kehe*",
+            "*kehe ke*",
+            "*faifai*",
+            "*kehe*"
+          ],
+          "correct": "*kehe*"
         },
         {
           "id": "ch30-ex6-4",
           "prompt": "Pea _____ pea 'osi 'a e matangí. (And by and by the wind stopped.)",
-          "answer": "*faifai*"
+          "answer": "*faifai*",
+          "options": [
+            "*'ilonga*",
+            "*kae kehe*",
+            "*kehe ke*",
+            "*faifai*",
+            "*kehe*"
+          ],
+          "correct": "*faifai*"
         },
         {
           "id": "ch30-ex6-5",
           "prompt": "Na'e 'ikai 'ene pa'anga, _____ ke ne feinga. (He had no money, provided that he try.)",
-          "answer": "*kehe ke*"
+          "answer": "*kehe ke*",
+          "options": [
+            "*'ilonga*",
+            "*kae kehe*",
+            "*kehe ke*",
+            "*faifai*",
+            "*kehe*"
+          ],
+          "correct": "*kehe ke*"
         }
       ]
     },
@@ -8534,57 +9589,93 @@
       "id": "ch36-ex5",
       "number": 5,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose the correct word to complete each sentence.",
       "items": [
         {
           "id": "ch36-ex5-1",
-          "prompt": "Ko Sione ______ ne kai 'a e mā. (*na'á* / *na'e* / *'e*)",
+          "prompt": "Ko Sione ______ ne kai 'a e mā.",
           "answer": "*na'á*. the tense marker *na'a* takes an acute accent before the one-syllable pronoun *ne*",
           "accept": [
             "*na'á*"
-          ]
+          ],
+          "options": [
+            "*na'á*",
+            "*na'e*",
+            "*'e*"
+          ],
+          "correct": "*na'á*"
         },
         {
           "id": "ch36-ex5-2",
-          "prompt": "Ko e tangata ______ na'e 'ita. (*ia* / *ai* / *eni*)",
+          "prompt": "Ko e tangata ______ na'e 'ita.",
           "answer": "*ia*. the emphatic pronoun reinforcing the subject's identity",
           "accept": [
             "*ia*"
-          ]
+          ],
+          "options": [
+            "*ia*",
+            "*ai*",
+            "*eni*"
+          ],
+          "correct": "*ia*"
         },
         {
           "id": "ch36-ex5-3",
-          "prompt": "Ko e me'a ia 'oku ou loto mamahi ______. (*ia* / *ai* / *eni*)",
+          "prompt": "Ko e me'a ia 'oku ou loto mamahi ______.",
           "answer": "*ai*. refers back to *ko e me'a ia*",
           "accept": [
             "*ai*"
-          ]
+          ],
+          "options": [
+            "*ia*",
+            "*ai*",
+            "*eni*"
+          ],
+          "correct": "*ai*"
         },
         {
           "id": "ch36-ex5-4",
-          "prompt": "Ko e me'a ______ 'oku ou hela'ia ai. (*ia* / *eni* / *foki*)",
+          "prompt": "Ko e me'a ______ 'oku ou hela'ia ai.",
           "answer": "*ia*. completing the set phrase *ko e me'a ia ... ai*",
           "accept": [
             "*ia*"
-          ]
+          ],
+          "options": [
+            "*ia*",
+            "*eni*",
+            "*foki*"
+          ],
+          "correct": "*ia*"
         },
         {
           "id": "ch36-ex5-5",
-          "prompt": "Ko Mele ______ e faiako. (*'a* / *ko e* / *'e*)",
+          "prompt": "Ko Mele ______ e faiako.",
           "answer": "*ko e*. the second *ko* introduces the predicate in an emphatic equational sentence",
           "accept": [
             "*ko e*"
-          ]
+          ],
+          "options": [
+            "*'a*",
+            "*ko e*",
+            "*'e*"
+          ],
+          "correct": "*ko e*"
         },
         {
           "id": "ch36-ex5-6",
-          "prompt": "Ko e ika eni na'á ku ______. (*kaí* / *kai* / *'ita*)",
+          "prompt": "Ko e ika eni na'á ku ______.",
           "answer": "*kaí*. a transitive verb with the definitive accent marking the end of the relative clause; *'ita* (angry) is intransitive and would not take an unexpressed object",
           "accept": [
             "*kaí*. a transitive verb with the definitive accent marking the end of the relative clause; *'ita* is intransitive and would not take an unexpressed object",
             "*kaí*"
-          ]
+          ],
+          "options": [
+            "*kaí*",
+            "*kai*",
+            "*'ita*"
+          ],
+          "correct": "*'ita*"
         }
       ]
     }
@@ -8922,7 +10013,7 @@
       "id": "ch38-ex3",
       "number": 3,
       "title": "Choose the correct expression",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Fill in the blank with *tuku ke*, *'ofa pē ke*, *na'a*, or *telia na'a*.",
       "items": [
         {
@@ -8931,12 +10022,26 @@
           "answer": "*Tuku ke* 'alu 'a e fefiné.",
           "accept": [
             "*Tuku ke*"
-          ]
+          ],
+          "options": [
+            "*tuku ke*",
+            "*'ofa pē ke*",
+            "*na'a*",
+            "*telia na'a*"
+          ],
+          "correct": "*tuku ke*"
         },
         {
           "id": "ch38-ex3-2",
           "prompt": "Lele mai _____ ke tōmui. (Run here or you'll be late.)",
-          "answer": "Lele mai *na'á* ke tōmui."
+          "answer": "Lele mai *na'á* ke tōmui.",
+          "options": [
+            "*tuku ke*",
+            "*'ofa pē ke*",
+            "*na'a*",
+            "*telia na'a*"
+          ],
+          "correct": "*na'a*"
         },
         {
           "id": "ch38-ex3-3",
@@ -8944,7 +10049,14 @@
           "answer": "*'Ofa pē ke* mou fiefia.",
           "accept": [
             "*'Ofa pē ke*"
-          ]
+          ],
+          "options": [
+            "*tuku ke*",
+            "*'ofa pē ke*",
+            "*na'a*",
+            "*telia na'a*"
+          ],
+          "correct": "*'ofa pē ke*"
         },
         {
           "id": "ch38-ex3-4",
@@ -8952,12 +10064,26 @@
           "answer": "*Na'a* kuó ne hela.",
           "accept": [
             "*Na'a*"
-          ]
+          ],
+          "options": [
+            "*tuku ke*",
+            "*'ofa pē ke*",
+            "*na'a*",
+            "*telia na'a*"
+          ],
+          "correct": "*na'a*"
         },
         {
           "id": "ch38-ex3-5",
           "prompt": "Ako mālohi, _____ mou tō he siví. (Study hard, lest you fail.)",
-          "answer": "Ako mālohi, *telia na'a* mou tō he siví."
+          "answer": "Ako mālohi, *telia na'a* mou tō he siví.",
+          "options": [
+            "*tuku ke*",
+            "*'ofa pē ke*",
+            "*na'a*",
+            "*telia na'a*"
+          ],
+          "correct": "*telia na'a*"
         },
         {
           "id": "ch38-ex3-6",
@@ -8965,7 +10091,14 @@
           "answer": "*Tuku ke* nau ō kinautolu.",
           "accept": [
             "*Tuku ke*"
-          ]
+          ],
+          "options": [
+            "*tuku ke*",
+            "*'ofa pē ke*",
+            "*na'a*",
+            "*telia na'a*"
+          ],
+          "correct": "*tuku ke*"
         }
       ]
     },
@@ -8973,7 +10106,7 @@
       "id": "ch38-ex4",
       "number": 4,
       "title": "Warning or uncertainty?",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each sentence, state whether *na'a* means \"lest/or else\" (warning) or \"perhaps/maybe\" (uncertainty).",
       "items": [
         {
@@ -8982,7 +10115,12 @@
           "answer": "Warning (follows a command, introduces feared consequence)",
           "accept": [
             "Warning"
-          ]
+          ],
+          "options": [
+            "Warning",
+            "Uncertainty"
+          ],
+          "correct": "Warning"
         },
         {
           "id": "ch38-ex4-2",
@@ -8990,7 +10128,12 @@
           "answer": "Uncertainty (begins clause, before tense marker *kuo*)",
           "accept": [
             "Uncertainty"
-          ]
+          ],
+          "options": [
+            "Warning",
+            "Uncertainty"
+          ],
+          "correct": "Uncertainty"
         },
         {
           "id": "ch38-ex4-3",
@@ -8998,7 +10141,12 @@
           "answer": "Warning (follows a command, introduces feared consequence)",
           "accept": [
             "Warning"
-          ]
+          ],
+          "options": [
+            "Warning",
+            "Uncertainty"
+          ],
+          "correct": "Warning"
         },
         {
           "id": "ch38-ex4-4",
@@ -9006,7 +10154,12 @@
           "answer": "Uncertainty (before *ko*, introduces uncertain identification)",
           "accept": [
             "Uncertainty"
-          ]
+          ],
+          "options": [
+            "Warning",
+            "Uncertainty"
+          ],
+          "correct": "Uncertainty"
         },
         {
           "id": "ch38-ex4-5",
@@ -9014,7 +10167,12 @@
           "answer": "Warning (follows advice, introduces feared consequence)",
           "accept": [
             "Warning"
-          ]
+          ],
+          "options": [
+            "Warning",
+            "Uncertainty"
+          ],
+          "correct": "Warning"
         }
       ]
     },
@@ -9085,38 +10243,74 @@
       "id": "ch38-ex7",
       "number": 7,
       "title": "Fill in the blank: *nai*, *'apē*, or *koā*",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose the adverb that matches the tone described in brackets.",
       "items": [
         {
           "id": "ch38-ex7-1",
           "prompt": "*Té ke ha'u _____ pe 'ikai?* [requesting a definite answer]",
-          "answer": "*koā*"
+          "answer": "*koā*",
+          "options": [
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*koā*"
         },
         {
           "id": "ch38-ex7-2",
           "prompt": "*'E ha'u _____ 'a e vakapuná 'apongipongi?* [gentle conjecture]",
-          "answer": "*'apē*"
+          "answer": "*'apē*",
+          "options": [
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*'apē*"
         },
         {
           "id": "ch38-ex7-3",
           "prompt": "*'Oku 'i fē _____ 'a Mele?* [wondering]",
-          "answer": "*nai*"
+          "answer": "*nai*",
+          "options": [
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*nai*"
         },
         {
           "id": "ch38-ex7-4",
           "prompt": "*Ko e hā _____ 'a e me'a 'oku 'ita ai 'a e pulé?* [what could the reason be]",
-          "answer": "*'apē*"
+          "answer": "*'apē*",
+          "options": [
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*'apē*"
         },
         {
           "id": "ch38-ex7-5",
           "prompt": "*'Oku toko fiha _____ ho'o fānau?* [polite, softened]",
-          "answer": "*nai*"
+          "answer": "*nai*",
+          "options": [
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*nai*"
         },
         {
           "id": "ch38-ex7-6",
           "prompt": "*'Oku nofo _____ heni 'a Sione pe 'ikai?* [I need a clear answer]",
-          "answer": "*koā*"
+          "answer": "*koā*",
+          "options": [
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*koā*"
         }
       ]
     },
@@ -9450,38 +10644,104 @@
       "id": "ch39-ex4",
       "number": 4,
       "title": "Fill in the correct demonstrative",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose from: *ni*, *na*, *eni*, *ena*, *ē*, *ia*, *heni*, *pehē*",
       "items": [
         {
           "id": "ch39-ex4-1",
           "prompt": "*'I he 'ahó _____ 'oku ou ngāue.* (this day = today)",
-          "answer": "*ni*"
+          "answer": "*ni*",
+          "options": [
+            "*ni*",
+            "*na*",
+            "*eni*",
+            "*ena*",
+            "*ē*",
+            "*ia*",
+            "*heni*",
+            "*pehē*"
+          ],
+          "correct": "*ni*"
         },
         {
           "id": "ch39-ex4-2",
           "prompt": "*Ko _____!* (There it is, pointing)",
-          "answer": "*ē*"
+          "answer": "*ē*",
+          "options": [
+            "*ni*",
+            "*na*",
+            "*eni*",
+            "*ena*",
+            "*ē*",
+            "*ia*",
+            "*heni*",
+            "*pehē*"
+          ],
+          "correct": "*ē*"
         },
         {
           "id": "ch39-ex4-3",
           "prompt": "*Fai _____.* (Do it like that.)",
-          "answer": "*pehē*"
+          "answer": "*pehē*",
+          "options": [
+            "*ni*",
+            "*na*",
+            "*eni*",
+            "*ena*",
+            "*ē*",
+            "*ia*",
+            "*heni*",
+            "*pehē*"
+          ],
+          "correct": "*pehē*"
         },
         {
           "id": "ch39-ex4-4",
           "prompt": "*Ko _____ pē.* (That is all.)",
-          "answer": "*ia*"
+          "answer": "*ia*",
+          "options": [
+            "*ni*",
+            "*na*",
+            "*eni*",
+            "*ena*",
+            "*ē*",
+            "*ia*",
+            "*heni*",
+            "*pehē*"
+          ],
+          "correct": "*ia*"
         },
         {
           "id": "ch39-ex4-5",
           "prompt": "*Nofo _____.* (Stay here.)",
-          "answer": "*heni*"
+          "answer": "*heni*",
+          "options": [
+            "*ni*",
+            "*na*",
+            "*eni*",
+            "*ena*",
+            "*ē*",
+            "*ia*",
+            "*heni*",
+            "*pehē*"
+          ],
+          "correct": "*heni*"
         },
         {
           "id": "ch39-ex4-6",
           "prompt": "*Ko ho'o kató _____ 'i he loki.* (There is your basket, near you, in the room.)",
-          "answer": "*ena*"
+          "answer": "*ena*",
+          "options": [
+            "*ni*",
+            "*na*",
+            "*eni*",
+            "*ena*",
+            "*ē*",
+            "*ia*",
+            "*heni*",
+            "*pehē*"
+          ],
+          "correct": "*ena*"
         }
       ]
     },
@@ -9603,48 +10863,136 @@
       "id": "ch40-ex3",
       "number": 3,
       "title": "Fill in the correct spatial noun",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose from: *loto*, *lalo*, *tu'a*, *mui*, *mata*, *funga*, *tafa'aki*, *ve'e*",
       "items": [
         {
           "id": "ch40-ex3-1",
           "prompt": "*'Oku tuku 'a e me'akaí he _____ tēpilé.* (The food is on top of the table.)",
-          "answer": "*funga*"
+          "answer": "*funga*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*funga*"
         },
         {
           "id": "ch40-ex3-2",
           "prompt": "*Na'á ku nofo 'i _____ falé.* (I stayed inside the house.)",
-          "answer": "*loto*"
+          "answer": "*loto*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*loto*"
         },
         {
           "id": "ch40-ex3-3",
           "prompt": "*'Oku tu'u 'a e vaká he _____ matatahí.* (The boat stands by the beach.)",
-          "answer": "*ve'e*"
+          "answer": "*ve'e*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*ve'e*"
         },
         {
           "id": "ch40-ex3-4",
           "prompt": "*'Oku va'inga e fānaú he _____ falé.* (The children are playing outside the house.)",
-          "answer": "*tu'a*"
+          "answer": "*tu'a*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*tu'a*"
         },
         {
           "id": "ch40-ex3-5",
           "prompt": "*Na'e tuku 'a e tohí 'i he _____ mohengá.* (The book was put under the bed.)",
-          "answer": "*lalo*"
+          "answer": "*lalo*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*lalo*"
         },
         {
           "id": "ch40-ex3-6",
           "prompt": "*'Oku nofo ia he _____ falé.* (She is sitting in front of the house.)",
-          "answer": "*mata*"
+          "answer": "*mata*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*mata*"
         },
         {
           "id": "ch40-ex3-7",
           "prompt": "*'Oku tu'u 'a e fu'u 'akau he _____ falé.* (The tree stands by the side of the house.)",
-          "answer": "*tafa'aki*"
+          "answer": "*tafa'aki*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*tafa'aki*"
         },
         {
           "id": "ch40-ex3-8",
           "prompt": "*'Oku 'i ai ha fale koloa he _____ halá.* (There is a store at the end of the road.)",
-          "answer": "*mui*"
+          "answer": "*mui*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*",
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*mui*"
         }
       ]
     },
@@ -9678,7 +11026,7 @@
       "id": "ch41-ex1",
       "number": 1,
       "title": "Identify the word class",
-      "type": "free",
+      "type": "mcq",
       "instructions": "State whether the word in parentheses functions as a noun, verb, adjective, or adverb in each sentence.",
       "items": [
         {
@@ -9687,7 +11035,14 @@
           "answer": "verb: *'uha* (rain) takes a tense marker, so it is acting as a verb",
           "accept": [
             "verb: *'uha* takes a tense marker, so it is acting as a verb"
-          ]
+          ],
+          "options": [
+            "noun",
+            "verb",
+            "adjective",
+            "adverb"
+          ],
+          "correct": "verb"
         },
         {
           "id": "ch41-ex1-2",
@@ -9695,7 +11050,14 @@
           "answer": "noun: *tohi* (book) is introduced by the article *ha*",
           "accept": [
             "noun: *tohi* is introduced by the article *ha*"
-          ]
+          ],
+          "options": [
+            "noun",
+            "verb",
+            "adjective",
+            "adverb"
+          ],
+          "correct": "noun"
         },
         {
           "id": "ch41-ex1-3",
@@ -9703,7 +11065,14 @@
           "answer": "adverb: *matatahi* (coast) modifies the verb *nofo*, telling where",
           "accept": [
             "adverb: *matatahi* modifies the verb *nofo*, telling where"
-          ]
+          ],
+          "options": [
+            "noun",
+            "verb",
+            "adjective",
+            "adverb"
+          ],
+          "correct": "adverb"
         },
         {
           "id": "ch41-ex1-4",
@@ -9711,7 +11080,14 @@
           "answer": "adjective: *tau* (fight) modifies *tangata*, describing the type of man",
           "accept": [
             "adjective: *tau* modifies *tangata*, describing the type of man"
-          ]
+          ],
+          "options": [
+            "noun",
+            "verb",
+            "adjective",
+            "adverb"
+          ],
+          "correct": "adjective"
         },
         {
           "id": "ch41-ex1-5",
@@ -9719,7 +11095,14 @@
           "answer": "adjective: *maka* (stone) modifies *'ā*, describing the type of fence",
           "accept": [
             "adjective: *maka* modifies *'ā*, describing the type of fence"
-          ]
+          ],
+          "options": [
+            "noun",
+            "verb",
+            "adjective",
+            "adverb"
+          ],
+          "correct": "adjective"
         },
         {
           "id": "ch41-ex1-6",
@@ -9727,7 +11110,14 @@
           "answer": "adjective: *māhina* (moon) modifies *pō*, describing the type of night",
           "accept": [
             "adjective: *māhina* modifies *pō*, describing the type of night"
-          ]
+          ],
+          "options": [
+            "noun",
+            "verb",
+            "adjective",
+            "adverb"
+          ],
+          "correct": "adjective"
         }
       ]
     },
@@ -10017,41 +11407,61 @@
       "id": "ch42-ex3",
       "number": 3,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose the correct word or phrase to complete each sentence.",
       "items": [
         {
           "id": "ch42-ex3-1",
-          "prompt": "*Na'á ku ha'u _____ 'Epeleli.* ('i / 'i he)",
+          "prompt": "*Na'á ku ha'u _____ 'Epeleli.*",
           "answer": "*'i*. months use *'i* alone, with no article",
           "accept": [
             "*'i*"
-          ]
+          ],
+          "options": [
+            "*'i*",
+            "*'i he*"
+          ],
+          "correct": "*'i*"
         },
         {
           "id": "ch42-ex3-2",
-          "prompt": "*_____ e ngāué pea nau ō.* (Hilí / Talu)",
+          "prompt": "*_____ e ngāué pea nau ō.*",
           "answer": "*Hilí*. \"after\" an event; *talu* means \"since\"",
           "accept": [
             "*Hilí*"
-          ]
+          ],
+          "options": [
+            "*Hilí*",
+            "*Talu*"
+          ],
+          "correct": "*Hilí*"
         },
         {
           "id": "ch42-ex3-3",
-          "prompt": "*Ko e _____ tohi eni na'á ku lau.* (fuofua / 'uluaki)",
+          "prompt": "*Ko e _____ tohi eni na'á ku lau.*",
           "answer": "*fuofua*. \"first\" in the sense of \"initial,\" emphasising a first occurrence",
           "accept": [
             "*fuofua*"
-          ]
+          ],
+          "options": [
+            "*fuofua*",
+            "*'uluaki*"
+          ],
+          "correct": "*fuofua*"
         },
         {
           "id": "ch42-ex3-4",
-          "prompt": "*Talu _____ ha'ú mo 'ene momoko.* (ho'o / ho)",
+          "prompt": "*Talu _____ ha'ú mo 'ene momoko.*",
           "answer": "*ho'o*. possessive before the verbal noun *ha'ú* (your coming)",
           "accept": [
             "*ho'o*. possessive before the verbal noun *ha'ú*",
             "*ho'o*"
-          ]
+          ],
+          "options": [
+            "*ho'o*",
+            "*ho*"
+          ],
+          "correct": "*ho'o*"
         }
       ]
     },
@@ -10312,7 +11722,7 @@
       "id": "ch44-ex1",
       "number": 1,
       "title": "Identify the level of definiteness",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each sentence, state whether the underlined noun phrase is indefinite, semi-definite, or definite.",
       "items": [
         {
@@ -10321,7 +11731,13 @@
           "answer": "Indefinite (*ha tohi*)",
           "accept": [
             "Indefinite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "indefinite"
         },
         {
           "id": "ch44-ex1-2",
@@ -10329,7 +11745,13 @@
           "answer": "Semi-definite (*e tohi*, no accent)",
           "accept": [
             "Semi-definite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "semi-definite"
         },
         {
           "id": "ch44-ex1-3",
@@ -10337,7 +11759,13 @@
           "answer": "Definite (*e tohí*, with accent)",
           "accept": [
             "Definite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "definite"
         },
         {
           "id": "ch44-ex1-4",
@@ -10345,7 +11773,13 @@
           "answer": "Indefinite (*hatau ngāue*)",
           "accept": [
             "Indefinite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "indefinite"
         },
         {
           "id": "ch44-ex1-5",
@@ -10353,7 +11787,13 @@
           "answer": "Semi-definite (*hotau ngāue*, no accent)",
           "accept": [
             "Semi-definite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "semi-definite"
         },
         {
           "id": "ch44-ex1-6",
@@ -10361,7 +11801,13 @@
           "answer": "Definite (*hotau ngāué*, with accent)",
           "accept": [
             "Definite"
-          ]
+          ],
+          "options": [
+            "indefinite",
+            "semi-definite",
+            "definite"
+          ],
+          "correct": "definite"
         }
       ]
     },
@@ -11022,7 +12468,7 @@
       "id": "ch47-ex1",
       "number": 1,
       "title": "Fill in the blank",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Choose *ka*, *kapau*, or *ka ne* to complete each sentence.",
       "items": [
         {
@@ -11032,7 +12478,13 @@
           "accept": [
             "*Ka* ha'u 'a 'Ana, peá ke tala ki ai.* *When 'Ana comes, tell her.",
             "*Ka*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kapau*",
+            "*ka ne*"
+          ],
+          "correct": "*ka*"
         },
         {
           "id": "ch47-ex1-2",
@@ -11041,7 +12493,13 @@
           "accept": [
             "*Kapau* 'e ha'u 'a 'Ana, peá ke tala ki ai.* *If 'Ana comes, tell her.",
             "*Kapau*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kapau*",
+            "*ka ne*"
+          ],
+          "correct": "*kapau*"
         },
         {
           "id": "ch47-ex1-3",
@@ -11050,7 +12508,13 @@
           "accept": [
             "*Ka ne* ke ha'u 'anepō, na'e 'ikai ke hoko 'a e me'a ní.* *Had you come last night, this thing would not have happened.",
             "*Ka ne*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kapau*",
+            "*ka ne*"
+          ],
+          "correct": "*ka ne*"
         },
         {
           "id": "ch47-ex1-4",
@@ -11059,7 +12523,13 @@
           "accept": [
             "*Ka* 'i ai ha ngāue, peá ke tala mai.* *Whenever there is work, tell me.",
             "*Ka*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kapau*",
+            "*ka ne*"
+          ],
+          "correct": "*ka*"
         },
         {
           "id": "ch47-ex1-5",
@@ -11068,7 +12538,13 @@
           "accept": [
             "*Ka ne* u feinga, na'á ku lava.* *Had I tried, I would have succeeded.",
             "*Ka ne*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kapau*",
+            "*ka ne*"
+          ],
+          "correct": "*ka ne*"
         },
         {
           "id": "ch47-ex1-6",
@@ -11077,7 +12553,13 @@
           "accept": [
             "*Ka* ke *ka* 'alu ki kolo, peá ke fakatau mai ha mā.* *Whenever you go to town, buy bread.",
             "*Ka*"
-          ]
+          ],
+          "options": [
+            "*ka*",
+            "*kapau*",
+            "*ka ne*"
+          ],
+          "correct": "*ka*"
         }
       ]
     },
@@ -11727,7 +13209,7 @@
       "id": "ch50-ex2",
       "number": 2,
       "title": "Identify the effect",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each reduplicated word, state whether the effect is intensification, moderation, plurality/repetition, or part-of-speech change.",
       "items": [
         {
@@ -11736,7 +13218,14 @@
           "answer": "*'uli'uli*: intensification",
           "accept": [
             "*'uli'uli*"
-          ]
+          ],
+          "options": [
+            "intensification",
+            "moderation",
+            "plurality/repetition",
+            "part-of-speech change"
+          ],
+          "correct": "intensification"
         },
         {
           "id": "ch50-ex2-2",
@@ -11744,7 +13233,14 @@
           "answer": "*māmāfana*: moderation",
           "accept": [
             "*māmāfana*"
-          ]
+          ],
+          "options": [
+            "intensification",
+            "moderation",
+            "plurality/repetition",
+            "part-of-speech change"
+          ],
+          "correct": "moderation"
         },
         {
           "id": "ch50-ex2-3",
@@ -11752,7 +13248,14 @@
           "answer": "*kupukupu*: plurality",
           "accept": [
             "*kupukupu*"
-          ]
+          ],
+          "options": [
+            "intensification",
+            "moderation",
+            "plurality/repetition",
+            "part-of-speech change"
+          ],
+          "correct": "plurality/repetition"
         },
         {
           "id": "ch50-ex2-4",
@@ -11761,7 +13264,14 @@
           "accept": [
             "*luoluo*: part-of-speech change",
             "*luoluo*"
-          ]
+          ],
+          "options": [
+            "intensification",
+            "moderation",
+            "plurality/repetition",
+            "part-of-speech change"
+          ],
+          "correct": "part-of-speech change"
         },
         {
           "id": "ch50-ex2-5",
@@ -11769,7 +13279,14 @@
           "answer": "*katakata*: moderation",
           "accept": [
             "*katakata*"
-          ]
+          ],
+          "options": [
+            "intensification",
+            "moderation",
+            "plurality/repetition",
+            "part-of-speech change"
+          ],
+          "correct": "moderation"
         },
         {
           "id": "ch50-ex2-6",
@@ -11777,7 +13294,14 @@
           "answer": "*katokatoa*: intensification",
           "accept": [
             "*katokatoa*"
-          ]
+          ],
+          "options": [
+            "intensification",
+            "moderation",
+            "plurality/repetition",
+            "part-of-speech change"
+          ],
+          "correct": "intensification"
         }
       ]
     },
@@ -11946,7 +13470,7 @@
       "id": "ch50-ex7",
       "number": 7,
       "title": "Identify the expressive device",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each item, state whether the device is (a) vowel protraction for superlativeness, (b) vowel protraction for duration, (c) ceremonial protraction, (d) a customary shout, (e) vowel lengthening in a repeated verb, or (f) none of these.",
       "items": [
         {
@@ -11955,7 +13479,16 @@
           "answer": "(a) Vowel protraction for superlativeness.",
           "accept": [
             "Vowel protraction for superlativeness."
-          ]
+          ],
+          "options": [
+            "vowel protraction for superlativeness",
+            "vowel protraction for duration",
+            "ceremonial protraction",
+            "a customary shout",
+            "vowel lengthening in a repeated verb",
+            "none of these"
+          ],
+          "correct": "vowel protraction for superlativeness"
         },
         {
           "id": "ch50-ex7-2",
@@ -11965,7 +13498,16 @@
             "A customary shout .",
             "(d) A customary shout (joy).",
             "(d) A customary shout (exultation)."
-          ]
+          ],
+          "options": [
+            "vowel protraction for superlativeness",
+            "vowel protraction for duration",
+            "ceremonial protraction",
+            "a customary shout",
+            "vowel lengthening in a repeated verb",
+            "none of these"
+          ],
+          "correct": "a customary shout"
         },
         {
           "id": "ch50-ex7-3",
@@ -11973,7 +13515,16 @@
           "answer": "(e) Vowel lengthening in a repeated verb (prolonged chasing).",
           "accept": [
             "Vowel lengthening in a repeated verb ."
-          ]
+          ],
+          "options": [
+            "vowel protraction for superlativeness",
+            "vowel protraction for duration",
+            "ceremonial protraction",
+            "a customary shout",
+            "vowel lengthening in a repeated verb",
+            "none of these"
+          ],
+          "correct": "vowel lengthening in a repeated verb"
         },
         {
           "id": "ch50-ex7-4",
@@ -11981,7 +13532,16 @@
           "answer": "(c) Ceremonial protraction of the definite article.",
           "accept": [
             "Ceremonial protraction of the definite article."
-          ]
+          ],
+          "options": [
+            "vowel protraction for superlativeness",
+            "vowel protraction for duration",
+            "ceremonial protraction",
+            "a customary shout",
+            "vowel lengthening in a repeated verb",
+            "none of these"
+          ],
+          "correct": "ceremonial protraction"
         },
         {
           "id": "ch50-ex7-5",
@@ -11991,7 +13551,16 @@
             "Vowel protraction for duration .",
             "(b) Vowel protraction for duration (sitting for a very long time).",
             "(b) Vowel protraction for duration (staying for a very long time)."
-          ]
+          ],
+          "options": [
+            "vowel protraction for superlativeness",
+            "vowel protraction for duration",
+            "ceremonial protraction",
+            "a customary shout",
+            "vowel lengthening in a repeated verb",
+            "none of these"
+          ],
+          "correct": "vowel protraction for duration"
         },
         {
           "id": "ch50-ex7-6",
@@ -11999,7 +13568,16 @@
           "answer": "(a) Vowel protraction for superlativeness (extremely small).",
           "accept": [
             "Vowel protraction for superlativeness ."
-          ]
+          ],
+          "options": [
+            "vowel protraction for superlativeness",
+            "vowel protraction for duration",
+            "ceremonial protraction",
+            "a customary shout",
+            "vowel lengthening in a repeated verb",
+            "none of these"
+          ],
+          "correct": "vowel protraction for superlativeness"
         },
         {
           "id": "ch50-ex7-7",
@@ -12009,7 +13587,16 @@
             "A customary shout .",
             "(d) A customary shout (grief).",
             "(d) A customary shout (distress)."
-          ]
+          ],
+          "options": [
+            "vowel protraction for superlativeness",
+            "vowel protraction for duration",
+            "ceremonial protraction",
+            "a customary shout",
+            "vowel lengthening in a repeated verb",
+            "none of these"
+          ],
+          "correct": "a customary shout"
         }
       ]
     },
@@ -12142,50 +13729,80 @@
       "id": "ch51-ex3",
       "number": 3,
       "title": "Choose the correct form",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Select the most appropriate pronoun form for each blank.",
       "items": [
         {
           "id": "ch51-ex3-1",
-          "prompt": "'Oku 'ikai totonu ke ___ siokita. (*te* / *ou* / *tau*)",
+          "prompt": "'Oku 'ikai totonu ke ___ siokita.",
           "answer": "*te* (impersonal \"one\")",
           "accept": [
             "*te*"
-          ]
+          ],
+          "options": [
+            "*te*",
+            "*ou*",
+            "*tau*"
+          ],
+          "correct": "*te*"
         },
         {
           "id": "ch51-ex3-2",
-          "prompt": "___ 'alu mu'a 'o sio? (*Kau* / *Ku* / *Ka u*)",
+          "prompt": "___ 'alu mu'a 'o sio?",
           "answer": "*Kau* (first person singular, sentence-initial)",
           "accept": [
             "*Kau*"
-          ]
+          ],
+          "options": [
+            "*Kau*",
+            "*Ku*",
+            "*Ka u*"
+          ],
+          "correct": "*Kau*"
         },
         {
           "id": "ch51-ex3-3",
-          "prompt": "Na'á ___ nofo mo ia. (I stayed with him.) (*ku* / *ma* / *ta*)",
+          "prompt": "Na'á ___ nofo mo ia. (I stayed with him.)",
           "answer": "*ma* (dual for singular: I stayed with him)",
           "accept": [
             "*ma*"
-          ]
+          ],
+          "options": [
+            "*ku*",
+            "*ma*",
+            "*ta*"
+          ],
+          "correct": "*ma*"
         },
         {
           "id": "ch51-ex3-4",
-          "prompt": "Té ___ haka mo ia? (Will you dance with her?) (*ke* / *mo* / *mou*)",
+          "prompt": "Té ___ haka mo ia? (Will you dance with her?)",
           "answer": "*mo* (dual: you and her together)",
           "accept": [
             "*mo*"
-          ]
+          ],
+          "options": [
+            "*ke*",
+            "*mo*",
+            "*mou*"
+          ],
+          "correct": "*mo*"
         },
         {
           "id": "ch51-ex3-5",
-          "prompt": "'Oku totonu ke tauhi 'e te ___ ngāué. (*'ete* / *'eku* / *hoto*)",
+          "prompt": "'Oku totonu ke tauhi 'e te ___ ngāué.",
           "answer": "*'ete* ('e-class: work is something one controls/acts upon)",
           "accept": [
             "*'ete*",
             "*'ete* ('e-class: work is something one controls upon)",
             "*'ete* ('e-class: work is something one acts upon)"
-          ]
+          ],
+          "options": [
+            "*'ete*",
+            "*'eku*",
+            "*hoto*"
+          ],
+          "correct": "*'ete*"
         }
       ]
     },
@@ -12346,48 +13963,78 @@
       "id": "ch52-ex3",
       "number": 3,
       "title": "Choose the correct emotional form",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "Select the appropriate emotional article or possessive for each blank.",
       "items": [
         {
           "id": "ch52-ex3-1",
-          "prompt": "'Oku puke ___ foha 'o Sione. (Sione's poor son is sick.) (*si'i* / *si'a* / *si'ono*)",
+          "prompt": "'Oku puke ___ foha 'o Sione. (Sione's poor son is sick.)",
           "answer": "*si'ono* (ho-class emotional definite possessive: son is a relative, ho-class)",
           "accept": [
             "*si'ono*"
-          ]
+          ],
+          "options": [
+            "*si'i*",
+            "*si'a*",
+            "*si'ono*"
+          ],
+          "correct": "*si'ono*"
         },
         {
           "id": "ch52-ex3-2",
-          "prompt": "Na'e 'ikai ___ faingamālie ke ha'u. (She never had a chance to come.) (*si'ane* / *si'eno* / *si'ano*)",
+          "prompt": "Na'e 'ikai ___ faingamālie ke ha'u. (She never had a chance to come.)",
           "answer": "*si'ano* (ho-class emotional indefinite possessive: opportunity comes to you, ho-class)",
           "accept": [
             "*si'ano*"
-          ]
+          ],
+          "options": [
+            "*si'ane*",
+            "*si'eno*",
+            "*si'ano*"
+          ],
+          "correct": "*si'ano*"
         },
         {
           "id": "ch52-ex3-3",
-          "prompt": "'Oku fiefia ___ fānau 'a 'Ana. ('Ana's dear children are happy.) (*si'a* / *si'i* / *si'ene*)",
+          "prompt": "'Oku fiefia ___ fānau 'a 'Ana. ('Ana's dear children are happy.)",
           "answer": "*si'i* (emotional definite article before a noun)",
           "accept": [
             "*si'i*"
-          ]
+          ],
+          "options": [
+            "*si'a*",
+            "*si'i*",
+            "*si'ene*"
+          ],
+          "correct": "*si'i*"
         },
         {
           "id": "ch52-ex3-4",
-          "prompt": "Na'e 'ikai ___ me'atokoni ke kai. (They had no food to eat, poor them.) (*si'anau* / *si'enau* / *si'a*)",
+          "prompt": "Na'e 'ikai ___ me'atokoni ke kai. (They had no food to eat, poor them.)",
           "answer": "*si'anau* (emotional indefinite possessive, 3pl: \"their,\" used here because the possession is indefinite in a negative sentence)",
           "accept": [
             "*si'anau*"
-          ]
+          ],
+          "options": [
+            "*si'anau*",
+            "*si'enau*",
+            "*si'a*"
+          ],
+          "correct": "*si'anau*"
         },
         {
           "id": "ch52-ex3-5",
-          "prompt": "'Oku hele'i ___ hōsí. (The poor horse is limping.) (*si'a* / *si'i* / *si'eno*)",
+          "prompt": "'Oku hele'i ___ hōsí. (The poor horse is limping.)",
           "answer": "*si'i* (emotional definite article: the specific horse)",
           "accept": [
             "*si'i*"
-          ]
+          ],
+          "options": [
+            "*si'a*",
+            "*si'i*",
+            "*si'eno*"
+          ],
+          "correct": "*si'i*"
         }
       ]
     },
@@ -12429,18 +14076,32 @@
       "id": "ch52-ex5",
       "number": 5,
       "title": "Identify the emotional force",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each sentence, explain whether the emotional form expresses pity, affection, humility, or endearment.",
       "items": [
         {
           "id": "ch52-ex5-1",
           "prompt": "*'Oku hela si'i hōsí.*",
-          "answer": "**Pity.** The speaker feels sorry for the tired horse."
+          "answer": "**Pity.** The speaker feels sorry for the tired horse.",
+          "options": [
+            "Pity",
+            "Affection",
+            "Humility",
+            "Endearment"
+          ],
+          "correct": "Pity"
         },
         {
           "id": "ch52-ex5-2",
           "prompt": "*Ko e fē si'i fānau 'a Pita?*",
-          "answer": "**Affection.** The speaker is asking about Pita's children with warmth and care."
+          "answer": "**Affection.** The speaker is asking about Pita's children with warmth and care.",
+          "options": [
+            "Pity",
+            "Affection",
+            "Humility",
+            "Endearment"
+          ],
+          "correct": "Affection"
         },
         {
           "id": "ch52-ex5-3",
@@ -12448,17 +14109,38 @@
           "answer": "**Humility.** The speaker is talking about their own lack (no book to read) with self-deprecation.",
           "accept": [
             "**Humility.** The speaker is talking about their own lack with self-deprecation."
-          ]
+          ],
+          "options": [
+            "Pity",
+            "Affection",
+            "Humility",
+            "Endearment"
+          ],
+          "correct": "Humility"
         },
         {
           "id": "ch52-ex5-4",
           "prompt": "*'Oku tangi si'eku ki'i pēpē.*",
-          "answer": "**Endearment.** The speaker is expressing tender feeling toward their own baby."
+          "answer": "**Endearment.** The speaker is expressing tender feeling toward their own baby.",
+          "options": [
+            "Pity",
+            "Affection",
+            "Humility",
+            "Endearment"
+          ],
+          "correct": "Endearment"
         },
         {
           "id": "ch52-ex5-5",
           "prompt": "*Na'e 'ikai si'ano faingamālie.*",
-          "answer": "**Pity.** The speaker feels sorry for the person who never had a chance."
+          "answer": "**Pity.** The speaker feels sorry for the person who never had a chance.",
+          "options": [
+            "Pity",
+            "Affection",
+            "Humility",
+            "Endearment"
+          ],
+          "correct": "Pity"
         }
       ]
     },
@@ -12502,7 +14184,7 @@
       "id": "ch53-ex1",
       "number": 1,
       "title": "Match the vocabulary level",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each word, identify its respect level: ordinary, polite, honorific, regal, or derogatory.",
       "items": [
         {
@@ -12511,7 +14193,15 @@
           "answer": "*kai*. ordinary",
           "accept": [
             "*kai*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "ordinary"
         },
         {
           "id": "ch53-ex1-2",
@@ -12519,7 +14209,15 @@
           "answer": "*taumafa*. regal",
           "accept": [
             "*taumafa*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "regal"
         },
         {
           "id": "ch53-ex1-3",
@@ -12527,7 +14225,15 @@
           "answer": "*mama*. derogatory",
           "accept": [
             "*mama*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "derogatory"
         },
         {
           "id": "ch53-ex1-4",
@@ -12535,7 +14241,15 @@
           "answer": "*tokoni*. polite",
           "accept": [
             "*tokoni*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "polite"
         },
         {
           "id": "ch53-ex1-5",
@@ -12543,7 +14257,15 @@
           "answer": "*'ilo*. honorific",
           "accept": [
             "*'ilo*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "honorific"
         },
         {
           "id": "ch53-ex1-6",
@@ -12551,7 +14273,15 @@
           "answer": "*hā'ele*. regal",
           "accept": [
             "*hā'ele*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "regal"
         },
         {
           "id": "ch53-ex1-7",
@@ -12559,7 +14289,15 @@
           "answer": "*faka'au*. polite",
           "accept": [
             "*faka'au*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "polite"
         },
         {
           "id": "ch53-ex1-8",
@@ -12567,7 +14305,15 @@
           "answer": "*me'a*. honorific",
           "accept": [
             "*me'a*"
-          ]
+          ],
+          "options": [
+            "ordinary",
+            "polite",
+            "honorific",
+            "regal",
+            "derogatory"
+          ],
+          "correct": "honorific"
         }
       ]
     },
@@ -12632,7 +14378,7 @@
       "id": "ch53-ex3",
       "number": 3,
       "title": "*Tapu mo*: Insert the correct phrase",
-      "type": "fill_blank",
+      "type": "mcq",
       "instructions": "What *tapu mo* phrase would follow each statement? Choose from: *Tapu mo koe!* / *Tapu mo hou'eiki!* / *Tapu mo ia!*",
       "items": [
         {
@@ -12641,7 +14387,13 @@
           "answer": "*Tapu mo koe!* (conversation with one person, sensitive topic)",
           "accept": [
             "*Tapu mo koe!*"
-          ]
+          ],
+          "options": [
+            "*Tapu mo koe!*",
+            "*Tapu mo hou'eiki!*",
+            "*Tapu mo ia!*"
+          ],
+          "correct": "*Tapu mo koe!*"
         },
         {
           "id": "ch53-ex3-2",
@@ -12649,7 +14401,13 @@
           "answer": "*Tapu mo hou'eiki!* (public speech before chiefs)",
           "accept": [
             "*Tapu mo hou'eiki!*"
-          ]
+          ],
+          "options": [
+            "*Tapu mo koe!*",
+            "*Tapu mo hou'eiki!*",
+            "*Tapu mo ia!*"
+          ],
+          "correct": "*Tapu mo hou'eiki!*"
         },
         {
           "id": "ch53-ex3-3",
@@ -12657,7 +14415,13 @@
           "answer": "*Tapu mo ia!* (referring to an absent person)",
           "accept": [
             "*Tapu mo ia!*"
-          ]
+          ],
+          "options": [
+            "*Tapu mo koe!*",
+            "*Tapu mo hou'eiki!*",
+            "*Tapu mo ia!*"
+          ],
+          "correct": "*Tapu mo ia!*"
         },
         {
           "id": "ch53-ex3-4",
@@ -12665,7 +14429,13 @@
           "answer": "*Tapu mo hou'eiki!* (public address, sensitive topic)",
           "accept": [
             "*Tapu mo hou'eiki!*"
-          ]
+          ],
+          "options": [
+            "*Tapu mo koe!*",
+            "*Tapu mo hou'eiki!*",
+            "*Tapu mo ia!*"
+          ],
+          "correct": "*Tapu mo hou'eiki!*"
         },
         {
           "id": "ch53-ex3-5",
@@ -12673,7 +14443,13 @@
           "answer": "*Tapu mo koe!* (conversation with one person, sensitive topic)",
           "accept": [
             "*Tapu mo koe!*"
-          ]
+          ],
+          "options": [
+            "*Tapu mo koe!*",
+            "*Tapu mo hou'eiki!*",
+            "*Tapu mo ia!*"
+          ],
+          "correct": "*Tapu mo koe!*"
         }
       ]
     },

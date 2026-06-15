@@ -1,0 +1,444 @@
+{
+  "ch1-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ke*",
+      "*ku*"
+    ]
+  },
+  "ch2-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ku*",
+      "*ou*",
+      "*u*"
+    ]
+  },
+  "ch3-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*pē*",
+      "*fa'a*",
+      "*lahi*",
+      "*'aupito*",
+      "*lelei*",
+      "*mālohi*"
+    ]
+  },
+  "ch4-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'aneafi*",
+      "*'apō*",
+      "*'anenai*",
+      "*'apongipongi*",
+      "*'anepō*",
+      "*he 'ahó ni*"
+    ]
+  },
+  "ch4-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*na'a*",
+      "*na'á*",
+      "*te*",
+      "*té*"
+    ]
+  },
+  "ch6-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'i*",
+      "*'i fē*",
+      "*heni*",
+      "*hē*"
+    ]
+  },
+  "ch7-ex1": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'i*",
+      "*ki*",
+      "*mei*"
+    ]
+  },
+  "ch7-ex2": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ki*",
+      "*kia*",
+      "*kiate*",
+      "*'i*",
+      "*'ia*",
+      "*'iate*",
+      "*mei*",
+      "*meia*",
+      "*meiate*"
+    ]
+  },
+  "ch7-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ki ai*",
+      "*'i ai*",
+      "*mei ai*"
+    ]
+  },
+  "ch8-ex1": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ha*",
+      "*'a e*"
+    ]
+  },
+  "ch8-ex2": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'a e*",
+      "*he*"
+    ]
+  },
+  "ch9-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*te*",
+      "*ke*"
+    ]
+  },
+  "ch10-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'i*",
+      "*ki*",
+      "*mei*",
+      "*mo*"
+    ]
+  },
+  "ch11-ex5": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*hā*",
+      "*fē*"
+    ]
+  },
+  "ch16-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'a*",
+      "*au*",
+      "*ki'i*",
+      "*si'isi'i*",
+      "*koe*"
+    ]
+  },
+  "ch17-ex2": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'a*",
+      "*'o*"
+    ]
+  },
+  "ch18-ex1": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "indefinite",
+      "semi-definite",
+      "definite"
+    ]
+  },
+  "ch21-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*fie*",
+      "*lava 'o*",
+      "*sai'ia*",
+      "*lava*"
+    ]
+  },
+  "ch24-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ka*",
+      "*kae*"
+    ]
+  },
+  "ch25-ex2": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ngaahi*",
+      "*kau*",
+      "*fanga*",
+      "*'ū*",
+      "*ongo*"
+    ]
+  },
+  "ch26-ex2": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ke*",
+      "*he*",
+      "*koe'uhi ke*"
+    ]
+  },
+  "ch27-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ange*",
+      "*taha*",
+      "*tatau*",
+      "*fai kehekehe*",
+      "*hangē*"
+    ]
+  },
+  "ch27-ex7": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'ange'ange*",
+      "*huanoa*",
+      "*hangē*"
+    ]
+  },
+  "ch28-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*atu*",
+      "*ange*",
+      "*hake*",
+      "*hifo*",
+      "*holo*"
+    ]
+  },
+  "ch29-ex2": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'eku*",
+      "*hoku*"
+    ]
+  },
+  "ch30-ex6": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*'ilonga*",
+      "*kae kehe*",
+      "*kehe ke*",
+      "*faifai*",
+      "*kehe*"
+    ]
+  },
+  "ch36-ex5": {
+    "interaction": "mcq",
+    "mode": "inline"
+  },
+  "ch38-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*tuku ke*",
+      "*'ofa pē ke*",
+      "*na'a*",
+      "*telia na'a*"
+    ]
+  },
+  "ch38-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "Warning",
+      "Uncertainty"
+    ]
+  },
+  "ch38-ex7": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*nai*",
+      "*'apē*",
+      "*koā*"
+    ]
+  },
+  "ch39-ex4": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ni*",
+      "*na*",
+      "*eni*",
+      "*ena*",
+      "*ē*",
+      "*ia*",
+      "*heni*",
+      "*pehē*"
+    ]
+  },
+  "ch40-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*loto*",
+      "*lalo*",
+      "*tu'a*",
+      "*mui*",
+      "*mata*",
+      "*funga*",
+      "*tafa'aki*",
+      "*ve'e*"
+    ]
+  },
+  "ch41-ex1": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "noun",
+      "verb",
+      "adjective",
+      "adverb"
+    ]
+  },
+  "ch42-ex3": {
+    "interaction": "mcq",
+    "mode": "inline"
+  },
+  "ch44-ex1": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "indefinite",
+      "semi-definite",
+      "definite"
+    ]
+  },
+  "ch47-ex1": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*ka*",
+      "*kapau*",
+      "*ka ne*"
+    ]
+  },
+  "ch50-ex2": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "intensification",
+      "moderation",
+      "plurality/repetition",
+      "part-of-speech change"
+    ]
+  },
+  "ch50-ex7": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "vowel protraction for superlativeness",
+      "vowel protraction for duration",
+      "ceremonial protraction",
+      "a customary shout",
+      "vowel lengthening in a repeated verb",
+      "none of these"
+    ]
+  },
+  "ch51-ex3": {
+    "interaction": "mcq",
+    "mode": "inline"
+  },
+  "ch52-ex3": {
+    "interaction": "mcq",
+    "mode": "inline"
+  },
+  "ch52-ex5": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "Pity",
+      "Affection",
+      "Humility",
+      "Endearment"
+    ]
+  },
+  "ch53-ex1": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": true,
+    "options": [
+      "ordinary",
+      "polite",
+      "honorific",
+      "regal",
+      "derogatory"
+    ]
+  },
+  "ch53-ex3": {
+    "interaction": "mcq",
+    "mode": "shared",
+    "labels": false,
+    "options": [
+      "*Tapu mo koe!*",
+      "*Tapu mo hou'eiki!*",
+      "*Tapu mo ia!*"
+    ]
+  }
+}

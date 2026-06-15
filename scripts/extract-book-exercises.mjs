@@ -47,6 +47,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const BOOK_DIR = path.resolve(__dirname, '..', '..', 'book')
 const OUT_FILE = path.resolve(__dirname, '..', 'src', 'data', 'book-exercises.json')
 
+// Judge-verified interaction decisions (2026-06-16 owner ruling: chapter
+// exercises are tap-an-option mcq or tap-to-reveal, never type-the-answer).
+// Built by scripts/build-interaction-decisions.mjs from the Opus judge pass.
+// Maps exercise id -> { interaction:'mcq', mode:'shared'|'inline', options?, labels? }.
+const DECISIONS = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, 'exercise-interaction-decisions.json'), 'utf8')
+)
+
 // ---------------------------------------------------------------------------
 // Markdown parsing
 // ---------------------------------------------------------------------------
@@ -495,6 +503,80 @@ function tryMcq(title, instructions, pairs) {
 }
 
 // ---------------------------------------------------------------------------
+// Apply a judge-verified interaction decision: convert an in-scope exercise to
+// tap-an-option mcq with book-sourced options + a per-item correct. The options
+// come from the decision file (shared bank) or are parsed per-item from the
+// prompt's inline "(*a* / *b* / *c*)" list. No invention. No-op when the id has
+// no decision (the prior heuristic mcqs keep their own path).
+// ---------------------------------------------------------------------------
+const _leadItalic = (s) => { const m = (s || '').match(/^\s*\*([^*]+)\*/); return m ? m[1] : null }
+const _stripGloss = (o) => o.replace(/\s*\([^)]*\)\s*$/, '')
+const _escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const _spans = (s) => { const out = []; const re = /\*([^*]+)\*/g; let m; while ((m = re.exec(s || '')) !== null) out.push(m[1]); return out }
+
+// Which option an item's answer corresponds to. Tongan: an italic-marked span
+// (or clean accept[0]) equals an option. Labels: a word-bounded substring of the
+// answer (the label may sit after the stimulus word); slash-options match any
+// part. Ties break to the earliest, then longest. Mirrors build-interaction-decisions.mjs.
+function decisionCorrect(item, options, isLabel) {
+  const full = normForCmp(item.answer)
+  const cands = []
+  if (isLabel) {
+    for (const o of options) {
+      for (const sub of normForCmp(_stripGloss(o)).split('/').map((s) => s.trim()).filter(Boolean)) {
+        const idx = full.search(new RegExp('\\b' + _escapeRe(sub) + '\\b'))
+        if (idx >= 0) cands.push({ o, idx, len: sub.length })
+      }
+    }
+  } else {
+    const spans = _spans(item.answer).map(normForCmp)
+    const a0 = item.accept && item.accept[0]
+    if (a0) spans.push(normForCmp(_leadItalic(a0) || a0))
+    for (const o of options) { const on = normForCmp(_stripGloss(o)); if (on && spans.includes(on)) cands.push({ o, idx: 0, len: on.length }) }
+  }
+  if (!cands.length) return null
+  cands.sort((a, b) => (a.idx - b.idx) || (b.len - a.len))
+  return cands[0].o
+}
+
+// Parse a per-item inline option list "(*a* / *b* / *c*)" -> { options, strip }.
+function parseInlineList(prompt) {
+  const re = /\(([^()]*\/[^()]*)\)/g
+  let m
+  while ((m = re.exec(prompt)) !== null) {
+    const inner = m[1]
+    if (!/[A-Za-zʻ’'āēīōū]/.test(inner)) continue
+    const toks = inner.split('/').map((s) => s.replace(/\*/g, '').trim()).filter(Boolean)
+    if (toks.length >= 2 && toks.every((t) => t.split(/\s+/).length <= 3 && t.length <= 18)) {
+      return { options: toks.map((t) => `*${t}*`), strip: m[0] }
+    }
+  }
+  return null
+}
+
+function applyInteractionDecision(ex) {
+  const d = DECISIONS[ex.id]
+  if (!d || d.interaction !== 'mcq') return
+  if (d.mode === 'inline') {
+    for (const it of ex.items) {
+      const p = parseInlineList(it.prompt)
+      if (!p) { console.warn(`[mcq] ${it.id}: inline options not found`); return }
+      it.options = p.options
+      it.correct = decisionCorrect(it, p.options, false)
+      it.prompt = cleanText(it.prompt.replace(p.strip, '').replace(/\s{2,}/g, ' ').trim())
+      if (!it.correct) console.warn(`[mcq] ${it.id}: no correct match (inline)`)
+    }
+  } else {
+    for (const it of ex.items) {
+      it.options = d.options
+      it.correct = decisionCorrect(it, d.options, !!d.labels)
+      if (it.answer && !it.correct) console.warn(`[mcq] ${it.id}: no correct match (shared)`)
+    }
+  }
+  ex.type = 'mcq'
+}
+
+// ---------------------------------------------------------------------------
 // Main extraction per chapter
 // ---------------------------------------------------------------------------
 
@@ -541,7 +623,10 @@ function extractChapter(chapterNum, md) {
       type = 'matching'
     } else {
       if (type === null) type = 'free'
-      if (type === 'free') {
+      // Heuristic mcq detection is the FALLBACK for exercises the judge pass
+      // did not review (it owns its decision via DECISIONS below). Skip it when
+      // a decision exists so the two paths can never disagree.
+      if (type === 'free' && !DECISIONS[`ch${chapterNum}-ex${num}`]) {
         const mcq = tryMcq(ex.title, instructions, pairs)
         if (mcq) {
           type = 'mcq'
@@ -567,14 +652,16 @@ function extractChapter(chapterNum, md) {
       return item
     })
 
-    output.push({
+    const exObj = {
       id: `ch${chapterNum}-ex${num}`,
       number: parseInt(num, 10),
       title: ex.title,
       type,
       instructions: instructions || '',
       items,
-    })
+    }
+    applyInteractionDecision(exObj)
+    output.push(exObj)
   }
   return output
 }

@@ -1,22 +1,21 @@
 import { useState } from 'react'
 import bookExercises from '../data/book-exercises.json'
-import { isCorrect } from './book-exercise-grading'
 
 // ---------------------------------------------------------------------------
-// Book Exercises — type-aware rendering (owner ruling 2026-06-13, see
-// DECISIONS.md; extended 2026-06-15). Items with ONE canonical answer are
-// interactive in the shared (Tactile) look; genuinely open items keep the
-// book-style blurred reveal. Dispatch (see ExerciseItem / the main render):
+// Book Exercises — tap-only rendering (owner ruling 2026-06-16, see DECISIONS.md;
+// supersedes the 2026-06-13 / 06-15 type-and-check paths). Chapter exercises are
+// a strict binary: tap an option, or tap to reveal. NO typing — Tongan ʻokina /
+// macrons / accents make typed answers fiddly and error-prone. Dispatch (see
+// ExerciseItem):
 //
-//   fill_blank  → type-and-check (TypeCheckItem)
-//   transform   → type-and-check (TypeCheckItem); untypeable items fall to reveal
-//   mcq         → tap-an-option  (McqItem; QuizRunner mechanic)
+//   mcq         → tap-an-option  (McqItem; the QuizRunner mechanic)
 //   matching    → tap-to-match   (MatchingExercise; whole-exercise widget)
-//   translate_* / free → blurred reveal (RevealItem)
+//   everything else (fill_blank / transform / free / translate_*) → blurred reveal
 //
-// No Tongan is authored here — every pair / option / answer comes from
-// book-exercises.json (generated from the book). Grading reuses the shipped
-// normalize / isCorrect semantics (ʻokina phonemic, accents lenient).
+// No Tongan is authored here — every option / answer comes from
+// book-exercises.json (generated from the book). The mcq options + per-item
+// correct are the judge-verified interaction decisions
+// (scripts/exercise-interaction-decisions.json); options are never fabricated.
 // ---------------------------------------------------------------------------
 
 function renderPromptText(text) {
@@ -72,73 +71,6 @@ function shuffle(arr) {
   return a
 }
 
-// A transform item is only type-checkable when it has a single canonical answer
-// that a learner can actually type. Vowel-protraction answers (e.g. *la––hi*,
-// U+2013) can't be typed, so those fall through to reveal.
-function isTypeableTransform(item) {
-  return !!item.answer && !/[–—]/.test(item.answer)
-}
-
-// Interactive type-and-check: type the answer, Check it, get correct/wrong
-// feedback. "Show" reveals the answer for anyone stuck. Shared by fill_blank
-// and transform (only the placeholder differs).
-function TypeCheckItem({ item, index, placeholder }) {
-  const [input, setInput] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [revealed, setRevealed] = useState(false)
-
-  const correct = submitted && isCorrect(input, item)
-  const showAnswer = revealed || correct
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!input.trim()) return
-    setSubmitted(true)
-  }
-
-  return (
-    <div className="py-3 border-b border-[var(--border)] last:border-b-0">
-      <div className="flex items-start gap-2 mb-1">
-        <span className="text-[var(--text-muted)] text-sm mt-0.5 w-6 flex-shrink-0">{index + 1}.</span>
-        <div className="flex-1 text-[var(--text-strong)] text-sm leading-relaxed">
-          {renderPromptText(item.prompt)}
-        </div>
-      </div>
-
-      {item.answer && (
-        <form onSubmit={handleSubmit} className="ml-8 mt-2 flex flex-wrap gap-2 items-center">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => { setInput(e.target.value); setSubmitted(false) }}
-            placeholder={placeholder}
-            aria-label={`Answer for item ${index + 1}`}
-            className={`flex-1 min-w-[10rem] bg-[var(--bg)] border rounded-xl text-[var(--text-strong)] text-[15px] px-3 py-2 focus:outline-none transition-colors font-tongan ${
-              submitted
-                ? correct
-                  ? 'border-[var(--correct)] focus:border-[var(--correct)]'
-                  : 'border-[var(--wrong)] focus:border-[var(--wrong)]'
-                : 'border-[var(--border)] focus:border-[var(--accent)]'
-            }`}
-          />
-          <button type="submit" className="x-nav">Check</button>
-          {!showAnswer && (
-            <button type="button" onClick={() => setRevealed(true)} className="x-chip">Show</button>
-          )}
-        </form>
-      )}
-
-      {submitted && (
-        <div className={`ml-8 mt-2 text-sm font-medium ${correct ? 'text-[var(--correct)]' : 'text-[var(--wrong)]'}`}>
-          {correct ? '✓ Correct' : '✗ Not quite. Try again, or tap Show.'}
-        </div>
-      )}
-
-      {showAnswer && item.answer && <AnswerLine answer={item.answer} />}
-    </div>
-  )
-}
-
 // Tap-an-option (MCQ) — mirrors the QuizRunner mechanic: select one option, it
 // locks, the correct option turns --correct and a wrong pick turns --wrong; the
 // annotated book answer is then revealed as the explanation. Options come from
@@ -147,6 +79,9 @@ function McqItem({ item, index }) {
   const [selected, setSelected] = useState(null)
   const submitted = selected !== null
   const pickedCorrect = submitted && selected === item.correct
+  // Short Tongan banks (ki / kia / kiate) read better as a wrapped pill row;
+  // long options (full sentences, classification labels) keep the stacked list.
+  const compact = item.options.every((o) => o.replace(/\*/g, '').length <= 14)
 
   return (
     <div className="py-3 border-b border-[var(--border)] last:border-b-0">
@@ -161,7 +96,7 @@ function McqItem({ item, index }) {
         )}
       </div>
 
-      <div className="x-opt-list ml-8 mt-2">
+      <div className={`${compact ? 'x-bank' : 'x-opt-list'} ml-8 mt-2`}>
         {item.options.map((opt, i) => {
           const picked = selected === opt
           const isOptCorrect = opt === item.correct
@@ -303,12 +238,6 @@ function MatchingExercise({ exercise }) {
 }
 
 function ExerciseItem({ item, index, exerciseType }) {
-  if (exerciseType === 'fill_blank' && item.answer) {
-    return <TypeCheckItem item={item} index={index} placeholder="Type the missing word…" />
-  }
-  if (exerciseType === 'transform' && isTypeableTransform(item)) {
-    return <TypeCheckItem item={item} index={index} placeholder="Type the full sentence…" />
-  }
   if (exerciseType === 'mcq' && Array.isArray(item.options) && item.options.length > 0) {
     return <McqItem item={item} index={index} />
   }
