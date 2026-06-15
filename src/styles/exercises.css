@@ -328,3 +328,65 @@
   gap: 8px;
   margin-top: 14px;
 }
+
+/* ---- Book Exercises — MCQ (tap-an-option) ------------------------------- *
+   Mirrors the quiz runner's mechanic on the Tactile tokens. Tongan inside an
+   option inherits the option's state colour (the global .font-tongan otherwise
+   forces --text-strong, which would mask the --correct/--wrong feedback).      */
+.x-opt-list { display: flex; flex-direction: column; gap: 8px; }
+.x-opt {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  text-align: left;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text-strong);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.x-opt .font-tongan { color: inherit; }
+.x-opt:hover:not(:disabled) { border-color: var(--accent); }
+.x-opt:disabled { cursor: default; }
+.x-opt.is-correct { border-color: var(--correct); color: var(--correct); }
+.x-opt.is-wrong { border-color: var(--wrong); color: var(--wrong); }
+.x-opt.is-dim { opacity: 0.5; }
+.x-opt-mark { font-weight: 600; flex-shrink: 0; }
+
+/* ---- Book Exercises — matching (tap-to-match) --------------------------- */
+.x-match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  align-items: start;
+}
+.x-match-col { display: flex; flex-direction: column; gap: 8px; }
+.x-match-cell {
+  text-align: left;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text-strong);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.x-match-cell .font-tongan { color: inherit; }
+.x-match-cell:hover:not(:disabled) { border-color: var(--accent); }
+.x-match-cell.is-selected { border-color: var(--accent); background: var(--accent-faint); }
+.x-match-cell.is-matched { border-color: var(--correct); color: var(--correct); cursor: default; }
+.x-match-cell.is-wrong { animation: x-match-wrong 0.5s ease; }
+@keyframes x-match-wrong {
+  0%, 100% { border-color: var(--border); color: var(--text-strong); }
+  25%, 65% { border-color: var(--wrong); color: var(--wrong); }
+}

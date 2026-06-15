@@ -290,7 +290,7 @@
       "id": "ch2-ex4",
       "number": 4,
       "title": "Match the pronoun to its meaning",
-      "type": "free",
+      "type": "matching",
       "instructions": "",
       "items": [
         {
@@ -1852,13 +1852,18 @@
       "id": "ch8-ex5",
       "number": 5,
       "title": "Choose the correct sentence",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each pair, choose the sentence that uses articles correctly.",
       "items": [
         {
           "id": "ch8-ex5-1",
-          "prompt": "(a) *Na'á ku 'alu ki e fale.* / (b) *Na'á ku 'alu ki he fale.*",
+          "prompt": "",
           "answer": "(b) *Na'á ku 'alu ki he fale.* After *ki*, use *he*.",
+          "options": [
+            "*Na'á ku 'alu ki e fale.*",
+            "*Na'á ku 'alu ki he fale.*"
+          ],
+          "correct": "*Na'á ku 'alu ki he fale.*",
           "accept": [
             "*Na'á ku 'alu ki he fale.* After *ki*, use *he*.",
             "*Na'á ku 'alu ki he fale.*"
@@ -1866,8 +1871,13 @@
         },
         {
           "id": "ch8-ex5-2",
-          "prompt": "(a) *'Oku ou fiema'u 'a e talo.* / (b) *'Oku ou fiema'u he talo.*",
+          "prompt": "",
           "answer": "(a) *'Oku ou fiema'u 'a e talo.* No preposition before the article, so use *'a e*.",
+          "options": [
+            "*'Oku ou fiema'u 'a e talo.*",
+            "*'Oku ou fiema'u he talo.*"
+          ],
+          "correct": "*'Oku ou fiema'u 'a e talo.*",
           "accept": [
             "*'Oku ou fiema'u 'a e talo.* No preposition before the article, so use *'a e*.",
             "*'Oku ou fiema'u 'a e talo.*"
@@ -1875,8 +1885,13 @@
         },
         {
           "id": "ch8-ex5-3",
-          "prompt": "(a) *Na'a mau nofo 'i he kolo.* / (b) *Na'a mau nofo 'i e kolo.*",
+          "prompt": "",
           "answer": "(a) *Na'a mau nofo 'i he kolo.* After *'i*, use *he*.",
+          "options": [
+            "*Na'a mau nofo 'i he kolo.*",
+            "*Na'a mau nofo 'i e kolo.*"
+          ],
+          "correct": "*Na'a mau nofo 'i he kolo.*",
           "accept": [
             "*Na'a mau nofo 'i he kolo.* After *'i*, use *he*.",
             "*Na'a mau nofo 'i he kolo.*"
@@ -1884,8 +1899,13 @@
         },
         {
           "id": "ch8-ex5-4",
-          "prompt": "(a) *Té ke kai 'a e mā?* / (b) *Té ke kai he mā?*",
+          "prompt": "",
           "answer": "(a) *Té ke kai 'a e mā?* No preposition before the article, so use *'a e*.",
+          "options": [
+            "*Té ke kai 'a e mā?*",
+            "*Té ke kai he mā?*"
+          ],
+          "correct": "*Té ke kai 'a e mā?*",
           "accept": [
             "*Té ke kai 'a e mā?* No preposition before the article, so use *'a e*.",
             "*Té ke kai 'a e mā?*"
@@ -1893,8 +1913,13 @@
         },
         {
           "id": "ch8-ex5-5",
-          "prompt": "(a) *Na'á ku ha'u mei ha kolo.* / (b) *Na'á ku ha'u mei he kolo.*",
+          "prompt": "",
           "answer": "(b) *Na'á ku ha'u mei he kolo.* After *mei*, use *he*. (Choice (a) with *ha* would mean \"from a/some town,\" changing the meaning.)",
+          "options": [
+            "*Na'á ku ha'u mei ha kolo.*",
+            "*Na'á ku ha'u mei he kolo.*"
+          ],
+          "correct": "*Na'á ku ha'u mei he kolo.*",
           "accept": [
             "*Na'á ku ha'u mei he kolo.* After *mei*, use *he*. (Choice with *ha* would mean \"from a/some town,\" changing the meaning.)",
             "*Na'á ku ha'u mei he kolo.* After *mei*, use *he*.",
@@ -2575,7 +2600,7 @@
       "id": "ch11-ex4",
       "number": 4,
       "title": "Match each question (a-e) to its answer (1-5)",
-      "type": "free",
+      "type": "matching",
       "instructions": "",
       "items": [
         {
@@ -2835,7 +2860,7 @@
       "id": "ch12-ex5",
       "number": 5,
       "title": "Match each Tongan sentence (a--e) to its English meaning (1--5)",
-      "type": "free",
+      "type": "matching",
       "instructions": "",
       "items": [
         {
@@ -2987,7 +3012,7 @@
       "id": "ch13-ex4",
       "number": 4,
       "title": "Match each Tongan question (a--e) to its English meaning (1--5)",
-      "type": "free",
+      "type": "matching",
       "instructions": "",
       "items": [
         {
@@ -3255,7 +3280,7 @@
       "id": "ch14-ex5",
       "number": 5,
       "title": "Match each Tongan expression (a--g) to its English meaning (1--7)",
-      "type": "free",
+      "type": "matching",
       "instructions": "",
       "items": [
         {
@@ -3721,13 +3746,18 @@
       "id": "ch17-ex1",
       "number": 1,
       "title": "Choose the correct possessive class",
-      "type": "free",
+      "type": "mcq",
       "instructions": "For each noun, write the correct possessive pronoun for \"my\" ('e-class *'eku* or ho-class *hoku*).",
       "items": [
         {
           "id": "ch17-ex1-1",
           "prompt": "___ pa'anga (money)",
           "answer": "*'eku* pa'anga (money: you control it)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*",
           "accept": [
             "*'eku* pa'anga",
             "*'eku*"
@@ -3737,6 +3767,11 @@
           "id": "ch17-ex1-2",
           "prompt": "___ tatā (hat)",
           "answer": "*hoku* tatā (hat: clothing, characterizes you)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*",
           "accept": [
             "*hoku* tatā",
             "*hoku*"
@@ -3746,6 +3781,11 @@
           "id": "ch17-ex1-3",
           "prompt": "___ moa (chicken)",
           "answer": "*'eku* moa (chicken: animal, you own it)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*",
           "accept": [
             "*'eku* moa",
             "*'eku*"
@@ -3755,6 +3795,11 @@
           "id": "ch17-ex1-4",
           "prompt": "___ nima (hand)",
           "answer": "*hoku* nima (hand: body part)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*",
           "accept": [
             "*hoku* nima",
             "*hoku*"
@@ -3764,6 +3809,11 @@
           "id": "ch17-ex1-5",
           "prompt": "___ ngāue (work)",
           "answer": "*'eku* ngāue (work: activity, you perform it)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*",
           "accept": [
             "*'eku* ngāue",
             "*'eku*"
@@ -3773,6 +3823,11 @@
           "id": "ch17-ex1-6",
           "prompt": "___ kofu (clothes)",
           "answer": "*hoku* kofu (clothes: clothing, characterizes you)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*",
           "accept": [
             "*hoku* kofu",
             "*hoku*"
@@ -3782,6 +3837,11 @@
           "id": "ch17-ex1-7",
           "prompt": "___ fonua (country)",
           "answer": "*hoku* fonua (country: shelters you)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*hoku*",
           "accept": [
             "*hoku* fonua",
             "*hoku*"
@@ -3791,6 +3851,11 @@
           "id": "ch17-ex1-8",
           "prompt": "___ talo (taro)",
           "answer": "*'eku* talo (taro: food, you consume it)",
+          "options": [
+            "*'eku*",
+            "*hoku*"
+          ],
+          "correct": "*'eku*",
           "accept": [
             "*'eku* talo",
             "*'eku*"
@@ -3990,7 +4055,7 @@
       "id": "ch17-ex6",
       "number": 6,
       "title": "Match the Tongan with its English translation",
-      "type": "free",
+      "type": "matching",
       "instructions": "",
       "items": [
         {
@@ -5548,13 +5613,21 @@
       "id": "ch24-ex5",
       "number": 5,
       "title": "Choose the correct conjunction (*pea*, *'o*, *ka*, *kae*, *pe*)",
-      "type": "free",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch24-ex5-1",
           "prompt": "*'Alu ___ hiva.*",
           "answer": "*'o* (going and singing as one event)",
+          "options": [
+            "*pea*",
+            "*'o*",
+            "*ka*",
+            "*kae*",
+            "*pe*"
+          ],
+          "correct": "*'o*",
           "accept": [
             "*'o*"
           ]
@@ -5563,6 +5636,14 @@
           "id": "ch24-ex5-2",
           "prompt": "*Na'á ku 'alu ki kolo ___ u fakatau mai ha me'a.*",
           "answer": "*pea* (sequential: went to town, then bought something)",
+          "options": [
+            "*pea*",
+            "*'o*",
+            "*ka*",
+            "*kae*",
+            "*pe*"
+          ],
+          "correct": "*pea*",
           "accept": [
             "*pea*"
           ]
@@ -5571,6 +5652,14 @@
           "id": "ch24-ex5-3",
           "prompt": "*'Oku ou fie ako, ___ 'oku 'ikai té u fie ngāue.*",
           "answer": "*ka* (but, before tense marker *'oku*)",
+          "options": [
+            "*pea*",
+            "*'o*",
+            "*ka*",
+            "*kae*",
+            "*pe*"
+          ],
+          "correct": "*ka*",
           "accept": [
             "*ka*"
           ]
@@ -5579,6 +5668,14 @@
           "id": "ch24-ex5-4",
           "prompt": "*Na'e 'alu 'a Tēvita ___ nofo 'a 'Ana.*",
           "answer": "*kae* (but, before verb *nofo*)",
+          "options": [
+            "*pea*",
+            "*'o*",
+            "*ka*",
+            "*kae*",
+            "*pe*"
+          ],
+          "correct": "*kae*",
           "accept": [
             "*kae*"
           ]
@@ -5587,6 +5684,14 @@
           "id": "ch24-ex5-5",
           "prompt": "*'Oku fiefia ___ 'ita?*",
           "answer": "*pe* (or)",
+          "options": [
+            "*pea*",
+            "*'o*",
+            "*ka*",
+            "*kae*",
+            "*pe*"
+          ],
+          "correct": "*pe*",
           "accept": [
             "*pe*"
           ]
@@ -5595,6 +5700,14 @@
           "id": "ch24-ex5-6",
           "prompt": "*Na'a mau nofo 'i 'api ___ fuoloa.*",
           "answer": "*'o* (time expression: for a long time)",
+          "options": [
+            "*pea*",
+            "*'o*",
+            "*ka*",
+            "*kae*",
+            "*pe*"
+          ],
+          "correct": "*'o*",
           "accept": [
             "*'o*"
           ]
@@ -5731,45 +5844,70 @@
       "id": "ch25-ex3",
       "number": 3,
       "title": "Choose the correct meaning",
-      "type": "free",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch25-ex3-1",
-          "prompt": "*kau hiva*. (a) songs (b) singers",
+          "prompt": "*kau hiva*.",
           "answer": "(b) singers",
+          "options": [
+            "songs",
+            "singers"
+          ],
+          "correct": "singers",
           "accept": [
             "singers"
           ]
         },
         {
           "id": "ch25-ex3-2",
-          "prompt": "*ngaahi hiva*. (a) songs (b) singers",
+          "prompt": "*ngaahi hiva*.",
           "answer": "(a) songs",
+          "options": [
+            "songs",
+            "singers"
+          ],
+          "correct": "songs",
           "accept": [
             "songs"
           ]
         },
         {
           "id": "ch25-ex3-3",
-          "prompt": "*kau ako*. (a) schools (b) students",
+          "prompt": "*kau ako*.",
           "answer": "(b) students",
+          "options": [
+            "schools",
+            "students"
+          ],
+          "correct": "students",
           "accept": [
             "students"
           ]
         },
         {
           "id": "ch25-ex3-4",
-          "prompt": "*ngaahi lotu*. (a) worshippers (b) religions",
+          "prompt": "*ngaahi lotu*.",
           "answer": "(b) religions",
+          "options": [
+            "worshippers",
+            "religions"
+          ],
+          "correct": "religions",
           "accept": [
             "religions"
           ]
         },
         {
           "id": "ch25-ex3-5",
-          "prompt": "*kau ngāue*. (a) tasks (b) workers",
+          "prompt": "*kau ngāue*.",
           "answer": "(b) workers",
+          "options": [
+            "tasks",
+            "workers"
+          ],
+          "correct": "workers",
           "accept": [
             "workers"
           ]
@@ -5969,13 +6107,18 @@
       "id": "ch26-ex3",
       "number": 3,
       "title": "Choose *ma'a* or *mo'o*",
-      "type": "free",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch26-ex3-1",
           "prompt": "*Ko e ika eni ___ Mele.* (fish)",
           "answer": "*ma'a* (fish is food, 'e-class)",
+          "options": [
+            "*ma'a*",
+            "*mo'o*"
+          ],
+          "correct": "*ma'a*",
           "accept": [
             "*ma'a*"
           ]
@@ -5984,6 +6127,11 @@
           "id": "ch26-ex3-2",
           "prompt": "*'Oku langa e falé ___ Sione.* (house)",
           "answer": "*mo'o* (house shelters, ho-class)",
+          "options": [
+            "*ma'a*",
+            "*mo'o*"
+          ],
+          "correct": "*mo'o*",
           "accept": [
             "*mo'o*"
           ]
@@ -5992,6 +6140,11 @@
           "id": "ch26-ex3-3",
           "prompt": "*Na'a nau tānaki 'a e pa'angá ___ e kau tamaikí.* (money)",
           "answer": "*ma'a* (money is controlled, 'e-class)",
+          "options": [
+            "*ma'a*",
+            "*mo'o*"
+          ],
+          "correct": "*ma'a*",
           "accept": [
             "*ma'a*"
           ]
@@ -6000,6 +6153,11 @@
           "id": "ch26-ex3-4",
           "prompt": "*Ko e ki'i vaka eni ___ Tēvita.* (boat)",
           "answer": "*mo'o* (boat carries, ho-class)",
+          "options": [
+            "*ma'a*",
+            "*mo'o*"
+          ],
+          "correct": "*mo'o*",
           "accept": [
             "*mo'o*"
           ]
@@ -6008,6 +6166,11 @@
           "id": "ch26-ex3-5",
           "prompt": "*'Ave e valá ___ Siale.* (clothes)",
           "answer": "*ma'a* (clothes are worn/controlled, 'e-class)",
+          "options": [
+            "*ma'a*",
+            "*mo'o*"
+          ],
+          "correct": "*ma'a*",
           "accept": [
             "*ma'a*",
             "*ma'a* (clothes are worn, 'e-class)",
@@ -6018,6 +6181,11 @@
           "id": "ch26-ex3-6",
           "prompt": "*Ko e tohi eni ___ Sēmisi.* (book)",
           "answer": "*ma'a* (book is read/acted upon, 'e-class)",
+          "options": [
+            "*ma'a*",
+            "*mo'o*"
+          ],
+          "correct": "*ma'a*",
           "accept": [
             "*ma'a*",
             "*ma'a* (book is read upon, 'e-class)",
@@ -7455,7 +7623,7 @@
       "id": "ch32-ex5",
       "number": 5,
       "title": "Match each *faka-* word to its meaning",
-      "type": "free",
+      "type": "matching",
       "instructions": "",
       "items": [
         {
@@ -8956,58 +9124,188 @@
       "id": "ch38-ex8",
       "number": 8,
       "title": "Mixed Adverb Review",
-      "type": "free",
+      "type": "mcq",
       "instructions": "Each sentence below contains a blank. Choose the correct adverb from the box. Each adverb is used once. **Word bank:** *loko*, *teitei*, *toutou*, *ai pē*, *meimei*, *matu'aki*, *lahi pē*, *nai*, *'apē*, *koā*",
       "items": [
         {
           "id": "ch38-ex8-1",
           "prompt": "*'Oku _____ tangi 'a e pēpē.* (the baby cries repeatedly)",
-          "answer": "*toutou*"
+          "answer": "*toutou*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*toutou*"
         },
         {
           "id": "ch38-ex8-2",
           "prompt": "*Na'á ku _____ tō 'i he halá.* (I almost fell on the road)",
-          "answer": "*meimei*"
+          "answer": "*meimei*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*meimei*"
         },
         {
           "id": "ch38-ex8-3",
           "prompt": "*Ko e ha'u 'eni 'o 'Isileli _____ ki heni.* (Isileli comes here as always)",
-          "answer": "*ai pē*"
+          "answer": "*ai pē*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*ai pē*"
         },
         {
           "id": "ch38-ex8-4",
           "prompt": "*'Oku 'ikai ke _____ sai e ngāué.* (the work is not quite good)",
-          "answer": "*loko*"
+          "answer": "*loko*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*loko*"
         },
         {
           "id": "ch38-ex8-5",
           "prompt": "*'Oku 'i fē _____ 'a ho'o tohí?* (I wonder where your book is)",
-          "answer": "*nai*"
+          "answer": "*nai*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*nai*"
         },
         {
           "id": "ch38-ex8-6",
           "prompt": "*'E 'ikai té u _____ 'alu ki ai.* (I will not go there at all)",
-          "answer": "*teitei*"
+          "answer": "*teitei*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*teitei*"
         },
         {
           "id": "ch38-ex8-7",
           "prompt": "*'Oku _____ mālohi 'a e falé ni.* (this house is extremely strong)",
-          "answer": "*matu'aki*"
+          "answer": "*matu'aki*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*matu'aki*"
         },
         {
           "id": "ch38-ex8-8",
           "prompt": "*'Oku _____ nofo 'a Siosaia 'i Nuku'alofa.* (Siosaia lives mostly in Nuku'alofa)",
-          "answer": "*lahi pē*"
+          "answer": "*lahi pē*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*lahi pē*"
         },
         {
           "id": "ch38-ex8-9",
           "prompt": "*Té ke ō _____ pe 'ikai?* (are you going or not: I need an answer)",
-          "answer": "*koā*"
+          "answer": "*koā*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*koā*"
         },
         {
           "id": "ch38-ex8-10",
           "prompt": "*'E lava _____ 'o fai 'a e ngāué 'apongipongi?* (can the work perhaps be done tomorrow)",
-          "answer": "*'apē*"
+          "answer": "*'apē*",
+          "options": [
+            "*loko*",
+            "*teitei*",
+            "*toutou*",
+            "*ai pē*",
+            "*meimei*",
+            "*matu'aki*",
+            "*lahi pē*",
+            "*nai*",
+            "*'apē*",
+            "*koā*"
+          ],
+          "correct": "*'apē*"
         }
       ]
     }
@@ -9518,13 +9816,18 @@
       "id": "ch41-ex4",
       "number": 4,
       "title": "Choose *ngali* or *ngalingali* for each blank",
-      "type": "free",
+      "type": "mcq",
       "instructions": "",
       "items": [
         {
           "id": "ch41-ex4-1",
           "prompt": "*'Oku ___ lelei 'a e me'akaí.* The food looks good.",
           "answer": "*ngali*. firm assessment, adjective follows directly",
+          "options": [
+            "*ngali*",
+            "*ngalingali*"
+          ],
+          "correct": "*ngali*",
           "accept": [
             "*ngali*"
           ]
@@ -9533,6 +9836,11 @@
           "id": "ch41-ex4-2",
           "prompt": "*'Oku ___ 'e 'uha 'apongipongi.* It looks like it will rain tomorrow.",
           "answer": "*ngalingali*. tentative, full clause with *'e* follows",
+          "options": [
+            "*ngali*",
+            "*ngalingali*"
+          ],
+          "correct": "*ngalingali*",
           "accept": [
             "*ngalingali*"
           ]
@@ -9541,6 +9849,11 @@
           "id": "ch41-ex4-3",
           "prompt": "*'Oku ta'e ___ ho'o leá.* Your speech is unbecoming.",
           "answer": "*ngali*. fixed expression *ta'e ngali*",
+          "options": [
+            "*ngali*",
+            "*ngalingali*"
+          ],
+          "correct": "*ngali*",
           "accept": [
             "*ngali*"
           ]
@@ -9549,6 +9862,11 @@
           "id": "ch41-ex4-4",
           "prompt": "*'Oku ___ 'e 'ikai ke ha'u 'a Sione.* It looks like Sione will not come.",
           "answer": "*ngalingali*. tentative, full clause with *'e 'ikai ke* follows",
+          "options": [
+            "*ngali*",
+            "*ngalingali*"
+          ],
+          "correct": "*ngalingali*",
           "accept": [
             "*ngalingali*"
           ]
@@ -9557,6 +9875,11 @@
           "id": "ch41-ex4-5",
           "prompt": "*'Oku ___ fe'unga 'a e pa'angá.* The money looks like enough.",
           "answer": "*ngali*. firm assessment, adjective follows directly",
+          "options": [
+            "*ngali*",
+            "*ngalingali*"
+          ],
+          "correct": "*ngali*",
           "accept": [
             "*ngali*"
           ]
@@ -9565,6 +9888,11 @@
           "id": "ch41-ex4-6",
           "prompt": "*Na'e ___ sai ange 'a e fakakaukau ko iá.* That idea seemed better.",
           "answer": "*ngalingali*. tentative assessment as preposed modifier",
+          "options": [
+            "*ngali*",
+            "*ngalingali*"
+          ],
+          "correct": "*ngalingali*",
           "accept": [
             "*ngalingali*"
           ]
@@ -9731,7 +10059,7 @@
       "id": "ch42-ex4",
       "number": 4,
       "title": "Match the expression",
-      "type": "free",
+      "type": "matching",
       "instructions": "Match each Tongan expression with its English meaning.",
       "items": [
         {
@@ -9943,7 +10271,7 @@
       "id": "ch43-ex4",
       "number": 4,
       "title": "Match the expression",
-      "type": "free",
+      "type": "matching",
       "instructions": "Match each Tongan expression with its English meaning.",
       "items": [
         {
@@ -10835,7 +11163,7 @@
       "id": "ch47-ex4",
       "number": 4,
       "title": "Match",
-      "type": "free",
+      "type": "matching",
       "instructions": "Match each *ka ne* clause (1-5) with the correct main clause (a-e).",
       "items": [
         {

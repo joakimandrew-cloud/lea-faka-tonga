@@ -373,6 +373,128 @@ function parseLetteredMatching(body, ansBody) {
 }
 
 // ---------------------------------------------------------------------------
+// Interactive-type classification: matching (tap-to-match) and MCQ
+// (tap-an-option). Both must be reconstructable FROM THE BOOK — never invent a
+// pair or a distractor. Anything that doesn't cleanly classify stays reveal.
+// ---------------------------------------------------------------------------
+
+/** Compare-normalize: strip markdown, unify ʻokina, drop accents, lowercase. */
+function normForCmp(s) {
+  if (!s) return ''
+  return String(s)
+    .replace(/\*+/g, '')
+    .replace(/[‘’ʻ'`]/g, "'")
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/^[\s".,?!]+|[\s".,?!]+$/g, '')
+    .toLowerCase()
+    .trim()
+}
+
+/** Collect distinct italic (*...*) tokens from a string, in order. */
+function collectItalics(s) {
+  const out = []
+  // Drop **bold** first so it can't desync single-* italic pairing (e.g. a
+  // "**Word bank:** *a*, *b*, ..." instruction).
+  const cleaned = (s || '').replace(/\*\*([^*]+)\*\*/g, '$1')
+  const re = /\*([^*]+)\*/g
+  let m
+  while ((m = re.exec(cleaned)) !== null) {
+    const t = m[1].trim()
+    if (t && !out.includes(t)) out.push(t)
+  }
+  return out
+}
+
+/**
+ * A matching exercise is interactive (tap-to-match) only if its pairs form a
+ * clean bijection: >=2 items, every item answered, the right-hand options are
+ * distinct, and the answer is not just an echo of the prompt (the ch53
+ * "identify the respect level" categorization, whose answer restates the word).
+ */
+function isInteractiveMatching(pairs) {
+  if (!pairs || pairs.length < 2) return false
+  if (!pairs.every((p) => p.answer)) return false
+  const rights = pairs.map((p) => normForCmp(p.answer))
+  if (new Set(rights).size !== rights.length) return false
+  const echo = pairs.filter(
+    (p) => normForCmp(p.prompt) && normForCmp(p.answer).startsWith(normForCmp(p.prompt))
+  ).length
+  if (echo > pairs.length / 2) return false
+  return true
+}
+
+/**
+ * Shape A - inline options: a prompt that carries its own "(a) ... (b) ..."
+ * choices, with the answer naming the correct letter. Returns the augmented
+ * pairs ({prompt: stem, answer, options, correct}) or null.
+ */
+function tryInlineMcq(pairs) {
+  const out = []
+  for (const p of pairs) {
+    if (!/\(a\)/i.test(p.prompt) || !/\(b\)/i.test(p.prompt)) return null
+    const parts = p.prompt.split(/\(([a-d])\)/i)
+    const stem = cleanText(parts[0].replace(/\s*\/\s*$/, '').trim())
+    const options = []
+    for (let i = 1; i < parts.length; i += 2) {
+      const label = (parts[i] || '').toLowerCase()
+      const text = cleanText((parts[i + 1] || '').replace(/\s*\/\s*$/, '').trim())
+      if (text) options.push({ label, text })
+    }
+    if (options.length < 2) return null
+    const lm = (p.answer || '').match(/^\s*\(([a-d])\)/i)
+    if (!lm) return null
+    const correct = options.find((o) => o.label === lm[1].toLowerCase())
+    if (!correct) return null
+    out.push({ prompt: stem, answer: p.answer, options: options.map((o) => o.text), correct: correct.text })
+  }
+  return out.length >= 1 ? out : null
+}
+
+/**
+ * Shape B - shared option set: the choices live once in the title/instructions
+ * (a parenthetical list, an "X or Y", or a word bank), as italic tokens. Each
+ * answer must name exactly one of them. Returns augmented pairs or null.
+ */
+function trySharedMcq(head, pairs) {
+  const opts = collectItalics(head)
+  if (opts.length < 2) return null
+  const optNorm = opts.map(normForCmp)
+  const out = []
+  for (const p of pairs) {
+    const ansNorm = collectItalics(p.answer).map(normForCmp)
+    const hit = optNorm.filter((o) => ansNorm.includes(o))
+    const uniq = [...new Set(hit)]
+    if (uniq.length !== 1) return null
+    const correct = opts[optNorm.indexOf(uniq[0])]
+    out.push({
+      prompt: p.prompt,
+      answer: p.answer,
+      options: opts.map((o) => `*${o}*`),
+      correct: `*${correct}*`,
+    })
+  }
+  return out
+}
+
+/**
+ * Classify a (currently "free") exercise as MCQ if its options are recoverable
+ * from the book: inline (a)/(b) per item, or a shared option set cued by
+ * choose/select. Never fabricates distractors - returns null (-> reveal) on any
+ * miss.
+ */
+function tryMcq(title, instructions, pairs) {
+  const head = `${title} ${instructions}`
+  // Require an explicit choose/select cue first: an exercise that merely shows
+  // an (a)/(b) pair to *compare* or *explain* (e.g. ch46-ex5 "explain the
+  // difference") is not a pick-one MCQ.
+  if (!/\b(choose|select|pick)\b/i.test(head)) return null
+  const inline = tryInlineMcq(pairs)
+  if (inline) return inline
+  return trySharedMcq(head, pairs)
+}
+
+// ---------------------------------------------------------------------------
 // Main extraction per chapter
 // ---------------------------------------------------------------------------
 
@@ -397,7 +519,7 @@ function extractChapter(chapterNum, md) {
       pairs =
         parseTableMatching(ex.body, ans ? ans.body : '') ||
         parseLetteredMatching(ex.body, ans ? ans.body : '')
-      if (pairs) type = 'free' // reveal-style: show the matched text
+      // type assigned below, once the pairs are known (see "refine type")
     }
 
     if (!pairs) {
@@ -410,11 +532,33 @@ function extractChapter(chapterNum, md) {
       }))
     }
 
+    // Refine type into the interactive classes. Matching (tap-to-match) wins
+    // when the pairs form a clean bijection; otherwise an MCQ (tap-an-option) is
+    // taken only when its options are recoverable from the book. Everything else
+    // stays reveal. Pair PRODUCTION is unchanged here - this only sets the type
+    // (and, for MCQ, attaches the book-sourced options).
+    if (isMatch && isInteractiveMatching(pairs)) {
+      type = 'matching'
+    } else {
+      if (type === null) type = 'free'
+      if (type === 'free') {
+        const mcq = tryMcq(ex.title, instructions, pairs)
+        if (mcq) {
+          type = 'mcq'
+          pairs = mcq
+        }
+      }
+    }
+
     const items = pairs.map((pair, i) => {
       const item = {
         id: `ch${chapterNum}-ex${num}-${i + 1}`,
         prompt: pair.prompt,
         answer: pair.answer,
+      }
+      if (pair.options) {
+        item.options = pair.options
+        item.correct = pair.correct
       }
       if (pair.answer) {
         const accept = expandAnswerVariants(pair.answer).filter((v) => v !== pair.answer)
@@ -469,3 +613,20 @@ console.log(`Chapters: ${Object.keys(all).length}`)
 console.log(`Exercises: ${totalExercises}`)
 console.log(`Items: ${totalItems}`)
 console.log('Types:', typeCounts)
+
+// Classification report - what became interactive, and what stayed reveal.
+const matchingList = []
+const mcqList = []
+const keptReveal = []
+for (const chExs of Object.values(all)) {
+  for (const ex of chExs) {
+    if (ex.type === 'matching') matchingList.push(`${ex.id}(${ex.items.length})`)
+    else if (ex.type === 'mcq') mcqList.push(`${ex.id}(${ex.items.length}i,${ex.items[0]?.options?.length}o)`)
+    else if (/\b(choose|select|pick|match)\b/i.test(`${ex.title} ${ex.instructions}`)) {
+      keptReveal.push(`${ex.id}[${ex.type}]`)
+    }
+  }
+}
+console.log(`\nMATCHING (${matchingList.length}): ${matchingList.join(', ')}`)
+console.log(`MCQ (${mcqList.length}): ${mcqList.join(', ')}`)
+console.log(`choose/match-titled but kept on REVEAL (${keptReveal.length}): ${keptReveal.join(', ')}`)
