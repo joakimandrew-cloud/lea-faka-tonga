@@ -105,7 +105,7 @@ export const GROUPS = [
         sample: { q: 'My helping — who acts?', ton: `ʻeku tokoni`, opts: ['I do it', 'done to me'], sel: 0 } },
       { id: 'verbal-noun-converter', ch: 45, level: 'advanced', title: `Say "when / because he read it"`, blurb: `Turn a whole sentence into a when/because phrase — and pick heʻene, heʻeku, or he hoʻo to hold it.`, action: 'Convert',
         sample: { q: 'When he read the book', ton: `ʻi ___ lau ʻa e tohí`, opts: ['heʻene', 'he hoʻo', 'heʻeku'], sel: 0 } },
-      { id: 'there-is-have', ch: 31, level: 'intermediate', title: `There is / I have`, blurb: `ʻi ai covers both "there is" and "have" — and the negative "have" drops it. Pick the opener and the tense.`, action: 'Pick',
+      { id: 'there-is-have', ch: 31, level: 'intermediate', title: `There is / I have`, blurb: `ʻi ai covers both "there is" and "have"; the negative for both is the full ʻikai ke ʻi ai. Pick the opener and the tense.`, action: 'Pick',
         sample: { q: 'I have a book', ton: `___ haʻaku tohi.`, opts: ['ʻOku ʻi ai', 'Naʻe ʻi ai'], sel: 0 } },
     ],
     inChapters: [

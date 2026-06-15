@@ -301,7 +301,7 @@ export const drillRegistry = {
   },
   'there-is-have': {
     Core: ThereIsHaveCore,
-    meta: { title: `There is / I have`, blurb: `ʻi ai for "there is" and "have"; the negative "have" drops ʻi ai, but the negative "there is" keeps it (ʻikai ke ʻi ai). Pick the right opener and tense.` },
+    meta: { title: `There is / I have`, blurb: `ʻi ai for "there is" and "have"; the negative for both is the full ʻikai ke ʻi ai. Pick the right opener and tense.` },
   },
   'count-time': {
     Core: CountTimeCore,
