@@ -6,7 +6,7 @@
     "total_patterns": 38,
     "complete_patterns": 38,
     "pending_patterns": 0,
-    "note": "s32 (Social Formulas) dropped from builder — moved to flip cards"
+    "note": "s32 (Social Formulas) dropped from builder: moved to flip cards"
   },
   "patterns": [
     {
@@ -14,7 +14,7 @@
       "data_status": "complete",
       "category": "Statements",
       "subcategory": null,
-      "title": "Simple Sentence — Tense + Pronoun + Verb",
+      "title": "Simple Sentence: Tense + Pronoun + Verb",
       "label_en": "I eat. / She sang. / We will sleep.",
       "label_to": "TM + Pronoun + Verb",
       "book_chapters": [
@@ -135,7 +135,7 @@
       "data_status": "complete",
       "category": "Statements",
       "subcategory": null,
-      "title": "With Modifier — How You Did It",
+      "title": "With Modifier: How You Did It",
       "label_en": "I worked hard. / They ate a lot. / I am very tired.",
       "label_to": "TM + Pronoun + Verb + Modifier",
       "book_chapters": [
@@ -263,7 +263,7 @@
       "data_status": "complete",
       "category": "Statements",
       "subcategory": null,
-      "title": "With Object — What You Did",
+      "title": "With Object: What You Did",
       "label_en": "I ate bread. / I want some taro. / Did you eat the fish?",
       "label_to": "TM + Pronoun + Verb + Object",
       "book_chapters": [
@@ -367,7 +367,7 @@
       },
       "assembly_rules": {
         "sentence_type": "statement",
-        "notes": "Three object types: bare noun (indefinite compound), ha + noun (indefinite with article), ʻa e + noun (definite — the focus marker ʻa is never dropped before a definite object)."
+        "notes": "Three object types: bare noun (indefinite compound), ha + noun (indefinite with article), ʻa e + noun (definite: the focus marker ʻa is never dropped before a definite object)."
       },
       "examples": [
         {
@@ -389,7 +389,7 @@
       "data_status": "complete",
       "category": "Statements",
       "subcategory": null,
-      "title": "With Time Word — When It Happened",
+      "title": "With Time Word: When It Happened",
       "label_en": "I ate fish last night. / She will go tomorrow.",
       "label_to": "TM + Pronoun + Verb + (Object) + Time Word",
       "book_chapters": [
@@ -531,7 +531,7 @@
       "data_status": "complete",
       "category": "Location and Direction",
       "subcategory": null,
-      "title": "Being Somewhere — I am at home",
+      "title": "Being Somewhere: I am at home",
       "label_en": "I am at home. / Where were you last night?",
       "label_to": "TM + Pronoun + ʻi + Place",
       "book_chapters": [
@@ -638,7 +638,7 @@
       },
       "assembly_rules": {
         "sentence_type": "statement",
-        "notes": "Location as predicate — no action verb. ʻi + place implies 'to be at.' Demonstratives heni/hena/hē can fill the place slot."
+        "notes": "Location as predicate: no action verb. ʻi + place implies 'to be at.' Demonstratives heni/hena/hē can fill the place slot."
       },
       "examples": [
         {
@@ -660,7 +660,7 @@
       "data_status": "complete",
       "category": "Location and Direction",
       "subcategory": null,
-      "title": "Action at a Place — I live in Tonga",
+      "title": "Action at a Place: I live in Tonga",
       "label_en": "I live in Tonga. / I went to town. / I came from Fiji.",
       "label_to": "TM + Pronoun + Verb + Prep + Place",
       "book_chapters": [
@@ -796,7 +796,7 @@
       "data_status": "complete",
       "category": "Location and Direction",
       "subcategory": null,
-      "title": "With Someone — I went with Sione",
+      "title": "With Someone: I went with Sione",
       "label_en": "I went with Sione. / She came with Mele.",
       "label_to": "TM + Pronoun + Verb + mo + Companion",
       "book_chapters": [
@@ -933,8 +933,8 @@
       "data_status": "complete",
       "category": "Commands and Requests",
       "subcategory": null,
-      "title": "Singular Command — Eat!",
-      "label_en": "Eat! / Please come! / Go — you!",
+      "title": "Singular Command: Eat!",
+      "label_en": "Eat! / Please come! / Go: you!",
       "label_to": "Verb (+ muʻa / + koe)",
       "book_chapters": [
         5
@@ -985,7 +985,7 @@
         },
         {
           "tongan": "ʻAlu koe!",
-          "english": "Go — you!"
+          "english": "Go: you!"
         }
       ]
     },
@@ -994,7 +994,7 @@
       "data_status": "complete",
       "category": "Commands and Requests",
       "subcategory": null,
-      "title": "Plural Command — Go, all of you!",
+      "title": "Plural Command: Go, all of you!",
       "label_en": "Eat, all of you! / Go, all of you!",
       "label_to": "mou + Verb",
       "book_chapters": [
@@ -1051,7 +1051,7 @@
       "data_status": "complete",
       "category": "Commands and Requests",
       "subcategory": null,
-      "title": "Prohibition — Don't eat!",
+      "title": "Prohibition: Don't eat!",
       "label_en": "Don't eat! / Don't sleep, all of you!",
       "label_to": "ʻoua te + Pronoun + Verb",
       "book_chapters": [
@@ -1116,7 +1116,7 @@
       "data_status": "complete",
       "category": "Commands and Requests",
       "subcategory": null,
-      "title": "Suggestion — Let's eat",
+      "title": "Suggestion: Let's eat",
       "label_en": "Let's eat. / Shall we sing? / Shall we two go?",
       "label_to": "tau/ta + Verb",
       "book_chapters": [
@@ -1172,7 +1172,7 @@
       "data_status": "complete",
       "category": "Negation",
       "subcategory": null,
-      "title": "Verbal Negation — I am not hungry",
+      "title": "Verbal Negation: I am not hungry",
       "label_en": "I am not angry. / They did not eat. / I will not go.",
       "label_to": "TM-neg + ʻikai + te + Pronoun + Verb",
       "book_chapters": [
@@ -1263,7 +1263,7 @@
       "data_status": "complete",
       "category": "Negation",
       "subcategory": null,
-      "title": "Ko Negation — I am not a teacher",
+      "title": "Ko Negation: I am not a teacher",
       "label_en": "I am not a teacher. / He is not a farmer.",
       "label_to": "ʻoku ʻikai ko e + Noun + Subject",
       "book_chapters": [
@@ -1324,7 +1324,7 @@
       "data_status": "complete",
       "category": "Questions",
       "subcategory": null,
-      "title": "Verbal Questions — Where? When? How?",
+      "title": "Verbal Questions: Where? When? How?",
       "label_en": "Where did you sleep? / When will you go? / How are you?",
       "label_to": "TM + Pronoun + Verb + Question Word",
       "book_chapters": [
@@ -1453,7 +1453,7 @@
       "data_status": "complete",
       "category": "Questions",
       "subcategory": null,
-      "title": "Who? — ko hai",
+      "title": "Who? ko hai",
       "label_en": "Who is coming? / Who sang?",
       "label_to": "ko hai + TM + Verb",
       "book_chapters": [
@@ -1521,7 +1521,7 @@
       "data_status": "complete",
       "category": "Questions",
       "subcategory": null,
-      "title": "What is that? — ko e hā",
+      "title": "What is that? ko e hā",
       "label_en": "What is that? / What is this?",
       "label_to": "ko e hā + Demonstrative",
       "book_chapters": [
@@ -1591,7 +1591,7 @@
       "data_status": "complete",
       "category": "Questions",
       "subcategory": null,
-      "title": "Where is...? — ko fē",
+      "title": "Where is...? ko fē",
       "label_en": "Where is Sione? / Where's your hat?",
       "label_to": "ko fē + Subject",
       "book_chapters": [
@@ -1644,7 +1644,7 @@
       "data_status": "complete",
       "category": "Ko Sentences",
       "subcategory": null,
-      "title": "Identifying Things — This is a book",
+      "title": "Identifying Things: This is a book",
       "label_en": "This is a book. / That is a mat.",
       "label_to": "ko e + Noun + Demonstrative",
       "book_chapters": [
@@ -1722,7 +1722,7 @@
       "data_status": "complete",
       "category": "Ko Sentences",
       "subcategory": null,
-      "title": "I am a... — Equational with Pronoun",
+      "title": "I am a... Equational with Pronoun",
       "label_en": "I am a teacher. / Are you a farmer?",
       "label_to": "ko e + Predicate Noun + Postposed Pronoun",
       "book_chapters": [
@@ -1800,7 +1800,7 @@
       "data_status": "complete",
       "category": "Ko Sentences",
       "subcategory": null,
-      "title": "He/She is a... — Equational with Name",
+      "title": "He/She is a... Equational with Name",
       "label_en": "Taniela is a teacher. / Samiu is a smart boy.",
       "label_to": "ko e + Predicate Noun + ʻa + Name",
       "book_chapters": [
@@ -1891,7 +1891,7 @@
       "data_status": "complete",
       "category": "Ko Sentences",
       "subcategory": null,
-      "title": "What Are You Doing? — ko + Possessive + Action",
+      "title": "What Are You Doing? ko + Possessive + Action",
       "label_en": "Are you hoeing? / What are you doing?",
       "label_to": "ko + Possessive + Verbal Noun (+ Prep + Place)",
       "book_chapters": [
@@ -1975,7 +1975,7 @@
       "data_status": "complete",
       "category": "Noun Subjects and Agents",
       "subcategory": null,
-      "title": "Named Subject — Sione went",
+      "title": "Named Subject: Sione went",
       "label_en": "Sione went. / Mele is happy. / Pita is sick.",
       "label_to": "TM + Verb + ʻa + Noun Subject",
       "book_chapters": [
@@ -2052,7 +2052,7 @@
       "data_status": "complete",
       "category": "Noun Subjects and Agents",
       "subcategory": null,
-      "title": "Who Did What — Transitive Sentence",
+      "title": "Who Did What: Transitive Sentence",
       "label_en": "Sione ate the bread. / Pita took Mele.",
       "label_to": "TM + Verb + ʻa + Object + ʻe + Agent",
       "book_chapters": [
@@ -2127,7 +2127,7 @@
       "pronoun_dependencies": null,
       "assembly_rules": {
         "sentence_type": "transitive",
-        "notes": "Full transitive pattern. ʻa marks the postposed object: ʻa + name for proper nouns, ʻa e + noun for definite common nouns — ʻa is never dropped before a definite object. ʻe marks the agent: ʻe + name for proper nouns, ʻe he + noun for common nouns. TMs: naʻe/ʻe/ʻoku/kuo with noun subjects (never naʻa or te). Passive variant: omit agent phrase entirely."
+        "notes": "Full transitive pattern. ʻa marks the postposed object: ʻa + name for proper nouns, ʻa e + noun for definite common nouns: ʻa is never dropped before a definite object. ʻe marks the agent: ʻe + name for proper nouns, ʻe he + noun for common nouns. TMs: naʻe/ʻe/ʻoku/kuo with noun subjects (never naʻa or te). Passive variant: omit agent phrase entirely."
       },
       "examples": [
         {
@@ -2149,7 +2149,7 @@
       "data_status": "complete",
       "category": "Noun Subjects and Agents",
       "subcategory": null,
-      "title": "Experiencer Verbs — I understand",
+      "title": "Experiencer Verbs: I understand",
       "label_en": "I understand. / I forgot. / I love you.",
       "label_to": "TM + Verb + kiate/iate + Pronoun",
       "book_chapters": [
@@ -2211,7 +2211,7 @@
       "data_status": "complete",
       "category": "Possessives",
       "subcategory": null,
-      "title": "ʻE-Class — my knife (things you control)",
+      "title": "ʻE-Class: my knife (things you control)",
       "label_en": "my knife / your book / their food",
       "label_to": "ʻE-class Possessive + Noun",
       "book_chapters": [
@@ -2265,7 +2265,7 @@
       "data_status": "complete",
       "category": "Possessives",
       "subcategory": null,
-      "title": "Ho-Class — my house (things that characterize you)",
+      "title": "Ho-Class: my house (things that characterize you)",
       "label_en": "my house / your name / his clothes",
       "label_to": "Ho-class Possessive + Noun",
       "book_chapters": [
@@ -2319,7 +2319,7 @@
       "data_status": "complete",
       "category": "Possessives",
       "subcategory": null,
-      "title": "Of-Phrase — Sione's boat",
+      "title": "Of-Phrase: Sione's boat",
       "label_en": "Sione's boat. / The teacher's book.",
       "label_to": "ko e + Noun + ʻo/ʻa + Possessor",
       "book_chapters": [
@@ -2410,7 +2410,7 @@
       "data_status": "complete",
       "category": "Numbers and Time",
       "subcategory": null,
-      "title": "Counting Things — six baskets",
+      "title": "Counting Things: six baskets",
       "label_en": "six baskets / three books",
       "label_to": "Noun + ʻe + Number",
       "book_chapters": [
@@ -2475,7 +2475,7 @@
       "data_status": "complete",
       "category": "Numbers and Time",
       "subcategory": null,
-      "title": "Counting People — five people",
+      "title": "Counting People: five people",
       "label_en": "five people / only three",
       "label_to": "toko + Number",
       "book_chapters": [
@@ -2531,7 +2531,7 @@
       "data_status": "complete",
       "category": "Numbers and Time",
       "subcategory": null,
-      "title": "Prices — How much is the shirt?",
+      "title": "Prices: How much is the shirt?",
       "label_en": "How much is the shirt?",
       "label_to": "ʻoku fiha ʻa e + Noun",
       "book_chapters": [
@@ -2613,7 +2613,7 @@
       "data_status": "complete",
       "category": "Numbers and Time",
       "subcategory": null,
-      "title": "Telling Time — It is three o'clock",
+      "title": "Telling Time: It is three o'clock",
       "label_en": "It is three o'clock. / What time is it?",
       "label_to": "ko e + Hour + eni",
       "book_chapters": [
@@ -2695,7 +2695,7 @@
       "data_status": "complete",
       "category": "Auxiliaries and Modals",
       "subcategory": null,
-      "title": "Wanting and Ability — I want to eat",
+      "title": "Wanting and Ability: I want to eat",
       "label_en": "I want to eat. / I can go. / I like fishing.",
       "label_to": "TM + Pronoun + Auxiliary + Verb (+ Time)",
       "book_chapters": [
@@ -2810,7 +2810,7 @@
       },
       "assembly_rules": {
         "sentence_type": "statement",
-        "notes": "Auxiliary verbs slot between pronoun and main verb. fie (want) takes verb directly: fie kai = want to eat. lava ʻo (can) inserts ʻo before the main verb: lava ʻo ʻalu = can go. saiʻia (like) takes he + definite noun rather than a verb — note as variant, not included in builder dropdown."
+        "notes": "Auxiliary verbs slot between pronoun and main verb. fie (want) takes verb directly: fie kai = want to eat. lava ʻo (can) inserts ʻo before the main verb: lava ʻo ʻalu = can go. saiʻia (like) takes he + definite noun rather than a verb: note as variant, not included in builder dropdown."
       },
       "examples": [
         {
@@ -2832,7 +2832,7 @@
       "data_status": "complete",
       "category": "Auxiliaries and Modals",
       "subcategory": null,
-      "title": "Still / Already — I am still eating",
+      "title": "Still / Already: I am still eating",
       "label_en": "I am still eating. / I have already finished. / I am working right now.",
       "label_to": "TM + Pronoun + Aspect + Verb",
       "book_chapters": [
@@ -2938,7 +2938,7 @@
       },
       "assembly_rules": {
         "sentence_type": "statement",
-        "notes": "Aspect markers slot between pronoun and main verb (same position as auxiliaries). kei (still) pairs well with pē. ʻosi (already) pairs naturally with kuo. lolotonga (currently) marks action in progress. toe (again) indicates repetition. toki (just now/not until) marks timing. Post-verbal variant: leva (immediately) goes after the verb — note as variant."
+        "notes": "Aspect markers slot between pronoun and main verb (same position as auxiliaries). kei (still) pairs well with pē. ʻosi (already) pairs naturally with kuo. lolotonga (currently) marks action in progress. toe (again) indicates repetition. toki (just now/not until) marks timing. Post-verbal variant: leva (immediately) goes after the verb: note as variant."
       },
       "examples": [
         {
@@ -2960,7 +2960,7 @@
       "data_status": "complete",
       "category": "Auxiliaries and Modals",
       "subcategory": null,
-      "title": "Should / Must — You should eat",
+      "title": "Should / Must: You should eat",
       "label_en": "You should eat. / You must go.",
       "label_to": "Modal + ke + (Pronoun | ʻa + Noun) + Verb (+ Prep + Place)",
       "book_chapters": [
@@ -3043,7 +3043,7 @@
       "pronoun_dependencies": null,
       "assembly_rules": {
         "sentence_type": "modal",
-        "notes": "Modal obligation frames wrap around a ke-subordinate clause. ʻoku totonu (should) expresses moral obligation or probability. kuo pau (must) expresses necessity or certainty. 1sg after ke is always u (not ou/ku). Fill EITHER pronoun OR noun_subject (ʻa + name), not both. Optional preposition + place for motion verbs. Negative variant: ʻoku ʻikai totonu ke. Emphatic negative: ʻoku totonu ke ʻoua naʻa — note as advanced variant."
+        "notes": "Modal obligation frames wrap around a ke-subordinate clause. ʻoku totonu (should) expresses moral obligation or probability. kuo pau (must) expresses necessity or certainty. 1sg after ke is always u (not ou/ku). Fill EITHER pronoun OR noun_subject (ʻa + name), not both. Optional preposition + place for motion verbs. Negative variant: ʻoku ʻikai totonu ke. Emphatic negative: ʻoku totonu ke ʻoua naʻa: note as advanced variant."
       },
       "examples": [
         {
@@ -3065,7 +3065,7 @@
       "data_status": "complete",
       "category": "Advanced Patterns",
       "subcategory": null,
-      "title": "Comparison — Tonga is smaller than Fiji",
+      "title": "Comparison: Tonga is smaller than Fiji",
       "label_en": "Tēvita is stronger than Sēmisi. / The truck is faster than the bicycle.",
       "label_to": "TM + Adj + ange + ʻa + Subject + ʻi + NP",
       "book_chapters": [
@@ -3174,7 +3174,7 @@
       "data_status": "complete",
       "category": "Advanced Patterns",
       "subcategory": null,
-      "title": "Directional Particles — Come here",
+      "title": "Directional Particles: Come here",
       "label_en": "She is coming. / I will tell you. / They went down to the sea.",
       "label_to": "TM + Pronoun + Verb + Directional (+ Prep + Place)",
       "book_chapters": [
@@ -3297,7 +3297,7 @@
       },
       "assembly_rules": {
         "sentence_type": "statement",
-        "notes": "Directional particle immediately follows the verb, before any objects or prepositional phrases. mai (toward speaker, 1st person), atu (away from speaker / toward listener, 2nd person), ange (toward third party, 3rd person), hake (upward / to completion), hifo (downward / to quietness), holo (around / in various directions). Note: ange also serves as comparative marker in s36 — context disambiguates. haʻu does not combine with directional particles (motion toward the speaker is already built into the verb); other motion verbs pair freely with the directionals. Commands without TM/pronoun also work: Haʻu! ʻAlu atu!"
+        "notes": "Directional particle immediately follows the verb, before any objects or prepositional phrases. mai (toward speaker, 1st person), atu (away from speaker / toward listener, 2nd person), ange (toward third party, 3rd person), hake (upward / to completion), hifo (downward / to quietness), holo (around / in various directions). Note: ange also serves as comparative marker in s36: context disambiguates. haʻu does not combine with directional particles (motion toward the speaker is already built into the verb); other motion verbs pair freely with the directionals. Commands without TM/pronoun also work: Haʻu! ʻAlu atu!"
       },
       "examples": [
         {
@@ -3319,7 +3319,7 @@
       "data_status": "complete",
       "category": "Advanced Patterns",
       "subcategory": null,
-      "title": "There Is — Existential Sentences",
+      "title": "There Is: Existential Sentences",
       "label_en": "There is a man here. / There is no food in the house.",
       "label_to": "ʻOku ʻi ai + ha + Noun (+ Location)",
       "book_chapters": [
@@ -3385,7 +3385,7 @@
       "pronoun_dependencies": null,
       "assembly_rules": {
         "sentence_type": "existential",
-        "notes": "Existential 'there is/are.' ha (indefinite) is required — you can only assert the existence of something indefinite. Location is optional but common. The classifier fo'i can appear before the noun to single out one item (ha fo'i moli = an orange). Negative variant: 'Oku 'ikai ke 'i ai ha... Other tenses: Na'e 'i ai (there was), 'E 'i ai (there will be)."
+        "notes": "Existential 'there is/are.' ha (indefinite) is required: you can only assert the existence of something indefinite. Location is optional but common. The classifier fo'i can appear before the noun to single out one item (ha fo'i moli = an orange). Negative variant: 'Oku 'ikai ke 'i ai ha... Other tenses: Na'e 'i ai (there was), 'E 'i ai (there will be)."
       },
       "examples": [
         {
@@ -3407,7 +3407,7 @@
       "data_status": "complete",
       "category": "Advanced Patterns",
       "subcategory": null,
-      "title": "Cleft Sentence — It was Sione who ate the bread",
+      "title": "Cleft Sentence: It was Sione who ate the bread",
       "label_en": "It was Sione who ate the bread. / It is Mele who is singing.",
       "label_to": "Ko + Subject + TM + Verb + Object",
       "book_chapters": [
@@ -3507,7 +3507,7 @@
       "data_status": "complete",
       "category": "Location and Direction",
       "subcategory": null,
-      "title": "Noun Classes — to Mele, to the teacher",
+      "title": "Noun Classes: to Mele, to the teacher",
       "label_en": "I spoke to Mele. / He helped the teacher. / We sailed from Haʻapai.",
       "label_to": "TM + Pronoun + Verb + Preposition + Place",
       "book_chapters": [46],
@@ -3540,7 +3540,7 @@
       "data_status": "complete",
       "category": "Statements",
       "subcategory": null,
-      "title": "Describing Character — I am eager",
+      "title": "Describing Character: I am eager",
       "label_en": "I am upset. / She is courageous. / They are kind.",
       "label_to": "TM + Pronoun + Adjective",
       "book_chapters": [35],
@@ -3571,7 +3571,7 @@
       "data_status": "complete",
       "category": "Numbers and Time",
       "subcategory": null,
-      "title": "When It Happened — months and time",
+      "title": "When It Happened: months and time",
       "label_en": "I came in January. / He will return in November.",
       "label_to": "TM + Pronoun + Verb + Time",
       "book_chapters": [42],
@@ -3603,7 +3603,7 @@
       "data_status": "complete",
       "category": "Auxiliaries and Modals",
       "subcategory": null,
-      "title": "Let / May — permission and hopes",
+      "title": "Let / May: permission and hopes",
       "label_en": "Let me help. / May they return.",
       "label_to": "Tuku ke / ʻOfa ke + (Pronoun | ʻa + Noun) + Verb",
       "book_chapters": [38],

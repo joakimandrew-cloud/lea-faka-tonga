@@ -17,7 +17,7 @@ export default function SkeletonFiller() {
         <>
           Every Tongan sentence sits inside one of a handful of shapes.
           Here&rsquo;s an empty shape. The slots have roles. Pick words
-          from the pool to fill them &mdash; the pattern tells you what
+          from the pool to fill them: the pattern tells you what
           goes where.
         </>
       }
@@ -32,7 +32,7 @@ export default function SkeletonFiller() {
           </p>
           <p>
             This is why fluent speakers never sound like they&rsquo;re
-            translating word-by-word from English &mdash; they start from
+            translating word-by-word from English: they start from
             the pattern, not from the words.
           </p>
           <p className="pcs-lesson-foot">

@@ -13,9 +13,9 @@ import PickerCore from './PickerCore'
 // `fill` is the hyphen-free string that belongs inside the sentence blank
 // (PickerCore falls back to `label` when it has no fill support yet).
 const OPTIONS = [
-  { id: 'aki-prep',   label: 'ʻaki',  fill: 'ʻaki', detail: 'separate word — with / by means of' },
-  { id: 'i-suffix',   label: '-ʻi',   fill: 'ʻi',   detail: 'suffix — transitivize a verb' },
-  { id: 'aki-suffix', label: '-ʻaki', fill: 'ʻaki', detail: 'suffix — use as / treat as' },
+  { id: 'aki-prep',   label: 'ʻaki',  fill: 'ʻaki', detail: 'separate word: with / by means of' },
+  { id: 'i-suffix',   label: '-ʻi',   fill: 'ʻi',   detail: 'suffix: transitivize a verb' },
+  { id: 'aki-suffix', label: '-ʻaki', fill: 'ʻaki', detail: 'suffix: use as / treat as' },
 ]
 
 const PROMPTS = [

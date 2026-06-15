@@ -284,7 +284,7 @@ export default function PickerCore({
             <div className="pcs-noun">{score.right} / {score.total} correct</div>
             <div className="pcs-noun-gloss">
               {perfect
-                ? 'Perfect \u2014 every answer right.'
+                ? 'Perfect: every answer right.'
                 : 'You made it through the whole deck.'}
             </div>
           </div>

@@ -11,6 +11,13 @@
  *      are banned from book/ per the zero-tolerance policy. Replace with
  *      comma, colon, semicolon, parens, or sentence split.
  *
+ *   1b. APP-CONTENT EM-DASH (hard fail). Extends the same ban to what the app
+ *      renders: quiz/chart/chapter/pattern/graph data + drill & builder copy.
+ *      Catches —, the — escape, and &mdash;. JSX is comment-stripped so
+ *      JSDoc em-dashes don't trip it; marketing pages (Offer/Landing/Keepers)
+ *      are excluded pending an owner ruling; components are warning-only (they
+ *      carry a legit /[–—]/ dash-detection regex). (2026-06-15)
+ *
  *   2. CHAPTER CONTIGUITY (hard fail). Verifies Chapter-01..NN.md exist
  *      with no gaps or extras, and that src/data/chapters.json has the
  *      same count and titles match the `# Chapter N: Title` headings in
@@ -223,6 +230,69 @@ async function checkAEPattern(chapterFiles) {
   return warnings
 }
 
+// ── App-content em-dash guard (2026-06-15) ────────────────────────────────
+// The book em-dash hard-fail (checkEmDashes) only covers book/Chapter-*.md.
+// This extends the zero-tolerance rule to what the APP renders, which is where
+// em-dashes had silently regressed (quizzes, charts, drill/builder copy). Three
+// representations are caught: literal — (U+2014), the — escape, and the
+// &mdash; HTML entity. JSON data files are checked raw (pure content). JSX is
+// comment-stripped first so JSDoc em-dashes (not rendered) don't trip it.
+// Marketing pages (Offer/Landing/Keepers) are excluded pending an owner ruling
+// on rewriting outward-facing sales copy. Components are warning-only because
+// they legitimately contain a dash-detection regex (/[–—]/ in BookExercises).
+const APP_DATA_FILES = ['quizzes.json', 'sentence-patterns.json', 'chapters.json', 'grammar-graph.json', 'book-exercises.json']
+const APP_MARKETING_EXCLUDE = new Set(['Offer.jsx', 'Landing.jsx', 'Keepers.jsx'])
+
+function stripJsComments(s) {
+  return s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/[^\n]*/g, '$1')
+}
+
+function emDashHits(text) {
+  const hits = []
+  const lines = text.split('\n')
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i]
+    if (l.includes(EM_DASH) || l.includes('&mdash;') || l.includes('\\u2014')) {
+      hits.push({ line: i + 1, ctx: l.trim().slice(0, 90) })
+    }
+  }
+  return hits
+}
+
+async function listJsxFiles(dir) {
+  const out = []
+  async function walk(d) {
+    const entries = await fs.readdir(d, { withFileTypes: true }).catch(() => [])
+    for (const e of entries) {
+      const p = path.join(d, e.name)
+      if (e.isDirectory()) await walk(p)
+      else if (e.name.endsWith('.jsx')) out.push(p)
+    }
+  }
+  await walk(dir)
+  return out.sort()
+}
+
+async function checkAppEmDashes() {
+  const hard = [], warn = []
+  for (const f of APP_DATA_FILES) {
+    const t = await fs.readFile(path.join(APP_ROOT, 'src/data', f), 'utf8').catch(() => null)
+    if (t) for (const h of emDashHits(t)) hard.push({ file: `src/data/${f}`, ...h })
+  }
+  for (const dir of ['src/drills', 'src/pages']) {
+    for (const p of await listJsxFiles(path.join(APP_ROOT, dir))) {
+      if (APP_MARKETING_EXCLUDE.has(path.basename(p))) continue
+      const t = stripJsComments(await fs.readFile(p, 'utf8'))
+      for (const h of emDashHits(t)) hard.push({ file: path.relative(APP_ROOT, p), ...h })
+    }
+  }
+  for (const p of await listJsxFiles(path.join(APP_ROOT, 'src/components'))) {
+    const t = stripJsComments(await fs.readFile(p, 'utf8'))
+    for (const h of emDashHits(t)) warn.push({ file: path.relative(APP_ROOT, p), ...h })
+  }
+  return { hard, warn }
+}
+
 async function main() {
   const chapterFiles = await readChapterFiles()
   const chapters = await readJSON(CHAPTERS_JSON)
@@ -276,6 +346,20 @@ async function main() {
   } else {
     console.log(`  ${aeWarn.length} pattern(s) worth a human glance (false positives expected for clefts/semi-definite drills):`)
     for (const w of aeWarn) console.log(`  ⚠ ${w.file}:${w.line}  "${w.hit}"  → ${w.ctx}`)
+  }
+
+  console.log('\n── App-content em-dash check (hard) ──')
+  const { hard: appDash, warn: appDashWarn } = await checkAppEmDashes()
+  if (appDash.length === 0) {
+    console.log('  ✓ no em-dashes (U+2014 / &mdash;) in app content (data files, drills, non-marketing pages)')
+  } else {
+    exitCode = 1
+    for (const h of appDash) console.log(`  ✗ ${h.file}:${h.line}  ${h.ctx}`)
+    console.log(`  ${appDash.length} app-content em-dash(es) — replace per house style (comma/colon/semicolon/parens/split; en-dash for placeholders)`)
+  }
+  if (appDashWarn.length) {
+    console.log(`  ⚠ ${appDashWarn.length} em-dash(es) in components (warning — incl. the BookExercises /[–—]/ detection regex, which is logic, not prose):`)
+    for (const w of appDashWarn) console.log(`  ⚠ ${w.file}:${w.line}  ${w.ctx}`)
   }
 
   const citationViolations = await runCitationCheck()

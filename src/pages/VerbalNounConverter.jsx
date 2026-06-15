@@ -24,7 +24,7 @@ export default function VerbalNounConverter() {
             <strong>The pattern.</strong> Subject pronoun + <em>he</em> +
             verbal noun becomes <em>heʻe + pronoun + verbal noun</em>.
             The contracted forms are: <em>heʻeku</em> (my), <em>heʻene</em>{' '}
-            (his/her), <em>he ʻenau</em> (their) — note the space before
+            (his/her), <em>he ʻenau</em> (their), noting the space before
             plural <em>ʻenau</em>.
           </p>
           <p>
@@ -36,7 +36,7 @@ export default function VerbalNounConverter() {
           <p className="pcs-lesson-foot">
             The possessive class is always <em>he-</em> (ʻe-class) for
             verbal nouns, because the person doing the action is the one
-            &ldquo;controlled by&rdquo; the action — never the receiver.
+            &ldquo;controlled by&rdquo; the action, never the receiver.
           </p>
         </>
       }

@@ -16,7 +16,7 @@ export default function ClusivityCorner() {
       blurb={
         <>
           English collapses all kinds of &ldquo;we&rdquo; into one word.
-          Tongan splits them four ways &mdash; by whether the listener is
+          Tongan splits them four ways: by whether the listener is
           included, and by whether there are two people or three-plus.
           Read the scenario. Pick the right form.
         </>
@@ -31,7 +31,7 @@ export default function ClusivityCorner() {
             us, or not? Am I talking about the two of us, or the group?
           </p>
           <p>
-            This isn&rsquo;t a grammatical quirk &mdash; it&rsquo;s a
+            This isn&rsquo;t a grammatical quirk: it&rsquo;s a
             cultural one. Polynesian languages foreground relationship
             information that English leaves implicit. Using the wrong
             &ldquo;we&rdquo; isn&rsquo;t just a mistake; it can

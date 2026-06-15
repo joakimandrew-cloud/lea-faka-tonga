@@ -20,16 +20,16 @@ const QUESTIONS = [
   { ton: 'ʻOku ou fiefia ʻiate koe.', q: 'What is she telling you?',
     options: ['I’m proud of you.', 'I’m worried about you.', 'I missed you.', 'I’m here for you.'], answer: 0 },
   { ton: 'Nofo ā, ʻofa atu.', q: 'She’s leaving. What did she say?',
-    options: ['Goodbye — I love you.', 'Come back soon.', 'Sleep well now.', 'Be careful out there.'], answer: 0 },
+    options: ['Goodbye, I love you.', 'Come back soon.', 'Sleep well now.', 'Be careful out there.'], answer: 0 },
 ]
 
 const RESULTS = [
   { min: 0, band: 'She’s speaking, and her words are slipping away.',
-    body: 'You caught almost none of it — and that’s not your fault. A language doesn’t die on the islands; it fades in the diaspora, one family at a time. The good news: you can start mending the thread today, and the first real sentence to your grandmother is closer than you think.' },
+    body: 'You caught almost none of it, and that’s not your fault. A language doesn’t die on the islands; it fades in the diaspora, one family at a time. The good news: you can start mending the thread today, and the first real sentence to your grandmother is closer than you think.' },
   { min: 3, band: 'You catch fragments. The thread is fraying.',
-    body: 'You understand pieces — a word here, a phrase there — but the whole sentences are getting away from you. That gap is exactly what this course was built to close, in order, from the first sentence to the language of respect. Start now, while you still have the people to practise with.' },
+    body: 'You understand pieces (a word here, a phrase there) but the whole sentences are getting away from you. That gap is exactly what this course was built to close, in order, from the first sentence to the language of respect. Start now, while you still have the people to practise with.' },
   { min: 5, band: 'You understand more than you think.',
-    body: 'You followed almost all of it. You’re not starting from zero — you’re closer than most. Now learn to answer her back: to hold a real conversation, to read the funeral program, to use the respect words at church. The whole arc is waiting, free.' },
+    body: 'You followed almost all of it. You’re not starting from zero: you’re closer than most. Now learn to answer her back: to hold a real conversation, to read the funeral program, to use the respect words at church. The whole arc is waiting, free.' },
 ]
 
 const Logo = () => (
@@ -106,14 +106,14 @@ export default function GrandmotherQuiz() {
             </div>
             {picked !== null && (
               <div className="quiz-next-row">
-                <span className="quiz-feedback">{picked === q.answer ? 'Tonu — correct.' : `It was: ${q.options[q.answer]}`}</span>
+                <span className="quiz-feedback">{picked === q.answer ? 'Tonu: correct.' : `It was: ${q.options[q.answer]}`}</span>
                 <button className="cta-btn" onClick={next}>
                   {idx + 1 < QUESTIONS.length ? 'Next →' : 'See your result →'}
                 </button>
               </div>
             )}
           </div>
-          <Link to="/chapters/1" className="quiz-skip">Skip the test — just start learning →</Link>
+          <Link to="/chapters/1" className="quiz-skip">Skip the test, just start learning →</Link>
         </section>
       ) : (
         <section className="quiz-stage">
@@ -130,7 +130,7 @@ export default function GrandmotherQuiz() {
             <div className="quiz-signup">
               {!sent ? (
                 <form {...(EMAIL_ACTION ? { action: EMAIL_ACTION, method: 'post', target: '_blank' } : {})} onSubmit={submitEmail}>
-                  <p className="quiz-signup-label">Want the 7-day <em>Grandmother Sprint</em> — your first real conversation in a week?</p>
+                  <p className="quiz-signup-label">Want the 7-day <em>Grandmother Sprint</em>: your first real conversation in a week?</p>
                   <div className="quiz-signup-row">
                     <input type="email" name="email" required placeholder="your@email"
                       value={email} onChange={e => setEmail(e.target.value)} aria-label="Email" />
@@ -138,7 +138,7 @@ export default function GrandmotherQuiz() {
                   </div>
                 </form>
               ) : (
-                <p className="quiz-signup-label">Mālō ʻaupito — the Sprint is on its way. <em>Tauhi ʻa e lea.</em></p>
+                <p className="quiz-signup-label">Mālō ʻaupito, the Sprint is on its way. <em>Tauhi ʻa e lea.</em></p>
               )}
             </div>
 

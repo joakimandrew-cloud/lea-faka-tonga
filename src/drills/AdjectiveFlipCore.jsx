@@ -163,7 +163,7 @@ export default function AdjectiveFlipCore() {
       <div className="afl-answer-row">
         <div className="afl-answer-label">Your phrase</div>
         <div className="afl-answer-slot">
-          {studentPhrase || <span className="afl-answer-placeholder">&mdash;</span>}
+          {studentPhrase || <span className="afl-answer-placeholder">&ndash;</span>}
         </div>
         {selected.length > 0 && answered === null && (
           <button onClick={handleClearSelection} className="afl-clear">clear</button>
@@ -203,8 +203,8 @@ export default function AdjectiveFlipCore() {
         <div className="afl-reveal">
           <div className="afl-verdict">
             {answered === 'correct'
-              ? <><span className="afl-right">Yes.</span> <em>{studentPhrase}</em> &mdash; {note}</>
-              : <><span className="afl-wrong">Not quite.</span> You built <em>{studentPhrase}</em>. The Tongan order is <em>{correctPhrase}</em> &mdash; {note}</>
+              ? <><span className="afl-right">Yes.</span> <em>{studentPhrase}</em>: {note}</>
+              : <><span className="afl-wrong">Not quite.</span> You built <em>{studentPhrase}</em>. The Tongan order is <em>{correctPhrase}</em>: {note}</>
             }
           </div>
           <div className="afl-pattern">

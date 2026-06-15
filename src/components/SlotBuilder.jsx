@@ -252,7 +252,7 @@ export default function SlotBuilder({
             <div className="text-sm text-[var(--text-muted)] mb-1">{assembled.literal}</div>
           )}
           {assembled.method === 'gloss' ? (
-            <div className="text-xs text-[var(--text-muted)] italic">Literal — translate in your head.</div>
+            <div className="text-xs text-[var(--text-muted)] italic">Literal: translate in your head.</div>
           ) : (
             <div className="text-[var(--accent)]">{assembled.english}</div>
           )}

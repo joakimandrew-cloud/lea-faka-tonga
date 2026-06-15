@@ -16,7 +16,7 @@ export default function TenseSwapper() {
       blurb={
         <>
           English conjugates the verb. Tongan swaps a particle and leaves the
-          verb alone. Click through the tenses — watch the verb stay still.
+          verb alone. Click through the tenses, and watch the verb stay still.
         </>
       }
       aside={
@@ -25,7 +25,7 @@ export default function TenseSwapper() {
           <p>
             In English, &ldquo;is going / went / has gone / will go&rdquo; uses
             four different verb forms. In Tongan, the verb <em>ʻalu</em> never
-            moves &mdash; only the particle in front of it. That&rsquo;s the
+            moves: only the particle in front of it changes. That&rsquo;s the
             move. Every verb. Every sentence.
           </p>
           <p>

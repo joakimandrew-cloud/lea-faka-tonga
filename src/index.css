@@ -14,9 +14,13 @@
    * (green) and --wrong (red) and is unaffected. */
   --text-muted: var(--text-strong);
   --text-faint: var(--text-strong);
-  --accent: #8b3a2a;
-  --accent-hover: #6b2a1f;
-  --accent-faint: rgba(139, 58, 42, 0.06);
+  /* Canonical v11 red (was legacy maroon #8b3a2a) — repointed so every
+   * interactive in-app surface (drills, Sentence Lab, vocab, book-exercise
+   * chrome) reads in the site red. Chapters override --accent to near-black
+   * in their own .reading-page scope. (audit F58 / inner-page consistency 2026-06-15) */
+  --accent: #c24a1f;
+  --accent-hover: #8a2e14;
+  --accent-faint: rgba(194, 74, 31, 0.06);
   --accent-2: #c08a3e;
   --accent-3: #4a5d3a;
   --accent-4: #2d4a5a;
@@ -54,9 +58,10 @@
    * the primary text color so everything reads at one bright ink weight. */
   --text-muted: var(--text-strong);
   --text-faint: var(--text-strong);
-  --accent: #d96a52;
-  --accent-hover: #e88670;
-  --accent-faint: rgba(217, 106, 82, 0.08);
+  /* Canonical red-light on dark (was #d96a52) — same F58 migration. */
+  --accent: #e6653a;
+  --accent-hover: #e6653a;
+  --accent-faint: rgba(230, 101, 58, 0.08);
   --accent-2: #e0a85a;
   --accent-3: #88a872;
   --accent-4: #6a9aae;
@@ -2323,6 +2328,29 @@ body::before {
   font-size: 12px !important;
   color: var(--text-faint);
   font-style: italic;
+}
+
+/* ── Inner-page type harmonization (2026-06-15) ───────────────────────────
+   Bring drill explainer PROSE to the chapter reading serif and drill CHROME
+   labels to the Barlow Condensed eyebrow vocabulary, so /possessive-sort and
+   its ~50 siblings read as the same edition as /chapters/:num. Reading text →
+   Source Serif 4; functional labels → Barlow Condensed. These selectors match
+   the single-class rules above at equal specificity and win by coming later.
+   (Plan: plans/inner-page-visual-consistency.md.) */
+.pcs-title,
+.pcs-sub,
+.pcs-noun-gloss,
+.pcs-why-text,
+.pcs-lesson p,
+.pcs-lesson-foot {
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.pcs-eyebrow,
+.pcs-question,
+.pcs-why-label,
+.pcs-lesson-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
 }
 
 /* ── Adjective Flip (/adjective-flip) ────────────────────────────────────── */

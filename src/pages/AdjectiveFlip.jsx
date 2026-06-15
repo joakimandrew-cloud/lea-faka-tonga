@@ -17,7 +17,7 @@ export default function AdjectiveFlip() {
         <>
           English puts the adjective first: <em>big boat</em>. Tongan usually
           puts the noun first: <em>vaka lahi</em>. But a few adjectives break
-          that rule and sit <em>before</em> the noun &mdash; <em>fuʻu fale</em>
+          that rule and sit <em>before</em> the noun: <em>fuʻu fale</em>
           {' '}(a big house), <em>kiʻi tamasiʻi</em> (a small boy). Decide each
           one: does the describing word come after the noun, or before it?
         </>
@@ -28,7 +28,7 @@ export default function AdjectiveFlip() {
           <p>
             Word order is one of the deepest habits in a native language. You
             don&rsquo;t consciously decide &ldquo;adjective first&rdquo; in
-            English &mdash; your mouth just does it. That same muscle tries
+            English: your mouth just does it. That same muscle tries
             to drive Tongan, and it pulls the wrong word to the front every
             time.
           </p>

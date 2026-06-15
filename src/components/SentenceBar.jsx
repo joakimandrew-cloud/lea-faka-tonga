@@ -61,7 +61,7 @@ export default function SentenceBar({ steps, isFinished, isQuestion = false, onU
           }`} />
           <span className="text-xs text-[var(--text-muted)]">
             {completeness === 'incomplete' && 'Keep building...'}
-            {completeness === 'completable' && 'Complete \u2014 add more?'}
+            {completeness === 'completable' && 'Complete: add more?'}
             {completeness === 'terminal' && 'Complete!'}
           </span>
         </div>

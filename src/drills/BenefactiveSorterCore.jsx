@@ -10,8 +10,8 @@
 import SorterCore from './SorterCore'
 
 const CATEGORIES = [
-  { id: 'maa', label: 'maʻa',  prefix_example: 'maʻa Tēvita', principle: 'for (ʻe-class — food, money, tools)' },
-  { id: 'moo', label: 'moʻo',  prefix_example: 'moʻo Tēvita', principle: 'for (ho-class — houses, boats, land)' },
+  { id: 'maa', label: 'maʻa',  prefix_example: 'maʻa Tēvita', principle: 'for (ʻe-class: food, money, tools)' },
+  { id: 'moo', label: 'moʻo',  prefix_example: 'moʻo Tēvita', principle: 'for (ho-class: houses, boats, land)' },
 ]
 
 const CARDS = [

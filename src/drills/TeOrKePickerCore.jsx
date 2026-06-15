@@ -20,9 +20,9 @@ const PROMPTS = [
   { tongan: 'ʻE ʻikai ___ ke ʻalu ki Tonga.',   english: 'You will not go to Tonga.',                    answer: 'te', why: 'Pronoun ke (you) follows → te. (Note: the second ke here is the pronoun, the first slot needs te.)' },
   { tongan: 'ʻOku ʻikai ___ momoko.',           english: 'It is not cold.',                              answer: 'ke', why: 'momoko (cold) is a weather verb with no pronoun subject → ke.' },
   { tongan: 'Naʻe ʻikai ___ nau fiefia.',       english: 'They were not happy.',                         answer: 'te', why: 'Pronoun nau (they) follows → te.' },
-  { tongan: 'ʻE ʻikai ___ ʻuha ʻapō.',          english: 'It will not rain tonight.',                    answer: 'ke', why: 'ʻuha (to rain) — no pronoun subject → ke.' },
+  { tongan: 'ʻE ʻikai ___ ʻuha ʻapō.',          english: 'It will not rain tonight.',                    answer: 'ke', why: 'ʻuha (to rain): no pronoun subject → ke.' },
   { tongan: 'ʻOku ʻikai ___ ne hela.',          english: 'He is not tired.',                             answer: 'te', why: 'Pronoun ne (he/she) follows → te.' },
-  { tongan: 'Naʻe ʻikai ___ ʻafua ʻaneafi.',    english: 'It was not fine yesterday.',                   answer: 'ke', why: 'ʻafua (fine weather) — no pronoun subject → ke.' },
+  { tongan: 'Naʻe ʻikai ___ ʻafua ʻaneafi.',    english: 'It was not fine yesterday.',                   answer: 'ke', why: 'ʻafua (fine weather): no pronoun subject → ke.' },
 ]
 
 export default function TeOrKePickerCore() {

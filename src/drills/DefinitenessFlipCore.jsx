@@ -34,7 +34,7 @@ const EXAMPLES = [
     },
     lead: 'Sione ate',
     principle: { indefinite: 'verb + noun fused, subject takes ʻa', definite: 'object splits off (ʻa e …), subject takes ʻe' },
-    why: 'With "bread" (indef): the verb-noun pair kai+mā fuses into one intransitive unit. The subject takes ʻa (Sione is treated like the only argument).\nWith "the bread" (def): the object splits off as a separate phrase ʻa e mā. The verb is now transitive — the subject takes ʻe.',
+    why: 'With "bread" (indef): the verb-noun pair kai+mā fuses into one intransitive unit. The subject takes ʻa (Sione is treated like the only argument).\nWith "the bread" (def): the object splits off as a separate phrase ʻa e mā. The verb is now transitive: the subject takes ʻe.',
   },
   {
     id: 'mele-fish',
@@ -66,7 +66,7 @@ const EXAMPLES = [
     },
     lead: 'I drank',
     principle: { indefinite: 'verb + noun fused (inu vai)', definite: 'object splits off as ʻa e vaí; subject ku is unchanged' },
-    why: 'Pronoun subject (ku/u) doesn\u2019t change between the two versions — the pivot is in the OBJECT side. Indefinite: inu+vai fused. Definite: object splits off as ʻa e vaí.',
+    why: 'Pronoun subject (ku/u) doesn\u2019t change between the two versions: the pivot is in the OBJECT side. Indefinite: inu+vai fused. Definite: object splits off as ʻa e vaí.',
   },
 ]
 
@@ -102,7 +102,7 @@ export default function DefinitenessFlipCore() {
     return (
       <section className="pcs-card">
         <div className="pcs-card-row">
-          <div className="pcs-progress">Explore mode — example {exampleIdx + 1} / {EXAMPLES.length}</div>
+          <div className="pcs-progress">Explore mode: example {exampleIdx + 1} / {EXAMPLES.length}</div>
           <div className="pcs-stats">
             <button
               onClick={() => setExampleIdx(i => (i + 1) % EXAMPLES.length)}
@@ -149,7 +149,7 @@ export default function DefinitenessFlipCore() {
           ]))); setQuizIdx(0); setGuess(null); }}
           className="pcs-next"
         >
-          I&rsquo;m ready — quiz me {'\u2192'}
+          I&rsquo;m ready, quiz me {'\u2192'}
         </button>
       </section>
     )

@@ -396,7 +396,7 @@ export default function SkeletonFillerCore({ chapterNum }) {
             >
               <span className="skf-slot-role">{p.role}</span>
               <span className="skf-slot-word">
-                {isFilled ? shuffledPool[poolIdx].tongan : '\u2014'}
+                {isFilled ? shuffledPool[poolIdx].tongan : '\u2013'}
               </span>
             </button>
           )

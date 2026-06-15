@@ -24,7 +24,7 @@ const PROMPTS = [
   { tongan: '___',  english: 'Two friends are leaving together. Say goodbye to them.',                       answer: 'mo-o',     why: 'Mo ō ā = dual leaving. Mo (you-two) + ō (plural form of ʻalu) + ā (politeness softener).' },
   { tongan: '___',  english: 'A group of three or more is staying. You\u2019re leaving. Say goodbye.',       answer: 'mou-nofo', why: 'Mou nofo ā = plural staying. Mou (3+ "you") + nofo + ā.' },
   { tongan: '___',  english: 'A group of three or more is leaving. Say goodbye to them.',                    answer: 'mou-o',    why: 'Mou ō ā = plural leaving. Mou + ō (plural form of ʻalu) + ā.' },
-  { tongan: '___',  english: 'You\u2019re heading out. Say goodbye to the friend staying.',                  answer: 'nofo',     why: 'Same logic as before — say to the STAYING person what to do (nofo = stay).' },
+  { tongan: '___',  english: 'You\u2019re heading out. Say goodbye to the friend staying.',                  answer: 'nofo',     why: 'Same logic as before: say to the STAYING person what to do (nofo = stay).' },
   { tongan: '___',  english: 'A guest is leaving your house. Say goodbye.',                                  answer: 'alu',      why: 'They\u2019re the one leaving → ʻalu ā.' },
 ]
 

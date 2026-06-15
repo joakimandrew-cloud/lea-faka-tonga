@@ -22,12 +22,12 @@ const OPTIONS = [
 
 const PROMPTS = [
   { tongan: '___ ku kai.',                          english: 'I ate.',                                       answer: 'past',    why: 'naʻa + pronoun (ku) + verb. The classic past tense pattern. Position: sentence-initial, followed by a pronoun.' },
-  { tongan: 'Lele mai ___ ke tōmui.',                english: 'Run here lest you be late.',                   answer: 'warning', why: 'naʻa AFTER a command (Lele mai) introduces a feared consequence — "lest". The first clause is the imperative.' },
-  { tongan: '___ kuó ke hela.',                      english: 'Perhaps you are tired.',                       answer: 'maybe',   why: 'naʻa at the START of a clause, BEFORE a tense marker (kuo) — uncertainty / "perhaps". Distinct from past TM, which is followed by a pronoun.' },
-  { tongan: 'Mou ako mālohi ___ mou tō he siví.',    english: 'Study hard, lest you fail the exam.',          answer: 'warning', why: 'After a command (Mou ako mālohi), naʻa marks the warning — what the student should avoid.' },
+  { tongan: 'Lele mai ___ ke tōmui.',                english: 'Run here lest you be late.',                   answer: 'warning', why: 'naʻa AFTER a command (Lele mai) introduces a feared consequence: "lest". The first clause is the imperative.' },
+  { tongan: '___ kuó ke hela.',                      english: 'Perhaps you are tired.',                       answer: 'maybe',   why: 'naʻa at the START of a clause, BEFORE a tense marker (kuo): uncertainty / "perhaps". Distinct from past TM, which is followed by a pronoun.' },
+  { tongan: 'Mou ako mālohi ___ mou tō he siví.',    english: 'Study hard, lest you fail the exam.',          answer: 'warning', why: 'After a command (Mou ako mālohi), naʻa marks the warning: what the student should avoid.' },
   { tongan: '___ ko hono falé ení.',                 english: 'Perhaps this is his house.',                   answer: 'maybe',   why: 'naʻa at the start of a clause, before ko, signals uncertainty.' },
   { tongan: '___ ne ʻalu.',                          english: 'He went.',                                     answer: 'past',    why: 'naʻa + pronoun (ne) + verb. Past tense, pronoun-subject pattern.' },
-  { tongan: 'Hola ___ ke lavea.',                    english: 'Run away lest you get hurt.',                  answer: 'warning', why: 'After the command Hola (run away), naʻa introduces what to avoid — getting hurt.' },
+  { tongan: 'Hola ___ ke lavea.',                    english: 'Run away lest you get hurt.',                  answer: 'warning', why: 'After the command Hola (run away), naʻa introduces what to avoid: getting hurt.' },
   { tongan: '___ ʻoku moʻoní ia.',                   english: 'Perhaps he is right.',                         answer: 'maybe',   why: 'Sentence-initial naʻa before a tense marker (ʻoku) → uncertainty.' },
 ]
 

@@ -22,10 +22,10 @@ const CARDS = [
   { tongan: 'kupukupu',     english: 'segments (from kupu "single segment")',       category: 'plural',    why: 'Reduplication signals plurality / multiple instances.' },
   { tongan: 'luoluo',       english: 'full of holes (from luo "hole")',            category: 'shift',     why: 'Noun → adjective. luo (hole, noun) becomes luoluo (holey, adjective).' },
   { tongan: 'katakata',     english: 'smile (from kata "laugh")',                  category: 'moderate',  why: 'Reduplication softens → "laugh slightly / smile". Smile = a soft laugh.' },
-  { tongan: 'mokomoko',     english: 'cool (from momoko "cold")',                  category: 'moderate',  why: 'Softens "cold" to "cool" — somewhat cold, not fully cold.' },
+  { tongan: 'mokomoko',     english: 'cool (from momoko "cold")',                  category: 'moderate',  why: 'Softens "cold" to "cool": somewhat cold, not fully cold.' },
   { tongan: 'mamata',       english: 'to look / watch (from mata "face / eye")',   category: 'shift',     why: 'Noun → verb. mata (face, noun) becomes mamata (look, verb).' },
   { tongan: 'havilivili',   english: 'breeze (from havili "strong wind")',         category: 'moderate',  why: 'Softens strong wind → gentle breeze.' },
-  { tongan: 'tositosi',     english: 'peck repeatedly (from tosi "peck once")',    category: 'plural',    why: 'Marks repeated action — peck again and again.' },
+  { tongan: 'tositosi',     english: 'peck repeatedly (from tosi "peck once")',    category: 'plural',    why: 'Marks repeated action: peck again and again.' },
   { tongan: 'totototo',     english: 'blood-red (from toto "blood")',              category: 'shift',     why: 'Noun → adjective. toto (blood, noun) becomes totototo (blood-red, adjective).' },
 ]
 

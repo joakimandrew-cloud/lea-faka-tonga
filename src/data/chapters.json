@@ -17,7 +17,7 @@
       "statement"
     ],
     "teaching": {
-      "summary": "Every Tongan sentence follows a fixed order: tense marker + pronoun + verb. The verb never changes form — the tense marker does all the work.",
+      "summary": "Every Tongan sentence follows a fixed order: tense marker + pronoun + verb. The verb never changes form: the tense marker does all the work.",
       "key_rules": [
         {
           "rule": "Sentences always start with a tense marker",
@@ -30,7 +30,7 @@
           "example_english": "Did you drink?"
         },
         {
-          "rule": "Questions use the same word order — just change your intonation",
+          "rule": "Questions use the same word order: just change your intonation",
           "example_tongan": "Naʻa ke mohe?",
           "example_english": "Did you sleep?"
         }
@@ -121,7 +121,7 @@
           ],
           [
             "We (incl.)",
-            "—",
+            "–",
             "ta",
             "tau"
           ],
@@ -170,7 +170,7 @@
     ],
     "unlocks_entry_points": [],
     "teaching": {
-      "summary": "In Tongan, adjectives fill the verb slot — no helper verb like \"am\" or \"is\" is needed. Modifiers like lelei (well), lahi (a lot), and ʻaupito (very) go after the verb to describe how or how much.",
+      "summary": "In Tongan, adjectives fill the verb slot: no helper verb like \"am\" or \"is\" is needed. Modifiers like lelei (well), lahi (a lot), and ʻaupito (very) go after the verb to describe how or how much.",
       "key_rules": [
         {
           "rule": "Adjectives work like verbs: TM + pronoun + adjective",
@@ -575,17 +575,17 @@
           [
             "Bare",
             "verb + noun",
-            "kai mā — eat bread"
+            "kai mā: eat bread"
           ],
           [
             "Indefinite",
             "verb + ha + noun",
-            "kai ha mā — eat some bread"
+            "kai ha mā: eat some bread"
           ],
           [
             "Definite",
             "verb + e + noun",
-            "kai e mā — eat the bread"
+            "kai e mā: eat the bread"
           ]
         ]
       },
@@ -615,7 +615,7 @@
       "negation_impersonal"
     ],
     "teaching": {
-      "summary": "To negate a sentence, insert ʻikai te between the tense marker and the pronoun. Important: the tense marker changes in negation — use naʻe for past (not naʻa) and ʻe for future (not te). For weather and impersonal verbs with no pronoun, use ʻikai ke instead.",
+      "summary": "To negate a sentence, insert ʻikai te between the tense marker and the pronoun. Important: the tense marker changes in negation: use naʻe for past (not naʻa) and ʻe for future (not te). For weather and impersonal verbs with no pronoun, use ʻikai ke instead.",
       "key_rules": [
         {
           "rule": "Negation with a pronoun: TM + ʻikai te + pronoun + verb",
@@ -751,7 +751,7 @@
       "When (future): 'afe",
       "How: fefe"
     ],
-    "preview": "ʻi fē · fīha · fēfē · hā — sits where the answer goes",
+    "preview": "ʻi fē · fīha · fēfē · hā: sits where the answer goes",
     "group": "core-grammar",
     "unlocks_sections": [],
     "unlocks_entry_points": [],
@@ -825,7 +825,7 @@
       "Ko negation ('oku 'ikai ko e)",
       "What is that? (ko e ha)"
     ],
-    "preview": "ko e + noun — identification sentences",
+    "preview": "ko e + noun: identification sentences",
     "group": "core-grammar",
     "unlocks_sections": [],
     "unlocks_entry_points": [
@@ -2559,8 +2559,8 @@
             "After noun",
             "ni",
             "na",
-            "—",
-            "—"
+            "–",
+            "–"
           ],
           [
             "Pronoun",
@@ -2574,7 +2574,7 @@
             "heni",
             "hena",
             "hē",
-            "—"
+            "–"
           ]
         ]
       }
@@ -2675,7 +2675,7 @@
     "unlocks_sections": [],
     "unlocks_entry_points": [],
     "teaching": {
-      "summary": "The same Tongan word can serve as a noun, verb, adjective, or adverb depending on its position in the sentence. No suffixes or conjugation are needed — sentence structure alone determines the role.",
+      "summary": "The same Tongan word can serve as a noun, verb, adjective, or adverb depending on its position in the sentence. No suffixes or conjugation are needed: sentence structure alone determines the role.",
       "key_rules": [
         {
           "rule": "A noun becomes a verb when placed after a tense marker",
@@ -2711,13 +2711,13 @@
             "ʻuha",
             "rain",
             "to rain",
-            "—"
+            "–"
           ],
           [
             "tohi",
             "book",
             "to write",
-            "—"
+            "–"
           ],
           [
             "tau",
@@ -2728,7 +2728,7 @@
           [
             "maka",
             "stone",
-            "—",
+            "–",
             "stone (ha ʻā maka)"
           ],
           [
@@ -2853,7 +2853,7 @@
         {
           "rule": "Neʻineʻi replaces the tense marker and means \"no wonder\"",
           "example_tongan": "Neʻineʻi tangi ʻa Seini he naʻe pukē.",
-          "example_english": "No wonder Seini cried — she was sick."
+          "example_english": "No wonder Seini cried: she was sick."
         }
       ],
       "paradigm": {
@@ -2916,7 +2916,7 @@
           "example_english": "in the new school building"
         },
         {
-          "rule": "Adverbs modify the verb, not the noun — so the accent does not move onto them",
+          "rule": "Adverbs modify the verb, not the noun: so the accent does not move onto them",
           "example_tongan": "Naʻā ke ʻalu ki he fakatahā ʻaneafi?",
           "example_english": "Did you go to the meeting yesterday?"
         },

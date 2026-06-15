@@ -147,7 +147,7 @@ export default function DrillsMenu() {
           <h1>Practice <span className="dot">·</span> Drills</h1>
           <p className="lead">
             <span className="tongan">Ngāue Fakaʻilo.</span>{' '}
-            {total} targeted exercises, each isolating a single grammar pattern, grouped by the skill they build. Every card shows a taste of the real thing — swipe along a shelf to browse. More drills live inside the book chapters at the exact moment each pattern is taught; every group lists its own.
+            {total} targeted exercises, each isolating a single grammar pattern, grouped by the skill they build. Every card shows a taste of the real thing: swipe along a shelf to browse. More drills live inside the book chapters at the exact moment each pattern is taught; every group lists its own.
           </p>
         </div>
 
@@ -175,7 +175,7 @@ export default function DrillsMenu() {
         </div>
 
         {filtering && shownTotal === 0 && (
-          <p className="drills-empty">No drills match — try a different word, or clear the level filter.</p>
+          <p className="drills-empty">No drills match: try a different word, or clear the level filter.</p>
         )}
 
         {sections.map(({ group, visible }) => {

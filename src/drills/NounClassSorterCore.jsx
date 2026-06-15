@@ -25,13 +25,13 @@
 import SorterCore from './SorterCore'
 
 const CATEGORIES = [
-  { id: 'personal', label: 'Personal', prefix_example: 'kia Mele',    principle: 'a person — ʻia / kia / meia, no article' },
-  { id: 'local',    label: 'Local',    prefix_example: 'ki kolo',     principle: 'a place — ʻi / ki / mei, no article' },
-  { id: 'common',   label: 'Common',   prefix_example: 'ki he motú',  principle: 'everything else — article he + definitive accent' },
+  { id: 'personal', label: 'Personal', prefix_example: 'kia Mele',    principle: 'a person: ʻia / kia / meia, no article' },
+  { id: 'local',    label: 'Local',    prefix_example: 'ki kolo',     principle: 'a place: ʻi / ki / mei, no article' },
+  { id: 'common',   label: 'Common',   prefix_example: 'ki he motú',  principle: 'everything else: article he + definitive accent' },
 ]
 
 const CARDS = [
-  { tongan: 'Mele',       english: 'Mele (a woman’s name)',            category: 'personal', kiForm: 'kia Mele',        why: 'A person’s name is self-defining — no article, and ki becomes kia.' },
+  { tongan: 'Mele',       english: 'Mele (a woman’s name)',            category: 'personal', kiForm: 'kia Mele',        why: 'A person’s name is self-defining: no article, and ki becomes kia.' },
   { tongan: 'Lupe',       english: 'Lupe (a name)',                          category: 'personal', kiForm: 'kia Lupe',        why: 'A personal name: the preposition takes its -a form, with no article.' },
   { tongan: 'Sēmisi',     english: 'Sēmisi (a name)',                        category: 'personal', kiForm: 'kia Sēmisi',      why: 'A personal name → kia (and ʻia / meia for the other prepositions).' },
   { tongan: 'houʻeiki',   english: 'chiefs, nobility (a group word)',        category: 'personal', kiForm: 'kia houʻeiki',    why: 'Not a proper name, but Tongan treats this group word like one (quasi-personal): kia houʻeiki.' },

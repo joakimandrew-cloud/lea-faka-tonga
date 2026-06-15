@@ -114,7 +114,7 @@ export default function FirstWordPicker({ onSelectWord, onSelectRoad }) {
                           <div className="text-xs text-[var(--text-faint)]">{ep.description}</div>
                           {preview && (
                             <div className="text-xs text-[var(--text-faint)] font-tongan mt-1">
-                              e.g. {preview.path.join(' ')} — {preview.english}
+                              e.g. {preview.path.join(' ')} – {preview.english}
                             </div>
                           )}
                         </button>

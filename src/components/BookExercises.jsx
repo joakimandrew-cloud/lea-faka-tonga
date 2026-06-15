@@ -130,7 +130,7 @@ function TypeCheckItem({ item, index, placeholder }) {
 
       {submitted && (
         <div className={`ml-8 mt-2 text-sm font-medium ${correct ? 'text-[var(--correct)]' : 'text-[var(--wrong)]'}`}>
-          {correct ? '✓ Correct' : '✗ Not quite — try again, or tap Show.'}
+          {correct ? '✓ Correct' : '✗ Not quite. Try again, or tap Show.'}
         </div>
       )}
 

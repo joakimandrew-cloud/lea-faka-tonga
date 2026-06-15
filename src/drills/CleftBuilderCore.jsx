@@ -48,7 +48,7 @@ const PHRASES = [
       { id: 'pron-bad', tongan: 'nau',  gloss: 'they' },
     ],
     correct_order: ['ko', 'subj', 'tm', 'pron'],
-    why: 'Pattern: Ko + subject + tense marker + pronoun + verb + object. The resumptive matches Sione (he), so it is ne; before a one-syllable pronoun the past marker takes the accent — naʻá, never naʻe (naʻe is for noun subjects).',
+    why: 'Pattern: Ko + subject + tense marker + pronoun + verb + object. The resumptive matches Sione (he), so it is ne; before a one-syllable pronoun the past marker takes the accent: naʻá, never naʻe (naʻe is for noun subjects).',
   },
   {
     id: 'mele-clothes',
@@ -129,7 +129,7 @@ const PHRASES = [
       { id: 'pron-bad', tongan: 'ne',   gloss: 'he / she' },
     ],
     correct_order: ['ko', 'subj', 'tm', 'pron'],
-    why: 'kinautolu ("they") takes the resumptive nau. nau is two syllables, so the marker stays plain — naʻa nau, not naʻá nau.',
+    why: 'kinautolu ("they") takes the resumptive nau. nau is two syllables, so the marker stays plain: naʻa nau, not naʻá nau.',
   },
   // ── 2sg pronoun: fronted koe, resumptive ke, accented naʻá ──
   {
@@ -161,7 +161,7 @@ const PHRASES = [
       { id: 'pron-bad', tongan: 'nau',  gloss: 'they' },
     ],
     correct_order: ['ko', 'subj', 'tm', 'pron'],
-    why: 'kimautolu ("we, not you") takes the resumptive mau — two syllables, so the marker stays plain: naʻa mau. The decoy nau means "they".',
+    why: 'kimautolu ("we, not you") takes the resumptive mau: two syllables, so the marker stays plain: naʻa mau. The decoy nau means "they".',
   },
   // ── 1pl inclusive: fronted kitautolu, resumptive tau, PLAIN naʻa ──
   {
@@ -339,7 +339,7 @@ export default function CleftBuilderCore() {
       </div>
 
       <div className="afl-pool-label">
-        {answered === null ? `Click ${slotCount} tiles in cleft order — not every tile belongs` : 'The pool'}
+        {answered === null ? `Click ${slotCount} tiles in cleft order: not every tile belongs` : 'The pool'}
       </div>
       <div className="afl-pool">
         {pool.map((t, i) => {

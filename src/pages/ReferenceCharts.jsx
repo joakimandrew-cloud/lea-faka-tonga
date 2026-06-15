@@ -11,16 +11,16 @@ const charts = [
         headers: ['', 'Singular', 'Dual', 'Plural'],
         rows: [
           ['1st excl.', 'ku / ou / u', 'ma', 'mau'],
-          ['1st incl.', '\u2014', 'ta', 'tau'],
+          ['1st incl.', '\u2013', 'ta', 'tau'],
           ['2nd', 'ke', 'mo', 'mou'],
           ['3rd', 'ne', 'na', 'nau'],
         ],
       },
     ],
     notes: [
-      'ku \u2014 after na\u2019a (past)',
-      'ou \u2014 after \u2019oku (present)',
-      'u \u2014 after kuo (perfect), te (future)',
+      'ku: after na\u2019a (past)',
+      'ou: after \u2019oku (present)',
+      'u: after kuo (perfect), te (future)',
     ],
   },
   {
@@ -32,7 +32,7 @@ const charts = [
         headers: ['', 'Singular', 'Dual', 'Plural'],
         rows: [
           ['1st excl.', 'au', 'kimaua', 'kimautolu'],
-          ['1st incl.', '\u2014', 'kitaua', 'kitautolu'],
+          ['1st incl.', '\u2013', 'kitaua', 'kitautolu'],
           ['2nd', 'koe', 'kimoua', 'kimoutolu'],
           ['3rd', 'ia', 'kinaua', 'kinautolu'],
         ],
@@ -51,9 +51,9 @@ const charts = [
         headers: ['', 'Singular', 'Dual', 'Plural'],
         rows: [
           ['1st excl.', '\u2019eku', '\u2019ema', '\u2019emau'],
-          ['1st incl.', '\u2014', '\u2019eta', '\u2019etau'],
+          ['1st incl.', '\u2013', '\u2019eta', '\u2019etau'],
           ['2nd', 'ho\u2019o', '\u2019emo', 'ho\u2019omou'],
-          ['3rd', '\u2019ene', '\u2014', '\u2019enau'],
+          ['3rd', '\u2019ene', '\u2013', '\u2019enau'],
         ],
       },
       {
@@ -62,7 +62,7 @@ const charts = [
         headers: ['', 'Singular', 'Dual', 'Plural'],
         rows: [
           ['1st excl.', 'hoku', 'homa', 'homau'],
-          ['1st incl.', '\u2014', 'hota', 'hotau'],
+          ['1st incl.', '\u2013', 'hota', 'hotau'],
           ['2nd', 'ho', 'homo', 'homou'],
           ['3rd', 'hono', 'hona', 'honau'],
         ],
@@ -73,14 +73,14 @@ const charts = [
   {
     id: 'indefinite',
     title: 'Indefinite Possessives',
-    description: 'Used with indefinite nouns \u2014 "a ... of mine" rather than "my ..."',
+    description: 'Used with indefinite nouns: "a ... of mine" rather than "my ..."',
     tables: [
       {
         label: '\u2019e-class',
         headers: ['', 'Singular', 'Plural'],
         rows: [
           ['1st excl.', 'ha\u2019aku', 'ha\u2019amau'],
-          ['1st incl.', '\u2014', 'ha\u2019atau'],
+          ['1st incl.', '\u2013', 'ha\u2019atau'],
           ['2nd', 'ha\u2019o', 'ha\u2019amou'],
           ['3rd', 'ha\u2019ane', 'ha\u2019anau'],
         ],
@@ -90,28 +90,28 @@ const charts = [
         headers: ['', 'Singular', 'Plural'],
         rows: [
           ['1st excl.', 'haku', 'hamau'],
-          ['1st incl.', '\u2014', 'hatau'],
+          ['1st incl.', '\u2013', 'hatau'],
           ['2nd', 'hao', 'hamou'],
           ['3rd', 'hano', 'hanau'],
         ],
       },
     ],
     notes: [
-      '\u2019a hai? \u2014 whose? (\u2019e-class)',
-      '\u2019o hai? \u2014 whose? (ho-class)',
+      '\u2019a hai? whose? (\u2019e-class)',
+      '\u2019o hai? whose? (ho-class)',
     ],
   },
   {
     id: 'postposed-poss',
     title: 'Postposed Possessives',
-    description: 'Used after the noun \u2014 "the book is mine" rather than "my book"',
+    description: 'Used after the noun: "the book is mine" rather than "my book"',
     tables: [
       {
         label: '\u2019e-class',
         headers: ['', 'Singular', 'Plural'],
         rows: [
           ['1st excl.', '\u2019a\u2019aku', '\u2019a\u2019amau'],
-          ['1st incl.', '\u2014', '\u2019a\u2019atau'],
+          ['1st incl.', '\u2013', '\u2019a\u2019atau'],
           ['2nd', '\u2019a\u2019au', '\u2019a\u2019amou'],
           ['3rd', '\u2019a\u2019ana', '\u2019a\u2019anau'],
         ],
@@ -121,7 +121,7 @@ const charts = [
         headers: ['', 'Singular', 'Plural'],
         rows: [
           ['1st excl.', '\u2019o\u2019oku', '\u2019o\u2019omau'],
-          ['1st incl.', '\u2014', '\u2019o\u2019otau'],
+          ['1st incl.', '\u2013', '\u2019o\u2019otau'],
           ['2nd', '\u2019o\u2019ou', '\u2019o\u2019omou'],
           ['3rd', '\u2019o\u2019ona', '\u2019o\u2019onau'],
         ],
@@ -132,14 +132,14 @@ const charts = [
   {
     id: 'beneficiary',
     title: 'Beneficiary Pronouns',
-    description: 'Express "for someone" \u2014 who the action benefits.',
+    description: 'Express "for someone": who the action benefits.',
     tables: [
       {
         label: '\u2019e-class (ma\u2019a + pronoun)',
         headers: ['', 'Singular', 'Plural'],
         rows: [
           ['1st excl.', 'ma\u2019aku', 'ma\u2019amau'],
-          ['1st incl.', '\u2014', 'ma\u2019atau'],
+          ['1st incl.', '\u2013', 'ma\u2019atau'],
           ['2nd', 'ma\u2019au', 'ma\u2019amou'],
           ['3rd', 'ma\u2019ana', 'ma\u2019anau'],
         ],
@@ -148,9 +148,9 @@ const charts = [
         label: 'ho-class (mo\u2019o + pronoun)',
         headers: ['', 'Singular', 'Plural'],
         rows: [
-          ['1st excl.', 'mo\u2019oku', '\u2014'],
-          ['1st incl.', '\u2014', 'mo\u2019otau'],
-          ['2nd', 'mo\u2019ou', '\u2014'],
+          ['1st excl.', 'mo\u2019oku', '\u2013'],
+          ['1st incl.', '\u2013', 'mo\u2019otau'],
+          ['2nd', 'mo\u2019ou', '\u2013'],
           ['3rd', 'mo\u2019ona', 'mo\u2019onau'],
         ],
       },
@@ -160,7 +160,7 @@ const charts = [
   {
     id: 'emotional',
     title: 'Emotional Possessives',
-    description: 'Express pity or affection \u2014 "my poor ..." or "my dear ..."',
+    description: 'Express pity or affection: "my poor ..." or "my dear ..."',
     tables: [
       {
         headers: ['Person', '\u2019e-class', 'ho-class'],
@@ -176,7 +176,7 @@ const charts = [
       },
     ],
     notes: [
-      'si\u2019a \u2014 emotional indefinite article ("a poor/dear ...")',
+      'si\u2019a: emotional indefinite article ("a poor/dear ...")',
     ],
   },
   {
@@ -252,7 +252,7 @@ export default function ReferenceCharts() {
                         {row.map((cell, ci) => (
                           <td
                             key={ci}
-                            className={cell === '\u2014' ? 'is-empty' : undefined}
+                            className={cell === '\u2013' ? 'is-empty' : undefined}
                           >
                             {cell}
                           </td>

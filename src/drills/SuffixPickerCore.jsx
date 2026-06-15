@@ -17,7 +17,7 @@ const OPTIONS = [
 const PROMPTS = [
   { tongan: 'mohe + ___ = mohenga',          english: 'a bed (the thing you sleep on)',                       answer: 'nga',  why: 'mohenga = bed = a THING. -nga marks the result/object, not the place.' },
   { tongan: 'mohe + ___ = moheʻanga',        english: 'a sleeping-place (where you sleep)',                   answer: 'anga', why: 'moheʻanga = sleeping-place = a PLACE. -ʻanga marks the location.' },
-  { tongan: 'ako + ___ = akoʻanga',          english: 'a school / seat of learning (where you study)',         answer: 'anga', why: 'akoʻanga = a place — the school building. -ʻanga.' },
+  { tongan: 'ako + ___ = akoʻanga',          english: 'a school / seat of learning (where you study)',         answer: 'anga', why: 'akoʻanga = a place: the school building. -ʻanga.' },
   { tongan: 'ngāue + ___ = ngāueʻanga',      english: 'a workplace (where you work)',                          answer: 'anga', why: 'ngāueʻanga = workplace = location. -ʻanga.' },
   { tongan: 'fou + ___ = founga',            english: 'a route / method (the means)',                          answer: 'nga',  why: 'founga = method or way = a thing/concept, not a physical place. -nga.' },
   { tongan: 'tuʻu + ___ = tuʻunga',          english: 'a stand / ladder / rank (a thing or status)',          answer: 'nga',  why: 'tuʻunga = the thing you stand ON, or your rank. -nga.' },

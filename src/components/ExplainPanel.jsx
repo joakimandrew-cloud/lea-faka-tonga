@@ -95,7 +95,7 @@ export default function ExplainPanel({ steps, translation, chapter, entryPoint }
                       {row.english}
                     </td>
                     <td className="py-1.5 text-[var(--text-faint)] whitespace-nowrap">
-                      {row.citation || '—'}
+                      {row.citation || '–'}
                     </td>
                   </tr>
                 ))}

@@ -19,7 +19,7 @@ export default function PossessiveSorter() {
       blurb={
         <>
           Every Tongan noun belongs to one of two possessive classes.
-          There&rsquo;s no rule that covers all cases &mdash; you build
+          There&rsquo;s no rule that covers all cases: you build
           intuition by feeling the philosophy. Sort each noun. Read the
           explanation. Repeat until it&rsquo;s automatic.
         </>
@@ -29,12 +29,12 @@ export default function PossessiveSorter() {
           <h2 className="pcs-lesson-heading">The doer / receiver principle</h2>
           <p>
             <strong>e_class</strong> ("<em>ʻeku</em>") marks nouns where
-            <em> you are the principal</em> &mdash; you do, make, use, or
+            <em> you are the principal</em>: you do, make, use, or
             dominate them. Tools, books, food, your students, your children.
           </p>
           <p>
             <strong>ho_class</strong> ("<em>hoku</em>") marks nouns where
-            <em> you are the associated party</em> &mdash; they exist
+            <em> you are the associated party</em>: they exist
             independently. Parents, siblings, body parts, land, dwellings.
           </p>
           <p>

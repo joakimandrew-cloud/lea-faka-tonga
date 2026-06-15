@@ -53,7 +53,7 @@ function ChipRow({ pattern, patternId, filledSlots, maxChapter, activeSlot, setA
               type="button"
               onClick={() => canSwap && setActiveSlot(isActive ? null : slot.id)}
               className={`x-lab-chip font-tongan${isActive ? ' is-active' : ''}${canSwap ? ' is-swappable' : ''}`}
-              aria-label={`${value.tongan}${canSwap ? ' — tap to swap' : ''}`}
+              aria-label={`${value.tongan}${canSwap ? ': tap to swap' : ''}`}
             >
               {value.tongan}{canSwap && <span className="x-lab-caret" aria-hidden="true"> &#9662;</span>}
             </button>
@@ -184,7 +184,7 @@ function GradedLab({ chapterNum }) {
     return (
       <section className="pcs-card">
         <div className="text-[var(--text-muted)] text-sm">
-          Test-yourself mode isn&rsquo;t available on this chapter yet &mdash; try Explore.
+          Test-yourself mode isn&rsquo;t available on this chapter yet. Try Explore.
         </div>
       </section>
     )
@@ -214,7 +214,7 @@ function GradedLab({ chapterNum }) {
         </div>
       ) : checked ? (
         <div className="x-lab-grade is-wrong" aria-live="polite">
-          ✗ Not yet &mdash; keep swapping to match the meaning.
+          ✗ Not yet: keep swapping to match the meaning.
         </div>
       ) : (
         <div className="x-lab-hint">Swap the highlighted words until the meaning matches.</div>

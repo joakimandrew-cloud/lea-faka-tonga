@@ -11,7 +11,7 @@ export default function AccentPlacementPicker() {
       blurb={
         <>
           The Tongan definitive accent (ʻ) signals &ldquo;end of the
-          noun group&rdquo; — it lands on the last word of the phrase,
+          noun group&rdquo;: it lands on the last word of the phrase,
           not on the noun itself. Pick which word carries the accent
           and prove you can hear where one phrase ends and the next
           begins.
@@ -29,7 +29,7 @@ export default function AccentPlacementPicker() {
           <p>
             <strong>What is NOT in the group.</strong> An adverb or time word
             such as <em>ʻaneafi</em> (yesterday) modifies the verb, not the
-            noun, so it sits outside the group and takes no accent &mdash;
+            noun, so it sits outside the group and takes no accent,
             unless a relative clause pulls it inside (<em>ki he fakataha naʻe
             fai ʻaneafí</em>). And an indefinite (<em>ha</em>) or semi-definite
             (<em>e / he</em>) group takes no definitive accent at all: only a

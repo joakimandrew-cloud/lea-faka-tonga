@@ -22,7 +22,7 @@ const OPTIONS = [
 const PROMPTS = [
   { tongan: 'ʻOku ʻalu ___ ʻa Siale.',              english: 'Siale is coming (toward us).',                           answer: 'mai',  why: 'mai pulls action toward the speaker.' },
   { tongan: 'ʻAlu ___!',                            english: 'Go away! (away from me, toward you)',                    answer: 'atu',  why: 'atu pushes action away from the speaker, toward the listener.' },
-  { tongan: 'Tala ___ ke haʻu!',                    english: 'Tell him to come! (sending the message to a third person)', answer: 'ange', why: 'ange directs action toward a third person — neither speaker nor listener.' },
+  { tongan: 'Tala ___ ke haʻu!',                    english: 'Tell him to come! (sending the message to a third person)', answer: 'ange', why: 'ange directs action toward a third person: neither speaker nor listener.' },
   { tongan: 'Naʻe tō ___ ʻa e kató mei he lolí.',   english: 'The basket fell down from the truck.',                   answer: 'hifo', why: 'hifo marks downward movement.' },
   { tongan: 'Sio ___ ki he laní!',                  english: 'Look up at the sky!',                                    answer: 'hake', why: 'hake marks upward movement / direction.' },
   { tongan: 'Naʻa mau ō ___ ʻo mamata.',            english: 'We went around and looked.',                              answer: 'holo', why: 'holo marks movement around / in various directions, no fixed destination.' },

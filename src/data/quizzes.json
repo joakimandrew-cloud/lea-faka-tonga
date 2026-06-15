@@ -173,7 +173,7 @@
             "label": "C",
             "text": "On the second *a* of *na'a*.",
             "correct": true,
-            "explanation": "Because *ku* is an enclitic, *na'a* and *ku* are pronounced as one unit. Stress falls on the second-to-last vowel of that unit, which is the second *a* of *na'a* — hence the acute accent."
+            "explanation": "Because *ku* is an enclitic, *na'a* and *ku* are pronounced as one unit. Stress falls on the second-to-last vowel of that unit, which is the second *a* of *na'a*: hence the acute accent."
           },
           {
             "label": "D",
@@ -281,7 +281,7 @@
             "label": "A",
             "text": "*'Io, na'á ku inu.*",
             "correct": false,
-            "explanation": "The word *'io* means \"yes,\" and this answer says \"Yes, I drank\" — the opposite of \"No, I slept.\""
+            "explanation": "The word *'io* means \"yes,\" and this answer says \"Yes, I drank\": the opposite of \"No, I slept.\""
           },
           {
             "label": "B",
@@ -329,7 +329,7 @@
             "label": "C",
             "text": "That a new situation exists because the event happened",
             "correct": true,
-            "explanation": "Where *na'a* simply reports a past event, *kuo* says the event produced a change — *Na'a nau mohe* means \"They slept,\" but *Kuo nau mohe* means \"They have fallen asleep.\""
+            "explanation": "Where *na'a* simply reports a past event, *kuo* says the event produced a change: *Na'a nau mohe* means \"They slept,\" but *Kuo nau mohe* means \"They have fallen asleep.\""
           },
           {
             "label": "D",
@@ -377,19 +377,19 @@
             "label": "A",
             "text": "*ke*",
             "correct": false,
-            "explanation": "As a one-syllable enclitic, *ke* leans on the tense marker and the pair is pronounced as one unit with the stress on the second-to-last vowel — *'okú ke*, *na'á ke*."
+            "explanation": "As a one-syllable enclitic, *ke* leans on the tense marker and the pair is pronounced as one unit with the stress on the second-to-last vowel: *'okú ke*, *na'á ke*."
           },
           {
             "label": "B",
             "text": "*ne*",
             "correct": false,
-            "explanation": "The pronoun *ne* is also a one-syllable enclitic and triggers the same stress shift — *'okú ne*, *kuó ne*, *té ne*."
+            "explanation": "The pronoun *ne* is also a one-syllable enclitic and triggers the same stress shift: *'okú ne*, *kuó ne*, *té ne*."
           },
           {
             "label": "C",
             "text": "*ma*",
             "correct": false,
-            "explanation": "Although it is short, *ma* is a one-syllable enclitic and does shift the stress — *na'á ma kai*, *'okú ma lea*."
+            "explanation": "Although it is short, *ma* is a one-syllable enclitic and does shift the stress: *na'á ma kai*, *'okú ma lea*."
           },
           {
             "label": "D",
@@ -407,7 +407,7 @@
             "label": "A",
             "text": "I have arrived.",
             "correct": true,
-            "explanation": "The perfect marker *kuo* signals a change of state, *u* is the first-person pronoun after *kuo*, and *ha'u* (\"come\") combined with *kuo* carries the sense \"I was not here before, now I am\" — hence \"I have arrived.\""
+            "explanation": "The perfect marker *kuo* signals a change of state, *u* is the first-person pronoun after *kuo*, and *ha'u* (\"come\") combined with *kuo* carries the sense \"I was not here before, now I am\": hence \"I have arrived.\""
           },
           {
             "label": "B",
@@ -443,7 +443,7 @@
             "label": "B",
             "text": "*Té na mohe.*",
             "correct": true,
-            "explanation": "The future marker *te* pairs with the dual pronoun *na* (\"they two\"), and because *na* is a one-syllable enclitic, the tense marker takes the acute accent — *Té na mohe*."
+            "explanation": "The future marker *te* pairs with the dual pronoun *na* (\"they two\"), and because *na* is a one-syllable enclitic, the tense marker takes the acute accent: *Té na mohe*."
           },
           {
             "label": "C",
@@ -479,7 +479,7 @@
             "label": "C",
             "text": "*Na'a ou kai.*",
             "correct": true,
-            "explanation": "After *na'a*, the first-person pronoun must be *ku*, not *ou*. The correct sentence is *Na'á ku kai* — *ou* only follows the present marker *'oku*."
+            "explanation": "After *na'a*, the first-person pronoun must be *ku*, not *ou*. The correct sentence is *Na'á ku kai*: *ou* only follows the present marker *'oku*."
           },
           {
             "label": "D",
@@ -527,13 +527,13 @@
             "label": "A",
             "text": "When the person being spoken to is not part of the group",
             "correct": true,
-            "explanation": "The form *mau* is the exclusive \"we\" — the speaker's group is included but the listener is not. *Tau* is the inclusive \"we,\" which always includes the listener."
+            "explanation": "The form *mau* is the exclusive \"we\": the speaker's group is included but the listener is not. *Tau* is the inclusive \"we,\" which always includes the listener."
           },
           {
             "label": "B",
             "text": "When the group contains exactly two people",
             "correct": false,
-            "explanation": "Numbers are handled by a separate dual set — *ma* (exclusive two) and *ta* (inclusive two). *Mau* and *tau* are both for three or more."
+            "explanation": "Numbers are handled by a separate dual set: *ma* (exclusive two) and *ta* (inclusive two). *Mau* and *tau* are both for three or more."
           },
           {
             "label": "C",
@@ -569,7 +569,7 @@
             "label": "C",
             "text": "Let's eat.",
             "correct": true,
-            "explanation": "When *tau* appears with no tense marker, it functions as an invitation or suggestion addressed to everyone in the group. The same pattern works with *ta* for exactly two people — *Ta hiva?* (\"Shall we two sing?\")."
+            "explanation": "When *tau* appears with no tense marker, it functions as an invitation or suggestion addressed to everyone in the group. The same pattern works with *ta* for exactly two people: *Ta hiva?* (\"Shall we two sing?\")."
           },
           {
             "label": "D",
@@ -593,7 +593,7 @@
             "label": "B",
             "text": "*Na'a nau mohe* reports that they slept; *Kuo nau mohe* says they have fallen asleep and the situation is now different.",
             "correct": true,
-            "explanation": "The past marker *na'a* simply states an event. The perfect marker *kuo* signals that the event produced a new situation — they were awake before, and now they are not."
+            "explanation": "The past marker *na'a* simply states an event. The perfect marker *kuo* signals that the event produced a new situation: they were awake before, and now they are not."
           },
           {
             "label": "C",
@@ -995,7 +995,7 @@
             "label": "B",
             "text": "*Na'a nau mohe 'apō.*",
             "correct": false,
-            "explanation": "The marker *na'a* is past tense, so this means \"They slept last night\" — but *'apō* is future-looking, creating a contradiction."
+            "explanation": "The marker *na'a* is past tense, so this means \"They slept last night,\" but *'apō* is future-looking, creating a contradiction."
           },
           {
             "label": "C",
@@ -1067,7 +1067,7 @@
             "label": "D",
             "text": "Because *ni* is an enclitic: *'aho* and *ni* are pronounced as one unit, and stress falls on the second-to-last vowel of that unit.",
             "correct": true,
-            "explanation": "Treating *'aho ni* as one three-syllable word, *'a-ho-ni*, places stress on *-ho-*, the second-to-last vowel — hence *'ahó ni*."
+            "explanation": "Treating *'aho ni* as one three-syllable word, *'a-ho-ni*, places stress on *-ho-*, the second-to-last vowel: hence *'ahó ni*."
           }
         ]
       },
@@ -1085,7 +1085,7 @@
             "label": "B",
             "text": "*'anai*",
             "correct": true,
-            "explanation": "The forward-looking prefix *'a-* plus *-nai* gives *'anai*, \"in a little while\" — the future counterpart of *'anenai*."
+            "explanation": "The forward-looking prefix *'a-* plus *-nai* gives *'anai*, \"in a little while\": the future counterpart of *'anenai*."
           },
           {
             "label": "C",
@@ -1541,7 +1541,7 @@
             "label": "A",
             "text": "in, at, or on",
             "correct": true,
-            "explanation": "The single preposition *'i* covers the senses of English \"in,\" \"at,\" and \"on\" — the three English prepositions collapse into one Tongan form."
+            "explanation": "The single preposition *'i* covers the senses of English \"in,\" \"at,\" and \"on\": the three English prepositions collapse into one Tongan form."
           },
           {
             "label": "B",
@@ -1599,7 +1599,7 @@
         "options": [
           {
             "label": "A",
-            "text": "It describes what happens in the building — *fale kai* is a \"house for eating,\" i.e. a cafe.",
+            "text": "It describes what happens in the building: *fale kai* is a \"house for eating,\" i.e. a cafe.",
             "correct": true,
             "explanation": "When a verb is placed after *fale*, it describes the building's purpose. *Fale mohe* is \"dormitory\" (house for sleeping); *fale kai* is \"cafe.\""
           },
@@ -1649,7 +1649,7 @@
             "label": "D",
             "text": "Where have you been? (lit. \"Were-you at where?\")",
             "correct": true,
-            "explanation": "The location phrase *'i fē* fills the verb slot directly, with no separate word for \"was\" — the tense marker and pronoun do the work on their own."
+            "explanation": "The location phrase *'i fē* fills the verb slot directly, with no separate word for \"was\": the tense marker and pronoun do the work on their own."
           }
         ]
       },
@@ -1733,7 +1733,7 @@
             "label": "C",
             "text": "Because *ni* is an enclitic: *fale* and *ni* are pronounced as one unit, and stress falls on the second-to-last vowel of that unit.",
             "correct": true,
-            "explanation": "Treating *fale ni* as one three-syllable word, *fa-le-ni*, places stress on *-le-*, the second-to-last vowel — hence *falé ni*."
+            "explanation": "Treating *fale ni* as one three-syllable word, *fa-le-ni*, places stress on *-le-*, the second-to-last vowel: hence *falé ni*."
           },
           {
             "label": "D",
@@ -2151,25 +2151,25 @@
         "options": [
           {
             "label": "A",
-            "text": "The — a specific thing that both speaker and listener already have in mind",
+            "text": "The: a specific thing that both speaker and listener already have in mind",
             "correct": false,
             "explanation": "This is the meaning of the definite article *e* (or *he*), not *ha*. *Ha* never points to a specific item."
           },
           {
             "label": "B",
-            "text": "A, some, or any — the speaker has no specific one in mind",
+            "text": "A, some, or any: the speaker has no specific one in mind",
             "correct": true,
-            "explanation": "The word *ha* is the indefinite article. Unlike English \"a,\" it does not imply exactly one — *ha talo* can mean \"a taro\" or \"some taro\" depending on context."
+            "explanation": "The word *ha* is the indefinite article. Unlike English \"a,\" it does not imply exactly one: *ha talo* can mean \"a taro\" or \"some taro\" depending on context."
           },
           {
             "label": "C",
-            "text": "My, your, or our — possession",
+            "text": "My, your, or our: possession",
             "correct": false,
             "explanation": "Tongan expresses possession with separate possessive particles, not with *ha*. Articles and possessives are different word classes."
           },
           {
             "label": "D",
-            "text": "This or that — a demonstrative pointer",
+            "text": "This or that: a demonstrative pointer",
             "correct": false,
             "explanation": "Demonstratives sit in a different slot from articles. *Ha* simply marks indefiniteness; it does not point at anything."
           }
@@ -2423,7 +2423,7 @@
             "label": "A",
             "text": "*Tokoni ki ha faiako.*",
             "correct": false,
-            "explanation": "The preposition *ki* is right, but *ha* is indefinite — this would mean \"Help a teacher / some teacher,\" not \"the teacher.\""
+            "explanation": "The preposition *ki* is right, but *ha* is indefinite: this would mean \"Help a teacher / some teacher,\" not \"the teacher.\""
           },
           {
             "label": "B",
@@ -3951,25 +3951,25 @@
         "options": [
           {
             "label": "A",
-            "text": "*Ko hai na'e kai?* — *Ko'eni.*",
+            "text": "*Ko hai na'e kai?*: *Ko'eni.*",
             "correct": false,
             "explanation": "The question asks \"who ate?\", which needs a person answer (*Ko* + name). *Ko'eni* (\"Here it is\") points to a thing, not a person."
           },
           {
             "label": "B",
-            "text": "*Ko fē 'a e kato?* — *Ko Tēvita.*",
+            "text": "*Ko fē 'a e kato?*: *Ko Tēvita.*",
             "correct": false,
             "explanation": "\"Where is the basket?\" asks for a location, not a person. *Ko Tēvita* answers a *ko hai* question."
           },
           {
             "label": "C",
-            "text": "*Ko e hā ē?* — *Ko Mele.*",
+            "text": "*Ko e hā ē?*: *Ko Mele.*",
             "correct": false,
             "explanation": "\"What is that?\" asks about a thing, not a person. *Ko Mele* would answer a *ko hai* question."
           },
           {
             "label": "D",
-            "text": "*Ko hai 'oku ha'u?* — *Ko Mele.*",
+            "text": "*Ko hai 'oku ha'u?*: *Ko Mele.*",
             "correct": true,
             "explanation": "A *ko hai* question is answered with *ko* + person. *Ko Mele* names who is coming."
           }
@@ -5309,7 +5309,7 @@
             "label": "B",
             "text": "*'Oku ou fiema'u 'a e ika.*",
             "correct": false,
-            "explanation": "Without the definitive accent on *ika*, this is the semi-definite reading \"I want a particular fish\" — a fish the speaker has in mind but has not singled out for the listener."
+            "explanation": "Without the definitive accent on *ika*, this is the semi-definite reading \"I want a particular fish\": a fish the speaker has in mind but has not singled out for the listener."
           },
           {
             "label": "C",
@@ -5523,7 +5523,7 @@
           },
           {
             "label": "B",
-            "text": "It marks the doer — the noun doing the action — in a transitive sentence.",
+            "text": "It marks the doer: the noun doing the action, in a transitive sentence.",
             "correct": true,
             "explanation": "The agent marker *'e* introduces the subject of any transitive verb, as in *Na'e 'ave 'e Pita 'a Mele* (\"Pita took Mele\")."
           },
@@ -6015,7 +6015,7 @@
           },
           {
             "label": "C",
-            "text": "*Hiva* means both \"nine\" and \"sing/song\"; context — especially following a numeral expression or answering \"how many\" — fixes the reading.",
+            "text": "*Hiva* means both \"nine\" and \"sing/song\"; context (especially following a numeral expression, or answering \"how many\") fixes the reading.",
             "correct": true,
             "explanation": "When *hiva* follows a number or answers a *fīha* question, it means nine. In other contexts, such as *'Okú ke sai'ia he hivá?*, it means the song."
           },
@@ -6059,29 +6059,29 @@
       },
       {
         "id": "q9",
-        "prompt": "Which exchange correctly translates \"How much is the shirt? — One dollar.\"?",
+        "prompt": "Which exchange correctly translates \"How much is the shirt? One dollar.\"?",
         "options": [
           {
             "label": "A",
-            "text": "*'Oku toko fīha 'a e sotē? — Pa'anga 'e taha.*",
+            "text": "*'Oku toko fīha 'a e sotē? Pa'anga 'e taha.*",
             "correct": false,
             "explanation": "The counter *toko* is for people. Asking a price uses *fīha* directly after the tense marker, with no *toko*."
           },
           {
             "label": "B",
-            "text": "*'Oku fīha 'a e sotē? — Pa'anga 'e taha.*",
+            "text": "*'Oku fīha 'a e sotē? Pa'anga 'e taha.*",
             "correct": true,
             "explanation": "Price questions place *fīha* right after *'Oku*, and the answer uses the *noun + 'e + number* pattern: *pa'anga 'e taha* (\"one dollar\")."
           },
           {
             "label": "C",
-            "text": "*Ko e fīha 'a e sotē? — Taha pa'anga.*",
+            "text": "*Ko e fīha 'a e sotē? Taha pa'anga.*",
             "correct": false,
             "explanation": "Price questions start with *'Oku fīha*, not *Ko e fīha*. The latter pattern is used for time (\"what time is it?\")."
           },
           {
             "label": "D",
-            "text": "*'Oku fīha 'a e sotē? — Taha 'e pa'anga.*",
+            "text": "*'Oku fīha 'a e sotē? Taha 'e pa'anga.*",
             "correct": false,
             "explanation": "The numeric particle *'e* sits between the noun and the number, not the other way around. The form *taha 'e pa'anga* inverts the pattern."
           }
@@ -6623,7 +6623,7 @@
             "label": "B",
             "text": "\"just\" (recent past) and \"not until\" (delayed future).",
             "correct": true,
-            "explanation": "Both meanings share the idea of timing — action at a particular point, neither sooner nor later. In the past it emphasizes recency; in the future it emphasizes delay."
+            "explanation": "Both meanings share the idea of timing: action at a particular point, neither sooner nor later. In the past it emphasizes recency; in the future it emphasizes delay."
           },
           {
             "label": "C",
@@ -7295,7 +7295,7 @@
             "label": "B",
             "text": "*Ha'u pea kai.*",
             "correct": false,
-            "explanation": "This means \"Come, and then eat\" — two separate steps. The question asks for them as one combined event."
+            "explanation": "This means \"Come, and then eat\": two separate steps. The question asks for them as one combined event."
           },
           {
             "label": "C",
@@ -7307,7 +7307,7 @@
             "label": "D",
             "text": "*Ha'u pe kai.*",
             "correct": false,
-            "explanation": "The word *pe* means \"or,\" so this would ask \"come or eat?\" — two alternatives, not a combined event."
+            "explanation": "The word *pe* means \"or,\" so this would ask \"come or eat?\": two alternatives, not a combined event."
           }
         ]
       },
@@ -7373,7 +7373,7 @@
             "label": "D",
             "text": "*ongo*",
             "correct": false,
-            "explanation": "The marker *ongo* is the dual — it means exactly two, not a general plural."
+            "explanation": "The marker *ongo* is the dual: it means exactly two, not a general plural."
           }
         ]
       },
@@ -7391,7 +7391,7 @@
             "label": "B",
             "text": "*kau tamasi'i*",
             "correct": false,
-            "explanation": "Putting a plural marker in front is not enough — the singular stem itself changes to an irregular plural form."
+            "explanation": "Putting a plural marker in front is not enough: the singular stem itself changes to an irregular plural form."
           },
           {
             "label": "C",
@@ -7577,7 +7577,7 @@
             "label": "C",
             "text": "Sione and Mele live together at home.",
             "correct": true,
-            "explanation": "The special plural *nonofo* means \"live together\" — not a generic plural of *nofo* but a dedicated lexical form."
+            "explanation": "The special plural *nonofo* means \"live together\": not a generic plural of *nofo* but a dedicated lexical form."
           },
           {
             "label": "D",
@@ -8591,7 +8591,7 @@
             "label": "C",
             "text": "The 'e-class is used with singular possessors, the ho-class with plural.",
             "correct": false,
-            "explanation": "Both classes have complete pronoun sets across singular, dual, and plural — class is not a number distinction."
+            "explanation": "Both classes have complete pronoun sets across singular, dual, and plural: class is not a number distinction."
           },
           {
             "label": "D",
@@ -8669,7 +8669,7 @@
             "label": "A",
             "text": "*'Eku niu*",
             "correct": false,
-            "explanation": "The form *'eku niu* means \"my coconuts\" — the fruit you harvest. Trees require the ho-class."
+            "explanation": "The form *'eku niu* means \"my coconuts\", the fruit you harvest. Trees require the ho-class."
           },
           {
             "label": "B",
@@ -8705,7 +8705,7 @@
             "label": "B",
             "text": "*ki 'eku tamaí*",
             "correct": false,
-            "explanation": "With 'e-class possessives, *ki* requires the article *he* between the preposition and the possessive — the bare *ki 'eku* pattern is ungrammatical."
+            "explanation": "With 'e-class possessives, *ki* requires the article *he* between the preposition and the possessive; the bare *ki 'eku* pattern is ungrammatical."
           },
           {
             "label": "C",
@@ -8717,13 +8717,13 @@
             "label": "D",
             "text": "*ki he hoku tamaí*",
             "correct": false,
-            "explanation": "Ho-class possessives connect directly to *ki* with no *he* between them, and fathers belong to the 'e-class anyway — this sentence breaks two rules at once."
+            "explanation": "Ho-class possessives connect directly to *ki* with no *he* between them, and fathers belong to the 'e-class anyway: this sentence breaks two rules at once."
           }
         ]
       },
       {
         "id": "q6",
-        "prompt": "What does *'Oku 'ikai ha'aku hele* mean?",
+        "prompt": "What does *'Oku 'ikai ke 'i ai ha'aku hele* mean?",
         "options": [
           {
             "label": "A",
@@ -8741,7 +8741,7 @@
             "label": "C",
             "text": "I don't have a knife.",
             "correct": true,
-            "explanation": "The negative *'Oku 'ikai* plus the 'e-class indefinite *ha'aku* is the standard \"don't have\" pattern, literally \"a knife of mine does not exist.\""
+            "explanation": "The full negative *'Oku 'ikai ke 'i ai* plus the 'e-class indefinite *ha'aku* gives \"I don't have a knife,\" literally \"there is not a knife of mine.\""
           },
           {
             "label": "D",
@@ -8757,25 +8757,25 @@
         "options": [
           {
             "label": "A",
-            "text": "*mei homau 'apí* — from our (excl.) home",
+            "text": "*mei homau 'apí*: from our (excl.) home",
             "correct": false,
             "explanation": "This is correct: ho-class possessives connect directly to *mei* with no intervening article."
           },
           {
             "label": "B",
-            "text": "*ki e 'enau faiakó* — to their teacher",
+            "text": "*ki e 'enau faiakó*: to their teacher",
             "correct": true,
             "explanation": "This is the error. 'E-class possessives require the article *he* after *ki*, so the correct form is *ki he 'enau faiakó*, not *ki e 'enau faiakó*."
           },
           {
             "label": "C",
-            "text": "*'i hono lokí* — in his room",
+            "text": "*'i hono lokí*: in his room",
             "correct": false,
             "explanation": "This is correct: the ho-class *hono* connects directly to *'i* with no *he*."
           },
           {
             "label": "D",
-            "text": "*'e he 'enau mātu'á* — by their parents",
+            "text": "*'e he 'enau mātu'á*: by their parents",
             "correct": false,
             "explanation": "This is correct: the agent marker *'e* takes *he* before an 'e-class possessive, giving *'e he 'enau*."
           }
@@ -8795,7 +8795,7 @@
             "label": "B",
             "text": "Because the ho-class is reserved for nouns that describe clothing.",
             "correct": false,
-            "explanation": "The ho-class covers far more than clothing — shelter, body parts, relatives, trees — and is not blocked by any topic restriction."
+            "explanation": "The ho-class covers far more than clothing: shelter, body parts, relatives, and trees. It is not blocked by any topic restriction."
           },
           {
             "label": "C",
@@ -8817,19 +8817,19 @@
         "options": [
           {
             "label": "A",
-            "text": "*'Oku 'ikai haku kāinga.*",
+            "text": "*'Oku 'ikai ke 'i ai haku kāinga.*",
             "correct": true,
-            "explanation": "Relatives take the ho-class, so the indefinite \"my\" form is *haku*. The negative existential *'Oku 'ikai* plus *haku kāinga* gives \"I don't have any relatives.\""
+            "explanation": "Relatives take the ho-class, so the indefinite \"my\" form is *haku*. The full negative *'Oku 'ikai ke 'i ai* plus *haku kāinga* gives \"I don't have any relatives.\""
           },
           {
             "label": "B",
-            "text": "*'Oku 'ikai ha'aku kāinga.*",
+            "text": "*'Oku 'ikai ke 'i ai ha'aku kāinga.*",
             "correct": false,
             "explanation": "The form *ha'aku* is the 'e-class indefinite. Relatives belong to the ho-class, which uses *haku*."
           },
           {
             "label": "C",
-            "text": "*'Oku 'ikai 'eku kāinga.*",
+            "text": "*'Oku 'ikai ke 'i ai 'eku kāinga.*",
             "correct": false,
             "explanation": "The form *'eku* is both the wrong class (ho-class is required for relatives) and the wrong definiteness (negatives need an indefinite form)."
           },
@@ -8837,7 +8837,7 @@
             "label": "D",
             "text": "*'Oku 'i ai haku kāinga.*",
             "correct": false,
-            "explanation": "The frame *'Oku 'i ai* is affirmative (\"there is\" / \"I have\"). For \"I don't have,\" the negative *'Oku 'ikai* is required."
+            "explanation": "The frame *'Oku 'i ai* is affirmative (\"there is\" / \"I have\"). For \"I don't have,\" the negative *'Oku 'ikai ke 'i ai* is required."
           }
         ]
       },
@@ -9221,7 +9221,7 @@
             "label": "A",
             "text": "*'Oku 'ikai me'akai 'i fale.*",
             "correct": false,
-            "explanation": "The negative existential requires the full *'oku 'ikai ke 'i ai* frame. Dropping *ke 'i ai* strips out the \"there exists\" core of the sentence."
+            "explanation": "This is missing the indefinite article *ha* (it needs *ha me'akai*, \"any food\"). The course teaches the full form *'oku 'ikai ke 'i ai ha me'akai 'i fale*."
           },
           {
             "label": "B",
@@ -9327,7 +9327,7 @@
           },
           {
             "label": "D",
-            "text": "It singles out one individual, self-contained unit — \"a single coconut.\"",
+            "text": "It singles out one individual, self-contained unit, \"a single coconut.\"",
             "correct": true,
             "explanation": "The classifier *fo'i* picks out one complete item (often round), so *ha fo'i niu* is specifically one coconut rather than coconuts in general."
           }
@@ -9387,9 +9387,9 @@
           },
           {
             "label": "D",
-            "text": "*'Oku 'ikai 'i ai ha taha.*",
+            "text": "*'Oku 'ikai te 'i ai ha taha.*",
             "correct": true,
-            "explanation": "This is the error. Negation requires *ke* between *'ikai* and *'i ai*, giving *'Oku 'ikai ke 'i ai ha taha*."
+            "explanation": "This is the error. Before the verb-like *'i ai*, negation uses *ke*, not *te* (*te* comes only before a pronoun), giving *'Oku 'ikai ke 'i ai ha taha*."
           }
         ]
       },
@@ -9437,7 +9437,7 @@
             "label": "B",
             "text": "Because *'i ai* forces the narrow reading on any noun.",
             "correct": false,
-            "explanation": "The existential frame does not itself narrow meaning — plenty of nouns after *'i ai* keep their general sense. The narrowing comes from *fo'i*."
+            "explanation": "The existential frame does not itself narrow meaning, plenty of nouns after *'i ai* keep their general sense. The narrowing comes from *fo'i*."
           },
           {
             "label": "C",
@@ -9801,7 +9801,7 @@
         "options": [
           {
             "label": "A",
-            "text": "With (accompaniment — \"along with a person\")",
+            "text": "With (accompaniment: \"along with a person\")",
             "correct": false,
             "explanation": "Accompaniment is marked by *mo*, as in *Na'á ku 'alu mo Sione* (I went with Sione). *'Aki* names an instrument, not a companion."
           },
@@ -9935,7 +9935,7 @@
             "label": "C",
             "text": "*'Oku ngaohi eni 'aki 'a e niu.*",
             "correct": false,
-            "explanation": "This is correct: after the verb of making *ngaohi*, *'aki* names the material — \"made of coconut.\""
+            "explanation": "This is correct: after the verb of making *ngaohi*, *'aki* names the material: \"made of coconut.\""
           },
           {
             "label": "D",
@@ -10113,7 +10113,7 @@
           },
           {
             "label": "B",
-            "text": "The information is secondhand — something the speaker heard but did not personally witness.",
+            "text": "The information is secondhand: something the speaker heard but did not personally witness.",
             "correct": true,
             "explanation": "The word *tokua* marks a report as unverified hearsay, close to English \"they say\" or \"it is said.\""
           },
@@ -10289,7 +10289,7 @@
             "label": "A",
             "text": "*'Oua té ke lea pehē.*",
             "correct": true,
-            "explanation": "After the verb *lea* (\"talk\"), *pehē* describes the manner of talking — \"like that\" — making it adverbial."
+            "explanation": "After the verb *lea* (\"talk\"), *pehē* describes the manner of talking: \"like that\", making it adverbial."
           },
           {
             "label": "B",
@@ -10365,7 +10365,7 @@
           },
           {
             "label": "D",
-            "text": "It signals discovery or realization — the speaker has just learned something new.",
+            "text": "It signals discovery or realization: the speaker has just learned something new.",
             "correct": true,
             "explanation": "The interjection *tā* marks the emergence of a previously unknown fact, close to English \"So...\" or \"I see that...\""
           }
@@ -10473,25 +10473,25 @@
         "options": [
           {
             "label": "A",
-            "text": "A big thing that is also different — two separate descriptions.",
+            "text": "A big thing that is also different: two separate descriptions.",
             "correct": false,
             "explanation": "The phrase does not describe two distinct qualities. Both *fu'u* and *lahi* refer to size."
           },
           {
             "label": "B",
-            "text": "A medium-sized thing — the two adjectives cancel each other out.",
+            "text": "A medium-sized thing: the two adjectives cancel each other out.",
             "correct": false,
             "explanation": "Tongan adjectives do not cancel. Doubling them intensifies; it does not neutralize."
           },
           {
             "label": "C",
-            "text": "A great big thing — the preposed and postposed adjectives reinforce each other for emphasis.",
+            "text": "A great big thing: the preposed and postposed adjectives reinforce each other for emphasis.",
             "correct": true,
             "explanation": "The doubled pattern, preposed adjective + noun + postposed adjective, intensifies the description beyond what either word alone would convey."
           },
           {
             "label": "D",
-            "text": "A specific big thing — the doubling marks definiteness.",
+            "text": "A specific big thing: the doubling marks definiteness.",
             "correct": false,
             "explanation": "Definiteness comes from the article *e*, not from adjective doubling. The doubling adds emphasis on size, not specificity."
           }
@@ -10535,7 +10535,7 @@
             "label": "A",
             "text": "*e sote hinehiná*",
             "correct": true,
-            "explanation": "In a definite noun phrase with a postposed adjective, the definitive accent falls on the final vowel of the adjective — the last word in the phrase."
+            "explanation": "In a definite noun phrase with a postposed adjective, the definitive accent falls on the final vowel of the adjective: the last word in the phrase."
           },
           {
             "label": "B",
@@ -10655,19 +10655,19 @@
             "label": "A",
             "text": "*loto to'a*",
             "correct": false,
-            "explanation": "The compound *loto to'a* means \"courageous\" — the literal mind-brave opposite of cowardly."
+            "explanation": "The compound *loto to'a* means \"courageous\": the literal mind-brave opposite of cowardly."
           },
           {
             "label": "B",
             "text": "*loto lahi*",
             "correct": false,
-            "explanation": "The compound *loto lahi* means \"brave, bold, eager\" — again the opposite of cowardly."
+            "explanation": "The compound *loto lahi* means \"brave, bold, eager\": again the opposite of cowardly."
           },
           {
             "label": "C",
             "text": "*loto mamahi*",
             "correct": false,
-            "explanation": "The compound *loto mamahi* means \"sad, upset\" — an emotional state unrelated to cowardice."
+            "explanation": "The compound *loto mamahi* means \"sad, upset\": an emotional state unrelated to cowardice."
           },
           {
             "label": "D",
@@ -11187,13 +11187,13 @@
           },
           {
             "label": "C",
-            "text": "Either class — the two are fully interchangeable.",
+            "text": "Either class: the two are fully interchangeable.",
             "correct": false,
             "explanation": "The 'e-class and ho-class carry different meanings and are not interchangeable. Each noun selects one class based on the relation to the possessor."
           },
           {
             "label": "D",
-            "text": "Neither class — money takes no possessive form.",
+            "text": "Neither class: money takes no possessive form.",
             "correct": false,
             "explanation": "Every possessable noun takes either 'e-class or ho-class marking. Money certainly can be possessed."
           }
@@ -11205,7 +11205,7 @@
         "options": [
           {
             "label": "A",
-            "text": "It replaces *hono* — only one of the two is allowed.",
+            "text": "It replaces *hono*: only one of the two is allowed.",
             "correct": false,
             "explanation": "Both the preposed *hono* and the postposed *'ona* appear together. They cooperate rather than exclude each other."
           },
@@ -12261,7 +12261,7 @@
           },
           {
             "label": "C",
-            "text": "Word class flexibility — the sentence structure (tense marker, article, position) signals which role the word is playing.",
+            "text": "Word class flexibility: the sentence structure (tense marker, article, position) signals which role the word is playing.",
             "correct": true,
             "explanation": "A word like *'uha* is a noun by default, but following a tense marker like *na'e* it becomes a verb. Structure, not morphology, sets the word class."
           },
@@ -12279,25 +12279,25 @@
         "options": [
           {
             "label": "A",
-            "text": "Noun — it is the subject of the clause.",
+            "text": "Noun: it is the subject of the clause.",
             "correct": false,
             "explanation": "No article or focus marker introduces *'uha* here, and the tense marker *Na'e* sits directly in front. A bare noun subject would not take a tense marker."
           },
           {
             "label": "B",
-            "text": "Verb — it is introduced by a tense marker.",
+            "text": "Verb: it is introduced by a tense marker.",
             "correct": true,
             "explanation": "The tense marker *na'e* signals that what follows is a verb. So *'uha* here means \"to rain / rained,\" with the whole sentence meaning \"It rained last night.\""
           },
           {
             "label": "C",
-            "text": "Adjective — it modifies *'anepō*.",
+            "text": "Adjective: it modifies *'anepō*.",
             "correct": false,
             "explanation": "An adjective would sit directly after the noun it modifies, with no tense marker. Here *'uha* is in the verb slot."
           },
           {
             "label": "D",
-            "text": "Adverb — it modifies an implied verb.",
+            "text": "Adverb: it modifies an implied verb.",
             "correct": false,
             "explanation": "No implied verb sits here. The tense marker governs *'uha* directly, making *'uha* itself the verb."
           }
@@ -13899,25 +13899,25 @@
         "options": [
           {
             "label": "A",
-            "text": "For round, complete objects — from *lahi* (big).",
+            "text": "For round, complete objects: from *lahi* (big).",
             "correct": false,
             "explanation": "Round, complete objects use *fo'i*, not *la'i*. And *la'i* has nothing to do with *lahi*."
           },
           {
             "label": "B",
-            "text": "For long, thin, flat objects — probably from *lau'i* (the leaf of).",
+            "text": "For long, thin, flat objects: probably from *lau'i* (the leaf of).",
             "correct": true,
             "explanation": "The classifier *la'i* marks long, thin, flat items such as paper, boards, and forms."
           },
           {
             "label": "C",
-            "text": "For plural objects — from *laulahi* (many).",
+            "text": "For plural objects: from *laulahi* (many).",
             "correct": false,
             "explanation": "Plurality in Tongan is marked by *ngaahi* or other devices, not by a classifier. And *la'i* is singular in sense."
           },
           {
             "label": "D",
-            "text": "For living things — from an archaic verb.",
+            "text": "For living things: from an archaic verb.",
             "correct": false,
             "explanation": "The classifier is used for inanimate flat items like sheets and boards, not for living beings."
           }
@@ -15209,7 +15209,7 @@
       },
       {
         "id": "q8",
-        "prompt": "In *la——hi* (very very big), what is being signalled by the dashes?",
+        "prompt": "In *la––hi* (very very big), what is being signalled by the dashes?",
         "options": [
           {
             "label": "A",
@@ -15231,9 +15231,9 @@
           },
           {
             "label": "D",
-            "text": "Vowel protraction — the stressed vowel is held for far longer than an ordinary long vowel, signalling extreme degree",
+            "text": "Vowel protraction: the stressed vowel is held for far longer than an ordinary long vowel, signalling extreme degree",
             "correct": true,
-            "explanation": "Stretching the stressed *a* in *lahi* produces *la——hi*, meaning enormously big. Duration varies with the speaker's emotion; there is no fixed length."
+            "explanation": "Stretching the stressed *a* in *lahi* produces *la––hi*, meaning enormously big. Duration varies with the speaker's emotion; there is no fixed length."
           }
         ]
       },
@@ -15243,9 +15243,9 @@
         "options": [
           {
             "label": "A",
-            "text": "*la——hi*",
+            "text": "*la––hi*",
             "correct": false,
-            "explanation": "The form *la——hi* is productive vowel protraction applied to *lahi*. It is built from a normal word, not a fixed exclamation."
+            "explanation": "The form *la––hi* is productive vowel protraction applied to *lahi*. It is built from a normal word, not a fixed exclamation."
           },
           {
             "label": "B",
@@ -15255,15 +15255,15 @@
           },
           {
             "label": "C",
-            "text": "*Tue——!*",
+            "text": "*Tue––!*",
             "correct": true,
-            "explanation": "The cry *Tue——!* is a fixed exclamatory shout for joy, with its final vowel always protracted. It is learned as a complete unit, like \"Hooray!\""
+            "explanation": "The cry *Tue––!* is a fixed exclamatory shout for joy, with its final vowel always protracted. It is learned as a complete unit, like \"Hooray!\""
           },
           {
             "label": "D",
-            "text": "*no——fo*",
+            "text": "*no––fo*",
             "correct": false,
-            "explanation": "The form *no——fo* is productive vowel protraction on *nofo* (stay) to signal extended duration. It follows the same protraction rule as *la——hi*."
+            "explanation": "The form *no––fo* is productive vowel protraction on *nofo* (stay) to signal extended duration. It follows the same protraction rule as *la––hi*."
           }
         ]
       },
@@ -15927,7 +15927,7 @@
           },
           {
             "label": "B",
-            "text": "The language of respect — the system requiring different words depending on the social rank of the person addressed or referred to",
+            "text": "The language of respect: the system requiring different words depending on the social rank of the person addressed or referred to",
             "correct": true,
             "explanation": "The system forces speakers to choose among ordinary, polite, honorific, regal, and derogatory vocabulary according to the rank of the person addressed or named."
           },
@@ -16101,25 +16101,25 @@
         "options": [
           {
             "label": "A",
-            "text": "\"With all due respect to him/her\" — used when referring to someone who is not present.",
+            "text": "\"With all due respect to him/her\": used when referring to someone who is not present.",
             "correct": true,
             "explanation": "Mentioning an absent person calls for this formula to mark the speaker's awareness that the reference still deserves respect."
           },
           {
             "label": "B",
-            "text": "\"Goodbye to him\" — used when someone leaves the gathering.",
+            "text": "\"Goodbye to him\": used when someone leaves the gathering.",
             "correct": false,
             "explanation": "This is not a farewell. *Tapu mo* is a respect formula, not a leave-taking phrase."
           },
           {
             "label": "C",
-            "text": "\"My respects to you\" — used directly when speaking to one person.",
+            "text": "\"My respects to you\": used directly when speaking to one person.",
             "correct": false,
             "explanation": "Direct address to one person uses *Tapu mo koe!* The pronoun *ia* (\"him/her\") refers to a third party, not the listener."
           },
           {
             "label": "D",
-            "text": "\"I agree with him\" — used to express consent.",
+            "text": "\"I agree with him\": used to express consent.",
             "correct": false,
             "explanation": "Agreement is not the function. The *tapu mo* family of expressions marks the sacred relationship, not assent to an opinion."
           }

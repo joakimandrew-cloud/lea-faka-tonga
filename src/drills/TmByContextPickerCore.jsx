@@ -42,9 +42,9 @@ const PROMPTS = [
   { tongan: 'ʻE ʻikai ___ ke ʻalu ki Tonga.', english: 'You will not go to Tonga.',                answer: 'te-conn', why: 'After ʻikai, the pronoun ke (you) follows → te. (The second ke here is the pronoun; the blank needs the connector te.)' },
   { tongan: 'ʻOku ʻikai ___ momoko.',         english: 'It is not cold.',                          answer: 'ke-conn', why: 'momoko (cold) is a weather verb with no pronoun subject → ke after ʻikai.' },
   { tongan: 'Naʻe ʻikai ___ nau fiefia.',     english: 'They were not happy.',                     answer: 'te-conn', why: 'After ʻikai, the pronoun nau (they) follows → te.' },
-  { tongan: 'ʻE ʻikai ___ ʻuha ʻapō.',        english: 'It will not rain tonight.',                answer: 'ke-conn', why: 'ʻuha (to rain) — no pronoun subject → ke after ʻikai.' },
+  { tongan: 'ʻE ʻikai ___ ʻuha ʻapō.',        english: 'It will not rain tonight.',                answer: 'ke-conn', why: 'ʻuha (to rain): no pronoun subject → ke after ʻikai.' },
   { tongan: 'ʻOku ʻikai ___ ne hela.',        english: 'He is not tired.',                         answer: 'te-conn', why: 'After ʻikai, the pronoun ne (he/she) follows → te.' },
-  { tongan: 'Naʻe ʻikai ___ ʻafua ʻaneafi.',  english: 'It was not fine yesterday.',               answer: 'ke-conn', why: 'ʻafua (fine weather) — no pronoun subject → ke after ʻikai.' },
+  { tongan: 'Naʻe ʻikai ___ ʻafua ʻaneafi.',  english: 'It was not fine yesterday.',               answer: 'ke-conn', why: 'ʻafua (fine weather): no pronoun subject → ke after ʻikai.' },
 ]
 
 export default function TmByContextPickerCore() {

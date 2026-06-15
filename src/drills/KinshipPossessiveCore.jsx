@@ -18,12 +18,12 @@
 import PickerCore from './PickerCore'
 
 const OPTIONS = [
-  { id: 'eku',  label: 'ʻeku', detail: 'my — e-class (parents & children)' },
-  { id: 'hoo',  label: 'hoʻo', detail: 'your — e-class' },
-  { id: 'ene',  label: 'ʻene', detail: 'his / her — e-class' },
-  { id: 'hoku', label: 'hoku', detail: 'my — ho-class (other relatives)' },
-  { id: 'ho',   label: 'ho',   detail: 'your — ho-class' },
-  { id: 'hono', label: 'hono', detail: 'his / her — ho-class' },
+  { id: 'eku',  label: 'ʻeku', detail: 'my: e-class (parents & children)' },
+  { id: 'hoo',  label: 'hoʻo', detail: 'your: e-class' },
+  { id: 'ene',  label: 'ʻene', detail: 'his / her: e-class' },
+  { id: 'hoku', label: 'hoku', detail: 'my: ho-class (other relatives)' },
+  { id: 'ho',   label: 'ho',   detail: 'your: ho-class' },
+  { id: 'hono', label: 'hono', detail: 'his / her: ho-class' },
 ]
 
 const PROMPTS = [

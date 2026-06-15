@@ -31,7 +31,7 @@ const PROMPTS = [
   { tongan: 'Naʻá ne haʻu ___ Fisi.',            english: 'She came from Fiji.',                answer: 'mei',    why: 'Fiji is a place name → bare mei. (Pronoun subject ne, since noun-subject construction is Ch 15.)' },
   { tongan: 'ʻOku ou nofo ___ Tonga.',           english: 'I live in Tonga.',                   answer: 'i',      why: 'Tonga is a place → bare ʻi (location).' },
   { tongan: 'Naʻá ku lea ___ Sione.',            english: 'I spoke to Sione.',                  answer: 'kia',    why: 'Sione is a person\u2019s name (personal noun) → ki takes -a → kia.' },
-  { tongan: 'Naʻá ne sio ___ Lupe.',             english: 'She saw Lupe.',                      answer: 'kia',    why: 'sio takes ki for its target. Lupe is a name → kia. Tongan says "look TO Lupe". (Naʻa before pronoun ne — Naʻe is for noun subjects only.)' },
+  { tongan: 'Naʻá ne sio ___ Lupe.',             english: 'She saw Lupe.',                      answer: 'kia',    why: 'sio takes ki for its target. Lupe is a name → kia. Tongan says "look TO Lupe". (Naʻa before pronoun ne: Naʻe is for noun subjects only.)' },
   { tongan: 'Naʻá ne haʻu ___ Tēvita.',          english: 'He came from Tēvita.',               answer: 'meia',   why: 'Tēvita is a name → mei takes -a → meia.' },
   { tongan: 'Naʻá ku tokoni ___ ia.',            english: 'I helped him.',                      answer: 'kiate',  why: 'ia is a postposed pronoun → ki takes -ate → kiate.' },
   { tongan: 'ʻOku mahino ___ au.',               english: 'I understand. (Lit. is clear to me)', answer: 'kiate', why: 'mahino takes ki for the experiencer. au is a pronoun → kiate.' },

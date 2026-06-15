@@ -132,7 +132,7 @@ const PHRASES = [
       { id: 'd-e', tongan: 'ʻe', gloss: '' },
       { id: 'd-ha', tongan: 'ha', gloss: '' },
     ],
-    why: 'Intransitive subject takes ʻa e. Teachers are people, so the plural marker is kau (not ngaahi, which is for things): ʻa e kau faiako. With a plural subject, ʻalu takes its plural form ō (Ch 25) — ō is the book’s plural form; ʻalu is also commonly heard in speech, so both are accepted here.',
+    why: 'Intransitive subject takes ʻa e. Teachers are people, so the plural marker is kau (not ngaahi, which is for things): ʻa e kau faiako. With a plural subject, ʻalu takes its plural form ō (Ch 25): ō is the book’s plural form; ʻalu is also commonly heard in speech, so both are accepted here.',
   },
   {
     id: 'i-not-eat',
@@ -354,7 +354,7 @@ export default function SentenceBuilderCore() {
       <div className="afl-answer-row">
         <div className="afl-answer-label">Your sentence</div>
         <div className="afl-answer-slot">
-          {selected.length ? studentSentence : <span className="afl-answer-placeholder">&mdash;</span>}
+          {selected.length ? studentSentence : <span className="afl-answer-placeholder">&ndash;</span>}
         </div>
         {selected.length > 0 && answered === null && (
           <button onClick={handleClear} className="afl-clear">clear</button>
@@ -362,7 +362,7 @@ export default function SentenceBuilderCore() {
       </div>
 
       <div className="afl-pool-label">
-        {answered === null ? `Click ${slotCount} tiles in order — some markers are traps` : 'The pool'}
+        {answered === null ? `Click ${slotCount} tiles in order: some markers are traps` : 'The pool'}
       </div>
       <div className="afl-pool">
         {pool.map((t, i) => {

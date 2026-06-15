@@ -21,10 +21,10 @@
 import PickerCore from './PickerCore'
 
 const OPTIONS = [
-  { id: 'aaku', label: 'ʻaʻaku', detail: 'mine — ʻe-class (things you act on or control)' },
-  { id: 'ooku', label: 'ʻoʻoku', detail: 'mine — ho-class (things that shelter or define you)' },
-  { id: 'ahai', label: 'ʻa hai', detail: 'whose? — asking about an ʻe-class thing' },
-  { id: 'ohai', label: 'ʻo hai', detail: 'whose? — asking about a ho-class thing' },
+  { id: 'aaku', label: 'ʻaʻaku', detail: 'mine: ʻe-class (things you act on or control)' },
+  { id: 'ooku', label: 'ʻoʻoku', detail: 'mine: ho-class (things that shelter or define you)' },
+  { id: 'ahai', label: 'ʻa hai', detail: 'whose? asking about an ʻe-class thing' },
+  { id: 'ohai', label: 'ʻo hai', detail: 'whose? asking about a ho-class thing' },
 ]
 
 const PROMPTS = [

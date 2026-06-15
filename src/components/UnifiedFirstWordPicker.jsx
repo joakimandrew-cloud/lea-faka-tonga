@@ -74,7 +74,7 @@ export default function UnifiedFirstWordPicker({ onSelectWord }) {
           {previews.slice(0, 3).map((p, i) => (
             <div key={i} className="text-sm mb-1">
               <span className="text-[var(--text)] font-tongan">{p.path.join(' ')}</span>
-              <span className="text-[var(--text-muted)] ml-2">— {p.english}</span>
+              <span className="text-[var(--text-muted)] ml-2">– {p.english}</span>
             </div>
           ))}
         </div>

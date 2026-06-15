@@ -25,7 +25,7 @@ const ALL_EXAMPLES = [
     id: 'i-go',
     minChapter: 2,
     title: 'I go',
-    hint: 'Pronoun subject. The "I" pronoun morphs with the tense marker — ku, ou, u, u — but the verb ʻalu never moves.',
+    hint: 'Pronoun subject. The "I" pronoun morphs with the tense marker: ku, ou, u, u, but the verb ʻalu never moves.',
     body: 'ʻalu',
     perTense: {
       affirmative: { present: 'ʻOku ou', past: 'Naʻá ku', perfect: 'Kuó u', future: 'Té u' },
@@ -104,7 +104,7 @@ const ALL_EXAMPLES = [
     id: 'doctor-at-home',
     minChapter: 31,
     title: 'There is a doctor at home',
-    hint: 'Existential ʻi ai ha — Tongan has no verb "to be".',
+    hint: 'Existential ʻi ai ha: Tongan has no verb "to be".',
     body: 'ʻi ai ha tōketā ʻi ʻapi',
     perTense: {
       affirmative: { present: 'ʻOku', past: 'Naʻe', perfect: 'Kuo', future: 'ʻE' },

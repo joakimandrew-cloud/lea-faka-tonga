@@ -174,7 +174,7 @@ export default function SorterCore({
                 <em>{current.tongan}</em> is <strong>{answerCategory.label}</strong>. {current.why}
                 {rightForm && (
                   <span className="pcs-inline-form">
-                    {'\u2192'} {rightForm}{rightNote ? ` \u2014 ${rightNote}` : ''}
+                    {'\u2192'} {rightForm}{rightNote ? `${rightNote}` : ''}
                   </span>
                 )}
               </span>
@@ -191,12 +191,12 @@ export default function SorterCore({
                 <strong>{guessCategory?.label}</strong>. {current.why}
                 {wrongForm && (
                   <span className="pcs-inline-form pcs-inline-form-wrong">
-                    {wrongForm}{wrongNote ? ` \u2014 ${wrongNote}` : ''}
+                    {wrongForm}{wrongNote ? `${wrongNote}` : ''}
                   </span>
                 )}
                 {rightForm && (
                   <span className="pcs-inline-form">
-                    {'\u2192'} {rightForm}{rightNote ? ` \u2014 ${rightNote}` : ''}
+                    {'\u2192'} {rightForm}{rightNote ? `${rightNote}` : ''}
                   </span>
                 )}
               </span>
@@ -238,7 +238,7 @@ export default function SorterCore({
             <div className="pcs-noun">{score.right} / {score.total} correct</div>
             <div className="pcs-noun-gloss">
               {perfect
-                ? 'Perfect \u2014 every answer right.'
+                ? 'Perfect: every answer right.'
                 : 'You made it through the whole deck.'}
             </div>
           </div>

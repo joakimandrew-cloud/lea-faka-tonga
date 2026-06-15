@@ -89,7 +89,7 @@ const PHRASES = [
       { id: 'pe',   tongan: 'pē',   role: 'limiter', gloss: 'just / only' },
     ],
     correct_order: ['mohe', 'pe'],
-    why: 'pē is a postposed limiter: it attaches to whatever it follows. Here it limits the action — "we did nothing but sleep".',
+    why: 'pē is a postposed limiter: it attaches to whatever it follows. Here it limits the action: "we did nothing but sleep".',
   },
   {
     id: 'worked-hard',
@@ -101,7 +101,7 @@ const PHRASES = [
       { id: 'malohi', tongan: 'mālohi', role: 'modifier', gloss: 'hard / strongly' },
     ],
     correct_order: ['ngaue', 'malohi'],
-    why: 'mālohi after the verb means "hard, strongly". (As a verb-slot adjective it means "strong" — context disambiguates.)',
+    why: 'mālohi after the verb means "hard, strongly". (As a verb-slot adjective it means "strong": context disambiguates.)',
   },
   {
     id: 'often-work-hard',
@@ -213,7 +213,7 @@ export default function ModifierOrderCore() {
       <div className="afl-answer-row">
         <div className="afl-answer-label">Your sentence</div>
         <div className="afl-answer-slot">
-          {renderedSentence || <span className="afl-answer-placeholder">&mdash;</span>}
+          {renderedSentence || <span className="afl-answer-placeholder">&ndash;</span>}
         </div>
         {selected.length > 0 && answered === null && (
           <button onClick={handleClear} className="afl-clear">clear</button>

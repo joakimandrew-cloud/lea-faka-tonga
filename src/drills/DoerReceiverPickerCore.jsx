@@ -22,7 +22,7 @@ const PROMPTS = [
   { tongan: 'hono fili',     english: 'his being chosen (chosen by someone else)',           answer: 'hoclass', why: 'hono is ho-class → he is the receiver of the action.' },
   { tongan: 'ʻene tohi',     english: 'his writing (he produces the writing)',               answer: 'eclass',  why: 'ʻene → he does the writing. (hono tohi would mean "his being written about".)' },
   { tongan: 'hono tohi',     english: 'his being written about',                             answer: 'hoclass', why: 'hono → the writing is ABOUT him; he is its subject, not its author.' },
-  { tongan: 'ʻenau ngāue',   english: 'their working (they do the work)',                    answer: 'eclass',  why: 'Intransitive verb (ngāue) — only the doer reading is possible. ʻenau = they-as-doers.' },
+  { tongan: 'ʻenau ngāue',   english: 'their working (they do the work)',                    answer: 'eclass',  why: 'Intransitive verb (ngāue): only the doer reading is possible. ʻenau = they-as-doers.' },
   { tongan: 'ʻene hiva',     english: 'the song he sings (he produces it)',                  answer: 'eclass',  why: 'ʻene → he sings the song. (hono hiva would mean "the song sung about him".)' },
 ]
 

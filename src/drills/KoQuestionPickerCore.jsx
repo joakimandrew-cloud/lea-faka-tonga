@@ -21,7 +21,7 @@ const PROMPTS = [
   { tongan: '___ ʻa e kato?',                        english: 'Where is the basket?',                         answer: 'ko-fe',      why: 'ko fē asks for the location of something within view (uses the ko pattern, not the verbal pattern).' },
   { tongan: '___ naʻá ke ʻalu ___ ki Nukuʻalofa?',   english: 'Why did you go to Nukuʻalofa?',                 answer: 'ko-e-ha-ai', why: 'ko e hā at the front + ai after the verb = "why?". The ai refers back to the unknown reason.' },
   { tongan: '___ naʻe mohe?',                        english: 'Who slept?',                                   answer: 'ko-hai',     why: 'Asking about a person → ko hai.' },
-  { tongan: '___ ē?',                                english: 'What is that?',                                answer: 'ko-e-ha',    why: 'Short identification question — ko e hā ē (what + that) is the standard "what is that?".' },
+  { tongan: '___ ē?',                                english: 'What is that?',                                answer: 'ko-e-ha',    why: 'Short identification question: ko e hā ē (what + that) is the standard "what is that?".' },
   { tongan: '___ naʻe ʻita ___?',                    english: 'Why was he angry?',                            answer: 'ko-e-ha-ai', why: 'Same why-pattern: ko e hā + verb + ai.' },
   { tongan: '___ ʻa e vaka?',                        english: 'Where is the boat?',                           answer: 'ko-fe',      why: 'Locating an object within view → ko fē.' },
 ]

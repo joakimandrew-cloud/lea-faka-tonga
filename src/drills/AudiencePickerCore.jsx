@@ -21,14 +21,14 @@ const OPTIONS = [
 ]
 
 const PROMPTS = [
-  { tongan: '___ kai!',   english: 'Eat! (one person)',                 answer: 'bare', why: 'Singular command — bare verb, no audience marker. Result: Kai!' },
+  { tongan: '___ kai!',   english: 'Eat! (one person)',                 answer: 'bare', why: 'Singular command: bare verb, no audience marker. Result: Kai!' },
   { tongan: '___ hiva!',  english: 'Sing! (a group of three or more)',  answer: 'mou',  why: 'Mou before the verb tells a group of three or more. Result: Mou hiva!' },
   { tongan: '___ nofo!',  english: 'Stay! (you two)',                    answer: 'mo',   why: 'Mo before the verb addresses exactly two people (the dual command). Result: Mo nofo!' },
   { tongan: '___ mohe!',  english: 'Sleep! (one person)',                answer: 'bare', why: 'Bare verb does all the work for a singular command.' },
   { tongan: '___ inu!',   english: 'Drink! (a group of three or more)',  answer: 'mou',  why: 'Mou + verb for groups of three or more.' },
   { tongan: '___ lele!',  english: 'Run! (you two)',                     answer: 'mo',   why: 'Two people: dual command with mo.' },
   { tongan: '___ ako!',   english: 'Study! (you two)',                   answer: 'mo',   why: 'Mo + verb addresses exactly two people.' },
-  { tongan: '___ lea!',   english: 'Speak! (one person)',                answer: 'bare', why: 'Singular command — bare verb suffices.' },
+  { tongan: '___ lea!',   english: 'Speak! (one person)',                answer: 'bare', why: 'Singular command: bare verb suffices.' },
 ]
 
 export default function AudiencePickerCore() {

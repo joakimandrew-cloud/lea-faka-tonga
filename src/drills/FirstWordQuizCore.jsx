@@ -51,19 +51,19 @@ const ALL_EXAMPLES = [
   // ── Equational: Ko opens "X is Y" — no verb (Ch 12, pronoun subjects Ch 16) ──
   { minChapter: 12, opener: 'Ko e',             rest: ' tangata eni.',        english: 'This is a man.',                pattern: 'equational', why: 'Ko opens an equation: "X IS Y". No verb needed.' },
   { minChapter: 12, opener: 'Ko e',             rest: ' fala ē.',             english: 'That is a mat.',                pattern: 'equational', why: 'Ko e + noun + demonstrative = identification. Pure equational pattern.' },
-  { minChapter: 12, opener: 'Ko e',             rest: ' kato eni.',           english: 'This is a basket.',             pattern: 'equational', why: 'Ko e + noun + demonstrative identifies something. No verb — a pure equational.' },
+  { minChapter: 12, opener: 'Ko e',             rest: ' kato eni.',           english: 'This is a basket.',             pattern: 'equational', why: 'Ko e + noun + demonstrative identifies something. No verb: a pure equational.' },
   { minChapter: 16, opener: 'Ko e',             rest: ' tangata ngāue au.',   english: 'I am a worker.',                pattern: 'equational', why: 'Ko e + predicate + postposed pronoun au = "I am a worker". The ʻa drops before a pronoun.' },
   { minChapter: 16, opener: 'Ko e',             rest: ' taʻahine mālohi ia.', english: 'She is a strong girl.',         pattern: 'equational', why: 'Ko opens "X is Y"; the postposed pronoun ia ("he/she") is the subject. Still equational.' },
 
   // ── Obligation: a modal head — totonu ke (should) / pau ke (must) (Ch 23) ──
-  { minChapter: 23, opener: 'ʻOku totonu ke',   rest: ' u ako.',              english: 'I should study.',               pattern: 'obligation', why: 'totonu ke = "should" — a modal head introducing obligation.' },
+  { minChapter: 23, opener: 'ʻOku totonu ke',   rest: ' u ako.',              english: 'I should study.',               pattern: 'obligation', why: 'totonu ke = "should": a modal head introducing obligation.' },
   { minChapter: 23, opener: 'Kuo pau ke',       rest: ' u foki.',             english: 'I must return.',                pattern: 'obligation', why: 'pau ke = "must / it is certain that". Stronger than totonu ke.' },
-  { minChapter: 23, opener: 'ʻOku totonu ke',   rest: ' ne foki.',            english: 'He should return.',             pattern: 'obligation', why: 'totonu ke = "should / ought to" — a modal head that marks obligation, not a plain statement.' },
+  { minChapter: 23, opener: 'ʻOku totonu ke',   rest: ' ne foki.',            english: 'He should return.',             pattern: 'obligation', why: 'totonu ke = "should / ought to": a modal head that marks obligation, not a plain statement.' },
   { minChapter: 23, opener: 'Kuo pau ke',       rest: ' tau ō.',              english: 'We (all) must go.',             pattern: 'obligation', why: 'pau ke = "must / it is necessary that", a stronger obligation than totonu ke.' },
 
   // ── Have: ʻi ai + an indefinite POSSESSIVE (haʻaku / haʻo / haʻane) (Ch 29) ──
   { minChapter: 29, opener: 'ʻOku ʻi ai haʻaku', rest: ' tohi.',              english: 'I have a book.',                pattern: 'have',       why: 'ʻi ai + indefinite possessive (haʻaku = "a … of mine") is the have-construction. No verb "to have".' },
-  { minChapter: 29, opener: 'ʻOku ʻi ai haʻo',   rest: ' kato?',             english: 'Do you have a basket?',          pattern: 'have',       why: 'ʻi ai + the indefinite possessive haʻo ("a … of yours") is the "to have" frame — the possessive marks it as "have".' },
+  { minChapter: 29, opener: 'ʻOku ʻi ai haʻo',   rest: ' kato?',             english: 'Do you have a basket?',          pattern: 'have',       why: 'ʻi ai + the indefinite possessive haʻo ("a … of yours") is the "to have" frame: the possessive marks it as "have".' },
   { minChapter: 29, opener: 'ʻOku ʻi ai haʻane', rest: ' tohi?',             english: 'Does he have a book?',           pattern: 'have',       why: 'ʻi ai + indefinite possessive haʻane ("a … of his") = "does he have…". Contrast existential, which uses a bare ha + noun.' },
 
   // ── Existential: ʻi ai + an indefinite ha + NOUN — "there is/are" (Ch 31) ──

@@ -33,16 +33,16 @@
 import PickerCore from './PickerCore'
 
 const OPTIONS = [
-  { id: 'mo',  minChapter: 10, label: 'mo',  detail: 'with / and — joins two nouns' },
-  { id: 'i',   minChapter: 7,  maxChapter: 23, label: 'ʻi',  detail: 'in / at — marks a place' },
-  { id: 'ki',  minChapter: 7,  maxChapter: 23, label: 'ki',  detail: 'to / toward — marks a destination' },
-  { id: 'mei', minChapter: 7,  maxChapter: 23, label: 'mei', detail: 'from — marks a starting point' },
-  { id: 'pea', minChapter: 24, label: 'pea', detail: 'and then — chains clauses in sequence' },
-  { id: 'o',   minChapter: 24, label: 'ʻo',  detail: 'and — links verbs into one action' },
-  { id: 'ka',  minChapter: 24, label: 'ka',  detail: 'but — before a tense marker or pronoun' },
-  { id: 'kae', minChapter: 24, label: 'kae', detail: 'but — before a verb or adjective' },
-  { id: 'ke',  minChapter: 26, label: 'ke',  detail: 'so that / to — introduces a purpose clause' },
-  { id: 'he',  minChapter: 26, label: 'he',  detail: 'because — gives the reason' },
+  { id: 'mo',  minChapter: 10, label: 'mo',  detail: 'with / and: joins two nouns' },
+  { id: 'i',   minChapter: 7,  maxChapter: 23, label: 'ʻi',  detail: 'in / at: marks a place' },
+  { id: 'ki',  minChapter: 7,  maxChapter: 23, label: 'ki',  detail: 'to / toward: marks a destination' },
+  { id: 'mei', minChapter: 7,  maxChapter: 23, label: 'mei', detail: 'from: marks a starting point' },
+  { id: 'pea', minChapter: 24, label: 'pea', detail: 'and then: chains clauses in sequence' },
+  { id: 'o',   minChapter: 24, label: 'ʻo',  detail: 'and: links verbs into one action' },
+  { id: 'ka',  minChapter: 24, label: 'ka',  detail: 'but: before a tense marker or pronoun' },
+  { id: 'kae', minChapter: 24, label: 'kae', detail: 'but: before a verb or adjective' },
+  { id: 'ke',  minChapter: 26, label: 'ke',  detail: 'so that / to: introduces a purpose clause' },
+  { id: 'he',  minChapter: 26, label: 'he',  detail: 'because: gives the reason' },
 ]
 
 const PROMPTS = [
@@ -51,11 +51,11 @@ const PROMPTS = [
   { tongan: 'Ko Sione ___ Mele.',                 english: 'Sione and Mele.',                    answer: 'mo',  minChapter: 10, why: 'Joining two nouns ("Sione and Mele") = mo.' },
   { tongan: 'ʻOku ou nofo ʻi Vavaʻu ___ Mele.',   english: 'I live in Vavaʻu with Mele.',        answer: 'mo',  minChapter: 10, why: 'The companion (Mele) is joined with mo; the place already has its ʻi.' },
   { tongan: 'ʻOku ou ako ___ Seini.',             english: 'I study with Seini.',                answer: 'mo',  minChapter: 10, why: 'Accompaniment ("together with Seini") = mo, directly before the name.' },
-  { tongan: 'Naʻá ne ʻalu ___ au.',               english: 'He went with me.',                   answer: 'mo',  minChapter: 10, why: 'mo does not change before a pronoun — mo au ("with me"), unlike ki/ʻi/mei, which become kiate/ʻiate/meiate.' },
+  { tongan: 'Naʻá ne ʻalu ___ au.',               english: 'He went with me.',                   answer: 'mo',  minChapter: 10, why: 'mo does not change before a pronoun: mo au ("with me"), unlike ki/ʻi/mei, which become kiate/ʻiate/meiate.' },
 
   // ── Ch-10-only warm-ups: mo against the Ch 7 prepositions ─────────────
   { tongan: 'ʻOku ou nofo ___ Tonga mo Mele.',    english: 'I live in Tonga with Mele.',         answer: 'i',   minChapter: 10, maxChapter: 23, why: 'The place ("in Tonga") takes ʻi; the companion is already marked by mo.' },
-  { tongan: 'Naʻa mau haʻu ___ Haʻapai mo Tēvita.', english: 'We came from Haʻapai with Tēvita.', answer: 'mei', minChapter: 10, maxChapter: 23, why: '"From Haʻapai" is a starting point — mei. mo marks the companion, not the place.' },
+  { tongan: 'Naʻa mau haʻu ___ Haʻapai mo Tēvita.', english: 'We came from Haʻapai with Tēvita.', answer: 'mei', minChapter: 10, maxChapter: 23, why: '"From Haʻapai" is a starting point: mei. mo marks the companion, not the place.' },
   { tongan: 'Naʻá ne ʻalu ___ tahi mo Seini ʻaneafi.', english: 'He went to the sea with Seini yesterday.', answer: 'ki', minChapter: 10, maxChapter: 23, why: 'The destination ("to the sea") takes ki; mo joins the companion.' },
 
   // ── pea / ʻo / ka / kae (Ch 24) ───────────────────────────────────────
@@ -69,9 +69,9 @@ const PROMPTS = [
   { tongan: 'ʻOku mālohi ___ angalelei.',          english: 'He is strong but kind.',             answer: 'kae', minChapter: 24, why: 'The next word is the adjective angalelei, so "but" is kae.' },
 
   // ── ke (purpose) and he (reason) — Ch 26 ──────────────────────────────
-  { tongan: 'Té u kole kia Mele ___ ne haʻu.',    english: 'I will ask Mele to come.',           answer: 'ke',  minChapter: 26, why: '"That she come" is a purpose clause — introduced by ke: Té u kole kia Mele ke ne haʻu.' },
-  { tongan: 'Kuo nau ō mai ___ lau ʻa e tohí.',   english: 'They have come to read the book.',   answer: 'ke',  minChapter: 26, why: '"To read the book" states the purpose of coming — ke. (ʻo would just chain the two actions.)' },
-  { tongan: 'ʻOku ou ʻalu ki ʻapi, ___ ʻoku ou helaʻia.', english: 'I am going home, because I am tired.', answer: 'he', minChapter: 26, why: 'The second clause gives the reason — he ("for, because") introduces it.' },
+  { tongan: 'Té u kole kia Mele ___ ne haʻu.',    english: 'I will ask Mele to come.',           answer: 'ke',  minChapter: 26, why: '"That she come" is a purpose clause: introduced by ke: Té u kole kia Mele ke ne haʻu.' },
+  { tongan: 'Kuo nau ō mai ___ lau ʻa e tohí.',   english: 'They have come to read the book.',   answer: 'ke',  minChapter: 26, why: '"To read the book" states the purpose of coming: ke. (ʻo would just chain the two actions.)' },
+  { tongan: 'ʻOku ou ʻalu ki ʻapi, ___ ʻoku ou helaʻia.', english: 'I am going home, because I am tired.', answer: 'he', minChapter: 26, why: 'The second clause gives the reason: he ("for, because") introduces it.' },
   { tongan: 'ʻOua té ke ʻalu, ___ ʻoku ʻuha.',    english: 'Do not go, because it is raining.',  answer: 'he',  minChapter: 26, why: 'The reason for the prohibition is introduced by he: … he ʻoku ʻuha.' },
 ]
 

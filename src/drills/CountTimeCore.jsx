@@ -26,7 +26,7 @@ const OPTIONS = [
   { id: 'ono',       label: 'ono',       detail: 'six (6)' },
   { id: 'fitu',      label: 'fitu',      detail: 'seven (7)' },
   { id: 'valu',      label: 'valu',      detail: 'eight (8)' },
-  { id: 'hiva',      label: 'hiva',      detail: 'nine (9) — also "sing/song"' },
+  { id: 'hiva',      label: 'hiva',      detail: 'nine (9): also "sing/song"' },
   { id: 'hongofulu', label: 'hongofulu', detail: 'ten (10)' },
 ]
 
