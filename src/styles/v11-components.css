@@ -40,91 +40,70 @@
 /* §4  Reference Charts                                                   */
 /* ═══════════════════════════════════════════════════════════════════════ */
 
+/* The charts page is wrapped in .reading-page (ReferenceCharts.jsx), so every
+   rule below draws on the chapter tokens — near-black --text-strong/--text,
+   warm-sand --border, light-gray --bg-tone. Charts are stacked down the page
+   in the chapter reading voice (Source Serif, black ink) and the tables mirror
+   the chapter's .ch-table exactly (full grid + gray header band). No tabs, no
+   colour: a chart printed in the book is just black ink. (2026-06-16) */
 .ref {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  color: var(--fc-text);
-  font-family: 'Inter', sans-serif;
-}
-
-/* ── Tabs ─────────────────────────────────────────────────────────────── */
-.ref-tabs {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.ref-tab {
-  padding: 5px 12px;
-  background: var(--fc-surface-1);
-  border: 1px solid var(--fc-border);
-  border-radius: 3px;
-  color: var(--fc-text-mid);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-}
-
-.ref-tab.is-active {
-  background: var(--fc-red);
-  border-color: var(--fc-red);
-  color: #fff;
+  gap: 38px;
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
 }
 
 /* ── Chart content ────────────────────────────────────────────────────── */
 .ref-chart {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .ref-chart-title {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-weight: 700;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--fc-text);
+  font-size: 22px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text-strong);
   margin: 0;
 }
 
 .ref-chart-desc {
-  font-size: 13px;
-  color: var(--fc-text-mid);
-  line-height: 1.5;
-  margin: -8px 0 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* ── Table groups ─────────────────────────────────────────────────────── */
 .ref-table-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .ref-sublabel {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--fc-red);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--text-strong);
 }
 
 .ref-sublabel-hint {
-  font-size: 11px;
-  color: var(--fc-text-mid);
-  margin-top: 1px;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text);
+  margin-top: 2px;
 }
 
-/* ── Table ─────────────────────────────────────────────────────────────── */
+/* ── Table — mirrors the chapter .ch-table look ───────────────────────── */
 .ref-table-wrap {
   overflow-x: auto;
 }
@@ -132,50 +111,44 @@
 .ref-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
 }
 
 .ref-table th {
   text-align: left;
-  padding: 8px 10px;
-  background: var(--fc-surface-1);
-  border-bottom: 1px solid var(--fc-border);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--fc-text-mid);
+  padding: 8px 12px;
+  background: var(--bg-tone);
+  border: 1px solid var(--border);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--text-strong);
 }
 
 .ref-table td {
-  padding: 7px 10px;
-  border-bottom: 1px solid var(--fc-surface-2);
-  color: var(--fc-text);
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  color: var(--text-strong);
 }
 
 .ref-table td:first-child {
-  color: var(--fc-red-dark);
-  font-weight: 500;
-}
-.dark .ref .ref-table td:first-child {
-  color: var(--fc-red-light);
+  color: var(--text-strong);
+  font-weight: 600;
 }
 
 .ref-table td.is-empty {
-  color: var(--fc-text-mid);
-}
-
-.ref-table tr:hover td {
-  background: rgba(193, 39, 45, 0.06);
+  color: var(--text-strong);
 }
 
 /* ── Notes ─────────────────────────────────────────────────────────────── */
 .ref-notes {
-  font-size: 13px;
-  color: var(--fc-text-mid);
-  border-top: 1px solid var(--fc-border);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 15px;
+  color: var(--text);
+  border-top: 1px solid var(--border);
   padding-top: 12px;
   margin-top: 4px;
   display: flex;
@@ -185,7 +158,6 @@
 
 /* ── Smooth theme transitions ─────────────────────────────────────────── */
 .ref,
-.ref-tab,
 .ref-chart-title,
 .ref-chart-desc,
 .ref-sublabel,
