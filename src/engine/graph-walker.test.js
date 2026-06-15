@@ -10827,7 +10827,8 @@ describe('2F.6 integration: noun-subject negation directional / count', () => {
     s = advanceInFrame(s, { tongan: 'ʻikai' })
     s = takeExtension(s, 'neg_connector_ns')  // ke + verb + name (noun-subject negation)
     s = advanceInFrame(s, { tongan: 'ke' })
-    // neg_connector_ns.next has verb_ns required → auto-advance
+    // Phase 2F.7: neg_connector_ns.next is now a menu (verb_ns | preposed_modifier_ns)
+    s = takeExtension(s, 'verb_ns')
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10848,6 +10849,7 @@ describe('2F.6 integration: noun-subject negation directional / count', () => {
     s = advanceInFrame(s, { tongan: 'ʻikai' })
     s = takeExtension(s, 'neg_connector_ns')
     s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'verb_ns')  // Phase 2F.7: neg_connector_ns.next is now a menu
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10867,6 +10869,7 @@ describe('2F.6 integration: noun-subject negation directional / count', () => {
     s = advanceInFrame(s, { tongan: 'ʻikai' })
     s = takeExtension(s, 'neg_connector_ns')
     s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'verb_ns')  // Phase 2F.7: neg_connector_ns.next is now a menu
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10982,6 +10985,7 @@ describe('2F.6 (d): composition gloss audit', () => {
     s = advanceInFrame(s, { tongan: 'ʻikai' })
     s = takeExtension(s, 'neg_connector_ns')
     s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'verb_ns')  // Phase 2F.7: neg_connector_ns.next is now a menu
     s = advanceInFrame(s, { tongan: 'ʻalu' })
     s = takeExtension(s, 'focus_marker')
     s = advanceInFrame(s, { tongan: 'ʻa' })
@@ -10993,6 +10997,195 @@ describe('2F.6 (d): composition gloss audit', () => {
     const out = translateWalkerState(s)
     expect(out.method).toBe('composed')
     expect(out.text).toBe('The boy does not go downward.')
+  })
+})
+
+// ===========================================================================
+// 2F.7 integration: preposed faʻa in noun-subject negation
+// ===========================================================================
+//
+// Parity with the plain noun-subject path (2F.6): neg_connector_ns.next is now
+// a branching menu (verb_ns | preposed_modifier_ns), so faʻa is reachable on the
+// negation path. preposed_modifier_ns.next forces verb_ns, so a verb is still
+// mandatory. composeNegationTranslation's neg_connector_ns branch inserts "often"
+// before the verb base / adjective.
+
+describe('2F.7 integration: preposed faʻa in noun-subject negation', () => {
+  it("ʻOku ʻikai ke faʻa ʻalu ʻa Sione → 'Sione does not often go.' (NS negation + faʻa, present)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'preposed_modifier_ns')  // 2F.7: neg_connector_ns.next is a menu
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    // preposed_modifier_ns.next has verb_ns required → auto-advance
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke faʻa ʻalu ʻa Sione')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione does not often go.')
+  })
+
+  it("Naʻe ʻikai ke faʻa ʻalu ʻa Sione → 'Sione did not often go.' (NS negation + faʻa, past)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'Naʻe' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('Naʻe ʻikai ke faʻa ʻalu ʻa Sione')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione did not often go.')
+  })
+
+  it("ʻE ʻikai ke faʻa ʻalu ʻa Sione → 'Sione will not often go.' (NS negation + faʻa, future)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻE' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    s = advanceInFrame(s, { tongan: 'ʻalu' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione will not often go.')
+  })
+
+  it('neg_connector_ns.next branches to verb_ns + preposed_modifier_ns; preposed_modifier_ns requires verb_ns', () => {
+    const nc = grammarGraph.nodes.neg_connector_ns
+    const edges = nc.next.map(e => e.node)
+    expect(edges).toContain('verb_ns')
+    expect(edges).toContain('preposed_modifier_ns')
+    // Neither edge is forced → branching menu; and there is no FINISH edge here,
+    // so faʻa is reachable yet a verb is still mandatory.
+    expect(nc.next.every(e => !e.required)).toBe(true)
+    expect(nc.next.some(e => String(e.node).startsWith('FINISH'))).toBe(false)
+    const pmNs = grammarGraph.nodes.preposed_modifier_ns
+    expect(pmNs.next.find(e => e.node === 'verb_ns').required).toBe(true)
+  })
+})
+
+// ===========================================================================
+// 2F.7 integration: comparative / superlative in noun-subject negation
+// ===========================================================================
+//
+// comparative_ange / superlative_taha sit on verb_ns.next behind the adjective
+// gate (added in 2F.5), so the chain neg_connector_ns → verb_ns → comparative_ange
+// → focus_marker → noun_subject_name walks end-to-end. composeNegationTranslation's
+// neg_connector_ns adjective branch now applies makeComparativeSuperlative, for
+// parity with composeNounSubjectTranslation.
+
+describe('2F.7 integration: comparative / superlative in noun-subject negation', () => {
+  it("ʻOku ʻikai ke fiefia ange ʻa Sione → 'Sione is not happier.' (NS negation + comparative)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'verb_ns')
+    s = advanceInFrame(s, { tongan: 'fiefia' })  // adjective-typed verb
+    s = takeExtension(s, 'comparative_ange')
+    s = advanceInFrame(s, { tongan: 'ange' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke fiefia ange ʻa Sione')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione is not happier.')
+  })
+
+  it("ʻOku ʻikai ke fiefia taha ʻa Sione → 'Sione is not the happiest.' (NS negation + superlative)", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'verb_ns')
+    s = advanceInFrame(s, { tongan: 'fiefia' })
+    s = takeExtension(s, 'superlative_taha')
+    s = advanceInFrame(s, { tongan: 'taha' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke fiefia taha ʻa Sione')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione is not the happiest.')
+  })
+})
+
+// ===========================================================================
+// 2F.7 (d): composition gloss audit — touched frames stay 'composed'
+// ===========================================================================
+//
+// Representative ch-999 walks across the now-walkable combinations 2F.7 added:
+// faʻa + adjective NS negation, and comparative + common-noun NS negation. Each
+// asserts method === 'composed' (never the gloss fallback).
+
+describe('2F.7 (d): composition gloss audit', () => {
+  it("faʻa + adjective NS negation: ʻOku ʻikai ke faʻa puke ʻa Sione → 'Sione is not often sick.'", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'preposed_modifier_ns')
+    s = advanceInFrame(s, { tongan: 'faʻa' })
+    s = advanceInFrame(s, { tongan: 'puke' })  // adjective
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'Sione' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke faʻa puke ʻa Sione')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('Sione is not often sick.')
+  })
+
+  it("comparative + common-noun NS negation: ʻOku ʻikai ke fiefia ange ʻa e tamasiʻi → 'The boy is not happier.'", () => {
+    let s = createWalkerState('negation', 999)
+    s = advanceInFrame(s, { tongan: 'ʻOku' })
+    s = advanceInFrame(s, { tongan: 'ʻikai' })
+    s = takeExtension(s, 'neg_connector_ns')
+    s = advanceInFrame(s, { tongan: 'ke' })
+    s = takeExtension(s, 'verb_ns')
+    s = advanceInFrame(s, { tongan: 'fiefia' })
+    s = takeExtension(s, 'comparative_ange')
+    s = advanceInFrame(s, { tongan: 'ange' })
+    s = takeExtension(s, 'focus_marker')
+    s = advanceInFrame(s, { tongan: 'ʻa' })
+    s = advanceInFrame(s, { tongan: 'tamasiʻi' })
+    s = finishFrame(s)
+    s = finishWalker(s, 'FINISH_STATEMENT')
+    const out = translateWalkerState(s)
+    expect(out.method).toBe('composed')
+    expect(out.text).toBe('The boy is not happier.')
   })
 })
 

@@ -1234,12 +1234,13 @@
 
     "neg_connector_ns": {
       "label": "Connector",
-      "description": "ke connects ʻikai to the verb (noun subject negation)",
+      "description": "ke connects ʻikai to the verb (noun subject negation). Phase 2F.7: next is a branching menu (verb_ns | preposed_modifier_ns), mirroring tense_marker_ns on the plain noun-subject path. Neither edge is required, but the menu has no FINISH edge and preposed_modifier_ns.next forces verb_ns, so a verb is still mandatory.",
       "words": [
         { "tongan": "ke", "english": "(connector)", "min_chapter": 15 }
       ],
       "next": [
-        { "node": "verb_ns", "label": "Add verb", "min_chapter": 15, "required": true }
+        { "node": "verb_ns", "label": "Add verb", "min_chapter": 15 },
+        { "node": "preposed_modifier_ns", "label": "Add faʻa (often)", "min_chapter": 15 }
       ]
     },
 

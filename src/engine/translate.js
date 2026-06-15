@@ -998,40 +998,57 @@ function composeNegationTranslation(steps, isQuestion = false) {
       ? `the ${nameStep.word.english}`
       : name
 
+    // Phase 2F.7: preposed modifier faʻa (= often) attaches at neg_connector_ns.next
+    // (before verb_ns), mirroring preposed_modifier_ns on the plain noun-subject
+    // path. Insert "often" before the verb base / adjective so the negation reads
+    // "does not often go" / "is not often sick".
+    const preModNsNegStep = steps.find(s => s.nodeId === 'preposed_modifier_ns')
+    const oft = preModNsNegStep ? 'often ' : ''
+
     let sentence
     if (isAdj) {
-      const adj = modPhrases.length > 0 ? modPhrases.join(' ') + ' ' + verb.base : verb.base
+      let adj = modPhrases.length > 0 ? modPhrases.join(' ') + ' ' + verb.base : verb.base
+      // Phase 2F.7: comparative/superlative for adjective NS negation (parity with
+      // composeNounSubjectTranslation's 2F.5 handling). comparative_ange /
+      // superlative_taha sit on verb_ns.next behind the adjective gate, so they are
+      // reachable on the negation path too and override the plain adjective phrase.
+      const compAngNsNegStep = steps.find(s => s.nodeId === 'comparative_ange')
+      const supTahaNsNegStep = steps.find(s => s.nodeId === 'superlative_taha')
+      if (compAngNsNegStep || supTahaNsNegStep) {
+        const cs = makeComparativeSuperlative(verb.base)
+        adj = compAngNsNegStep ? cs.comparative : cs.superlative
+      }
       if (isQuestion) {
         switch (tenseFrame.tense) {
-          case 'present': sentence = `Is ${nameLower} not ${adj}?`; break
-          case 'past': sentence = `Was ${nameLower} not ${adj}?`; break
-          case 'future': sentence = `Will ${nameLower} not be ${adj}?`; break
-          default: sentence = `Is ${nameLower} not ${adj}?`
+          case 'present': sentence = `Is ${nameLower} not ${oft}${adj}?`; break
+          case 'past': sentence = `Was ${nameLower} not ${oft}${adj}?`; break
+          case 'future': sentence = `Will ${nameLower} not be ${oft}${adj}?`; break
+          default: sentence = `Is ${nameLower} not ${oft}${adj}?`
         }
       } else {
         switch (tenseFrame.tense) {
-          case 'present': sentence = `${name} is not ${adj}.`; break
-          case 'past': sentence = `${name} was not ${adj}.`; break
-          case 'future': sentence = `${name} will not be ${adj}.`; break
-          default: sentence = `${name} is not ${adj}.`
+          case 'present': sentence = `${name} is not ${oft}${adj}.`; break
+          case 'past': sentence = `${name} was not ${oft}${adj}.`; break
+          case 'future': sentence = `${name} will not be ${oft}${adj}.`; break
+          default: sentence = `${name} is not ${oft}${adj}.`
         }
       }
     } else if (isQuestion) {
       switch (tenseFrame.tense) {
-        case 'present': sentence = `Does ${nameLower} not ${verb.base}?`; break
-        case 'past': sentence = `Did ${nameLower} not ${verb.base}?`; break
-        case 'future': sentence = `Will ${nameLower} not ${verb.base}?`; break
-        default: sentence = `Does ${nameLower} not ${verb.base}?`
+        case 'present': sentence = `Does ${nameLower} not ${oft}${verb.base}?`; break
+        case 'past': sentence = `Did ${nameLower} not ${oft}${verb.base}?`; break
+        case 'future': sentence = `Will ${nameLower} not ${oft}${verb.base}?`; break
+        default: sentence = `Does ${nameLower} not ${oft}${verb.base}?`
       }
       if (modPhrases.length > 0) {
         sentence = insertModifiers(sentence, modPhrases)
       }
     } else {
       switch (tenseFrame.tense) {
-        case 'present': sentence = `${name} does not ${verb.base}.`; break
-        case 'past': sentence = `${name} did not ${verb.base}.`; break
-        case 'future': sentence = `${name} will not ${verb.base}.`; break
-        default: sentence = `${name} does not ${verb.base}.`
+        case 'present': sentence = `${name} does not ${oft}${verb.base}.`; break
+        case 'past': sentence = `${name} did not ${oft}${verb.base}.`; break
+        case 'future': sentence = `${name} will not ${oft}${verb.base}.`; break
+        default: sentence = `${name} does not ${oft}${verb.base}.`
       }
       if (!isAdj && modPhrases.length > 0) {
         sentence = insertModifiers(sentence, modPhrases)
