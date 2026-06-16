@@ -176,8 +176,8 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *na'e* | past tense marker (before non-pronouns) | was, did |
-| *'e* | future tense marker (before non-pronouns) | will |
+| *na'e* | past tense marker (before non-pronouns) | no single English word; it puts the verb in past time (*Na'e 'uha* = "It rained") |
+| *'e* | future tense marker (before non-pronouns) | no single English word; it puts the verb in future time (usually "will ...") |
 
 **New vocabulary** (memorize these meanings):
 
