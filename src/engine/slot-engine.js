@@ -357,6 +357,27 @@ function evaluateSlotCondition(condition, filledSlots) {
   return true
 }
 
+// ---------------------------------------------------------------------------
+// Selectional restrictions (verb → object / companion)
+// ---------------------------------------------------------------------------
+//
+// The slot engine historically applied NO semantic compatibility between a verb
+// and its object/companion, so the Sentence Lab + builder could generate
+// "write the chicken" or "I slept with Sione" (audits/Sentence-Lab-Quality-
+// Findings.md). vocabulary-by-slot.json.selectional carries a verb-keyed table
+// (a slot-side port of grammar-graph's object.valid_combinations, completed for
+// every transitive verb in the slot pools) that getOptionsForSlot enforces.
+// Objects are matched on their english noun (article-stripped) so one rule
+// covers the bare / indefinite / definite + definitive-accent variants of each
+// object without any fragile Tongan diacritic surgery.
+
+function objectEnglishKey(english) {
+  return (english || '')
+    .toLowerCase()
+    .replace(/^(the|a|an|some)\s+/, '')
+    .trim()
+}
+
 // ===========================================================================
 // EXPORTED API
 // ===========================================================================
@@ -419,6 +440,30 @@ export function getOptionsForSlot(patternId, slotId, filledSlots = {}, maxChapte
   if (slot.id === 'place' && options.some(o => o.noun_class)) {
     const wanted = resolvePrepositionNounClass(pattern, filledSlots)
     if (wanted) options = options.filter(opt => opt.noun_class === wanted)
+  }
+
+  // Selectional restrictions: keep verb→object / verb→companion pairings
+  // sensible (no "write the chicken", no "sleep with [person]").
+  const selectional = vocabularyBySlot.selectional
+  if (selectional) {
+    // Object slot: keep only objects compatible with the chosen verb. A verb
+    // with an explicit (possibly empty) allow-list is enforced; a verb absent
+    // from the table is left unconstrained (the completeness test guards gaps).
+    if (slot.id === 'object' && filledSlots.verb) {
+      const allowed = selectional.object_by_verb?.[filledSlots.verb.tongan]
+      if (allowed) {
+        const allowSet = new Set(allowed.map(s => s.toLowerCase()))
+        options = options.filter(o => allowSet.has(objectEnglishKey(o.english)))
+      }
+    }
+    // Verb slot of a comitative (companion) pattern: drop verbs whose
+    // "mo [person]" gloss is off-colour / nonsensical (e.g. mohe "sleep with").
+    if (slot.id === 'verb' && pattern.slots.some(s => s.id === 'companion')) {
+      const block = selectional.companion_verb_blocklist
+      if (block && block.length) {
+        options = options.filter(o => !block.includes(o.tongan))
+      }
+    }
   }
 
   // Pronoun dependency filtering

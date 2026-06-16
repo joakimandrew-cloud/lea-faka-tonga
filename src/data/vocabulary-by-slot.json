@@ -4,6 +4,33 @@
     "source": "Extracted from grammar-graph.json nodes + verb-forms.json",
     "description": "Vocabulary organized by slot type for slot-based sentence builder"
   },
+  "selectional": {
+    "$comment": "Verb→object / verb→companion selectional restrictions enforced by the SLOT engine (getOptionsForSlot). A slot-side port of grammar-graph.json nodes.object.constraints.valid_combinations, completed for every transitive verb in verbs_transitive / verbs_transitive_full and judge-verified 2026-06-16. object_by_verb keys = verb tongan; values = allowed OBJECT ENGLISH NOUNS (article-stripped, lowercased) so one rule covers the bare/indefinite/definite + definitive-accent variants of each object without fragile Tongan diacritic surgery. langa = [] (nothing in the pool is buildable). companion_verb_blocklist = intransitive verbs whose 'mo [person]' gloss is off-colour (mohe 'sleep with'), nonsensical (tō 'fall with'), or structurally confusing at this level (tokoni/kamata/feinga). Native-speaker queue: kava as an object of tānaki (root vs drink). Source: audits/Sentence-Lab-Quality-Findings.md.",
+    "object_by_verb": {
+      "kai": ["bread", "chicken", "fish", "taro", "coconut"],
+      "inu": ["water", "kava", "tea"],
+      "lau": ["book"],
+      "tohi": ["book"],
+      "sio": ["bread", "water", "chicken", "cow", "fish", "taro", "book", "clothes", "coconut", "mele", "seini", "kepu", "siale"],
+      "fiemaʻu": ["bread", "water", "fish", "taro", "chicken", "book", "clothes", "coconut", "kava", "tea", "cow", "work"],
+      "fakatau": ["bread", "water", "fish", "chicken", "taro", "book", "clothes", "coconut", "kava", "tea", "cow"],
+      "tala": ["mele", "seini", "kepu", "siale"],
+      "ʻilo": ["mele", "seini", "kepu", "siale"],
+      "kole": ["mele", "seini", "kepu", "siale"],
+      "tānaki": ["book", "fish", "chicken", "taro", "coconut", "bread", "cow", "clothes"],
+      "langa": [],
+      "fili": ["bread", "chicken", "cow", "fish", "taro", "book", "clothes", "coconut", "mele", "seini", "kepu", "siale"],
+      "fai": ["work"],
+      "ʻave": ["bread", "water", "chicken", "fish", "taro", "book", "clothes", "coconut", "kava", "tea", "cow", "mele", "seini", "kepu", "siale"],
+      "kumi": ["book", "fish", "chicken", "cow", "water", "taro", "mele", "seini", "kepu", "siale"],
+      "fufulu": ["clothes", "fish", "chicken"],
+      "kuki": ["fish", "chicken", "taro", "bread", "cow", "coconut"],
+      "tokoni": ["mele", "seini", "kepu", "siale"],
+      "ui": ["mele", "seini", "kepu", "siale"],
+      "manatuʻi": ["mele", "seini", "kepu", "siale", "book"]
+    },
+    "companion_verb_blocklist": ["mohe", "tō", "tokoni", "kamata", "feinga"]
+  },
   "tense_markers": [
     {
       "tongan": "Naʻa",
