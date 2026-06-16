@@ -99,3 +99,26 @@ export function normalizeEnglish(s) {
 export function englishMatches(a, b) {
   return normalizeEnglish(a) === normalizeEnglish(b)
 }
+
+// English flattens Tongan's pronoun system: a bare "we" hides dual-vs-plural and
+// inclusive-vs-exclusive, and "you" hides one-vs-two-vs-many. In the graded Lab
+// the learner must build ONE exact pronoun from an English target, so we spell
+// out the distinction the gloss drops (e.g. "we" = mautolu vs tautolu vs maua…).
+// Returns null when the English is already exact (1sg "I", 3sg "he/she").
+// Keyed off the subject option's person / number / pronoun_code.
+export function pronounClarification(subject) {
+  if (!subject || subject.person == null) return null
+  const { person, number } = subject
+  const count =
+    number === 'dual' ? 'exactly two people'
+    : number === 'plural' ? 'three or more people'
+    : 'one person'
+  if (person === 1) {
+    if (number === 'singular') return null
+    const inclusive = (subject.pronoun_code || '').includes('inc')
+    return `Here "we" means ${count}, ${inclusive ? 'including' : 'NOT including'} the person you are speaking to.`
+  }
+  if (person === 2) return `Here "you" means ${count}.`
+  if (person === 3 && number !== 'singular') return `Here "they" means ${count}.`
+  return null
+}

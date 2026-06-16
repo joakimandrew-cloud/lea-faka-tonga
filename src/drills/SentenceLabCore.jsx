@@ -17,7 +17,7 @@
 
 import { useMemo, useState, useRef, useEffect } from 'react'
 import { getOptionsForSlot, assembleSentence } from '../engine/slot-engine'
-import { pickPattern, seedFill, reconcile, getPatternById, englishMatches } from './lab-engine'
+import { pickPattern, seedFill, reconcile, getPatternById, englishMatches, pronounClarification } from './lab-engine'
 import { newRound } from './graded-lab'
 
 // Dismiss the active dropdown on outside click / Escape. Shared by both modes.
@@ -157,7 +157,14 @@ function GradedLab({ chapterNum }) {
     () => (round ? assembleSentence(round.patternId, filledSlots) : null),
     [round, filledSlots]
   )
-  const solved = !!(assembled && round && englishMatches(assembled.english, round.targetEnglish))
+  // English can't express Tongan's pronoun number/clusivity, so two pronouns can
+  // share one gloss (ke and mou both read "you"). Require the exact target
+  // pronoun too, so a round can't be "solved" by the wrong "you"/"we"; the
+  // target note (below) tells the learner which one to build.
+  const subjectMatches =
+    !round?.targetFill?.subject ||
+    filledSlots.subject?.tongan === round.targetFill.subject.tongan
+  const solved = !!(assembled && round && englishMatches(assembled.english, round.targetEnglish) && subjectMatches)
 
   useDismiss(activeSlot, setActiveSlot, wrapRef)
 
@@ -190,6 +197,8 @@ function GradedLab({ chapterNum }) {
     )
   }
 
+  const subjectNote = pronounClarification(round.targetFill?.subject)
+
   return (
     <section className="pcs-card" ref={wrapRef}>
       <div className="pcs-card-row">
@@ -198,6 +207,7 @@ function GradedLab({ chapterNum }) {
       </div>
 
       <div className="x-lab-target">&ldquo;{round.targetEnglish}&rdquo;</div>
+      {subjectNote && <div className="x-lab-target-note">{subjectNote}</div>}
 
       <ChipRow
         pattern={pattern} patternId={round.patternId} filledSlots={filledSlots} maxChapter={maxChapter}

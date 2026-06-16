@@ -8,7 +8,7 @@
 import { describe, it, expect } from 'vitest'
 import vocab from '../data/vocabulary-by-slot.json'
 import { getOptionsForSlot, assembleSentence } from '../engine/slot-engine'
-import { pickPattern, seedFill } from './lab-engine'
+import { pickPattern, seedFill, pronounClarification } from './lab-engine'
 import { newRound } from './graded-lab'
 
 const SEL = vocab.selectional
@@ -95,5 +95,42 @@ describe('Sentence Lab — off-colour comitative killed', () => {
     }
     expect(offColour).toBe(0)
     expect(nonsense).toBe(0)
+  })
+})
+
+describe('Sentence Lab — graded target spells out pronoun number + clusivity', () => {
+  it('"we": notes dual/plural AND inclusive/exclusive', () => {
+    const excl = pronounClarification({ person: 1, number: 'plural', pronoun_code: '1pl_exc' })
+    expect(excl).toContain('three or more people')
+    expect(excl).toContain('NOT including')
+
+    const incl = pronounClarification({ person: 1, number: 'plural', pronoun_code: '1pl_inc' })
+    expect(incl).toContain('three or more people')
+    expect(incl).toContain('including')
+    expect(incl).not.toContain('NOT including')
+
+    expect(pronounClarification({ person: 1, number: 'dual', pronoun_code: '1dl_exc' })).toContain('exactly two people')
+    expect(pronounClarification({ person: 1, number: 'dual', pronoun_code: '1dl_inc' })).toMatch(/exactly two people, including/)
+  })
+
+  it('"you": distinguishes one / two / many (the ke vs mou collision)', () => {
+    expect(pronounClarification({ person: 2, number: 'singular' })).toContain('one person')
+    expect(pronounClarification({ person: 2, number: 'dual' })).toContain('exactly two')
+    expect(pronounClarification({ person: 2, number: 'plural' })).toContain('three or more')
+  })
+
+  it('no note for the unambiguous singulars "I" / "he/she"', () => {
+    expect(pronounClarification({ person: 1, number: 'singular', pronoun_code: '1sg' })).toBeNull()
+    expect(pronounClarification({ person: 3, number: 'singular' })).toBeNull()
+    expect(pronounClarification(null)).toBeNull()
+  })
+
+  it('real subject options carry person/number/pronoun_code, and "we" (mau) clarifies as plural-exclusive', () => {
+    const opts = getOptionsForSlot('s01', 'subject', {}, 5)
+    const mau = opts.find((o) => o.tongan === 'mau')
+    expect(mau).toBeTruthy()
+    expect(mau.person).toBe(1)
+    expect(mau.number).toBe('plural')
+    expect(pronounClarification(mau)).toContain('NOT including')
   })
 })
