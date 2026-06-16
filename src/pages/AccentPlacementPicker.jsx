@@ -10,11 +10,11 @@ export default function AccentPlacementPicker() {
       title="Where does the accent fall?"
       blurb={
         <>
-          The Tongan definitive accent (ʻ) signals &ldquo;end of the
-          noun group&rdquo;: it lands on the last word of the phrase,
-          not on the noun itself. Pick which word carries the accent
-          and prove you can hear where one phrase ends and the next
-          begins.
+          The Tongan definitive accent (the acute mark ´) signals
+          &ldquo;end of the noun group&rdquo;: it lands on the last word
+          of the phrase, not on the noun itself. Pick which word carries
+          the accent and prove you can hear where one phrase ends and the
+          next begins.
         </>
       }
       aside={
@@ -36,13 +36,17 @@ export default function AccentPlacementPicker() {
             fully definite group does.
           </p>
           <p>
-            <strong>Why it matters.</strong> Without the accent, two noun
-            groups can blur together. The accent is the boundary marker
-            that lets the listener parse the sentence correctly.
+            <strong>Why it matters.</strong> The accent marks the right
+            edge of a fully definite noun group, which helps keep two
+            groups from blurring together. In practice, many Tongans leave
+            out most of the definitive accents when reading aloud and are
+            still understood; the marking is most consistent in
+            conversation and public speaking.
           </p>
           <p className="pcs-lesson-foot">
-            In spoken Tongan this is a pitch rise on the accented
-            syllable. In writing it is the acute accent mark (´) on the
+            In spoken Tongan this is a stress shift: the stress moves
+            from the next-to-last vowel onto the very last vowel of the
+            group. In writing it is the acute accent mark (´) on the
             final vowel of the final word in the phrase.
           </p>
         </>

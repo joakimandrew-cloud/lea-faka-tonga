@@ -19,7 +19,8 @@ export default function FakaSorter() {
         <>
           The prefix <em>faka-</em> is one of the most productive
           word-builders in Tongan. The same three letters can turn a noun
-          into an adverb of manner, an adjective into a causative verb, a
+          into an adjective or adverb of manner, an adjective or
+          intransitive verb into a causative verb, a
           time-noun into &ldquo;every X,&rdquo; or (with an extra
           <em> -e-</em>) narrow to one particular thing. Sort each
           <em> faka-</em> word into the job it&rsquo;s doing.
@@ -30,7 +31,8 @@ export default function FakaSorter() {
           <h2 className="pcs-lesson-heading">The four jobs of <em>faka-</em></h2>
           <p>
             <strong>Manner / likeness.</strong> Attached to a noun, <em>faka-</em>
-            creates an adverb meaning &ldquo;in the manner of.&rdquo;
+            creates an adjective or adverb meaning &ldquo;in the manner of /
+            pertaining to.&rdquo;
             <em> faka-Tonga</em> = in the Tongan way. Hyphenated with proper
             names; closed compound otherwise.
           </p>

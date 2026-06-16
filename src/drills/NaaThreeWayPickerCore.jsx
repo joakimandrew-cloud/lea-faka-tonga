@@ -17,7 +17,7 @@ import PickerCore from './PickerCore'
 const OPTIONS = [
   { id: 'past',    label: 'past TM',     detail: 'naʻa + pronoun + verb (Ch 1)' },
   { id: 'warning', label: 'warning',     detail: 'lest / or else (after a command)' },
-  { id: 'maybe',   label: 'uncertainty', detail: 'perhaps (before a tense marker)' },
+  { id: 'maybe',   label: 'uncertainty', detail: 'perhaps (clause-initial, before a TM or ko)' },
 ]
 
 const PROMPTS = [

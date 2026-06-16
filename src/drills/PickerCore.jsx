@@ -41,10 +41,11 @@ function shuffle(arr) {
 }
 
 export default function PickerCore({
-  options,
+  options: sharedOptions,
   prompts,
   question,
   promptLabel,
+  hideGloss = false,
 }) {
   const [deck, setDeck] = useState(() => shuffle(prompts))
   const [idx, setIdx] = useState(0)
@@ -56,6 +57,10 @@ export default function PickerCore({
   const isTouch = useIsTouchPrimary()
 
   const current = deck[idx]
+  // Options are usually shared across all prompts; comprehension-style drills
+  // instead supply per-prompt options (each sentence has its own choices).
+  // Per-prompt options win when present.
+  const options = current.options || sharedOptions
   const isAnswered = guess !== null
   const acceptedIds = [current.answer, ...(current.acceptAlso || [])]
   const isCorrect = isAnswered && acceptedIds.includes(guess)
@@ -174,9 +179,13 @@ export default function PickerCore({
   })
 
   // Render the Tongan prompt with the blank styled; fill it in after answer.
+  // Split on the FIRST blank only and keep the entire tail, so prompts that
+  // contain text (or a printed marker) after the blank never get truncated.
   const renderTongan = (text) => {
     if (!text.includes('___')) return text
-    const [before, after] = text.split('___')
+    const at = text.indexOf('___')
+    const before = text.slice(0, at)
+    const after = text.slice(at + 3)
     const blankCls = !isAnswered
       ? 'pcs-blank'
       : isCorrect
@@ -305,7 +314,7 @@ export default function PickerCore({
           <div className="pcs-noun-frame">
             {promptLabel && <div className="pcs-prompt-label">{promptLabel}</div>}
             <div className="pcs-noun">{renderTongan(current.tongan)}</div>
-            <div className="pcs-noun-gloss">{current.english}</div>
+            <div className={`pcs-noun-gloss${hideGloss ? ' pcs-noun-gloss-reveal' : ''}`}>{current.english}</div>
           </div>
 
           <div className="pcs-question">{question}</div>

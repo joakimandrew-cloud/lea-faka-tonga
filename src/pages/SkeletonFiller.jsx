@@ -26,14 +26,17 @@ export default function SkeletonFiller() {
           <h2 className="pcs-lesson-heading">The whole point</h2>
           <p>
             A Tongan sentence isn&rsquo;t a string of words that happen to
-            line up. It&rsquo;s a shape with slots, and every conversational
-            sentence fills one of a handful of these shapes. Learn the
-            shapes, and the vocabulary just fills them.
+            line up. It&rsquo;s a shape with slots. A small set of core
+            shapes covers most everyday clauses; longer sentences combine
+            and extend them, and some chapters teach word-building beyond
+            slot-filling.
           </p>
           <p>
-            This is why fluent speakers never sound like they&rsquo;re
-            translating word-by-word from English: they start from
-            the pattern, not from the words.
+            What fills the slots matters less than the little marker in
+            front of each one: in Tongan a word&rsquo;s job is signalled by
+            that marker, not by its position. &#x02BB;E marks the doer,
+            &#x02BB;a the one acted upon, so the noun phrases can even swap
+            order without changing who did what.
           </p>
           <p className="pcs-lesson-foot">
             Cycle through each pattern until the slot roles are obvious

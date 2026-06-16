@@ -32,9 +32,13 @@ export default function CleftBuilder() {
             inside the verb phrase).
           </p>
           <p>
-            <strong>The accent on naʻá.</strong> Before a pronoun, the
-            tense marker carries a definitive accent: <em>naʻá ne</em>,
-            not <em>naʻe ne</em>.
+            <strong>The accent on naʻá.</strong> Before a one-syllable
+            resumptive pronoun (<em>ne</em>, <em>ku</em>, <em>ke</em>,{' '}
+            <em>ma</em>), the past marker takes a definitive accent:{' '}
+            <em>naʻá ne</em>, <em>naʻá ku</em>, never <em>naʻe</em>.
+            Before a two-syllable pronoun (<em>nau</em>, <em>mau</em>,{' '}
+            <em>tau</em>) it stays plain: <em>naʻa nau</em>,{' '}
+            <em>naʻa mau</em>.
           </p>
           <p className="pcs-lesson-foot">
             Clefts appear in answered questions ("Who ate the bread?

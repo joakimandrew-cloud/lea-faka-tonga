@@ -35,6 +35,7 @@ export default function ReduplicationEffectSorterCore() {
       categories={CATEGORIES}
       cards={CARDS}
       question="What effect does the reduplication have?"
+      hideGloss
       formatRightForm={(card) => card.tongan}
       rightFormNote={(card) => `means "${card.english.split(' (')[0]}"`}
     />

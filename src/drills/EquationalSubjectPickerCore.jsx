@@ -9,8 +9,8 @@
 import PickerCore from './PickerCore'
 
 const OPTIONS = [
-  { id: 'with-a', label: 'with ʻa', detail: 'before a proper noun (name)' },
-  { id: 'no-a',   label: '(no marker)', detail: 'before a postposed pronoun' },
+  { id: 'with-a', label: 'with ʻa' },
+  { id: 'no-a',   label: '(no marker)' },
 ]
 
 const PROMPTS = [

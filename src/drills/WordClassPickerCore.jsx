@@ -34,6 +34,7 @@ export default function WordClassPickerCore() {
       prompts={PROMPTS}
       question="What role is the highlighted word playing?"
       promptLabel="Sentence"
+      hideGloss
     />
   )
 }

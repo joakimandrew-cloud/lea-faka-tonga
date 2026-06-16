@@ -70,6 +70,19 @@ import DefinitenessThreeWayPickerCore from './DefinitenessThreeWayPickerCore'
 import PostposedPossessivePickerCore from './PostposedPossessivePickerCore'
 import NounClassSorterCore from './NounClassSorterCore'
 import SentenceLabCore from './SentenceLabCore'
+// Drills-Pedagogical-Review 2026-06-17: new drills (chapter-fills + real-use + new types)
+import SameAsLikeCore from './SameAsLikeCore'
+import SinceAfterCore from './SinceAfterCore'
+import NegativeObligationCore from './NegativeObligationCore'
+import ReportingCore from './ReportingCore'
+import PermissionHopeCore from './PermissionHopeCore'
+import SeemLookCore from './SeemLookCore'
+import GreetThankCore from './GreetThankCore'
+import QuestionAnswerMatchCore from './QuestionAnswerMatchCore'
+import IntroduceYourselfCore from './IntroduceYourselfCore'
+import ReadItBackCore from './ReadItBackCore'
+import SpotTheSlipCore from './SpotTheSlipCore'
+import DailyWordsCore from './DailyWordsCore'
 
 export const drillRegistry = {
   // ── Six existing drills ─────────────────────────────────────
@@ -338,5 +351,59 @@ export const drillRegistry = {
   'sentence-lab': {
     Core: SentenceLabCore,
     meta: { title: `Swap a word, watch the meaning change`, blurb: `Take a taught sentence and change one word at a time — the English re-translates live as you swap.` },
+  },
+
+  // ── Drills-Pedagogical-Review 2026-06-17 — chapter-fills (half-drilled chapters) ──
+  'same-as-like': {
+    Core: SameAsLikeCore,
+    meta: { title: `Same as / like`, blurb: `tatau mo (the same as) and ʻo hangē (like / as if) — the comparisons beyond "more" and "most".` },
+  },
+  'since-after': {
+    Core: SinceAfterCore,
+    meta: { title: `Since / after`, blurb: `talu (since) and hilí (after) for time clauses, including the ʻa-marking rule.` },
+  },
+  'negative-obligation': {
+    Core: NegativeObligationCore,
+    meta: { title: `Should not / must not`, blurb: `Negate obligation: ʻoku ʻikai totonu ke, and the emphatic ʻoua naʻa.` },
+  },
+  'reporting-picker': {
+    Core: ReportingCore,
+    meta: { title: `Reportedly / therefore`, blurb: `tokua (they say) vs ko ia (so / therefore) — and where tokua sits.` },
+  },
+  'permission-hope': {
+    Core: PermissionHopeCore,
+    meta: { title: `Let / hope (ke-idioms)`, blurb: `tuku ke (let / allow), ʻofa ke (hope / may), fai mo ke (hurry up and).` },
+  },
+  'seem-look': {
+    Core: SeemLookCore,
+    meta: { title: `Seem / look like`, blurb: `ngali (seems, firmer) vs ngalingali (looks as if, tentative).` },
+  },
+
+  // ── Drills-Pedagogical-Review 2026-06-17 — real-use exchanges ──
+  'greet-thank': {
+    Core: GreetThankCore,
+    meta: { title: `Greet, thank & respond`, blurb: `Mālō e lelei, the how-are-you reply, and the mālō-e thanks family, in context.` },
+  },
+  'qa-match': {
+    Core: QuestionAnswerMatchCore,
+    meta: { title: `Match question to answer`, blurb: `Pair each question with its natural answer — the answer echoes the question word's slot.` },
+  },
+  'introduce-yourself': {
+    Core: IntroduceYourselfCore,
+    meta: { title: `Introduce yourself`, blurb: `Ask and answer name and age: Ko hai ho hingoa? Ko ho taʻu fiha eni?` },
+  },
+
+  // ── Drills-Pedagogical-Review 2026-06-17 — new drill types ──
+  'read-it-back': {
+    Core: ReadItBackCore,
+    meta: { title: `Read it back`, blurb: `Read a Tongan sentence and pick what it means — comprehension, the one thing nothing else drills.` },
+  },
+  'spot-the-slip': {
+    Core: SpotTheSlipCore,
+    meta: { title: `Spot the slip`, blurb: `One word is wrong. Find the error and fix it — train the editor's eye.` },
+  },
+  'daily-words': {
+    Core: DailyWordsCore,
+    meta: { title: `Daily words`, blurb: `Spaced vocabulary recall: the words you miss come back first.` },
   },
 }

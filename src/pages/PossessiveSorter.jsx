@@ -19,34 +19,33 @@ export default function PossessiveSorter() {
       blurb={
         <>
           Every Tongan noun belongs to one of two possessive classes.
-          There&rsquo;s no rule that covers all cases: you build
-          intuition by feeling the philosophy. Sort each noun. Read the
-          explanation. Repeat until it&rsquo;s automatic.
+          One principle covers most nouns, and a handful of
+          assignments are simply learned per-noun. Sort each noun. Read
+          the explanation. Repeat until it&rsquo;s automatic.
         </>
       }
       aside={
         <>
           <h2 className="pcs-lesson-heading">The doer / receiver principle</h2>
           <p>
-            <strong>e_class</strong> ("<em>ʻeku</em>") marks nouns where
-            <em> you are the principal</em>: you do, make, use, or
-            dominate them. Tools, books, food, your students, your children.
+            <strong>e_class</strong> ("<em>ʻeku</em>") marks nouns you
+            <em> make, use, control, or consume</em>. Tools, books,
+            food, work, your animals.
           </p>
           <p>
-            <strong>ho_class</strong> ("<em>hoku</em>") marks nouns where
-            <em> you are the associated party</em>: they exist
-            independently. Parents, siblings, body parts, land, dwellings.
+            <strong>ho_class</strong> ("<em>hoku</em>") marks nouns that
+            are <em>part of you</em>, or that surround, shelter, support,
+            or define you. Body parts, relatives, clothes, houses, land.
           </p>
           <p>
-            The surprising cases (faiako, ika, moa) are what teach the rule.
-            Once you see that &ldquo;my teacher&rdquo; is e_class because
-            YOUR studentship is what creates the relationship, the
-            philosophy clicks.
+            Some assignments are exceptions you simply learn. Parents and
+            children flip to e_class (<em>ʻeku tamai</em>, my father).
+            People you employ or who serve you, such as a doctor or a
+            teacher, are also e_class (<em>ʻeku faiako</em>, my teacher).
           </p>
           <p className="pcs-lesson-foot">
-            Don&rsquo;t try to memorize lists. Feel which side of the line
-            each noun sits on, and the paradigm will click into place within
-            a week.
+            Don&rsquo;t try to memorize the whole list at once. Class is
+            best learned per-noun, as you meet each word.
           </p>
         </>
       }

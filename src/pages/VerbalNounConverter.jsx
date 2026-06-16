@@ -34,9 +34,13 @@ export default function VerbalNounConverter() {
             keep a space: <em>he ʻenau, he ʻemau,</em> etc.
           </p>
           <p className="pcs-lesson-foot">
-            The possessive class is always <em>he-</em> (ʻe-class) for
-            verbal nouns, because the person doing the action is the one
-            &ldquo;controlled by&rdquo; the action, never the receiver.
+            <strong>Which class?</strong> The class follows whether the
+            possessor is the <em>doer</em> or the <em>object</em> of the
+            underlying verb. When the possessor does the action, use the
+            ʻe-class: <em>heʻene lau</em> (his reading, the reading he
+            does). When the possessor is what is acted on, use the
+            ho-class: <em>hoku tokoni ʻe Sēmisi</em> (my being helped by
+            Sēmisi).
           </p>
         </>
       }

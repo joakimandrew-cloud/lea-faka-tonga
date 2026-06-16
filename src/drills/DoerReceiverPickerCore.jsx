@@ -16,14 +16,14 @@ const OPTIONS = [
 ]
 
 const PROMPTS = [
-  { tongan: 'ʻeku tokoni',   english: 'my helping (I do the helping)',                       answer: 'eclass',  why: 'ʻeku is ʻe-class → I am the doer. The helping done BY me.' },
-  { tongan: 'hoku tokoni',   english: 'my being helped (the helping is done to me)',         answer: 'hoclass', why: 'hoku is ho-class → I am the receiver. The helping done TO me.' },
-  { tongan: 'ʻene fili',     english: 'his choosing (he does the choosing)',                 answer: 'eclass',  why: 'ʻene is ʻe-class → he is the doer.' },
-  { tongan: 'hono fili',     english: 'his being chosen (chosen by someone else)',           answer: 'hoclass', why: 'hono is ho-class → he is the receiver of the action.' },
-  { tongan: 'ʻene tohi',     english: 'his writing (he produces the writing)',               answer: 'eclass',  why: 'ʻene → he does the writing. (hono tohi would mean "his being written about".)' },
-  { tongan: 'hono tohi',     english: 'his being written about',                             answer: 'hoclass', why: 'hono → the writing is ABOUT him; he is its subject, not its author.' },
-  { tongan: 'ʻenau ngāue',   english: 'their working (they do the work)',                    answer: 'eclass',  why: 'Intransitive verb (ngāue): only the doer reading is possible. ʻenau = they-as-doers.' },
-  { tongan: 'ʻene hiva',     english: 'the song he sings (he produces it)',                  answer: 'eclass',  why: 'ʻene → he sings the song. (hono hiva would mean "the song sung about him".)' },
+  { tongan: 'ʻeku tokoni',   english: 'my ___ (help)',     answer: 'eclass',  why: 'ʻeku is ʻe-class → I am the doer. The helping done BY me.' },
+  { tongan: 'hoku tokoni',   english: 'my ___ (help)',     answer: 'hoclass', why: 'hoku is ho-class → I am the receiver. The helping done TO me.' },
+  { tongan: 'ʻene fili',     english: 'his ___ (choose)',  answer: 'eclass',  why: 'ʻene is ʻe-class → he is the doer.' },
+  { tongan: 'hono fili',     english: 'his ___ (choose)',  answer: 'hoclass', why: 'hono is ho-class → he is the receiver of the action.' },
+  { tongan: 'ʻene tohi',     english: 'his ___ (write)',   answer: 'eclass',  why: 'ʻene → he does the writing. (hono tohi would mean "his being written about".)' },
+  { tongan: 'hono tohi',     english: 'his ___ (write)',   answer: 'hoclass', why: 'hono → the writing is ABOUT him; he is its subject, not its author.' },
+  { tongan: 'ʻenau ngāue',   english: 'their ___ (work)',  answer: 'eclass',  why: 'Intransitive verb (ngāue): only the doer reading is possible. ʻenau = they-as-doers.' },
+  { tongan: 'ʻene hiva',     english: 'his ___ (sing)',    answer: 'eclass',  why: 'ʻene → he sings the song. (hono hiva would mean "the song sung about him".)' },
 ]
 
 export default function DoerReceiverPickerCore() {

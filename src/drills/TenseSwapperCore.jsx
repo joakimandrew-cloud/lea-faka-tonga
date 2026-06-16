@@ -91,7 +91,7 @@ const ALL_EXAMPLES = [
     body: 'ʻalu ʻa Sione',
     perTense: {
       affirmative: { present: 'ʻOku', past: 'Naʻe', perfect: 'Kuo', future: 'ʻE' },
-      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'ʻOku teʻeki', future: 'ʻE ʻikai ke' },
+      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'ʻOku teʻeki ke', future: 'ʻE ʻikai ke' },
     },
     english: {
       affirmative: { present: 'Sione is going.', past: 'Sione went.', perfect: 'Sione has gone.', future: 'Sione will go.' },
@@ -123,7 +123,7 @@ const ALL_EXAMPLES = [
     body: 'lele ʻa e kulī ki kolo',
     perTense: {
       affirmative: { present: 'ʻOku', past: 'Naʻe', perfect: 'Kuo', future: 'ʻE' },
-      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'ʻOku teʻeki', future: 'ʻE ʻikai ke' },
+      negative:    { present: 'ʻOku ʻikai ke', past: 'Naʻe ʻikai ke', perfect: 'ʻOku teʻeki ke', future: 'ʻE ʻikai ke' },
     },
     english: {
       affirmative: { present: 'The dog is running to town.', past: 'The dog ran to town.', perfect: 'The dog has run to town.', future: 'The dog will run to town.' },

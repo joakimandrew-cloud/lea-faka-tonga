@@ -38,6 +38,8 @@ export const GROUPS = [
         sample: { q: 'Pick a word, watch it build', ton: `ʻOku ou ʻalu …`, opts: ['ki kolo', 'ki he fale'], sel: -1 } },
     ],
     inChapters: [
+      { id: 'seem-look', ch: 41, label: 'Seem / look like: ngali vs ngalingali' },
+      { id: 'permission-hope', ch: 38, label: 'Let / hope: tuku ke, ʻofa ke, fai mo ke' },
       { id: 'skeleton-filler', ch: 1, label: 'Order the tense marker, pronoun, and verb' },
       { id: 'adjective-flip', ch: 35, label: 'Adjective order: before or after the noun' },
       { id: 'word-class-picker', ch: 41, label: 'Same word, different role: noun, verb, adjective, adverb' },
@@ -71,7 +73,7 @@ export const GROUPS = [
     name: 'Markers, articles & counting',
     note: `Who did it, which one, and how many — the ʻa / ʻe / ha / he machinery.`,
     drills: [
-      { id: 'article-picker', ch: 8, level: 'beginner', title: `Which "the": ha, ʻa e, or he?`, blurb: `Two questions decide it: is the thing definite, and does a preposition come first?`, action: 'Pick',
+      { id: 'article-picker', ch: 8, level: 'beginner', title: `Which article: ha, ʻa e, or he?`, blurb: `Two questions decide it: is the thing definite, and does a preposition come first? (ha = a/some; ʻa e / he = the.)`, action: 'Pick',
         sample: { q: 'I want some water', ton: `ʻOku ou fiemaʻu ___ vai.`, opts: ['ha', 'ʻa e', 'he'], sel: 0 } },
       { id: 'subject-marker-picker', ch: 19, level: 'intermediate', title: `Who did it: ʻa, ʻe, or ʻe he?`, blurb: `Subjects of plain verbs take ʻa; doers of verbs-with-objects take ʻe for names, ʻe he for common nouns.`, action: 'Pick',
         sample: { q: 'Lupe lived in town', ton: `Naʻe nofo ___ Lupe ʻi kolo.`, opts: ['ʻa', 'ʻe', 'ʻe he'], sel: 0 } },
@@ -130,6 +132,10 @@ export const GROUPS = [
         sample: { q: 'The house he works in', ton: `Ko e falé eni ʻokú ne ngāue ___.`, opts: ['ai', 'ki ai', 'mei ai'], sel: 0 } },
     ],
     inChapters: [
+      { id: 'qa-match', ch: 11, label: 'Match each question to its answer' },
+      { id: 'since-after', ch: 42, label: 'Since / after: talu, hilí' },
+      { id: 'greet-thank', ch: 14, label: 'Greet, thank, and respond' },
+      { id: 'introduce-yourself', ch: 14, label: 'Introduce yourself: name and age' },
       { id: 'demonstrative-picker', ch: 6, label: 'here / there / over there: heni, hena, hē' },
       { id: 'spatial-noun-picker', ch: 40, label: 'inside / under / on top / beside' },
       { id: 'ko-question-picker', ch: 13, label: 'ko hai / ko e hā / ko fē — the ko-questions' },
@@ -145,14 +151,16 @@ export const GROUPS = [
     drills: [
       { id: 'connector-disambiguator', ch: 26, level: 'intermediate', title: `Which "and", which "but"`, blurb: `Three words for and (mo, pea, ʻo), two for but (ka, kae), ke for purpose, he for reason — pick by the join.`, action: 'Pick',
         sample: { q: 'I went to town with Sione', ton: `Naʻá ku ʻalu ki kolo ___ Sione.`, opts: ['mo', 'pea', 'ʻo'], sel: 0 } },
-      { id: 'temporal-conjunction-picker', ch: 30, level: 'intermediate', title: `If, while, until, when, although`, blurb: `kapau, lolotonga, kaeʻoua ke, ʻi he…, neongo — pick the clause-opener the timeline needs.`, action: 'Pick',
-        sample: { q: 'If you return, I will cook', ton: `___ té ke foki, té u kuki.`, opts: ['kapau', 'lolotonga', 'neongo'], sel: 0 } },
       { id: 'faka-pattern-sorter', ch: 32, level: 'advanced', title: `Sort faka- words by job`, blurb: `One prefix, four jobs: manner, cause, every-X, one-particular. Read each word and file it.`, action: 'Sort',
         sample: { q: 'What is faka- doing here?', ton: `faka-Tonga`, opts: ['Manner', 'Cause', 'Every-X'], sel: 0 } },
       { id: 'accent-placement-picker', ch: 44, level: 'advanced', title: `Where the accent lands`, blurb: `Find the word in the noun phrase that carries the definitive accent — or call it when the phrase takes none.`, action: 'Place',
         sample: { q: 'Where does the accent land?', ton: `Naʻá ku ʻalu ki he fale.`, opts: ['falé', 'No accent'], sel: 0 } },
     ],
     inChapters: [
+      { id: 'same-as-like', ch: 27, label: 'Same as / like: tatau mo, hangē' },
+      { id: 'negative-obligation', ch: 23, label: 'Should not / must not' },
+      { id: 'reporting-picker', ch: 34, label: 'Reportedly / therefore: tokua, ko ia' },
+      { id: 'temporal-conjunction-picker', ch: 30, label: 'if / while / until / when / although' },
       { id: 'ka-or-kae-picker', ch: 24, label: '"but": ka or kae — the focused deck' },
       { id: 'conditional-picker', ch: 47, label: 'if / when / had-I: kapau, ka, ka ne' },
       { id: 'should-or-must-picker', ch: 23, label: 'Should or Must: totonu ke vs. pau ke' },
@@ -164,6 +172,22 @@ export const GROUPS = [
       { id: 'pehee-picker', ch: 34, label: 'Pehē: say, thus, or do-thus-to' },
       { id: 'reciprocity-picker', ch: 49, label: '"each other" verbs (fe-…-ʻaki)' },
       { id: 'register-sorter', ch: 53, label: 'Five vocabulary levels by social rank' },
+    ],
+  },
+  {
+    key: 'skills',
+    name: 'Read, fix & remember',
+    note: 'Comprehension, error-spotting, and vocabulary that sticks.',
+    drills: [
+      { id: 'read-it-back', ch: 19, level: 'intermediate', title: `Read it back`, blurb: `The one direction nothing else tests: read a Tongan sentence and pick what it means.`, action: 'Read',
+        sample: { q: 'What does this mean?', ton: `Naʻe kai ʻe Sione ʻa e mā.`, opts: ['Sione ate the bread', 'The bread ate Sione', 'Sione will eat'], sel: 0 } },
+      { id: 'spot-the-slip', ch: 19, level: 'intermediate', title: `Spot the slip`, blurb: `One word is wrong. Find the error, then fix it: the editor's eye no other drill trains.`, action: 'Fix',
+        sample: { q: 'One word is wrong:', ton: `ʻOku ʻikai ke u ʻalu.`, opts: ['ke', 'u', 'ʻOku'], sel: 0 } },
+      { id: 'daily-words', ch: 1, level: 'beginner', title: `Daily words`, blurb: `Spaced vocabulary recall: the words you miss come back first, and your progress is saved.`, action: 'Recall',
+        sample: { q: 'Which word means "house"?', ton: `fale`, opts: ['fale', 'kato', 'vaka'], sel: 0 } },
+    ],
+    inChapters: [
+      { id: 'vocab-cloze', ch: 19, label: 'Fill the blank (vocabulary recall)' },
     ],
   },
 ]

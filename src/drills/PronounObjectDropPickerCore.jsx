@@ -14,13 +14,13 @@ const OPTIONS = [
 ]
 
 const PROMPTS = [
-  { tongan: 'Naʻe ui ʻe Pita ___ Mele.',           english: 'Pita called Mele. (object is a name)',           answer: 'with-a', why: 'Mele is a noun object (proper noun) → keep ʻa. Standard transitive pattern.' },
-  { tongan: 'Naʻe ui ___ ia ʻe Pita.',             english: 'Pita called her. (object is a pronoun)',         answer: 'no-a',   why: 'ia is a pronoun object → ʻa drops. Pronoun sits directly after the verb without ʻa.' },
-  { tongan: 'Té u ʻave ___ kinautolu.',            english: 'I will take them. (pronoun object)',              answer: 'no-a',   why: 'kinautolu is a postposed pronoun → ʻa drops.' },
-  { tongan: 'Té u ʻave ___ Sēmisi.',               english: 'I will take Sēmisi. (name object)',               answer: 'with-a', why: 'Sēmisi is a name → keep ʻa.' },
-  { tongan: 'ʻOkú ne manatuʻi lelei ___ koe.',     english: 'He remembers you well. (pronoun object)',         answer: 'no-a',   why: 'koe is a pronoun → ʻa drops.' },
-  { tongan: 'Naʻe ʻave ___ Pita ʻe Tēvita.',       english: 'Tēvita took Pita. (name object)',                 answer: 'with-a', why: 'Pita is a name (object) → keep ʻa.' },
-  { tongan: 'Kuo ui ___ kinautolu ʻe Mele.',       english: 'Mele has called them. (pronoun object)',          answer: 'no-a',   why: 'kinautolu is a pronoun → ʻa drops.' },
+  { tongan: 'Naʻe ui ʻe Pita ___ Mele.',           english: 'Pita called Mele.',           answer: 'with-a', why: 'Mele is a noun object (proper noun) → keep ʻa. Standard transitive pattern.' },
+  { tongan: 'Naʻe ui ___ ia ʻe Pita.',             english: 'Pita called her.',         answer: 'no-a',   why: 'ia is a pronoun object → ʻa drops. Pronoun sits directly after the verb without ʻa.' },
+  { tongan: 'Té u ʻave ___ kinautolu.',            english: 'I will take them.',              answer: 'no-a',   why: 'kinautolu is a postposed pronoun → ʻa drops.' },
+  { tongan: 'Té u ʻave ___ Sēmisi.',               english: 'I will take Sēmisi.',               answer: 'with-a', why: 'Sēmisi is a name → keep ʻa.' },
+  { tongan: 'ʻOkú ne manatuʻi lelei ___ koe.',     english: 'He remembers you well.',         answer: 'no-a',   why: 'koe is a pronoun → ʻa drops.' },
+  { tongan: 'Naʻe ʻave ___ Pita ʻe Tēvita.',       english: 'Tēvita took Pita.',                 answer: 'with-a', why: 'Pita is a name (object) → keep ʻa.' },
+  { tongan: 'Kuo ui ___ kinautolu ʻe Mele.',       english: 'Mele has called them.',          answer: 'no-a',   why: 'kinautolu is a pronoun → ʻa drops.' },
 ]
 
 export default function PronounObjectDropPickerCore() {

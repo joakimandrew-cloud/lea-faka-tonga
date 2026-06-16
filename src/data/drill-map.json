@@ -78,6 +78,10 @@
     {
       "drillId": "question-word-picker",
       "after": "all-question-words-so-far"
+    },
+    {
+      "drillId": "qa-match",
+      "after": "all-question-words-so-far"
     }
   ],
   "12": [
@@ -95,6 +99,14 @@
   "14": [
     {
       "drillId": "farewell-picker",
+      "after": "farewells"
+    },
+    {
+      "drillId": "greet-thank",
+      "after": "farewells"
+    },
+    {
+      "drillId": "introduce-yourself",
       "after": "farewells"
     }
   ],
@@ -138,6 +150,10 @@
     {
       "drillId": "pronoun-object-drop-picker",
       "after": "postposed-pronouns-as-transitive-objects"
+    },
+    {
+      "drillId": "vocab-cloze",
+      "after": "the-basic-transitive-pattern"
     }
   ],
   "20": [
@@ -166,6 +182,10 @@
     {
       "drillId": "should-or-must-picker",
       "after": "kuo-pau-ke-must-certainly"
+    },
+    {
+      "drillId": "negative-obligation",
+      "after": "kuo-pau-ke-must-certainly"
     }
   ],
   "24": [
@@ -193,6 +213,10 @@
   "27": [
     {
       "drillId": "comparative-picker",
+      "after": "modifying-the-comparison"
+    },
+    {
+      "drillId": "same-as-like",
       "after": "modifying-the-comparison"
     }
   ],
@@ -244,6 +268,10 @@
     {
       "drillId": "pehee-picker",
       "after": "pehei-to-do-or-treat-in-this-way"
+    },
+    {
+      "drillId": "reporting-picker",
+      "after": "pehei-to-do-or-treat-in-this-way"
     }
   ],
   "35": [
@@ -268,6 +296,10 @@
     {
       "drillId": "naa-three-way-picker",
       "after": "uncertainty-naa-as-perhaps"
+    },
+    {
+      "drillId": "permission-hope",
+      "after": "uncertainty-naa-as-perhaps"
     }
   ],
   "39": [
@@ -286,11 +318,19 @@
     {
       "drillId": "word-class-picker",
       "after": "nouns-used-as-adverbs"
+    },
+    {
+      "drillId": "seem-look",
+      "after": "nouns-used-as-adverbs"
     }
   ],
   "42": [
     {
       "drillId": "before-after-picker",
+      "after": "spatial-words-as-time-expressions"
+    },
+    {
+      "drillId": "since-after",
       "after": "spatial-words-as-time-expressions"
     }
   ],

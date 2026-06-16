@@ -59,7 +59,7 @@ const PROMPTS = [
   { tongan: 'Naʻá ne lau e tohi.', english: 'He read a (particular) book.', answer: 'none', why: 'e tohi here is SEMI-definite: a particular book, but not one singled out for the listener. Semi-definite groups take no accent; only the fully definite "ʻa e tohí" would.' },
   { tongan: 'Naʻá ne lau ʻa e tohi.', english: 'He read the book.', answer: 'tohi', why: 'ʻa e tohi is fully DEFINITE ("the book we both know"). Now the definitive accent appears, on the group’s last vowel → tohí.' },
   { tongan: 'ʻOku ou fiemaʻu ha kato.', english: 'I want a basket. (any basket)', answer: 'none', why: 'ha marks an INDEFINITE noun: no particular basket in mind, so no word takes the definitive accent (Ch 44 Exercise 2; the three levels are taught in Ch 18).' },
-  { tongan: 'Haʻu mo e kato.', english: 'Bring the basket. (the one you know about)', answer: 'kato', why: 'Fully DEFINITE: both of you know which basket, so the accent appears → e kató (Ch 18). With the "particular but not singled out" reading, the same written sentence would stay unaccented: the gloss decides.' },
+  { tongan: 'Haʻu mo e kató.', english: 'Bring the basket. (the one you know about)', answer: 'kato', why: 'Fully DEFINITE: both of you know which basket, so the accent already shows on the last vowel of the group → e kató (Ch 18). The semi-definite "Haʻu mo e kato" (a particular basket, not singled out) would stay unaccented.' },
 ]
 
 export default function AccentPlacementPickerCore() {

@@ -31,12 +31,14 @@ export default function ClusivityCorner() {
             us, or not? Am I talking about the two of us, or the group?
           </p>
           <p>
-            This isn&rsquo;t a grammatical quirk: it&rsquo;s a
-            cultural one. Polynesian languages foreground relationship
-            information that English leaves implicit. Using the wrong
-            &ldquo;we&rdquo; isn&rsquo;t just a mistake; it can
-            accidentally exclude someone from the circle you meant to
-            include them in.
+            This is a grammatical distinction called clusivity: marking
+            whether the listener is part of &ldquo;we.&rdquo; English
+            leaves it to context; Tongan builds it into the pronoun, so
+            it&rsquo;s chosen every time. About half the world&rsquo;s
+            languages make this distinction, and Tongan is one of them.
+            Using the wrong &ldquo;we&rdquo; isn&rsquo;t just a mistake;
+            it can accidentally exclude someone from the circle you meant
+            to include them in.
           </p>
           <p className="pcs-lesson-foot">
             When you hear an English &ldquo;we,&rdquo; train yourself to

@@ -33,10 +33,9 @@ export default function AdjectiveFlip() {
             time.
           </p>
           <p>
-            The only fix is repeated, active production. Hearing
-            <em> vaka lahi</em> and understanding it is trivial; producing it
-            without a pause takes a few hundred reps. That&rsquo;s what this
-            drill is for.
+            Hearing <em>vaka lahi</em> and understanding it is easy; producing
+            it without a pause is harder, and that gap closes mainly through
+            active practice. That&rsquo;s what this drill is for.
           </p>
           <p className="pcs-lesson-foot">
             Five adjectives sit <em>before</em> the noun instead of after:
