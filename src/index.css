@@ -3301,6 +3301,38 @@ body::before {
 
 .clu-next:hover { background-color: var(--accent-hover); }
 
+/* ── Drill type harmonization — standalone pages read in the chapter voice ──
+   (2026-06-17, "/kickoff first-word-english-font-consistency")
+
+   The 2026-06-15 inner-page pass brought the SHARED .pcs-* drill prose + option
+   LABELS to the chapter serif. But (a) the five hand-built Cores (tense-swap-,
+   fwq-, skf-, clu-, afl-) keep private namespaces and were missed, and (b) a few
+   shared option sub-elements were left on Inter under the old "dense answer
+   buttons stay Inter" sub-rule. On a STANDALONE drill page (.pcs-page, not
+   .reading-page) those all fall back to body Inter, so English a student READS —
+   prompts, translations, verdicts, the "why", and the clickable option
+   text/glosses — clashed with the serif chapters + Tongan around it. In-chapter
+   the same drills already render serif (inherited from .reading-page); this
+   makes the standalone pages match.
+
+   Owner ruling 2026-06-17: the clickable OPTIONS are content, not chrome — this
+   reverses the 2026-06-15 "dense answer buttons stay Inter" sub-rule for EVERY
+   drill. SIZES are left alone (the larger specimen sizing is intentional). True
+   chrome stays as-is: counters, score/streak, reset, keyboard badges, the ✓/✕
+   icons, uppercase section/axis labels, eyebrows, the Barlow "WHICH …?" prompt,
+   and the tense/polarity toggle labels (control labels, not answer text). Placed
+   after every drill rule above so it wins at equal specificity by source order.
+   (Worklog + DECISIONS 2026-06-17; review: First-Word-Font-Match-Screens.) */
+.fwq-english, .fwq-question, .fwq-why-text,
+.fwq-btn-label, .fwq-btn-hint,
+.skf-verdict, .skf-english-text, .skf-prompt,
+.clu-verdict, .clu-why-text, .clu-prompt, .clu-scenario, .clu-cell-quick,
+.afl-verdict, .afl-prompt, .afl-tile-gloss,
+.tense-swap-english, .tense-swap-hint,
+.pcs-btn-principle, .pcs-btn-why {
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
 /* Example-aware tables (.ch-ex): the example shows inline in its own column at
    every width. The plugin still builds a mobile tap-to-reveal toggle + detail
    rows, but they stay hidden now that mobile shows full real tables (below). */
