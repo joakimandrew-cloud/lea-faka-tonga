@@ -249,57 +249,47 @@ function ExerciseItem({ item, index, exerciseType }) {
 // ---------------------------------------------------------------------------
 
 export default function BookExercises({ chapterNum }) {
-  const [openExerciseId, setOpenExerciseId] = useState(null)
   // Defensive: never render an exercise that extracted to zero items
   const exercises = (bookExercises[chapterNum] || []).filter((ex) => ex.items.length > 0)
 
   if (exercises.length === 0) return null
 
+  // Always-open (owner ruling 2026-06-16): every exercise renders expanded as a
+  // titled block — no accordion, just part of the page.
   return (
     <div className="mb-8">
       <h2 className="text-sm text-[var(--accent)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4">
         Book Exercises
       </h2>
 
-      <div className="space-y-2">
-        {exercises.map((ex) => {
-          const isOpen = openExerciseId === ex.id
-          return (
-            <div key={ex.id} className="border border-[var(--border)]">
-              <button
-                onClick={() => setOpenExerciseId(isOpen ? null : ex.id)}
-                className="w-full text-left px-4 py-3 hover:bg-[var(--bg-tone)] transition-colors cursor-pointer flex justify-between items-center"
-              >
-                <div>
-                  <div className="text-[var(--text-strong)] text-sm">
-                    Exercise {ex.number}{ex.title ? ': ' : ''}{ex.title ? renderPromptText(ex.title) : null}
-                  </div>
-                  <div className="text-xs text-[var(--text-muted)] mt-0.5">
-                    {ex.items.length} item{ex.items.length === 1 ? '' : 's'}
-                  </div>
-                </div>
-                <span className="text-[var(--accent)] text-xs">{isOpen ? '▼' : '▶'}</span>
-              </button>
+      <div className="space-y-4">
+        {exercises.map((ex) => (
+          <div key={ex.id} className="border border-[var(--border)]">
+            <div className="px-4 py-3 border-b border-[var(--border)]">
+              <div className="text-[var(--text-strong)] text-sm">
+                Exercise {ex.number}{ex.title ? ': ' : ''}{ex.title ? renderPromptText(ex.title) : null}
+              </div>
+              <div className="text-xs text-[var(--text-muted)] mt-0.5">
+                {ex.items.length} item{ex.items.length === 1 ? '' : 's'}
+              </div>
+            </div>
 
-              {isOpen && (
-                <div className="px-4 pb-3 border-t border-[var(--border)]">
-                  {ex.instructions ? (
-                    <div className="pt-3 pb-1 text-[17px] text-[var(--text-muted)]">
-                      {renderPromptText(ex.instructions)}
-                    </div>
-                  ) : null}
-                  {ex.type === 'matching' ? (
-                    <MatchingExercise exercise={ex} />
-                  ) : (
-                    ex.items.map((item, i) => (
-                      <ExerciseItem key={item.id} item={item} index={i} exerciseType={ex.type} />
-                    ))
-                  )}
+            <div className="px-4 pb-3">
+              {ex.instructions ? (
+                <div className="pt-3 pb-1 text-[17px] text-[var(--text-muted)]">
+                  {renderPromptText(ex.instructions)}
                 </div>
+              ) : null}
+              {ex.type === 'matching' ? (
+                <MatchingExercise exercise={ex} />
+              ) : (
+                ex.items.map((item, i) => (
+                  <ExerciseItem key={item.id} item={item} index={i} exerciseType={ex.type} />
+                ))
               )}
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
     </div>
   )

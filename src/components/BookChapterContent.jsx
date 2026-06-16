@@ -5,6 +5,7 @@ import remarkDirective from 'remark-directive'
 import rehypeRaw from 'rehype-raw'
 import rehypeTableLabels from '../lib/rehype-table-labels'
 import remarkExamples from '../lib/remark-examples'
+import remarkMergeVocab from '../lib/remark-merge-vocab'
 import remarkDrillAnchors from '../lib/remark-drill-anchors'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
 import VocabPracticeBlock from './VocabPracticeBlock'
@@ -166,6 +167,7 @@ export default function BookChapterContent({ chapterNum }) {
   const remarkPlugins = useMemo(
     () => [
       remarkGfm,
+      remarkMergeVocab,
       remarkDirective,
       remarkExamples,
       [remarkDrillAnchors, { chapterNum }],

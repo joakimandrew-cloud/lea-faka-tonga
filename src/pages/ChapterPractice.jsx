@@ -39,23 +39,12 @@ function getPatternsForChapter(chapterNum) {
   )
 }
 
-/** Patterns from earlier chapters (available but not taught here) */
-function getEarlierPatterns(chapterNum) {
-  return sentencePatterns.patterns.filter(p =>
-    p.data_status === 'complete' &&
-    p.min_chapter <= chapterNum &&
-    !p.book_chapters.includes(chapterNum)
-  )
-}
-
 export default function ChapterPractice() {
   const { num } = useParams()
   const chapterNum = parseInt(num, 10)
   const { setChapter } = useChapter()
   const [patternIndex, setPatternIndex] = useState(null)
   const [showHint, setShowHint] = useState(false)
-  const [earlierOpen, setEarlierOpen] = useState(false)
-  const [earlierPatternId, setEarlierPatternId] = useState(null)
 
   // Keep global chapter context in sync. Must run in an effect, not the
   // render body: setChapter updates ChapterProvider's state AND writes
@@ -64,13 +53,15 @@ export default function ChapterPractice() {
     setChapter(chapterNum)
   }, [chapterNum, setChapter])
 
+  // Hoisted above the early return so every hook runs unconditionally
+  // (react-hooks/rules-of-hooks). Safe: getPatternsForChapter doesn't read
+  // `chapter`, and the result is discarded on the not-found path anyway.
+  const chapterPatterns = useMemo(() => getPatternsForChapter(chapterNum), [chapterNum])
+
   const chapter = chapters.find(c => c.chapter === chapterNum)
   if (!chapter) {
     return <div className="text-[var(--text-muted)]">Chapter not found.</div>
   }
-
-  const chapterPatterns = useMemo(() => getPatternsForChapter(chapterNum), [chapterNum])
-  const earlierPatterns = useMemo(() => getEarlierPatterns(chapterNum), [chapterNum])
 
   const selectedPattern = patternIndex !== null ? chapterPatterns[patternIndex] : null
 
@@ -123,7 +114,7 @@ export default function ChapterPractice() {
             <Link
               to={`/chapters/${prevCh}`}
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
-              onClick={() => { setPatternIndex(null); setEarlierPatternId(null) }}
+              onClick={() => setPatternIndex(null)}
             >
               &larr; Ch. {prevCh}
             </Link>
@@ -132,7 +123,7 @@ export default function ChapterPractice() {
             <Link
               to={`/chapters/${nextCh}`}
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
-              onClick={() => { setPatternIndex(null); setEarlierPatternId(null) }}
+              onClick={() => setPatternIndex(null)}
             >
               Ch. {nextCh} &rarr;
             </Link>
@@ -242,71 +233,13 @@ export default function ChapterPractice() {
         </div>
       )}
 
-      {/* ── EARLIER CHAPTER PATTERNS ── */}
-      {earlierPatterns.length > 0 && (
-        <div>
-          <button
-            onClick={() => { setEarlierOpen(!earlierOpen); setEarlierPatternId(null) }}
-            className="w-full text-left text-sm text-[var(--text-muted)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4 hover:text-[var(--accent)] transition-colors cursor-pointer"
-          >
-            {earlierOpen ? '\u25BC' : '\u25B6'} Practice from Earlier Chapters
-          </button>
-
-          {earlierOpen && (
-            <div>
-              {earlierPatternId ? (
-                (() => {
-                  const p = sentencePatterns.patterns.find(pat => pat.id === earlierPatternId)
-                  if (!p) return null
-                  return (
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <div>
-                          <div className="text-[var(--accent)] text-sm">{p.title}</div>
-                          <div className="text-xs text-[var(--text-muted)]">{p.label_en}</div>
-                        </div>
-                        <button
-                          onClick={() => setEarlierPatternId(null)}
-                          className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors cursor-pointer"
-                        >
-                          &larr; Change
-                        </button>
-                      </div>
-                      <SlotBuilder
-                        key={`earlier-${earlierPatternId}-${chapterNum}`}
-                        patternId={earlierPatternId}
-                        maxChapter={chapterNum}
-                        onBack={() => setEarlierPatternId(null)}
-                      />
-                    </div>
-                  )
-                })()
-              ) : (
-                <div className="space-y-1">
-                  {earlierPatterns.map(p => (
-                    <button
-                      key={p.id}
-                      onClick={() => setEarlierPatternId(p.id)}
-                      className="block w-full text-left px-4 py-3 border border-transparent hover:border-[var(--border)] hover:bg-[var(--bg-tone)] transition-colors cursor-pointer"
-                    >
-                      <div className="text-[var(--text)] mb-1">{p.title}</div>
-                      <div className="text-sm text-[var(--text-muted)]">{p.label_en}</div>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      )}
-
       {/* ── Bottom chapter navigation (Continue to next) ── */}
       {(nextChapter || prevChapter) && (
         <div className="mt-16 pt-8 border-t border-[var(--border)] text-center">
           {nextChapter && (
             <Link
               to={`/chapters/${nextCh}`}
-              onClick={() => { setPatternIndex(null); setEarlierPatternId(null); window.scrollTo(0, 0) }}
+              onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
               className="inline-block w-full sm:w-auto text-left border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors"
             >
               <div className="text-[var(--accent)] text-[15px] font-medium">
@@ -318,7 +251,7 @@ export default function ChapterPractice() {
           {prevChapter && (
             <Link
               to={`/chapters/${prevCh}`}
-              onClick={() => { setPatternIndex(null); setEarlierPatternId(null); window.scrollTo(0, 0) }}
+              onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
               className="block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
             >
               &larr; Back to Chapter {prevCh}
