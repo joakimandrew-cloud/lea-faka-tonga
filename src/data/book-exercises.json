@@ -3248,6 +3248,46 @@
             "*fē*"
           ],
           "correct": "*fē*"
+        },
+        {
+          "id": "ch11-ex5-7",
+          "prompt": "*'Okú ke ako ___?* What are you studying?",
+          "answer": "*hā*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*hā*"
+        },
+        {
+          "id": "ch11-ex5-8",
+          "prompt": "*'I he 'aho ___?* On which day?",
+          "answer": "*fē*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*fē*"
+        },
+        {
+          "id": "ch11-ex5-9",
+          "prompt": "*'Okú ne faiako ___?* What does he teach?",
+          "answer": "*hā*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*hā*"
+        },
+        {
+          "id": "ch11-ex5-10",
+          "prompt": "*'I he hala ___?* On which road?",
+          "answer": "*fē*",
+          "options": [
+            "*hā*",
+            "*fē*"
+          ],
+          "correct": "*fē*"
         }
       ]
     },

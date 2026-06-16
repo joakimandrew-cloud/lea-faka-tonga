@@ -205,11 +205,12 @@ function extractBookExercises(chapter, md, file) {
 
 function extractQuickPractice(chapter, md, file) {
   const items = []
-  const re = /^###\s+Quick Practice\s+([A-Z]):\s*(.+)$/gm
+  // The A/B/C letter is optional — single-block chapters drop it (Ch15/19/22/41).
+  const re = /^###\s+Quick Practice(?:\s+([A-Z]))?:\s*(.+)$/gm
   const matches = []
   let m
   while ((m = re.exec(md)) !== null) {
-    matches.push({ letter: m[1], topic: m[2].trim(), start: m.index, headerEnd: m.index + m[0].length })
+    matches.push({ letter: m[1] || null, topic: m[2].trim(), start: m.index, headerEnd: m.index + m[0].length })
   }
   for (let i = 0; i < matches.length; i++) {
     const mk = matches[i]
@@ -232,7 +233,7 @@ function extractQuickPractice(chapter, md, file) {
     // and tag with `matching-format` so validators know it's not a 1-to-1 map.
     const isLetterKeyed = !!ansLineMatch && /^[a-z]\.\s+\d/.test(ansLineRaw)
 
-    const exerciseId = `ch${chapter}-qp-${mk.letter}`
+    const exerciseId = `ch${chapter}-qp-${mk.letter || (i + 1)}`
     for (const p of prompts) {
       const a = answers.find(x => x.num === p.num)
       const flags = []

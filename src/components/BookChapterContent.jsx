@@ -7,7 +7,9 @@ import rehypeTableLabels from '../lib/rehype-table-labels'
 import remarkExamples from '../lib/remark-examples'
 import remarkMergeVocab from '../lib/remark-merge-vocab'
 import remarkDrillAnchors from '../lib/remark-drill-anchors'
+import remarkQuickPractice from '../lib/remark-quick-practice'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
+import QuickPractice from './QuickPractice'
 import VocabPracticeBlock from './VocabPracticeBlock'
 
 // Bulk-load every chapter markdown file at build time. Vite inlines each
@@ -42,10 +44,10 @@ function normalizeExamplesFence(md) {
 
 // The ### Exercises / ### Answers tail is rendered interactively by
 // <BookExercises> in ChapterPractice, so strip it from the static markdown here
-// to avoid a double render. (Quick Practice blocks are NOT touched — only the
-// dedicated ### Exercises section, which is also what extract-book-exercises.mjs
-// reads.) The optional dashes group consumes the `---` separator that precedes
-// the heading so no dangling <hr> is left behind.
+// to avoid a double render. (The mid-chapter Quick Practice blocks are removed
+// separately by remark-quick-practice, which replaces each with an interactive
+// <QuickPractice> anchor.) The optional dashes group consumes the `---`
+// separator that precedes the heading so no dangling <hr> is left behind.
 function stripExercisesSection(md) {
   if (!md) return md
   return md.replace(/\n+(?:-{3,}[^\n]*\n+)?###[ \t]+Exercises[\s\S]*$/, '\n')
@@ -171,6 +173,7 @@ export default function BookChapterContent({ chapterNum }) {
       remarkDirective,
       remarkExamples,
       [remarkDrillAnchors, { chapterNum }],
+      [remarkQuickPractice, { chapterNum }],
     ],
     [chapterNum]
   )
@@ -184,6 +187,13 @@ export default function BookChapterContent({ chapterNum }) {
           props?.node?.properties?.['data-drill-id']
         if (!drillId) return null
         return <ChapterDrillAnchor drillId={drillId} chapterNum={chapterNum} />
+      },
+      'quick-practice': (props) => {
+        const idx =
+          props?.node?.properties?.dataQpIndex ??
+          props?.node?.properties?.['data-qp-index']
+        if (idx == null) return null
+        return <QuickPractice chapterNum={chapterNum} index={parseInt(idx, 10)} />
       },
     }),
     [chapterNum]

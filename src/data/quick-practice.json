@@ -1,0 +1,678 @@
+{
+  "5": [
+    {
+      "slug": "quick-practice-a-commands-group-commands-prohibitions-and-mua",
+      "letter": "A",
+      "title": "Quick Practice A: Commands, group commands, prohibitions, and *mu'a*",
+      "topic": "Commands, group commands, prohibitions, and *mu'a*",
+      "instructions": "Translate each English phrase into Tongan.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch5-qp-quick-practice-a-commands-group-commands-prohibitions-and-mua-1",
+          "prompt": "Run! (to one person)",
+          "answer": "*Lele!*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-a-commands-group-commands-prohibitions-and-mua-2",
+          "prompt": "Drink! (to a group)",
+          "answer": "*Mou inu!*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-a-commands-group-commands-prohibitions-and-mua-3",
+          "prompt": "Please speak!",
+          "answer": "*Lea mu'a!*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-a-commands-group-commands-prohibitions-and-mua-4",
+          "prompt": "Don't run! (to one person)",
+          "answer": "*'Oua té ke lele!*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-a-commands-group-commands-prohibitions-and-mua-5",
+          "prompt": "Don't drink! (to a group)",
+          "answer": "*'Oua te mou inu!*"
+        }
+      ]
+    },
+    {
+      "slug": "quick-practice-b-postposed-pronouns-and-emphatic-statements",
+      "letter": "B",
+      "title": "Quick Practice B: Postposed pronouns and emphatic statements",
+      "topic": "Postposed pronouns and emphatic statements",
+      "instructions": "Add the correct postposed pronoun to make each statement emphatic.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch5-qp-quick-practice-b-postposed-pronouns-and-emphatic-statements-1",
+          "prompt": "*Té u 'alu ___.* I will go (myself).",
+          "answer": "*au*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-b-postposed-pronouns-and-emphatic-statements-2",
+          "prompt": "*Na'á ke kai ___.* You ate (yourself).",
+          "answer": "*koe*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-b-postposed-pronouns-and-emphatic-statements-3",
+          "prompt": "*'Okú ne hiva ___.* He is singing (himself).",
+          "answer": "*ia*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-b-postposed-pronouns-and-emphatic-statements-4",
+          "prompt": "*Tau lele ___!* Let's run (we ourselves)!",
+          "answer": "*kitautolu*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-b-postposed-pronouns-and-emphatic-statements-5",
+          "prompt": "*'Oku nau lea ___.* They are speaking (themselves).",
+          "answer": "*kinautolu*"
+        }
+      ]
+    },
+    {
+      "slug": "quick-practice-c-emphasis-in-commands",
+      "letter": "C",
+      "title": "Quick Practice C: Emphasis in commands",
+      "topic": "Emphasis in commands",
+      "instructions": "Add the postposed pronoun to make each command emphatic.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch5-qp-quick-practice-c-emphasis-in-commands-1",
+          "prompt": "*Hiva ___!* Sing! (you yourself!)",
+          "answer": "*koe*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-c-emphasis-in-commands-2",
+          "prompt": "*Lele ___!* Run! (you yourself!)",
+          "answer": "*koe*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-c-emphasis-in-commands-3",
+          "prompt": "*Mou inu ___!* Drink! (all of you, I mean it!)",
+          "answer": "*kimoutolu*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-c-emphasis-in-commands-4",
+          "prompt": "*Mohe ___!* Sleep! (you yourself!)",
+          "answer": "*koe*"
+        },
+        {
+          "id": "ch5-qp-quick-practice-c-emphasis-in-commands-5",
+          "prompt": "*Mou hiva ___!* Sing! (all of you!)",
+          "answer": "*kimoutolu*"
+        }
+      ]
+    }
+  ],
+  "14": [
+    {
+      "slug": "quick-practice-a-greetings-and-thanks-formulas",
+      "letter": "A",
+      "title": "Quick Practice A: Greetings and thanks formulas",
+      "topic": "Greetings and thanks formulas",
+      "instructions": "Match each Tongan formula (a–f) to its English context (1–6).",
+      "type": "matching",
+      "items": [
+        {
+          "id": "ch14-qp-quick-practice-a-greetings-and-thanks-formulas-1",
+          "prompt": "*Mālō e 'ofa!*",
+          "answer": "Saying \"Thank you for your kindness.\""
+        },
+        {
+          "id": "ch14-qp-quick-practice-a-greetings-and-thanks-formulas-2",
+          "prompt": "*Fēfē hake?*",
+          "answer": "Asking how someone is doing."
+        },
+        {
+          "id": "ch14-qp-quick-practice-a-greetings-and-thanks-formulas-3",
+          "prompt": "*Mālō e lelei!*",
+          "answer": "Saying hello when you meet someone."
+        },
+        {
+          "id": "ch14-qp-quick-practice-a-greetings-and-thanks-formulas-4",
+          "prompt": "*Mālō 'etau lava ki he pongipongi ni.*",
+          "answer": "Saying \"Good morning\" formally."
+        },
+        {
+          "id": "ch14-qp-quick-practice-a-greetings-and-thanks-formulas-5",
+          "prompt": "*'Io, mālō e lelei!*",
+          "answer": "Responding to \"Hello!\""
+        },
+        {
+          "id": "ch14-qp-quick-practice-a-greetings-and-thanks-formulas-6",
+          "prompt": "*Mālō e lava mai!*",
+          "answer": "Greeting a visitor who has just arrived."
+        }
+      ]
+    },
+    {
+      "slug": "quick-practice-b-farewells-polite-words-and-the-vocative-e",
+      "letter": "B",
+      "title": "Quick Practice B: Farewells, polite words, and the vocative *'e*",
+      "topic": "Farewells, polite words, and the vocative *'e*",
+      "instructions": "Write the appropriate Tongan response or formula for each situation.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch14-qp-quick-practice-b-farewells-polite-words-and-the-vocative-e-1",
+          "prompt": "You are leaving the room. Say goodbye to someone who is staying.",
+          "answer": "*Nofo ā!*"
+        },
+        {
+          "id": "ch14-qp-quick-practice-b-farewells-polite-words-and-the-vocative-e-2",
+          "prompt": "Two friends are walking out the door together. Say goodbye to them both.",
+          "answer": "*Mo ō ā!*"
+        },
+        {
+          "id": "ch14-qp-quick-practice-b-farewells-polite-words-and-the-vocative-e-3",
+          "prompt": "You want to politely ask Sēmisi to come here.",
+          "answer": "*'E Sēmisi, fakamolemole ha'u ki heni.*"
+        },
+        {
+          "id": "ch14-qp-quick-practice-b-farewells-polite-words-and-the-vocative-e-4",
+          "prompt": "You accidentally step on someone's foot. What single word do you say?",
+          "answer": "*Kātaki!*"
+        },
+        {
+          "id": "ch14-qp-quick-practice-b-farewells-polite-words-and-the-vocative-e-5",
+          "prompt": "Tell Lupe (use her name) to please sit here.",
+          "answer": "*'E Lupe, kātaki nofo heni.*"
+        }
+      ]
+    }
+  ],
+  "15": [
+    {
+      "slug": "quick-practice-predicate-adjectives-weather-and-questions-with-noun-subjects",
+      "letter": null,
+      "title": "Quick Practice: Predicate adjectives, weather, and questions with noun subjects",
+      "topic": "Predicate adjectives, weather, and questions with noun subjects",
+      "instructions": "Translate each sentence to Tongan.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch15-qp-quick-practice-predicate-adjectives-weather-and-questions-with-noun-subjects-1",
+          "prompt": "Mele is sick.",
+          "answer": "*'Oku puke 'a Mele.*"
+        },
+        {
+          "id": "ch15-qp-quick-practice-predicate-adjectives-weather-and-questions-with-noun-subjects-2",
+          "prompt": "It rained yesterday.",
+          "answer": "*Na'e 'uha 'aneafi.*"
+        },
+        {
+          "id": "ch15-qp-quick-practice-predicate-adjectives-weather-and-questions-with-noun-subjects-3",
+          "prompt": "Where is Tēvita?",
+          "answer": "*'Oku 'i fē 'a Tēvita?*"
+        },
+        {
+          "id": "ch15-qp-quick-practice-predicate-adjectives-weather-and-questions-with-noun-subjects-4",
+          "prompt": "Pita was happy.",
+          "answer": "*Na'e fiefia 'a Pita.*"
+        },
+        {
+          "id": "ch15-qp-quick-practice-predicate-adjectives-weather-and-questions-with-noun-subjects-5",
+          "prompt": "It will be hot tomorrow.",
+          "answer": "*'E vela 'apongipongi.*"
+        }
+      ]
+    }
+  ],
+  "19": [
+    {
+      "slug": "quick-practice-passives-the-required-ne-and-postposed-pronoun-objects",
+      "letter": null,
+      "title": "Quick Practice: Passives, the required *ne*, and postposed pronoun objects",
+      "topic": "Passives, the required *ne*, and postposed pronoun objects",
+      "instructions": "Rewrite each sentence as instructed.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch19-qp-quick-practice-passives-the-required-ne-and-postposed-pronoun-objects-1",
+          "prompt": "Make passive (drop the *'e* phrase): *Na'e kuki 'e Tēvita 'a e mā.* → ___",
+          "answer": "*Na'e kuki 'a e mā.*"
+        },
+        {
+          "id": "ch19-qp-quick-practice-passives-the-required-ne-and-postposed-pronoun-objects-2",
+          "prompt": "Make passive: *Kuo faka'osi 'e Sēmisi 'a e lesoní.* → ___",
+          "answer": "*Kuo faka'osi 'a e lesoní.*"
+        },
+        {
+          "id": "ch19-qp-quick-practice-passives-the-required-ne-and-postposed-pronoun-objects-3",
+          "prompt": "Fill in the required pronoun: *Kuo lau 'e Lupe 'a e tohí? 'Io, kuó ___ lau 'a e tohí.*",
+          "answer": "*ne*"
+        },
+        {
+          "id": "ch19-qp-quick-practice-passives-the-required-ne-and-postposed-pronoun-objects-4",
+          "prompt": "Replace the noun object with the postposed pronoun *ia* (drop *'a*): *Té u kumi 'a Sione.* → ___",
+          "answer": "*Té u kumi ia.*"
+        },
+        {
+          "id": "ch19-qp-quick-practice-passives-the-required-ne-and-postposed-pronoun-objects-5",
+          "prompt": "Replace the noun object with the postposed pronoun *kinautolu*: *Kuo ui 'e Mele 'a e fānau.* → ___",
+          "answer": "*Kuo ui kinautolu 'e Mele.*"
+        }
+      ]
+    }
+  ],
+  "22": [
+    {
+      "slug": "quick-practice-toutou-and-ai-pe",
+      "letter": null,
+      "title": "Quick Practice: *toutou* and *ai pē*",
+      "topic": "*toutou* and *ai pē*",
+      "instructions": "Fill in the blank with *toutou* (repeatedly) or *ai pē* (as always, as usual).",
+      "type": "mcq",
+      "items": [
+        {
+          "id": "ch22-qp-quick-practice-toutou-and-ai-pe-1",
+          "prompt": "*Na'e ___ tangi 'a e tamasi'í.* The boy kept crying.",
+          "answer": "*toutou*",
+          "options": [
+            "*toutou*",
+            "*ai pē*"
+          ],
+          "correct": "*toutou*"
+        },
+        {
+          "id": "ch22-qp-quick-practice-toutou-and-ai-pe-2",
+          "prompt": "*'Oku fakalaka ___ 'a e ngāué.* The work is moving forward as always.",
+          "answer": "*ai pē*",
+          "options": [
+            "*toutou*",
+            "*ai pē*"
+          ],
+          "correct": "*ai pē*"
+        },
+        {
+          "id": "ch22-qp-quick-practice-toutou-and-ai-pe-3",
+          "prompt": "*'Oku kei lotu ___ 'a e fāmilí.* The family still prays as usual.",
+          "answer": "*ai pē*",
+          "options": [
+            "*toutou*",
+            "*ai pē*"
+          ],
+          "correct": "*ai pē*"
+        },
+        {
+          "id": "ch22-qp-quick-practice-toutou-and-ai-pe-4",
+          "prompt": "*Na'e ___ 'alu 'a Sione ki kolo.* Sione kept going to town.",
+          "answer": "*toutou*",
+          "options": [
+            "*toutou*",
+            "*ai pē*"
+          ],
+          "correct": "*toutou*"
+        },
+        {
+          "id": "ch22-qp-quick-practice-toutou-and-ai-pe-5",
+          "prompt": "*'Oku ___ ngāue 'a e fefiné 'i he 'apí.* The woman continually works at the home.",
+          "answer": "*toutou*",
+          "options": [
+            "*toutou*",
+            "*ai pē*"
+          ],
+          "correct": "*toutou*"
+        }
+      ]
+    }
+  ],
+  "27": [
+    {
+      "slug": "quick-practice-a-ange-taha-modifiers-and-tatau",
+      "letter": "A",
+      "title": "Quick Practice A: *ange*, *taha*, modifiers, and *tatau*",
+      "topic": "*ange*, *taha*, modifiers, and *tatau*",
+      "instructions": "Choose the right word for each blank.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch27-qp-quick-practice-a-ange-taha-modifiers-and-tatau-1",
+          "prompt": "*'Oku lōloa ___ 'a Mele 'ia 'Ana.* Mele is taller than 'Ana.",
+          "answer": "*ange*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-a-ange-taha-modifiers-and-tatau-2",
+          "prompt": "*'Oku vave ___ 'a e hōsi 'a Sione.* Sione's horse is the fastest.",
+          "answer": "*taha*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-a-ange-taha-modifiers-and-tatau-3",
+          "prompt": "*'Oku ___ 'a e ongo kató.* The two baskets are the same.",
+          "answer": "*tatau*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-a-ange-taha-modifiers-and-tatau-4",
+          "prompt": "*'Oku ___ talavou ange 'a Peni 'ia Sione.* Peni is a little better-looking than Sione.",
+          "answer": "*ki'i*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-a-ange-taha-modifiers-and-tatau-5",
+          "prompt": "*'Oku fu'u si'i ___ 'a e fale ko iá 'i he falé ni.* That house is much smaller than this house.",
+          "answer": "*ange*"
+        }
+      ]
+    },
+    {
+      "slug": "quick-practice-b-fai-kehekehe-meimei-mei-matuaki",
+      "letter": "B",
+      "title": "Quick Practice B: *fai kehekehe*, *meimei*/*mei*, *matu'aki*",
+      "topic": "*fai kehekehe*, *meimei*/*mei*, *matu'aki*",
+      "instructions": "Fill in the blank with the correct word.",
+      "type": "mcq",
+      "items": [
+        {
+          "id": "ch27-qp-quick-practice-b-fai-kehekehe-meimei-mei-matuaki-1",
+          "prompt": "*'Oku ___ 'a e ngāue 'a e tamasi'í mo e ngāue 'a e ta'ahiné.* The boy's work is different from the girl's work.",
+          "answer": "*fai kehekehe*",
+          "options": [
+            "*fai kehekehe*",
+            "*meimei*",
+            "*mei*",
+            "*matu'aki*"
+          ],
+          "correct": "*fai kehekehe*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-b-fai-kehekehe-meimei-mei-matuaki-2",
+          "prompt": "*Na'á ku ___ tō 'i he ngoué.* I almost fell in the garden.",
+          "answer": "*meimei*",
+          "options": [
+            "*fai kehekehe*",
+            "*meimei*",
+            "*mei*",
+            "*matu'aki*"
+          ],
+          "correct": "*meimei*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-b-fai-kehekehe-meimei-mei-matuaki-3",
+          "prompt": "*Kuo ___ 'osi 'a e me'akaí.* The food is nearly finished.",
+          "answer": "*mei*",
+          "options": [
+            "*fai kehekehe*",
+            "*meimei*",
+            "*mei*",
+            "*matu'aki*"
+          ],
+          "correct": "*mei*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-b-fai-kehekehe-meimei-mei-matuaki-4",
+          "prompt": "*'Oku ___ vela 'a e 'ahó.* The day is extremely hot.",
+          "answer": "*matu'aki*",
+          "options": [
+            "*fai kehekehe*",
+            "*meimei*",
+            "*mei*",
+            "*matu'aki*"
+          ],
+          "correct": "*matu'aki*"
+        },
+        {
+          "id": "ch27-qp-quick-practice-b-fai-kehekehe-meimei-mei-matuaki-5",
+          "prompt": "*'Oku ___ 'a e ongo tohí.* The two books are different.",
+          "answer": "*fai kehekehe*",
+          "options": [
+            "*fai kehekehe*",
+            "*meimei*",
+            "*mei*",
+            "*matu'aki*"
+          ],
+          "correct": "*fai kehekehe*"
+        }
+      ]
+    },
+    {
+      "slug": "quick-practice-c-hange-like-as-if",
+      "letter": "C",
+      "title": "Quick Practice C: *hangē*: like, as if",
+      "topic": "*hangē*: like, as if",
+      "instructions": "Translate each Tongan sentence to English.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch27-qp-quick-practice-c-hange-like-as-if-1",
+          "prompt": "*Na'e lele 'a e kulī 'o hangē ha hōsi.* ___",
+          "answer": "The dog ran like a horse."
+        },
+        {
+          "id": "ch27-qp-quick-practice-c-hange-like-as-if-2",
+          "prompt": "*'Okú ne lea 'o hangē kuo helaʻia.* ___",
+          "answer": "He speaks as though tired."
+        },
+        {
+          "id": "ch27-qp-quick-practice-c-hange-like-as-if-3",
+          "prompt": "*Na'e fai 'e Mele 'a e ngāué 'o hangē ko e faiako.* ___",
+          "answer": "Mele did the work like a teacher."
+        },
+        {
+          "id": "ch27-qp-quick-practice-c-hange-like-as-if-4",
+          "prompt": "*Na'á ne kai 'o hangē kuo fiekaia.* ___",
+          "answer": "He ate as though hungry."
+        }
+      ]
+    }
+  ],
+  "40": [
+    {
+      "slug": "quick-practice-a-loto-lalo-tua-mui",
+      "letter": "A",
+      "title": "Quick Practice A: *loto*, *lalo*, *tu'a*, *mui*",
+      "topic": "*loto*, *lalo*, *tu'a*, *mui*",
+      "instructions": "Choose the right spatial noun for each blank.",
+      "type": "mcq",
+      "items": [
+        {
+          "id": "ch40-qp-quick-practice-a-loto-lalo-tua-mui-1",
+          "prompt": "*'Oku 'i ___ falé 'a e tamasi'í.* The boy is inside the house.",
+          "answer": "*loto*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*"
+          ],
+          "correct": "*loto*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-a-loto-lalo-tua-mui-2",
+          "prompt": "*'Oku 'i ___ tēpilé 'a e helé.* The knife is under the table.",
+          "answer": "*lalo*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*"
+          ],
+          "correct": "*lalo*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-a-loto-lalo-tua-mui-3",
+          "prompt": "*Na'á ku tu'u he ___ falé.* I stood outside the house.",
+          "answer": "*tu'a*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*"
+          ],
+          "correct": "*tu'a*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-a-loto-lalo-tua-mui-4",
+          "prompt": "*Na'a mau 'alu ki ___ koló.* We went to the far end of the village.",
+          "answer": "*mui*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*"
+          ],
+          "correct": "*mui*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-a-loto-lalo-tua-mui-5",
+          "prompt": "*Na'e va'inga 'a e tamaikí 'i ___ koló.* The children played in the center of the village.",
+          "answer": "*loto*",
+          "options": [
+            "*loto*",
+            "*lalo*",
+            "*tu'a*",
+            "*mui*"
+          ],
+          "correct": "*loto*"
+        }
+      ]
+    },
+    {
+      "slug": "quick-practice-b-mata-funga-tafaaki-and-vee",
+      "letter": "B",
+      "title": "Quick Practice B: *mata*, *funga*, *tafa'aki*, and *ve'e*",
+      "topic": "*mata*, *funga*, *tafa'aki*, and *ve'e*",
+      "instructions": "Choose the right spatial noun for each blank.",
+      "type": "mcq",
+      "items": [
+        {
+          "id": "ch40-qp-quick-practice-b-mata-funga-tafaaki-and-vee-1",
+          "prompt": "*'Oku tuku 'a e tohí he ___ tēpilé.* The book is on top of the table.",
+          "answer": "*funga*",
+          "options": [
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*funga*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-b-mata-funga-tafaaki-and-vee-2",
+          "prompt": "*'Oku nofo 'a Mele he ___ falé.* Mele is sitting beside the house.",
+          "answer": "*tafa'aki*",
+          "options": [
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*tafa'aki*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-b-mata-funga-tafaaki-and-vee-3",
+          "prompt": "*Na'a mau tatali he ___ falé.* We waited in front of the house.",
+          "answer": "*mata*",
+          "options": [
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*mata*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-b-mata-funga-tafaaki-and-vee-4",
+          "prompt": "*Na'á ku tu'u he ___ matatahí.* I stood right by the beach.",
+          "answer": "*ve'e*",
+          "options": [
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*ve'e*"
+        },
+        {
+          "id": "ch40-qp-quick-practice-b-mata-funga-tafaaki-and-vee-5",
+          "prompt": "*'Oku tuku 'a e me'akaí he ___ falá.* The food is placed on top of the mat.",
+          "answer": "*funga*",
+          "options": [
+            "*mata*",
+            "*funga*",
+            "*tafa'aki*",
+            "*ve'e*"
+          ],
+          "correct": "*funga*"
+        }
+      ]
+    },
+    {
+      "slug": "quick-practice-c-translate-the-spatial-expressions",
+      "letter": "C",
+      "title": "Quick Practice C: Translate the spatial expressions",
+      "topic": "Translate the spatial expressions",
+      "instructions": "Translate each Tongan compound to English.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch40-qp-quick-practice-c-translate-the-spatial-expressions-1",
+          "prompt": "*'i loto vaká*. ___",
+          "answer": "inside the boat"
+        },
+        {
+          "id": "ch40-qp-quick-practice-c-translate-the-spatial-expressions-2",
+          "prompt": "*he funga falá*. ___",
+          "answer": "on top of the mat"
+        },
+        {
+          "id": "ch40-qp-quick-practice-c-translate-the-spatial-expressions-3",
+          "prompt": "*he lalo tēpilé*. ___",
+          "answer": "under the table"
+        },
+        {
+          "id": "ch40-qp-quick-practice-c-translate-the-spatial-expressions-4",
+          "prompt": "*he tu'a koló*. ___",
+          "answer": "outside the village"
+        },
+        {
+          "id": "ch40-qp-quick-practice-c-translate-the-spatial-expressions-5",
+          "prompt": "*he mui fonuá*. ___",
+          "answer": "at the end of the land"
+        },
+        {
+          "id": "ch40-qp-quick-practice-c-translate-the-spatial-expressions-6",
+          "prompt": "*he ve'e matatahí*. ___",
+          "answer": "right by the beach"
+        }
+      ]
+    }
+  ],
+  "41": [
+    {
+      "slug": "quick-practice-fai-verbal-noun",
+      "letter": null,
+      "title": "Quick Practice: *fai* + verbal noun",
+      "topic": "*fai* + verbal noun",
+      "instructions": "Translate each Tongan sentence to English.",
+      "type": "reveal",
+      "items": [
+        {
+          "id": "ch41-qp-quick-practice-fai-verbal-noun-1",
+          "prompt": "*Na'á ku fai ngāue 'aneafi.*",
+          "answer": "I worked yesterday."
+        },
+        {
+          "id": "ch41-qp-quick-practice-fai-verbal-noun-2",
+          "prompt": "*'Okú ne fai lotu pē.*",
+          "answer": "She is just praying."
+        },
+        {
+          "id": "ch41-qp-quick-practice-fai-verbal-noun-3",
+          "prompt": "*Te tau fai hiva.*",
+          "answer": "We will sing."
+        },
+        {
+          "id": "ch41-qp-quick-practice-fai-verbal-noun-4",
+          "prompt": "*Kuo 'osi fai ako 'a Tēvita.*",
+          "answer": "Tēvita has already studied."
+        },
+        {
+          "id": "ch41-qp-quick-practice-fai-verbal-noun-5",
+          "prompt": "*Na'a nau fai malanga 'i he Sāpaté.*",
+          "answer": "They preached on Sunday."
+        }
+      ]
+    }
+  ]
+}
