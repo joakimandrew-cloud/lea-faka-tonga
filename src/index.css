@@ -737,6 +737,17 @@ body::before {
   min-height: calc(100vh - 3.5rem);
 }
 
+/* Phones: narrow the text inset so chapter text uses more of the screen.
+ * The grey reading surface stays full-bleed (the negative margin above is
+ * unchanged — it still cancels the Layout's px-8); only the text padding
+ * shrinks 2rem (32px) → 1rem (16px). Desktop/tablet are untouched. */
+@media (max-width: 640px) {
+  .reading-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .reading-page h1,
 .reading-page h2,
 .reading-page h3,
@@ -3279,154 +3290,26 @@ body::before {
 
 .clu-next:hover { background-color: var(--accent-hover); }
 
-/* Example-aware tables (.ch-ex): on desktop the example shows in its normal
-   column; the mobile toggle + detail rows are hidden. (Mobile rules below.) */
+/* Example-aware tables (.ch-ex): the example shows inline in its own column at
+   every width. The plugin still builds a mobile tap-to-reveal toggle + detail
+   rows, but they stay hidden now that mobile shows full real tables (below). */
 .ch-table.ch-ex .ex-toggle { display: none; }
 .ch-table.ch-ex tr.ex-detail { display: none; }
 
 /* ============================================================
-   CHAPTER TABLES — mobile (hybrid)
-   rehype-table-labels.js decides per table:
-     • compact (fits a phone) → stays a real <table>, just shrunk a little.
-     • wide (.ch-stack)       → each row becomes a labeled card.
+   CHAPTER TABLES — mobile
+   On phones, every chapter table renders as a REAL table, just with a smaller
+   font and tighter padding. A table too wide to fit scrolls sideways inside its
+   .ch-table-wrap (overflow-x:auto) wrapper instead of stacking into cards.
+   rehype-table-labels.js still tags wide tables .ch-stack and copies column
+   labels onto cells, but those are inert for layout now — kept only so the
+   "Words to Learn" vocab list can still power its flip-card practice mode.
    Desktop layout is untouched (everything renders normally above 640px).
    ============================================================ */
 @media (max-width: 640px) {
 
-  /* ── Compact tables that fit: keep the grid, tighten font/padding. ──
-   * overflow-x:auto on the wrapper stays as a safety net for borderline cases. */
-  .ch-table:not(.ch-stack) { font-size: 13px; }
-  .ch-table:not(.ch-stack) th,
-  .ch-table:not(.ch-stack) td { padding: 5px 8px !important; }
-
-  /* ── Example-aware tables (.ch-ex): real table, example tap-to-reveal. ──
-   * Core columns render as a normal (shrunk) table. The inline example is
-   * hidden; an "ex." toggle shows in its place. Checking the hidden checkbox
-   * (CSS-only, via :has) slides open the full-width detail row beneath. */
-  .ch-table.ch-ex .ex-text { display: none; }              /* hide inline example */
-  .ch-table.ch-ex .ex-toggle {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    user-select: none;
-  }
-  .ch-table.ch-ex .ex-toggle input {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  .ch-table.ch-ex .ex-toggle::after { content: ' \25BE'; margin-left: 2px; } /* ▾ */
-  .ch-table.ch-ex tr:has(.ex-toggle input:checked) .ex-toggle::after { content: ' \25B4'; } /* ▴ */
-
-  .ch-table.ch-ex tr.ex-detail { display: table-row; }
-  .ch-table.ch-ex tr.ex-detail .ex-detail-cell {
-    padding: 0 !important;
-    border-top: 0 !important;
-    background: var(--bg-tone);
-  }
-  .ch-table.ch-ex tr.ex-detail .inner {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.28s ease;
-  }
-  .ch-table.ch-ex tr:has(.ex-toggle input:checked) + tr.ex-detail .inner {
-    max-height: 200px;
-  }
-  .ch-table.ch-ex tr.ex-detail .ex-pad {
-    padding: 7px 10px;
-    color: var(--text-muted);
-    font-style: italic;
-    line-height: 1.4;
-  }
-
-  /* ── Wide tables (.ch-stack): stack each row into a card. ── */
-  .ch-table.ch-stack { display: block; width: 100%; border: 0; }
-  .ch-table.ch-stack thead { display: none; }     /* labels move into each cell */
-  .ch-table.ch-stack tbody { display: block; width: 100%; }
-
-  .ch-table.ch-stack tr {
-    display: block;
-    width: 100%;
-    margin-bottom: 12px;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 6px;
-    overflow: hidden;
-    background: var(--bg);
-  }
-
-  /* Block (not flex): cell content must flow normally so stacked-cell English
-   * (.cell-english / <br> + .translation) stays UNDER the Tongan, like desktop. */
-  .ch-table.ch-stack td {
-    display: block;
-    width: 100%;
-    border: 0;
-    border-bottom: 1px solid var(--border) !important;
-    padding: 7px 12px !important;
-  }
-  .ch-table.ch-stack tr td:last-child { border-bottom: 0 !important; }
-
-  /* Column label, pulled from data-label, shown as a caption ABOVE the value. */
-  .ch-table.ch-stack td[data-label]::before {
-    content: attr(data-label);
-    display: block;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 3px;
-  }
-
-  /* Keep the stacked English on its own line within the cell. */
-  .ch-table.ch-stack td .cell-english,
-  .ch-table.ch-stack td .translation { display: block; }
-
-  /* Empty cells collapse cleanly instead of leaving a blank divider row. */
-  .ch-table.ch-stack td:empty { display: none; }
-
-  /* ── Vocab fold (Option 1), inside a stacked table ──────────────────
-   * Rows tagged .vocab-card: headword + small type tag on one line, the
-   * English gloss below, captions dropped. Only short part-of-speech rows
-   * are tagged; long "function" rows keep the normal stacked layout. */
-  .ch-table.ch-stack tr.vocab-card {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    padding: 8px 12px;
-  }
-  .ch-table.ch-stack tr.vocab-card td {
-    display: block;
-    border: 0 !important;
-    padding: 0 !important;
-  }
-  .ch-table.ch-stack tr.vocab-card td::before { content: none !important; } /* no captions */
-
-  /* Headword (first cell): prominent, takes the row, pushes the tag right. */
-  .ch-table.ch-stack tr.vocab-card td:first-child {
-    flex: 1 1 auto;
-    font-size: 17px;
-    font-weight: 600;
-  }
-  /* Type tag: small, muted, right-aligned on the headword line. */
-  .ch-table.ch-stack tr.vocab-card td.vocab-type {
-    flex: 0 0 auto;
-    margin-left: auto;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 600;
-    color: var(--text-muted);
-  }
-  /* English gloss: forced onto its own line below. */
-  .ch-table.ch-stack tr.vocab-card td:last-child {
-    flex: 1 1 100%;
-    margin-top: 2px;
-  }
+  /* Shrink every table a little so more of it fits before any sideways scroll. */
+  .ch-table { font-size: 13px; }
+  .ch-table th,
+  .ch-table td { padding: 5px 8px !important; }
 }
