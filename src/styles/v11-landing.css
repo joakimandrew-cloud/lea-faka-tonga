@@ -954,7 +954,7 @@
   .v11-landing .top-brand .logo-mark { width: 64px; height: 64px; }
 }
 @media (max-width: 768px) {
-  .v11-landing .top-band { padding: 22px 24px 20px; }
+  .v11-landing .top-band { padding: 18px 24px 12px; }
   .v11-landing .top-brand .wordmark { font-size: 36px; }
   .v11-landing .top-brand .logo-mark { width: 44px; height: 44px; }
   .v11-landing .top-brand { gap: 14px; margin-bottom: 8px; }
@@ -963,10 +963,10 @@
   .v11-landing .hero-canvas svg.geo.desktop { display: none; }
   .v11-landing .hero-canvas svg.geo.mobile { display: block; }
 
-  .v11-landing .hero-overlay { flex-direction: column; }
+  .v11-landing .hero-overlay { flex-direction: column; position: relative; }
   .v11-landing .hero-overlay-left {
     width: 100%;
-    padding: 32px 24px 16px;
+    padding: 24px 24px 12px;
     justify-content: flex-start;
   }
   .v11-landing .hero-overlay-right {
@@ -983,8 +983,8 @@
   }
   .v11-landing .badge-52 { right: 16px; top: -14px; min-width: 90px; }
   .v11-landing .badge-52 .num { font-size: 28px; }
-  .v11-landing .hero-canvas { height: auto; min-height: 780px; }
-  .v11-landing .bottom-band { padding: 22px 24px 20px; gap: 20px; }
+  .v11-landing .hero-canvas { height: auto; min-height: 0; max-height: none; }
+  .v11-landing .bottom-band { padding: 20px 24px 18px; gap: 14px; }
   .v11-landing .bottom-title { font-size: 24px; }
   .v11-landing .cefr-badge { margin-left: 0; }
   .v11-landing .preview-cta { flex-wrap: wrap; gap: 12px; }

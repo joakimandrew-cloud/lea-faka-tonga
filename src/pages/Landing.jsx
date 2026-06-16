@@ -13,7 +13,7 @@ const slides = [
   {
     eyebrow: 'For the Tongan who can’t speak Tongan',
     headline: <>The language<br />of your <span className="accent">family.</span></>,
-    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. Beginner to advanced. The whole book is free. Membership runs the practice tools.',
+    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. The book is free; membership runs the practice tools.',
     provenance: 'The only complete Tongan course · The book is free',
   },
   {
@@ -203,7 +203,7 @@ export default function Landing() {
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
               <Link to="/chapters" className="cta-secondary">See the Contents</Link>
               <Link to="/support" className="cta-secondary">Membership →</Link>
-              <div className="cta-meta"><strong>The book is free</strong> · Built in the open</div>
+              <div className="cta-meta"><strong>Built in the open</strong></div>
             </div>
           </div>
         </div>
@@ -215,7 +215,6 @@ export default function Landing() {
           <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> The Community Edition</div>
           <div className="bottom-spec">
             53 Chapters · Full Grammar Arc · Reviewed in the open
-            <span className="counter"> · The book is free, forever.</span>
           </div>
         </div>
         <div className="cefr-badge">

@@ -1054,6 +1054,17 @@
   .panel-cards.cards-7 .panel-card { grid-column: span 1; }
 }
 
+/* Phones: compact the landing menu cards so they aren't full-screen blocks
+   (mobile declutter, 2026-06-16). Scoped to .v11-landing so the /drills board
+   keeps its own compact sizing. Desktop/tablet posters are untouched. */
+@media (max-width: 640px) {
+  .v11-landing .panel-cards { row-gap: 14px; }
+  .v11-landing .panel-card { min-height: auto; }
+  .v11-landing .panel-card-body { padding: 18px 18px 14px; }
+  .v11-landing .panel-card-center { padding: 6px 4px; gap: 8px; }
+  .v11-landing .panel-card-title { font-size: 26px; }
+}
+
 /* ── Drills board: theme-aware tokens (2026-06-13) ─────────────────────────
    /drills follows the app theme toggle: a white page in light mode (the
    white-not-cream ruling, DECISIONS.md) and the original dark-band palette
