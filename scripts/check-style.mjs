@@ -237,11 +237,11 @@ async function checkAEPattern(chapterFiles) {
 // representations are caught: literal — (U+2014), the — escape, and the
 // &mdash; HTML entity. JSON data files are checked raw (pure content). JSX is
 // comment-stripped first so JSDoc em-dashes (not rendered) don't trip it.
-// Marketing pages (Offer/Landing/Keepers) are excluded pending an owner ruling
-// on rewriting outward-facing sales copy. Components are warning-only because
+// Marketing pages (Offer/Landing/Keepers) are linted too as of the de-AI-tells
+// pass (2026-06-16): their sales copy was de-em-dashed, so the prior exclusion is
+// gone and they hard-fail like every other page. Components are warning-only because
 // they legitimately contain a dash-detection regex (/[–—]/ in BookExercises).
 const APP_DATA_FILES = ['quizzes.json', 'sentence-patterns.json', 'chapters.json', 'grammar-graph.json', 'book-exercises.json']
-const APP_MARKETING_EXCLUDE = new Set(['Offer.jsx', 'Landing.jsx', 'Keepers.jsx'])
 
 function stripJsComments(s) {
   return s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/[^\n]*/g, '$1')
@@ -281,7 +281,6 @@ async function checkAppEmDashes() {
   }
   for (const dir of ['src/drills', 'src/pages']) {
     for (const p of await listJsxFiles(path.join(APP_ROOT, dir))) {
-      if (APP_MARKETING_EXCLUDE.has(path.basename(p))) continue
       const t = stripJsComments(await fs.readFile(p, 'utf8'))
       for (const h of emDashHits(t)) hard.push({ file: path.relative(APP_ROOT, p), ...h })
     }
@@ -351,7 +350,7 @@ async function main() {
   console.log('\n── App-content em-dash check (hard) ──')
   const { hard: appDash, warn: appDashWarn } = await checkAppEmDashes()
   if (appDash.length === 0) {
-    console.log('  ✓ no em-dashes (U+2014 / &mdash;) in app content (data files, drills, non-marketing pages)')
+    console.log('  ✓ no em-dashes (U+2014 / &mdash;) in app content (data files, drills, all pages)')
   } else {
     exitCode = 1
     for (const h of appDash) console.log(`  ✗ ${h.file}:${h.line}  ${h.ctx}`)

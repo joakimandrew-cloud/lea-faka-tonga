@@ -8,13 +8,13 @@ const slides = [
   {
     eyebrow: 'For the Tongan who can’t speak Tongan',
     headline: <>The language<br />of your <span className="accent">family.</span></>,
-    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. Beginner to advanced. The whole book is free — membership runs the practice tools.',
+    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. Beginner to advanced. The whole book is free. Membership runs the practice tools.',
     provenance: 'The only complete Tongan course · The book is free',
   },
   {
     eyebrow: 'A complete arc, in progress',
     headline: <>53 chapters.<br />One <span className="accent">grammar</span>,<br />built in the open.</>,
-    sub: 'From greetings to cleft constructions, chapter by chapter — published as it’s written, reviewed by fluent speakers as it grows.',
+    sub: 'From greetings to cleft constructions, chapter by chapter, published as it’s written, reviewed by fluent speakers as it grows.',
     provenance: 'Beginner to Advanced · 53 Chapters',
   },
   {
@@ -32,7 +32,7 @@ const slides = [
   {
     eyebrow: 'Reads like a book',
     headline: <>No streaks.<br />No notifications.<br /><span className="accent">Just the book.</span></>,
-    sub: 'Drills embedded in the chapter, not quarantined in a separate app. Set in a font built for Pacific orthography — macrons and saltillo, done right.',
+    sub: 'Drills embedded in the chapter, not quarantined in a separate app. Set in a font built for Pacific orthography: macrons and saltillo, done right.',
     provenance: 'Reads like prose · not a game',
   },
 ]
@@ -277,7 +277,7 @@ export default function Landing() {
           </svg>
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">A Community Edition · 53 Chapters · Beginner to Advanced · The Book Is Free</div>
+        <div className="top-sub">A community edition · 53 chapters · Beginner to advanced · The book is free</div>
       </div>
 
       {/* ========== HERO CANVAS ========== */}
@@ -363,7 +363,7 @@ export default function Landing() {
                     </div>
                   </div>
                   <div className="p1-featured">ʻOKU OU <span className="underline">NOFO</span>.</div>
-                  <div className="p1-meaning">&ldquo;<em>I live / I stay.</em>&rdquo; — the hinge of the whole grammar.</div>
+                  <div className="p1-meaning">&ldquo;<em>I live / I stay.</em>&rdquo; The hinge of the whole grammar.</div>
                   <div className="p1-phonetic">/ OH-KOO · OH · NOH-FOH /</div>
                   <div className="p1-buttons">
                     <button className="p1-btn primary"><span className="play-ico" /> Listen</button>
@@ -495,7 +495,7 @@ export default function Landing() {
           <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> The Community Edition</div>
           <div className="bottom-spec">
             53 Chapters · Full Grammar Arc · Reviewed in the open
-            <span className="counter"> · No streaks. No notifications. No accounts.</span>
+            <span className="counter"> · The book is free, forever.</span>
           </div>
         </div>
         <div className="cefr-badge">

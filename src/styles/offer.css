@@ -340,7 +340,7 @@
   letter-spacing: 0.01em;
   color: var(--ink);
 }
-.v11-landing .obn-kill {
+.v11-landing .obn-note {
   grid-column: 2;
   font-family: 'Source Serif 4', Georgia, serif;
   font-style: italic;

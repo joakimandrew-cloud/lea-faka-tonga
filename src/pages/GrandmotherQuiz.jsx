@@ -74,7 +74,7 @@ export default function GrandmotherQuiz() {
         <Link to="/" className="top-brand" style={{ textDecoration: 'none' }}>
           <Logo /><span className="wordmark">Lea Faka-Tonga</span>
         </Link>
-        <div className="top-sub">A 60-Second Test · Can You Still Understand Your Grandmother?</div>
+        <div className="top-sub">A 60-second test · Can you still understand your grandmother?</div>
       </div>
 
       {!finished ? (

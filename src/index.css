@@ -193,7 +193,7 @@ body::before {
 }
 
 .landing-title {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: clamp(4rem, 10vw, 9rem);
   font-weight: 400;
   letter-spacing: 0.3em;
@@ -204,7 +204,7 @@ body::before {
 }
 
 .landing-subtitle {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-style: italic;
   font-size: 1.8rem;
   color: var(--landing-text);
@@ -220,7 +220,7 @@ body::before {
 }
 
 .landing-credit {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: 1.5rem;
   color: var(--landing-credit);
   opacity: 0.5;
@@ -241,7 +241,7 @@ body::before {
 }
 
 .theme-switch-label {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: 10px;
   letter-spacing: 0.15em;
   color: var(--text-muted);
@@ -509,7 +509,7 @@ body::before {
 }
 
 .dashboard-hero-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-weight: 500;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.05;
@@ -536,7 +536,7 @@ body::before {
 
 .dashboard-hero-sub .tongan {
   display: block;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Source Serif 4', Georgia, serif;
   font-style: italic;
   font-size: 1.2rem;
   color: var(--text-strong);

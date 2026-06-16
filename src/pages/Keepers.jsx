@@ -35,15 +35,15 @@ export default function Keepers() {
         <Link to="/" className="top-brand" style={{ textDecoration: 'none' }}>
           <Logo /><span className="wordmark">Lea Faka-Tonga</span>
         </Link>
-        <div className="top-sub">The Roll of Keepers · Kept Free by the People Below</div>
+        <div className="top-sub">The Roll of Keepers · kept free by the people below</div>
       </div>
 
       <section className="offer-hero">
-        <span className="offer-eyebrow">Tauhi ʻa e lea — keepers of the language</span>
+        <span className="offer-eyebrow">Tauhi ʻa e lea: keepers of the language</span>
         <h1 className="offer-headline">The Roll of <span className="accent">Keepers.</span></h1>
         <p className="offer-lede">
           Every name here paid so that a Tongan family, somewhere, learns their language for free.
-          They didn’t buy a course. They became a reason it still exists.
+          Each one is a reason it still exists.
         </p>
       </section>
 
@@ -54,8 +54,8 @@ export default function Keepers() {
               <span className="keepers-empty-mark">ʻ</span>
               <h2 className="keepers-empty-title">This wall is being carved.</h2>
               <p className="keepers-empty-body">
-                The first names go here. Be among the first {250} Founding Keepers — your name cast into
-                the work, in your own community, before the charter closes.
+                The first names go here. Be among the first {250} Founding Keepers, your name cast into
+                the work, in your own community.
               </p>
               <Link to="/support" className="cta-btn">Become a Founding Keeper →</Link>
             </div>
