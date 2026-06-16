@@ -1870,7 +1870,9 @@ body::before {
 .pcs-blank.is-filled-wrong   .pcs-blank-word { color: var(--wrong); }
 
 .pcs-noun-gloss {
-  font-size: 14px;
+  /* English gloss of the prompt — reads at chapter body size (consistency
+     pass 2026-06-17). */
+  font-size: 17px;
   color: var(--text-muted);
   letter-spacing: 0.05em;
 }
@@ -1991,7 +1993,10 @@ body::before {
 
 /* Meaning/detail line: hidden by default; fades in once answered */
 .pcs-btn-principle {
-  font-size: 12px;
+  /* Per-option detail note — nudged up from 12px so it stays readable next to
+     the body-size prose, while staying smaller than the main explanation as a
+     per-option annotation (consistency pass 2026-06-17). */
+  font-size: 14px;
   line-height: 1.35;
   color: var(--text-muted);
   letter-spacing: 0.01em;
@@ -2123,7 +2128,13 @@ body::before {
 .pcs-btn.is-chosen-wrong .pcs-btn-verdict { color: var(--wrong); }
 
 .pcs-btn-why {
-  font-size: 12px;
+  /* The "why" explanation reads at the quiz-explanation size (15px) so the two
+     in-chapter explanation surfaces match, in the near-black reading voice it
+     already inherits (consistency pass 2026-06-17). Kept at 15 rather than the
+     17px body size because the feedback renders inside the chosen option, which
+     in a multi-column drill (e.g. the 9-option preposition picker) is only a
+     third of the width — full body size crams it. */
+  font-size: 15px;
   color: var(--text);
   line-height: 1.5;
   font-style: normal;

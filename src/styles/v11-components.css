@@ -376,9 +376,12 @@
 }
 
 .quiz-explanation-text {
-  font-size: 13px;
+  /* Completes the 2026-06-15 inner-page migration (which set the serif font but
+     left the size + colour): the explanation now reads at the question/option
+     size in the near-black reading ink, not the old 13px grey. */
+  font-size: 15px;
   line-height: 1.5;
-  color: var(--fc-text-mid);
+  color: var(--fc-text);
 }
 
 /* ── Footer nav ───────────────────────────────────────────────────────── */

@@ -31,11 +31,11 @@ export default function ChapterDrillAnchor({ drillId, chapterNum }) {
         <span className="block text-xs uppercase tracking-widest text-[var(--accent)] font-semibold">
           Interactive practice
         </span>
-        <span className="block text-base text-[var(--text-strong)] font-medium mt-0.5">
+        <span className="block text-[17px] text-[var(--text-strong)] font-medium mt-0.5">
           {meta.title}
         </span>
         {meta.blurb && (
-          <span className="block text-sm text-[var(--text-muted)] mt-0.5">
+          <span className="block text-base text-[var(--text-muted)] mt-0.5">
             {meta.blurb}
           </span>
         )}

@@ -179,7 +179,7 @@ export default function ChapterPractice() {
                     {selectedPattern.examples.map((ex, i) => (
                       <div key={i} className="mb-1">
                         <span className="text-[var(--accent)] font-tongan">{ex.tongan}</span>
-                        <span className="text-[var(--text-muted)] text-sm ml-2">{ex.english}</span>
+                        <span className="text-[var(--text-muted)] ml-2">{ex.english}</span>
                       </div>
                     ))}
                   </div>
@@ -225,7 +225,7 @@ export default function ChapterPractice() {
           <h2 className="text-sm text-[var(--accent)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4">
             Practice
           </h2>
-          <p className="text-sm text-[var(--text-muted)] mb-4">
+          <p className="text-[var(--text-muted)] mb-4">
             This chapter builds on structures you have already learned. Take a sentence you
             can already make and swap a word to watch the English meaning change.
           </p>
