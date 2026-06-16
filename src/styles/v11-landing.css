@@ -247,45 +247,25 @@
 }
 .v11-landing .preview-frame.active { opacity: 1; }
 
-.v11-landing .preview-header {
-  padding: 10px 16px;
+/* Real app screenshots fill the framed window; a slim caption labels each. */
+.v11-landing .preview-shot {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.v11-landing .preview-caption {
+  flex-shrink: 0;
+  padding: 9px 16px;
   background: var(--bg-deep);
-  border-bottom: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  border-top: 1px solid var(--rule);
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 600;
   font-size: 11px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--mid);
-  flex-shrink: 0;
-}
-.v11-landing .browser-dots {
-  display: flex;
-  gap: 5px;
-  flex-shrink: 0;
-}
-.v11-landing .browser-dots span {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--rule);
-}
-.v11-landing .url-pill {
-  background: var(--cream-light);
-  border: 1px solid var(--rule);
-  padding: 3px 10px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--mid);
-  text-transform: none;
-}
-.v11-landing .preview-header .ph-right {
-  margin-left: auto;
-  font-size: 10px;
-  letter-spacing: 0.22em;
   color: var(--mid);
 }
 
@@ -999,8 +979,7 @@
   .v11-landing .preview-window {
     max-width: 100%;
     width: 100%;
-    aspect-ratio: auto;
-    min-height: 360px;
+    min-height: 0;
   }
   .v11-landing .badge-52 { right: 16px; top: -14px; min-width: 90px; }
   .v11-landing .badge-52 .num { font-size: 28px; }
