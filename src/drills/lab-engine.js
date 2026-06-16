@@ -103,7 +103,8 @@ export function englishMatches(a, b) {
 // English flattens Tongan's pronoun system: a bare "we" hides dual-vs-plural and
 // inclusive-vs-exclusive, and "you" hides one-vs-two-vs-many. In the graded Lab
 // the learner must build ONE exact pronoun from an English target, so we spell
-// out the distinction the gloss drops (e.g. "we" = mautolu vs tautolu vs maua…).
+// out the distinction the gloss drops. (English "we" maps to four Tongan pronouns:
+// mau/kimautolu = pl excl, tau/kitautolu = pl incl, ma/kimaua = du excl, ta/kitaua = du incl.)
 // Returns null when the English is already exact (1sg "I", 3sg "he/she").
 // Keyed off the subject option's person / number / pronoun_code.
 export function pronounClarification(subject) {
