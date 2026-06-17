@@ -159,14 +159,14 @@ export default function SpotTheSlipCore() {
         <>
           <div className="pcs-noun-frame">
             <div className="pcs-prompt-label">{current.english}</div>
-            <div className="pcs-noun pcs-slip-sentence">
+            <div className="pcs-noun pcs-slip-sentence" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.1em 0.45em', justifyContent: 'center', alignItems: 'baseline' }}>
               {current.words.map((w, i) => {
                 const isError = i === current.errorIndex
                 let cls = 'pcs-slip-word'
                 if (phase === 'find' && wrongWord === i) cls += ' is-chosen-wrong'
                 if ((phase === 'fix' || answered) && isError) cls += answered ? (fixCorrect ? ' is-answer' : ' is-chosen-wrong') : ' is-target'
                 return (
-                  <button key={i} type="button" className={cls} disabled={phase !== 'find'} onClick={() => handleWordTap(i)}>
+                  <button key={i} type="button" className={cls} disabled={phase !== 'find'} onClick={() => handleWordTap(i)} style={{ padding: '0.04em 0.18em', borderRadius: '5px', lineHeight: 1.25 }}>
                     {phase === 'answered' && isError ? current.fix : w.replace(/[.?]$/, '')}
                     {/[.?]$/.test(w) ? w.slice(-1) : ''}
                   </button>

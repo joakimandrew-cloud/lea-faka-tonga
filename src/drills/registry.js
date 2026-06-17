@@ -356,7 +356,7 @@ export const drillRegistry = {
   // ── Drills-Pedagogical-Review 2026-06-17 — chapter-fills (half-drilled chapters) ──
   'same-as-like': {
     Core: SameAsLikeCore,
-    meta: { title: `Same as / like`, blurb: `tatau mo (the same as) and ʻo hangē (like / as if) — the comparisons beyond "more" and "most".` },
+    meta: { title: `Same as / like`, blurb: `tatau mo (the same as) and ʻo hangē (like / as if): the comparisons beyond "more" and "most".` },
   },
   'since-after': {
     Core: SinceAfterCore,
@@ -368,7 +368,7 @@ export const drillRegistry = {
   },
   'reporting-picker': {
     Core: ReportingCore,
-    meta: { title: `Reportedly / therefore`, blurb: `tokua (they say) vs ko ia (so / therefore) — and where tokua sits.` },
+    meta: { title: `Reportedly / therefore`, blurb: `tokua (they say) vs ko ia (so / therefore), and where tokua sits.` },
   },
   'permission-hope': {
     Core: PermissionHopeCore,
@@ -386,7 +386,7 @@ export const drillRegistry = {
   },
   'qa-match': {
     Core: QuestionAnswerMatchCore,
-    meta: { title: `Match question to answer`, blurb: `Pair each question with its natural answer — the answer echoes the question word's slot.` },
+    meta: { title: `Match question to answer`, blurb: `Pair each question with its natural answer; the answer echoes the question word's slot.` },
   },
   'introduce-yourself': {
     Core: IntroduceYourselfCore,
@@ -396,11 +396,11 @@ export const drillRegistry = {
   // ── Drills-Pedagogical-Review 2026-06-17 — new drill types ──
   'read-it-back': {
     Core: ReadItBackCore,
-    meta: { title: `Read it back`, blurb: `Read a Tongan sentence and pick what it means — comprehension, the one thing nothing else drills.` },
+    meta: { title: `Read it back`, blurb: `Read a Tongan sentence and pick what it means. Comprehension, the one thing nothing else drills.` },
   },
   'spot-the-slip': {
     Core: SpotTheSlipCore,
-    meta: { title: `Spot the slip`, blurb: `One word is wrong. Find the error and fix it — train the editor's eye.` },
+    meta: { title: `Spot the slip`, blurb: `One word is wrong. Find the error and fix it. Train the editor's eye.` },
   },
   'daily-words': {
     Core: DailyWordsCore,
