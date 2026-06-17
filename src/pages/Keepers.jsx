@@ -92,7 +92,7 @@ export default function Keepers() {
       <div className="offer-sec">
         <div className="panel-frame">
           <div className="colophon">
-            <div><strong>Lea Faka-Tonga</strong> · The book is free · Kept alive by its members</div>
+            <div><strong>Lea Faka-Tonga</strong> · The book is free · Kept alive by its supporters</div>
             <Link to="/" style={{ color: 'var(--red)', textDecoration: 'none' }}>← Home</Link>
           </div>
         </div>

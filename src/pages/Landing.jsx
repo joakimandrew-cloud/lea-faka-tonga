@@ -13,7 +13,7 @@ const slides = [
   {
     eyebrow: 'For the Tongan who can’t speak Tongan',
     headline: <>The language<br />of your <span className="accent">family.</span></>,
-    sub: 'The first complete, modern way to learn Tongan: from your very first sentence to the language of respect. The book is free; membership runs the practice tools.',
+    sub: 'The first complete, modern way to learn Tongan, from your very first sentence to real conversations. The whole thing is free and open: the book, every chapter, every drill. Support it if you can.',
     provenance: 'The only complete Tongan course · The book is free',
   },
   {
@@ -31,7 +31,7 @@ const slides = [
   {
     eyebrow: 'Speakers, learners, everyone',
     headline: <>Speakers,<br />come help.<br /><span className="accent">Learners, come learn.</span></>,
-    sub: 'Flag a typo, suggest a better example, request an exercise. Fluent speakers who review chapters get their names on the Founding Reviewers page.',
+    sub: 'Flag a typo, suggest a better example, request an exercise. Fluent speakers who review chapters get their names on the Roll of Keepers.',
     provenance: 'Open to feedback · open to contributors',
   },
   {
@@ -202,7 +202,7 @@ export default function Landing() {
             <div className="preview-cta">
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
               <Link to="/chapters" className="cta-secondary">See the Contents</Link>
-              <Link to="/support" className="cta-secondary">Membership →</Link>
+              <Link to="/support" className="cta-secondary">Support this work →</Link>
               <div className="cta-meta"><strong>Built in the open</strong></div>
             </div>
           </div>
