@@ -128,7 +128,7 @@ export default function Landing() {
           </svg>
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">A community edition · 52 chapters · Beginner to advanced · The book is free</div>
+        <div className="top-sub">Free and open · 52 chapters · Beginner to advanced · Name your price to support</div>
       </div>
 
       {/* ========== HERO CANVAS ========== */}
@@ -203,7 +203,7 @@ export default function Landing() {
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
               <Link to="/chapters" className="cta-secondary">See the Contents</Link>
               <Link to="/support" className="cta-secondary">Support this work →</Link>
-              <div className="cta-meta"><strong>Built in the open</strong></div>
+              <div className="cta-meta"><strong>The whole site is free · name your price to support</strong></div>
             </div>
           </div>
         </div>
@@ -221,7 +221,7 @@ export default function Landing() {
           <div className="level">Full Arc</div>
           <div className="scope">Beginner → Advanced</div>
         </div>
-        <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>The book is free →</Link>
+        <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>Free and open · name your price to support →</Link>
       </div>
 
       {/* ========== § 01 · Five Ways In — light panel ========== */}
