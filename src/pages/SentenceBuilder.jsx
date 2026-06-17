@@ -7,7 +7,7 @@
  *     building, plus a short "pick next" prompt while building.
  *   - from terminal-build: the `> word word █` terminal canvas, the inline
  *     part-of-speech picker (keyboard on desktop, tap dropdown on mobile),
- *     the end-of-sentence translation, and the multi-walker engine (all 53
+ *     the end-of-sentence translation, and the multi-walker engine (all 52
  *     chapters).
  *
  * The verbose grammar prose that made open-build feel heavy stays OUT of the
@@ -47,7 +47,7 @@ import ExplainPanel from '../components/ExplainPanel'
 
 // The merged builder is a free sandbox: every structure unlocked, like the
 // terminal builder it grows out of.
-const CHAPTER = 53
+const CHAPTER = 52
 
 // "Pronoun" → "a pronoun", "Object" → "an object". Lowercases the part-of-
 // speech label and picks a/an from the first letter — good enough for the

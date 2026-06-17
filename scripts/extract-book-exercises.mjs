@@ -417,8 +417,8 @@ function collectItalics(s) {
 /**
  * A matching exercise is interactive (tap-to-match) only if its pairs form a
  * clean bijection: >=2 items, every item answered, the right-hand options are
- * distinct, and the answer is not just an echo of the prompt (the ch53
- * "identify the respect level" categorization, whose answer restates the word).
+ * distinct, and the answer is not just an echo of the prompt (e.g. a
+ * "categorize the word" exercise whose answer restates the word).
  */
 function isInteractiveMatching(pairs) {
   if (!pairs || pairs.length < 2) return false

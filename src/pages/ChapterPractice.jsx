@@ -66,7 +66,7 @@ export default function ChapterPractice() {
   const selectedPattern = patternIndex !== null ? chapterPatterns[patternIndex] : null
 
   const prevCh = chapterNum > 1 ? chapterNum - 1 : null
-  const nextCh = chapterNum < 53 ? chapterNum + 1 : null
+  const nextCh = chapterNum < 52 ? chapterNum + 1 : null
   const prevChapter = prevCh ? chapters.find(c => c.chapter === prevCh) : null
   const nextChapter = nextCh ? chapters.find(c => c.chapter === nextCh) : null
 

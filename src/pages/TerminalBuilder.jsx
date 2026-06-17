@@ -29,7 +29,7 @@ import { InlinePicker, MobilePicker } from '../components/TerminalPicker'
 import { useIsTouchPrimary, expandAddMoreGroup } from '../lib/terminal-picker-utils'
 
 export default function TerminalBuilder() {
-  const [mwState, setMwState] = useState(() => createMultiWalker(53))
+  const [mwState, setMwState] = useState(() => createMultiWalker(52))
   const [error, setError] = useState(null)
   const isTouch = useIsTouchPrimary()
 
@@ -222,7 +222,7 @@ export default function TerminalBuilder() {
     setError(null)
     historyRef.current = []
     setCanUndo(false)
-    setMwState(createMultiWalker(53))
+    setMwState(createMultiWalker(52))
     setGroupIdx(0)
     setItemIdx(0)
   }

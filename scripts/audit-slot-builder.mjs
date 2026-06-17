@@ -2,7 +2,7 @@
 /**
  * Audit script for the SlotBuilder sentence engine.
  *
- * For each chapter (1-53), for each available sentence pattern, checks:
+ * For each chapter (1-52), for each available sentence pattern, checks:
  *   A. Required non-locked slots have >= 1 vocabulary option
  *   B. Every available tense marker has a key in pronoun_dependencies
  *   C. Tense markers that map to fewer than the full pronoun set
@@ -134,7 +134,7 @@ const info = []
 const patterns = sentencePatterns.patterns
 
 // Check A & B & C: per-chapter, per-pattern checks
-for (let ch = 1; ch <= 53; ch++) {
+for (let ch = 1; ch <= 52; ch++) {
   const available = patterns.filter(p => p.min_chapter <= ch)
 
   for (const pattern of available) {
@@ -211,7 +211,7 @@ for (let ch = 1; ch <= 53; ch++) {
 }
 
 // Check D: Chapters with 0 taught patterns
-for (let ch = 1; ch <= 53; ch++) {
+for (let ch = 1; ch <= 52; ch++) {
   const taught = patterns.filter(p => p.book_chapters && p.book_chapters.includes(ch))
   const cumulative = patterns.filter(p => p.min_chapter <= ch)
   if (taught.length === 0) {
@@ -249,7 +249,7 @@ if (jsonMode) {
 
   console.log('\n=== SUMMARY ===')
   console.log(`  Patterns audited: ${patterns.length}`)
-  console.log(`  Chapters audited: 53`)
+  console.log(`  Chapters audited: 52`)
   console.log(`  Critical issues: ${uniqueCritical.length}`)
   console.log(`  Warnings: ${uniqueWarnings.length}`)
   console.log(`  Chapters with no taught patterns: ${info.length}`)

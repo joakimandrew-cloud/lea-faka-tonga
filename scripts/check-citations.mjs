@@ -9,7 +9,7 @@
  * Goal: catch the entire class of "a citation was never checked against
  * reality" — broken or fabricated source pointers — so the walkthrough
  * specs, the `/translate` + `/reverse-translate` skills, Translation-Log.md,
- * AND all 53 book/Chapter-NN.md files (added in Phase P) can never ship a
+ * AND all 52 book/Chapter-NN.md files (added in Phase P) can never ship a
  * citation that doesn't resolve on disk.
  *
  * What it scans (SCAN_FILES, below) and what it verifies per token:
@@ -19,7 +19,7 @@
  *      whenever no such directory exists on disk. The real dirs are
  *      `spec/`, `book/`, `source-materials/` (no numeric prefixes).
  *
- *   2. LFT Ch. N [§"heading"]. N must be 1..53 and book/Chapter-NN.md must
+ *   2. LFT Ch. N [§"heading"]. N must be 1..52 and book/Chapter-NN.md must
  *      exist. If a `§"heading text"` is attached, that heading text must
  *      actually appear as a markdown heading somewhere in that chapter
  *      (normalized: italics/apostrophes/case stripped). This catches
@@ -89,7 +89,7 @@ const SCAN_FILES = [
   'Translation-Log.md',
 ]
 
-// All 53 book chapters are also scanned (Phase P) so any citation added to a
+// All 52 book chapters are also scanned (Phase P) so any citation added to a
 // chapter during the source-fidelity audit is validated on disk — a broken or
 // fabricated `Churchward Ch. 99` / `Shumway L.999` in the published book is a
 // hard error. Built once at runtime so a renumber never desyncs the list.
@@ -98,7 +98,7 @@ async function bookScanFiles() {
   return entries.filter(f => /^Chapter-\d{2}\.md$/.test(f)).sort().map(f => `book/${f}`)
 }
 
-const LFT_CHAPTER_MAX = 53
+const LFT_CHAPTER_MAX = 52
 const GRAMMAR_SPEC_SECTION_MAX = 50
 const CHURCHWARD_CHAPTER_MAX = 36
 

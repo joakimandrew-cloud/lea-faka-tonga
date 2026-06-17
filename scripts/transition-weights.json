@@ -1,12 +1,12 @@
 {
-  "generatedFrom": "book/Chapter-01..53.md italic spans + src/data/book-exercises.json italic spans; POS via src/data/book-vocabulary.json; tense/pronoun/slot sets via src/data/vocabulary-by-slot.json + grammar-graph.json",
+  "generatedFrom": "book/Chapter-01..52.md italic spans + src/data/book-exercises.json italic spans; POS via src/data/book-vocabulary.json; tense/pronoun/slot sets via src/data/vocabulary-by-slot.json + grammar-graph.json",
   "note": "evidence only; not imported by the app; regenerate with `node scripts/build-transition-weights.mjs` from lea-faka-tonga-app/",
   "sampleSize": {
-    "italicSpans": 12740,
-    "usableSpans": 12740,
-    "exerciseSpans": 2494,
-    "chaptersRead": 53,
-    "tensePronounTriples": 2332,
+    "italicSpans": 12619,
+    "usableSpans": 12619,
+    "exerciseSpans": 2470,
+    "chaptersRead": 52,
+    "tensePronounTriples": 2337,
     "tenseMarkerSet": [
       "'e",
       "'oku",
@@ -32,13 +32,13 @@
     ]
   },
   "afterTensePronoun": {
-    "verb": 1623,
-    "adjective_stative": 189,
-    "other_unknown": 169,
+    "verb": 1639,
+    "adjective_stative": 183,
+    "other_unknown": 160,
     "numeral_count": 92,
-    "aux": 79,
-    "noun": 51,
-    "aspect_marker": 44,
+    "aux": 81,
+    "noun": 52,
+    "aspect_marker": 45,
     "preposition": 43,
     "preposed_modifier": 21,
     "modifier": 21
@@ -56,53 +56,55 @@
     "modifier"
   ],
   "nextWordAfterTensePronoun": {
-    "'alu": 233,
-    "kai": 166,
+    "'alu": 232,
+    "kai": 162,
     "nofo": 140,
     "ha'u": 130,
-    "mohe": 107,
+    "mohe": 108,
     "ngaue": 94,
     "hiva": 92,
     "lea": 83,
-    "fiema'u": 61,
+    "fiema'u": 60,
+    "inu": 55,
     "fie": 55,
-    "inu": 54,
-    "fiefia": 51,
+    "fiefia": 52,
+    "tokoni": 41,
     "'i": 40,
-    "tokoni": 40,
     "sai'ia": 40,
-    "ako": 37,
-    "foki": 33,
-    "fai": 33,
+    "ako": 38,
+    "foki": 34,
+    "lau": 33,
     "o": 32,
-    "lau": 32,
+    "fai": 31,
     "'ita": 26,
+    "lava": 26,
     "tohi": 25,
-    "hela'ia": 24,
-    "lava": 24,
     "fiekaia": 23,
     "lele": 22,
-    "'ave": 21,
+    "hela'ia": 22,
     "lotu": 21,
     "fa'a": 20,
-    "kei": 19,
+    "kei": 20,
     "fanongo": 16,
+    "puke": 16,
+    "'ave": 15,
     "'ilo": 15,
     "sio": 14,
-    "puke": 13,
     "kuki": 13,
     "loto": 13,
-    "lolotonga": 11,
-    "to": 11,
+    "to": 12,
+    "'omai": 11,
     "kumi": 10,
     "tomui": 10,
     "malohi": 9,
+    "kamata": 9,
     "'osi": 9,
+    "lolotonga": 9,
     "toki": 9,
     "tokoni'i": 9,
     "'ofa": 8,
     "teitei": 8,
-    "kamata": 8,
+    "hela": 8,
     "toe": 7,
     "tanaki": 7,
     "'a": 7,
@@ -112,13 +114,14 @@
     "pehe": 7,
     "e": 7,
     "folau": 6,
+    "langa": 6,
     "manatu'i": 6,
     "lahi": 6,
     "tala": 6,
-    "hela": 6,
     "tu'u": 6,
     "tomu'a": 6,
     "fefe": 5,
+    "faiako": 5,
     "kole": 5,
     "meimei": 5,
     "a'u": 5,
@@ -126,11 +129,9 @@
     "fakamohe": 5,
     "tapuni": 5,
     "tapuni'i": 5,
-    "'omai": 5,
     "mo'umohea": 5,
     "fakafuofua": 5,
     "vaivai": 4,
-    "faiako": 4,
     "'omi": 4,
     "tatau": 4,
     "'aupito": 4,
@@ -144,7 +145,6 @@
     "masiva": 3,
     "tangutu": 3,
     "siasi": 3,
-    "langa": 3,
     "fakapikopiko": 3,
     "mei": 3,
     "feinga": 3,
@@ -156,7 +156,7 @@
     "fufulu": 3,
     "ia": 3,
     "'amanaki": 3,
-    "ilifia": 3,
+    "kaiha'a": 3,
     "fa'o": 3,
     "fakafonu": 3,
     "lelei'ia": 3,
@@ -170,6 +170,7 @@
     "fieinua": 2,
     "tau": 2,
     "vahe": 2,
+    "tauhi": 2,
     "tokolahi": 2,
     "mai": 2,
     "he": 2,
@@ -180,19 +181,18 @@
     "'ene": 2,
     "ta": 2,
     "tui": 2,
-    "tali": 2,
     "hala": 2,
     "mo'ui": 2,
     "semisi": 2,
     "au": 2,
     "'eiki": 2,
-    "kaiha'a": 2,
     "ofo": 2,
     "malolo": 2,
+    "no––fo": 2,
+    "tu––'u": 2,
     "ma": 2,
     "kau": 1,
     "fahi": 1,
-    "tauhi": 1,
     "faka'osi": 1,
     "tokosi'i": 1,
     "eni": 1,
@@ -206,7 +206,7 @@
     "fe'iloaki": 1,
     "mele": 1,
     "va'inga": 1,
-    "faikava": 1,
+    "tali": 1,
     "fetaulaki": 1,
     "tatali": 1,
     "tu'i": 1,
@@ -216,8 +216,7 @@
     "ngalo'i": 1,
     "toutou": 1,
     "misi": 1,
-    "ta'aki": 1,
-    "tanu": 1,
+    "to'o": 1,
     "'uheina": 1,
     "faka'ofa'ia": 1,
     "malie'ia": 1,
@@ -225,101 +224,97 @@
     "fetu'utaki": 1,
     "mavae": 1,
     "mo'utu'ua": 1,
-    "no––fo": 1,
-    "tu––'u": 1,
     "kita": 1,
     "tokoni___": 1,
     "ngaue___": 1,
     "tapuni___": 1,
-    "sipinga___": 1,
-    "no——fo": 1,
-    "tu——'u": 1
+    "sipinga___": 1
   },
   "wordFreqBySlot": {
     "verb": {
-      "'alu": 523,
-      "ngaue": 393,
-      "kai": 346,
-      "ha'u": 333,
-      "nofo": 278,
-      "tohi": 278,
+      "'alu": 521,
+      "ngaue": 401,
+      "kai": 331,
+      "ha'u": 322,
+      "tohi": 281,
+      "nofo": 279,
       "hiva": 231,
-      "mohe": 224,
-      "lea": 181,
-      "ako": 171,
-      "fai": 144,
-      "malohi": 130,
-      "o": 114,
-      "tokoni": 102,
-      "fiefia": 99,
-      "foki": 93,
-      "inu": 90,
-      "to": 73,
-      "'ita": 70,
-      "fiema'u": 67,
-      "lele": 62,
-      "lau": 61,
+      "mohe": 226,
+      "lea": 179,
+      "ako": 172,
+      "fai": 140,
+      "malohi": 136,
+      "o": 112,
+      "fiefia": 100,
+      "tokoni": 99,
+      "foki": 97,
+      "inu": 93,
+      "to": 76,
+      "'ita": 69,
+      "fiema'u": 66,
+      "lau": 64,
+      "lele": 63,
       "lotu": 57,
-      "hela'ia": 55,
-      "puke": 50,
+      "hela'ia": 53,
+      "puke": 53,
       "fiekaia": 44,
-      "fufulu": 43,
-      "'ilo": 36,
-      "'ave": 35,
+      "fufulu": 37,
       "fanongo": 34,
       "sio": 33,
-      "tala": 30,
+      "tala": 31,
+      "'ilo": 30,
+      "'ave": 29,
       "tangi": 28,
-      "kuki": 23,
-      "vaivai": 22,
-      "kamata": 22,
+      "vaivai": 27,
+      "langa": 25,
+      "kuki": 24,
+      "kamata": 23,
       "fili": 21,
-      "langa": 19,
       "masiva": 18,
       "folau": 16,
       "kumi": 16,
-      "fakatau": 15,
       "tomui": 14,
+      "fakatau": 13,
       "hopo": 12,
+      "haka": 12,
       "mamata": 12,
-      "haka": 10,
       "feinga": 9,
-      "kole": 9,
       "manatu'i": 8,
-      "tanaki": 7,
+      "kole": 8,
+      "tanaki": 8,
       "fieinua": 6,
       "fakapikopiko": 6,
       "lavea": 6,
       "tangutu": 5,
       "ui": 5,
       "kakau": 4,
-      "lue": 3
+      "lue": 4
     },
     "object": {
-      "tohi": 278,
-      "mele": 198,
+      "tohi": 281,
+      "mele": 199,
       "kato": 143,
-      "ma": 134,
-      "ika": 129,
-      "hele": 81,
-      "fala": 74,
+      "ma": 132,
+      "ika": 130,
+      "hele": 85,
+      "fala": 75,
       "vai": 72,
       "pa'anga": 53,
       "siale": 52,
       "seini": 45,
-      "kava": 29,
-      "talo": 28,
+      "kava": 30,
+      "talo": 26,
       "moa": 17,
       "ti": 13,
-      "kepu": 13,
+      "kepu": 12,
       "pulu": 5,
       "seniti": 4
     },
     "modifier": {
-      "pe": 218,
-      "lahi": 196,
-      "malohi": 130,
-      "lelei": 116,
+      "pe": 219,
+      "lahi": 200,
+      "malohi": 136,
+      "lelei": 107,
       "'aupito": 87
     },
     "time_word": {
@@ -331,9 +326,9 @@
       "'anai": 15
     },
     "preposition": {
-      "'i": 826,
-      "ki": 598,
-      "mei": 221,
+      "'i": 845,
+      "ki": 596,
+      "mei": 222,
       "ma'a": 31,
       "mo'o": 15
     }
@@ -341,163 +336,163 @@
   "topContentWords": [
     [
       "he",
-      828
+      820
     ],
     [
       "'alu",
-      523
+      521
     ],
     [
       "ngaue",
-      393
+      401
     ],
     [
       "ai",
-      368
+      379
     ],
     [
       "fale",
-      354
+      359
     ],
     [
       "kai",
-      346
+      331
     ],
     [
       "ha'u",
-      333
-    ],
-    [
-      "nofo",
-      278
+      322
     ],
     [
       "tohi",
-      278
+      281
+    ],
+    [
+      "nofo",
+      279
     ],
     [
       "mohe",
-      224
+      226
     ],
     [
       "mele",
-      198
+      199
     ],
     [
       "kolo",
-      185
-    ],
-    [
-      "me'a",
-      185
+      188
     ],
     [
       "lea",
-      181
+      179
+    ],
+    [
+      "me'a",
+      179
     ],
     [
       "fe",
-      173
+      175
     ],
     [
       "ako",
-      171
-    ],
-    [
-      "fai",
-      144
+      172
     ],
     [
       "kato",
       143
     ],
     [
-      "ma",
-      134
+      "fai",
+      140
     ],
     [
       "faiako",
-      134
+      137
     ],
     [
       "malohi",
-      130
+      136
+    ],
+    [
+      "ma",
+      132
     ],
     [
       "totonu",
-      130
+      132
     ],
     [
       "ika",
-      129
+      130
     ],
     [
       "o",
-      114
-    ],
-    [
-      "tokoni",
-      102
+      112
     ],
     [
       "'api",
-      100
+      101
     ],
     [
       "fiefia",
+      100
+    ],
+    [
+      "tokoni",
       99
     ],
     [
-      "loto",
+      "foki",
       97
     ],
     [
-      "foki",
-      93
+      "loto",
+      96
     ],
     [
       "vaka",
-      93
+      95
     ],
     [
       "tangata",
-      92
+      95
     ],
     [
       "inu",
-      90
+      93
     ],
     [
       "'ofa",
-      90
-    ],
-    [
-      "tamasi'i",
-      84
-    ],
-    [
-      "'aho",
-      82
+      91
     ],
     [
       "hele",
-      81
+      85
     ],
     [
-      "fala",
-      74
+      "'aho",
+      83
+    ],
+    [
+      "tamasi'i",
+      83
     ],
     [
       "to",
-      73
+      76
+    ],
+    [
+      "fala",
+      75
     ],
     [
       "vai",
       72
     ],
     [
-      "'ita",
-      70
+      "me'akai",
+      72
     ]
   ],
   "verbNodeCrossCheck": {
@@ -544,8 +539,8 @@
       "ngaue",
       "kai",
       "ha'u",
-      "nofo",
       "tohi",
+      "nofo",
       "hiva",
       "mohe",
       "lea",
@@ -553,42 +548,42 @@
       "fai",
       "malohi",
       "o",
-      "tokoni",
       "fiefia",
+      "tokoni",
       "foki",
       "inu",
       "to",
       "'ita",
       "fiema'u",
-      "lele",
       "lau",
+      "lele",
       "lotu",
       "hela'ia",
       "puke",
       "fiekaia",
       "fufulu",
-      "'ilo",
-      "'ave",
       "fanongo",
       "sio",
       "tala",
+      "'ilo",
+      "'ave",
       "tangi",
-      "kuki",
       "vaivai",
+      "langa",
+      "kuki",
       "kamata",
       "fili",
-      "langa",
       "masiva",
       "folau",
       "kumi",
-      "fakatau",
       "tomui",
+      "fakatau",
       "hopo",
-      "mamata",
       "haka",
+      "mamata",
       "feinga",
-      "kole",
       "manatu'i",
+      "kole",
       "tanaki",
       "fieinua",
       "fakapikopiko",
@@ -603,31 +598,31 @@
         "tongan": "kai",
         "authoredIndex": 0,
         "measuredRank": 2,
-        "measuredCount": 346
+        "measuredCount": 331
       },
       {
         "tongan": "inu",
         "authoredIndex": 1,
         "measuredRank": 16,
-        "measuredCount": 90
+        "measuredCount": 93
       },
       {
         "tongan": "mohe",
         "authoredIndex": 2,
         "measuredRank": 7,
-        "measuredCount": 224
+        "measuredCount": 226
       },
       {
         "tongan": "'alu",
         "authoredIndex": 3,
         "measuredRank": 0,
-        "measuredCount": 523
+        "measuredCount": 521
       },
       {
         "tongan": "ha'u",
         "authoredIndex": 4,
         "measuredRank": 3,
-        "measuredCount": 333
+        "measuredCount": 322
       },
       {
         "tongan": "hiva",
@@ -639,43 +634,43 @@
         "tongan": "lea",
         "authoredIndex": 6,
         "measuredRank": 8,
-        "measuredCount": 181
+        "measuredCount": 179
       },
       {
         "tongan": "nofo",
         "authoredIndex": 7,
-        "measuredRank": 4,
-        "measuredCount": 278
+        "measuredRank": 5,
+        "measuredCount": 279
       },
       {
         "tongan": "ngaue",
         "authoredIndex": 8,
         "measuredRank": 1,
-        "measuredCount": 393
+        "measuredCount": 401
       },
       {
         "tongan": "tokoni",
         "authoredIndex": 9,
-        "measuredRank": 13,
-        "measuredCount": 102
+        "measuredRank": 14,
+        "measuredCount": 99
       },
       {
         "tongan": "fiema'u",
         "authoredIndex": 10,
         "measuredRank": 19,
-        "measuredCount": 67
+        "measuredCount": 66
       },
       {
         "tongan": "fiefia",
         "authoredIndex": 11,
-        "measuredRank": 14,
-        "measuredCount": 99
+        "measuredRank": 13,
+        "measuredCount": 100
       },
       {
         "tongan": "hela'ia",
         "authoredIndex": 12,
         "measuredRank": 23,
-        "measuredCount": 55
+        "measuredCount": 53
       },
       {
         "tongan": "fiekaia",
@@ -687,25 +682,25 @@
         "tongan": "'ita",
         "authoredIndex": 14,
         "measuredRank": 18,
-        "measuredCount": 70
+        "measuredCount": 69
       },
       {
         "tongan": "puke",
         "authoredIndex": 15,
         "measuredRank": 24,
-        "measuredCount": 50
+        "measuredCount": 53
       },
       {
         "tongan": "ako",
         "authoredIndex": 16,
         "measuredRank": 9,
-        "measuredCount": 171
+        "measuredCount": 172
       },
       {
         "tongan": "lele",
         "authoredIndex": 17,
-        "measuredRank": 20,
-        "measuredCount": 62
+        "measuredRank": 21,
+        "measuredCount": 63
       },
       {
         "tongan": "folau",
@@ -716,26 +711,26 @@
       {
         "tongan": "sio",
         "authoredIndex": 19,
-        "measuredRank": 30,
+        "measuredRank": 28,
         "measuredCount": 33
       },
       {
         "tongan": "fanongo",
         "authoredIndex": 20,
-        "measuredRank": 29,
+        "measuredRank": 27,
         "measuredCount": 34
       },
       {
         "tongan": "lau",
         "authoredIndex": 21,
-        "measuredRank": 21,
-        "measuredCount": 61
+        "measuredRank": 20,
+        "measuredCount": 64
       },
       {
         "tongan": "tohi",
         "authoredIndex": 22,
-        "measuredRank": 5,
-        "measuredCount": 278
+        "measuredRank": 4,
+        "measuredCount": 281
       },
       {
         "tongan": "hopo",
@@ -758,8 +753,8 @@
       {
         "tongan": "vaivai",
         "authoredIndex": 26,
-        "measuredRank": 34,
-        "measuredCount": 22
+        "measuredRank": 33,
+        "measuredCount": 27
       },
       {
         "tongan": "masiva",
@@ -770,8 +765,8 @@
       {
         "tongan": "fakatau",
         "authoredIndex": 28,
-        "measuredRank": 41,
-        "measuredCount": 15
+        "measuredRank": 42,
+        "measuredCount": 13
       },
       {
         "tongan": "ma'u",
@@ -782,26 +777,26 @@
       {
         "tongan": "kole",
         "authoredIndex": 30,
-        "measuredRank": 47,
-        "measuredCount": 9
+        "measuredRank": 48,
+        "measuredCount": 8
       },
       {
         "tongan": "foki",
         "authoredIndex": 31,
         "measuredRank": 15,
-        "measuredCount": 93
+        "measuredCount": 97
       },
       {
         "tongan": "tanaki",
         "authoredIndex": 32,
         "measuredRank": 49,
-        "measuredCount": 7
+        "measuredCount": 8
       },
       {
         "tongan": "langa",
         "authoredIndex": 33,
-        "measuredRank": 37,
-        "measuredCount": 19
+        "measuredRank": 34,
+        "measuredCount": 25
       }
     ]
   },

@@ -16,7 +16,7 @@ export default function ChapterSelector() {
       <span className="text-[var(--accent)] text-sm w-6 text-center font-bold">{chapter}</span>
       <button
         onClick={() => setChapter(chapter + 1)}
-        disabled={chapter >= 53}
+        disabled={chapter >= 52}
         className="w-6 h-6 flex items-center justify-center text-[var(--accent)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
       >
         +

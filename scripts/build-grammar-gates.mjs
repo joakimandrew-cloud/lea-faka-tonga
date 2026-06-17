@@ -59,7 +59,7 @@ function extractInventoryMarkers(md) {
   let m
   while ((m = rowRe.exec(md)) !== null) {
     const ch = parseInt(m[1], 10)
-    if (!Number.isFinite(ch) || ch < 1 || ch > 53) continue
+    if (!Number.isFinite(ch) || ch < 1 || ch > 52) continue
     const cell = m[2]
     // Triple-bolded markers: ***marker***. Greedy until next ***.
     const markerRe = /\*\*\*([^*]+?)\*\*\*/g

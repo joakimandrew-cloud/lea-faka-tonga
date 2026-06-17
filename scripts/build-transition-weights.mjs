@@ -10,7 +10,7 @@
 // wired into the live build.
 //
 // It reads (and never writes/modifies) these inputs:
-//   - book/Chapter-01.md .. Chapter-53.md          (Tongan in *italics*)
+//   - book/Chapter-01.md .. Chapter-52.md          (Tongan in *italics*)
 //   - lea-faka-tonga-app/src/data/book-exercises.json   (Tongan in *italics*)
 //   - lea-faka-tonga-app/src/data/book-vocabulary.json  (tongan -> part_of_speech)
 //   - lea-faka-tonga-app/src/data/vocabulary-by-slot.json (tense markers + pronouns + slots)
@@ -184,7 +184,7 @@ function extractItalics(text) {
 
 const spans = [];
 const chapterFilesUsed = [];
-for (let n = 1; n <= 53; n++) {
+for (let n = 1; n <= 52; n++) {
   const file = resolve(BOOK_DIR, `Chapter-${String(n).padStart(2, '0')}.md`);
   let text;
   try {
@@ -422,7 +422,7 @@ const verbOrderVerdict =
 // ---------------------------------------------------------------------------
 const artifact = {
   generatedFrom:
-    'book/Chapter-01..53.md italic spans + src/data/book-exercises.json italic spans; ' +
+    'book/Chapter-01..52.md italic spans + src/data/book-exercises.json italic spans; ' +
     'POS via src/data/book-vocabulary.json; tense/pronoun/slot sets via src/data/vocabulary-by-slot.json + grammar-graph.json',
   note: 'evidence only; not imported by the app; regenerate with `node scripts/build-transition-weights.mjs` from lea-faka-tonga-app/',
   sampleSize: {
@@ -483,7 +483,7 @@ const line = '─'.repeat(72);
 console.log(line);
 console.log('TRANSITION WEIGHTS — corpus evidence (read-only, not part of build)');
 console.log(line);
-console.log(`Chapters read:            ${chapterFilesUsed.length} (Chapter-01..53)`);
+console.log(`Chapters read:            ${chapterFilesUsed.length} (Chapter-01..52)`);
 console.log(`Italic Tongan spans:      ${spans.length}  (${exerciseSpanCount} from exercises)`);
 console.log(`TM+pronoun+X triples:     ${tripleCount}`);
 console.log(`Tense markers matched:    ${[...tenseMarkers].sort().join(', ')}`);

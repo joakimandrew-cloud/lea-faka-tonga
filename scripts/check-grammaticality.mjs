@@ -94,7 +94,7 @@ async function main() {
   const byConf = (c) => hits.filter((h) => h.conf === c)
   const high = byConf('high'), med = byConf('med')
   if (hits.length === 0) {
-    console.log('  ✓ no grammaticality-lint hits in examples/answers across 53 chapters')
+    console.log('  ✓ no grammaticality-lint hits in examples/answers across 52 chapters')
   } else {
     if (high.length) {
       console.log(`\n  HIGH-confidence (${high.length}):`)

@@ -9,7 +9,7 @@ export function ChapterProvider({ children }) {
   })
 
   const updateChapter = (n) => {
-    const clamped = Math.max(1, Math.min(53, n))
+    const clamped = Math.max(1, Math.min(52, n))
     setChapter(clamped)
     localStorage.setItem('currentChapter', String(clamped))
   }

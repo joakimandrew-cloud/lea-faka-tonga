@@ -418,27 +418,5 @@
       "Humility",
       "Endearment"
     ]
-  },
-  "ch53-ex1": {
-    "interaction": "mcq",
-    "mode": "shared",
-    "labels": true,
-    "options": [
-      "ordinary",
-      "polite",
-      "honorific",
-      "regal",
-      "derogatory"
-    ]
-  },
-  "ch53-ex3": {
-    "interaction": "mcq",
-    "mode": "shared",
-    "labels": false,
-    "options": [
-      "*Tapu mo koe!*",
-      "*Tapu mo hou'eiki!*",
-      "*Tapu mo ia!*"
-    ]
   }
 }

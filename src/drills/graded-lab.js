@@ -141,7 +141,7 @@ export function buildRoundForPattern(patternId, maxChapter, rng, perturb = 1) {
  * yield a valid round (e.g. a chapter with no composed patterns at all).
  */
 export function newRound(maxChapter, rng = Math.random, opts = {}) {
-  const max = maxChapter || 53
+  const max = maxChapter || 52
   const candidates = sentencePatterns.patterns.filter((p) =>
     (p.book_chapters || []).every((c) => c <= max) &&
     p.slots.filter((s) => !s.locked).length >= 2

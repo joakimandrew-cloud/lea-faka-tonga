@@ -6,7 +6,7 @@ import '../styles/offer.css'
 
 // ─────────────────────────────────────────────────────────────────────────
 // Model (ruled 2026-06-12, DECISIONS.md): the BOOK is free — PDF/EPUB, whole,
-// forever. The web practice machine is Membership. Ch 1–3 fully open; Ch 4–53
+// forever. The web practice machine is Membership. Ch 1–3 fully open; Ch 4–52
 // go members-only when the member tools ship. No on-site accounts EVER —
 // checkout lives on a third party (Gumroad/BMC), access via a member token.
 //
@@ -30,7 +30,7 @@ const FOUNDERS = { claimed: 0, cap: 250 }
 
 // The course contents — proof of substance, each row marked free or members.
 const STACK = [
-  { title: 'The Grammar Book', detail: '53 chapters · 110,651 words · beginner → advanced', badge: 'FREE · PDF + EPUB below',
+  { title: 'The Grammar Book', detail: '52 chapters · 110,651 words · beginner → advanced', badge: 'FREE · PDF + EPUB below',
     blurb: 'From your first three-word sentence to the language of respect. The complete arc, every rule explained, yours to download, whole, forever.' },
   { title: 'The Interactive Practice Machine', detail: '62 drills · 4 builders · embedded exercises, every chapter', badge: 'Ch 1–3 free · then members',
     blurb: 'Build real Tongan sentences and watch the translation update as you go. The whole grammar, playable.' },
@@ -48,7 +48,7 @@ const STACK = [
 
 // What membership includes — one line per inclusion.
 const MEMBER_STACK = [
-  { name: 'Every drill, every chapter', value: 'included', note: '62 drill engines and 4 sentence builders across all 53 chapters' },
+  { name: 'Every drill, every chapter', value: 'included', note: '62 drill engines and 4 sentence builders across all 52 chapters' },
   { name: 'The full 628-card deck + 530-question quiz bank', value: 'included', note: 'every wrong answer names the rule it broke' },
   { name: 'The Workbook, 218,636 words, as PDFs', value: 'included', note: 'twice the book; practice for every pattern with answer keys' },
   { name: 'The course on your phone', value: 'shipping with the member tools', note: 'installable and offline-ready, the whole course in your pocket' },
@@ -78,7 +78,7 @@ const TIERS = [
 
 const FAQ = [
   { q: 'So what’s actually free?',
-    a: 'The whole book, all 53 chapters, 110,651 words, as PDF and EPUB, free forever, no email wall. On the website, Chapters 1–3 are completely open: the prose, the drills, the flip cards, the quizzes, everything. The Grandmother Quiz and the reference charts are free too. The rest of the practice machine is for members.' },
+    a: 'The whole book, all 52 chapters, 110,651 words, as PDF and EPUB, free forever, no email wall. On the website, Chapters 1–3 are completely open: the prose, the drills, the flip cards, the quizzes, everything. The Grandmother Quiz and the reference charts are free too. The rest of the practice machine is for members.' },
   { q: 'Why charge at all?',
     a: 'Because this stays alive on membership instead of ads. No banners, no investors, no selling your attention or your data. Recording native speakers, building the tools, keeping it online: that costs real money. Members carry it, their names go on the Roll of Keepers, and the book stays free for everyone, forever.' },
   { q: 'Do I need an account?',
@@ -146,7 +146,7 @@ export default function Offer() {
         </h1>
         <p className="offer-lede">
           From your very first sentence to the language of respect spoken to chiefs and elders.
-          53 chapters, beginner to advanced. The only complete, modern course for a language that has almost
+          52 chapters, beginner to advanced. The only complete, modern course for a language that has almost
           nothing online. <strong>The whole book is free to download, forever. Membership runs the
           practice machine.</strong>
         </p>
@@ -167,7 +167,7 @@ export default function Offer() {
               <span className="orf-big">$2,500–$25,000</span>
             </div>
             <div className="orf-block">
-              <span className="orf-label">The complete book, all 53 chapters, costs</span>
+              <span className="orf-label">The complete book, all 52 chapters, costs</span>
               <span className="orf-big free">Nothing</span>
             </div>
           </div>
@@ -277,7 +277,7 @@ export default function Offer() {
             Plainly: the book is free because the language is not ours to sell. The practice machine is
             what membership pays for. Chapters 1–3 are open in full, tools
             and all, so you can judge the machine before you pay a cent. When the member tools ship,
-            Chapters 4–53 on the web become members-only. The book stays free, forever.
+            Chapters 4–52 on the web become members-only. The book stays free, forever.
           </p>
 
           {/* what members get */}
@@ -479,7 +479,7 @@ export default function Offer() {
         <div>
           <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> Keep the Language</div>
           <div className="bottom-spec">
-            53 Chapters · Full Grammar Arc · Reviewed in the open
+            52 Chapters · Full Grammar Arc · Reviewed in the open
             <span className="counter"> · The book free, forever. The machine, membership.</span>
           </div>
         </div>

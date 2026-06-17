@@ -24,7 +24,7 @@
  *      the split they introduced is gone.
  *
  * Single-table chapters (no second table to merge) still get their lone label
- * stripped and header standardized, so all 53 chapters present the same clean
+ * stripped and header standardized, so all 52 chapters present the same clean
  * "Words to Learn → one table" shape. The merged table flows through
  * rehype-table-labels → VocabPracticeBlock as a single Table/Cards deck over the
  * whole chapter's new words.

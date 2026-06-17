@@ -171,7 +171,6 @@ export const GROUPS = [
       { id: 'reduplication-effect-sorter', ch: 50, label: 'What doubling does: intensify, moderate, pluralize' },
       { id: 'pehee-picker', ch: 34, label: 'Pehē: say, thus, or do-thus-to' },
       { id: 'reciprocity-picker', ch: 49, label: '"each other" verbs (fe-…-ʻaki)' },
-      { id: 'register-sorter', ch: 53, label: 'Five vocabulary levels by social rank' },
     ],
   },
   {

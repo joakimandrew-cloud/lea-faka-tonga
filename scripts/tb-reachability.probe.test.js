@@ -4,7 +4,7 @@
  * imports). NOT a real test: bounded BFS over reachable builder states,
  * writes a JSON report + summary.
  *
- *   TB_CHAPTER=53 TB_PERSEED=6000 TB_DEPTH=16 TB_OUT=/tmp/tb-report.json \
+ *   TB_CHAPTER=52 TB_PERSEED=6000 TB_DEPTH=16 TB_OUT=/tmp/tb-report.json \
  *     npx vitest run scripts/tb-reachability.probe.test.js
  *
  * Drives the engine the way TerminalBuilder.jsx does (getPickerData →
@@ -23,7 +23,7 @@ import {
   getEntryPointCategory, getFirstWordOptions, PHASE,
 } from '../src/engine/multi-walker.js'
 
-const CHAPTER = Number(process.env.TB_CHAPTER || '53')
+const CHAPTER = Number(process.env.TB_CHAPTER || '52')
 const PER_SEED = Number(process.env.TB_PERSEED || '6000')   // BFS state budget per first word
 const MAX_DEPTH = Number(process.env.TB_DEPTH || '16')
 const OUT = process.env.TB_OUT || '/tmp/tb-report.json'

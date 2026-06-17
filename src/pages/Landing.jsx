@@ -18,9 +18,9 @@ const slides = [
   },
   {
     eyebrow: 'A complete arc, in progress',
-    headline: <>53 chapters.<br />One <span className="accent">grammar</span>,<br />built in the open.</>,
+    headline: <>52 chapters.<br />One <span className="accent">grammar</span>,<br />built in the open.</>,
     sub: 'From greetings to cleft constructions, chapter by chapter, published as it’s written, reviewed by fluent speakers as it grows.',
-    provenance: 'Beginner to Advanced · 53 Chapters',
+    provenance: 'Beginner to Advanced · 52 Chapters',
   },
   {
     eyebrow: 'Every answer teaches the rule',
@@ -54,7 +54,7 @@ const moduleCards = [
 // Captured from the running site (scripts/.. capture, one-off) into assets.
 const previews = [
   { img: previewChapter,  caption: 'Read a chapter',          alt: 'A chapter on the live site' },
-  { img: previewContents, caption: 'Browse all 53 chapters',  alt: 'The chapter contents' },
+  { img: previewContents, caption: 'Browse all 52 chapters',  alt: 'The chapter contents' },
   { img: previewQuiz,     caption: 'Quiz · told why',         alt: 'A quiz question with the rule explained' },
   { img: previewCards,    caption: 'Flip cards · vocabulary', alt: 'The vocabulary flip cards' },
   { img: previewBuilder,  caption: 'Build a sentence',        alt: 'The sentence builder' },
@@ -128,7 +128,7 @@ export default function Landing() {
           </svg>
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">A community edition · 53 chapters · Beginner to advanced · The book is free</div>
+        <div className="top-sub">A community edition · 52 chapters · Beginner to advanced · The book is free</div>
       </div>
 
       {/* ========== HERO CANVAS ========== */}
@@ -214,7 +214,7 @@ export default function Landing() {
         <div>
           <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> The Community Edition</div>
           <div className="bottom-spec">
-            53 Chapters · Full Grammar Arc · Reviewed in the open
+            52 Chapters · Full Grammar Arc · Reviewed in the open
           </div>
         </div>
         <div className="cefr-badge">

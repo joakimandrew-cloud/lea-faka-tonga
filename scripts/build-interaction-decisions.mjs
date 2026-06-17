@@ -28,7 +28,7 @@ const DEMOTE_TO_REVEAL = new Set(['ch18-ex5', 'ch50-ex1'])
 // the prompt, NOT a union bank (the judge over-unioned these to 8-15 chips):
 const INLINE = new Set(['ch36-ex5', 'ch42-ex3', 'ch51-ex3', 'ch52-ex3'])
 // English-label classification banks (render plain, not italic Tongan):
-const LABELS = new Set(['ch18-ex1', 'ch38-ex4', 'ch41-ex1', 'ch44-ex1', 'ch50-ex2', 'ch50-ex7', 'ch52-ex5', 'ch53-ex1'])
+const LABELS = new Set(['ch18-ex1', 'ch38-ex4', 'ch41-ex1', 'ch44-ex1', 'ch50-ex2', 'ch50-ex7', 'ch52-ex5'])
 // Cleaned shared bank (judge bank had a capitalized near-dup "Kehe"):
 const BANK_OVERRIDE = { 'ch30-ex6': ["'ilonga", 'kae kehe', 'kehe ke', 'faifai', 'kehe'] }
 

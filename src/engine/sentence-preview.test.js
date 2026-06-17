@@ -10,7 +10,7 @@ import {
 import { getLivePreview } from './sentence-preview'
 
 // Drive a fresh walker to "Naʻa" (a past-tense marker).
-function startNaa(chapter = 53) {
+function startNaa(chapter = 52) {
   const s = createMultiWalker(chapter)
   const naa = getFirstWordOptions(s).groups
     .flatMap(g => g.words)
@@ -20,7 +20,7 @@ function startNaa(chapter = 53) {
 
 describe('sentence-preview: getLivePreview', () => {
   it('returns empty for a state with no walkers', () => {
-    expect(getLivePreview(createMultiWalker(53))).toBe('')
+    expect(getLivePreview(createMultiWalker(52))).toBe('')
     expect(getLivePreview(null)).toBe('')
     expect(getLivePreview({ walkers: [] })).toBe('')
   })

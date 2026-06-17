@@ -47,10 +47,10 @@ describe('Sentence Lab — verb→object selectional restrictions', () => {
 
   it('NO transitive verb yields an out-of-table object, across every object pattern', () => {
     for (const patternId of ['s03', 's04', 's23', 's39']) {
-      for (const verb of getOptionsForSlot(patternId, 'verb', {}, 53)) {
+      for (const verb of getOptionsForSlot(patternId, 'verb', {}, 52)) {
         const allowed = SEL.object_by_verb[verb.tongan]
         if (!allowed) continue // intransitive verbs in mixed pools are not constrained here
-        const objs = getOptionsForSlot(patternId, 'object', { verb }, 53).map((o) => objKey(o.english))
+        const objs = getOptionsForSlot(patternId, 'object', { verb }, 52).map((o) => objKey(o.english))
         for (const o of objs) expect(allowed, `${patternId} ${verb.tongan}→${o}`).toContain(o)
       }
     }

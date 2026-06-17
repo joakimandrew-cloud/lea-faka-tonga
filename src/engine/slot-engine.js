@@ -403,7 +403,7 @@ export function getAvailableSlots(patternId, filledSlots = {}) {
  * 2. Get vocabulary options for a specific slot, filtered by chapter and
  *    pronoun dependencies.
  */
-export function getOptionsForSlot(patternId, slotId, filledSlots = {}, maxChapter = 53) {
+export function getOptionsForSlot(patternId, slotId, filledSlots = {}, maxChapter = 52) {
   const pattern = getPattern(patternId)
   if (!pattern) return []
 
@@ -642,7 +642,7 @@ export function validateSentence(patternId, filledSlots) {
 /**
  * 5. Filter sentence-patterns.json by communicative intent and chapter.
  */
-export function getPatternsByCategory(category, subcategory = null, maxChapter = 53) {
+export function getPatternsByCategory(category, subcategory = null, maxChapter = 52) {
   return sentencePatterns.patterns.filter(p => {
     if (p.category !== category) return false
     if (subcategory !== null && p.subcategory !== subcategory) return false
@@ -655,7 +655,7 @@ export function getPatternsByCategory(category, subcategory = null, maxChapter =
  * 6. Get matching grammar notes for the current sentence state.
  *    Adapter: converts filledSlots → steps, then delegates to note-matcher.
  */
-export function getMatchingNotes(patternId, filledSlots, maxChapter = 53) {
+export function getMatchingNotes(patternId, filledSlots, maxChapter = 52) {
   const steps = slotsToSteps(patternId, filledSlots)
   return matchNotes(steps, maxChapter)
 }

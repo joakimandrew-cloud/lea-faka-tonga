@@ -51,10 +51,10 @@ const BOOK_DIR = path.join(REPO_ROOT, 'book')
 const AUDITS_DIR = path.join(REPO_ROOT, 'audits')
 const GRAMMAR_CONCEPTS = path.join(REPO_ROOT, 'spec', 'Grammar-Concepts-for-Students.md')
 
-const CHAPTER_COUNT = 53
+const CHAPTER_COUNT = 52
 
 // ── Chapter metadata (from Chapter-Inventory.md) ───────────────────────────
-// type per Chapter-Inventory Part 2 (14, 40, 53 = WORDS). NOTE: grammar-spec's
+// type per Chapter-Inventory Part 2 (14, 40 = WORDS). NOTE: grammar-spec's
 // Document-Status table additionally lists Ch 42 as "WORDS-only (no graph
 // changes)", contradicting Chapter-Inventory which marks 42 TEACH. Recorded as
 // a flagged discrepancy below; 42 is treated TEACH here (per the inventory).
@@ -78,9 +78,9 @@ const CHAPTER_TITLES = {
   43: "The Ta'e- Prefix and Advanced Negation", 44: 'The Definitive Accent System',
   45: 'Verbal Nouns', 46: 'Noun Classes', 47: 'Conditionals and Counterfactuals',
   48: 'Suffixes', 49: 'Prefixes', 50: 'Reduplication and Expressive Sound Devices',
-  51: 'Special Pronoun Uses', 52: 'Emotional Articles and Possessives', 53: 'The Language of Respect',
+  51: 'Special Pronoun Uses', 52: 'Emotional Articles and Possessives',
 }
-const WORDS_CHAPTERS = new Set([14, 40, 53]) // per Chapter-Inventory Part 2
+const WORDS_CHAPTERS = new Set([14, 40]) // per Chapter-Inventory Part 2
 
 // ── chapter -> grammar-spec §§ (curated from Document-Status + § titles) ────
 // Sections 1–15 map to the original-scope early chapters by TOPIC, not by
@@ -94,7 +94,7 @@ const CHAPTER_TO_SECTION = {
   23: [28], 24: [17], 25: [29], 26: [25], 27: [31], 28: [30], 29: [36], 30: [18],
   31: [32], 32: [37], 33: [38], 34: [39], 35: [33], 36: [19], 37: [40], 38: [34],
   39: [35], 40: [], 41: [41], 42: [], 43: [42], 44: [46], 45: [43], 46: [20],
-  47: [44], 48: [47], 49: [48], 50: [45], 51: [49], 52: [50], 53: [],
+  47: [44], 48: [47], 49: [48], 50: [45], 51: [49], 52: [50],
 }
 
 // Per-chapter routing notes (caveats the auditor should know).
@@ -108,7 +108,6 @@ const CHAPTER_NOTES = {
   14: 'WORDS chapter (greetings/social formulas) — no grammar-spec section.',
   40: 'WORDS chapter (spatial-noun vocabulary into existing ʻi he + noun) — no grammar-spec section.',
   42: 'CLASSIFICATION CONFLICT: Chapter-Inventory marks Ch 42 TEACH (talu/hilí time clauses); grammar-spec Document-Status lists 42 as WORDS-only. No dedicated grammar-spec section either way. Resolve in audit.',
-  53: 'WORDS chapter (language of respect / register) — no grammar-spec section. Churchward Ch. 36 (Language of Respect) is primary.',
 }
 
 // ── chapter -> derived topical corpora in source-materials/ ────────────────
@@ -125,7 +124,7 @@ const DERIVED_CORPUS = {
   37: ['Possessive-Class-Master.md'], 38: ['Function-Templates.md'],
   41: ['Idiom-Corpus.md'], 43: ['Negation-Paradigm.md', 'Idiom-Corpus.md'],
   45: ['Possessive-Class-Master.md'], 47: ['Function-Templates.md'],
-  50: ['Idiom-Corpus.md'], 53: ['Idiom-Corpus.md'],
+  50: ['Idiom-Corpus.md'],
 }
 // Parallel-Corpus.md is the aligned book<->source index — relevant everywhere.
 const GLOBAL_CORPUS = ['Parallel-Corpus.md']
@@ -146,7 +145,7 @@ const CHAPTER_TO_CHURCHWARD_TOPICAL = {
   32: [31], 33: [30, 16], 34: [29, 8], 35: [26], 36: [10, 19, 29],
   37: [20, 21], 38: [9, 11, 29], 39: [22, 23], 40: [16, 14], 41: [3, 29],
   42: [27, 8], 43: [31, 9], 44: [33], 45: [15, 14], 46: [14, 16], 47: [8],
-  48: [30], 49: [31], 50: [32, 35], 51: [18, 19, 29], 52: [4, 20, 29], 53: [36],
+  48: [30], 49: [31], 50: [32, 35], 51: [18, 19, 29], 52: [4, 20, 29],
 }
 
 // ── parse Grammar-Concepts: chapter -> concepts, churchward, shumway ───────
@@ -227,7 +226,7 @@ async function build() {
     const sections = CHAPTER_TO_SECTION[n] || []
     const conceptIds = sortedConceptIds(chapterConcepts.get(n))
     // Churchward routing: union the concept-derived chapters (explicit source
-    // citations, ≈Ch 1–29) with the curated topical map (covers all 53).
+    // citations, ≈Ch 1–29) with the curated topical map (covers all 52).
     const cwSet = new Set(chapterChurchward.get(n) || [])
     for (const x of (CHAPTER_TO_CHURCHWARD_TOPICAL[n] || [])) cwSet.add(x)
     const churchward = sortedNums(cwSet)
@@ -296,7 +295,7 @@ function renderMarkdown(map) {
   L.push('')
   L.push('Per-chapter routing for the Stage-1 source-fidelity auditor. Each chapter lists the grammar-spec §§ (the formal-rule statement to compare against), the Grammar Concepts it draws plain-English wording from, the Churchward chapters and Shumway lessons it was distilled from, the topical corpora to cross-check, and any source citations the chapter currently carries inline.')
   L.push('')
-  L.push('**Churchward routing provenance:** unioned from (a) explicit `**Sources:**` citations in `spec/Grammar-Concepts-for-Students.md` (covers ≈Ch 1–29) and (b) a curated topical map (book topic → Churchward chapter, via the Churchward chapter-title index) that covers all 53. grammar-spec.md carries NO source citations, so it is not a routing source. **Shumway** routing is concept-derived only (≈Ch 1–29); for advanced chapters grep Shumway by lesson goal-line. The auditor confirms exact §§/lessons by reading.')
+  L.push('**Churchward routing provenance:** unioned from (a) explicit `**Sources:**` citations in `spec/Grammar-Concepts-for-Students.md` (covers ≈Ch 1–29) and (b) a curated topical map (book topic → Churchward chapter, via the Churchward chapter-title index) that covers all 52. grammar-spec.md carries NO source citations, so it is not a routing source. **Shumway** routing is concept-derived only (≈Ch 1–29); for advanced chapters grep Shumway by lesson goal-line. The auditor confirms exact §§/lessons by reading.')
   L.push('')
   L.push('EALD dictionary (`source-materials/EALD-Dictionary.json`) is grepped on demand for any gloss and is not listed per-chapter. `Parallel-Corpus.md` is attached to every chapter (aligned book↔source index).')
   L.push('')

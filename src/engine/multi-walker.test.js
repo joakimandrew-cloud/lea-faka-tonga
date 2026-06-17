@@ -71,16 +71,16 @@ function findAndPickWord(state, tonganForm) {
 
 describe('multi-walker: createMultiWalker', () => {
   it('creates a state in PICKING_FIRST_WORD phase with no walkers', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     expect(state.phase).toBe(PHASE.PICKING_FIRST_WORD)
     expect(state.walkers).toEqual([])
-    expect(state.chapter).toBe(53)
+    expect(state.chapter).toBe(52)
   })
 })
 
 describe('multi-walker: getFirstWordOptions', () => {
   it('returns groups of first words', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     expect(groups.length).toBeGreaterThan(0)
 
@@ -94,7 +94,7 @@ describe('multi-walker: getFirstWordOptions', () => {
   })
 
   it('includes command verbs', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const allWords = groups.flatMap(g => g.words)
     const kai = allWords.find(item => item.word.tongan === 'Kai')
@@ -102,7 +102,7 @@ describe('multi-walker: getFirstWordOptions', () => {
   })
 
   it('excludes subordinate entry points', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const allWords = groups.flatMap(g => g.words)
     for (const item of allWords) {
@@ -115,7 +115,7 @@ describe('multi-walker: getFirstWordOptions', () => {
 
 describe('multi-walker: pickFirstWord', () => {
   it("'Oku creates multiple walkers", () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const oku = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === '\u02BBOku'
@@ -125,7 +125,7 @@ describe('multi-walker: pickFirstWord', () => {
   })
 
   it('Ko hai creates exactly 1 walker', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const kohai = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === 'Ko hai'
@@ -135,7 +135,7 @@ describe('multi-walker: pickFirstWord', () => {
   })
 
   it('Kai creates a command walker', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const kai = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === 'Kai'
@@ -147,7 +147,7 @@ describe('multi-walker: pickFirstWord', () => {
 
 describe('multi-walker: full sentence build', () => {
   it("builds 'Oku ou alu. and translates", () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const oku = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === '\u02BBOku'
@@ -173,7 +173,7 @@ describe('multi-walker: full sentence build', () => {
   })
 
   it('builds Kai! (command)', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const kai = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === 'Kai'
@@ -192,7 +192,7 @@ describe('multi-walker: full sentence build', () => {
   })
 
   it("builds 'Oku ou alu? (question)", () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const oku = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === '\u02BBOku'
@@ -217,7 +217,7 @@ describe('multi-walker: full sentence build', () => {
 
 describe('multi-walker: extension flow', () => {
   it("builds 'Oku ou alu + takes preposition extension", () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const oku = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === '\u02BBOku'
@@ -345,7 +345,7 @@ describe('multi-walker: TerminalBuilder picker order (user-reported regression)'
     // an arrow-right dance to reach the extensions. The fix: terminators
     // are prepended to the SAME "Add more" group, so up/down cycles
     // through [. ? + location + time ...] in one list.
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const firstWords = getFirstWordOptions(state)
     const oku = firstWords.groups
       .flatMap(g => g.words)
@@ -392,8 +392,8 @@ describe('multi-walker: TerminalBuilder picker order (user-reported regression)'
     // picking the first non-terminator item at each step until only
     // terminators remain. If no such state is reachable inside a small
     // budget we skip the assertion rather than fail (grammar may not
-    // allow it at Ch 53), but this test documents the intent.
-    let s = createMultiWalker(53)
+    // allow it at Ch 52), but this test documents the intent.
+    let s = createMultiWalker(52)
     const firstWords = getFirstWordOptions(s)
     const oku = firstWords.groups.flatMap(g => g.words)
       .find(item => item.word.tongan === '\u02BBOku')
@@ -453,7 +453,7 @@ describe('multi-walker: likelihood ordering (most-likely word leads)', () => {
   it('within the Verb category the most-frequent verb (ʻalu) leads', () => {
     // Branch into verb selection so verbs render as a word group, then check
     // the within-category frequency order.
-    const s = pickExtension(naaKu(53), 'verb')
+    const s = pickExtension(naaKu(52), 'verb')
     expect(s.phase).toBe(PHASE.PICKING_WORD)
     const verbGroup = getPickerData(s).groups.find(g => g.label === 'Verb')
     expect(verbGroup).toBeDefined()
@@ -466,7 +466,7 @@ describe('multi-walker: likelihood ordering (most-likely word leads)', () => {
 
   it('terminators still lead the continuation group after a verb (unchanged)', () => {
     // The likelihood sort must not disturb the "Finish at the top" rule.
-    let s = createMultiWalker(53)
+    let s = createMultiWalker(52)
     const oku = getFirstWordOptions(s).groups
       .flatMap(g => g.words)
       .find(item => item.word.tongan === 'ʻOku')
@@ -482,7 +482,7 @@ describe('multi-walker: likelihood ordering (most-likely word leads)', () => {
 
 describe('multi-walker: walker pruning', () => {
   it("walkers decrease as words narrow the path", () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     const { groups } = getFirstWordOptions(state)
     const oku = groups.flatMap(g => g.words).find(item =>
       item.word.tongan === '\u02BBOku'
@@ -551,9 +551,9 @@ describe('clause_connector_he — Tense Marker category merges all three branche
 
 describe('multi-walker: createMultiWalker is unchanged by the guided additions', () => {
   it('still returns exactly the plain shape with no entry-point category field', () => {
-    const state = createMultiWalker(53)
+    const state = createMultiWalker(52)
     expect(state).toEqual({
-      chapter: 53,
+      chapter: 52,
       walkers: [],
       phase: PHASE.PICKING_FIRST_WORD,
       activeCategory: null,
@@ -567,7 +567,7 @@ describe('multi-walker: createMultiWalker is unchanged by the guided additions',
 
 describe('multi-walker: getEntryPointCategories', () => {
   it('returns ordered sentence-type categories with label, blurb, and count', () => {
-    const cats = getEntryPointCategories(53)
+    const cats = getEntryPointCategories(52)
     const names = cats.map(c => c.category)
     expect(names).toContain('Statements')
     expect(names).toContain('Commands')
@@ -589,10 +589,10 @@ describe('multi-walker: getEntryPointCategories', () => {
 
   it('respects the chapter gate (early chapters expose fewer categories)', () => {
     const early = getEntryPointCategories(1).map(c => c.category)
-    const all = getEntryPointCategories(53).map(c => c.category)
+    const all = getEntryPointCategories(52).map(c => c.category)
     expect(early).toContain('Statements')
     // Ko Sentences first appear at Ch 12, so they're absent at Ch 1 but
-    // present by Ch 53.
+    // present by Ch 52.
     expect(early).not.toContain('Ko Sentences')
     expect(all).toContain('Ko Sentences')
   })
@@ -600,14 +600,14 @@ describe('multi-walker: getEntryPointCategories', () => {
 
 describe('multi-walker: createGuidedMultiWalker + pickEntryPointCategory', () => {
   it('opens on the skippable PICKING_ENTRY_POINT step', () => {
-    const state = createGuidedMultiWalker(53)
+    const state = createGuidedMultiWalker(52)
     expect(state.phase).toBe(PHASE.PICKING_ENTRY_POINT)
     expect(state.activeEntryPointCategory).toBe(null)
     expect(state.walkers).toEqual([])
   })
 
   it('picking a category filters first words to that category', () => {
-    const state = pickEntryPointCategory(createGuidedMultiWalker(53), 'Commands')
+    const state = pickEntryPointCategory(createGuidedMultiWalker(52), 'Commands')
     expect(state.phase).toBe(PHASE.PICKING_FIRST_WORD)
     expect(state.activeEntryPointCategory).toBe('Commands')
 
@@ -626,7 +626,7 @@ describe('multi-walker: createGuidedMultiWalker + pickEntryPointCategory', () =>
   })
 
   it('skipping (null category) leaves first words unfiltered', () => {
-    const skipped = pickEntryPointCategory(createGuidedMultiWalker(53), null)
+    const skipped = pickEntryPointCategory(createGuidedMultiWalker(52), null)
     expect(skipped.phase).toBe(PHASE.PICKING_FIRST_WORD)
     expect(skipped.activeEntryPointCategory).toBe(null)
 
@@ -643,7 +643,7 @@ describe('multi-walker: createGuidedMultiWalker + pickEntryPointCategory', () =>
     // Mirror the proven 'ʻOku ou ʻalu.' build, but through the guided
     // Statements filter — confirms the filtered first-word set still reaches
     // a finishable sentence and that getFinishedEntryPoint resolves it.
-    let state = pickEntryPointCategory(createGuidedMultiWalker(53), 'Statements')
+    let state = pickEntryPointCategory(createGuidedMultiWalker(52), 'Statements')
     const oku = getFirstWordOptions(state).groups
       .flatMap(g => g.words)
       .find(i => i.word.tongan === 'ʻOku')

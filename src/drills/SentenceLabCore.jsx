@@ -81,7 +81,7 @@ function ChipRow({ pattern, patternId, filledSlots, maxChapter, activeSlot, setA
 
 // ── Explore (free) mode — the originally-shipped Lab, unchanged in behaviour ──
 function ExploreLab({ chapterNum }) {
-  const maxChapter = chapterNum || 53
+  const maxChapter = chapterNum || 52
   const pattern = useMemo(() => pickPattern(chapterNum), [chapterNum])
   const patternId = pattern?.id
 
@@ -143,7 +143,7 @@ function ExploreLab({ chapterNum }) {
 
 // ── Test yourself (graded) mode — "make the sentence mean X" ────────────────
 function GradedLab({ chapterNum }) {
-  const maxChapter = chapterNum || 53
+  const maxChapter = chapterNum || 52
 
   const [round, setRound] = useState(() => newRound(maxChapter))
   const [filledSlots, setFilledSlots] = useState(() => round?.seedFill || {})

@@ -54,7 +54,7 @@ const APP_ROOT = path.resolve(__dirname, '..')
 const REPO_ROOT = path.resolve(APP_ROOT, '..')
 const BOOK_DIR = path.join(REPO_ROOT, 'book')
 const CHAPTERS_JSON = path.join(APP_ROOT, 'src/data/chapters.json')
-const EXPECTED_CHAPTER_COUNT = 53
+const EXPECTED_CHAPTER_COUNT = 52
 
 const EM_DASH = '—'
 

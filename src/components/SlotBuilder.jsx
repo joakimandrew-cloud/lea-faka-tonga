@@ -67,7 +67,7 @@ function displaySlotLabel(slot, filledSlots) {
 export default function SlotBuilder({
   patternId,
   initialFilledSlots = {},
-  maxChapter = 53,
+  maxChapter = 52,
   forceQuestion = false,
   onBack = null,
   onNext = null,

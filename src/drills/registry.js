@@ -49,7 +49,6 @@ import ClassifierExtendedPickerCore from './ClassifierExtendedPickerCore'
 import RelativeAiPickerCore from './RelativeAiPickerCore'
 import SuffixPickerCore from './SuffixPickerCore'
 import ReduplicationEffectSorterCore from './ReduplicationEffectSorterCore'
-import RegisterSorterCore from './RegisterSorterCore'
 import SubjectMarkerPickerCore from './SubjectMarkerPickerCore'
 import PronounObjectDropPickerCore from './PronounObjectDropPickerCore'
 import TimePairMatcherCore from './TimePairMatcherCore'
@@ -261,10 +260,6 @@ export const drillRegistry = {
   'reduplication-effect-sorter': {
     Core: ReduplicationEffectSorterCore,
     meta: { title: 'Reduplication Effect Sorter', blurb: 'Intensify / moderate / pluralize / shift word class.' },
-  },
-  'register-sorter': {
-    Core: RegisterSorterCore,
-    meta: { title: 'Register Sorter', blurb: 'Five vocabulary levels by social rank.' },
   },
   'subject-marker-picker': {
     Core: SubjectMarkerPickerCore,

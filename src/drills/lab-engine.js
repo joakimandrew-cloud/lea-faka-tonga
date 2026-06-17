@@ -34,7 +34,7 @@ export function translatesNaturally(patternId, maxChapter) {
 }
 
 export function pickPattern(chapterNum) {
-  const max = chapterNum || 53
+  const max = chapterNum || 52
   const taught = sentencePatterns.patterns.filter(
     (p) => (p.book_chapters || []).every((c) => c <= max)
   )

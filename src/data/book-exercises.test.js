@@ -20,8 +20,7 @@ describe('classification', () => {
     expect(ofType('transform').length).toBe(14)
   })
 
-  it('keeps the categorization/echo and compare exercises on reveal', () => {
-    expect(byId('ch53-ex1').type).toBe('free') // "identify the respect level" — echo, not a pairing
+  it('keeps the compare exercise on reveal', () => {
     expect(byId('ch46-ex5').type).toBe('free') // "explain the difference" — compare, not pick-one
   })
 })

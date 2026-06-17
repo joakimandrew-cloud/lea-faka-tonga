@@ -56,7 +56,7 @@ describe('graded-lab: English comparison', () => {
 })
 
 describe('graded-lab: newRound produces valid, solvable rounds', () => {
-  const CEILINGS = [19, 35, 38, 42, 46, 53]
+  const CEILINGS = [19, 35, 38, 42, 46, 52]
   for (const max of CEILINGS) {
     it(`Ch≤${max}: 40 rounds are composed, meaning-distinct, and solvable`, () => {
       const rng = mulberry32(500 + max)
@@ -97,11 +97,11 @@ describe('graded-lab: solvableTowards rejects an unreachable target', () => {
   it('returns false when the target English can never be produced', () => {
     const rng = mulberry32(3)
     let round = null
-    for (let a = 0; a < 20 && !round; a++) round = newRound(53, rng)
+    for (let a = 0; a < 20 && !round; a++) round = newRound(52, rng)
     expect(round).toBeTruthy()
     // A target English that the engine never emits is, by construction, unreachable.
     expect(
-      solvableTowards(round.patternId, round.seedFill, round.targetFill, 'this is not a tongan sentence meaning', 53)
+      solvableTowards(round.patternId, round.seedFill, round.targetFill, 'this is not a tongan sentence meaning', 52)
     ).toBe(false)
   })
 })

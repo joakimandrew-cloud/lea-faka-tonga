@@ -2426,11 +2426,11 @@ describe('Ch 50: expressive words', () => {
     expect(vocab.expressive_words.every(w => w.min_chapter === 50)).toBe(true)
   })
 
-  it('chapters.json has teaching content for Ch 53', () => {
+  it('chapters.json has teaching content for Ch 52', () => {
     const ch = require('../data/chapters.json')
-    const c53 = ch.find(c => c.chapter === 53)
-    expect(c53.teaching).toBeDefined()
-    expect(c53.teaching.key_rules.length).toBeGreaterThanOrEqual(3)
+    const c52 = ch.find(c => c.chapter === 52)
+    expect(c52.teaching).toBeDefined()
+    expect(c52.teaching.key_rules.length).toBeGreaterThanOrEqual(3)
   })
 })
 

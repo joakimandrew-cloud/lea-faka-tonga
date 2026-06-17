@@ -166,7 +166,7 @@ const ENTRY_CATEGORY_BLURBS = {
  * Create a fresh multi-walker state. No walkers yet — the user hasn't
  * picked a first word.
  */
-export function createMultiWalker(chapter = 53) {
+export function createMultiWalker(chapter = 52) {
   return {
     chapter,
     walkers: [],
@@ -183,7 +183,7 @@ export function createMultiWalker(chapter = 53) {
  * getFirstWordOptions filters to it. Because the plain createMultiWalker
  * never sets this field, the existing terminal builder is unaffected.
  */
-export function createGuidedMultiWalker(chapter = 53) {
+export function createGuidedMultiWalker(chapter = 52) {
   return {
     chapter,
     walkers: [],
@@ -824,7 +824,7 @@ export function setDefiniteness(state, flatStepIndex, level) {
 
 // ── Reset ───────────────────────────────────────────────────────────────
 
-export function resetMultiWalker(chapter = 53) {
+export function resetMultiWalker(chapter = 52) {
   return createMultiWalker(chapter)
 }
 
