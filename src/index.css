@@ -312,14 +312,8 @@ body::before {
 .brand-seal {
   width: 32px;
   height: 32px;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  color: var(--red);
   flex-shrink: 0;
-}
-
-.dark .brand-seal {
-  filter: invert(1);
-  mix-blend-mode: screen;
 }
 
 .brand-text {
