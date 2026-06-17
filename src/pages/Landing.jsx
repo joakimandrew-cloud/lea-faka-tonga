@@ -51,13 +51,15 @@ const moduleCards = [
 ]
 
 // Real screenshots of the live app, shown in the rotating hero preview window.
+// Order is paired to the slide at the same index: builder ↔ "your very first sentence" (1),
+// contents ↔ "52 chapters" (2), quiz ↔ "know why" (3), chapter ↔ "reads like a book" (5).
 // Captured from the running site (scripts/.. capture, one-off) into assets.
 const previews = [
-  { img: previewChapter,  caption: 'Read a chapter',          alt: 'A chapter on the live site' },
+  { img: previewBuilder,  caption: 'Build a sentence',        alt: 'The sentence builder' },
   { img: previewContents, caption: 'Browse all 52 chapters',  alt: 'The chapter contents' },
   { img: previewQuiz,     caption: 'Quiz · every answer explained', alt: 'A quiz question with the rule explained' },
   { img: previewCards,    caption: '649 vocab flip cards',    alt: 'The vocabulary flip cards' },
-  { img: previewBuilder,  caption: 'Build a sentence',        alt: 'The sentence builder' },
+  { img: previewChapter,  caption: 'Read a chapter',          alt: 'A chapter on the live site' },
 ]
 
 export default function Landing() {
