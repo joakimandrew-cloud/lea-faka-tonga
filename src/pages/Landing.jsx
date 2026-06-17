@@ -13,40 +13,40 @@ const slides = [
   {
     eyebrow: 'For the Tongan who can’t speak Tongan',
     headline: <>The language<br />of your <span className="accent">family.</span></>,
-    sub: 'The first complete, modern way to learn Tongan, from your very first sentence to real conversations. The whole thing is free and open: the book, every chapter, every drill. Support it if you can.',
-    provenance: 'The only complete Tongan course · The book is free',
+    sub: 'A complete Tongan course, free and open, from your very first sentence to real conversations. Every chapter, every drill, the whole book: free. Support it if you can.',
+    provenance: 'A complete course, free and open · the book is free too',
   },
   {
-    eyebrow: 'A complete arc, in progress',
-    headline: <>52 chapters.<br />One <span className="accent">grammar</span>,<br />built in the open.</>,
-    sub: 'From greetings to cleft constructions, chapter by chapter, published as it’s written, reviewed by fluent speakers as it grows.',
+    eyebrow: 'All 52 chapters, beginning to end',
+    headline: <>52 chapters.<br />The whole <span className="accent">grammar</span>,<br />start to finish.</>,
+    sub: 'From your first “hello” to holding a real conversation, one chapter at a time, checked by fluent speakers along the way.',
     provenance: 'Beginner to Advanced · 52 Chapters',
   },
   {
     eyebrow: 'Every answer teaches the rule',
-    headline: <>Told <span className="accent">why</span>,<br />not just<br />whether.</>,
+    headline: <>Know <span className="accent">why</span>,<br />not just<br />right or wrong.</>,
     sub: 'Every wrong answer explains the rule it broke. Every right answer shows why the others weren’t. No guessing, no streaks to protect.',
-    provenance: 'Explanations on every option',
+    provenance: 'Every answer explained · 520 questions',
   },
   {
-    eyebrow: 'Speakers, learners, everyone',
-    headline: <>Speakers,<br />come help.<br /><span className="accent">Learners, come learn.</span></>,
-    sub: 'Flag a typo, suggest a better example, request an exercise. Fluent speakers who review chapters get their names on the Roll of Keepers.',
-    provenance: 'Open to feedback · open to contributors',
+    eyebrow: 'Better every month',
+    headline: <>See something off?<br /><span className="accent">Tell us.</span></>,
+    sub: 'This course gets more accurate the more it’s read. Spot a typo or a better example? Flag it. The fluent speakers who check chapters are credited on the Roll of Keepers.',
+    provenance: 'Checked by fluent speakers · open to all',
   },
   {
     eyebrow: 'Reads like a book',
     headline: <>No streaks.<br />No notifications.<br /><span className="accent">Just the book.</span></>,
-    sub: 'Drills embedded in the chapter, not quarantined in a separate app. Set in a font built for Pacific orthography: macrons and saltillo, done right.',
+    sub: 'The practice lives right inside each chapter, not off in a separate app you have to switch to. And every accent mark in Tongan, the macrons and the ʻokina, is shown correctly, so you learn to read and write it the right way.',
     provenance: 'Reads like prose · not a game',
   },
 ]
 
 const moduleCards = [
-  { num: '01', title: 'Chapters',                       desc: 'Follow the full grammar arc step by step.',     action: 'Start',    to: '/chapters' },
+  { num: '01', title: 'Chapters',                       desc: 'Work through all 52 chapters, in order.',       action: 'Start',    to: '/chapters' },
   { num: '02', title: 'Exercises',                      desc: "Practice what you've learned in each chapter.", action: 'Practice', to: '/drills' },
-  { num: '03', title: 'Quizzes',                        desc: 'Test your understanding and track your progress.', action: 'Test',  to: '/quizzes' },
-  { num: '04', title: <>Vocab<br />Flip Cards</>,       desc: 'Build your vocabulary one card at a time.',     action: 'Flip',     to: '/cards' },
+  { num: '03', title: 'Quizzes',                        desc: 'Check what you know, and see why every answer is right or wrong.', action: 'Test',  to: '/quizzes' },
+  { num: '04', title: <>Vocab<br />Flip Cards</>,       desc: 'Build your vocabulary, 649 cards to flip through.', action: 'Flip',  to: '/cards' },
   { num: '05', title: <>Reference<br />Charts</>,       desc: 'Quick grammar lookup whenever you need it.',    action: 'Lookup',   to: '/charts' },
 ]
 
@@ -55,8 +55,8 @@ const moduleCards = [
 const previews = [
   { img: previewChapter,  caption: 'Read a chapter',          alt: 'A chapter on the live site' },
   { img: previewContents, caption: 'Browse all 52 chapters',  alt: 'The chapter contents' },
-  { img: previewQuiz,     caption: 'Quiz · told why',         alt: 'A quiz question with the rule explained' },
-  { img: previewCards,    caption: 'Flip cards · vocabulary', alt: 'The vocabulary flip cards' },
+  { img: previewQuiz,     caption: 'Quiz · every answer explained', alt: 'A quiz question with the rule explained' },
+  { img: previewCards,    caption: '649 vocab flip cards',    alt: 'The vocabulary flip cards' },
   { img: previewBuilder,  caption: 'Build a sentence',        alt: 'The sentence builder' },
 ]
 
@@ -128,7 +128,7 @@ export default function Landing() {
           </svg>
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">Free and open · 52 chapters · Beginner to advanced · Name your price to support</div>
+        <div className="top-sub">Learn Tongan, free · 52 chapters · beginner to advanced · name your price to support</div>
       </div>
 
       {/* ========== HERO CANVAS ========== */}
@@ -178,7 +178,7 @@ export default function Landing() {
 
             <div className="preview-cta">
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
-              <Link to="/chapters" className="cta-secondary">See the Contents</Link>
+              <Link to="/chapters" className="cta-secondary">See all 52 chapters</Link>
               <Link to="/support" className="cta-secondary">Support this work →</Link>
               <div className="cta-meta"><strong>The whole site is free · name your price to support</strong></div>
             </div>
@@ -191,7 +191,7 @@ export default function Landing() {
         <div>
           <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> The Community Edition</div>
           <div className="bottom-spec">
-            52 Chapters · Full Grammar Arc · Reviewed in the open
+            52 chapters · beginner to advanced · checked by fluent speakers
           </div>
         </div>
         <div className="cefr-badge">
@@ -234,7 +234,7 @@ export default function Landing() {
           </div>
 
           <div className="panel-colophon">
-            <div><strong>Lea Faka-Tonga</strong> · Edition v0.9 · 2026 · A work in progress</div>
+            <div><strong>Lea Faka-Tonga</strong> · 2026 · free and open, and still growing with help from its readers</div>
           </div>
         </div>
       </div>
