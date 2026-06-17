@@ -7,7 +7,7 @@ import previewQuiz from '../assets/previews/quiz.png'
 import previewCards from '../assets/previews/cards.png'
 import previewBuilder from '../assets/previews/builder-active.png'
 
-const INTERVAL = 7000
+const INTERVAL = 4500
 
 const slides = [
   {
@@ -133,31 +133,8 @@ export default function Landing() {
 
       {/* ========== HERO CANVAS ========== */}
       <div className="hero-canvas">
-        <svg className="geo desktop" viewBox="0 0 1440 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 720,0 0,654" fill="#5a5855">
-            <animate attributeName="fill" values="#5a5855;#54524f;#5a5855" dur="24s" repeatCount="indefinite" />
-          </polygon>
-          <polygon points="820,-30 1440,-30 1440,730 20,730" fill="#c8c3bc">
-            <animate attributeName="fill" values="#c8c3bc;#cdc8c1;#c8c3bc" dur="28s" repeatCount="indefinite" />
-          </polygon>
-          <polygon points="720,-30 840,-30 40,730 -80,730" fill="#ffffff" />
-          <polygon points="744,-30 768,-30 -32,730 -56,730" fill="#8a2e14" />
-          <polygon points="768,-30 792,-30 -8,730 -32,730" fill="#c24a1f" />
-          <polygon points="792,-30 816,-30 16,730 -8,730" fill="#e6653a" />
-        </svg>
-
-        <svg className="geo mobile" viewBox="0 0 400 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="0,0 400,0 400,116 0,404" fill="#5a5855">
-            <animate attributeName="fill" values="#5a5855;#54524f;#5a5855" dur="24s" repeatCount="indefinite" />
-          </polygon>
-          <polygon points="400,236 400,800 0,800 0,524" fill="#c8c3bc">
-            <animate attributeName="fill" values="#c8c3bc;#cdc8c1;#c8c3bc" dur="28s" repeatCount="indefinite" />
-          </polygon>
-          <polygon points="400,116 400,236 0,524 0,404" fill="#ffffff" />
-          <polygon points="400,140 400,164 0,452 0,428" fill="#e6653a" />
-          <polygon points="400,164 400,188 0,476 0,452" fill="#c24a1f" />
-          <polygon points="400,188 400,212 0,500 0,476" fill="#8a2e14" />
-        </svg>
+        {/* Diagonal wedge geometry removed 2026-06-17 — hero is now one solid colour
+            (legibility: small text was clashing across the multi-colour wedges). */}
 
         <div className="hero-overlay">
 
