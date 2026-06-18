@@ -104,6 +104,9 @@
   z-index: 5;
   display: flex;
   pointer-events: none;
+  /* On wide screens, hold the two columns in a centred band so they read as a
+     composed pair instead of flying to the far edges (0 effect at ≤1560px). */
+  padding-inline: max(0px, calc((100% - 1560px) / 2));
 }
 
 .v11-landing .hero-overlay-left {
@@ -150,7 +153,7 @@
 .v11-landing .slide-headline {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
-  font-size: clamp(2.5rem, 4.4vw, 4rem);
+  font-size: clamp(2.5rem, 4.6vw, 5rem);
   line-height: 0.92;
   text-transform: uppercase;
   letter-spacing: -0.015em;
@@ -856,7 +859,7 @@
    ============================================================ */
 .v11-landing .bottom-band {
   background: #ffffff;
-  padding: 22px 48px 20px;
+  padding: 22px max(48px, calc((100% - 1560px) / 2)) 20px;
   display: flex;
   align-items: center;
   gap: 40px;
@@ -984,6 +987,27 @@
   gap: 24px; flex-wrap: wrap;
 }
 .v11-landing .colophon strong { color: var(--ink); font-weight: 700; }
+
+/* Box section aligns to the same centred band as the hero (scoped — /drills
+   keeps the shared 1440 frame). */
+.v11-landing .panel-frame { max-width: 1560px; }
+
+/* ============================================================
+   LARGE SCREENS — fill the negative space, scale the lockup up
+   (27"/1440p+). Laptops and phones are untouched.
+   ============================================================ */
+@media (min-width: 1600px) {
+  .v11-landing .top-brand .logo-mark { width: 88px; height: 88px; }
+  .v11-landing .top-brand .wordmark { font-size: 80px; }
+  .v11-landing .top-sub { font-size: 17px; }
+
+  .v11-landing .hero-canvas { max-height: 660px; }
+  .v11-landing .hero-overlay-left { padding: 24px 24px 24px 8px; }
+  .v11-landing .hero-overlay-right { padding: 28px 8px 28px 80px; }
+  .v11-landing .preview-window { max-width: 760px; }
+  .v11-landing .slide-sub { font-size: 23px; line-height: 1.5; max-width: 460px; }
+  .v11-landing .slide-eyebrow { font-size: 13px; }
+}
 
 /* ============================================================
    RESPONSIVE
