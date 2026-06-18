@@ -14,40 +14,35 @@ const slides = [
     eyebrow: 'For the Tongan who can’t speak Tongan',
     headline: <>The language<br />of your <span className="accent">family.</span></>,
     sub: 'A complete Tongan course, free and open, from your very first sentence to real conversations. Every chapter, every drill, the whole book: free. Support it if you can.',
-    provenance: 'A complete course, free and open · the book is free too',
   },
   {
     eyebrow: 'All 52 chapters, beginning to end',
     headline: <>52 chapters.<br />The whole <span className="accent">grammar</span>,<br />start to finish.</>,
     sub: 'From your first “hello” to holding a real conversation, one chapter at a time, checked by fluent speakers along the way.',
-    provenance: 'Beginner to Advanced · 52 Chapters',
   },
   {
     eyebrow: 'Every answer teaches the rule',
     headline: <>Know <span className="accent">why</span>,<br />not just<br />right or wrong.</>,
     sub: 'Every wrong answer explains the rule it broke. Every right answer shows why the others weren’t. No guessing, no streaks to protect.',
-    provenance: 'Every answer explained · 520 questions',
   },
   {
     eyebrow: 'Better every month',
     headline: <>See something off?<br /><span className="accent">Tell us.</span></>,
     sub: 'This course gets more accurate the more it’s read. Spot a typo or a better example? Flag it. The fluent speakers who check chapters are credited on the Roll of Keepers.',
-    provenance: 'Checked by fluent speakers · open to all',
   },
   {
     eyebrow: 'Reads like a book',
     headline: <>No streaks.<br />No notifications.<br /><span className="accent">Just the book.</span></>,
     sub: 'The practice lives right inside each chapter, not off in a separate app you have to switch to. And every accent mark in Tongan, the macrons and the ʻokina, is shown correctly, so you learn to read and write it the right way.',
-    provenance: 'Reads like prose · not a game',
   },
 ]
 
 const moduleCards = [
-  { num: '01', title: 'Chapters',                       desc: 'Work through all 52 chapters, in order.',       action: 'Start',    to: '/chapters' },
-  { num: '02', title: 'Exercises',                      desc: "Practice what you've learned in each chapter.", action: 'Practice', to: '/drills' },
-  { num: '03', title: 'Quizzes',                        desc: 'Check what you know, and see why every answer is right or wrong.', action: 'Test',  to: '/quizzes' },
-  { num: '04', title: <>Vocab<br />Flip Cards</>,       desc: 'Build your vocabulary, 649 cards to flip through.', action: 'Flip',  to: '/cards' },
-  { num: '05', title: <>Reference<br />Charts</>,       desc: 'Quick grammar lookup whenever you need it.',    action: 'Lookup',   to: '/charts' },
+  { num: '01', title: 'Chapters',                 action: 'Start',    to: '/chapters' },
+  { num: '02', title: 'Exercises',                action: 'Practice', to: '/drills' },
+  { num: '03', title: 'Quizzes',                  action: 'Test',     to: '/quizzes' },
+  { num: '04', title: <>Vocab<br />Flip Cards</>, action: 'Flip',     to: '/cards' },
+  { num: '05', title: <>Reference<br />Charts</>, action: 'Lookup',   to: '/charts' },
 ]
 
 // Real screenshots of the live app, shown in the rotating hero preview window.
@@ -130,7 +125,7 @@ export default function Landing() {
           </svg>
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">Learn Tongan, free · 52 chapters · beginner to advanced · name your price to support</div>
+        <div className="top-sub">Learn Tongan · free and open</div>
       </div>
 
       {/* ========== HERO CANVAS ========== */}
@@ -151,7 +146,6 @@ export default function Landing() {
                   <span className="slide-eyebrow">{s.eyebrow}</span>
                   <h1 className="slide-headline">{s.headline}</h1>
                   <p className="slide-sub">{s.sub}</p>
-                  <span className="slide-provenance">{s.provenance}</span>
                 </div>
               ))}
             </div>
@@ -182,7 +176,6 @@ export default function Landing() {
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
               <Link to="/chapters" className="cta-secondary">See all 52 chapters</Link>
               <Link to="/support" className="cta-secondary">Support this work →</Link>
-              <div className="cta-meta"><strong>The whole site is free · name your price to support</strong></div>
             </div>
           </div>
         </div>
@@ -195,10 +188,6 @@ export default function Landing() {
           <div className="bottom-spec">
             52 chapters · beginner to advanced · checked by fluent speakers
           </div>
-        </div>
-        <div className="cefr-badge">
-          <div className="level">Full Arc</div>
-          <div className="scope">Beginner → Advanced</div>
         </div>
         <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>Free and open · name your price to support →</Link>
       </div>
@@ -224,7 +213,6 @@ export default function Landing() {
                   <span className="panel-card-num">{c.num}</span>
                   <div className="panel-card-center">
                     <div className="panel-card-title">{c.title}</div>
-                    <p className="panel-card-desc">{c.desc}</p>
                   </div>
                 </div>
                 <div className="panel-card-foot">
@@ -236,7 +224,7 @@ export default function Landing() {
           </div>
 
           <div className="panel-colophon">
-            <div><strong>Lea Faka-Tonga</strong> · 2026 · free and open, and still growing with help from its readers</div>
+            <div><strong>Lea Faka-Tonga</strong> · 2026</div>
             <Link to="/report" style={{ color: 'var(--red)', textDecoration: 'none' }}>Spot a mistake? Tell us →</Link>
           </div>
         </div>
