@@ -63,23 +63,23 @@ export default function ReportIssue() {
     if (CORRECTION_ENDPOINT) {
       const isKey = !/^https?:\/\//i.test(CORRECTION_ENDPOINT)
       const url = isKey ? 'https://api.web3forms.com/submit' : CORRECTION_ENDPOINT
-      const payload = {
-        ...(isKey ? { access_key: CORRECTION_ENDPOINT } : {}),
-        subject: 'Lea Faka-Tonga correction' + (form.where.trim() ? `: ${form.where.trim()}` : ''),
-        from_name: form.name.trim() || 'Anonymous reader',
-        name: form.name.trim(),
-        email: form.email.trim(),
-        where: form.where.trim(),
-        issue: form.issue.trim(),
-        suggested_fix: form.fix.trim(),
-      }
+      // Send as FormData (a CORS "simple request"): a JSON body forces a preflight
+      // OPTIONS that Web3Forms 404s, which would silently push every submit into the
+      // mailto fallback. FormData posts directly, no preflight.
+      const fd = new FormData()
+      if (isKey) fd.append('access_key', CORRECTION_ENDPOINT)
+      fd.append('subject', 'Lea Faka-Tonga correction' + (form.where.trim() ? `: ${form.where.trim()}` : ''))
+      fd.append('from_name', form.name.trim() || 'Anonymous reader')
+      fd.append('name', form.name.trim())
+      fd.append('email', form.email.trim())
+      fd.append('where', form.where.trim())
+      fd.append('issue', form.issue.trim())
+      fd.append('suggested_fix', form.fix.trim())
       try {
         setSending(true)
-        await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(payload),
-        })
+        const res = await fetch(url, { method: 'POST', headers: { Accept: 'application/json' }, body: fd })
+        const data = await res.json().catch(() => ({}))
+        if (!res.ok || data.success === false) throw new Error('submit rejected')
         setSent(true)
       } catch {
         window.location.href = mailtoHref() // fall back to the visitor's mail app
