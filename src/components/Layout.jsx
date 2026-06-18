@@ -129,18 +129,19 @@ export default function Layout() {
             <div className="site-header-context">
               <button
                 onClick={() => navigate(backTo)}
-                className="back-link text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
+                className="back-link cursor-pointer"
               >
                 &larr; Back
               </button>
-              {currentChapterNum ? (
-                <span className="ch-chip">Ch {currentChapterNum}</span>
-              ) : currentQuizNum ? (
-                <span className="ch-chip">Ch {currentQuizNum} Quiz</span>
-              ) : (
+              {/* On a chapter page the chapter is already obvious (big number in
+                  the body + active in the sidebar), so "← Back" stands alone.
+                  Other sub-pages keep a quiet serif label for orientation. */}
+              {!currentChapterNum && (
                 <>
-                  <span className="text-[var(--border)]">/</span>
-                  <span className="text-[var(--text-muted)] text-xs md:text-sm">{breadcrumbLabel}</span>
+                  <span className="context-sep" aria-hidden="true">/</span>
+                  <span className="context-label">
+                    {currentQuizNum ? `Chapter ${currentQuizNum} Quiz` : breadcrumbLabel}
+                  </span>
                 </>
               )}
             </div>
