@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/v11-landing.css'
-import previewChapter from '../assets/previews/chapter.png'
-import previewContents from '../assets/previews/contents.png'
-import previewQuiz from '../assets/previews/quiz.png'
-import previewCards from '../assets/previews/cards.png'
-import previewBuilder from '../assets/previews/builder-active.png'
 
 const INTERVAL = 4500
+
+// The whole book is free to download (real files in public/downloads/).
+const BOOK_PDF = `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.pdf`
+const BOOK_EPUB = `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.epub`
+
+// Founding Supporter — Buy Me a Coffee. $35+ locks lifetime access (first 100).
+const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
 
 const slides = [
   {
@@ -43,18 +45,6 @@ const moduleCards = [
   { num: '03', title: 'Quizzes',                  action: 'Test',     to: '/quizzes' },
   { num: '04', title: <>Vocab<br />Flip Cards</>, action: 'Flip',     to: '/cards' },
   { num: '05', title: <>Reference<br />Charts</>, action: 'Lookup',   to: '/charts' },
-]
-
-// Real screenshots of the live app, shown in the rotating hero preview window.
-// Order is paired to the slide at the same index: builder ↔ "your very first sentence" (1),
-// contents ↔ "52 chapters" (2), quiz ↔ "know why" (3), chapter ↔ "reads like a book" (5).
-// Captured from the running site (scripts/.. capture, one-off) into assets.
-const previews = [
-  { img: previewBuilder,  caption: 'Build a sentence',        alt: 'The sentence builder' },
-  { img: previewContents, caption: 'Browse all 52 chapters',  alt: 'The chapter contents' },
-  { img: previewQuiz,     caption: 'Quiz · every answer explained', alt: 'A quiz question with the rule explained' },
-  { img: previewCards,    caption: '649 vocab flip cards',    alt: 'The vocabulary flip cards' },
-  { img: previewChapter,  caption: 'Read a chapter',          alt: 'A chapter on the live site' },
 ]
 
 export default function Landing() {
@@ -161,21 +151,27 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* RIGHT: preview mockups */}
+          {/* RIGHT: free-book download + Founding Supporter panel */}
           <div className="hero-overlay-right">
-            <div className="preview-window">
-              {previews.map((p, i) => (
-                <div key={p.alt} className={`preview-frame${current === i ? ' active' : ''}`}>
-                  <img className="preview-shot" src={p.img} alt={p.alt} />
-                  <div className="preview-caption">{p.caption}</div>
+            <div className="hero-panel">
+              <div className="hero-panel-zone hero-panel-free">
+                <span className="hero-panel-label">The whole book · free</span>
+                <h2 className="hero-panel-title">Download the book, free</h2>
+                <div className="hero-panel-actions">
+                  <a href={BOOK_PDF} download className="cta-btn">Download PDF <span className="arrow">→</span></a>
+                  <a href={BOOK_EPUB} download className="cta-secondary">EPUB for e-readers</a>
                 </div>
-              ))}
+              </div>
+              <div className="hero-panel-zone hero-panel-found">
+                <span className="hero-panel-label">Founding Supporter</span>
+                <p className="hero-panel-line">Give <strong>$35 or more</strong> and lock in <strong>lifetime access</strong> — the first 100 supporters, before the site moves to membership.</p>
+                <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="cta-btn cta-bmc">Become a Founding Supporter <span className="arrow">→</span></a>
+              </div>
             </div>
 
             <div className="preview-cta">
               <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
               <Link to="/chapters" className="cta-secondary">See all 52 chapters</Link>
-              <Link to="/support" className="cta-secondary">Support this work →</Link>
             </div>
           </div>
         </div>

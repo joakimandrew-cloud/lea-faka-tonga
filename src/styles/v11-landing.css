@@ -844,6 +844,57 @@
 }
 .v11-landing .cta-secondary:hover { background: var(--ink); color: var(--cream-light); }
 
+/* ---- Hero right panel: free-book download + Founding Supporter ----
+   Replaces the old rotating preview window. Plate styling mirrors that window
+   for continuity: white "free book" zone on top, dark founding-supporter zone
+   below, a red action in each. */
+.v11-landing .hero-panel {
+  width: 100%;
+  max-width: 560px;
+  background: var(--cream-light);
+  border: 4px solid var(--ink);
+  box-shadow:
+    0 2px 0 var(--ink),
+    0 30px 60px rgba(26,22,18,0.45),
+    0 12px 24px rgba(26,22,18,0.25);
+  display: flex;
+  flex-direction: column;
+}
+.v11-landing .hero-panel-zone { padding: 22px 30px; }
+.v11-landing .hero-panel-found { background: var(--ink); }
+.v11-landing .hero-panel-label {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+.v11-landing .hero-panel-found .hero-panel-label { color: var(--red-light); }
+.v11-landing .hero-panel-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.v11-landing .hero-panel-line {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #3a352f;
+  margin-bottom: 16px;
+}
+.v11-landing .hero-panel-found .hero-panel-line { color: #e9e5dd; }
+.v11-landing .hero-panel-found .hero-panel-line strong { color: #ffffff; }
+.v11-landing .hero-panel-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.v11-landing .cta-bmc { background: var(--red); border-color: var(--red-dark); }
+.v11-landing .cta-bmc:hover { background: var(--red-dark); }
+
 .v11-landing .cta-meta {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 500;
@@ -1005,6 +1056,7 @@
   .v11-landing .hero-overlay-left { padding: 24px 24px 24px 8px; }
   .v11-landing .hero-overlay-right { padding: 28px 8px 28px 80px; }
   .v11-landing .preview-window { max-width: 760px; }
+  .v11-landing .hero-panel { max-width: 600px; }
   .v11-landing .slide-sub { font-size: 23px; line-height: 1.5; max-width: 460px; }
   .v11-landing .slide-eyebrow { font-size: 13px; }
 }
@@ -1014,6 +1066,7 @@
    ============================================================ */
 @media (max-width: 1200px) {
   .v11-landing .preview-window { max-width: 600px; }
+  .v11-landing .hero-panel { max-width: 520px; }
   .v11-landing .hero-overlay-left { width: 36%; }
   .v11-landing .hero-overlay-right { width: 64%; padding: 40px 32px 40px 160px; }
 }
@@ -1021,6 +1074,7 @@
   .v11-landing .hero-overlay-left { width: 44%; padding: 32px 16px 32px 32px; }
   .v11-landing .hero-overlay-right { width: 56%; padding: 32px 24px 32px 80px; }
   .v11-landing .preview-window { max-width: 460px; }
+  .v11-landing .hero-panel { max-width: 440px; }
   .v11-landing .top-band { padding: 34px 32px 28px; }
   .v11-landing .bottom-band { padding: 34px 32px 28px; }
   .v11-landing .top-brand .wordmark { font-size: 56px; }
@@ -1054,6 +1108,7 @@
     width: 100%;
     min-height: 0;
   }
+  .v11-landing .hero-panel { max-width: 100%; }
   .v11-landing .badge-52 { right: 16px; top: -14px; min-width: 90px; }
   .v11-landing .badge-52 .num { font-size: 28px; }
   .v11-landing .hero-canvas { height: auto; min-height: 0; max-height: none; }
