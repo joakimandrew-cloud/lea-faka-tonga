@@ -192,8 +192,11 @@ export default function Landing() {
         <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>Free and open · name your price to support →</Link>
       </div>
 
+      {/* ========== Horizontal red-stripe split: white band → grey box field ========== */}
+      <div className="section-split-grey" aria-hidden="true" />
+
       {/* ========== § 01 · Five Ways In — light panel ========== */}
-      <div className="panel-section">
+      <div className="panel-section panel-section-grey">
         <div className="panel-frame">
           <div className="panel-cards cards-5">
             {moduleCards.map((c, i) => (
