@@ -88,7 +88,7 @@ const FAQ = [
   { q: 'I can’t afford anything.',
     a: 'Then take it all for free, that’s the whole point. The book is yours, the website is open, nothing is held back. Give nothing, or give $0 at the supporter link just to join the founders list. Tauhi ʻa e lea, keep the language.' },
   { q: 'I found a mistake.',
-    a: 'Good, tell us. The site is built in the open and still being polished, and every correction makes it better for the next family. There is a “tell us” link on the support card; it comes straight to us.' },
+    a: 'Good, tell us. The site is built in the open and still being polished, and every correction makes it better for the next family. There is a “Spot a mistake? Tell us” page with a short form for exactly this: where it is, what is wrong, and how you would fix it. The link is on the support card just below, and it comes straight to us.' },
 ]
 
 const Logo = () => (
@@ -320,7 +320,7 @@ export default function Offer() {
 
           <div className="offer-keepers-link">
             <Link to="/keepers" className="cta-secondary">See the Roll of Keepers →</Link>
-            <a href={LINKS.correction} className="cta-secondary">Spot a mistake? Tell us →</a>
+            <Link to="/report" className="cta-secondary">Spot a mistake? Tell us →</Link>
           </div>
 
           <p className="offer-guardrail">

@@ -237,6 +237,7 @@ export default function Landing() {
 
           <div className="panel-colophon">
             <div><strong>Lea Faka-Tonga</strong> · 2026 · free and open, and still growing with help from its readers</div>
+            <Link to="/report" style={{ color: 'var(--red)', textDecoration: 'none' }}>Spot a mistake? Tell us →</Link>
           </div>
         </div>
       </div>

@@ -25,6 +25,7 @@ import AccentPlacementPicker from './pages/AccentPlacementPicker'
 import VerbalNounConverter from './pages/VerbalNounConverter'
 import DrillsMenu from './pages/DrillsMenu'
 import DrillPage from './pages/DrillPage'
+import ReportIssue from './pages/ReportIssue'
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/support" element={<Offer />} />
           <Route path="/quiz" element={<GrandmotherQuiz />} />
           <Route path="/keepers" element={<Keepers />} />
+          <Route path="/report" element={<ReportIssue />} />
           <Route path="/chapters" element={<ChapterBrowser />} />
           <Route element={<Layout />}>
             <Route path="/chapters/:num" element={<ChapterPractice />} />
