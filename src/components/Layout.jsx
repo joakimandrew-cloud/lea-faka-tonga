@@ -152,6 +152,16 @@ export default function Layout() {
           <Outlet />
         </main>
 
+        {/* ── Footer: a quiet report-a-mistake path on every content page ── */}
+        <footer className="max-w-3xl mx-auto px-8 pt-6 pb-10 mt-6 border-t border-[var(--border)] text-center">
+          <button
+            onClick={() => navigate('/report')}
+            className="text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
+          >
+            Spot a mistake? Tell us &rarr;
+          </button>
+        </footer>
+
       </div>
     </div>
   )
