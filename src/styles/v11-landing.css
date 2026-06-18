@@ -40,7 +40,7 @@
    ============================================================ */
 .v11-landing .top-band {
   background: #ffffff;
-  padding: 45px 48px 39px;
+  padding: 28px 48px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,13 +55,13 @@
   margin-bottom: 14px;
 }
 .v11-landing .top-brand .logo-mark {
-  width: 88px; height: 88px;
+  width: 64px; height: 64px;
   color: var(--red);
 }
 .v11-landing .top-brand .wordmark {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
-  font-size: 76px;
+  font-size: 56px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1;
@@ -82,9 +82,9 @@
 .v11-landing .hero-canvas {
   position: relative;
   width: 100%;
-  height: 78vh;
-  min-height: 640px;
-  max-height: 820px;
+  height: 52vh;
+  min-height: 430px;
+  max-height: 560px;
   overflow: hidden;
   background: var(--bg);
 }
@@ -111,11 +111,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 32px 24px 32px 56px;
+  padding: 24px 24px 24px 56px;
   pointer-events: auto;
 }
 
-.v11-landing .hero-slides { position: relative; min-height: 280px; }
+.v11-landing .hero-slides { position: relative; min-height: 220px; }
 .v11-landing .hero-slide {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -145,17 +145,17 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 6px 13px;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 .v11-landing .slide-headline {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
-  font-size: clamp(3rem, 5.4vw, 5rem);
-  line-height: 0.9;
+  font-size: clamp(2.5rem, 4.4vw, 4rem);
+  line-height: 0.92;
   text-transform: uppercase;
   letter-spacing: -0.015em;
   color: var(--ink);
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   max-width: 15ch;
 }
 .v11-landing .slide-headline .accent {
@@ -209,7 +209,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  padding: 40px 32px 40px 190px;
+  padding: 28px 32px 28px 110px;
   pointer-events: auto;
   position: relative;
 }
@@ -219,9 +219,9 @@
    ============================================================ */
 .v11-landing .preview-window {
   width: 100%;
-  max-width: 720px;
+  max-width: 560px;
   aspect-ratio: 16 / 10.5;
-  min-height: 420px;
+  min-height: 320px;
   position: relative;
   z-index: 2;
   overflow: hidden;
@@ -856,7 +856,7 @@
    ============================================================ */
 .v11-landing .bottom-band {
   background: #ffffff;
-  padding: 45px 48px 39px;
+  padding: 22px 48px 20px;
   display: flex;
   align-items: center;
   gap: 40px;
@@ -925,10 +925,16 @@
 /* DARK SECTION block removed — superseded by .panel-section in v11-components.css */
 
 /* The "§ 01 · Five Ways In" white strip was removed 2026-06-18 so the white
-   bottom-band meets the black cards block directly; restore the top breathing
-   room the strip's margin used to give the cards (landing only — /drills keeps
-   its section bar). */
-.v11-landing .panel-cards { padding-top: 48px; }
+   bottom-band meets the black cards block directly. The five nav boxes were
+   then recomposed (2026-06-18) into a compact black strip — numbers removed,
+   tiles shortened — so they clear the fold on desktop. All scoped to
+   .v11-landing; /drills keeps the full-height cards + its section bar. */
+.v11-landing .panel-cards { padding-top: 30px; }
+.v11-landing .panel-card { min-height: 132px; }
+.v11-landing .panel-card-body { padding: 16px 18px; justify-content: center; }
+.v11-landing .panel-card-center { padding: 2px 0; gap: 0; }
+.v11-landing .panel-card-title { font-size: clamp(22px, 2vw, 28px); }
+.v11-landing .panel-card-foot { padding: 9px 16px; }
 
 /* Light-mode colophon used inside the new .panel-section on the landing page. */
 .v11-landing .colophon {

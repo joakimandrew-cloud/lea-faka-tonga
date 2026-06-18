@@ -205,7 +205,6 @@ export default function Landing() {
               >
                 <span className="panel-card-stripe" aria-hidden="true" />
                 <div className="panel-card-body">
-                  <span className="panel-card-num">{c.num}</span>
                   <div className="panel-card-center">
                     <div className="panel-card-title">{c.title}</div>
                   </div>
