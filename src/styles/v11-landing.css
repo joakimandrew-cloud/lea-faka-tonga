@@ -924,6 +924,12 @@
 
 /* DARK SECTION block removed — superseded by .panel-section in v11-components.css */
 
+/* The "§ 01 · Five Ways In" white strip was removed 2026-06-18 so the white
+   bottom-band meets the black cards block directly; restore the top breathing
+   room the strip's margin used to give the cards (landing only — /drills keeps
+   its section bar). */
+.v11-landing .panel-cards { padding-top: 48px; }
+
 /* Light-mode colophon used inside the new .panel-section on the landing page. */
 .v11-landing .colophon {
   padding: 24px 0 40px;

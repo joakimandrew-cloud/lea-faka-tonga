@@ -195,11 +195,6 @@ export default function Landing() {
       {/* ========== § 01 · Five Ways In — light panel ========== */}
       <div className="panel-section">
         <div className="panel-frame">
-          <div className="panel-section-bar" style={{ marginTop: 0 }}>
-            <span>§ 01 · Five Ways In</span>
-            <span className="right">Choose where to begin</span>
-          </div>
-
           <div className="panel-cards cards-5">
             {moduleCards.map((c, i) => (
               <Link
