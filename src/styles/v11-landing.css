@@ -1061,9 +1061,11 @@
 .v11-landing .panel-section-grey .panel-card-c1 .panel-card-title,
 .v11-landing .panel-section-grey .panel-card-c3 .panel-card-title,
 .v11-landing .panel-section-grey .panel-card-c5 .panel-card-title { color:#ffffff; }
-/* hover: outline boxes fill ink — the EXPLORE state */
+/* hover: red fill (uniform, on-brand) — every box reacts (black + white alike),
+   the box + border go brand red and the label goes white. ~0.22s transition. */
+.v11-landing .panel-section-grey .panel-card { transition: background-color .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease; }
 .v11-landing .panel-section-grey .panel-card:hover,
-.v11-landing .panel-section-grey .panel-card:focus-visible { background: var(--ink); border-color: var(--ink); box-shadow:none; transform:none; }
+.v11-landing .panel-section-grey .panel-card:focus-visible { background: var(--red); border-color: var(--red); box-shadow:none; transform:none; }
 .v11-landing .panel-section-grey .panel-card:hover .panel-card-title,
 .v11-landing .panel-section-grey .panel-card:focus-visible .panel-card-title { color:#ffffff; }
 .v11-landing .panel-section-grey .panel-colophon { color: var(--mid); }
