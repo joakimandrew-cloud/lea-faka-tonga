@@ -1013,10 +1013,12 @@
 .v11-landing .panel-card-title { font-size: clamp(22px, 2vw, 28px); }
 .v11-landing .panel-card-foot { padding: 9px 16px; }
 
-/* ---- PREVIEW (2026-06-18): grey box field + horizontal red-stripe split ----
-   Bottom section becomes mid-grey; the five boxes go black; three horizontal
-   red stripes separate the white band above from the grey field. Scoped to
-   the landing. */
+/* ---- Box field: white + alternating black/white boxes (Variant E, 2026-06-19) ----
+   The horizontal three-red stripe split (.section-split-grey) stays as the
+   divider; below it the field is now WHITE and the five nav boxes alternate
+   solid-ink / white-outline with wide-tracked labels — a monochrome homage to
+   the owner's example.png (EXPLORE filled / BUILD outline). Scoped to the
+   landing; /drills keeps the shared dark .panel-section. */
 .v11-landing .section-split-grey {
   width: 100%;
   height: 64px;         /* book-matched, half-size: 16px stripes + 4px white strips (4:1 ratio), horizontal */
@@ -1031,29 +1033,46 @@
     #ffffff 60px 64px     /* white strip   */
   );
 }
-.v11-landing .panel-section-grey {
-  --grey-field: #5a5855;          /* VARIANT A: mid grey (old --dark-wedge) */
-  background: var(--grey-field);
-  border-top: none;
-}
-.v11-landing .panel-section-grey .panel-cards { padding-top: 26px; }
-/* black boxes on the grey field */
+.v11-landing .panel-section-grey { background:#ffffff; border-top:none; }
+.v11-landing .panel-section-grey .panel-cards { padding-top:48px; padding-bottom:52px; column-gap:24px; row-gap:24px; }
 .v11-landing .panel-section-grey .panel-card {
-  background: #15110d;
-  border-color: #3a342d;
+  background:#ffffff;
+  border:2px solid var(--ink);
+  min-height:150px;
+  box-shadow:none;
 }
-.v11-landing .panel-section-grey .panel-card-foot {
-  background: #0d0a08;
-  border-top-color: #2a2520;
+.v11-landing .panel-section-grey .panel-card-stripe { display:none; }
+.v11-landing .panel-section-grey .panel-card-foot { display:none; }   /* no foot — the label is the whole story */
+.v11-landing .panel-section-grey .panel-card-body { padding:0; }
+.v11-landing .panel-section-grey .panel-card-center { padding:20px 14px; }
+.v11-landing .panel-section-grey .panel-card-title {
+  color: var(--ink);
+  font-family:'Inter', sans-serif;     /* wide grotesque, tracked — the example's feel */
+  font-weight:800;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height:1.18;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
 }
+/* alternating fill/outline across the row — EXPLORE / BUILD, literally */
+.v11-landing .panel-section-grey .panel-card-c1,
+.v11-landing .panel-section-grey .panel-card-c3,
+.v11-landing .panel-section-grey .panel-card-c5 { background: var(--ink); border-color: var(--ink); }
+.v11-landing .panel-section-grey .panel-card-c1 .panel-card-title,
+.v11-landing .panel-section-grey .panel-card-c3 .panel-card-title,
+.v11-landing .panel-section-grey .panel-card-c5 .panel-card-title { color:#ffffff; }
+/* hover: outline boxes fill ink — the EXPLORE state */
 .v11-landing .panel-section-grey .panel-card:hover,
-.v11-landing .panel-section-grey .panel-card:focus-visible {
-  border-color: var(--red);
-  box-shadow: 0 18px 44px rgba(26,22,18,0.4);
+.v11-landing .panel-section-grey .panel-card:focus-visible { background: var(--ink); border-color: var(--ink); box-shadow:none; transform:none; }
+.v11-landing .panel-section-grey .panel-card:hover .panel-card-title,
+.v11-landing .panel-section-grey .panel-card:focus-visible .panel-card-title { color:#ffffff; }
+.v11-landing .panel-section-grey .panel-colophon { color: var(--mid); }
+.v11-landing .panel-section-grey .panel-colophon strong { color: var(--ink); }
+/* phones: keep the boxes compact (don't regress the 2026-06-16 mobile declutter) */
+@media (max-width:640px) {
+  .v11-landing .panel-section-grey .panel-card { min-height:88px; }
+  .v11-landing .panel-section-grey .panel-card-center { padding:14px 12px; }
 }
-/* colophon legible on the grey field */
-.v11-landing .panel-section-grey .panel-colophon { color: #efece6; }
-.v11-landing .panel-section-grey .panel-colophon strong { color: #ffffff; }
 
 /* Light-mode colophon used inside the new .panel-section on the landing page. */
 .v11-landing .colophon {
