@@ -1019,12 +1019,16 @@
    the landing. */
 .v11-landing .section-split-grey {
   width: 100%;
-  height: 18px;
+  height: 64px;         /* book-matched, half-size: 16px stripes + 4px white strips (4:1 ratio), horizontal */
   background: linear-gradient(
     to bottom,
-    #8a2e14 0 6px,      /* red-dark  */
-    #c24a1f 6px 12px,   /* red       */
-    #e6653a 12px 18px   /* red-light */
+    #ffffff 0 4px,        /* white strip   */
+    #8a2e14 4px 20px,     /* red-dark  (16) */
+    #ffffff 20px 24px,    /* white strip   */
+    #c24a1f 24px 40px,    /* red       (16) */
+    #ffffff 40px 44px,    /* white strip   */
+    #e6653a 44px 60px,    /* red-light (16) */
+    #ffffff 60px 64px     /* white strip   */
   );
 }
 .v11-landing .panel-section-grey {
