@@ -218,6 +218,29 @@
 }
 
 /* ============================================================
+   HERO BOOK — standing-cover preview in the gap between the
+   rotating claim (left) and the download panel (right).
+   z-index 4 sits under the overlay (5) so any overlap with the
+   panel tucks gracefully behind it. Desktop only; hidden once the
+   columns tighten (<=1100px) and when the hero stacks (<=768px).
+   ============================================================ */
+.v11-landing .hero-book {
+  position: absolute;
+  left: 46%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(170px, 17vw, 285px);
+  height: auto;
+  z-index: 4;
+  display: block;
+  filter: drop-shadow(0 20px 32px rgba(26, 22, 18, 0.20));
+  transition: transform 0.3s ease;
+}
+.v11-landing .hero-book img { display: block; width: 100%; height: auto; }
+.v11-landing .hero-book:hover { transform: translate(-50%, -50%) translateY(-5px); }
+@media (max-width: 1100px) { .v11-landing .hero-book { display: none; } }
+
+/* ============================================================
    PREVIEW WINDOW — cream-bordered plate on dark interior
    ============================================================ */
 .v11-landing .preview-window {

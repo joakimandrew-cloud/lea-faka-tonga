@@ -123,6 +123,11 @@ export default function Landing() {
         {/* Diagonal wedge geometry removed 2026-06-17 — hero is now one solid colour
             (legibility: small text was clashing across the multi-colour wedges). */}
 
+        {/* Standing-book preview — sits in the hero gap, links to the free PDF */}
+        <a className="hero-book" href={BOOK_PDF} download aria-label="Download the free book — PDF">
+          <img src={`${import.meta.env.BASE_URL}cover-standing.png`} alt="Lea Faka-Tonga, the book, standing upright" />
+        </a>
+
         <div className="hero-overlay">
 
           {/* LEFT: rotating claim text */}
