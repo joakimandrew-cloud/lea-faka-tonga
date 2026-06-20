@@ -6,7 +6,6 @@ const INTERVAL = 4500
 
 // The whole book is free to download (real files in public/downloads/).
 const BOOK_PDF = `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.pdf`
-const BOOK_EPUB = `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.epub`
 
 // Founding Supporter — Buy Me a Coffee. $35+ locks lifetime access (first 100).
 const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
@@ -47,9 +46,26 @@ const moduleCards = [
   { num: '05', title: <>Reference<br />Charts</>, action: 'Lookup',   to: '/charts' },
 ]
 
+// The hero's cycling preview: starts on the book opening, then the real-app
+// previews. Each is a short silent loop in public/ (<file>.mp4 + <file>-poster.jpg).
+// All clips are landscape 16:10 and fill the window; item 0 is the book that
+// opens on its spine hinge (cover always fully in frame) then closes and loops.
+const previews = [
+  { id: 'book',        file: 'home-hero',                  dwell: 5000, title: 'The whole book',              sub: 'A complete Tongan course, yours and free.' },
+  { id: 'feat-read',   file: 'feat-read',                  dwell: 5400, title: 'Read the whole book',          sub: 'Every chapter, with real examples and tables.' },
+  { id: 'feat-drills', file: 'feat-drills',                dwell: 5400, title: 'Practice as you go',           sub: 'Every answer teaches the rule, right or wrong.' },
+  { id: 'feat-quiz',   file: 'feat-quiz',                  dwell: 5000, title: 'Test yourself',                sub: 'Quizzes that explain the why, not just the what.' },
+  { id: 'feat-reveal', file: 'feat-reveal',                dwell: 5000, title: 'Practice inside each chapter',  sub: 'Tap to reveal the answer as you read.' },
+  { id: 'feat-vocab',  file: 'feat-vocab',                 dwell: 5600, title: 'Vocab, your way',              sub: 'Flip any word list into flashcards.' },
+  { id: 'feat-toggle', file: 'feat-toggle',                dwell: 5000, title: 'Your language first',          sub: 'Show Tongan or English on top, your choice.' },
+]
+
 export default function Landing() {
   const [current, setCurrent] = useState(0)
   const [entering, setEntering] = useState(false)
+  const [reduceMotion, setReduceMotion] = useState(false)
+  const [activePreview, setActivePreview] = useState(0)
+  const previewRefs = useRef([])
   const timerRef = useRef(null)
 
   const goToSlide = useCallback((idx) => {
@@ -93,6 +109,28 @@ export default function Landing() {
     return () => observer.disconnect()
   }, [])
 
+  // Reduced-motion: honor the OS setting (hero + feature clips show their poster, no autoplay).
+  useEffect(() => {
+    setReduceMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  }, [])
+
+  // Hero preview cycler: auto-advance (per-item dwell; re-armed on each change so
+  // manual dot-clicks reset the timer). Paused under reduced-motion.
+  useEffect(() => {
+    if (reduceMotion) return
+    const t = setTimeout(() => setActivePreview(p => (p + 1) % previews.length), previews[activePreview]?.dwell || 5400)
+    return () => clearTimeout(t)
+  }, [activePreview, reduceMotion])
+
+  // Play only the active preview (from its start); pause the rest.
+  useEffect(() => {
+    previewRefs.current.forEach((v, i) => {
+      if (!v) return
+      if (i === activePreview && !reduceMotion) { try { v.currentTime = 0 } catch { /* noop */ } ; v.play().catch(() => {}) }
+      else { v.pause() }
+    })
+  }, [activePreview, reduceMotion])
+
   return (
     <div className="v11-landing">
 
@@ -118,16 +156,10 @@ export default function Landing() {
         <div className="top-sub">Learn Tongan · free and open</div>
       </div>
 
-      {/* ========== HERO CANVAS ========== */}
-      <div className="hero-canvas">
-        {/* Diagonal wedge geometry removed 2026-06-17 — hero is now one solid colour
-            (legibility: small text was clashing across the multi-colour wedges). */}
-
-        {/* Standing-book preview — sits in the hero gap, links to the free PDF */}
-        <a className="hero-book" href={BOOK_PDF} download aria-label="Download the free book — PDF">
-          <img src={`${import.meta.env.BASE_URL}cover-standing.png`} alt="Lea Faka-Tonga, the book, standing upright" />
-        </a>
-
+      {/* ========== HERO CANVAS — claim (left) + big looping preview (right) ==========
+          The "Download the book, free" panel was replaced by the larger preview
+          (owner, 2026-06-20); its key CTAs live compactly under the claim. */}
+      <div className="hero-canvas hero-canvas-preview">
         <div className="hero-overlay">
 
           {/* LEFT: rotating claim text */}
@@ -154,29 +186,53 @@ export default function Landing() {
                 />
               ))}
             </div>
+            <div className="hero-cta-row">
+              <a href={BOOK_PDF} download className="cta-btn">Download the book, free <span className="arrow">→</span></a>
+              <Link to="/chapters/1" className="cta-secondary">Start Chapter 01</Link>
+            </div>
+            <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="hero-found-note">
+              <strong>Founding Supporter</strong> — give $35+ and lock in lifetime access (first 100) <span className="arrow">→</span>
+            </a>
           </div>
 
-          {/* RIGHT: free-book download + Founding Supporter panel */}
-          <div className="hero-overlay-right">
-            <div className="hero-panel">
-              <div className="hero-panel-zone hero-panel-free">
-                <span className="hero-panel-label">The whole book · free</span>
-                <h2 className="hero-panel-title">Download the book, free</h2>
-                <div className="hero-panel-actions">
-                  <a href={BOOK_PDF} download className="cta-btn">Download PDF <span className="arrow">→</span></a>
-                  <a href={BOOK_EPUB} download className="cta-secondary">EPUB for e-readers</a>
+          {/* RIGHT: one big landscape window — starts on the book cover, then
+              auto-cycles the real-app previews (caption + dots below). */}
+          <div className="hero-overlay-right hero-preview-col">
+            <div className="hero-cycler">
+              <div className="hero-cycler-stage">
+                <span className="hero-cycler-stripe" aria-hidden="true" />
+                <div className="hero-cycler-screens">
+                  {previews.map((p, i) => (
+                    <video
+                      key={p.id}
+                      ref={(el) => { previewRefs.current[i] = el }}
+                      className={`hero-cycler-video${i === activePreview ? ' active' : ''}`}
+                      style={{ objectFit: p.fit || 'cover' }}
+                      muted loop playsInline
+                      preload={i === 0 ? 'auto' : 'none'}
+                      poster={`${import.meta.env.BASE_URL}${p.file}-poster.jpg`}
+                      aria-hidden={i !== activePreview}
+                    >
+                      <source src={`${import.meta.env.BASE_URL}${p.file}.mp4`} type="video/mp4" />
+                    </video>
+                  ))}
                 </div>
               </div>
-              <div className="hero-panel-zone hero-panel-found">
-                <span className="hero-panel-label">Founding Supporter</span>
-                <p className="hero-panel-line">Give <strong>$35 or more</strong> and lock in <strong>lifetime access</strong> — the first 100 supporters, before the site moves to membership.</p>
-                <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="cta-btn cta-bmc">Become a Founding Supporter <span className="arrow">→</span></a>
+              <div className="hero-cycler-meta">
+                <span className="hero-cycler-title">{previews[activePreview].title}</span>
+                <span className="hero-cycler-sub">{previews[activePreview].sub}</span>
+                <div className="hero-cycler-dots">
+                  {previews.map((p, i) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      className={`hero-cycler-dot${i === activePreview ? ' active' : ''}`}
+                      onClick={() => setActivePreview(i)}
+                      aria-label={p.title}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div className="preview-cta">
-              <Link to="/chapters/1" className="cta-btn">Start Chapter 01 <span className="arrow">→</span></Link>
-              <Link to="/chapters" className="cta-secondary">See all 52 chapters</Link>
             </div>
           </div>
         </div>
@@ -192,6 +248,9 @@ export default function Landing() {
         </div>
         <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>Free and open · name your price to support →</Link>
       </div>
+
+      {/* The "See it in action" strip was replaced by the auto-cycling preview in
+          the hero (owner, 2026-06-20): all four previews show in one spot, no scroll. */}
 
       {/* ========== Horizontal red-stripe split: white band → grey box field ========== */}
       <div className="section-split-grey" aria-hidden="true" />
