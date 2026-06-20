@@ -2633,13 +2633,13 @@
       },
       {
         "id": "q7",
-        "prompt": "What does *loko* do in *'Oku 'ikai ke loko sai 'a e tá*?",
+        "prompt": "What does *loko* do in *'Oku 'ikai ke loko lelei 'a e ika*?",
         "options": [
           {
             "label": "A",
             "text": "It softens the negation to mean \"not too\" or \"not particularly.\"",
             "correct": true,
-            "explanation": "With *loko*, the sentence means \"The game is not too good,\" a milder verdict than flat \"not good.\""
+            "explanation": "With *loko*, the sentence means \"The fish is not too good,\" a milder verdict than flat \"not good.\""
           },
           {
             "label": "B",
@@ -3081,9 +3081,9 @@
           },
           {
             "label": "C",
-            "text": "*fīha*",
+            "text": "*fiha*",
             "correct": false,
-            "explanation": "The word *fīha* asks \"how many\" or \"at what time (on the clock).\" It is not a general \"when\" word."
+            "explanation": "The word *fiha* asks \"how many\" or \"at what time (on the clock).\" It is not a general \"when\" word."
           },
           {
             "label": "D",
@@ -3131,19 +3131,19 @@
             "label": "A",
             "text": "*Te tau kamata ako 'afē?*",
             "correct": false,
-            "explanation": "The word *'afē* asks \"when\" in the general future sense. For a specific clock time the question word is *fīha* with the article *he*."
+            "explanation": "The word *'afē* asks \"when\" in the general future sense. For a specific clock time the question word is *fiha* with the article *he*."
           },
           {
             "label": "B",
-            "text": "*Te tau kamata ako fīha?*",
+            "text": "*Te tau kamata ako fiha?*",
             "correct": false,
-            "explanation": "Bare *fīha* is incomplete here. A clock-time question takes the article *he* before *fīha*: *he fīha*."
+            "explanation": "Bare *fiha* is incomplete here. A clock-time question takes the article *he* before *fiha*: *he fiha*."
           },
           {
             "label": "C",
-            "text": "*Te tau kamata ako he fīha?*",
+            "text": "*Te tau kamata ako he fiha?*",
             "correct": true,
-            "explanation": "Clock time is formed with *he* + *fīha*, literally \"at what number.\" The answer takes the same shape (e.g. *he valu* = at eight)."
+            "explanation": "Clock time is formed with *he* + *fiha*, literally \"at what number.\" The answer takes the same shape (e.g. *he valu* = at eight)."
           },
           {
             "label": "D",
@@ -3351,9 +3351,9 @@
           },
           {
             "label": "C",
-            "text": "*Te tau kamata fīha?*",
+            "text": "*Te tau kamata fiha?*",
             "correct": false,
-            "explanation": "A clock-time question needs *he fīha* (with the article), not bare *fīha*. The bare form means \"how many,\" not \"at what time.\""
+            "explanation": "A clock-time question needs *he fiha* (with the article), not bare *fiha*. The bare form means \"how many,\" not \"at what time.\""
           },
           {
             "label": "D",
@@ -5843,7 +5843,7 @@
             "label": "D",
             "text": "It signals a question about quantity.",
             "correct": false,
-            "explanation": "The question word for quantity is *fīha*, not *mā*. Different slot, different job."
+            "explanation": "The question word for quantity is *fiha*, not *mā*. Different slot, different job."
           }
         ]
       },
@@ -5879,31 +5879,31 @@
       },
       {
         "id": "q3",
-        "prompt": "What does *'Oku toko fīha e kau faiakó?* mean?",
+        "prompt": "What does *'Oku toko fiha e kau faiakó?* mean?",
         "options": [
           {
             "label": "A",
             "text": "How much does the teacher cost?",
             "correct": false,
-            "explanation": "Price questions use *'Oku fīha 'a e ...*. Here *toko* signals a count of people, so the question is about headcount."
+            "explanation": "Price questions use *'Oku fiha 'a e ...*. Here *toko* signals a count of people, so the question is about headcount."
           },
           {
             "label": "B",
             "text": "When will the teachers arrive?",
             "correct": false,
-            "explanation": "Time questions use *fīha* after a verb like *'osi* or *tau mai*. The people-counter *toko* rules out a time reading."
+            "explanation": "Time questions use *fiha* after a verb like *'osi* or *tau mai*. The people-counter *toko* rules out a time reading."
           },
           {
             "label": "C",
             "text": "The teachers are fine.",
             "correct": false,
-            "explanation": "Nothing in the sentence says \"fine.\" The combination *toko fīha* is specifically \"how many people.\""
+            "explanation": "Nothing in the sentence says \"fine.\" The combination *toko fiha* is specifically \"how many people.\""
           },
           {
             "label": "D",
             "text": "How many teachers are there?",
             "correct": true,
-            "explanation": "The pattern *toko fīha* asks \"how many people,\" and *e kau faiakó* is \"the teachers\" (a group of people marked by *kau*)."
+            "explanation": "The pattern *toko fiha* asks \"how many people,\" and *e kau faiakó* is \"the teachers\" (a group of people marked by *kau*)."
           }
         ]
       },
@@ -6017,7 +6017,7 @@
             "label": "C",
             "text": "*Hiva* means both \"nine\" and \"sing/song\"; context (especially following a numeral expression, or answering \"how many\") fixes the reading.",
             "correct": true,
-            "explanation": "When *hiva* follows a number or answers a *fīha* question, it means nine. In other contexts, such as *'Okú ke sai'ia he hivá?*, it means the song."
+            "explanation": "When *hiva* follows a number or answers a *fiha* question, it means nine. In other contexts, such as *'Okú ke sai'ia he hivá?*, it means the song."
           },
           {
             "label": "D",
@@ -6063,25 +6063,25 @@
         "options": [
           {
             "label": "A",
-            "text": "*'Oku toko fīha 'a e sotē? Pa'anga 'e taha.*",
+            "text": "*'Oku toko fiha 'a e sotē? Pa'anga 'e taha.*",
             "correct": false,
-            "explanation": "The counter *toko* is for people. Asking a price uses *fīha* directly after the tense marker, with no *toko*."
+            "explanation": "The counter *toko* is for people. Asking a price uses *fiha* directly after the tense marker, with no *toko*."
           },
           {
             "label": "B",
-            "text": "*'Oku fīha 'a e sotē? Pa'anga 'e taha.*",
+            "text": "*'Oku fiha 'a e sotē? Pa'anga 'e taha.*",
             "correct": true,
-            "explanation": "Price questions place *fīha* right after *'Oku*, and the answer uses the *noun + 'e + number* pattern: *pa'anga 'e taha* (\"one dollar\")."
+            "explanation": "Price questions place *fiha* right after *'Oku*, and the answer uses the *noun + 'e + number* pattern: *pa'anga 'e taha* (\"one dollar\")."
           },
           {
             "label": "C",
-            "text": "*Ko e fīha 'a e sotē? Taha pa'anga.*",
+            "text": "*Ko e fiha 'a e sotē? Taha pa'anga.*",
             "correct": false,
-            "explanation": "Price questions start with *'Oku fīha*, not *Ko e fīha*. The latter pattern is used for time (\"what time is it?\")."
+            "explanation": "Price questions start with *'Oku fiha*, not *Ko e fiha*. The latter pattern is used for time (\"what time is it?\")."
           },
           {
             "label": "D",
-            "text": "*'Oku fīha 'a e sotē? Taha 'e pa'anga.*",
+            "text": "*'Oku fiha 'a e sotē? Taha 'e pa'anga.*",
             "correct": false,
             "explanation": "The numeric particle *'e* sits between the noun and the number, not the other way around. The form *taha 'e pa'anga* inverts the pattern."
           }
@@ -7275,7 +7275,7 @@
           },
           {
             "label": "D",
-            "text": "*Na'e hiva 'a Sēmisi kae fanongo 'a Ana.*",
+            "text": "*Na'e hiva 'a Sēmisi kae fanongo 'a 'Ana.*",
             "correct": false,
             "explanation": "Before the verb *fanongo*, *kae* is correct. This sentence follows the rule."
           }
@@ -7499,7 +7499,7 @@
       },
       {
         "id": "q6",
-        "prompt": "How would you say \"two baskets\" in Tongan?",
+        "prompt": "What is the simplest way to say \"two baskets\" in Tongan?",
         "options": [
           {
             "label": "A",
@@ -11315,7 +11315,7 @@
             "label": "D",
             "text": "Responsibility, duty",
             "correct": true,
-            "explanation": "The noun *fatongia* names an obligation or duty, and appears in the chapter as the single new vocabulary item."
+            "explanation": "The noun *fatongia* names an obligation or duty, and is one of the chapter's new vocabulary words."
           }
         ]
       }
@@ -11909,7 +11909,7 @@
             "label": "A",
             "text": "*'Oku ou nofo ni 'i Neiafu.*",
             "correct": false,
-            "explanation": "The enclitic *ni* must attach to a noun whose stress it can shift; it does not stand free after a verb. The adverbial \"now\" after a verb is *eni*."
+            "explanation": "Here *ni* is the lighter \"this/here\" enclitic; for \"now\" (signalling a change from before), Tongan uses *eni*, as in option B."
           },
           {
             "label": "B",
@@ -12213,25 +12213,25 @@
         "options": [
           {
             "label": "A",
-            "text": "*Hilí e tohí he loto tēpilé!*",
+            "text": "*Tuku e tohí he loto tēpilé!*",
             "correct": false,
             "explanation": "The spatial noun *loto* means \"inside,\" not \"on top of.\" The book would be hidden in a drawer, not placed on the surface."
           },
           {
             "label": "B",
-            "text": "*Hilí e tohí he tafa'aki tēpilé!*",
+            "text": "*Tuku e tohí he tafa'aki tēpilé!*",
             "correct": false,
             "explanation": "The spatial noun *tafa'aki* means \"at the side of,\" which is a different position. The required surface meaning is *funga*."
           },
           {
             "label": "C",
-            "text": "*Hilí e tohí he funga tēpilé!*",
+            "text": "*Tuku e tohí he funga tēpilé!*",
             "correct": true,
             "explanation": "The spatial noun *funga* means \"on top of / on the surface of,\" combining with *tēpilé* to give *he funga tēpilé* (\"on top of the table\")."
           },
           {
             "label": "D",
-            "text": "*Hilí e tohí he ve'e tēpilé!*",
+            "text": "*Tuku e tohí he ve'e tēpilé!*",
             "correct": false,
             "explanation": "The spatial noun *ve'e* means \"right beside (at ground level),\" used for places like roadsides and beaches, not table surfaces."
           }
@@ -13437,25 +13437,25 @@
         "options": [
           {
             "label": "A",
-            "text": "*ha'anau me'atokoni*",
+            "text": "*ha'anau me'akai*",
             "correct": false,
             "explanation": "The form *ha'anau* is the indefinite possessive, signalling \"any provisions of theirs\" or, with *'ikai*, \"no provisions of theirs.\""
           },
           {
             "label": "B",
-            "text": "*'enau me'atokoni* (no accent)",
+            "text": "*'enau me'akai* (no accent)",
             "correct": false,
-            "explanation": "Without an accent on the last vowel of the group, *'enau me'atokoni* is semi-definite: \"their particular provisions,\" but not yet singled out."
+            "explanation": "Without an accent on the last vowel of the group, *'enau me'akai* is semi-definite: \"their particular provisions,\" but not yet singled out."
           },
           {
             "label": "C",
-            "text": "*haku me'atokoni*",
+            "text": "*haku me'akai*",
             "correct": false,
             "explanation": "The form *haku* is a first-person indefinite possessive. Beyond being singular instead of plural, it does not reach the definite level."
           },
           {
             "label": "D",
-            "text": "*'enau me'atokoní* (accent on final vowel)",
+            "text": "*'enau me'akaí* (accent on final vowel)",
             "correct": true,
             "explanation": "The definitive accent on the last vowel of the possessive group marks it as fully definite: the specific provisions already under discussion."
           }
@@ -13469,31 +13469,31 @@
     "questions": [
       {
         "id": "q1",
-        "prompt": "What does the verb *tanu* mean?",
+        "prompt": "What does the verb *tō* mean?",
         "options": [
           {
             "label": "A",
-            "text": "Plant, bury",
+            "text": "Plant",
             "correct": true,
-            "explanation": "The verb *tanu* covers both planting and burying, as in *Na'á ne tanu 'a e 'akau* (\"He planted the tree\")."
+            "explanation": "The verb *tō* means to plant, as in *Na'á ne tō 'a e 'akau* (\"He planted the tree\")."
           },
           {
             "label": "B",
             "text": "Do, make",
             "correct": false,
-            "explanation": "The verb for \"do\" or \"make\" is *fai*. *Tanu* never carries that general sense."
+            "explanation": "The verb for \"do\" or \"make\" is *fai*. *Tō* never carries that general sense."
           },
           {
             "label": "C",
             "text": "Strike, hit, build",
             "correct": false,
-            "explanation": "The verb for \"strike, hit, build\" is *tā*. *Tanu* is the planting or burying verb."
+            "explanation": "The verb for \"strike, hit, build\" is *tā*. *Tō* is the planting verb."
           },
           {
             "label": "D",
             "text": "Read",
             "correct": false,
-            "explanation": "The verb for \"read\" is *lau*. *Tanu* has nothing to do with reading."
+            "explanation": "The verb for \"read\" is *lau*. *Tō* has nothing to do with reading."
           }
         ]
       },
