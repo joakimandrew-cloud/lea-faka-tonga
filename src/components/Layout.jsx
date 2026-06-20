@@ -67,6 +67,18 @@ export default function Layout() {
     breadcrumbLabel = 'Quizzes'
   }
 
+  // Pre-fill the report form's "Where is it?" with the page the reader is on,
+  // so a correction arrives already located and nobody has to retype "Chapter 12".
+  let reportWhere = ''
+  if (currentChapterNum) {
+    const ch = chapters.find(c => c.chapter === currentChapterNum)
+    reportWhere = ch ? `Chapter ${ch.chapter}: ${ch.title}` : `Chapter ${currentChapterNum}`
+  } else if (currentQuizNum) {
+    reportWhere = `Chapter ${currentQuizNum} Quiz`
+  } else if (breadcrumbLabel) {
+    reportWhere = breadcrumbLabel
+  }
+
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
       {/* ── Fixed left sidebar: chapter index ── */}
@@ -156,7 +168,7 @@ export default function Layout() {
         {/* ── Footer: a quiet report-a-mistake path on every content page ── */}
         <footer className="max-w-3xl mx-auto px-8 pt-6 pb-10 mt-6 border-t border-[var(--border)] text-center">
           <button
-            onClick={() => navigate('/report')}
+            onClick={() => navigate('/report', { state: { where: reportWhere } })}
             style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '19px' }}
             className="font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
           >

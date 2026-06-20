@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import '../styles/v11-landing.css'
 import '../styles/v11-components.css'
 import '../styles/offer.css'
@@ -33,9 +33,28 @@ const Logo = () => (
 )
 
 export default function ReportIssue() {
-  const [form, setForm] = useState(EMPTY)
+  const location = useLocation()
+  // Seed "Where is it?" from the page the reader came from (Layout passes it as
+  // router state; a ?where= query param also works for shared links), so a
+  // correction arrives already located and nobody has to retype "Chapter 12".
+  const [form, setForm] = useState(() => {
+    const params = new URLSearchParams(location.search)
+    return { ...EMPTY, where: location.state?.where || params.get('where') || '' }
+  })
   const [sent, setSent] = useState(false)
+  const [sentVia, setSentVia] = useState(null) // 'endpoint' | 'mailto' — which path actually carried the report
   const [sending, setSending] = useState(false)
+  const thanksRef = useRef(null)
+
+  // On success, move focus to the confirmation and bring it into view, so
+  // keyboard + screen-reader users are told it worked instead of being
+  // stranded on the now-removed submit button.
+  useEffect(() => {
+    if (sent && thanksRef.current) {
+      thanksRef.current.focus()
+      thanksRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [sent])
 
   const update = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }))
 
@@ -80,9 +99,11 @@ export default function ReportIssue() {
         const res = await fetch(url, { method: 'POST', headers: { Accept: 'application/json' }, body: fd })
         const data = await res.json().catch(() => ({}))
         if (!res.ok || data.success === false) throw new Error('submit rejected')
+        setSentVia('endpoint')
         setSent(true)
       } catch {
         window.location.href = mailtoHref() // fall back to the visitor's mail app
+        setSentVia('mailto')
         setSent(true)
       } finally {
         setSending(false)
@@ -92,6 +113,7 @@ export default function ReportIssue() {
 
     // Default path: open a pre-filled email in the visitor's mail app.
     window.location.href = mailtoHref()
+    setSentVia('mailto')
     setSent(true)
   }
 
@@ -187,18 +209,18 @@ export default function ReportIssue() {
               </p>
             </form>
           ) : (
-            <div className="report-thanks">
-              <span className="report-thanks-mark">ʻ</span>
-              <h2 className="report-thanks-title">Mālō ʻaupito.</h2>
+            <div className="report-thanks" role="status" aria-live="polite">
+              <span className="report-thanks-mark" aria-hidden="true">ʻ</span>
+              <h2 className="report-thanks-title" tabIndex={-1} ref={thanksRef}>Mālō ʻaupito.</h2>
               <p className="report-thanks-body">
-                {CORRECTION_ENDPOINT
+                {sentVia === 'endpoint'
                   ? <>We have your report and we will take a look. Every correction makes the course better for the next family.</>
-                  : <>Your email app should have opened with your report ready to send. Just hit send. If it did not, write to us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we will sort it.</>}
+                  : <>Your email app should have opened with your report ready to send. Just press send to finish. If it did not open, write to us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we will sort it.</>}
               </p>
               <div className="offer-keepers-link">
                 <button
                   type="button" className="cta-secondary"
-                  onClick={() => { setForm(EMPTY); setSent(false) }}
+                  onClick={() => { setForm(EMPTY); setSent(false); setSentVia(null) }}
                 >
                   Report another →
                 </button>
