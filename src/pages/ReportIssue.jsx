@@ -16,7 +16,7 @@ import '../styles/offer.css'
 //     access key; a URL is treated as a direct POST endpoint (Formspree /
 //     Formsubmit). Mirrors the emailAction pattern in Offer.jsx.
 // ─────────────────────────────────────────────────────────────────────────
-const CONTACT_EMAIL = 'andrew@montedesign.com'
+const CONTACT_EMAIL = 'joakimandrew@gmail.com'
 const CORRECTION_ENDPOINT = 'ce1f8abf-810e-4362-b811-710f307a78a1' // Web3Forms access key (public by design; delivers to the hidden inbox)
 
 const EMPTY = { where: '', issue: '', fix: '', name: '', email: '', website: '' }
