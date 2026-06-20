@@ -676,15 +676,45 @@
 .v11-landing .hero-cycler-dot:hover { background: rgba(26, 22, 18, 0.34); }
 .v11-landing .hero-cycler-dot.active:hover { background: var(--red-dark); }
 
-/* Stack on phones; the cycler stays prominent. */
+/* ===== MOBILE: the preview IS the hero =========================
+   Stack to one column and float the big rotating preview to the TOP
+   as the dominant element; the rotating message, caption/dots and
+   CTAs sit beneath it, centred. The canvas already grows to fit
+   (height:auto above) so nothing clips. Desktop (>900px) untouched. */
 @media (max-width: 900px) {
   .v11-landing .hero-canvas-preview .hero-overlay { flex-direction: column; }
   .v11-landing .hero-canvas-preview .hero-overlay-left,
   .v11-landing .hero-canvas-preview .hero-overlay-right { width: 100%; }
-  .v11-landing .hero-canvas-preview .hero-overlay-left { padding: 24px 24px 8px 32px; }
-  .v11-landing .hero-canvas-preview .hero-overlay-right { padding: 8px 24px 28px; }
-  .v11-landing .hero-cycler-stage,
-  .v11-landing .hero-cycler-meta { width: min(100%, 560px); }
+  .v11-landing .hero-canvas-preview .hero-overlay-right {
+    order: -1;                 /* preview first — it's the main feature */
+    align-items: center;
+    padding: 14px 24px 6px;
+  }
+  .v11-landing .hero-canvas-preview .hero-overlay-left {
+    padding: 14px 24px 30px;
+    text-align: center;        /* centre the rotating claim + CTAs beneath */
+  }
+  .v11-landing .hero-canvas-preview .hero-cta-row { justify-content: center; }
+  /* the preview fills the column — far larger than the old 560px-capped box */
+  .v11-landing .hero-canvas-preview .hero-cycler-stage,
+  .v11-landing .hero-canvas-preview .hero-cycler-meta { width: 100%; max-width: 760px; }
+}
+
+/* Phones: near full-bleed so the animation fills the width and clearly
+   reads as the main event; trim the claim so it stays the focal point. */
+@media (max-width: 600px) {
+  .v11-landing .hero-canvas-preview { min-height: 0; padding: 8px 0 32px; }
+  .v11-landing .hero-canvas-preview .hero-overlay-right { padding: 12px 10px 8px; }
+  .v11-landing .hero-canvas-preview .hero-overlay-left { padding: 8px 22px 26px; }
+  .v11-landing .hero-canvas-preview .slide-sub { display: none; } /* the preview's own caption carries the detail */
+  .v11-landing .hero-canvas-preview .slide-headline { font-size: 2.15rem !important; }
+  /* reserve just enough for the tallest claim and centre it, so short
+     headlines don't leave a dead gap above the CTAs (and no jump on rotate) */
+  .v11-landing .hero-canvas-preview .hero-slides {
+    min-height: 140px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .v11-landing .hero-canvas-preview .hero-cta-row { margin-top: 16px; }
+  .v11-landing .hero-canvas-preview .hero-cycler-title { font-size: 21px; }
 }
 
 
