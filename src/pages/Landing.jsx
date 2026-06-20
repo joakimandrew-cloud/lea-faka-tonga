@@ -11,10 +11,10 @@ const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
 // One claim per preview, SAME ORDER as `previews` below, so the left-hand message
 // always describes whatever the preview window is showing (driven by activePreview).
 const slides = [
-  { // 0 · book — the whole course, free
+  { // 0 · book — the whole course, free (broad welcome: heritage, married-in, and lovers of Tonga alike)
     eyebrow: 'The whole course, free and open',
-    headline: <>The language<br />of your <span className="accent">family</span>,<br />all of it.</>,
-    sub: 'All 52 chapters, beginner to advanced, plus every drill, quiz and flashcard. The complete book, free to download and keep.',
+    headline: <>Find your<br /><span className="accent">Tongan</span>.</>,
+    sub: 'Whether it’s your family’s language, you married into it, or you just love Tonga: all 52 chapters, beginner to advanced, free to download and keep.',
   },
   { // 1 · read — real chapters that explain
     eyebrow: 'Real chapters, not word lists',
@@ -168,7 +168,7 @@ export default function Landing() {
               <Link to="/chapters/1" className="cta-secondary">Start Chapter 01</Link>
             </div>
             <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="hero-found-note">
-              <strong>Founding Supporter</strong> — give $35+ and lock in lifetime access (first 100) <span className="arrow">→</span>
+              <strong>Founding Supporter</strong>: give $35+ and lock in lifetime access (first 100) <span className="arrow">→</span>
             </a>
           </div>
 

@@ -142,7 +142,7 @@ export default function Offer() {
       <section className="offer-hero">
         <span className="offer-eyebrow">For the words that connect you home</span>
         <h1 className="offer-headline">
-          Speak your family’s language.<br /><span className="accent">All of it.</span>
+          Speak <span className="accent">Tongan</span>.<br />All of it.
         </h1>
         <p className="offer-lede">
           From your very first sentence to real conversations: 52 chapters, beginner to advanced,
