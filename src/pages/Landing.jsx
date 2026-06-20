@@ -1,8 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/v11-landing.css'
-
-const INTERVAL = 4500
 
 // The whole book is free to download (real files in public/downloads/).
 const BOOK_PDF = `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.pdf`
@@ -10,31 +8,38 @@ const BOOK_PDF = `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.pdf`
 // Founding Supporter — Buy Me a Coffee. $35+ locks lifetime access (first 100).
 const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
 
+// One claim per preview, SAME ORDER as `previews` below, so the left-hand message
+// always describes whatever the preview window is showing (driven by activePreview).
 const slides = [
-  {
-    eyebrow: 'For the Tongan who can’t speak Tongan',
-    headline: <>The language<br />of your <span className="accent">family.</span></>,
-    sub: 'A complete Tongan course, free and open, from your very first sentence to real conversations. Every chapter, every drill, the whole book: free. Support it if you can.',
+  { // 0 · book — the whole course, free
+    eyebrow: 'The whole course, free and open',
+    headline: <>The language<br />of your <span className="accent">family</span>,<br />all of it.</>,
+    sub: 'All 52 chapters, beginner to advanced, plus every drill, quiz and flashcard. The complete book, free to download and keep.',
   },
-  {
-    eyebrow: 'All 52 chapters, beginning to end',
-    headline: <>52 chapters.<br />The whole <span className="accent">grammar</span>,<br />start to finish.</>,
-    sub: 'From your first “hello” to holding a real conversation, one chapter at a time, checked by fluent speakers along the way.',
+  { // 1 · read — real chapters that explain
+    eyebrow: 'Real chapters, not word lists',
+    headline: <>Every rule,<br /><span className="accent">explained</span>.</>,
+    sub: 'Real chapters that teach the grammar step by step, with worked examples and clear tables you can actually follow.',
   },
-  {
-    eyebrow: 'Every answer teaches the rule',
-    headline: <>Know <span className="accent">why</span>,<br />not just<br />right or wrong.</>,
-    sub: 'Every wrong answer explains the rule it broke. Every right answer shows why the others weren’t. No guessing, no streaks to protect.',
+  { // 2 · sentence lab — swap a word, watch the meaning change (the differentiator)
+    eyebrow: 'Your own grammar lab',
+    headline: <>Swap a word,<br />watch the meaning <span className="accent">change</span>.</>,
+    sub: 'Build a real Tongan sentence, change one word, and the English re-translates live. Try any combination and see exactly how the grammar works.',
   },
-  {
-    eyebrow: 'Better every month',
-    headline: <>See something off?<br /><span className="accent">Tell us.</span></>,
-    sub: 'This course gets more accurate the more it’s read. Spot a typo or a better example? Flag it. The fluent speakers who check chapters are credited on the Roll of Keepers.',
+  { // 3 · drills — every wrong answer teaches
+    eyebrow: 'Practice that teaches',
+    headline: <>Every wrong answer<br />shows you <span className="accent">why</span>.</>,
+    sub: 'Miss a drill and it explains the rule you broke, right then. The correction a good teacher gives, on every question.',
   },
-  {
-    eyebrow: 'Reads like a book',
-    headline: <>No streaks.<br />No notifications.<br /><span className="accent">Just the book.</span></>,
-    sub: 'The practice lives right inside each chapter, not off in a separate app you have to switch to. And every accent mark in Tongan, the macrons and the ʻokina, is shown correctly, so you learn to read and write it the right way.',
+  { // 4 · quiz — know the why
+    eyebrow: 'Quizzes that teach',
+    headline: <><span className="accent">Understand</span> it,<br />don’t just guess.</>,
+    sub: 'Every one of 520 quiz questions comes with the reason behind the answer, so each test leaves you knowing more.',
+  },
+  { // 5 · vocab — any list into flashcards (Tongan or English first folds in the old toggle)
+    eyebrow: 'Vocabulary, your way',
+    headline: <>Any word list,<br />instant <span className="accent">flashcards</span>.</>,
+    sub: 'Every chapter’s new words become a deck you can flip in a tap, Tongan or English first. 649 cards, with every macron and ʻokina shown right.',
   },
 ]
 
@@ -49,50 +54,23 @@ const moduleCards = [
 // The hero's cycling preview: starts on the book opening, then the real-app
 // previews. Each is a short silent loop in public/ (<file>.mp4 + <file>-poster.jpg).
 // All clips are landscape 16:10 and fill the window; item 0 is the book that
-// opens on its spine hinge (cover always fully in frame) then closes and loops.
+// dives into the live site. SAME ORDER as slides[] above (1:1). The Sentence Lab
+// (the differentiator) sits 3rd; the old Reveal + Toggle slots were folded in
+// (Reveal overlapped Drills; Toggle is part of the Vocab cards).
 const previews = [
-  { id: 'book',        file: 'home-hero',                  dwell: 5000, title: 'The whole book',              sub: 'A complete Tongan course, yours and free.' },
-  { id: 'feat-read',   file: 'feat-read',                  dwell: 5400, title: 'Read the whole book',          sub: 'Every chapter, with real examples and tables.' },
-  { id: 'feat-drills', file: 'feat-drills',                dwell: 5400, title: 'Practice as you go',           sub: 'Every answer teaches the rule, right or wrong.' },
-  { id: 'feat-quiz',   file: 'feat-quiz',                  dwell: 5000, title: 'Test yourself',                sub: 'Quizzes that explain the why, not just the what.' },
-  { id: 'feat-reveal', file: 'feat-reveal',                dwell: 5000, title: 'Practice inside each chapter',  sub: 'Tap to reveal the answer as you read.' },
-  { id: 'feat-vocab',  file: 'feat-vocab',                 dwell: 5600, title: 'Vocab, your way',              sub: 'Flip any word list into flashcards.' },
-  { id: 'feat-toggle', file: 'feat-toggle',                dwell: 5000, title: 'Your language first',          sub: 'Show Tongan or English on top, your choice.' },
+  { id: 'book',          file: 'home-hero',     dwell: 5000, title: 'The whole book',          sub: 'A complete Tongan course, yours and free.' },
+  { id: 'feat-read',     file: 'feat-read',     dwell: 5400, title: 'Read the whole book',      sub: 'Every chapter, with real examples and tables.' },
+  { id: 'feat-sentence', file: 'feat-sentence', dwell: 5400, title: 'Build your own sentences', sub: 'Swap a word and the English changes live.' },
+  { id: 'feat-drills',   file: 'feat-drills',   dwell: 5400, title: 'Practice as you go',       sub: 'Every answer teaches the rule, right or wrong.' },
+  { id: 'feat-quiz',     file: 'feat-quiz',     dwell: 5000, title: 'Test yourself',            sub: 'Quizzes that explain the why, not just the what.' },
+  { id: 'feat-vocab',    file: 'feat-vocab',    dwell: 5600, title: 'Vocab, your way',          sub: 'Flip any list into cards, Tongan or English first.' },
 ]
 
 export default function Landing() {
-  const [current, setCurrent] = useState(0)
   const [entering, setEntering] = useState(false)
   const [reduceMotion, setReduceMotion] = useState(false)
   const [activePreview, setActivePreview] = useState(0)
   const previewRefs = useRef([])
-  const timerRef = useRef(null)
-
-  const goToSlide = useCallback((idx) => {
-    setCurrent(idx)
-    setEntering(true)
-    setTimeout(() => setEntering(false), 600)
-  }, [])
-
-  const resetTimer = useCallback(() => {
-    clearInterval(timerRef.current)
-    timerRef.current = setInterval(() => {
-      setCurrent(prev => (prev + 1) % slides.length)
-      setEntering(true)
-      setTimeout(() => setEntering(false), 600)
-    }, INTERVAL)
-  }, [])
-
-  useEffect(() => {
-    resetTimer()
-    return () => clearInterval(timerRef.current)
-  }, [resetTimer])
-
-  const handleDotClick = (idx) => {
-    if (idx === current) return
-    goToSlide(idx)
-    resetTimer()
-  }
 
   // Scroll reveal observer
   useEffect(() => {
@@ -121,6 +99,14 @@ export default function Landing() {
     const t = setTimeout(() => setActivePreview(p => (p + 1) % previews.length), previews[activePreview]?.dwell || 5400)
     return () => clearTimeout(t)
   }, [activePreview, reduceMotion])
+
+  // The left-hand claim is tied to the active preview (slides[] is 1:1 with
+  // previews[]): wipe the matching message in whenever the preview changes.
+  useEffect(() => {
+    setEntering(true)
+    const t = setTimeout(() => setEntering(false), 600)
+    return () => clearTimeout(t)
+  }, [activePreview])
 
   // Play only the active preview (from its start); pause the rest.
   useEffect(() => {
@@ -162,28 +148,19 @@ export default function Landing() {
       <div className="hero-canvas hero-canvas-preview">
         <div className="hero-overlay">
 
-          {/* LEFT: rotating claim text */}
+          {/* LEFT: the claim, tied to the active preview (the cycler's dots are the
+              single control; this message changes with the window on the right) */}
           <div className="hero-overlay-left">
             <div className="hero-slides">
               {slides.map((s, i) => (
                 <div
                   key={i}
-                  className={`hero-slide${i === current ? ' active' : ''}${i === current && entering ? ' entering' : ''}`}
+                  className={`hero-slide${i === activePreview ? ' active' : ''}${i === activePreview && entering ? ' entering' : ''}`}
                 >
                   <span className="slide-eyebrow">{s.eyebrow}</span>
                   <h1 className="slide-headline">{s.headline}</h1>
                   <p className="slide-sub">{s.sub}</p>
                 </div>
-              ))}
-            </div>
-            <div className="slide-nav">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  className={`slide-dot${i === current ? ' active' : ''}`}
-                  onClick={() => handleDotClick(i)}
-                  aria-label={`Slide ${i + 1}`}
-                />
               ))}
             </div>
             <div className="hero-cta-row">
