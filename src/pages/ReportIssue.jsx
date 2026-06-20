@@ -201,11 +201,15 @@ export default function ReportIssue() {
                 </label>
               </div>
 
+              <p className="report-fineprint">
+                Leave your name if you like, and contributors can be thanked on the <Link to="/keepers" style={{ color: 'var(--red)' }}>Roll of Keepers</Link>.
+              </p>
+
               <button type="submit" className="cta-btn" disabled={sending}>
                 {sending ? 'Sending…' : 'Send it to us →'}
               </button>
               <p className="report-fineprint">
-                No account, no sign-in. Your report goes straight to us by email.
+                No account, no sign-in. Your report comes straight to us and we read every one. Your email, if you leave one, is only used to reply and never shared.
               </p>
             </form>
           ) : (
@@ -214,7 +218,7 @@ export default function ReportIssue() {
               <h2 className="report-thanks-title" tabIndex={-1} ref={thanksRef}>Mālō ʻaupito.</h2>
               <p className="report-thanks-body">
                 {sentVia === 'endpoint'
-                  ? <>We have your report and we will take a look. Every correction makes the course better for the next family.</>
+                  ? <>We have your report and we will take a look. Every correction makes the course better for the next family, and contributors are thanked on the <Link to="/keepers">Roll of Keepers</Link>.</>
                   : <>Your email app should have opened with your report ready to send. Just press send to finish. If it did not open, write to us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we will sort it.</>}
               </p>
               <div className="offer-keepers-link">

@@ -165,14 +165,35 @@ export default function Layout() {
           <Outlet />
         </main>
 
-        {/* ── Footer: a quiet report-a-mistake path on every content page ── */}
-        <footer className="max-w-3xl mx-auto px-8 pt-6 pb-10 mt-6 border-t border-[var(--border)] text-center">
+        {/* ── Footer: an end-of-lesson invitation to report a mistake, on every
+            content page. The course is corrected in the open, so this stands as
+            a friendly standing call (Option C from the A2 discoverability review). ── */}
+        <footer className="max-w-3xl mx-auto px-8 pt-8 pb-12 mt-6 border-t border-[var(--border)] text-center">
+          <div
+            className="text-[var(--accent)] leading-none mb-2"
+            style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '30px' }}
+            aria-hidden="true"
+          >
+            &#699;
+          </div>
+          <div
+            className="text-[var(--text)] font-semibold mb-2"
+            style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '21px' }}
+          >
+            {currentChapterNum ? 'See a mistake in this chapter?' : 'See a mistake on this page?'}
+          </div>
+          <p
+            className="text-[var(--text-muted)] mb-4 mx-auto"
+            style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '15px', lineHeight: 1.55, maxWidth: '34rem' }}
+          >
+            This course is corrected in the open. Every report makes it more accurate for the next family.
+          </p>
           <button
             onClick={() => navigate('/report', { state: { where: reportWhere } })}
-            style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '19px' }}
-            className="font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
+            className="text-[var(--accent)] border border-[var(--accent)] hover:bg-[var(--accent)] hover:text-white transition-colors cursor-pointer"
+            style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '17px', fontWeight: 600, padding: '8px 18px', borderRadius: '2px' }}
           >
-            Spot a mistake? Tell us &rarr;
+            Tell us what&rsquo;s off &rarr;
           </button>
         </footer>
 
