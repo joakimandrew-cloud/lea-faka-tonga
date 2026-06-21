@@ -41,6 +41,7 @@ const STYLES = [
   { id: 'kinetic', label: 'Kinetic', note: 'Expressive animated typography: the headline itself is the animation, then it softly dissolves into the app.' },
   { id: 'grammar', label: 'Grammar', note: 'Real grammar micro-animations from the video work (swap a tense marker, insert ʻikai, flip a card) as each message, then into the app.' },
   { id: 'dive', label: 'Dive', note: 'The headline rushes toward you and you fly through it as the app screen zooms forward, a dive into the website.' },
+  { id: 'grammardive', label: 'Grammar+Dive', note: 'Best of both: the grammar concept plays as a quick teaching beat, then you dive THROUGH it into the real app screen where you actually do it.' },
   { id: 'appfirst', label: 'App-first', note: 'The real app leads, playing full-bleed; the message floats in over it as a caption.' },
 ]
 const STYLE_IDS = STYLES.map(s => s.id)
@@ -48,7 +49,7 @@ const STYLE_IDS = STYLES.map(s => s.id)
 const lead = {
   eyebrow: 'The whole course, free and open',
   headline: <>Find your<br /><span className="accent">Tongan</span>.</>,
-  sub: 'Whether it’s your family’s language, you married into it, or you just love Tonga: 52 chapters, beginner to advanced, free to keep.',
+  sub: 'Whether it’s your family’s language, you married into it, or you just love Tonga: 52 lessons, beginner to advanced, free to keep.',
 }
 
 // Each cell carries a desktop (landscape) + mobile (portrait) preview clip,
@@ -57,7 +58,7 @@ const lead = {
 const cells = [
   {
     id: 'feat-read', file: 'feat-read', fileMobile: 'feat-read-mobile', anim: 'reveal', grammar: 'tense', previewTitle: 'Read the whole book',
-    eyebrow: 'Real chapters, not word lists',
+    eyebrow: 'Real lessons, not word lists',
     headline: <>Every rule,<br /><span className="accent">explained</span>.</>,
     kin: [{ t: 'Every' }, { t: 'rule,' }, { t: 'explained', accent: true, fx: 'stamp' }],
   },
@@ -243,7 +244,7 @@ function KineticHeadline({ cell, run, variant }) {
 /* ---- message-visual dispatch ------------------------------------------ */
 
 function pickAnim(cell, style) {
-  if (style === 'grammar') {
+  if (style === 'grammar' || style === 'grammardive') {
     return cell.grammar === 'tense' ? TenseRipple
       : cell.grammar === 'sentence' ? SentenceAnim
       : cell.grammar === 'drills' ? DrillsAnim

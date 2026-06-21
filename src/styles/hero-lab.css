@@ -132,12 +132,14 @@
 .hl-cx-kinetic.is-preview .hl-cell-message{opacity:0; transform:scale(0.97);}
 .hl-cx-kinetic.is-preview .hl-cell-preview{opacity:1; transform:scale(1);}
 
-/* Dive: you fly THROUGH the headline as the app screen rushes up from depth. */
-.hl-cx-dive{perspective:1100px;}
-.hl-cx-dive .hl-cell-message{opacity:1; transform:scale(1); transition:opacity .55s ease, transform .65s cubic-bezier(.6,0,.35,1);}
-.hl-cx-dive .hl-cell-preview{opacity:0; transform:scale(.58); transition:opacity .5s ease, transform .8s cubic-bezier(.5,0,.25,1);}
-.hl-cx-dive.is-preview .hl-cell-message{opacity:0; transform:scale(1.7);}
-.hl-cx-dive.is-preview .hl-cell-preview{opacity:1; transform:scale(1);}
+/* Dive: you fly THROUGH the headline as the app screen rushes up from depth.
+   Grammar+Dive shares the same handoff, but the thing you fly through is the
+   grammar micro-animation (the teaching beat) instead of the kinetic headline. */
+.hl-cx-dive,.hl-cx-grammardive{perspective:1100px;}
+.hl-cx-dive .hl-cell-message,.hl-cx-grammardive .hl-cell-message{opacity:1; transform:scale(1); transition:opacity .55s ease, transform .65s cubic-bezier(.6,0,.35,1);}
+.hl-cx-dive .hl-cell-preview,.hl-cx-grammardive .hl-cell-preview{opacity:0; transform:scale(.58); transition:opacity .5s ease, transform .8s cubic-bezier(.5,0,.25,1);}
+.hl-cx-dive.is-preview .hl-cell-message,.hl-cx-grammardive.is-preview .hl-cell-message{opacity:0; transform:scale(1.7);}
+.hl-cx-dive.is-preview .hl-cell-preview,.hl-cx-grammardive.is-preview .hl-cell-preview{opacity:1; transform:scale(1);}
 
 /* App-first: the app is always on; the message floats over it, then clears. */
 .hl-cx-appfirst .hl-cell-preview{opacity:1;}
