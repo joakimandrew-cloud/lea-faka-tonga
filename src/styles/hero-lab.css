@@ -31,8 +31,20 @@
 .hl-topbar-brand .dot{color:var(--red-light);}
 .hl-note{
   margin-left:auto; font-family:'Source Serif 4',Georgia,serif;
-  font-size:13px; color:#e9e5dd; max-width:44ch; line-height:1.4;
+  font-size:13px; color:#e9e5dd; max-width:40ch; line-height:1.4;
 }
+
+/* Style selector — the live toggle the owner picks a treatment with */
+.hl-styles{display:flex; gap:6px; flex-wrap:wrap; margin-left:6px;}
+.hl-style-chip{
+  font-family:'Barlow Condensed',sans-serif; font-weight:700;
+  font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+  padding:7px 13px; cursor:pointer; color:#e9e5dd;
+  background:rgba(255,255,255,0.08); border:1.5px solid rgba(255,255,255,0.2);
+  border-radius:3px; transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.hl-style-chip:hover{background:rgba(255,255,255,0.18); color:#fff;}
+.hl-style-chip.active{background:var(--red); border-color:var(--red-light); color:#fff;}
 
 /* ---- Shared: eyebrow / headline / sub (mirror v11 .slide-*) ---- */
 .hl-eyebrow{
@@ -92,20 +104,58 @@
   background:linear-gradient(90deg,var(--red-dark),var(--red),var(--red-light));
 }
 
-/* The cell: a "message" layer that wipes into a "preview" layer.
+/* The cell: a "message" layer that hands off to a "preview" layer. HOW it
+   hands off is the whole point of this round, so the transition is defined
+   per style (.hl-cx-*) below — the base here only stacks the two layers.
    Desktop = 16:10 (matches the landscape clips, so nothing is cropped). */
 .hl-cell{position:relative; width:100%; aspect-ratio:16/10; background:#fff; overflow:hidden;}
 .hl-cell-layer{
   position:absolute; inset:0; display:flex; flex-direction:column;
   align-items:center; justify-content:center; padding:6% 8%; text-align:center;
 }
-.hl-cell-message{opacity:1; background:#fff; z-index:2;
-  transition:opacity .5s ease, clip-path .6s ease;}
-.hl-cell-preview{opacity:0; clip-path:inset(0 100% 0 0); z-index:1; padding:0;
-  transition:opacity .5s ease .1s, clip-path .6s ease;}
-.hl-cell.is-preview .hl-cell-message{opacity:0; clip-path:inset(0 0 0 100%);}
-.hl-cell.is-preview .hl-cell-preview{opacity:1; clip-path:inset(0 0 0 0);}
+.hl-cell-message{background:#fff; z-index:2;}
+.hl-cell-preview{z-index:1; padding:0;}
 .hl-video{width:100%; height:100%; object-fit:cover; display:block;}
+
+/* ---- per-style handoff: message → preview ----------------------------- */
+/* Wipe + Grammar: the message fades as the preview wipes across (the baseline). */
+.hl-cx-wipe .hl-cell-message,.hl-cx-grammar .hl-cell-message{opacity:1; transition:opacity .5s ease;}
+.hl-cx-wipe .hl-cell-preview,.hl-cx-grammar .hl-cell-preview{
+  opacity:0; clip-path:inset(0 100% 0 0); transition:opacity .5s ease .1s, clip-path .6s ease;}
+.hl-cx-wipe.is-preview .hl-cell-message,.hl-cx-grammar.is-preview .hl-cell-message{opacity:0;}
+.hl-cx-wipe.is-preview .hl-cell-preview,.hl-cx-grammar.is-preview .hl-cell-preview{
+  opacity:1; clip-path:inset(0 0 0 0);}
+
+/* Kinetic: the type softly dissolves and the app eases up under it. */
+.hl-cx-kinetic .hl-cell-message{opacity:1; transform:scale(1); transition:opacity .55s ease, transform .6s ease;}
+.hl-cx-kinetic .hl-cell-preview{opacity:0; transform:scale(1.05); transition:opacity .55s ease, transform .7s ease;}
+.hl-cx-kinetic.is-preview .hl-cell-message{opacity:0; transform:scale(0.97);}
+.hl-cx-kinetic.is-preview .hl-cell-preview{opacity:1; transform:scale(1);}
+
+/* Dive: you fly THROUGH the headline as the app screen rushes up from depth. */
+.hl-cx-dive{perspective:1100px;}
+.hl-cx-dive .hl-cell-message{opacity:1; transform:scale(1); transition:opacity .55s ease, transform .65s cubic-bezier(.6,0,.35,1);}
+.hl-cx-dive .hl-cell-preview{opacity:0; transform:scale(.58); transition:opacity .5s ease, transform .8s cubic-bezier(.5,0,.25,1);}
+.hl-cx-dive.is-preview .hl-cell-message{opacity:0; transform:scale(1.7);}
+.hl-cx-dive.is-preview .hl-cell-preview{opacity:1; transform:scale(1);}
+
+/* App-first: the app is always on; the message floats over it, then clears. */
+.hl-cx-appfirst .hl-cell-preview{opacity:1;}
+.hl-cx-appfirst .hl-cell-message{
+  background:transparent; justify-content:flex-end; align-items:flex-start;
+  padding:0; pointer-events:none; opacity:1; transition:opacity .5s ease;}
+.hl-cx-appfirst.is-preview .hl-cell-message{opacity:0;}
+.hl-overlay-card{
+  max-width:60%; margin:0 0 6% 6%; padding:16px 20px; text-align:left;
+  background:rgba(26,22,18,0.78); border-left:4px solid var(--red);
+  animation:hl-card-in .6s ease;}
+.hl-overlay-card .hl-eyebrow{margin-bottom:10px;}
+.hl-overlay-head{
+  font-family:'Barlow Condensed',sans-serif; font-weight:800;
+  font-size:clamp(1.3rem,2.3vw,2rem); line-height:0.98; text-transform:uppercase;
+  letter-spacing:-0.01em; color:#fff;}
+.hl-overlay-head .accent{color:var(--red-light);}
+@keyframes hl-card-in{from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:none;}}
 
 .hl-cell-message .hl-eyebrow{margin-bottom:14px;}
 .hl-cell-msg-head{
@@ -155,6 +205,77 @@
 .hl-reveal span:nth-child(4){width:58%; background:var(--rule); animation-delay:.5s;}
 @keyframes hl-grow{0%{opacity:0; transform:scaleX(0);} 100%{opacity:1; transform:scaleX(1);}}
 
+/* ===== Kinetic typography (Kinetic + Dive styles): the headline is the
+   animation. Each word rises in on a stagger; accent words get an extra
+   flourish in the expressive (Kinetic) variant. Dive uses the plain rise. == */
+.hl-kin{
+  font-family:'Barlow Condensed',sans-serif; font-weight:800; text-transform:uppercase;
+  font-size:clamp(2rem,4.6vw,4rem); line-height:0.95; letter-spacing:-0.012em;
+  color:var(--ink); display:flex; flex-wrap:wrap; justify-content:center;
+  gap:0.04em 0.3em; max-width:15ch; margin-top:8px; perspective:700px;
+}
+.hl-kin .hl-w{
+  display:inline-block; opacity:0; transform:translateY(0.55em);
+  animation:hl-w-rise .5s cubic-bezier(.2,.7,.2,1) calc(var(--i)*0.085s) both;
+}
+.hl-kin .hl-w.accent{color:var(--red);}
+@keyframes hl-w-rise{to{opacity:1; transform:none;}}
+/* expressive flourishes — one combined keyframe per fx so nothing fights the rise */
+.hl-kin .hl-w.fx-stamp{animation:hl-kin-stamp .9s cubic-bezier(.2,.7,.2,1) calc(var(--i)*0.085s) both;}
+@keyframes hl-kin-stamp{0%{opacity:0; transform:translateY(0.55em);} 55%{opacity:1; transform:translateY(-0.04em) scale(1.16);} 75%{transform:scale(0.97);} 100%{opacity:1; transform:none;}}
+.hl-kin .hl-w.fx-grow{animation:hl-kin-grow .8s cubic-bezier(.2,.7,.2,1) calc(var(--i)*0.085s) both;}
+@keyframes hl-kin-grow{0%{opacity:0; transform:translateY(0.55em) scale(0.9);} 100%{opacity:1; transform:scale(1.05);}}
+.hl-kin .hl-w.fx-pulse{animation:hl-kin-pulse 1.5s ease calc(var(--i)*0.085s) both;}
+@keyframes hl-kin-pulse{0%{opacity:0; transform:translateY(0.55em);} 40%{opacity:1; transform:none;} 60%{transform:scale(1.13);} 75%{transform:scale(1);} 90%{transform:scale(1.08);} 100%{transform:scale(1);}}
+.hl-kin .hl-w.fx-dim{animation:hl-kin-dim 1.2s ease calc(var(--i)*0.085s) both;}
+@keyframes hl-kin-dim{0%{opacity:0; transform:translateY(0.55em);} 45%{opacity:1;} 100%{opacity:0.3;}}
+.hl-kin .hl-w.fx-swap{animation:hl-kin-swap 1.1s ease calc(var(--i)*0.085s) both;}
+@keyframes hl-kin-swap{0%{opacity:0; transform:translateY(0.55em);} 55%{opacity:1; transform:none;} 70%{transform:translateX(-7px) scale(1.06);} 85%{transform:translateX(5px);} 100%{transform:none;}}
+.hl-kin .hl-w.fx-flip{animation:hl-kin-flip 1.05s cubic-bezier(.2,.7,.2,1) calc(var(--i)*0.085s) both;}
+@keyframes hl-kin-flip{0%{opacity:0; transform:translateY(0.55em);} 45%{opacity:1; transform:none;} 70%{transform:rotateX(82deg);} 100%{transform:rotateX(0);}}
+.hl-kin .hl-w.fx-strike{position:relative;}
+.hl-kin .hl-w.fx-strike::after{
+  content:''; position:absolute; left:-2px; right:-2px; top:52%; height:3px; border-radius:2px;
+  background:var(--red); transform:scaleX(0); transform-origin:left;
+  animation:hl-strike .4s ease calc(var(--i)*0.085s + 0.5s) forwards;}
+@keyframes hl-strike{to{transform:scaleX(1);}}
+
+/* ===== Grammar micro-animations (Grammar style) ====== */
+/* Read — swap the tense marker, the verb stays frozen, the English re-conjugates */
+.hl-ripple{display:flex; flex-direction:column; align-items:center; gap:12px;}
+.hl-ripple-row{display:flex; align-items:baseline; gap:14px; font-family:'Source Serif 4',Georgia,serif;}
+.hl-ripple-marker{
+  display:inline-block; font-style:italic; font-weight:600; font-size:clamp(26px,3.2vw,40px);
+  color:#fff; background:var(--red); padding:2px 14px; border-radius:5px; animation:hl-pop .4s ease;}
+.hl-ripple-frozen{font-style:italic; font-size:clamp(24px,3vw,38px); color:var(--ink);}
+.hl-ripple-en{font-family:'Source Serif 4',Georgia,serif; font-size:clamp(16px,1.8vw,21px); color:var(--mid);}
+.hl-ripple-en b{color:var(--red); font-weight:600;}
+.hl-ripple-cap{font-family:'Source Serif 4',Georgia,serif; font-style:italic; font-size:14px; color:var(--mid); margin-top:2px; max-width:34ch;}
+
+/* Quiz — drop one word, ʻikai, and the sentence turns negative */
+.hl-ikai{display:flex; flex-direction:column; align-items:center; gap:12px;}
+.hl-ikai-row{display:flex; align-items:center; gap:9px; flex-wrap:wrap; justify-content:center;}
+.hl-tok{
+  font-family:'Source Serif 4',Georgia,serif; font-style:italic; font-size:clamp(19px,2.5vw,30px);
+  color:var(--ink); padding:3px 11px; border:2px solid var(--rule); border-radius:6px; background:#fff;}
+.hl-tok.neg{color:#fff; background:var(--red); border-color:var(--red-dark); animation:hl-drop .45s cubic-bezier(.2,1.3,.4,1);}
+.hl-tok.swap{animation:hl-pop .4s ease;}
+.hl-ikai-en{font-family:'Source Serif 4',Georgia,serif; font-size:clamp(16px,1.8vw,21px); color:var(--mid);}
+@keyframes hl-drop{0%{opacity:0; transform:translateY(-18px) scale(0.9);} 100%{opacity:1; transform:none;}}
+
+/* Vocab — a flashcard flips Tongan to English */
+.hl-flipwrap{display:flex; flex-direction:column; align-items:center; gap:16px;}
+.hl-flip{
+  position:relative; width:clamp(120px,16vw,170px); height:clamp(80px,11vw,116px);
+  transform-style:preserve-3d; transition:transform .5s cubic-bezier(.4,.2,.2,1);}
+.hl-flip.is-flipped{transform:rotateY(180deg);}
+.hl-flip-face{
+  position:absolute; inset:0; display:grid; place-items:center; border-radius:10px;
+  backface-visibility:hidden; font-family:'Source Serif 4',Georgia,serif;
+  box-shadow:0 6px 16px rgba(26,22,18,0.16);}
+.hl-flip-front{background:var(--red); color:#fff; font-style:italic; font-weight:600; font-size:clamp(24px,3vw,34px);}
+.hl-flip-back{background:#fff; color:var(--ink); border:2px solid var(--rule); font-size:clamp(20px,2.6vw,30px); transform:rotateY(180deg);}
+
 /* dots + caption */
 .hl-dots{display:flex; justify-content:center; gap:8px; margin-top:18px;}
 .hl-dot{width:30px; height:4px; padding:0; border:none; cursor:pointer; background:rgba(26,22,18,0.16); transition:background .2s ease;}
@@ -194,14 +315,20 @@
   .hl-sub{font-size:17px; max-width:34ch;}
   .hl-cell-msg-head{font-size:1.45rem; margin-top:24px;}
   .hl-sent{font-size:22px;}
+  .hl-kin{font-size:clamp(2rem,8.5vw,2.9rem); max-width:13ch;}  /* the portrait cell is narrow */
+  .hl-overlay-card{max-width:86%; margin:0 0 7% 7%; padding:14px 16px;}
   .hl-topbar{gap:10px; padding:12px 16px;}
   .hl-topbar-brand{font-size:16px;}
+  .hl-styles{margin-left:0; gap:5px;}
+  .hl-style-chip{font-size:12px; padding:6px 11px;}
   .hl-anchor-cover{width:132px; margin:6px 0 14px;}   /* compact cover so the preview peeks */
 }
 
-/* Reduced motion: show the message statically, no autoplay/wipes. */
+/* Reduced motion: show the message statically, no autoplay/handoff/flourishes. */
 @media (prefers-reduced-motion:reduce){
   .hl-cell-message,.hl-cell-preview{transition:none;}
-  .hl-reveal span,.hl-sent-word,.hl-scrollcue-arrow{animation:none;}
-  .hl-reveal span,.hl-sent-word{opacity:1; transform:none;}
+  .hl-reveal span,.hl-sent-word,.hl-scrollcue-arrow,
+  .hl-kin .hl-w,.hl-ripple-marker,.hl-tok.neg,.hl-tok.swap,.hl-flip,.hl-overlay-card{animation:none; transition:none;}
+  .hl-kin .hl-w.fx-strike::after{animation:none;}
+  .hl-reveal span,.hl-sent-word,.hl-kin .hl-w{opacity:1; transform:none;}
 }
