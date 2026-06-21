@@ -1725,7 +1725,7 @@
   font-family: 'Source Serif 4', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.45;
   color: var(--mid);
   max-width: 720px;
@@ -1752,7 +1752,7 @@
   grid-template-columns: 40px 1fr;
   align-items: start;
   gap: 16px;
-  padding: 12px 8px;
+  padding: 14px 8px;
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
@@ -1775,7 +1775,7 @@
 .chapter-subsection .chapter-list-num {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
   color: var(--red);
   font-variant-numeric: tabular-nums;
   line-height: 1.05;
@@ -1783,13 +1783,13 @@
 .chapter-subsection .chapter-list-body {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
   min-width: 0;
 }
 .chapter-subsection .chapter-list-title {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink);
@@ -1800,8 +1800,8 @@
   font-family: 'Source Serif 4', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 13.5px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.45;
   color: var(--ink);
 }
 .chapter-subsection .chapter-list-gloss {
@@ -1816,12 +1816,12 @@
 }
 .chapter-subsection .chapter-list-chip {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.3;
   color: var(--mid);
   border: 1px solid var(--rule);
   border-radius: 2px;
-  padding: 2px 8px;
+  padding: 3px 9px;
   white-space: nowrap;
 }
 /* legacy single-line preview (no longer rendered by ChapterBrowser) */
