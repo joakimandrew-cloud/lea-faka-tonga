@@ -138,7 +138,7 @@ export default function QuizRunner({ quiz, chapter }) {
         <span className="quiz-eyebrow-label">{eyebrow}</span>
         {chapter && (
           <Link
-            to={`/chapters/${quiz.chapter}`}
+            to={`/lessons/${quiz.chapter}`}
             className="quiz-eyebrow-link"
           >
             Study Lesson {quiz.chapter}: {chapter.title} →

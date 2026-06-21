@@ -13,12 +13,12 @@ export default function Layout() {
   }, [dark])
   const path = location.pathname
 
-  const chapterMatch = path.match(/^\/chapters\/(\d+)/)
+  const chapterMatch = path.match(/^\/lessons\/(\d+)/)
   const currentChapterNum = chapterMatch ? parseInt(chapterMatch[1], 10) : null
   const quizMatch = path.match(/^\/quizzes\/(\d+)/)
   const currentQuizNum = quizMatch ? parseInt(quizMatch[1], 10) : null
 
-  const isChapterBrowser = path === '/chapters'
+  const isChapterBrowser = path === '/lessons'
   const isFlipCards = path === '/cards'
   const isTerminalBuild = path === '/terminal-build'
   const isSentenceBuilder = path === '/sentence-builder'
@@ -55,7 +55,7 @@ export default function Layout() {
   } else if (currentChapterNum) {
     const ch = chapters.find(c => c.chapter === currentChapterNum)
     breadcrumbLabel = ch ? `Lesson ${ch.chapter}: ${ch.title}` : ''
-    backTo = '/chapters'
+    backTo = '/lessons'
   } else if (isChapterBrowser) {
     breadcrumbLabel = 'Lessons'
   } else if (isFlipCards) {
@@ -89,7 +89,7 @@ export default function Layout() {
             return (
               <div
                 key={ch.chapter}
-                onClick={() => navigate(`/chapters/${ch.chapter}`)}
+                onClick={() => navigate(`/lessons/${ch.chapter}`)}
                 className={`text-center text-[15px] py-[2px] transition-colors cursor-pointer ${
                   isActive
                     ? 'text-[var(--accent)] font-bold'

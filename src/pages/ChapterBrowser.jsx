@@ -159,7 +159,7 @@ export default function ChapterBrowser() {
                           return (
                             <li key={ch.chapter}>
                               <Link
-                                to={`/chapters/${ch.chapter}`}
+                                to={`/lessons/${ch.chapter}`}
                                 className={`chapter-list-row${isActive ? ' is-active' : ''}`}
                                 onClick={() => setChapter(ch.chapter)}
                               >

@@ -112,7 +112,7 @@ export default function ChapterPractice() {
         <div className="flex gap-3 text-sm">
           {prevCh && (
             <Link
-              to={`/chapters/${prevCh}`}
+              to={`/lessons/${prevCh}`}
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
               onClick={() => setPatternIndex(null)}
             >
@@ -121,7 +121,7 @@ export default function ChapterPractice() {
           )}
           {nextCh && (
             <Link
-              to={`/chapters/${nextCh}`}
+              to={`/lessons/${nextCh}`}
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
               onClick={() => setPatternIndex(null)}
             >
@@ -238,7 +238,7 @@ export default function ChapterPractice() {
         <div className="mt-16 pt-8 border-t border-[var(--border)] text-center">
           {nextChapter && (
             <Link
-              to={`/chapters/${nextCh}`}
+              to={`/lessons/${nextCh}`}
               onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
               className="inline-block w-full sm:w-auto text-left border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors"
             >
@@ -250,7 +250,7 @@ export default function ChapterPractice() {
           )}
           {prevChapter && (
             <Link
-              to={`/chapters/${prevCh}`}
+              to={`/lessons/${prevCh}`}
               onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
               className="block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
             >

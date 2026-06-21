@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
 import { ChapterProvider } from './contexts/ChapterContext'
 import Layout from './components/Layout'
 import Landing from './pages/Landing'
@@ -28,6 +28,15 @@ import DrillPage from './pages/DrillPage'
 import ReportIssue from './pages/ReportIssue'
 import HeroLab from './pages/HeroLab'
 
+// The course unit is a "Lesson" in the UI and the URL (2026-06-22). Old
+// /chapters/:num links are kept alive as permanent redirects to /lessons/:num
+// so nothing a visitor saved or shared ever 404s. React Router does not
+// substitute :num into <Navigate to>, so this reads the param itself.
+function ChapterRedirect() {
+  const { num } = useParams()
+  return <Navigate to={`/lessons/${num}`} replace />
+}
+
 export default function App() {
   return (
     <ChapterProvider>
@@ -40,9 +49,14 @@ export default function App() {
           <Route path="/report" element={<ReportIssue />} />
           {/* Hidden prototype for the Home Hero Review — not linked from any nav. */}
           <Route path="/hero-lab" element={<HeroLab />} />
-          <Route path="/chapters" element={<ChapterBrowser />} />
+          <Route path="/lessons" element={<ChapterBrowser />} />
+          {/* Course unit is a "Lesson" in the URL since 2026-06-22; the old
+              /chapters/* paths stay as permanent redirects so saved and shared
+              links never break. Internal IDs (data keys, filenames) stay "chapter". */}
+          <Route path="/chapters" element={<Navigate to="/lessons" replace />} />
+          <Route path="/chapters/:num" element={<ChapterRedirect />} />
           <Route element={<Layout />}>
-            <Route path="/chapters/:num" element={<ChapterPractice />} />
+            <Route path="/lessons/:num" element={<ChapterPractice />} />
             <Route path="/cards" element={<FlipCards />} />
             <Route path="/charts" element={<ReferenceCharts />} />
             <Route path="/terminal-build" element={<TerminalBuilder />} />

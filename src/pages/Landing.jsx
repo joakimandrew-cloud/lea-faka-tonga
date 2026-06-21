@@ -7,7 +7,7 @@ import '../styles/v11-landing.css'
 const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
 
 const moduleCards = [
-  { num: '01', title: 'Lessons',                  action: 'Start',    to: '/chapters' },
+  { num: '01', title: 'Lessons',                  action: 'Start',    to: '/lessons' },
   { num: '02', title: 'Exercises',                action: 'Practice', to: '/drills' },
   { num: '03', title: 'Quizzes',                  action: 'Test',     to: '/quizzes' },
   { num: '04', title: <>Vocab<br />Flip Cards</>, action: 'Flip',     to: '/cards' },

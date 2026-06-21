@@ -153,7 +153,7 @@ export default function Offer() {
         <div className="offer-hero-cta">
           <a href="#join" className="cta-btn">Become a Founding Supporter <span style={{ marginLeft: 8 }}>→</span></a>
           <a href="#book" className="cta-secondary">Download the book, free</a>
-          <Link to="/chapters/1" className="cta-secondary">Start Lesson 01, free</Link>
+          <Link to="/lessons/1" className="cta-secondary">Start Lesson 01, free</Link>
         </div>
         <p className="offer-hero-meta">Every lesson open · No ads · No streaks · No accounts, ever</p>
       </section>

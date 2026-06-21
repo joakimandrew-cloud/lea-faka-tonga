@@ -113,7 +113,7 @@ export default function GrandmotherQuiz() {
               </div>
             )}
           </div>
-          <Link to="/chapters/1" className="quiz-skip">Skip the test, just start learning →</Link>
+          <Link to="/lessons/1" className="quiz-skip">Skip the test, just start learning →</Link>
         </section>
       ) : (
         <section className="quiz-stage">
@@ -123,7 +123,7 @@ export default function GrandmotherQuiz() {
             <p className="quiz-result-body">{result.body}</p>
 
             <div className="quiz-result-cta">
-              <Link to="/chapters/1" className="cta-btn">Start the free course →</Link>
+              <Link to="/lessons/1" className="cta-btn">Start the free course →</Link>
               <Link to="/support" className="cta-secondary">Why it’s free →</Link>
             </div>
 
