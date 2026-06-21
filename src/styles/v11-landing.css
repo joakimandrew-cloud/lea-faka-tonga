@@ -33,7 +33,15 @@
   overflow-x: hidden;
 }
 
-.v11-landing * { box-sizing: border-box; margin: 0; padding: 0; }
+/* Zero-specificity reset (:where) so it stays a baseline only: every real rule
+   — v11's own (.v11-landing .x) and the shared hero engine's (.hl-*, reused on
+   the homepage from hero-lab.css) — wins over it regardless of load order. */
+:where(.v11-landing) * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Homepage hero is the shared Grammar+Dive engine (.hl-* from hero-lab.css);
+   this is the only homepage-specific tweak: space the Founding-Supporter note
+   under the download buttons in the book anchor. */
+.v11-landing .hl-found-note { margin-top: 16px; }
 
 /* ============================================================
    TOP BAND — pure white, centered lockup
