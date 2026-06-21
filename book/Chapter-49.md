@@ -1,7 +1,7 @@
-# Chapter 49: Prefixes
+# Lesson 49: Prefixes
 *Word Study*
 
-This chapter covers four prefixes that attach to the front of a word. Each one changes the meaning of the verb or noun it modifies in a specific, predictable way.
+This lesson covers four prefixes that attach to the front of a word. Each one changes the meaning of the verb or noun it modifies in a specific, predictable way.
 
 A prefix is a short element added before a word to change its meaning. English does this with *un-* (undo), *re-* (redo), and *co-* (coworker). Tongan prefixes work the same way, and you already know one: *faka-*. The four prefixes here are *fe-*, *ma-* (with its variants *mo-* and *mā-*), *mo'u-*, and *kaungā-*.
 
@@ -100,7 +100,7 @@ The prefix *ma-* attached to a transitive verb means "to be able to do" what the
 *'Oku 'ikai ke mafai 'e ia e ngāué.* He cannot manage the work.
 :::
 
-The distinction from *lava* (to be able to), which you learned in Chapter 21: Auxiliary Verbs, is important. *Lava* describes general ability or capacity. *Ma-* describes ability proven in the moment, by actual trial.
+The distinction from *lava* (to be able to), which you learned in Lesson 21: Auxiliary Verbs, is important. *Lava* describes general ability or capacity. *Ma-* describes ability proven in the moment, by actual trial.
 
 ---
 
@@ -209,7 +209,7 @@ The prefix *kaungā-* adds the meaning "together" or "fellow" to verbs and some 
 | *'api* (home, allotment) | *kaungā 'api* | neighbour(s) (whose allotment adjoins yours) |
 | *me'a* (thing) | *kaungāme'a* | associate(s) |
 
-*kaungā-* verbs can also function as nouns (as you would expect from the word-class flexibility covered in Chapter 41: Word Class Flexibility):
+*kaungā-* verbs can also function as nouns (as you would expect from the word-class flexibility covered in Lesson 41: Word Class Flexibility):
 
 ::: {.examples}
 *hoku kaungāngāue*. my fellow-worker(s)
@@ -229,7 +229,7 @@ The prefix *kaungā-* adds the meaning "together" or "fellow" to verbs and some 
 
 ### *ve'e* as a variant of *va'e*
 
-The word *ve'e* appears before nouns meaning "by the side of" or "the side of." It is likely a variant of *va'e* (foot, leg), which you know from the spatial nouns covered in Chapter 40: Spatial Nouns. You may encounter *ve'e* in phrases like *ve'e hala* (roadside) or *ve'e fale* (the side of the house).
+The word *ve'e* appears before nouns meaning "by the side of" or "the side of." It is likely a variant of *va'e* (foot, leg), which you know from the spatial nouns covered in Lesson 40: Spatial Nouns. You may encounter *ve'e* in phrases like *ve'e hala* (roadside) or *ve'e fale* (the side of the house).
 
 ::: {.examples}
 *'Okú ne tu'u he ve'e halá.* He is standing by the roadside.

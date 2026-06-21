@@ -14,13 +14,13 @@
 import PickerCore from './PickerCore'
 
 const OPTIONS = [
-  { id: 'future',  label: 'future TM',  detail: 'té + pronoun + verb (Ch 2)' },
-  { id: 'neg',     label: 'negation connector', detail: 'after ʻikai (Ch 9)' },
-  { id: 'impersonal', label: 'impersonal',  detail: '"one" in general (Ch 51)' },
+  { id: 'future',  label: 'future TM',  detail: 'té + pronoun + verb (Lesson 2)' },
+  { id: 'neg',     label: 'negation connector', detail: 'after ʻikai (Lesson 9)' },
+  { id: 'impersonal', label: 'impersonal',  detail: '"one" in general (Lesson 51)' },
 ]
 
 const PROMPTS = [
-  { tongan: '___ u ʻalu.',                                           english: 'I will go.',                                         answer: 'future',     why: 'te at the start of the sentence + pronoun u + verb = future tense. The Ch 2 pattern.' },
+  { tongan: '___ u ʻalu.',                                           english: 'I will go.',                                         answer: 'future',     why: 'te at the start of the sentence + pronoun u + verb = future tense. The Lesson 2 pattern.' },
   { tongan: 'ʻOku ʻikai ___ u kai.',                                 english: 'I am not eating.',                                   answer: 'neg',        why: 'te right after ʻikai is the negation connector. ʻikai te + pronoun is the standard negative skeleton.' },
   { tongan: 'ʻOku ʻikai totonu ke ___ tokanga pē kiate kita.',       english: 'One should not attend only to oneself.',             answer: 'impersonal', why: 'te here is the impersonal pronoun "one": not the future TM and not the negation connector. Paired with kita (postposed "oneself").' },
   { tongan: '___ ke ako.',                                           english: 'You will study.',                                    answer: 'future',     why: 'Sentence-initial té + pronoun ke = future tense.' },

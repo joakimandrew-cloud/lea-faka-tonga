@@ -1,6 +1,6 @@
-# Chapter 38: Warnings, Hopes, Permissions, and Uncertainty
+# Lesson 38: Warnings, Hopes, Permissions, and Uncertainty
 
-This chapter introduces a set of expressions built around the subordinator *ke* (taught in Chapter 26: Purpose, Reason, and Benefit) that let you grant permission, express hopes, and issue warnings. These are social expressions that come up frequently in daily conversation.
+This lesson introduces a set of expressions built around the subordinator *ke* (taught in Lesson 26: Purpose, Reason, and Benefit) that let you grant permission, express hopes, and issue warnings. These are social expressions that come up frequently in daily conversation.
 
 ---
 
@@ -28,7 +28,7 @@ When a pronoun follows *ke*, the verb comes after the pronoun:
 *Tuku ké ke nofo heni.* Let yourself stay here.
 :::
 
-This *tuku ke* is "let" only in the sense of "allow." It does not work for "let" as a suggestion or command (for that, Tongan uses other structures covered in Chapter 5: Commands and Emphasis, such as *tau hiva*, "let us sing").
+This *tuku ke* is "let" only in the sense of "allow." It does not work for "let" as a suggestion or command (for that, Tongan uses other structures covered in Lesson 5: Commands and Emphasis, such as *tau hiva*, "let us sing").
 
 > *Note:* *Tuku ke* can also appear in negative commands. The prohibitive *'oua* combines with *tuku ke* to forbid allowing something: *'Oua te mou tuku ke lele noa'ia e fanga puaká* (Do not let the pigs run around loose).
 
@@ -66,7 +66,7 @@ Adding *pē* between *'ofa* and *ke* gives the expression a warmer, more earnest
 
 ### Warnings: suggestive *na'a*
 
-The word *na'a* has appeared before as a past tense marker (*na'á ku kai*, I ate). In this chapter, *na'a* serves a completely different function: it introduces a warning or caution, meaning "lest" or "or else."
+The word *na'a* has appeared before as a past tense marker (*na'á ku kai*, I ate). In this lesson, *na'a* serves a completely different function: it introduces a warning or caution, meaning "lest" or "or else."
 
 ::: {.examples}
 *Lele mai na'á ke tōmui.* Run here or you will be late. (Lit. "Run hither lest you be late")
@@ -161,7 +161,7 @@ When addressing multiple people, or when including the speaker, *ke* changes to 
 
 ### Adverbs of uncertainty: *nai*, *'apē*, and *koā*
 
-The expressions in this chapter (warnings, hopes, permissions) share a common thread: the speaker is not simply stating facts but hedging, hoping, or urging caution. Three postposed adverbs operate in the same space, marking uncertainty or requesting a clearer response. Unlike the preposed modifiers taught in earlier chapters, these come after the verb or at the end of the clause.
+The expressions in this lesson (warnings, hopes, permissions) share a common thread: the speaker is not simply stating facts but hedging, hoping, or urging caution. Three postposed adverbs operate in the same space, marking uncertainty or requesting a clearer response. Unlike the preposed modifiers taught in earlier lessons, these come after the verb or at the end of the clause.
 
 #### *Nai*: I wonder
 
@@ -223,7 +223,7 @@ The idiom *'ikai koā* introduces a fact, like "as a matter of fact" or "to tell
 |--------|----------|---------|
 | *tuku ke* | permission phrase | let, allow |
 | *'ofa ke* | optative phrase | may, I hope that |
-| *na'a* | warning word | lest, or else; perhaps (also "marks an action as past" (Ch 1)) |
+| *na'a* | warning word | lest, or else; perhaps (also "marks an action as past" (Lesson 1)) |
 | *telia na'a* | emphatic warning | lest (stronger) |
 | *telia* | preposition | for the sake of, out of respect for |
 | *fai mo ke* | imperative phrase | hurry up and |

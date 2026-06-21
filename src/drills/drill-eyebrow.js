@@ -38,7 +38,7 @@ export function drillEyebrow(id) {
   const m = FRAME_META[id]
   if (!m) return ''
   const lvl = m.level ? LEVELS[m.level] : ''
-  if (m.ch && lvl) return `Ch ${m.ch} · ${lvl}`
-  if (m.ch) return `Ch ${m.ch}`
+  if (m.ch && lvl) return `Lesson ${m.ch} · ${lvl}`
+  if (m.ch) return `Lesson ${m.ch}`
   return lvl
 }

@@ -1,6 +1,6 @@
-# Chapter 46: Noun Classes
+# Lesson 46: Noun Classes
 
-Building on the personal-noun and local-noun distinction, this chapter covers the full noun classification system: common nouns as a third type, and the verbs that follow the same pattern.
+Building on the personal-noun and local-noun distinction, this lesson covers the full noun classification system: common nouns as a third type, and the verbs that follow the same pattern.
 
 ---
 
@@ -52,7 +52,7 @@ The word *loto* shifts meaning entirely: as a local noun it means "inside" (a pl
 
 ### Verbal nouns as a noun class
 
-The previous chapter covered verbal noun constructions in detail. In the classification system, verbal nouns form a third group within common nouns. A verbal noun denotes doing something, having something, or being something.
+The previous lesson covered verbal noun constructions in detail. In the classification system, verbal nouns form a third group within common nouns. A verbal noun denotes doing something, having something, or being something.
 
 ::: {.examples}
 *'ene taki*. his leading (he does the leading: 'e-class possessive)
@@ -115,7 +115,7 @@ The classification determines the preposition form. If you know what type of nou
 
 ### Classifier *la'i*: flat objects
 
-Chapter 31: Existential Expressions introduced the classifier *fo'i* for single, round, or complete objects. The classifier *la'i* works the same way but for objects that are long, thin, and flat. It probably comes from *lau'i* (the leaf of).
+Lesson 31: Existential Expressions introduced the classifier *fo'i* for single, round, or complete objects. The classifier *la'i* works the same way but for objects that are long, thin, and flat. It probably comes from *lau'i* (the leaf of).
 
 ::: {.examples}
 *la'i pepa*. a sheet/piece of paper
@@ -152,7 +152,7 @@ Chapter 31: Existential Expressions introduced the classifier *fo'i* for single,
 | *ngoue* | noun (quasi-local) | garden, plantation |
 | *tahi* | noun (quasi-local) | sea (as location type) |
 | *toafa* | noun (quasi-local) | wilderness, bush |
-| *'api* | noun (quasi-local) | homestead (as location type) (also "home" (Ch 6)) |
+| *'api* | noun (quasi-local) | homestead (as location type) (also "home" (Lesson 6)) |
 | *pepa* | noun | paper; a sheet of paper |
 | *papa* | noun | board |
 | *foomu* | noun | form (a document you fill in) |

@@ -1,7 +1,7 @@
-# Chapter 14: Greetings and Social Formulas
+# Lesson 14: Greetings and Social Formulas
 *Word Study*
 
-Unlike the productive patterns built so far, Tongan greetings and farewells are fixed formulas. This chapter teaches the most important ones, explains the grammar inside them so they are not opaque, and introduces a few new elements: the vocative particle *'e* for addressing someone by name, the tonal adverb *ā* used in farewells, and polite request words.
+Unlike the productive patterns built so far, Tongan greetings and farewells are fixed formulas. This lesson teaches the most important ones, explains the grammar inside them so they are not opaque, and introduces a few new elements: the vocative particle *'e* for addressing someone by name, the tonal adverb *ā* used in farewells, and polite request words.
 
 ---
 
@@ -33,7 +33,7 @@ After the initial greeting, the follow-up is:
 *Fēfē hake?* How are you?
 :::
 
-You already know *fēfē* (how) from the verbal interrogatives in Chapter 11: Question Words. The word *hake* means "up" or "upward" and gives the question a sense of "How are you getting along?" This form is used especially when asking after someone who has been unwell.
+You already know *fēfē* (how) from the verbal interrogatives in Lesson 11: Question Words. The word *hake* means "up" or "upward" and gives the question a sense of "How are you getting along?" This form is used especially when asking after someone who has been unwell.
 
 The standard answer:
 
@@ -67,7 +67,7 @@ In more formal settings, Tongan uses a longer greeting:
 *Mālō 'etau lava ki he pongipongi ni.* Good morning. (Lit. "Congratulations on our surviving to this morning.")
 :::
 
-The word *'etau* is a possessive pronoun meaning "our" (inclusive). It is formally taught in Chapter 17: Possessives. Treat this greeting as a formula to be memorized whole. The pattern works the same way for other times of day: substitute *efiafi ni* (this afternoon) or *pō ni* (this night) for *pongipongi ni*.
+The word *'etau* is a possessive pronoun meaning "our" (inclusive). It is formally taught in Lesson 17: Possessives. Treat this greeting as a formula to be memorized whole. The pattern works the same way for other times of day: substitute *efiafi ni* (this afternoon) or *pō ni* (this night) for *pongipongi ni*.
 
 ---
 
@@ -128,7 +128,7 @@ For two or more people, the plural and dual imperative forms apply:
 | To those leaving | *'Alu ā!* | *Mo ō ā!* | *Mou ō ā!* |
 | To those staying | *Nofo ā!* | *Mo nofo ā!* | *Mou nofo ā!* |
 
-These follow the imperative patterns from earlier chapters: singular uses the bare verb, dual uses *mo* + verb, and plural uses *mou* + verb. The plural form of "go" is *ō*, not *'alu*.
+These follow the imperative patterns from earlier lessons: singular uses the bare verb, dual uses *mo* + verb, and plural uses *mou* + verb. The plural form of "go" is *ō*, not *'alu*.
 
 ---
 
@@ -198,9 +198,9 @@ To ask someone's name:
 *Ko hai ho hingoa?* What is your name? (Lit. "Who is your name?")
 :::
 
-You already know *ko hai* (who) from the previous chapter. The word *hingoa* means "name."
+You already know *ko hai* (who) from the previous lesson. The word *hingoa* means "name."
 
-> **Preview:** The word *ho* before *hingoa* is a possessive pronoun meaning "your." Possessive pronouns are formally taught in Chapter 17: Possessives. Treat *Ko hai ho hingoa?* as a set phrase.
+> **Preview:** The word *ho* before *hingoa* is a possessive pronoun meaning "your." Possessive pronouns are formally taught in Lesson 17: Possessives. Treat *Ko hai ho hingoa?* as a set phrase.
 
 The answer uses the *ko* identification pattern:
 
@@ -208,7 +208,7 @@ The answer uses the *ko* identification pattern:
 *Ko Sione au.* I am Sione. (Lit. "It-is Sione I.")
 :::
 
-The postposed pronoun *au* (I) was introduced in Chapter 5: Commands and Emphasis. The sentence follows the same *ko* + noun pattern you already know, with *au* identifying who is being named.
+The postposed pronoun *au* (I) was introduced in Lesson 5: Commands and Emphasis. The sentence follows the same *ko* + noun pattern you already know, with *au* identifying who is being named.
 
 ---
 
@@ -228,7 +228,7 @@ The answer follows the same pattern:
 *Ko hoku ta'u uofulu eni.* I am twenty years old. (Lit. "Is my year twenty this.")
 :::
 
-> **Preview:** The words *hoku* (my) and *ho* (your) are possessive pronouns, formally taught in Chapter 17: Possessives. The number *uofulu* (twenty) comes from the number system taught in Chapter 20: Numbers and Time. For now, treat *Ko ho ta'u fiha eni?* and *Ko hoku ta'u* [number] *eni* as set phrases to memorize.
+> **Preview:** The words *hoku* (my) and *ho* (your) are possessive pronouns, formally taught in Lesson 17: Possessives. The number *uofulu* (twenty) comes from the number system taught in Lesson 20: Numbers and Time. For now, treat *Ko ho ta'u fiha eni?* and *Ko hoku ta'u* [number] *eni* as set phrases to memorize.
 
 | Question | Answer |
 |---|---|
@@ -274,7 +274,7 @@ Each line in this exchange uses grammar you can now identify: *ko* identificatio
 | Tongan | Function | English |
 |--------|----------|---------|
 | *ā* | tonal adverb | softens commands, adds warmth |
-| *'e* | vocative particle | marks direct address before names (also the future-tense marker, Ch 9) |
+| *'e* | vocative particle | marks direct address before names (also the future-tense marker, Lesson 9) |
 | *'etau* | possessive pronoun (preview) | our (inclusive) |
 | *ho* | possessive pronoun (preview) | your |
 

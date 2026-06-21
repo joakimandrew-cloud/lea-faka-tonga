@@ -28,7 +28,7 @@ const OPTIONS = [
 
 const PROMPTS = [
   { tongan: 'Naʻá ku ʻalu ___ Vavaʻu.',          english: 'I went to Vavaʻu.',                  answer: 'ki',     why: 'Vavaʻu is a place name (local noun) → bare ki.' },
-  { tongan: 'Naʻá ne haʻu ___ Fisi.',            english: 'She came from Fiji.',                answer: 'mei',    why: 'Fiji is a place name → bare mei. (Pronoun subject ne, since noun-subject construction is Ch 15.)' },
+  { tongan: 'Naʻá ne haʻu ___ Fisi.',            english: 'She came from Fiji.',                answer: 'mei',    why: 'Fiji is a place name → bare mei. (Pronoun subject ne, since noun-subject construction is Lesson 15.)' },
   { tongan: 'ʻOku ou nofo ___ Tonga.',           english: 'I live in Tonga.',                   answer: 'i',      why: 'Tonga is a place → bare ʻi (location).' },
   { tongan: 'Naʻá ku lea ___ Sione.',            english: 'I spoke to Sione.',                  answer: 'kia',    why: 'Sione is a person\u2019s name (personal noun) → ki takes -a → kia.' },
   { tongan: 'Naʻá ne sio ___ Lupe.',             english: 'She saw Lupe.',                      answer: 'kia',    why: 'sio takes ki for its target. Lupe is a name → kia. Tongan says "look TO Lupe". (Naʻa before pronoun ne: Naʻe is for noun subjects only.)' },

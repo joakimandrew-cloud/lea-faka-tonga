@@ -1,6 +1,6 @@
-# Chapter 45: Verbal Nouns
+# Lesson 45: Verbal Nouns
 
-A verbal noun is a verb used as a noun, a word for an action treated as a thing. Building on the basic construction *Ko ho'o 'alu ki fē?* (Where are you going?), this chapter covers what happens to subjects and objects when a verb becomes a verbal noun, and how verbal nouns build temporal clauses.
+A verbal noun is a verb used as a noun, a word for an action treated as a thing. Building on the basic construction *Ko ho'o 'alu ki fē?* (Where are you going?), this lesson covers what happens to subjects and objects when a verb becomes a verbal noun, and how verbal nouns build temporal clauses.
 
 ---
 
@@ -132,7 +132,7 @@ This construction means "when" or "because":
 *'I he 'osi 'enau ngāué, pea nau mālōlō.* When their work was finished, they rested.
 :::
 
-The particle *pea* (and then) introduces the main clause. All the verbal noun constructions shown earlier in this chapter (*'i he'ene lau*, *'i he fufulu 'e 'Ana*, *'i he 'alu 'a Sēmisi*) follow this same temporal pattern.
+The particle *pea* (and then) introduces the main clause. All the verbal noun constructions shown earlier in this lesson (*'i he'ene lau*, *'i he fufulu 'e 'Ana*, *'i he 'alu 'a Sēmisi*) follow this same temporal pattern.
 
 #### *Ko e* + verbal noun (+ *pea*)
 
@@ -175,7 +175,7 @@ Both express the same meaning. The verbal noun construction is considered more n
 
 ### *Ko* + possessive + verbal noun, expanded
 
-Chapter 22: Aspect Markers introduced this pattern for actions happening right now. With the verbal noun constructions above, you can see how it fits into the broader system:
+Lesson 22: Aspect Markers introduced this pattern for actions happening right now. With the verbal noun constructions above, you can see how it fits into the broader system:
 
 ::: {.examples}
 *Ko ho'o lele ki fē?* Where are you running to? (Lit. "It is your running to where?")

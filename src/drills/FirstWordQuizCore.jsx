@@ -42,10 +42,10 @@ const ALL_EXAMPLES = [
   { minChapter: 5,  opener: 'Mou',              rest: ' hiva!',               english: 'Sing, all of you!',             pattern: 'command',    why: 'Mou + verb addresses a command to three or more people.' },
 
   // ── Negation: ʻikai — te before a pronoun, ke before a bare verb (Ch 9) ──
-  { minChapter: 9,  opener: 'Naʻe ʻikai te',    rest: ' u kai.',              english: 'I did not eat.',                pattern: 'negation',   why: 'ʻikai te + pronoun u is the negation skeleton for pronoun subjects (Ch 9: use te before a pronoun, ke before a bare verb).' },
+  { minChapter: 9,  opener: 'Naʻe ʻikai te',    rest: ' u kai.',              english: 'I did not eat.',                pattern: 'negation',   why: 'ʻikai te + pronoun u is the negation skeleton for pronoun subjects (Lesson 9: use te before a pronoun, ke before a bare verb).' },
   { minChapter: 9,  opener: 'ʻE ʻikai te',      rest: ' u ʻalu.',             english: 'I will not go.',                pattern: 'negation',   why: 'Future-negative: ʻE (future before non-pronoun) + ʻikai te + pronoun u = "I will not".' },
   { minChapter: 9,  opener: 'ʻOku ʻikai te',    rest: ' ne ʻita.',            english: 'He is not angry.',              pattern: 'negation',   why: 'ʻikai marks negation; te connects to the pronoun ne (te before a pronoun). Present tense ʻOku.' },
-  { minChapter: 9,  opener: 'ʻOku ʻikai ke',    rest: ' ʻuha.',               english: 'It is not raining.',            pattern: 'negation',   why: 'No pronoun subject here, so ʻikai ke (not ʻikai te) sits directly before the verb ʻuha (Ch 9).' },
+  { minChapter: 9,  opener: 'ʻOku ʻikai ke',    rest: ' ʻuha.',               english: 'It is not raining.',            pattern: 'negation',   why: 'No pronoun subject here, so ʻikai ke (not ʻikai te) sits directly before the verb ʻuha (Lesson 9).' },
   { minChapter: 9,  opener: 'Naʻe ʻikai te',    rest: ' mau kai.',            english: 'We did not eat.',               pattern: 'negation',   why: 'Past negative takes Naʻe (the word after it, ʻikai, is not a pronoun), then ʻikai te + pronoun mau.' },
 
   // ── Equational: Ko opens "X is Y" — no verb (Ch 12, pronoun subjects Ch 16) ──

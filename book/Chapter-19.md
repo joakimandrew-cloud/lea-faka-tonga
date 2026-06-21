@@ -1,6 +1,6 @@
-# Chapter 19: Transitive Word Order
+# Lesson 19: Transitive Word Order
 
-Every sentence so far has had either no object at all (*Na'e 'alu 'a Sione*. Sione went) or an indefinite object fused to the verb (*Na'á ku kai ma*. I ate bread). This chapter introduces a new sentence pattern for saying who does what to whom, using two markers: *'e* for the doer and *'a* for the thing acted upon.
+Every sentence so far has had either no object at all (*Na'e 'alu 'a Sione*. Sione went) or an indefinite object fused to the verb (*Na'á ku kai ma*. I ate bread). This lesson introduces a new sentence pattern for saying who does what to whom, using two markers: *'e* for the doer and *'a* for the thing acted upon.
 
 ---
 
@@ -16,7 +16,7 @@ Tongan splits sentences into two shapes based on one question: does the verb hav
 
 *Lea* (speak) has no object: there is nothing being spoken at. *Lau* (read) has an object: *e tohí*, the book. The first kind is called intransitive (no object); the second is transitive (has an object).
 
-The distinction matters because the marker on the subject changes. In the intransitive sentence, the subject takes *'a*: *'a Sione*. In the transitive sentence, the subject takes *'e*: *'e Sione*. This choice of marker is fixed: a transitive subject is always *'e*, never *'a*. The form *Na'e 'alu 'e Sione* is incorrect, because *'alu* (go) has no object; the correct form is *Na'e 'alu 'a Sione*. (Whether *'a* itself is voiced before some common nouns is a separate, looser question, taken up later in this chapter.)
+The distinction matters because the marker on the subject changes. In the intransitive sentence, the subject takes *'a*: *'a Sione*. In the transitive sentence, the subject takes *'e*: *'e Sione*. This choice of marker is fixed: a transitive subject is always *'e*, never *'a*. The form *Na'e 'alu 'e Sione* is incorrect, because *'alu* (go) has no object; the correct form is *Na'e 'alu 'a Sione*. (Whether *'a* itself is voiced before some common nouns is a separate, looser question, taken up later in this lesson.)
 
 | | Subject marker | Example |
 |---|---|---|

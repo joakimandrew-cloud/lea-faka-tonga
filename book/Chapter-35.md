@@ -1,12 +1,12 @@
-# Chapter 35: Adjectives and Compound Adjectives
+# Lesson 35: Adjectives and Compound Adjectives
 
-This chapter covers how adjectives attach to nouns to describe them directly: their position after the noun, special adjectives that precede the noun, how to combine two adjectives for emphasis, the intensifier *fu'u*, and color words. It then covers how Tongan builds compound adjectives by joining two words, including the *loto* compounds used for emotional states.
+This lesson covers how adjectives attach to nouns to describe them directly: their position after the noun, special adjectives that precede the noun, how to combine two adjectives for emphasis, the intensifier *fu'u*, and color words. It then covers how Tongan builds compound adjectives by joining two words, including the *loto* compounds used for emotional states.
 
 ---
 
 ### Attributive adjectives after the noun
 
-An adjective is a word that describes a noun: what kind, what size, what quality. In earlier chapters, adjectives appeared in the verb slot (*'okú ne mālohi*, he is strong). When an adjective sits next to a noun and describes it directly, it is called an attributive adjective.
+An adjective is a word that describes a noun: what kind, what size, what quality. In earlier lessons, adjectives appeared in the verb slot (*'okú ne mālohi*, he is strong). When an adjective sits next to a noun and describes it directly, it is called an attributive adjective.
 
 In Tongan, the standard position for an attributive adjective is after the noun.
 
@@ -174,7 +174,7 @@ Tongan builds compound adjectives by joining two words. Three patterns are commo
 
 **Verb + noun:** The first word is a verb, the second is its object noun. Together they describe someone by what they habitually do.
 
-> **Preview:** Verbs used as adjectives appear here as part of compound adjectives. This pattern is covered formally in Chapter 41: Word Class Flexibility. Observe how a verb and its object combine into a single describing word: *ha tangata tau* = a fighting man (a soldier), where *tau* (to fight) acts as an adjective after the noun.
+> **Preview:** Verbs used as adjectives appear here as part of compound adjectives. This pattern is covered formally in Lesson 41: Word Class Flexibility. Observe how a verb and its object combine into a single describing word: *ha tangata tau* = a fighting man (a soldier), where *tau* (to fight) acts as an adjective after the noun.
 
 ::: {.examples}
 *ha tangata ngāue*. a working man
@@ -195,7 +195,7 @@ Tongan builds compound adjectives by joining two words. Three patterns are commo
 *'Oku faingata'a 'a e akó.* The studying is difficult.
 :::
 
-> **Preview:** Nouns used as adjectives also occur in Tongan: *ha sipi tangata* = a male sheep (a ram), where *tangata* (man) describes the sheep. This pattern is covered formally in Chapter 41: Word Class Flexibility. Notice that nouns can describe other nouns when placed after them.
+> **Preview:** Nouns used as adjectives also occur in Tongan: *ha sipi tangata* = a male sheep (a ram), where *tangata* (man) describes the sheep. This pattern is covered formally in Lesson 41: Word Class Flexibility. Notice that nouns can describe other nouns when placed after them.
 
 ---
 
@@ -266,7 +266,7 @@ These compounds follow all the standard patterns: they can appear after a noun (
 | *loto fo'i* | compound (loto) | cowardly |
 | *tupenu* | noun | waist-cloth, lava-lava |
 | *'akau* | noun | tree, plant |
-| *mei* | noun | breadfruit (also "from" (Ch 7)) |
+| *mei* | noun | breadfruit (also "from" (Lesson 7)) |
 | *maka* | noun | stone, rock |
 
 ---

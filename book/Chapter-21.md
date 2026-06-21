@@ -1,6 +1,6 @@
-# Chapter 21: Auxiliary Verbs
+# Lesson 21: Auxiliary Verbs
 
-Auxiliary verbs are helper words placed before the main verb to add meaning. This chapter covers how to say you want to do something and how to say you can do something.
+Auxiliary verbs are helper words placed before the main verb to add meaning. This lesson covers how to say you want to do something and how to say you can do something.
 
 ---
 
@@ -52,7 +52,7 @@ When *fie* combines with certain adjectives instead of a verb, the meaning shift
 
 These combinations are always uncomplimentary. Telling someone *'Okú ke fie lahi* is not a neutral observation. It is a pointed remark.
 
-> *Note:* Words like *fiekaia* (hungry), *fieinua* (thirsty), and *fiemohea* (sleepy), which you have seen in earlier chapters, look similar but are single compound words with their own meanings. They are not *fie* + adjective in this uncomplimentary sense. In these words, the *-a* suffix belongs to the compound as a whole, not to the base verb.
+> *Note:* Words like *fiekaia* (hungry), *fieinua* (thirsty), and *fiemohea* (sleepy), which you have seen in earlier lessons, look similar but are single compound words with their own meanings. They are not *fie* + adjective in this uncomplimentary sense. In these words, the *-a* suffix belongs to the compound as a whole, not to the base verb.
 
 ---
 
@@ -100,7 +100,7 @@ In the negative, *lava* uses the same negative patterns you already know. With p
 | *Na'e 'ikai té ke lava 'o ha'u?* | Were you not able to come? |
 | *'Oku 'ikai ke lava 'a Tēvita 'o tohi.* | Tēvita cannot write. |
 
-> *Note:* Tongan has several other ways to express ability: *ala* (it is practicable), *fa'a* (one has the physical capacity), the *ma-* prefix (able as discovered by trial), and *poto 'i* (skilled at). These appear in later chapters, including Chapter 49: Prefixes. *Lava* is the general-purpose word for "can" or "be able to."
+> *Note:* Tongan has several other ways to express ability: *ala* (it is practicable), *fa'a* (one has the physical capacity), the *ma-* prefix (able as discovered by trial), and *poto 'i* (skilled at). These appear in later lessons, including Lesson 49: Prefixes. *Lava* is the general-purpose word for "can" or "be able to."
 
 ---
 

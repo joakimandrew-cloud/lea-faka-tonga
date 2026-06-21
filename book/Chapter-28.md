@@ -1,6 +1,6 @@
-# Chapter 28: Directional Particles
+# Lesson 28: Directional Particles
 
-This chapter introduces directional particles, a set of words that attach to verbs to show which way an action moves. These particles appear constantly in Tongan and carry meaning that English handles through separate phrases like "come here" or "go away."
+This lesson introduces directional particles, a set of words that attach to verbs to show which way an action moves. These particles appear constantly in Tongan and carry meaning that English handles through separate phrases like "come here" or "go away."
 
 ---
 
@@ -107,7 +107,7 @@ The particle *hifo* marks downward movement.
 
 The word *hifo* can also mean "to quietness" or "to oneself." The expression *nofo hifo* can mean "sit down" or "stay behind," depending on context.
 
-> **Preview:** In emphatic commands, a definitive accent sometimes falls on the directional particle: *'Alu hifó!* (Go down!), *Nofo hifó!* (Sit down!). This accent pattern belongs to a larger system covered in Chapter 44: The Definitive Accent System. You may hear it in forceful commands.
+> **Preview:** In emphatic commands, a definitive accent sometimes falls on the directional particle: *'Alu hifó!* (Go down!), *Nofo hifó!* (Sit down!). This accent pattern belongs to a larger system covered in Lesson 44: The Definitive Accent System. You may hear it in forceful commands.
 
 ---
 
@@ -211,7 +211,7 @@ When a specific person is named as the one being asked, that person takes *'e*:
 | *ongoongo* | noun | news, announcement |
 | *'ai* | verb | place, put, set |
 | *'ā* | verb | wake up |
-| *tō* | verb | fall (also "plant" (Ch 17)) |
+| *tō* | verb | fall (also "plant" (Lesson 17)) |
 | *puna* | verb | fly, jump |
 | *hū* | verb | enter |
 | *heka* | verb | ride, mount |

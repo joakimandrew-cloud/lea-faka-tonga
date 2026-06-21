@@ -1,4 +1,4 @@
-# Chapter 24: Conjunctions
+# Lesson 24: Conjunctions
 
 Conjunctions are words that link clauses into longer sentences. Where English uses one word for "and," Tongan has three (*pea*, *mo*, *'o*), each with a different meaning. Tongan also splits "but" into two words (*ka* and *kae*), depending on what follows.
 

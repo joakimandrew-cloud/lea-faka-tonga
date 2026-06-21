@@ -1,4 +1,4 @@
-# Chapter 48: Suffixes
+# Lesson 48: Suffixes
 *Word Study*
 
 Tongan has a set of productive suffixes that create new nouns, adjectives, and verbs from existing words. Where the prefix *faka-* attaches to the front of a word, suffixes attach to the end.
@@ -78,7 +78,7 @@ Other examples with *-nga*:
 
 ### Transitive suffixes: the *-a* type (durational)
 
-An earlier chapter introduced the distinction between transitive verbs (which take an object) and intransitive verbs (which do not). Tongan has two types of transitive suffixes. The first type (endings like *-'i*, *-hi*, *-si*) was covered in an earlier chapter. This section covers the second type: suffixes ending in *-a*.
+An earlier lesson introduced the distinction between transitive verbs (which take an object) and intransitive verbs (which do not). Tongan has two types of transitive suffixes. The first type (endings like *-'i*, *-hi*, *-si*) was covered in an earlier lesson. This section covers the second type: suffixes ending in *-a*.
 
 A verb with a first-type suffix (*-'i*) tends to emphasize carrying the action through to completion. A verb with a second-type suffix (*-a*) has a different character. It may express the action as a process or ongoing state rather than a completed event. It often appears without a named agent, making it equivalent to the English passive. And it can sound less abrupt, more courteous or emotional.
 
@@ -196,7 +196,7 @@ Attached to *'ikai* (before *ko*), to *noa* (worthless), or to question words li
 
 ### *Fai'aki*: a special *-'aki* verb
 
-The suffix *-'aki*, covered in an earlier chapter, creates transitive verbs meaning "to use as." One *-'aki* verb deserves special attention here. *Fai'aki* (from *fai*, to do) means "to manage with," "to decide upon," or "to let something suffice":
+The suffix *-'aki*, covered in an earlier lesson, creates transitive verbs meaning "to use as." One *-'aki* verb deserves special attention here. *Fai'aki* (from *fai*, to do) means "to manage with," "to decide upon," or "to let something suffice":
 
 ::: {.examples}
 *Tau fai'aki pē ho'o fakakaukau.* We will go along with your opinion.
@@ -206,7 +206,7 @@ The suffix *-'aki*, covered in an earlier chapter, creates transitive verbs mean
 
 ### Possessive suffix *-'i*: compound nouns
 
-The suffix *-'i* works differently from the others in this chapter. It does not create a verb or an adjective. Instead, it bonds two nouns together into a tight compound, replacing the preposition *'o* (of).
+The suffix *-'i* works differently from the others in this lesson. It does not create a verb or an adjective. Instead, it bonds two nouns together into a tight compound, replacing the preposition *'o* (of).
 
 Compare the loose form and the compound form:
 
@@ -250,7 +250,7 @@ These two suffixes attach to verbs to express difficulty or ease:
 *'Oku faingofua ke ako e lea faka-Tongá.* It is easy to learn the Tongan language.
 :::
 
-You already know *faingata'a* (difficult) from earlier chapters. Now you can see that it is built from *fai* (do) + *-ngata'a* (hard to). The word was always a suffix construction.
+You already know *faingata'a* (difficult) from earlier lessons. Now you can see that it is built from *fai* (do) + *-ngata'a* (hard to). The word was always a suffix construction.
 
 ---
 
@@ -269,7 +269,7 @@ You already know *faingata'a* (difficult) from earlier chapters. Now you can see
 | *-ia* | suffix (stative) | state or condition |
 | *-ina* | suffix (stative) | state or condition |
 | *-'ia* | suffix | possessing; regarding as; emphasizing |
-| *-'i* | suffix (compound nouns) | of, pertaining to (replaces *'o*) (also "makes verb transitive" (Ch 33)) |
+| *-'i* | suffix (compound nouns) | of, pertaining to (replaces *'o*) (also "makes verb transitive" (Lesson 33)) |
 | *-ngata'a* | suffix | hard to, difficult to |
 | *-ngofua* | suffix | easy to |
 
@@ -341,7 +341,7 @@ Choose the correct suffix for each sentence and translate.
 Choose from: *-'ia*, *-'aki*, *-a*, *-ngata'a*, *-ngofua*
 
 1. *'Oku kumā\_\_\_ 'a e falé.* The house is infested with rats.
-2. *'Oku mau sipinga\_\_\_ 'ene ngāué.* We use his work as an example. (*sipinga* = pattern, from Chapter 33)
+2. *'Oku mau sipinga\_\_\_ 'ene ngāué.* We use his work as an example. (*sipinga* = pattern, from Lesson 33)
 3. *'Oku langu\_\_\_ 'a e me'akái.* The food is infested with flies. (from *lango*)
 4. *'Oku ma'u\_\_\_ 'a e iká 'i he tahí.* Fish is easy to get in the sea.
 5. *'Oku fai\_\_\_ ke ako e lea faka-Tongá.* It is difficult to learn the Tongan language.

@@ -77,7 +77,7 @@ const PHRASES = [
       { id: 'hiva', tongan: 'hiva', role: 'verb',     gloss: 'sing' },
     ],
     correct_order: ['faa', 'hiva'],
-    why: 'faʻa is the exception: it goes BEFORE the verb (between pronoun and verb), not after. All other modifiers in this chapter go after.',
+    why: 'faʻa is the exception: it goes BEFORE the verb (between pronoun and verb), not after. All other modifiers in this lesson go after.',
   },
   {
     id: 'just-slept',

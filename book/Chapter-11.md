@@ -1,6 +1,6 @@
-# Chapter 11: Question Words
+# Lesson 11: Question Words
 
-Beyond yes/no questions and location questions with *fē*, this chapter adds question words for asking where from, when, at what time, and how. Each question word sits where the answer would go.
+Beyond yes/no questions and location questions with *fē*, this lesson adds question words for asking where from, when, at what time, and how. Each question word sits where the answer would go.
 
 ---
 
@@ -66,7 +66,7 @@ The word *'afē* asks "when" about something that has not happened yet. It fills
 *Te nau foki mai 'afē?* When will they return?
 :::
 
-The verb *foki* *(return)* was introduced back in Chapter 1. The word *mai* after it means "toward the speaker": *foki mai* = come back.
+The verb *foki* *(return)* was introduced back in Lesson 1. The word *mai* after it means "toward the speaker": *foki mai* = come back.
 
 ::: {.examples}
 *Te mau foki 'apongipongi.* We will return tomorrow.
@@ -82,7 +82,7 @@ The verb *foki* *(return)* was introduced back in Chapter 1. The word *mai* afte
 *Te tau kamata ako he fiha?* When shall we start studying? (Lit. "at what number?")
 :::
 
-The word *fiha* asks "how many" or "at what time." In time expressions, it combines with *he* (the definite article you learned in Chapter 8: Articles) and a clock number.
+The word *fiha* asks "how many" or "at what time." In time expressions, it combines with *he* (the definite article you learned in Lesson 8: Articles) and a clock number.
 
 The verbs *kamata* *(begin)* and *ako* *(study)* are new. The answer to a *fiha* question gives a specific time:
 
@@ -90,7 +90,7 @@ The verbs *kamata* *(begin)* and *ako* *(study)* are new. The answer to a *fiha*
 *Tau kamata he valu.* We will start at eight.
 :::
 
-*Fiha* also carries the broader meaning "how many" and "how much." That use expands in Chapter 20: Numbers and Time, which covers counting, quantities, and prices.
+*Fiha* also carries the broader meaning "how many" and "how much." That use expands in Lesson 20: Numbers and Time, which covers counting, quantities, and prices.
 
 ---
 
@@ -102,7 +102,7 @@ The verbs *kamata* *(begin)* and *ako* *(study)* are new. The answer to a *fiha*
 
 The word *fēfē* asks "how" or "in what state." Here it fills the verb slot, asking about the listener's condition.
 
-> *Note:* The greeting *Fēfē hake?* (How are you?) is an idiomatic expression. You already know *fēfē* (how). The word *hake* means "up, upward," and adds a sense of "how are you getting along?" Learn *Fēfē hake?* as a fixed greeting. The word *hake* is formally covered as a directional particle in Chapter 28: Directional Particles.
+> *Note:* The greeting *Fēfē hake?* (How are you?) is an idiomatic expression. You already know *fēfē* (how). The word *hake* means "up, upward," and adds a sense of "how are you getting along?" Learn *Fēfē hake?* as a fixed greeting. The word *hake* is formally covered as a directional particle in Lesson 28: Directional Particles.
 
 *Fēfē* also works after a verb, asking "in what way":
 
@@ -112,7 +112,7 @@ The word *fēfē* asks "how" or "in what state." Here it fills the verb slot, as
 
 This is broader than *hā* (by what means), which you learned earlier for asking about transport. *Fēfē* asks about the manner in general.
 
-> *Note:* These question words also work in sentences with named subjects instead of pronouns. The word order in those sentences is different. This pattern is covered in Chapter 15: Noun Subjects.
+> *Note:* These question words also work in sentences with named subjects instead of pronouns. The word order in those sentences is different. This pattern is covered in Lesson 15: Noun Subjects.
 
 ---
 
@@ -216,7 +216,7 @@ The related form *fakafēfee'i* is more deliberate, requesting a precise or deta
 *Te mau langa fakafēfee'i 'a e falé?* Just how are we to build the house? (Please give detailed instructions.)
 :::
 
-> *Note:* The examples in this section place a definite object after the verb, marked with *'a e* (as in *'a e falé* = the house). This full transitive word order is formally covered in Chapter 19: Transitive Word Order. For now, treat these *fēfee'i* sentences as fixed patterns for asking how something is done.
+> *Note:* The examples in this section place a definite object after the verb, marked with *'a e* (as in *'a e falé* = the house). This full transitive word order is formally covered in Lesson 19: Transitive Word Order. For now, treat these *fēfee'i* sentences as fixed patterns for asking how something is done.
 
 ---
 

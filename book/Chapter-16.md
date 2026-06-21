@@ -1,12 +1,12 @@
-# Chapter 16: Equational Sentences
+# Lesson 16: Equational Sentences
 
-Building on the *ko* identification pattern, this chapter adds deeper structures: using *'a* with noun subjects in equational sentences, postposed pronouns as subjects, subject-first emphasis, and diminutives for expressing smallness.
+Building on the *ko* identification pattern, this lesson adds deeper structures: using *'a* with noun subjects in equational sentences, postposed pronouns as subjects, subject-first emphasis, and diminutives for expressing smallness.
 
 ---
 
 ### Noun subjects in equational sentences: the focus marker *'a*
 
-In the previous chapter, *'a* appeared as the marker before noun subjects in verb-first sentences: *'E 'alu 'a Sione* (Sione will go). The same marker works in equational sentences. When the subject is a proper noun, *'a* introduces it at the end of the equational sentence:
+In the previous lesson, *'a* appeared as the marker before noun subjects in verb-first sentences: *'E 'alu 'a Sione* (Sione will go). The same marker works in equational sentences. When the subject is a proper noun, *'a* introduces it at the end of the equational sentence:
 
 ::: {.examples}
 *Ko e tangata ngāue 'a Mafi?* Is Mafi a worker? (Lit. "Identity-marker a worker focus Mafi")
@@ -160,13 +160,13 @@ Compare the contrast in equational sentences:
 *Ko e ki'i tohi motu'a pē.* It is just a small old book. (*motu'a* = old)
 :::
 
-> *Note:* The word *si'isi'i* is the reduplicated form of *si'i* (small). Reduplication often intensifies meaning in Tongan. The full system of reduplication is covered in Chapter 50: Reduplication.
+> *Note:* The word *si'isi'i* is the reduplicated form of *si'i* (small). Reduplication often intensifies meaning in Tongan. The full system of reduplication is covered in Lesson 50: Reduplication.
 
 ---
 
 ### The conjunction *pea*
 
-> **Preview:** The word *pea* means "and" or "and then." It connects two independent clauses. It is formally covered in Chapter 24: Conjunctions. Treat it as "and."
+> **Preview:** The word *pea* means "and" or "and then." It connects two independent clauses. It is formally covered in Lesson 24: Conjunctions. Treat it as "and."
 
 Some equational sentences use *pea* to connect two statements:
 

@@ -43,7 +43,7 @@ export default function QuizIndex() {
       <header className="panel-heading">
         <h1>Quizzes <span className="dot">·</span> Comprehension</h1>
         <p className="lead">
-          Multiple-choice quizzes, one for each chapter. Each quiz tests the patterns introduced in that chapter.
+          Multiple-choice quizzes, one for each lesson. Each quiz tests the patterns introduced in that lesson.
         </p>
       </header>
 

@@ -60,7 +60,7 @@ export default function ChapterPractice() {
 
   const chapter = chapters.find(c => c.chapter === chapterNum)
   if (!chapter) {
-    return <div className="text-[var(--text-muted)]">Chapter not found.</div>
+    return <div className="text-[var(--text-muted)]">Lesson not found.</div>
   }
 
   const selectedPattern = patternIndex !== null ? chapterPatterns[patternIndex] : null
@@ -116,7 +116,7 @@ export default function ChapterPractice() {
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
               onClick={() => setPatternIndex(null)}
             >
-              &larr; Ch. {prevCh}
+              &larr; Lesson {prevCh}
             </Link>
           )}
           {nextCh && (
@@ -125,7 +125,7 @@ export default function ChapterPractice() {
               className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
               onClick={() => setPatternIndex(null)}
             >
-              Ch. {nextCh} &rarr;
+              Lesson {nextCh} &rarr;
             </Link>
           )}
         </div>
@@ -226,7 +226,7 @@ export default function ChapterPractice() {
             Practice
           </h2>
           <p className="text-[var(--text-muted)] mb-4">
-            This chapter builds on structures you have already learned. Take a sentence you
+            This lesson builds on structures you have already learned. Take a sentence you
             can already make and swap a word to watch the English meaning change.
           </p>
           <SentenceLabCore chapterNum={chapterNum} />
@@ -243,7 +243,7 @@ export default function ChapterPractice() {
               className="inline-block w-full sm:w-auto text-left border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors"
             >
               <div className="text-[var(--accent)] text-[15px] font-medium">
-                Continue to Chapter {nextCh} &rarr;
+                Continue to Lesson {nextCh} &rarr;
               </div>
               <div className="text-[var(--text-muted)] text-sm mt-0.5">{nextChapter.title}</div>
             </Link>
@@ -254,7 +254,7 @@ export default function ChapterPractice() {
               onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
               className="block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
             >
-              &larr; Back to Chapter {prevCh}
+              &larr; Back to Lesson {prevCh}
             </Link>
           )}
         </div>

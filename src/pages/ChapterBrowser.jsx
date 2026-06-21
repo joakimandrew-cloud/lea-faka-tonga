@@ -126,7 +126,7 @@ export default function ChapterBrowser() {
                   <p className="chapters-tier-blurb">{tier.blurb}</p>
                 </div>
                 <div className="chapters-tier-count">
-                  {tierCount} chapter{tierCount === 1 ? '' : 's'}
+                  {tierCount} lesson{tierCount === 1 ? '' : 's'}
                 </div>
               </header>
 
@@ -144,14 +144,14 @@ export default function ChapterBrowser() {
                         <h3 className="subsection-title">{group.verbPhrase}</h3>
                       </div>
                       <span className="subsection-count">
-                        {all.length} chapter{all.length === 1 ? '' : 's'}
+                        {all.length} lesson{all.length === 1 ? '' : 's'}
                       </span>
                     </div>
                     <p className="subsection-sub">{group.lead}</p>
                     <hr className="subsection-rule" />
 
                     {all.length === 0 ? (
-                      <div className="chapters-empty">No chapters in this section.</div>
+                      <div className="chapters-empty">No lessons in this section.</div>
                     ) : (
                       <ol className="chapter-list">
                         {all.map(ch => {

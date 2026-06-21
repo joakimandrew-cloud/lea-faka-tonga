@@ -1,6 +1,6 @@
-# Chapter 42: Time Expressions
+# Lesson 42: Time Expressions
 
-This chapter covers practical time expressions: talking about months and expressing time relationships like "since" and "after."
+This lesson covers practical time expressions: talking about months and expressing time relationships like "since" and "after."
 
 ### Months with *'i*
 
@@ -139,7 +139,7 @@ The preposed words *fuofua* and its shorter form *fua* mean "first" or "initial.
 
 ### Ordinal numerals
 
-An earlier chapter introduced ordinal numbers: *'uluaki* for "first," and *ko hono* + number (with a definitive accent) for "second" and beyond. This section covers further uses of ordinals.
+An earlier lesson introduced ordinal numbers: *'uluaki* for "first," and *ko hono* + number (with a definitive accent) for "second" and beyond. This section covers further uses of ordinals.
 
 Ordinal forms function as nouns. To specify what is being counted, add *'o e* + noun:
 
@@ -170,7 +170,7 @@ The interrogative ordinal *fiha* asks "which (in a sequence)":
 | third | *ko hono tolú* | *ko hono tolu 'o e tohi*<br><span class="translation">the third book</span> |
 | which? | *fiha* | *ko hono fiha?*<br><span class="translation">which one (in order)?</span> |
 
-> *Note:* Tongan also has fraction words based on *vahe* (to divide): *vaheua* means "half" and *vahetolu* means "a third." These are formed by combining *vahe* with the cardinal number. The word *liunga* before a numeral expresses multiplication: *liunga tolu* means "three times as much." You will encounter these in reading, though this chapter does not practise them formally.
+> *Note:* Tongan also has fraction words based on *vahe* (to divide): *vaheua* means "half" and *vahetolu* means "a third." These are formed by combining *vahe* with the cardinal number. The word *liunga* before a numeral expresses multiplication: *liunga tolu* means "three times as much." You will encounter these in reading, though this lesson does not practise them formally.
 
 > *Note:* The word *taha* (one) has several extended meanings beyond the number. It can mean "someone" or "anyone" (*ha taha*, a person), "other" or "another" (*ha kolo 'e taha*, another village), or "same" (*'oku ta'u taha ia mo hoku fohá*, he is the same age as my son).
 

@@ -1,6 +1,6 @@
-# Chapter 52: Emotional Articles and Possessives
+# Lesson 52: Emotional Articles and Possessives
 
-This chapter introduces emotional articles and possessives, words that signal feelings of pity, affection, endearment, or humility.
+This lesson introduces emotional articles and possessives, words that signal feelings of pity, affection, endearment, or humility.
 
 You already know the three neutral articles: indefinite *ha* and semi-definite/definite *e*/*he*. Tongan has a parallel set that does the same job but also carries emotional weight.
 
@@ -174,7 +174,7 @@ This is an evaluative idiom, not a literal statement about a "thing." It is Tong
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *si'i* | emotional article (definite) | the (with pity, affection, or humility) (also "small" (Ch 16)) |
+| *si'i* | emotional article (definite) | the (with pity, affection, or humility) (also "small" (Lesson 16)) |
 | *si'a* | emotional article (indefinite) | a (with pity or affection) |
 | *si'eku* | emotional possessive ('e-class) | my (poor/dear) |
 | *si'oku* | emotional possessive (ho-class) | my (poor/dear) |

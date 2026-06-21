@@ -1,6 +1,6 @@
-# Chapter 25: Plural Markers
+# Lesson 25: Plural Markers
 
-Until now, every noun in the book has appeared as singular. This chapter teaches how to talk about more than one person, animal, or thing.
+Until now, every noun in the book has appeared as singular. This lesson teaches how to talk about more than one person, animal, or thing.
 
 In English, you add "-s" to make a noun plural: "house" becomes "houses." Tongan nouns do not change their form. Instead, Tongan places a word before the noun to signal "more than one." These words are plural markers. Tongan has four plural markers, each used with a different type of noun, plus a dual marker for exactly two.
 

@@ -1,7 +1,7 @@
-# Chapter 40: Spatial Nouns
+# Lesson 40: Spatial Nouns
 *Word Study*
 
-This chapter teaches a set of nouns that Tongan places before other nouns to express precise spatial relationships: inside, under, on top of, in front of, and beside.
+This lesson teaches a set of nouns that Tongan places before other nouns to express precise spatial relationships: inside, under, on top of, in front of, and beside.
 
 Where English uses prepositions ("inside the box," "under the table"), Tongan uses spatial nouns placed directly before the noun they locate. The spatial noun and the following noun form a tight compound, and the whole compound fits into the sentence with a preposition like *'i* (at/in) or *ki* (to/toward).
 
@@ -254,7 +254,7 @@ The rule: with things, the spatial noun goes directly before the noun. With peop
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *loto* | spatial noun | inside, interior (also "want" (Ch 36)) |
+| *loto* | spatial noun | inside, interior (also "want" (Lesson 36)) |
 | *lalo* | spatial noun | under, underneath |
 | *tu'a* | spatial noun | outside, behind |
 | *mui* | spatial noun | end, space behind |
@@ -262,7 +262,7 @@ The rule: with things, the spatial noun goes directly before the noun. With peop
 | *funga* | spatial noun | top, surface |
 | *tafa'aki* | spatial noun | side |
 | *ve'e* | spatial noun | beside, at the foot of |
-| *mu'a* | spatial noun | front, ahead of (esp. of people) (also "please" (Ch 5)) |
+| *mu'a* | spatial noun | front, ahead of (esp. of people) (also "please" (Lesson 5)) |
 
 **New vocabulary** (memorize these meanings):
 

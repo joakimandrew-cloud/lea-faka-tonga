@@ -1,6 +1,6 @@
-# Chapter 8: Articles
+# Lesson 8: Articles
 
-Nouns so far have appeared either as indefinite objects joined directly to a verb (*kai mā*, *inu vai*) or after a preposition (*ki Tonga*, *'i 'api*). This chapter introduces articles, the small words placed before a noun to signal whether you mean "a" thing or "the" thing. Tongan has two articles: *ha* for "a," "some," or "any," and *e* (or *he*) for "the."
+Nouns so far have appeared either as indefinite objects joined directly to a verb (*kai mā*, *inu vai*) or after a preposition (*ki Tonga*, *'i 'api*). This lesson introduces articles, the small words placed before a noun to signal whether you mean "a" thing or "the" thing. Tongan has two articles: *ha* for "a," "some," or "any," and *e* (or *he*) for "the."
 
 ---
 
@@ -10,7 +10,7 @@ Nouns so far have appeared either as indefinite objects joined directly to a ver
 *'Oku ou fiema'u ha ika.* I want some fish.
 :::
 
-The word *ha* placed before a noun means "a," "some," or "any." It signals that the speaker does not have a specific one in mind. The noun *ika* *(fish)* is a common food word, like *mā* and *vai* from earlier chapters. The verb *fiema'u* *(to want, to need)* takes its object with *ha* when the speaker means any or some of that thing.
+The word *ha* placed before a noun means "a," "some," or "any." It signals that the speaker does not have a specific one in mind. The noun *ika* *(fish)* is a common food word, like *mā* and *vai* from earlier lessons. The verb *fiema'u* *(to want, to need)* takes its object with *ha* when the speaker means any or some of that thing.
 
 Compare these two sentences:
 
@@ -20,7 +20,7 @@ Compare these two sentences:
 *Na'á ku inu ha vai.* I drank some water.
 :::
 
-In the first sentence, *inu vai* is the kind of verb-object unit from earlier chapters: the verb and noun sit together with nothing between them. In the second, *ha* appears between the verb and the noun. The noun phrase *ha vai* means "some water," not a specific glass of water.
+In the first sentence, *inu vai* is the kind of verb-object unit from earlier lessons: the verb and noun sit together with nothing between them. In the second, *ha* appears between the verb and the noun. The noun phrase *ha vai* means "some water," not a specific glass of water.
 
 The word *ha* marks its noun as indefinite, without specifying a particular one. In English, "a" implies one. In Tongan, *ha* does not. *Ha talo* can mean "a taro" or "some taro." Context decides.
 
@@ -38,7 +38,7 @@ It also appears in suggestions using the imperative:
 *Inu ha vai.* Drink some water.
 :::
 
-*Ha* appears frequently in negative sentences as well, once you learn negation in the next chapter.
+*Ha* appears frequently in negative sentences as well, once you learn negation in the next lesson.
 
 | Tongan | English |
 |---|---|
@@ -47,7 +47,7 @@ It also appears in suggestions using the imperative:
 | *inu ha tī* | drink some tea |
 | *kai ha ika* | eat some fish |
 
-The nouns *talo* *(taro)*, *ika* *(fish)*, and *tī* *(tea)* are content words that slot into these patterns like *mā* and *vai* from earlier chapters.
+The nouns *talo* *(taro)*, *ika* *(fish)*, and *tī* *(tea)* are content words that slot into these patterns like *mā* and *vai* from earlier lessons.
 
 Four more nouns work the same way: *kato* *(basket)*, *hele* *(knife)*, *fala* *(mat)*, and *moa* *(chicken)*.
 
@@ -83,7 +83,7 @@ The definite article tells the listener you mean a specific thing. Tongan has tw
 *'Oku ou fiema'u 'a e talo.* I want the taro. (a specific amount, already identified)
 :::
 
-The full rule: *he* appears immediately after *'i*, *ki*, *mei*, and one other preposition (*'e*) that you will encounter in Chapter 19: Transitive Word Order. Everywhere else, use *e*.
+The full rule: *he* appears immediately after *'i*, *ki*, *mei*, and one other preposition (*'e*) that you will encounter in Lesson 19: Transitive Word Order. Everywhere else, use *e*.
 
 | Position | Form | Example |
 |---|---|---|
@@ -130,9 +130,9 @@ The full contrast looks like this:
 *'Oku ou fiema'u 'a e talō.* I want the taro.
 :::
 
-> **Preview of the focus marker *'a*:** The small word *'a* before the article *e* is a focus marker. It signals which noun is most directly connected to the verb's action. When a definite noun is the object of a verb, *'a* appears before the article: *kai 'a e mā* (eat the bread). You will learn the full pattern in Chapter 15: Noun Subjects, and again in Chapter 19: Transitive Word Order. For now, notice that *'a e* belongs together as a unit before definite nouns that are acted on by the verb.
+> **Preview of the focus marker *'a*:** The small word *'a* before the article *e* is a focus marker. It signals which noun is most directly connected to the verb's action. When a definite noun is the object of a verb, *'a* appears before the article: *kai 'a e mā* (eat the bread). You will learn the full pattern in Lesson 15: Noun Subjects, and again in Lesson 19: Transitive Word Order. For now, notice that *'a e* belongs together as a unit before definite nouns that are acted on by the verb.
 
-In the third sentence, notice the stress on the last vowel of *talō*. This is the definitive accent, a stress shift that marks a definite noun as fully specific (both speaker and listener know exactly which one). The definitive accent is covered formally in Chapter 18: Definiteness and the Definitive Accent. The basic distinction between *ha* (indefinite) and *e*/*he* (definite) is what matters.
+In the third sentence, notice the stress on the last vowel of *talō*. This is the definitive accent, a stress shift that marks a definite noun as fully specific (both speaker and listener know exactly which one). The definitive accent is covered formally in Lesson 18: Definiteness and the Definitive Accent. The basic distinction between *ha* (indefinite) and *e*/*he* (definite) is what matters.
 
 ---
 

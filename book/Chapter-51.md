@@ -1,6 +1,6 @@
-# Chapter 51: Special Pronoun Uses
+# Lesson 51: Special Pronoun Uses
 
-This chapter introduces several special pronoun uses that expand the Tongan pronoun system.
+This lesson introduces several special pronoun uses that expand the Tongan pronoun system.
 
 English has the word "one" used as an indefinite pronoun: "One should not speak too quickly." Tongan has the same concept, using the first-person inclusive singular pronoun *te* (preposed) and *kita* (postposed) in a way that goes beyond their literal meaning of "I and you."
 
@@ -193,7 +193,7 @@ This is a subtle distinction. In everyday use, *na'a*/*na'e* and *ne* are often 
 | *'o'ota* | impersonal postposed possessive (ho-class) | of one's |
 | *ma'ata* | impersonal benefactive ('e-class) | for one |
 | *mo'ota* | impersonal benefactive (ho-class) | for one |
-| *kau* | first-person pronoun (sentence-initial) | I (at start of sentence); a separate word *kau* marks groups of people (Ch 20) |
+| *kau* | first-person pronoun (sentence-initial) | I (at start of sentence); a separate word *kau* marks groups of people (Lesson 20) |
 
 **New vocabulary** (memorize these meanings):
 

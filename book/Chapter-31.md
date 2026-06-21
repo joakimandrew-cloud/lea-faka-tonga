@@ -1,6 +1,6 @@
-# Chapter 31: Existential Expressions
+# Lesson 31: Existential Expressions
 
-Building on the back-reference word *ai*, this chapter introduces the existential expression *'oku 'i ai* (there is, there are). You previewed this pattern in Chapter 29, where it combined with indefinite possessives to form the Tongan equivalent of "to have" (*'Oku 'i ai ha'o kato?* Do you have a basket?). This chapter gives it its full treatment as a standalone existential.
+Building on the back-reference word *ai*, this lesson introduces the existential expression *'oku 'i ai* (there is, there are). You previewed this pattern in Lesson 29, where it combined with indefinite possessives to form the Tongan equivalent of "to have" (*'Oku 'i ai ha'o kato?* Do you have a basket?). This lesson gives it its full treatment as a standalone existential.
 
 ---
 
@@ -54,7 +54,7 @@ In past and future tenses:
 
 ### The classifier *fo'i* in existential contexts
 
-You met *fo'i* in Chapter 20 as the classifier that singles out one individual unit: *ha fo'i niu* (one coconut), *ha fo'i mā* (one loaf of bread). Its original sense relates to fruit (one fruit from a tree), and it extends naturally to any complete, self-contained item, especially round objects. This section extends that usage into the existential and generic patterns this chapter introduces.
+You met *fo'i* in Lesson 20 as the classifier that singles out one individual unit: *ha fo'i niu* (one coconut), *ha fo'i mā* (one loaf of bread). Its original sense relates to fruit (one fruit from a tree), and it extends naturally to any complete, self-contained item, especially round objects. This section extends that usage into the existential and generic patterns this lesson introduces.
 
 | Tongan | English |
 |---|---|
@@ -79,9 +79,9 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 
 ---
 
-> **Preview:** The word *'aki* is another back-reference word, similar to *ai*. Where *ai* replaces *'i* and *ki* phrases, *'aki* replaces phrases meaning "with" or "by means of": *Na'á ne tohi 'aki* (He wrote with it). This is covered formally in Chapter 33: Instrumental *'aki* and the Suffix *-'i*. Recognize *'aki* as meaning "with it" or "with them" when you encounter it.
+> **Preview:** The word *'aki* is another back-reference word, similar to *ai*. Where *ai* replaces *'i* and *ki* phrases, *'aki* replaces phrases meaning "with" or "by means of": *Na'á ne tohi 'aki* (He wrote with it). This is covered formally in Lesson 33: Instrumental *'aki* and the Suffix *-'i*. Recognize *'aki* as meaning "with it" or "with them" when you encounter it.
 
-> **Preview:** When Tongan expresses "whenever there is," it uses *ka 'i ai* instead of *kapau 'oku 'i ai*: *Ka 'i ai ha kātoanga lahi, peá ke tala mai* (Whenever there is a big celebration, tell me). The conditional *ka* (if and when, whenever) is covered formally in Chapter 47: Conditionals and Counterfactuals. Recognize *ka 'i ai* as meaning "whenever there is."
+> **Preview:** When Tongan expresses "whenever there is," it uses *ka 'i ai* instead of *kapau 'oku 'i ai*: *Ka 'i ai ha kātoanga lahi, peá ke tala mai* (Whenever there is a big celebration, tell me). The conditional *ka* (if and when, whenever) is covered formally in Lesson 47: Conditionals and Counterfactuals. Recognize *ka 'i ai* as meaning "whenever there is."
 
 ---
 
@@ -103,7 +103,7 @@ Without *fo'i*, the noun is more general. *Ha niu* could mean a coconut, some co
 |--------|----------|---------|
 | *'i ai* | existential marker | there is, there are (with tense marker) |
 | *lahi* | quantifier (in existentials) | many, much |
-| *si'i* | quantifier (in existentials) | few, little (also "small" (Ch 16)) |
+| *si'i* | quantifier (in existentials) | few, little (also "small" (Lesson 16)) |
 | *'oku 'iai* | existential phrase | there is/are |
 | *na'e 'iai* | existential phrase (past) | there was/were |
 

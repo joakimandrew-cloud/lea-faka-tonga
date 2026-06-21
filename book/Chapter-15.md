@@ -1,6 +1,6 @@
-# Chapter 15: Noun Subjects
+# Lesson 15: Noun Subjects
 
-So far, pronouns have filled the subject slot between the tense marker and the verb. This chapter introduces noun subjects (names), which shift to after the verb, require the focus marker *'a*, and bring the tense marker forms *na'e* and *'e* into use.
+So far, pronouns have filled the subject slot between the tense marker and the verb. This lesson introduces noun subjects (names), which shift to after the verb, require the focus marker *'a*, and bring the tense marker forms *na'e* and *'e* into use.
 
 ---
 
@@ -38,7 +38,7 @@ These three changes always happen together. The word order for noun subjects is:
 
 ### The focus marker *'a*
 
-The word *'a* is a focus marker: a word that marks the noun closest in thought to the verb's action. In a sentence with no object, the subject is closest to the verb, so *'a* marks the subject. Before proper nouns, *'a* always appears. You will encounter it again with common nouns in Chapter 18: Definiteness and the Definitive Accent and with transitive verbs in Chapter 19: Transitive Word Order. The pattern is:
+The word *'a* is a focus marker: a word that marks the noun closest in thought to the verb's action. In a sentence with no object, the subject is closest to the verb, so *'a* marks the subject. Before proper nouns, *'a* always appears. You will encounter it again with common nouns in Lesson 18: Definiteness and the Definitive Accent and with transitive verbs in Lesson 19: Transitive Word Order. The pattern is:
 
 *'a* + proper noun = noun subject of a verb with no object
 
@@ -56,7 +56,7 @@ The word *kolo* means "town." The word *'api* means "home." Both appear frequent
 
 ### Why the tense marker changes: *na'e* and *'e* with noun subjects
 
-You have seen both *na'a* and *na'e* since the first chapter of this book. The rule governing which form to use is now fully clear.
+You have seen both *na'a* and *na'e* since the first lesson of this book. The rule governing which form to use is now fully clear.
 
 Use *na'a* and *te* immediately before a pronoun:
 
@@ -102,7 +102,7 @@ When a noun subject is present, the third-person singular pronoun *ne* disappear
 
 ### Predicate adjectives with noun subjects
 
-In Chapter 3: Descriptive Words, you learned that Tongan descriptive words (adjectives) function as verbs. *'Oku ou fiefia* means "I am happy," with *fiefia* (happy) filling the verb slot. The same pattern works with noun subjects, following the new word order:
+In Lesson 3: Descriptive Words, you learned that Tongan descriptive words (adjectives) function as verbs. *'Oku ou fiefia* means "I am happy," with *fiefia* (happy) filling the verb slot. The same pattern works with noun subjects, following the new word order:
 
 ::: {.examples}
 *'Oku hela'ia 'a Mele.* Mele is tired.
@@ -147,14 +147,14 @@ The word *vela* means "hot" and *'afua* means "fine, clear" (of weather).
 
 #### Two kinds of verbs
 
-This chapter uses only verbs that take no object (intransitive verbs): *'alu* (go), *mohe* (sleep), *lea* (speak), and descriptive words like *puke* (sick). There is a second kind, the transitive verb, which takes an object: *kai* (eat something), *inu* (drink something). Churchward classifies verbs along two axes (Ch. 11, §1–4):
+This lesson uses only verbs that take no object (intransitive verbs): *'alu* (go), *mohe* (sleep), *lea* (speak), and descriptive words like *puke* (sick). There is a second kind, the transitive verb, which takes an object: *kai* (eat something), *inu* (drink something). Churchward classifies verbs along two axes (Lesson 11, §1–4):
 
 | | Has a subject | No subject |
 |---|---|---|
 | **No object** (intransitive) | *Na'á ne lea.*<br><span class="translation">He spoke.</span> | *Na'e 'uha.*<br><span class="translation">It rained.</span> |
-| **Has an object** (transitive) | (covered in Chapter 19: Transitive Word Order) | (covered in Chapter 19: Transitive Word Order) |
+| **Has an object** (transitive) | (covered in Lesson 19: Transitive Word Order) | (covered in Lesson 19: Transitive Word Order) |
 
-The transitive pattern with noun subjects uses a different marker (*'e* instead of *'a*) and is covered in Chapter 19: Transitive Word Order. All noun subjects in this chapter, where the verb takes no object, use *'a*.
+The transitive pattern with noun subjects uses a different marker (*'e* instead of *'a*) and is covered in Lesson 19: Transitive Word Order. All noun subjects in this lesson, where the verb takes no object, use *'a*.
 
 ---
 

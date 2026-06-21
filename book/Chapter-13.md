@@ -1,4 +1,4 @@
-# Chapter 13: *Ko* Questions
+# Lesson 13: *Ko* Questions
 
 The *ko* pattern also forms questions. Where tense-marker questions ask about actions, *ko* questions ask about identities: who someone is, what something is, or which one.
 
@@ -30,7 +30,7 @@ When the question asks about someone doing something to a specific thing, the pr
 *Ko hai té ne tokoni ki he faiako?* Who will help the teacher?
 :::
 
-The word *tokoni* means "help." The full pattern for this kind of sentence is covered in Chapter 19: Transitive Word Order. Recognize that *ko hai* can ask about people in both types of sentence.
+The word *tokoni* means "help." The full pattern for this kind of sentence is covered in Lesson 19: Transitive Word Order. Recognize that *ko hai* can ask about people in both types of sentence.
 
 The answer to a *ko hai* question uses *ko* + the person:
 
@@ -44,7 +44,7 @@ The answer to a *ko hai* question uses *ko* + the person:
 
 ### *Ko e hā* and *Ko e hā 'a e me'a*: What?
 
-You already know *ko e hā ē?* (What is that?) from the previous chapter. The word *hā* means "what." On its own, *ko e hā?* can mean "What?", "What is it?", or "What's the matter?"
+You already know *ko e hā ē?* (What is that?) from the previous lesson. The word *hā* means "what." On its own, *ko e hā?* can mean "What?", "What is it?", or "What's the matter?"
 
 The fuller form *ko e hā e me'a* appears when asking about a specific thing. The word *me'a* means "thing."
 
@@ -64,7 +64,7 @@ The word *fē* means "where" or "which." Combined with *ko*, it asks about locat
 *Ko fē 'a e kato?* Where is the basket?
 :::
 
-You may recall this question word from a note in the previous chapter. Where *'oku 'i fē* asks "where?" in a tense-marker sentence, *ko fē* asks the same question using the *ko* pattern. The two differ in nuance: *'oku 'i fē* is used when you suppose the person or thing may be far away, while *ko fē* is used when you suppose it is somewhere within sight.
+You may recall this question word from a note in the previous lesson. Where *'oku 'i fē* asks "where?" in a tense-marker sentence, *ko fē* asks the same question using the *ko* pattern. The two differ in nuance: *'oku 'i fē* is used when you suppose the person or thing may be far away, while *ko fē* is used when you suppose it is somewhere within sight.
 
 The answer uses any *ko* identification pattern:
 
@@ -94,7 +94,7 @@ The word *'ita* means "angry." In this sentence, the subject is understood from 
 
 The full form of this question is *ko e hā e 'uhinga ... ai* (what is the reason ... therefore?), where *'uhinga* means "reason." The shortened *ko e hā ... ai* is far more common in speech.
 
-> *Note:* The word *ai* also appears in other constructions, particularly in Chapter 39: Relative Clauses with *Ai* and Demonstratives. In this chapter, it only appears in the *ko e hā ... ai* pattern for "why" questions.
+> *Note:* The word *ai* also appears in other constructions, particularly in Lesson 39: Relative Clauses with *Ai* and Demonstratives. In this lesson, it only appears in the *ko e hā ... ai* pattern for "why" questions.
 
 ---
 
@@ -108,7 +108,7 @@ The full form of this question is *ko e hā e 'uhinga ... ai* (what is the reaso
 | *Ko fē ...?* | Where? Which? | *Ko fē 'a e kato?*<br><span class="translation">Where is the basket?</span> |
 | *Ko e hā ... ai?* | Why? | *Ko e hā na'á ke 'alu ai ki Nuku'alofa?*<br><span class="translation">Why did you go to Nuku'alofa?</span> |
 
-> *Note:* The word *hai* also appears in expressions meaning "whose" (*'a hai?*, *'o hai?*). These possessive forms are covered in Chapter 37: Postposed Possessives.
+> *Note:* The word *hai* also appears in expressions meaning "whose" (*'a hai?*, *'o hai?*). These possessive forms are covered in Lesson 37: Postposed Possessives.
 
 ---
 

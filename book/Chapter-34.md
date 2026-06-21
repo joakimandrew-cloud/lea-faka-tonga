@@ -1,6 +1,6 @@
-# Chapter 34: Reported Speech
+# Lesson 34: Reported Speech
 
-This chapter introduces ways to report what someone said, thought, or heard: strung clauses without a connective, the verb *pehē* (to say, to think), and the reportative word *tokua* (they say, it is said).
+This lesson introduces ways to report what someone said, thought, or heard: strung clauses without a connective, the verb *pehē* (to say, to think), and the reportative word *tokua* (they say, it is said).
 
 ---
 
@@ -90,7 +90,7 @@ When *pehē* follows a verb, it means "in this way" or "in that way":
 
 ### *Pehe'i*: to do or treat in this way
 
-By adding the transitive suffix *-'i* (from the previous chapter), *pehē* becomes *pehe'i*. This transitive form means "to do in this way" or "to treat in this way." It takes an object.
+By adding the transitive suffix *-'i* (from the previous lesson), *pehē* becomes *pehe'i*. This transitive form means "to do in this way" or "to treat in this way." It takes an object.
 
 ::: {.examples}
 *Tohi pehe'i!* Write it like this.
@@ -176,7 +176,7 @@ The interjection *tā* appears at the start of a sentence and signals the discov
 | *pehe'i* | transitive form of *pehē* | say to, do thus to |
 | *tokua* | reportative word | they say, it is said |
 | *ko ia* | inferential phrase | therefore, that is why |
-| *tā* | interjection | so! (discovery) (also "hit" (Ch 33)) |
+| *tā* | interjection | so! (discovery) (also "hit" (Lesson 33)) |
 | *'oku pehē* | reported speech marker | it is said that, one says |
 
 **New vocabulary** (memorize these meanings):

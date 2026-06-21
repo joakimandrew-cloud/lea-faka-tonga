@@ -22,7 +22,7 @@ const CARDS = [
   { tongan: 'meʻakai',    english: 'food',                               category: 'maa', why: 'Food is something you eat / consume → ʻe-class. maʻa.' },
   { tongan: 'kupenga',    english: 'a fishing net (a tool)',             category: 'maa', why: 'A tool you wield → ʻe-class. maʻa.' },
   { tongan: 'kelekele',   english: 'land / a piece of land',             category: 'moo', why: 'Land defines / characterises you → ho-class. moʻo.' },
-  { tongan: 'kofu',       english: 'clothing',                           category: 'maa', why: 'Clothes are something you wear / put on → ʻe-class (Ch 26 table). maʻa. When the class is doubtful, maʻa is the safer default (Churchward 16.45).' },
+  { tongan: 'kofu',       english: 'clothing',                           category: 'maa', why: 'Clothes are something you wear / put on → ʻe-class (Lesson 26 table). maʻa. When the class is doubtful, maʻa is the safer default (Churchward 16.45).' },
 ]
 
 export default function BenefactiveSorterCore() {

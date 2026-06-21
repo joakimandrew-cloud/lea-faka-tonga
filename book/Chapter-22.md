@@ -1,6 +1,6 @@
-# Chapter 22: Aspect Markers and Frequency
+# Lesson 22: Aspect Markers and Frequency
 
-Tense markers tell you *when* something happens. This chapter adds a second set of markers (placed between the tense marker and the verb) that tell you *what stage* the action is in: still going on, already finished, happening right now, or just starting. These are called **aspect markers**.
+Tense markers tell you *when* something happens. This lesson adds a second set of markers (placed between the tense marker and the verb) that tell you *what stage* the action is in: still going on, already finished, happening right now, or just starting. These are called **aspect markers**.
 
 tense marker + pronoun + aspect marker + verb
 
@@ -85,7 +85,7 @@ Before a verb with a noun subject, *te'eki* can stand without *te* or *ke*:
 *'Oku te'eki kamata 'a e ngāué.* The work has not started yet.
 :::
 
-> *Note:* The phrase *te'eki ai ke* can also mean "before" in the sense of something happening prior to another event: *Te'eki ai ke u lea, kuó ne lea mai.* (Before I could speak, he spoke to me.) This is an awareness item. You will encounter it in reading, but the formal treatment comes in Chapter 30: Temporal and Conditional Conjunctions.
+> *Note:* The phrase *te'eki ai ke* can also mean "before" in the sense of something happening prior to another event: *Te'eki ai ke u lea, kuó ne lea mai.* (Before I could speak, he spoke to me.) This is an awareness item. You will encounter it in reading, but the formal treatment comes in Lesson 30: Temporal and Conditional Conjunctions.
 
 ---
 
@@ -125,7 +125,7 @@ The word *toe* is placed before a verb to mean "again" or "more." It indicates r
 *ha toe me'a*. another thing, an additional thing
 :::
 
-Before a verb with a modifier, *toe* combines with *ange* to form comparisons (you will learn this pattern formally in Chapter 27: Comparison and Degree). Observe the basic meaning of repetition:
+Before a verb with a modifier, *toe* combines with *ange* to form comparisons (you will learn this pattern formally in Lesson 27: Comparison and Degree). Observe the basic meaning of repetition:
 
 | Tongan | English |
 |---|---|
@@ -184,7 +184,7 @@ The word *leva* is placed after the verb. Where *toki* delays, *leva* does the o
 
 ### All aspect markers together
 
-Here is a summary of the aspect markers introduced in this chapter:
+Here is a summary of the aspect markers introduced in this lesson:
 
 | Marker | Position | Meaning |
 |---|---|---|

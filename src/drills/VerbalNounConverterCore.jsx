@@ -42,7 +42,7 @@ const PROMPTS = [
   { tongan: 'Naʻá ne tanu ʻa e ʻakaú. → ʻi ___ tanu ʻa e ʻakaú',     english: 'when he planted the tree',         answer: 'heene',  why: 'ne → ʻene → heʻene again, this time with the verb tanu (plant). The contraction is the same.' },
   { tongan: 'Naʻá ku ngāue. → ʻi ___ ngāue',                         english: 'when I worked',                    answer: 'heeku',  why: 'ku → ʻeku → heʻeku, here with an intransitive verb and no object. The possessive still contracts.' },
   { tongan: 'Naʻa tau ako. → ʻi ___ ako',                            english: 'when we (incl.) studied',          answer: 'hetau',  why: 'tau → ʻetau → he ʻetau. Watch this one: unlike ʻeku and ʻene, ʻetau does NOT contract after ʻi he.' },
-  { tongan: 'Naʻe ʻuha. → ʻi ___ ʻuha',                              english: 'when it rained',                   answer: 'heene',  why: 'Impersonal weather verbs have no real subject, but the verbal noun still takes a fixed heʻene ("its"): ʻi heʻene ʻuha (Ch 45).' },
+  { tongan: 'Naʻe ʻuha. → ʻi ___ ʻuha',                              english: 'when it rained',                   answer: 'heene',  why: 'Impersonal weather verbs have no real subject, but the verbal noun still takes a fixed heʻene ("its"): ʻi heʻene ʻuha (Lesson 45).' },
 ]
 
 export default function VerbalNounConverterCore() {

@@ -1,6 +1,6 @@
-# Chapter 3: Descriptive Words
+# Lesson 3: Descriptive Words
 
-This chapter expands the tense marker + pronoun + verb pattern by showing that the verb slot can hold more than action words. Descriptive words like *fiefia* (happy) and *hela'ia* (tired) fit that slot, modifiers like *lelei* (well) and *'aupito* (very) extend them, and verb-object compounds like *kai mā* (eat bread) form a single unit.
+This lesson expands the tense marker + pronoun + verb pattern by showing that the verb slot can hold more than action words. Descriptive words like *fiefia* (happy) and *hela'ia* (tired) fit that slot, modifiers like *lelei* (well) and *'aupito* (very) extend them, and verb-object compounds like *kai mā* (eat bread) form a single unit.
 
 ---
 
@@ -12,11 +12,11 @@ This chapter expands the tense marker + pronoun + verb pattern by showing that t
 *'Oku ou vaivai.* I am weak. (Lit. "Present I weak")
 :::
 
-Both sentences follow the same pattern as *'Oku ou kai* (I eat): tense marker + pronoun + verb. But *fiefia* *(happy)* and *hela'ia* *(tired)* are not actions. They are **adjectives**: words that describe a quality or state. In English, adjectives typically describe nouns ("a happy child," "a strong person"). In Tongan, adjectives can also fill the verb position, which is the pattern taught in this chapter. Happy, tired, hungry, strong, angry are all adjectives.
+Both sentences follow the same pattern as *'Oku ou kai* (I eat): tense marker + pronoun + verb. But *fiefia* *(happy)* and *hela'ia* *(tired)* are not actions. They are **adjectives**: words that describe a quality or state. In English, adjectives typically describe nouns ("a happy child," "a strong person"). In Tongan, adjectives can also fill the verb position, which is the pattern taught in this lesson. Happy, tired, hungry, strong, angry are all adjectives.
 
 In English, you need a helper verb to connect an adjective to its subject: "I **am** happy." Tongan does not. The adjective goes directly into the verb position. In this pattern, there is no separate word for "am," "is," or "are." The tense marker and the pronoun do the job on their own.
 
-In Chapter 2: Tense Markers and Pronouns, you learned that *'oku* with action verbs like *kai* carries a habitual sense: *'Oku ou kai* means "I eat (regularly)," not "I am eating right now." With adjectives, *'oku* works differently. *'Oku ou fiefia* means "I am happy" at this moment, not "I am generally a happy person." The reason is straightforward: action verbs describe things you do, and doing something regularly is the unmarked case; adjectives describe states you are in, and a state is something you are in right now unless otherwise marked.
+In Lesson 2: Tense Markers and Pronouns, you learned that *'oku* with action verbs like *kai* carries a habitual sense: *'Oku ou kai* means "I eat (regularly)," not "I am eating right now." With adjectives, *'oku* works differently. *'Oku ou fiefia* means "I am happy" at this moment, not "I am generally a happy person." The reason is straightforward: action verbs describe things you do, and doing something regularly is the unmarked case; adjectives describe states you are in, and a state is something you are in right now unless otherwise marked.
 
 Grammatically, an adjective in the verb slot works exactly like a verb. Compare *na'á ku masiva* (I was poor) with *na'á ku 'alu* (I went): same tense marker, same pronoun, same position. The grammar treats them identically.
 
@@ -60,7 +60,7 @@ Here are adjectives to use in the verb slot. All follow the pattern: tense marke
 *Na'á ku ngāue mālohi.* I worked hard.
 :::
 
-A **modifier** (also called an adverb) is a word that adds detail to a verb or adjective. It tells you how, how much, or in what way something happens. In the sentence above, *mālohi* tells you how the work was done. The verb *ngāue* *(work)* is new in this chapter.
+A **modifier** (also called an adverb) is a word that adds detail to a verb or adjective. It tells you how, how much, or in what way something happens. In the sentence above, *mālohi* tells you how the work was done. The verb *ngāue* *(work)* is new in this lesson.
 
 Tongan places most modifiers after the word they modify. 
 Here are three common postposed modifiers:
@@ -164,7 +164,7 @@ The pattern: TM + pronoun + *fa'a* + verb.
 
 The verb *tokoni* *(help)* appears here without a specific object.
 
-*Fa'a* combines naturally with the postposed modifiers from earlier in this chapter:
+*Fa'a* combines naturally with the postposed modifiers from earlier in this lesson:
 
 ::: {.examples}
 *'Oku mau fa'a ngāue mālohi.* We often work hard.
@@ -172,7 +172,7 @@ The verb *tokoni* *(help)* appears here without a specific object.
 *'Okú ne fa'a kai lahi.* He often eats a lot.
 :::
 
-The most complex sentence you can now build stacks every element from this chapter:
+The most complex sentence you can now build stacks every element from this lesson:
 
 ::: {.examples}
 *'Oku ou fa'a kai mā lahi 'aupito.* I often eat a great deal of bread.

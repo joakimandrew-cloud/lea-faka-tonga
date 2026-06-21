@@ -1,6 +1,6 @@
-# Chapter 30: Temporal, Conditional, and Concessive Conjunctions
+# Lesson 30: Temporal, Conditional, and Concessive Conjunctions
 
-This chapter introduces conjunctions that express conditions and timing: "if," "while," "until," "when," and "although." It also covers several expressions that round out your ability to handle concession, universal conditions, and gradual progression. These add to the basic conjunctions (*pea*, *ka*/*kae*, *'o*, *he*), connecting whole clauses to express how two events relate to each other.
+This lesson introduces conjunctions that express conditions and timing: "if," "while," "until," "when," and "although." It also covers several expressions that round out your ability to handle concession, universal conditions, and gradual progression. These add to the basic conjunctions (*pea*, *ka*/*kae*, *'o*, *he*), connecting whole clauses to express how two events relate to each other.
 
 ---
 
@@ -32,13 +32,13 @@ When the result comes first and the condition follows, *'o* is placed before *ka
 
 This means the same thing as *Kapau té ke foki, té u kuki.* The only difference is clause order. When the "if" clause comes first, use *kapau* alone. When it comes second, use *'o kapau*.
 
-> **Preview:** Tongan has another conditional word, *ka*, which can mean "if and when" or "whenever." It describes conditions that are expected or probable, while *kapau* is for conditions that are uncertain. *Ka ha'u 'a Sione, peá ke tala ki ai 'oku ou 'i heni* (When Sione comes, tell him I am here). This use of *ka* is covered formally in Chapter 47: Conditionals and Counterfactuals. If you encounter *ka* at the beginning of a sentence before a verb or noun subject (rather than before a tense marker or pronoun, where it means "but"), it likely means "when" or "whenever."
+> **Preview:** Tongan has another conditional word, *ka*, which can mean "if and when" or "whenever." It describes conditions that are expected or probable, while *kapau* is for conditions that are uncertain. *Ka ha'u 'a Sione, peá ke tala ki ai 'oku ou 'i heni* (When Sione comes, tell him I am here). This use of *ka* is covered formally in Lesson 47: Conditionals and Counterfactuals. If you encounter *ka* at the beginning of a sentence before a verb or noun subject (rather than before a tense marker or pronoun, where it means "but"), it likely means "when" or "whenever."
 
 ---
 
 ### While: *lolotonga* as a conjunction
 
-You met *lolotonga* in Chapter 22: Aspect Markers, where it meant "currently" or "in the act of," placed before a verb within a single clause. *Lolotonga* also works as a conjunction meaning "while." In this use, it sits between two full clauses, saying that one event happens during another.
+You met *lolotonga* in Lesson 22: Aspect Markers, where it meant "currently" or "in the act of," placed before a verb within a single clause. *Lolotonga* also works as a conjunction meaning "while." In this use, it sits between two full clauses, saying that one event happens during another.
 
 ::: {.examples}
 *Na'á ku mohe lolotonga na'á ne lau tohi.* I slept while she was reading.
@@ -64,7 +64,7 @@ After *kae'oua*, use *ke* when the "until" event has not yet happened. When the 
 *'E nofo ai kae'oua kuo mālohi.* She will stay there until she is strong. (Lit. "Will stay there until has-become strong.")
 :::
 
-> **Preview:** In *'E nofo ai*, the particle *ai* attaches directly to a verb as a back-reference meaning "there" (referring to a place mentioned earlier). This extends the Chapter 7 use of *ai* (which combines with *'i*, *ki*, and *mei*); the bare post-verbal form, plus the subjectless existential *'oku 'i ai*, is covered formally in Chapter 31: Existential Expressions.
+> **Preview:** In *'E nofo ai*, the particle *ai* attaches directly to a verb as a back-reference meaning "there" (referring to a place mentioned earlier). This extends the Lesson 7 use of *ai* (which combines with *'i*, *ki*, and *mei*); the bare post-verbal form, plus the subjectless existential *'oku 'i ai*, is covered formally in Lesson 31: Existential Expressions.
 
 The difference: *kae'oua ke* looks forward to a future event. *Kae'oua kuo* looks forward to a point of completion.
 
@@ -72,7 +72,7 @@ The difference: *kae'oua ke* looks forward to a future event. *Kae'oua kuo* look
 
 ### When something happens: *'i he* + verbal noun
 
-Tongan expresses "when" by using *'i he* followed by a verbal noun: a possessive pronoun plus a verb, as covered in the previous chapter. The second clause usually begins with *pea*.
+Tongan expresses "when" by using *'i he* followed by a verbal noun: a possessive pronoun plus a verb, as covered in the previous lesson. The second clause usually begins with *pea*.
 
 ::: {.examples}
 *'I he 'osi 'enau hivá, pea nau mohe.* When they finished singing, they slept. (Lit. "In the finishing of their singing, then they slept.")
@@ -88,7 +88,7 @@ Another pattern for "when" uses *ko e* with *pē* (just, only) to express "as so
 
 Both patterns use *pea* to begin the main clause. The *'i he* pattern emphasizes a moment in time. The *ko e ... pē* pattern emphasizes immediacy.
 
-> **Preview:** The word *hilí* means "after" and works as a time marker between events, the opposite of *lolotonga* (while/during). *Hilí 'a e ngāué, na'a mau kai* (After the work, we ate). This is covered formally in Chapter 42: Time Expressions and Personal Questions. Recognize *hilí* as meaning "after" when you encounter it.
+> **Preview:** The word *hilí* means "after" and works as a time marker between events, the opposite of *lolotonga* (while/during). *Hilí 'a e ngāué, na'a mau kai* (After the work, we ate). This is covered formally in Lesson 42: Time Expressions and Personal Questions. Recognize *hilí* as meaning "after" when you encounter it.
 
 ---
 

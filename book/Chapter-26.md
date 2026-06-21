@@ -1,6 +1,6 @@
-# Chapter 26: Purpose, Reason, and Benefit
+# Lesson 26: Purpose, Reason, and Benefit
 
-This chapter covers how to express purpose ("in order to"), give a reason ("because"), and say who benefits from an action ("for someone").
+This lesson covers how to express purpose ("in order to"), give a reason ("because"), and say who benefits from an action ("for someone").
 
 ---
 
@@ -101,7 +101,7 @@ In everyday speech, *koe'uhi* is frequently dropped before *ko* and *ke*. The me
 
 Both the full and short forms are correct. The short form is more common in conversation.
 
-> *Note:* *Koe'uhi* can also be dropped before *na'a* when *na'a* means "lest" or "perhaps," a meaning covered in Chapter 38: Warnings, Hopes, Permissions, and Uncertainty.
+> *Note:* *Koe'uhi* can also be dropped before *na'a* when *na'a* means "lest" or "perhaps," a meaning covered in Lesson 38: Warnings, Hopes, Permissions, and Uncertainty.
 
 ---
 
@@ -173,7 +173,7 @@ The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and t
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *he* | conjunction | for, because (also "the" (Ch 4)) |
+| *he* | conjunction | for, because (also "the" (Lesson 4)) |
 | *koe'uhi* | conjunction | because, in order that |
 | *ma'a* | preposition ('e-class) | for (someone's benefit) |
 | *mo'o* | preposition (ho-class) | for (someone's benefit) |

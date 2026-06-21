@@ -1,6 +1,6 @@
-# Chapter 41: Word Class Flexibility
+# Lesson 41: Word Class Flexibility
 
-This chapter covers a broad pattern in Tongan: the same word can serve as a noun, a verb, an adjective, or an adverb depending on how it is used in a sentence.
+This lesson covers a broad pattern in Tongan: the same word can serve as a noun, a verb, an adjective, or an adverb depending on how it is used in a sentence.
 
 English keeps its word classes fairly separate. The word "rain" is a noun, and "to rain" needs a different form ("it rained"). In Tongan, the word *'uha* means both "rain" (the thing) and "to rain" (the event), with no change to the word itself. The sentence structure tells you which role the word is playing.
 
@@ -93,7 +93,7 @@ Nouns placed after another noun can describe a quality of the first noun, typica
 *ha pō māhina*. a moonlight night (Lit. "a night [of] moon")
 :::
 
-This pattern overlaps with compound nouns from earlier chapters (*fale mohe*, *fale kai*). The structural mechanism is the same: the second word specifies the first.
+This pattern overlaps with compound nouns from earlier lessons (*fale mohe*, *fale kai*). The structural mechanism is the same: the second word specifies the first.
 
 ### Nouns used as adverbs
 

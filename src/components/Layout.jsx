@@ -54,14 +54,14 @@ export default function Layout() {
     breadcrumbLabel = 'Clusivity Corner'
   } else if (currentChapterNum) {
     const ch = chapters.find(c => c.chapter === currentChapterNum)
-    breadcrumbLabel = ch ? `Ch. ${ch.chapter}: ${ch.title}` : ''
+    breadcrumbLabel = ch ? `Lesson ${ch.chapter}: ${ch.title}` : ''
     backTo = '/chapters'
   } else if (isChapterBrowser) {
-    breadcrumbLabel = 'Chapters'
+    breadcrumbLabel = 'Lessons'
   } else if (isFlipCards) {
     breadcrumbLabel = 'Flip Cards'
   } else if (currentQuizNum) {
-    breadcrumbLabel = `Ch. ${currentQuizNum} Quiz`
+    breadcrumbLabel = `Lesson ${currentQuizNum} Quiz`
     backTo = '/quizzes'
   } else if (isQuizIndex) {
     breadcrumbLabel = 'Quizzes'
@@ -72,9 +72,9 @@ export default function Layout() {
   let reportWhere = ''
   if (currentChapterNum) {
     const ch = chapters.find(c => c.chapter === currentChapterNum)
-    reportWhere = ch ? `Chapter ${ch.chapter}: ${ch.title}` : `Chapter ${currentChapterNum}`
+    reportWhere = ch ? `Lesson ${ch.chapter}: ${ch.title}` : `Lesson ${currentChapterNum}`
   } else if (currentQuizNum) {
-    reportWhere = `Chapter ${currentQuizNum} Quiz`
+    reportWhere = `Lesson ${currentQuizNum} Quiz`
   } else if (breadcrumbLabel) {
     reportWhere = breadcrumbLabel
   }
@@ -152,7 +152,7 @@ export default function Layout() {
                 <>
                   <span className="context-sep" aria-hidden="true">/</span>
                   <span className="context-label">
-                    {currentQuizNum ? `Chapter ${currentQuizNum} Quiz` : breadcrumbLabel}
+                    {currentQuizNum ? `Lesson ${currentQuizNum} Quiz` : breadcrumbLabel}
                   </span>
                 </>
               )}
@@ -180,7 +180,7 @@ export default function Layout() {
             className="text-[var(--text)] font-semibold mb-2"
             style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '21px' }}
           >
-            {currentChapterNum ? 'See a mistake in this chapter?' : 'See a mistake on this page?'}
+            {currentChapterNum ? 'See a mistake in this lesson?' : 'See a mistake on this page?'}
           </div>
           <p
             className="text-[var(--text-muted)] mb-4 mx-auto"

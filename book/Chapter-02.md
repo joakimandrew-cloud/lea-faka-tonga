@@ -1,6 +1,6 @@
-# Chapter 2: Tense Markers and Pronouns
+# Lesson 2: Tense Markers and Pronouns
 
-Building on Chapter 1, this chapter expands the tense marker + pronoun + verb pattern by introducing the remaining three tense markers and the full set of preposed pronoun forms.
+Building on Lesson 1, this lesson expands the tense marker + pronoun + verb pattern by introducing the remaining three tense markers and the full set of preposed pronoun forms.
 
 ---
 
@@ -14,7 +14,7 @@ So far, the only tense marker you have seen is *na'a*, which marks the past tens
 *'Okú ke kai.* You eat.
 :::
 
-*'Oku* marks the present tense. Its meaning depends on the type of verb that follows it. With action verbs like *kai* (eat), *'alu* (go), or *mohe* (sleep), *'oku* carries a habitual sense: you do this regularly, not necessarily at this exact moment. With descriptive or feeling words (covered in Chapter 3: Descriptive Words), *'oku* describes a current state rather than a habit. The verbs in this chapter are all action verbs, so for now, read *'oku* as habitual.
+*'Oku* marks the present tense. Its meaning depends on the type of verb that follows it. With action verbs like *kai* (eat), *'alu* (go), or *mohe* (sleep), *'oku* carries a habitual sense: you do this regularly, not necessarily at this exact moment. With descriptive or feeling words (covered in Lesson 3: Descriptive Words), *'oku* describes a current state rather than a habit. The verbs in this lesson are all action verbs, so for now, read *'oku* as habitual.
 
 ::: {.examples}
 *'Okú ke mohe.* You sleep. (You regularly sleep.)
@@ -22,7 +22,7 @@ So far, the only tense marker you have seen is *na'a*, which marks the past tens
 *'Oku ou kai.* I eat. (Something I do regularly, not "I am eating right now.")
 :::
 
-Tongan also has ways to say that an action is happening right now, in progress at this moment ("I am eating" rather than "I eat"), using an extra word before the verb. Those constructions are covered in a later chapter. For now, read *'oku* with an action verb as habitual, and focus on the building blocks of the simple pattern: tense marker + pronoun + verb.
+Tongan also has ways to say that an action is happening right now, in progress at this moment ("I am eating" rather than "I eat"), using an extra word before the verb. Those constructions are covered in a later lesson. For now, read *'oku* with an action verb as habitual, and focus on the building blocks of the simple pattern: tense marker + pronoun + verb.
 
 #### Future: *te*
 
@@ -36,7 +36,7 @@ Tongan also has ways to say that an action is happening right now, in progress a
 *Té ke kai.* You will eat.
 :::
 
-> *Note:* Tongan has a second future marker, *'e*, used when no pronoun follows directly (for example with a noun subject). You will learn it in Chapter 9: The Negative. Every future sentence in this chapter uses *te* followed by a pronoun.
+> *Note:* Tongan has a second future marker, *'e*, used when no pronoun follows directly (for example with a noun subject). You will learn it in Lesson 9: The Negative. Every future sentence in this lesson uses *te* followed by a pronoun.
 
 #### Perfect: *kuo*
 
@@ -74,7 +74,7 @@ The *na'a* sentence simply tells you something happened. The *kuo* sentence tell
 *Kuó u ha'u.* I have arrived. (I was not here before. Now I am here.)
 :::
 
-> *Note:* This contrast extends to descriptive words like *ma'a* *(clean)*. *'Oku ma'a* = it is clean (stating a fact); *Kuo ma'a* = it has become clean, implying it was not clean before. You will work with descriptive words formally in Chapter 3: Descriptive Words, but the principle applies to all uses of *kuo*.
+> *Note:* This contrast extends to descriptive words like *ma'a* *(clean)*. *'Oku ma'a* = it is clean (stating a fact); *Kuo ma'a* = it has become clean, implying it was not clean before. You will work with descriptive words formally in Lesson 3: Descriptive Words, but the principle applies to all uses of *kuo*.
 
 ---
 
@@ -114,7 +114,7 @@ No other pronoun changes this way. Every other pronoun keeps the same form regar
 
 ### More Pronouns
 
-The previous chapter used two preposed pronouns: *ku*/*ou*/*u* for "I" and *ke* for "you" (one person). Tongan has a full set of preposed pronouns for different persons and numbers.
+The previous lesson used two preposed pronouns: *ku*/*ou*/*u* for "I" and *ke* for "you" (one person). Tongan has a full set of preposed pronouns for different persons and numbers.
 
 #### He, She, It: *ne*
 
@@ -184,7 +184,7 @@ This pattern also works with the verb *nofo* *(stay, sit, live)*:
 *Tau ō?* Shall we go?
 :::
 
-> **Note:** The verb *'alu* (go) has a plural form, *ō*, which is used when the subject is more than one person. This book teaches *ō* as the plural form, and Chapter 5: Commands and Emphasis covers it formally alongside *ō mai* (the plural of *ha'u*). In everyday Tongan, however, speakers use *'alu* freely with plural pronouns. *Tau 'alu?* is common and perfectly natural where you would expect *Tau ō?* Churchward treats *ō* as the correct plural form, and you will encounter it in formal speech and writing.
+> **Note:** The verb *'alu* (go) has a plural form, *ō*, which is used when the subject is more than one person. This book teaches *ō* as the plural form, and Lesson 5: Commands and Emphasis covers it formally alongside *ō mai* (the plural of *ha'u*). In everyday Tongan, however, speakers use *'alu* freely with plural pronouns. *Tau 'alu?* is common and perfectly natural where you would expect *Tau ō?* Churchward treats *ō* as the correct plural form, and you will encounter it in formal speech and writing.
 
 #### You (three or more): *mou*
 
@@ -246,13 +246,13 @@ Here is every preposed pronoun in Tongan.
 
 Every pronoun fills the same position in this sentence pattern: after the tense marker, before the verb.
 
-> *Note:* The inclusive singular pronoun *te* means "one" in the impersonal sense, as in English "one should always be kind." Even in English, most speakers rarely use "one" this way, preferring "you" instead ("you should always be kind"). Tongan *te* works the same way: it refers to people in general, or serves as a modest way of saying "I." It will not appear in the exercises in this chapter and is covered more fully in Chapter 51: Special Pronoun Uses. Do not confuse this pronoun *te* with the future tense marker *te*, which is a different word that occupies a different position in the sentence.
+> *Note:* The inclusive singular pronoun *te* means "one" in the impersonal sense, as in English "one should always be kind." Even in English, most speakers rarely use "one" this way, preferring "you" instead ("you should always be kind"). Tongan *te* works the same way: it refers to people in general, or serves as a modest way of saying "I." It will not appear in the exercises in this lesson and is covered more fully in Lesson 51: Special Pronoun Uses. Do not confuse this pronoun *te* with the future tense marker *te*, which is a different word that occupies a different position in the sentence.
 
 ---
 
 ### Pronunciation: Stress Across All Combinations
 
-In the last chapter, you learned that *ke* and *ku* are enclitics, small words that lean on the tense marker before them so the two are pronounced as one unit, with stress falling on the second-to-last vowel of the combination. The same applies to every one-syllable pronoun paired with any tense marker.
+In the last lesson, you learned that *ke* and *ku* are enclitics, small words that lean on the tense marker before them so the two are pronounced as one unit, with stress falling on the second-to-last vowel of the combination. The same applies to every one-syllable pronoun paired with any tense marker.
 
 In Tongan, every vowel is a separate syllable. The pronoun *u* is one syllable. So is *ke*, *ne*, *na*, *ma*, *ta*, and *mo*. But *ou* is two syllables (o-u), because it contains two vowels. Similarly, *mau*, *tau*, *mou*, and *nau* are each two syllables.
 

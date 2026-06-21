@@ -1,6 +1,6 @@
-# Chapter 47: Conditionals and Counterfactuals
+# Lesson 47: Conditionals and Counterfactuals
 
-This chapter introduces *ka*, a marker for conditional and hypothetical situations: "if and when," "whenever," "had you done this," and "if it weren't for."
+This lesson introduces *ka*, a marker for conditional and hypothetical situations: "if and when," "whenever," "had you done this," and "if it weren't for."
 
 ---
 
@@ -43,7 +43,7 @@ The first *ka* is the conjunction ("if/when"). The pronoun *ke* (you) comes next
 
 ### *ka* versus *kapau*
 
-Chapter 30: Temporal and Conditional Conjunctions introduced *kapau* (if). Both words express conditions, but they differ in how likely the speaker considers the outcome.
+Lesson 30: Temporal and Conditional Conjunctions introduced *kapau* (if). Both words express conditions, but they differ in how likely the speaker considers the outcome.
 
 ::: {.examples}
 *Kapau 'e ha'u 'a Sēmisi, té u loto mamahi.* If Sēmisi comes, I will be upset. (He probably will not come.)
@@ -180,7 +180,7 @@ The expression *heiʻilo* stands alone or introduces a clause to signal that the
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *ka* | conjunction (conditional) | when, if and when, whenever (future) (also "but" (Ch 24)) |
+| *ka* | conjunction (conditional) | when, if and when, whenever (future) (also "but" (Lesson 24)) |
 | *ka ne* | past conditional form | if ... had (counterfactual) |
 | *hei'ilo* | expression | who knows, perhaps |
 

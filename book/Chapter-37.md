@@ -1,6 +1,6 @@
-# Chapter 37: Postposed Possessives
+# Lesson 37: Postposed Possessives
 
-Possessives so far have been preposed: *'eku tohi* (my book), *'ene tohi* (his book). This chapter introduces possessive pronouns that go after the noun, used to emphasize ownership: "That book is MINE."
+Possessives so far have been preposed: *'eku tohi* (my book), *'ene tohi* (his book). This lesson introduces possessive pronouns that go after the noun, used to emphasize ownership: "That book is MINE."
 
 ---
 
@@ -86,7 +86,7 @@ The dual and plural forms:
 *Ko e fatongia ia 'omautolu.* That responsibility is ours (exclusive).
 :::
 
-> *Note:* The choice between 'e-class and ho-class follows the same rules taught in earlier chapters. Use 'e-class (*'a'aku*, *'a'au*...) for things you control or act upon (food, money, tools, animals). Use ho-class (*'o'oku*, *'o'ou*...) for things that shelter or define you (house, clothes, body parts, relatives).
+> *Note:* The choice between 'e-class and ho-class follows the same rules taught in earlier lessons. Use 'e-class (*'a'aku*, *'a'au*...) for things you control or act upon (food, money, tools, animals). Use ho-class (*'o'oku*, *'o'ou*...) for things that shelter or define you (house, clothes, body parts, relatives).
 
 ---
 

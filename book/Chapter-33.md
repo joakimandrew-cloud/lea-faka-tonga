@@ -1,6 +1,6 @@
-# Chapter 33: Instrumental *'aki* and the Suffix *-'i*
+# Lesson 33: Instrumental *'aki* and the Suffix *-'i*
 
-This chapter introduces two tools for building more precise sentences: the word *'aki*, which expresses the instrument or means used to do something, and the suffix *-'i*, which changes how a verb relates to its object. A suffix is a letter or group of letters added to the end of a word to change its meaning or grammatical function.
+This lesson introduces two tools for building more precise sentences: the word *'aki*, which expresses the instrument or means used to do something, and the suffix *-'i*, which changes how a verb relates to its object. A suffix is a letter or group of letters added to the end of a word to change its meaning or grammatical function.
 
 ---
 
@@ -48,7 +48,7 @@ Both orders are correct and mean the same thing. The first pattern, with *'aki* 
 
 ### Referring back: *'aki* as "with it"
 
-When the instrument has already been mentioned and you want to refer back to it without repeating the noun, *'aki* on its own means "with it" or "with them." In this use, *'aki* functions as a pronominal adverb: a single word that replaces a preposition-plus-pronoun combination. You have already seen this with *ai* (there, in it) in earlier chapters. The word *'aki* works the same way, but for instruments.
+When the instrument has already been mentioned and you want to refer back to it without repeating the noun, *'aki* on its own means "with it" or "with them." In this use, *'aki* functions as a pronominal adverb: a single word that replaces a preposition-plus-pronoun combination. You have already seen this with *ai* (there, in it) in earlier lessons. The word *'aki* works the same way, but for instruments.
 
 ::: {.examples}
 *Na'á ne puke 'a e helé 'o ne tā 'aki 'a e iká.* He grabbed the knife and cut the fish with it.
@@ -188,11 +188,11 @@ The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to w
 | *sipinga* *(pattern)* | *sipinga'aki* | to use as a pattern |
 | *fai* (do) | *fai'aki* | to manage with, to let suffice |
 
-> *Note:* The suffix *-'aki* and the prepositional word *'aki* covered earlier in this chapter are related but distinct. The suffix is part of the verb (*ngāue'aki* is one word), while the prepositional *'aki* is a separate word (*fufulu 'aki*).
+> *Note:* The suffix *-'aki* and the prepositional word *'aki* covered earlier in this lesson are related but distinct. The suffix is part of the verb (*ngāue'aki* is one word), while the prepositional *'aki* is a separate word (*fufulu 'aki*).
 
 ---
 
-> **Preview:** Some verbs form their transitive counterparts with a suffix ending in *-a* rather than *-'i*. For example, *lotu* (to pray) becomes *lotua* (to pray for), and *folau* *(to voyage)* becomes *folaua* (to voyage toward). These *-a* type suffixes, which often carry a sense of duration or process, are covered formally in Chapter 48: Suffixes.
+> **Preview:** Some verbs form their transitive counterparts with a suffix ending in *-a* rather than *-'i*. For example, *lotu* (to pray) becomes *lotua* (to pray for), and *folau* *(to voyage)* becomes *folaua* (to voyage toward). These *-a* type suffixes, which often carry a sense of duration or process, are covered formally in Lesson 48: Suffixes.
 
 ---
 
@@ -215,7 +215,7 @@ The connection: *ngāue* means "to work," and *ngāue'aki* extends this to "to w
 | *ngaohi* | verb | make, create |
 | *pule* | verb | be in charge, govern |
 | *maumau* | verb | be broken, wasted |
-| *puke* | verb | grab, hold, seize (also "sick" (Ch 9)) |
+| *puke* | verb | grab, hold, seize (also "sick" (Lesson 9)) |
 | *teuteu* | verb | prepare |
 | *māfana* | adjective | warm |
 | *sipinga* | noun | pattern, model |

@@ -1,6 +1,6 @@
-# Chapter 36: Cleft Sentences and Emphatic Word Order
+# Lesson 36: Cleft Sentences and Emphatic Word Order
 
-Every verbal sentence pattern covered so far places the verb first: *na'e kai 'e Sione e fo'i molí* (Sione ate the orange). This chapter shows how to move the subject to the front for emphasis, producing a structure similar to "It was Sione who ate the orange."
+Every verbal sentence pattern covered so far places the verb first: *na'e kai 'e Sione e fo'i molí* (Sione ate the orange). This lesson shows how to move the subject to the front for emphasis, producing a structure similar to "It was Sione who ate the orange."
 
 ---
 
@@ -28,7 +28,7 @@ The full pattern:
 *Ko Mele na'á ne fufulu 'a e valá.* It was Mele who washed the clothes.
 :::
 
-> **Preview:** The pronoun *ne* in this pattern refers back to *Mele*. This is a relative use of the cardinal pronoun, where *ne* functions like "who" within the cleft sentence. The broader use of cardinal pronouns in relative clauses is covered in Chapter 51: Special Pronoun Uses. The cleft construction is the pattern to learn.
+> **Preview:** The pronoun *ne* in this pattern refers back to *Mele*. This is a relative use of the cardinal pronoun, where *ne* functions like "who" within the cleft sentence. The broader use of cardinal pronouns in relative clauses is covered in Lesson 51: Special Pronoun Uses. The cleft construction is the pattern to learn.
 
 The pronoun must match the subject:
 
@@ -112,7 +112,7 @@ When *ko e me'a ia* points to a specific thing rather than expressing "that's wh
 
 ### Emphatic equational sentences
 
-You learned equational sentences with *ko* in Chapter 16: Equational Sentences. The standard order places the predicate first and the subject after *'a*: *Ko e tangata mālohi 'a Pita* (Pita is a strong man). To emphasize the subject instead, reverse the order and introduce the predicate with a second *ko*:
+You learned equational sentences with *ko* in Lesson 16: Equational Sentences. The standard order places the predicate first and the subject after *'a*: *Ko e tangata mālohi 'a Pita* (Pita is a strong man). To emphasize the subject instead, reverse the order and introduce the predicate with a second *ko*:
 
 | Predicate first (standard) | Subject first (emphatic) |
 |---|---|

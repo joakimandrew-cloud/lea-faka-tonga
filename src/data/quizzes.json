@@ -23,7 +23,7 @@
             "label": "C",
             "text": "It turns a statement into a question.",
             "correct": false,
-            "explanation": "Yes/no questions in this chapter are made by rising intonation on the same words, not by adding *na'a*."
+            "explanation": "Yes/no questions in this lesson are made by rising intonation on the same words, not by adding *na'a*."
           },
           {
             "label": "D",
@@ -35,13 +35,13 @@
       },
       {
         "id": "q2",
-        "prompt": "In the pattern taught in this chapter, which order are the three parts in?",
+        "prompt": "In the pattern taught in this lesson, which order are the three parts in?",
         "options": [
           {
             "label": "A",
             "text": "Tense marker + pronoun + verb",
             "correct": true,
-            "explanation": "Every sentence in the chapter follows this fixed order: *na'a* first, then the preposed pronoun, then the verb."
+            "explanation": "Every sentence in the lesson follows this fixed order: *na'a* first, then the preposed pronoun, then the verb."
           },
           {
             "label": "B",
@@ -203,7 +203,7 @@
             "label": "C",
             "text": "A word that turns a statement into a question.",
             "correct": false,
-            "explanation": "Questions in this chapter are formed by rising intonation, not by adding an enclitic."
+            "explanation": "Questions in this lesson are formed by rising intonation, not by adding an enclitic."
           },
           {
             "label": "D",
@@ -215,7 +215,7 @@
       },
       {
         "id": "q8",
-        "prompt": "Which of the following is **not** correct in the pattern taught in this chapter?",
+        "prompt": "Which of the following is **not** correct in the pattern taught in this lesson?",
         "options": [
           {
             "label": "A",
@@ -269,7 +269,7 @@
             "label": "D",
             "text": "*foki*",
             "correct": true,
-            "explanation": "The verb *foki* in the chapter's vocabulary list means \"return\" or \"go back.\""
+            "explanation": "The verb *foki* in the lesson's vocabulary list means \"return\" or \"go back.\""
           }
         ]
       },
@@ -365,7 +365,7 @@
             "label": "D",
             "text": "*e*",
             "correct": false,
-            "explanation": "There is no preposed pronoun *e*. The forms of \"I\" in this chapter are *ku*, *ou*, and *u*."
+            "explanation": "There is no preposed pronoun *e*. The forms of \"I\" in this lesson are *ku*, *ou*, and *u*."
           }
         ]
       },
@@ -587,7 +587,7 @@
             "label": "A",
             "text": "They mean the same thing; *kuo* and *na'a* are interchangeable.",
             "correct": false,
-            "explanation": "Both markers place the event before now, but *kuo* adds a change-of-state meaning that *na'a* does not. The chapter explicitly contrasts them on this point."
+            "explanation": "Both markers place the event before now, but *kuo* adds a change-of-state meaning that *na'a* does not. The lesson explicitly contrasts them on this point."
           },
           {
             "label": "B",
@@ -863,13 +863,13 @@
             "label": "A",
             "text": "After the verb, like *lelei* and *lahi*.",
             "correct": false,
-            "explanation": "Only postposed modifiers follow the verb. *Fa'a* is the preposed modifier in this chapter."
+            "explanation": "Only postposed modifiers follow the verb. *Fa'a* is the preposed modifier in this lesson."
           },
           {
             "label": "B",
             "text": "At the end of the sentence.",
             "correct": false,
-            "explanation": "Time words go at the end of the sentence, and that will be taught in a later chapter. *Fa'a* sits earlier."
+            "explanation": "Time words go at the end of the sentence, and that will be taught in a later lesson. *Fa'a* sits earlier."
           },
           {
             "label": "C",
@@ -911,7 +911,7 @@
             "label": "D",
             "text": "*'Oku ou fa'a kai mā lahi 'aupito.*",
             "correct": true,
-            "explanation": "The stack is tense marker + pronoun + preposed modifier + verb + general object + postposed modifier + intensifier, exactly the pattern taught at the end of the chapter."
+            "explanation": "The stack is tense marker + pronoun + preposed modifier + verb + general object + postposed modifier + intensifier, exactly the pattern taught at the end of the lesson."
           }
         ]
       }
@@ -1151,13 +1151,13 @@
             "label": "C",
             "text": "*'aneafi* / *'apongipongi*",
             "correct": false,
-            "explanation": "The chapter notes these are a pair by meaning (\"yesterday\" / \"tomorrow\") even though the endings do not match the way the other two pairs do."
+            "explanation": "The lesson notes these are a pair by meaning (\"yesterday\" / \"tomorrow\") even though the endings do not match the way the other two pairs do."
           },
           {
             "label": "D",
             "text": "*'aneafi* / *'apō*",
             "correct": true,
-            "explanation": "The pair \"yesterday\" with \"tonight\" is not one of the chapter's matched past/future pairs. \"Yesterday\" pairs with \"tomorrow,\" and \"tonight\" pairs with \"last night.\""
+            "explanation": "The pair \"yesterday\" with \"tonight\" is not one of the lesson's matched past/future pairs. \"Yesterday\" pairs with \"tomorrow,\" and \"tonight\" pairs with \"last night.\""
           }
         ]
       },
@@ -1559,7 +1559,7 @@
             "label": "D",
             "text": "with",
             "correct": false,
-            "explanation": "The preposition *'i* does not mean \"with\"; it marks location only in this chapter."
+            "explanation": "The preposition *'i* does not mean \"with\"; it marks location only in this lesson."
           }
         ]
       },
@@ -1745,7 +1745,7 @@
       },
       {
         "id": "q8",
-        "prompt": "Which of these sentences is **not** grammatical in the patterns taught in this chapter?",
+        "prompt": "Which of these sentences is **not** grammatical in the patterns taught in this lesson?",
         "options": [
           {
             "label": "A",
@@ -1793,7 +1793,7 @@
             "label": "C",
             "text": "*ngoue*",
             "correct": true,
-            "explanation": "The noun *ngoue* in this chapter's vocabulary means \"plantation, garden.\""
+            "explanation": "The noun *ngoue* in this lesson's vocabulary means \"plantation, garden.\""
           },
           {
             "label": "D",
@@ -2381,7 +2381,7 @@
             "label": "D",
             "text": "A focus marker that signals the following noun is directly acted on by the verb",
             "correct": true,
-            "explanation": "When a definite noun is the object of a verb, *'a* appears before the article *e*, and the unit *'a e* always stays together. This marking is previewed here and developed further in later chapters on noun subjects and transitive word order."
+            "explanation": "When a definite noun is the object of a verb, *'a* appears before the article *e*, and the unit *'a e* always stays together. This marking is previewed here and developed further in later lessons on noun subjects and transitive word order."
           }
         ]
       },
@@ -2489,7 +2489,7 @@
             "label": "A",
             "text": "*'Oku 'ikai ke u fiefia.*",
             "correct": false,
-            "explanation": "Before a pronoun, the connector is *te*, not *ke*. Using *ke* here mixes the two patterns taught in this chapter."
+            "explanation": "Before a pronoun, the connector is *te*, not *ke*. Using *ke* here mixes the two patterns taught in this lesson."
           },
           {
             "label": "B",
@@ -2699,7 +2699,7 @@
             "label": "A",
             "text": "Hot",
             "correct": false,
-            "explanation": "The word for \"hot\" is *vela*. Both are stative adjectives introduced in this chapter, but they are distinct."
+            "explanation": "The word for \"hot\" is *vela*. Both are stative adjectives introduced in this lesson, but they are distinct."
           },
           {
             "label": "B",
@@ -2711,7 +2711,7 @@
             "label": "C",
             "text": "Tired",
             "correct": false,
-            "explanation": "The word for \"tired\" is *hela'ia*, learned earlier. *Puke* is a new item in this chapter's list."
+            "explanation": "The word for \"tired\" is *hela'ia*, learned earlier. *Puke* is a new item in this lesson's list."
           },
           {
             "label": "D",
@@ -2981,7 +2981,7 @@
             "label": "B",
             "text": "Basket",
             "correct": false,
-            "explanation": "The word for \"basket\" is *kato*, learned in a neighbouring chapter. *Vala* is not a container."
+            "explanation": "The word for \"basket\" is *kato*, learned in a neighbouring lesson. *Vala* is not a container."
           },
           {
             "label": "C",
@@ -3029,7 +3029,7 @@
       },
       {
         "id": "q10",
-        "prompt": "Which of these is NOT a meaning or function of *mo* introduced in this chapter?",
+        "prompt": "Which of these is NOT a meaning or function of *mo* introduced in this lesson?",
         "options": [
           {
             "label": "A",
@@ -3047,7 +3047,7 @@
             "label": "C",
             "text": "\"With\" using an instrument or tool",
             "correct": true,
-            "explanation": "Instrumental \"with\" is expressed by a different preposition, *'aki*, covered in a later chapter. *Mo* is only ever comitative."
+            "explanation": "Instrumental \"with\" is expressed by a different preposition, *'aki*, covered in a later lesson. *Mo* is only ever comitative."
           },
           {
             "label": "D",
@@ -3197,7 +3197,7 @@
             "label": "B",
             "text": "There is no accent shift; *fē* and *feé* are pronounced identically.",
             "correct": false,
-            "explanation": "The chapter notes an accent shift on *fē* when it is definite. The two forms are pronounced differently."
+            "explanation": "The lesson notes an accent shift on *fē* when it is definite. The two forms are pronounced differently."
           },
           {
             "label": "C",
@@ -3527,7 +3527,7 @@
             "label": "A",
             "text": "They are identical; the accent is purely decorative.",
             "correct": false,
-            "explanation": "The chapter explicitly states that the accent shift changes meaning, flagging specificity."
+            "explanation": "The lesson explicitly states that the accent shift changes meaning, flagging specificity."
           },
           {
             "label": "B",
@@ -3545,7 +3545,7 @@
             "label": "D",
             "text": "*Ko e tohi 'eni* means \"This is a book\"; *Ko e tohí 'eni* means \"This is the book (the specific one).\"",
             "correct": true,
-            "explanation": "The definitive accent shifts stress to the final vowel of the noun to mark a specific, known referent. The chapter previews this feature before it is formally taught."
+            "explanation": "The definitive accent shifts stress to the final vowel of the noun to mark a specific, known referent. The lesson previews this feature before it is formally taught."
           }
         ]
       },
@@ -3725,7 +3725,7 @@
             "label": "C",
             "text": "*Ko hai 'okú ne hiva?*",
             "correct": false,
-            "explanation": "The chapter shows that in simple *ko hai* questions, the pronoun *ne* drops because *ko hai* is already asking about the single person. The correct form is *Ko hai 'oku hiva?*."
+            "explanation": "The lesson shows that in simple *ko hai* questions, the pronoun *ne* drops because *ko hai* is already asking about the single person. The correct form is *Ko hai 'oku hiva?*."
           },
           {
             "label": "D",
@@ -3833,7 +3833,7 @@
             "label": "A",
             "text": "There is no difference; the two are interchangeable.",
             "correct": false,
-            "explanation": "The chapter specifies a contrast in nuance between the two. They are not random alternatives."
+            "explanation": "The lesson specifies a contrast in nuance between the two. They are not random alternatives."
           },
           {
             "label": "B",
@@ -3851,7 +3851,7 @@
             "label": "D",
             "text": "*'Oku 'i fē* suggests the thing may be out of sight; *ko fē* suggests it is within sight.",
             "correct": true,
-            "explanation": "The chapter notes this nuance directly: *'oku 'i fē* reaches for a possibly-distant item, while *ko fē* assumes it is somewhere nearby."
+            "explanation": "The lesson notes this nuance directly: *'oku 'i fē* reaches for a possibly-distant item, while *ko fē* assumes it is somewhere nearby."
           }
         ]
       },
@@ -4565,7 +4565,7 @@
             "label": "A",
             "text": "Sick",
             "correct": true,
-            "explanation": "The adjective *puke* means \"sick,\" as in *'Oku puke 'a Mele* (\"Mele is sick\"). It is one of the chapter's new predicate adjectives."
+            "explanation": "The adjective *puke* means \"sick,\" as in *'Oku puke 'a Mele* (\"Mele is sick\"). It is one of the lesson's new predicate adjectives."
           },
           {
             "label": "B",
@@ -4601,7 +4601,7 @@
             "label": "A",
             "text": "Teacher",
             "correct": false,
-            "explanation": "The word \"teacher\" is *faiako*, which appears throughout the chapter in examples like *Ko e faiako 'a Mele*. *Tōketā* is a different profession."
+            "explanation": "The word \"teacher\" is *faiako*, which appears throughout the lesson in examples like *Ko e faiako 'a Mele*. *Tōketā* is a different profession."
           },
           {
             "label": "B",
@@ -4613,7 +4613,7 @@
             "label": "C",
             "text": "Doctor",
             "correct": true,
-            "explanation": "The chapter introduces *tōketā* as the noun for \"doctor,\" used in equational sentences like *Ko e tōketā koe?* (\"Are you a doctor?\")."
+            "explanation": "The lesson introduces *tōketā* as the noun for \"doctor,\" used in equational sentences like *Ko e tōketā koe?* (\"Are you a doctor?\")."
           },
           {
             "label": "D",
@@ -6287,7 +6287,7 @@
             "label": "B",
             "text": "swim",
             "correct": false,
-            "explanation": "\"Swim\" is *kakau*. Do not confuse these two verbs from this chapter."
+            "explanation": "\"Swim\" is *kakau*. Do not confuse these two verbs from this lesson."
           },
           {
             "label": "C",
@@ -6449,7 +6449,7 @@
             "label": "C",
             "text": "It indicates that an action is about to begin.",
             "correct": false,
-            "explanation": "There is no dedicated \"about to\" aspect marker in this chapter. The closest is *toki* for recency or delay."
+            "explanation": "There is no dedicated \"about to\" aspect marker in this lesson. The closest is *toki* for recency or delay."
           },
           {
             "label": "D",
@@ -6467,7 +6467,7 @@
             "label": "A",
             "text": "Before the verb, like *kei* and *'osi*.",
             "correct": false,
-            "explanation": "Most aspect markers in this chapter are preposed, but *leva* is the exception. It sits after the verb."
+            "explanation": "Most aspect markers in this lesson are preposed, but *leva* is the exception. It sits after the verb."
           },
           {
             "label": "B",
@@ -6635,7 +6635,7 @@
             "label": "D",
             "text": "\"immediately\" and \"slowly.\"",
             "correct": false,
-            "explanation": "\"Immediately\" is *leva*, and \"slowly\" is not a meaning that any aspect marker in this chapter carries."
+            "explanation": "\"Immediately\" is *leva*, and \"slowly\" is not a meaning that any aspect marker in this lesson carries."
           }
         ]
       },
@@ -8009,7 +8009,7 @@
             "label": "C",
             "text": "*'Oku mālohi ange 'a Tēvita 'ia Sēmisi.*",
             "correct": true,
-            "explanation": "The pattern is: adjective + *ange* + focus phrase + the \"than\" preposition + thing compared to. Before a proper noun the preposition becomes *'ia* (Ch. 27: \"Before a proper noun, use *'ia*\"), so *'ia Sēmisi*."
+            "explanation": "The pattern is: adjective + *ange* + focus phrase + the \"than\" preposition + thing compared to. Before a proper noun the preposition becomes *'ia* (Lesson 27: \"Before a proper noun, use *'ia*\"), so *'ia Sēmisi*."
           },
           {
             "label": "D",
@@ -8789,7 +8789,7 @@
             "label": "A",
             "text": "Because *ngāue* is a noun, not a verb.",
             "correct": false,
-            "explanation": "The word *ngāue* is a verb; here it is used as a verbal noun with a possessive pronoun, which is exactly the pattern this chapter explains."
+            "explanation": "The word *ngāue* is a verb; here it is used as a verbal noun with a possessive pronoun, which is exactly the pattern this lesson explains."
           },
           {
             "label": "B",
@@ -9083,7 +9083,7 @@
             "label": "D",
             "text": "If and when",
             "correct": false,
-            "explanation": "\"If and when\" / \"whenever\" is the conditional *ka*, previewed in this chapter but treated formally later."
+            "explanation": "\"If and when\" / \"whenever\" is the conditional *ka*, previewed in this lesson but treated formally later."
           }
         ]
       },
@@ -9281,7 +9281,7 @@
             "label": "A",
             "text": "Because *e* never appears after *'i ai*.",
             "correct": false,
-            "explanation": "The definite article *e* can follow *'i ai* in other contexts, such as when pointing to a specific known thing. The chapter's point is about the usual existential pattern, not an absolute rule."
+            "explanation": "The definite article *e* can follow *'i ai* in other contexts, such as when pointing to a specific known thing. The lesson's point is about the usual existential pattern, not an absolute rule."
           },
           {
             "label": "B",
@@ -9341,13 +9341,13 @@
             "label": "A",
             "text": "*mango*",
             "correct": false,
-            "explanation": "The word *mango* means \"mango,\" not \"orange.\" Both are fruits in the chapter's vocabulary, but they are distinct."
+            "explanation": "The word *mango* means \"mango,\" not \"orange.\" Both are fruits in the lesson's vocabulary, but they are distinct."
           },
           {
             "label": "B",
             "text": "*moli*",
             "correct": true,
-            "explanation": "The chapter lists *moli* as the noun for \"orange,\" used in example sentences like *'Oku 'i ai ha fo'i moli 'i fale?*."
+            "explanation": "The lesson lists *moli* as the noun for \"orange,\" used in example sentences like *'Oku 'i ai ha fo'i moli 'i fale?*."
           },
           {
             "label": "C",
@@ -9407,7 +9407,7 @@
             "label": "B",
             "text": "*'Oku 'i ai ha fo'i moa 'i he kato?*",
             "correct": true,
-            "explanation": "The existential frame *'oku 'i ai* plus the classifier *fo'i* yields \"a single egg,\" and *'i he kato* gives the location. This matches the chapter's model sentences exactly."
+            "explanation": "The existential frame *'oku 'i ai* plus the classifier *fo'i* yields \"a single egg,\" and *'i he kato* gives the location. This matches the lesson's model sentences exactly."
           },
           {
             "label": "C",
@@ -9521,13 +9521,13 @@
       },
       {
         "id": "q2",
-        "prompt": "Which of the following is spelled correctly according to the chapter's hyphenation rule?",
+        "prompt": "Which of the following is spelled correctly according to the lesson's hyphenation rule?",
         "options": [
           {
             "label": "A",
             "text": "*fakaTonga*",
             "correct": false,
-            "explanation": "When *faka-* attaches to a proper place name like *Tonga*, the chapter requires a hyphen. Solid spelling is for common nouns."
+            "explanation": "When *faka-* attaches to a proper place name like *Tonga*, the lesson requires a hyphen. Solid spelling is for common nouns."
           },
           {
             "label": "B",
@@ -9647,7 +9647,7 @@
             "label": "A",
             "text": "There is no difference; they work the same way.",
             "correct": false,
-            "explanation": "The two types pattern differently with objects, which is precisely the contrast the chapter draws."
+            "explanation": "The two types pattern differently with objects, which is precisely the contrast the lesson draws."
           },
           {
             "label": "B",
@@ -9719,13 +9719,13 @@
             "label": "C",
             "text": "*'Okú ne fakatu'i 'a e haká.*",
             "correct": false,
-            "explanation": "This reads as the causative: \"He royalizes the dance\" or similar. The chapter uses *fakatu'i* as an adverb of manner after the verb, not as a transitive verb with an object."
+            "explanation": "This reads as the causative: \"He royalizes the dance\" or similar. The lesson uses *fakatu'i* as an adverb of manner after the verb, not as a transitive verb with an object."
           },
           {
             "label": "D",
             "text": "*'Okú ne haka fakatu'i.*",
             "correct": true,
-            "explanation": "The manner adverb *fakatu'i* (\"in a kingly manner\") follows the verb *haka* (to dance), giving the chapter's model sentence."
+            "explanation": "The manner adverb *fakatu'i* (\"in a kingly manner\") follows the verb *haka* (to dance), giving the lesson's model sentence."
           }
         ]
       },
@@ -9965,7 +9965,7 @@
             "label": "C",
             "text": "*'Oku mau ngaohi'aki 'ene 'u falá.*",
             "correct": false,
-            "explanation": "The verb *ngaohi'aki* is not the chapter's form for \"use\"; the correct derivation is from *ngāue*, giving *ngāue'aki*."
+            "explanation": "The verb *ngaohi'aki* is not the lesson's form for \"use\"; the correct derivation is from *ngāue*, giving *ngāue'aki*."
           },
           {
             "label": "D",
@@ -9989,13 +9989,13 @@
             "label": "B",
             "text": "They mean exactly the same thing; the forms are interchangeable.",
             "correct": false,
-            "explanation": "Both forms are valid, but they sit at different points on the emotional/factual spectrum. The chapter frames them as a connotative contrast, not as free variants."
+            "explanation": "Both forms are valid, but they sit at different points on the emotional/factual spectrum. The lesson frames them as a connotative contrast, not as free variants."
           },
           {
             "label": "C",
             "text": "*Manatu kia Lupe* is past tense; *manatu'i 'a Lupe* is present.",
             "correct": false,
-            "explanation": "Tense is carried by markers like *'oku* and *na'e*, not by the *-'i* suffix. Both example sentences in the chapter are present tense."
+            "explanation": "Tense is carried by markers like *'oku* and *na'e*, not by the *-'i* suffix. Both example sentences in the lesson are present tense."
           },
           {
             "label": "D",
@@ -10055,7 +10055,7 @@
             "label": "C",
             "text": "*sipinga*",
             "correct": true,
-            "explanation": "The chapter lists *sipinga* as the noun for \"pattern, model,\" which also feeds the derived verb *sipinga'aki* (to use as a pattern)."
+            "explanation": "The lesson lists *sipinga* as the noun for \"pattern, model,\" which also feeds the derived verb *sipinga'aki* (to use as a pattern)."
           },
           {
             "label": "D",
@@ -10079,7 +10079,7 @@
             "label": "B",
             "text": "*'Oku ngāue'aki 'e he kau akó 'a e ngaahi tohí.*",
             "correct": true,
-            "explanation": "Because *ngāue'aki* is transitive, the postposed subject takes the agent marker *'e* and the object takes *'a*. This matches the chapter's model sentence exactly."
+            "explanation": "Because *ngāue'aki* is transitive, the postposed subject takes the agent marker *'e* and the object takes *'a*. This matches the lesson's model sentence exactly."
           },
           {
             "label": "C",
@@ -10373,13 +10373,13 @@
       },
       {
         "id": "q10",
-        "prompt": "From the chapter's vocabulary list, what does *fakapapau* mean?",
+        "prompt": "From the lesson's vocabulary list, what does *fakapapau* mean?",
         "options": [
           {
             "label": "A",
             "text": "To confirm, make certain",
             "correct": true,
-            "explanation": "The verb *fakapapau* means to confirm or make certain, and appears in the chapter's new vocabulary list."
+            "explanation": "The verb *fakapapau* means to confirm or make certain, and appears in the lesson's new vocabulary list."
           },
           {
             "label": "B",
@@ -10679,13 +10679,13 @@
       },
       {
         "id": "q10",
-        "prompt": "From the chapter's vocabulary list, what does *tupenu* mean?",
+        "prompt": "From the lesson's vocabulary list, what does *tupenu* mean?",
         "options": [
           {
             "label": "A",
             "text": "A tree or plant",
             "correct": false,
-            "explanation": "The gloss \"tree / plant\" belongs to *'akau*, another entry in the chapter's vocabulary. The noun *tupenu* refers to a specific piece of cloth."
+            "explanation": "The gloss \"tree / plant\" belongs to *'akau*, another entry in the lesson's vocabulary. The noun *tupenu* refers to a specific piece of cloth."
           },
           {
             "label": "B",
@@ -10985,7 +10985,7 @@
       },
       {
         "id": "q10",
-        "prompt": "From the chapter's vocabulary list, what does *faka'amu* mean?",
+        "prompt": "From the lesson's vocabulary list, what does *faka'amu* mean?",
         "options": [
           {
             "label": "A",
@@ -11003,13 +11003,13 @@
             "label": "C",
             "text": "To confirm or make certain",
             "correct": false,
-            "explanation": "The gloss \"confirm, make certain\" belongs to *fakapapau*, from an earlier chapter. The verb *faka'amu* is about desire, not confirmation."
+            "explanation": "The gloss \"confirm, make certain\" belongs to *fakapapau*, from an earlier lesson. The verb *faka'amu* is about desire, not confirmation."
           },
           {
             "label": "D",
             "text": "To desire or wish for",
             "correct": true,
-            "explanation": "The verb *faka'amu* appears in the chapter's vocabulary list with the meaning \"desire, wish for.\""
+            "explanation": "The verb *faka'amu* appears in the lesson's vocabulary list with the meaning \"desire, wish for.\""
           }
         ]
       }
@@ -11291,13 +11291,13 @@
       },
       {
         "id": "q10",
-        "prompt": "From the chapter's vocabulary list, what does *fatongia* mean?",
+        "prompt": "From the lesson's vocabulary list, what does *fatongia* mean?",
         "options": [
           {
             "label": "A",
             "text": "Clothes",
             "correct": false,
-            "explanation": "The word for clothing is *vala*, not *fatongia*. The two appear in different chapters."
+            "explanation": "The word for clothing is *vala*, not *fatongia*. The two appear in different lessons."
           },
           {
             "label": "B",
@@ -11315,7 +11315,7 @@
             "label": "D",
             "text": "Responsibility, duty",
             "correct": true,
-            "explanation": "The noun *fatongia* names an obligation or duty, and is one of the chapter's new vocabulary words."
+            "explanation": "The noun *fatongia* names an obligation or duty, and is one of the lesson's new vocabulary words."
           }
         ]
       }
@@ -11597,7 +11597,7 @@
       },
       {
         "id": "q10",
-        "prompt": "From the chapter's vocabulary list, what does *ta'ovala* mean?",
+        "prompt": "From the lesson's vocabulary list, what does *ta'ovala* mean?",
         "options": [
           {
             "label": "A",
@@ -11615,7 +11615,7 @@
             "label": "C",
             "text": "A waist mat (formal wear)",
             "correct": true,
-            "explanation": "The noun *ta'ovala* names the traditional waist mat worn on formal occasions, and appears in the chapter's vocabulary list."
+            "explanation": "The noun *ta'ovala* names the traditional waist mat worn on formal occasions, and appears in the lesson's vocabulary list."
           },
           {
             "label": "D",
@@ -11801,7 +11801,7 @@
             "label": "C",
             "text": "*Mou tokanga ki he ngāué mo e akó.*",
             "correct": false,
-            "explanation": "Plain *mo* means \"and / with\" but lacks the emphatic \"not to mention\" force. The chapter teaches *kae'uma'a* for the additive-emphatic meaning."
+            "explanation": "Plain *mo* means \"and / with\" but lacks the emphatic \"not to mention\" force. The lesson teaches *kae'uma'a* for the additive-emphatic meaning."
           },
           {
             "label": "D",
@@ -12113,7 +12113,7 @@
             "label": "D",
             "text": "An accent on the final vowel of the noun that marks it as definite or previously known.",
             "correct": true,
-            "explanation": "The definitive accent (*katō*, *tēpilé*, *falé*) sits on the last vowel of a specific, known noun, and shows up throughout this chapter's spatial examples."
+            "explanation": "The definitive accent (*katō*, *tēpilé*, *falé*) sits on the last vowel of a specific, known noun, and shows up throughout this lesson's spatial examples."
           }
         ]
       },
@@ -12521,7 +12521,7 @@
             "label": "A",
             "text": "*'Oku ta'e ngali 'e lava 'a e ngāué.*",
             "correct": false,
-            "explanation": "The prefix *ta'e ngali* means \"unbecoming / not fitting,\" not \"unlikely to happen.\" For tentative future outcomes the chapter uses *ngalingali 'e 'ikai*."
+            "explanation": "The prefix *ta'e ngali* means \"unbecoming / not fitting,\" not \"unlikely to happen.\" For tentative future outcomes the lesson uses *ngalingali 'e 'ikai*."
           },
           {
             "label": "B",
@@ -12533,7 +12533,7 @@
             "label": "C",
             "text": "*'Oku ta'e ngali 'a Mele ko ha faiako.*",
             "correct": false,
-            "explanation": "The preposition *ko* equates a subject with a role. The pairing here produces \"Mele is unbecoming as a teacher,\" an awkward rendering; the chapter pairs *ta'e ngali* with adjectives or statives directly."
+            "explanation": "The preposition *ko* equates a subject with a role. The pairing here produces \"Mele is unbecoming as a teacher,\" an awkward rendering; the lesson pairs *ta'e ngali* with adjectives or statives directly."
           },
           {
             "label": "D",
@@ -12587,7 +12587,7 @@
             "label": "A",
             "text": "After I came, I felt homesick.",
             "correct": false,
-            "explanation": "The word *talu* means \"since / ever since,\" not \"after.\" \"After\" in this chapter is *hilí*."
+            "explanation": "The word *talu* means \"since / ever since,\" not \"after.\" \"After\" in this lesson is *hilí*."
           },
           {
             "label": "B",
@@ -12647,7 +12647,7 @@
             "label": "A",
             "text": "They are fully interchangeable and mean the same thing.",
             "correct": false,
-            "explanation": "The chapter explicitly distinguishes them. They overlap in translation but differ in nuance."
+            "explanation": "The lesson explicitly distinguishes them. They overlap in translation but differ in nuance."
           },
           {
             "label": "B",
@@ -12761,7 +12761,7 @@
       },
       {
         "id": "q8",
-        "prompt": "Which Tongan sentence is ungrammatical or breaks a chapter rule?",
+        "prompt": "Which Tongan sentence is ungrammatical or breaks a lesson rule?",
         "options": [
           {
             "label": "A",
@@ -12923,7 +12923,7 @@
             "label": "A",
             "text": "*'Oku ta'e tokanga 'a Sione.* / *'Oku 'ikai ke tokanga 'a Sione.*",
             "correct": true,
-            "explanation": "Both sentences translate as \"Sione is inattentive.\" The chapter pairs the *ta'e-* construction with the equivalent *'ikai ke* version as expressing the same negation."
+            "explanation": "Both sentences translate as \"Sione is inattentive.\" The lesson pairs the *ta'e-* construction with the equivalent *'ikai ke* version as expressing the same negation."
           },
           {
             "label": "B",
@@ -13025,7 +13025,7 @@
             "label": "C",
             "text": "*'Oku ngāue ta'e'ikai totongi 'a Sione.*",
             "correct": false,
-            "explanation": "The chapter does not combine *ta'e-* with *'ikai*. The prefix *ta'e-* alone attaches directly to the noun *totongi* to mean \"without pay.\""
+            "explanation": "The lesson does not combine *ta'e-* with *'ikai*. The prefix *ta'e-* alone attaches directly to the noun *totongi* to mean \"without pay.\""
           },
           {
             "label": "D",
@@ -13043,7 +13043,7 @@
             "label": "A",
             "text": "*Koloto* is used only in questions.",
             "correct": false,
-            "explanation": "The examples in the chapter are statements, not questions. *Koloto* is not restricted to interrogative use."
+            "explanation": "The examples in the lesson are statements, not questions. *Koloto* is not restricted to interrogative use."
           },
           {
             "label": "B",
@@ -13073,7 +13073,7 @@
             "label": "A",
             "text": "Illegal",
             "correct": true,
-            "explanation": "The prefix *ta'e-* attached to *fakalao* (\"legal\") creates *ta'efakalao* (\"illegal\"), a standard vocabulary item in this chapter."
+            "explanation": "The prefix *ta'e-* attached to *fakalao* (\"legal\") creates *ta'efakalao* (\"illegal\"), a standard vocabulary item in this lesson."
           },
           {
             "label": "B",
@@ -13121,7 +13121,7 @@
             "label": "D",
             "text": "*Ne'ine'i 'oku hola 'a Mele ia.*",
             "correct": false,
-            "explanation": "No tense marker comes after *ne'ine'i*. Inserting *'oku* violates the chapter's explicit rule."
+            "explanation": "No tense marker comes after *ne'ine'i*. Inserting *'oku* violates the lesson's explicit rule."
           }
         ]
       },
@@ -14327,7 +14327,7 @@
             "label": "A",
             "text": "*ka pē*",
             "correct": false,
-            "explanation": "No such set phrase exists in this chapter. The alternative to *ka ne 'ikai* is a compound of *ta'e* and *'oua*."
+            "explanation": "No such set phrase exists in this lesson. The alternative to *ka ne 'ikai* is a compound of *ta'e* and *'oua*."
           },
           {
             "label": "B",
@@ -15197,7 +15197,7 @@
             "label": "C",
             "text": "*fuafua*",
             "correct": false,
-            "explanation": "Plain reduplication without *faka-* would not give the moderated \"estimate\" reading the chapter associates with this combined pattern."
+            "explanation": "Plain reduplication without *faka-* would not give the moderated \"estimate\" reading the lesson associates with this combined pattern."
           },
           {
             "label": "D",
@@ -15353,7 +15353,7 @@
             "label": "C",
             "text": "We two should not attend only to ourselves.",
             "correct": false,
-            "explanation": "The literal dual reading applies to *te* only outside the impersonal use. In this chapter's sense, *te*/*kita* is a general \"one.\""
+            "explanation": "The literal dual reading applies to *te* only outside the impersonal use. In this lesson's sense, *te*/*kita* is a general \"one.\""
           },
           {
             "label": "D",
@@ -15431,7 +15431,7 @@
             "label": "A",
             "text": "*Na'á ku nofo mo ia.*",
             "correct": false,
-            "explanation": "The singular *ku* states \"I stayed\" without including him. The chapter's idiom uses a dual pronoun that counts both participants."
+            "explanation": "The singular *ku* states \"I stayed\" without including him. The lesson's idiom uses a dual pronoun that counts both participants."
           },
           {
             "label": "B",
@@ -15629,7 +15629,7 @@
             "label": "C",
             "text": "It means \"small\" in every context.",
             "correct": false,
-            "explanation": "After a noun, *si'i* does mean \"small\" (*ha konga si'i*). But the chapter teaches the preposed use, where *si'i* is an emotional article, not a size adjective."
+            "explanation": "After a noun, *si'i* does mean \"small\" (*ha konga si'i*). But the lesson teaches the preposed use, where *si'i* is an emotional article, not a size adjective."
           },
           {
             "label": "D",
@@ -15665,7 +15665,7 @@
             "label": "D",
             "text": "*ha'ate* for definite, *hoto* for indefinite",
             "correct": false,
-            "explanation": "These are impersonal possessives from a different chapter. They are not emotional articles at all."
+            "explanation": "These are impersonal possessives from a different lesson. They are not emotional articles at all."
           }
         ]
       },
@@ -15893,7 +15893,7 @@
             "label": "B",
             "text": "On the final syllable of *hōsi*, giving *hōsí*",
             "correct": true,
-            "explanation": "The definitive accent shifts the main stress to the last syllable of the definite noun phrase, as shown by *hōsí* and *fānaú* in the chapter's examples."
+            "explanation": "The definitive accent shifts the main stress to the last syllable of the definite noun phrase, as shown by *hōsí* and *fānaú* in the lesson's examples."
           },
           {
             "label": "C",

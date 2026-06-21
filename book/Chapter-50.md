@@ -1,7 +1,7 @@
-# Chapter 50: Reduplication and Expressive Sound Devices
+# Lesson 50: Reduplication and Expressive Sound Devices
 *Word Study*
 
-This chapter covers reduplication, where part or all of a word is repeated to create a new meaning. It also introduces expressive sound devices that stretch vowels to shift meaning.
+This lesson covers reduplication, where part or all of a word is repeated to create a new meaning. It also introduces expressive sound devices that stretch vowels to shift meaning.
 
 *kata* means "to laugh." *katakata* means "to smile" (to laugh slightly). The base word is repeated in full, and the meaning softens. This is one of several effects reduplication can have in Tongan, and the pattern is highly productive.
 
@@ -129,7 +129,7 @@ These are best learned as vocabulary. The connection between the base word and t
 
 ### Changing part of speech
 
-Reduplication can turn a word from one part of speech into another. You already know from Chapter 41: Word Class Flexibility that Tongan words move between classes freely. Reduplication is one of the regular mechanisms for this.
+Reduplication can turn a word from one part of speech into another. You already know from Lesson 41: Word Class Flexibility that Tongan words move between classes freely. Reduplication is one of the regular mechanisms for this.
 
 **Noun → adjective:**
 
@@ -167,7 +167,7 @@ You have seen *hahake* and *hihifo* before as directional terms. They are, in or
 
 ### *faka-* combined with reduplication
 
-The prefix *faka-*, which you learned in Chapter 32: The *Faka-* Prefix, combines with reduplication to moderate or otherwise modify a word's meaning. The base word is reduplicated and *faka-* is added at the front:
+The prefix *faka-*, which you learned in Lesson 32: The *Faka-* Prefix, combines with reduplication to moderate or otherwise modify a word's meaning. The base word is reduplicated and *faka-* is added at the front:
 
 | Base word | *faka-* + reduplication | Meaning |
 |---|---|---|

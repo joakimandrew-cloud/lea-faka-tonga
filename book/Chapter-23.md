@@ -1,6 +1,6 @@
-# Chapter 23: Obligation and Necessity
+# Lesson 23: Obligation and Necessity
 
-This chapter covers obligation and necessity: *'oku totonu ke* (should, ought to) and *kuo pau ke* (must, it is necessary that).
+This lesson covers obligation and necessity: *'oku totonu ke* (should, ought to) and *kuo pau ke* (must, it is necessary that).
 
 ---
 
@@ -12,7 +12,7 @@ The word *totonu* means "straight" or "correct." When it appears as the main pre
 *'Oku totonu ke mau foki ki 'api.* We should return home. (Lit. "It is right that we return home.")
 :::
 
-> **Preview:** The word *ke* before the pronoun or verb in these patterns is the subordinator, a linking word meaning "that" or "to." It connects the obligation expression to the action that should be done. *Ke* is covered formally in Chapter 26: Purpose, Reason, and Benefit. Treat each obligation pattern (*'oku totonu ke*, *kuo pau ke*) as a single unit.
+> **Preview:** The word *ke* before the pronoun or verb in these patterns is the subordinator, a linking word meaning "that" or "to." It connects the obligation expression to the action that should be done. *Ke* is covered formally in Lesson 26: Purpose, Reason, and Benefit. Treat each obligation pattern (*'oku totonu ke*, *kuo pau ke*) as a single unit.
 
 The literal translation helps. *'Oku totonu* sets up the judgment ("it is right"), and the *ke* clause states what is right.
 
@@ -101,7 +101,7 @@ Compare the positive and negative patterns side by side:
 
 There is a second way to express "should not" that sounds more emphatic. Instead of negating *totonu* with *'ikai*, you embed the prohibition word *'oua na'a* inside the *ke* clause.
 
-You first encountered *'oua* in the chapter on commands, where *'oua té ke* means "don't" as a direct prohibition. Here, *'oua na'a* appears inside an obligation expression, giving it a different flavor: "it is right that you should refrain from..."
+You first encountered *'oua* in the lesson on commands, where *'oua té ke* means "don't" as a direct prohibition. Here, *'oua na'a* appears inside an obligation expression, giving it a different flavor: "it is right that you should refrain from..."
 
 ::: {.examples}
 *'Oku totonu ke 'oua na'á ke 'ita.* You shouldn't be angry.
@@ -140,7 +140,7 @@ The short form *'Oku totonu ke 'oua* can stand on its own as an emphatic "don't,
 |--------|----------|---------|
 | *totonu* | stative (in obligation) | correct, should (*'oku totonu ke*) |
 | *pau* | stative (in obligation) | certain, must (*kuo pau ke*) |
-| *ke* | subordinator (formalized) | that, to (links obligation to action) (also "you" (Ch 1)) |
+| *ke* | subordinator (formalized) | that, to (links obligation to action) (also "you" (Lesson 1)) |
 | *'oua na'a* | emphatic prohibition | should not (emphatic) |
 
 **New vocabulary** (memorize these meanings):

@@ -1,6 +1,6 @@
-# Chapter 43: The *Ta'e-* Prefix and Advanced Negation
+# Lesson 43: The *Ta'e-* Prefix and Advanced Negation
 
-Building on the basic negation with *'ikai*, this chapter introduces the prefix *ta'e-*, which attaches directly to words to create negative forms like English "un-" or "without," along with several idiomatic expressions for emphatic negation.
+Building on the basic negation with *'ikai*, this lesson introduces the prefix *ta'e-*, which attaches directly to words to create negative forms like English "un-" or "without," along with several idiomatic expressions for emphatic negation.
 
 ### The prefix *ta'e-*
 
@@ -124,7 +124,7 @@ The word *ne'ine'i* means "no wonder" or "it is not surprising that." It replace
 
 Here *hola* *(run away)* and *mole* *(lose, be lost)* are verbs that follow *ne'ine'i* directly. Because *ne'ine'i* takes the place of the tense marker, no *'oku*, *na'e*, or other marker appears before the verb.
 
-> *Note:* The expression *mole ke mama'o* means "far from it" or "not at all." It is used as a standalone emphatic denial: *Mole ke mama'o.* (Far from it.) With a possessive pronoun, it expresses distance from an action: *Mole ke mama'o ha'aku fai pehē.* (Far be it from me to do such a thing.) This expression appears in reading but is not practised formally in this chapter.
+> *Note:* The expression *mole ke mama'o* means "far from it" or "not at all." It is used as a standalone emphatic denial: *Mole ke mama'o.* (Far from it.) With a possessive pronoun, it expresses distance from an action: *Mole ke mama'o ha'aku fai pehē.* (Far be it from me to do such a thing.) This expression appears in reading but is not practised formally in this lesson.
 
 ---
 

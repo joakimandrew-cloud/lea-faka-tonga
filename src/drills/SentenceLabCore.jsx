@@ -191,7 +191,7 @@ function GradedLab({ chapterNum }) {
     return (
       <section className="pcs-card">
         <div className="text-[var(--text-muted)] text-sm">
-          Test-yourself mode isn&rsquo;t available on this chapter yet. Try Explore.
+          Test-yourself mode isn&rsquo;t available on this lesson yet. Try Explore.
         </div>
       </section>
     )

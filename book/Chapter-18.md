@@ -1,12 +1,12 @@
-# Chapter 18: Definiteness and the Definitive Accent
+# Lesson 18: Definiteness and the Definitive Accent
 
-This chapter returns to articles and introduces a feature of Tongan that has no equivalent in English: the definitive accent.
+This lesson returns to articles and introduces a feature of Tongan that has no equivalent in English: the definitive accent.
 
 ---
 
 ### Three levels of definiteness
 
-Chapter 8: Articles introduced the articles *ha*, *e*, and *he*. English has two levels of specificity: "a" (indefinite) and "the" (definite). Tongan has three. "Definite" means specific in the speaker's mind. "Indefinite" means not specific.
+Lesson 8: Articles introduced the articles *ha*, *e*, and *he*. English has two levels of specificity: "a" (indefinite) and "the" (definite). Tongan has three. "Definite" means specific in the speaker's mind. "Indefinite" means not specific.
 
 Consider a basket (*kato*). Three sentences place that noun at three levels of specificity:
 
@@ -96,7 +96,7 @@ Consider the word *mā* *(bread)*. The *ā* is already a long vowel. When the de
 *Na'á ku kai 'a e maá.* I ate the bread.
 :::
 
-> *Note:* You do not need to master every detail of long-vowel doubling at this stage. The essential point is that the definitive accent always pushes stress to the final vowel of the noun phrase, whether that vowel is short or long. The full definitive accent system is covered in Chapter 44: The Definitive Accent System.
+> *Note:* You do not need to master every detail of long-vowel doubling at this stage. The essential point is that the definitive accent always pushes stress to the final vowel of the noun phrase, whether that vowel is short or long. The full definitive accent system is covered in Lesson 44: The Definitive Accent System.
 
 ---
 
@@ -120,7 +120,7 @@ This pattern extends to everyday nouns. When Tongan makes a general statement ab
 
 ### Definite common noun subjects with *e*
 
-When a common noun is the subject of a sentence and is definite, it takes *e* (or *he* after prepositions) with the definitive accent. This follows the word order taught in Chapter 15: Noun Subjects: tense marker + verb + subject.
+When a common noun is the subject of a sentence and is definite, it takes *e* (or *he* after prepositions) with the definitive accent. This follows the word order taught in Lesson 15: Noun Subjects: tense marker + verb + subject.
 
 ::: {.examples}
 *Na'e lele 'a e tamasi'í.* The boy ran.
@@ -132,7 +132,7 @@ When a common noun is the subject of a sentence and is definite, it takes *e* (o
 *Na'á ku sio ki he tamasi'í.* I looked at the boy.
 :::
 
-In each sentence, the definite article (*e* or *he*) combines with the definitive accent on the final vowel to mark the noun as fully definite. Remember: *he* appears right after the prepositions *'i*, *ki*, and *mei*. It also appears after *'e*, a particle that marks who performs an action in certain sentence types. That construction is covered in Chapter 19: Transitive Word Order. Use *e* everywhere else.
+In each sentence, the definite article (*e* or *he*) combines with the definitive accent on the final vowel to mark the noun as fully definite. Remember: *he* appears right after the prepositions *'i*, *ki*, and *mei*. It also appears after *'e*, a particle that marks who performs an action in certain sentence types. That construction is covered in Lesson 19: Transitive Word Order. Use *e* everywhere else.
 
 ---
 

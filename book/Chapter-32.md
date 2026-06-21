@@ -1,7 +1,7 @@
-# Chapter 32: The *Faka-* Prefix
+# Lesson 32: The *Faka-* Prefix
 *Word Study*
 
-This chapter introduces *faka-*, one of the most productive word-building tools in Tongan. A prefix is an element placed at the beginning of a word to change its meaning.
+This lesson introduces *faka-*, one of the most productive word-building tools in Tongan. A prefix is an element placed at the beginning of a word to change its meaning.
 
 ---
 
@@ -124,7 +124,7 @@ The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka
 
 ---
 
-> **Preview:** When *faka-* is combined with a reduplicated (repeated) form of a word, the meaning shifts. For example, *poto* (clever) becomes *fakapotopoto* (sensible, prudent, wise), not simply "to make clever." The combination of *faka-* with reduplication is covered formally in Chapter 50: Reduplication. Recognize words like *fakapotopoto* as having a nuanced meaning built from the base word.
+> **Preview:** When *faka-* is combined with a reduplicated (repeated) form of a word, the meaning shifts. For example, *poto* (clever) becomes *fakapotopoto* (sensible, prudent, wise), not simply "to make clever." The combination of *faka-* with reduplication is covered formally in Lesson 50: Reduplication. Recognize words like *fakapotopoto* as having a nuanced meaning built from the base word.
 
 ---
 

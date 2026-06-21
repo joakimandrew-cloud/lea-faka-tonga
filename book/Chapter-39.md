@@ -1,6 +1,6 @@
-# Chapter 39: Relative Clauses with *Ai* and Demonstratives
+# Lesson 39: Relative Clauses with *Ai* and Demonstratives
 
-This chapter expands two grammar areas that appeared in basic form earlier: the back-reference word *ai* and the demonstrative system. Two useful expressions, *na'a mo* (even) and *kae'uma'a* (and also), round out the chapter.
+This lesson expands two grammar areas that appeared in basic form earlier: the back-reference word *ai* and the demonstrative system. Two useful expressions, *na'a mo* (even) and *kae'uma'a* (and also), round out the lesson.
 
 ---
 
@@ -40,7 +40,7 @@ The pattern: a *ko* clause introduces a noun, and the descriptive clause that fo
 
 ### All the pointing words in one place
 
-Earlier chapters introduced demonstratives for place (*heni*, *hena*, *hē*) and for identifying nouns (*ni*, *na*, *eni*, *ē*). The table below gathers all of them in one place, grouped by who they refer to (me, you, both, or something already mentioned) and by how they fit into a sentence.
+Earlier lessons introduced demonstratives for place (*heni*, *hena*, *hē*) and for identifying nouns (*ni*, *na*, *eni*, *ē*). The table below gathers all of them in one place, grouped by who they refer to (me, you, both, or something already mentioned) and by how they fit into a sentence.
 
 | | Near me (1st) | Near you (2nd) | Pointing | Mentioned (3rd) |
 |---|---|---|---|---|
@@ -87,7 +87,7 @@ The pronoun *ia* refers to something already mentioned or being discussed, detac
 *Ko ia pē.* That is all.
 :::
 
-When *ko ia* begins a sentence followed by a pause, it means "therefore" or "that being so" (covered in Chapter 24: Conjunctions):
+When *ko ia* begins a sentence followed by a pause, it means "therefore" or "that being so" (covered in Lesson 24: Conjunctions):
 
 ::: {.examples}
 *Ko ia, na'e 'ikai té u 'alu ki he fakatahá.* That being so, I did not go to the meeting.
@@ -145,7 +145,7 @@ The manner demonstrative *pehē* also functions as an adjective meaning "of this
 *'Oua té ke fai peheni.* Do not do it like this.
 :::
 
-> *Note:* This demonstrative *pehē* must not be confused with the verb *pehē* (to say, to think) covered in Chapter 34: Reported Speech. The verb takes an agent phrase: *Na'á ne pehē...* (He said...). The demonstrative describes manner or type.
+> *Note:* This demonstrative *pehē* must not be confused with the verb *pehē* (to say, to think) covered in Lesson 34: Reported Speech. The verb takes an agent phrase: *Na'á ne pehē...* (He said...). The demonstrative describes manner or type.
 
 ---
 

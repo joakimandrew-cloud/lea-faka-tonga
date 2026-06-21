@@ -163,7 +163,7 @@ function main() {
 
   existing[String(chapterNum)] = {
     chapter: chapterNum,
-    title: title || existing[String(chapterNum)]?.title || `Chapter ${chapterNum} Quiz`,
+    title: title || existing[String(chapterNum)]?.title || `Lesson ${chapterNum} Quiz`,
     questions,
   }
 

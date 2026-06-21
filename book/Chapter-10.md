@@ -1,4 +1,4 @@
-# Chapter 10: The Comitative *Mo*
+# Lesson 10: The Comitative *Mo*
 
 The preposition *mo* means "with" in the sense of "together with." With *mo*, you can say who accompanied you, list people by name, express bringing or taking something along, and give commands to two people.
 
@@ -27,7 +27,7 @@ The preposition *mo* goes directly before a person's name to show accompaniment.
 
 The verb *ako* *(to study, to learn)* is intransitive, like *'alu* and *nofo*. It follows the same sentence pattern.
 
-> *Note:* *Mo* means "with" only in the sense of "together with" or "in the company of." It does not cover the instrumental sense of "with" (using a tool to do something), which Tongan expresses with *'aki*. That construction is covered in Chapter 33: Instrumental *'aki* and the Suffix *-'i*.
+> *Note:* *Mo* means "with" only in the sense of "together with" or "in the company of." It does not cover the instrumental sense of "with" (using a tool to do something), which Tongan expresses with *'aki*. That construction is covered in Lesson 33: Instrumental *'aki* and the Suffix *-'i*.
 
 The *mo* phrase fits naturally into longer sentences. Time words still come last:
 
@@ -76,7 +76,7 @@ The word *e* before *tohí* *(book)* and *valá* *(clothes)* is the definite art
 
 With a person's name, no article is needed. Whether *Na'á ku 'alu mo Sione* means "I went with Sione" or "I took Sione along" depends on context. The grammar is the same.
 
-> *Note:* You may encounter the word *fakataha* *(together)* alongside *mo*. It reinforces the idea of accompaniment. It is not formally covered in this chapter.
+> *Note:* You may encounter the word *fakataha* *(together)* alongside *mo*. It reinforces the idea of accompaniment. It is not formally covered in this lesson.
 
 ---
 
@@ -120,7 +120,7 @@ Unlike the prepositions *ki*, *'i*, and *mei*, which change form before pronouns
 *Mo hopo!* Jump! (you two)
 :::
 
-In Chapter 5: Commands and Emphasis, you learned that a bare verb makes a command to one person (*Hopo!*), and *mou* before the verb makes a command to a group of three or more (*Mou hopo!*). There is a third form for exactly two people: *mo* before the verb.
+In Lesson 5: Commands and Emphasis, you learned that a bare verb makes a command to one person (*Hopo!*), and *mou* before the verb makes a command to a group of three or more (*Mou hopo!*). There is a third form for exactly two people: *mo* before the verb.
 
 The verb *hopo* *(to jump)* is new vocabulary.
 
@@ -159,7 +159,7 @@ The preposed modifier *kau* *(concerning, about)* is used with the *ki*-phrase t
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *mo* | preposition | with, together with; and (also "you two" (Ch 2)) |
+| *mo* | preposition | with, together with; and (also "you two" (Lesson 2)) |
 | *kau ki* | preposition phrase | concerning, about |
 
 **New vocabulary** (memorize these meanings):
@@ -234,7 +234,7 @@ Example: Eat! (1 person) → *Kai!*
 4. Jump! (2 people)
 5. Go! (2 people)
 
-#### Exercise 7: Translate into English. These sentences combine grammar from this and previous chapters
+#### Exercise 7: Translate into English. These sentences combine grammar from this and previous lessons
 
 1. *Na'á ku ha'u vakapuna mei Tonga mo ia 'aneafi.*
 2. *Te tau kai 'i fale kai mo Mele 'apongipongi.*

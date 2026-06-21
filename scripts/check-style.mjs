@@ -20,11 +20,11 @@
  *
  *   2. CHAPTER CONTIGUITY (hard fail). Verifies Chapter-01..NN.md exist
  *      with no gaps or extras, and that src/data/chapters.json has the
- *      same count and titles match the `# Chapter N: Title` headings in
+ *      same count and titles match the `# Lesson N: Title` headings in
  *      each markdown file.
  *
  *   3. CROSS-REFERENCE RESOLUTION (hard fail). Scans book/ for
- *      `Chapter NN` references; verifies each cited number resolves to
+ *      `Lesson NN` references; verifies each cited number resolves to
  *      an existing chapter. Catches dangling refs after a renumber.
  *
  *   N. PROSE STYLE (warning only). Scans running prose (skips ::: divs, code
@@ -126,13 +126,13 @@ async function checkContiguity(chapterFiles, chapters) {
       continue
     }
     const firstLine = src.split('\n', 1)[0]
-    const m = firstLine.match(/^# Chapter (\d+): (.+)$/)
+    const m = firstLine.match(/^# (?:Chapter|Lesson) (\d+): (.+)$/)
     if (!m) {
-      errors.push({ kind: 'json-heading-bad', msg: `Chapter-${padded}.md first line is not "# Chapter N: Title": ${firstLine.slice(0, 80)}` })
+      errors.push({ kind: 'json-heading-bad', msg: `Chapter-${padded}.md first line is not "# Lesson N: Title": ${firstLine.slice(0, 80)}` })
       continue
     }
     if (parseInt(m[1], 10) !== entry.chapter) {
-      errors.push({ kind: 'json-number-mismatch', msg: `chapters.json says ${entry.chapter} but Chapter-${padded}.md heading says "Chapter ${m[1]}"` })
+      errors.push({ kind: 'json-number-mismatch', msg: `chapters.json says ${entry.chapter} but Chapter-${padded}.md heading says "Lesson ${m[1]}"` })
     }
     if (normalizeTitle(m[2]) !== normalizeTitle(entry.title)) {
       errors.push({ kind: 'json-title-mismatch', msg: `Ch ${entry.chapter}: chapters.json title "${entry.title}" != heading title "${m[2]}"` })
@@ -144,7 +144,7 @@ async function checkContiguity(chapterFiles, chapters) {
 
 async function checkCrossReferences(chapterFiles, validNumbers) {
   const errors = []
-  const refRe = /Chapter\s+(\d+)\b/g
+  const refRe = /(?:Chapter|Lesson)\s+(\d+)\b/g
   for (const f of chapterFiles) {
     const src = await fs.readFile(path.join(BOOK_DIR, f), 'utf8')
     const lines = src.split('\n')

@@ -9,7 +9,7 @@
  *
  * Design contract — citations:
  *   The ONLY citation source is `step.word.min_chapter` (graph data). We render
- *   that as "LFT Ch. N". We deliberately do NOT synthesize §-headings, nor cite
+ *   that as "Lesson N". We deliberately do NOT synthesize §-headings, nor cite
  *   Churchward/Shumway/Grammar-Concepts. The prose specs have a known citation-
  *   accuracy problem and reproducing those references here would propagate it.
  *   If a step has no `min_chapter`, its citation is null (the UI shows a dash).
@@ -52,12 +52,12 @@ function isStructuralStep(step) {
 
 /**
  * Build the citation string for a step. Source of truth: word.min_chapter only.
- * Returns "LFT Ch. N" or null when the chapter is absent/invalid.
+ * Returns "Lesson N" or null when the chapter is absent/invalid.
  */
 function citationFor(step) {
   const ch = step?.word?.min_chapter
   if (typeof ch !== 'number' || !Number.isFinite(ch)) return null
-  return `LFT Ch. ${ch}`
+  return `Lesson ${ch}`
 }
 
 /**

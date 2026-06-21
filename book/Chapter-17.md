@@ -1,6 +1,6 @@
-# Chapter 17: Possessives
+# Lesson 17: Possessives
 
-This chapter introduces the possessive system: how to say "my," "your," "his," and so on.
+This lesson introduces the possessive system: how to say "my," "your," "his," and so on.
 
 A possessive (sometimes called a "possessive pronoun") is a word that shows who something belongs to or is connected to. English uses words like "my," "your," "his," "our." Tongan has two complete sets of possessive pronouns, each used in different situations.
 
@@ -80,7 +80,7 @@ Compare this with ordinary nouns, where *ki* and *'i* combine with the article *
 
 #### Cross-reference: *Ko hai ho hingoa?*
 
-Chapter 14: Greetings and Social Formulas introduced the greeting *Ko hai ho hingoa?* (What is your name?). The word *ho* is now explained: it is the ho-class possessive pronoun for "your." A name characterizes you, so it takes ho-class.
+Lesson 14: Greetings and Social Formulas introduced the greeting *Ko hai ho hingoa?* (What is your name?). The word *ho* is now explained: it is the ho-class possessive pronoun for "your." A name characterizes you, so it takes ho-class.
 
 ---
 
@@ -157,7 +157,7 @@ One important difference:
 
 With *ko*, the action is happening at this very moment. With *'oku*, the statement is about a general or habitual activity.
 
-> *Note:* The subjective/objective distinction with verbal nouns is covered in Chapter 29: The Possessive System in Full, and the full verbal noun construction system is covered in Chapter 45: Verbal Nouns.
+> *Note:* The subjective/objective distinction with verbal nouns is covered in Lesson 29: The Possessive System in Full, and the full verbal noun construction system is covered in Lesson 45: Verbal Nouns.
 
 ---
 
@@ -197,7 +197,7 @@ With *ko*, the action is happening at this very moment. With *'oku*, the stateme
 | *homa* | ho-class dual possessive | our (exclusive, two) |
 | *ho'omo* | 'e-class dual possessive | your (two) |
 | *homo* | ho-class dual possessive | your (two) |
-| *'ena* | 'e-class dual possessive | their (two) (also "that" (Ch 12)) |
+| *'ena* | 'e-class dual possessive | their (two) (also "that" (Lesson 12)) |
 | *hona* | ho-class dual possessive | their (two) |
 | *'o* | possessive preposition (ho-class) | of |
 

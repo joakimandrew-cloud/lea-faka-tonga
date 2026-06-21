@@ -31,18 +31,18 @@ const FOUNDERS = { claimed: 0, cap: 250 }
 
 // The course contents — proof of substance. Everything below is free and open.
 const STACK = [
-  { title: 'The Grammar Book', detail: '52 chapters · 110,651 words · beginner → advanced', badge: 'FREE · PDF + EPUB below',
+  { title: 'The Grammar Book', detail: '52 lessons · 110,651 words · beginner → advanced', badge: 'FREE · PDF + EPUB below',
     blurb: 'From your first three-word sentence to real conversations. The complete arc, every rule explained, yours to download, whole, forever.' },
-  { title: 'The Interactive Practice Machine', detail: '62 drills · 4 builders · embedded exercises, every chapter', badge: 'Free · open',
+  { title: 'The Interactive Practice Machine', detail: '62 drills · 4 builders · embedded exercises, every lesson', badge: 'Free · open',
     blurb: 'Build real Tongan sentences and watch the translation update as you go. The whole grammar, playable.' },
   { title: 'The Quiz Bank', detail: '520 questions · every answer explained', badge: 'Free · open',
     blurb: 'Every wrong answer names the rule it broke, and every right answer shows why the others missed.' },
   { title: 'The Flip-Card Deck', detail: '649 cards · filter by tier and category', badge: 'Free · open',
     blurb: 'Build your vocabulary one card at a time, keyboard-fast and phone-friendly.' },
   { title: 'The Workbook', detail: '218,636 words · 283 exercises · full answer keys', badge: 'Free · open',
-    blurb: 'Twice the length of the book. Practice for every pattern, chapter by chapter.' },
+    blurb: 'Twice the length of the book. Practice for every pattern, lesson by lesson.' },
   { title: 'The Video Course', detail: '~9 hours · 52 segments', badge: 'In production · free',
-    blurb: 'The full course, narrated, chapter by chapter. Shared as it ships.' },
+    blurb: 'The full course, narrated, lesson by lesson. Shared as it ships.' },
   { title: 'Charts & Real-Text Archive', detail: 'Reference charts + authentic Tongan documents', badge: 'Free · open',
     blurb: 'Quick-lookup charts for everyone. Real Tongan texts to read once you are ready for the wild.' },
 ]
@@ -53,7 +53,7 @@ const MEMBER_STACK = [
   { name: 'Elder Voices, native-speaker audio', value: 'the big one', note: 'recording every example so you never mispronounce a word to your elders' },
   { name: 'Keeping it free and online', value: 'forever', note: 'no ads, no investors, no selling your attention; hosting and tools cost real money' },
   { name: 'The course on your phone', value: 'next', note: 'installable and offline-ready, the whole course in your pocket' },
-  { name: 'The video course, ~9 hours', value: 'in production', note: '52 segments, narrated, chapter by chapter' },
+  { name: 'The video course, ~9 hours', value: 'in production', note: '52 segments, narrated, lesson by lesson' },
   { name: 'Your name on the Roll of Keepers', value: 'standing', note: 'support keeps the language alive, and says so, in your own community' },
 ]
 
@@ -66,7 +66,7 @@ const TIERS = [
     href: LINKS.foundingSupporter, cta: 'Become a Founding Supporter' },
   { name: 'Just the book', price: 'Free', per: 'PDF + EPUB · forever', active: true,
     confers: 'The whole course in book form',
-    perks: ['All 52 chapters, every rule explained', 'No email wall, no catch', 'Yours to print and send to your cousins'],
+    perks: ['All 52 lessons, every rule explained', 'No email wall, no catch', 'Yours to print and send to your cousins'],
     href: '#book', cta: 'Download the book' },
   { name: 'Tauhi Fonua', price: '$1,000+', per: 'one gift · permanent', active: true,
     confers: 'For the family that wants to do more',
@@ -76,7 +76,7 @@ const TIERS = [
 
 const FAQ = [
   { q: 'So what’s actually free?',
-    a: 'Everything. The whole book, all 52 chapters, as PDF and EPUB, free forever, no email wall. And the entire website: every chapter, every drill, every flip card and quiz, open to anyone. There is no paywall.' },
+    a: 'Everything. The whole book, all 52 lessons, as PDF and EPUB, free forever, no email wall. And the entire website: every lesson, every drill, every flip card and quiz, open to anyone. There is no paywall.' },
   { q: 'Why ask for money at all?',
     a: 'Because this stays alive on support instead of ads. No banners, no investors, no selling your attention or your data. Fixing the mistakes, recording native speakers, building the tools, keeping it online: that costs real money. Supporters carry it, their names go on the Roll of Keepers, and it stays free for everyone, forever.' },
   { q: 'What does “$25 locks lifetime access” mean if it’s all free now?',
@@ -84,7 +84,7 @@ const FAQ = [
   { q: 'Do I need an account?',
     a: 'No, and you never will. There are no logins here. If you choose to support, you do it at our checkout partner; there is nothing to sign into, and nothing of yours for anyone to store or breach.' },
   { q: 'Does it really go all the way to advanced?',
-    a: 'Yes. From “I ate” to real conversations, across 52 chapters, beginner to advanced. No other Tongan course finishes the arc; most never leave the tourist phrasebook.' },
+    a: 'Yes. From “I ate” to real conversations, across 52 lessons, beginner to advanced. No other Tongan course finishes the arc; most never leave the tourist phrasebook.' },
   { q: 'I can’t afford anything.',
     a: 'Then take it all for free, that’s the whole point. The book is yours, the website is open, nothing is held back. Give nothing, or give $0 at the supporter link just to join the founders list. Tauhi ʻa e lea, keep the language.' },
   { q: 'I found a mistake.',
@@ -145,7 +145,7 @@ export default function Offer() {
           Speak <span className="accent">Tongan</span>.<br />All of it.
         </h1>
         <p className="offer-lede">
-          From your very first sentence to real conversations: 52 chapters, beginner to advanced,
+          From your very first sentence to real conversations: 52 lessons, beginner to advanced,
           the only complete, modern course for a language that has almost nothing online.
           <strong> The whole book is free to download, forever, and the entire website is open.
           If it helps you, help keep it going, and growing.</strong>
@@ -153,9 +153,9 @@ export default function Offer() {
         <div className="offer-hero-cta">
           <a href="#join" className="cta-btn">Become a Founding Supporter <span style={{ marginLeft: 8 }}>→</span></a>
           <a href="#book" className="cta-secondary">Download the book, free</a>
-          <Link to="/chapters/1" className="cta-secondary">Start Chapter 01, free</Link>
+          <Link to="/chapters/1" className="cta-secondary">Start Lesson 01, free</Link>
         </div>
-        <p className="offer-hero-meta">Every chapter open · No ads · No streaks · No accounts, ever</p>
+        <p className="offer-hero-meta">Every lesson open · No ads · No streaks · No accounts, ever</p>
       </section>
 
       {/* ── The anchor: what institutions pay vs what the book costs ── */}
@@ -167,7 +167,7 @@ export default function Offer() {
               <span className="orf-big">$2,500–$25,000</span>
             </div>
             <div className="orf-block">
-              <span className="orf-label">The complete book, all 52 chapters, costs</span>
+              <span className="orf-label">The complete book, all 52 lessons, costs</span>
               <span className="orf-big free">Nothing</span>
             </div>
           </div>
@@ -189,12 +189,12 @@ export default function Offer() {
           <div className="offer-inst">
             <div className="oin-main">
               <p>
-                Every chapter, every rule, every example: 110,651 words, all the way to real
+                Every lesson, every rule, every example: 110,651 words, all the way to real
                 conversations. Download it, print it, send it to your cousins. It is the
                 whole course in book form, and it will never cost anything. Judge us by it first;
                 support it only if it helps you.
               </p>
-              <p className="oin-sub">The entire website is open too (prose, drills, cards and quizzes, every chapter), so you can feel the whole thing working before you give a cent.</p>
+              <p className="oin-sub">The entire website is open too (prose, drills, cards and quizzes, every lesson), so you can feel the whole thing working before you give a cent.</p>
             </div>
             <div className="oin-card">
               <span className="oin-range">600+ pages</span>
@@ -240,7 +240,7 @@ export default function Offer() {
           <div className="offer-why">
             {[
               ['Told why, not just whether', 'Every wrong answer explains the rule it broke, and every right answer shows why the others were wrong. You are never left guessing.'],
-              ['The whole language, in order', 'One grammar, built one slot per chapter, beginner to advanced. Nothing skipped, nothing stranded: the arc no other Tongan resource finishes.'],
+              ['The whole language, in order', 'One grammar, built one slot per lesson, beginner to advanced. Nothing skipped, nothing stranded: the arc no other Tongan resource finishes.'],
               ['The writing system, done right', 'The fakauʻa and the toloi, the definitive accent, set in a font built for the Pacific. The detail that tells your elders we did our homework.'],
               ['Funded by the people who use it', 'No banners, no data harvesting, no accounts to breach. Support, not ads, is why this exists and stays independent.'],
             ].map(([t, d], i) => (
@@ -442,7 +442,7 @@ export default function Offer() {
             </div>
             <label className="offer-signup-check">
               <input type="checkbox" name="tag" value="reviewer" checked={reviewer} onChange={e => setReviewer(e.target.checked)} />
-              I’m a fluent speaker and can help review chapters
+              I’m a fluent speaker and can help review lessons
             </label>
           </form>
         ) : (
@@ -479,7 +479,7 @@ export default function Offer() {
         <div>
           <div className="bottom-title">Lea Faka-Tonga <span className="dot">·</span> Keep the Language</div>
           <div className="bottom-spec">
-            52 Chapters · Full Grammar Arc · Reviewed in the open
+            52 Lessons · Full Grammar Arc · Reviewed in the open
             <span className="counter"> · The book free, forever. The website, open to all.</span>
           </div>
         </div>

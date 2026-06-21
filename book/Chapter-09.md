@@ -1,6 +1,6 @@
-# Chapter 9: The Negative
+# Lesson 9: The Negative
 
-Every sentence so far has been a positive statement. This chapter introduces *'ikai*, the Tongan word for "not."
+Every sentence so far has been a positive statement. This lesson introduces *'ikai*, the Tongan word for "not."
 
 ---
 
@@ -19,7 +19,7 @@ To negate a sentence that has a pronoun subject, place *'ikai te* between the te
 
 After *te*, the first-person singular pronoun is *u*. This is the same form you already use with the future tense marker: *té u 'alu* (I will go). All other pronouns keep their usual forms.
 
-The *te* in *'ikai te* is not the future tense marker. It is a connecting word that appears only in the negative pattern, before a pronoun. It has no English translation on its own. Even though this *te* is not the future tense marker, the stress rule from Chapter 2 still applies: *te* joins with a one-syllable pronoun as one pronounced unit, and the acute accent marks the shifted stress. That is why this book writes *'ikai té u*, *'ikai té ke*, and *'ikai té ne*.
+The *te* in *'ikai te* is not the future tense marker. It is a connecting word that appears only in the negative pattern, before a pronoun. It has no English translation on its own. Even though this *te* is not the future tense marker, the stress rule from Lesson 2 still applies: *te* joins with a one-syllable pronoun as one pronounced unit, and the acute accent marks the shifted stress. That is why this book writes *'ikai té u*, *'ikai té ke*, and *'ikai té ne*.
 
 Compare a question with its negative answer:
 
@@ -124,7 +124,7 @@ The word *momoko* *(cold)* works the same way, along with *vela* *(hot)* and *'a
 
 ### *'Ikai* as a Response
 
-You have seen *'Ikai* since the earliest chapters as a one-word answer meaning "no." This is the same word:
+You have seen *'Ikai* since the earliest lessons as a one-word answer meaning "no." This is the same word:
 
 ::: {.examples}
 *Na'á ke kai?* Did you eat?
@@ -211,7 +211,7 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 5. It was not cold last night.
 6. You will not eat fish tomorrow.
 
-> *Preview:* A few exercises below use *mo* + a name, meaning "with" (*mo Sione* = "with Sione"). You will study this fully in the next chapter; here you only need to read it as "with."
+> *Preview:* A few exercises below use *mo* + a name, meaning "with" (*mo Sione* = "with Sione"). You will study this fully in the next lesson; here you only need to read it as "with."
 
 #### Exercise 3: Change each positive sentence to its negative form
 
@@ -232,7 +232,7 @@ The pattern: negative + TM + pronoun + *teitei* + verb. In this "at all / certai
 5. *Na'e 'ikai \_\_\_ nau fiefia.*
 6. *'E 'ikai \_\_\_ 'uha 'apō.*
 
-#### Exercise 5: Translate into English. These sentences combine grammar from previous chapters with negation
+#### Exercise 5: Translate into English. These sentences combine grammar from previous lessons with negation
 
 1. *Na'e 'ikai té u 'alu ki kolo mo Mele 'aneafi.*
 2. *'E 'ikai te mau kai ika 'i fale kai 'apō.*

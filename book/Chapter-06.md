@@ -1,6 +1,6 @@
-# Chapter 6: Location
+# Lesson 6: Location
 
-This chapter introduces location: the preposition *'i* (in, at, on), the question word *'i fē* (where?), and demonstratives for pointing to a place.
+This lesson introduces location: the preposition *'i* (in, at, on), the question word *'i fē* (where?), and demonstratives for pointing to a place.
 
 ### The Preposition *'i*
 
@@ -92,7 +92,7 @@ To ask where something happens, replace the place noun with *fē* *(what place, 
 *Tau nofo pē heni.* Let's just stay here.
 :::
 
-This chapter introduces three words for pointing to a place:
+This lesson introduces three words for pointing to a place:
 
 | Word | Meaning | Points to |
 |---|---|---|
@@ -112,7 +112,7 @@ When paired with *'i*, the words *heni*, *hena*, and *hē* work as part of a loc
 *Tau nofo heni.* Let's stay here.
 :::
 
-Because you already know imperatives from the previous chapter, you can combine a command with *'i* and a demonstrative:
+Because you already know imperatives from the previous lesson, you can combine a command with *'i* and a demonstrative:
 
 ::: {.examples}
 *Nofo 'i hē!* Sit there.
@@ -131,7 +131,7 @@ Both *ni* and *na* are enclitics: they lean on the noun before them so the pair 
 
 Think of *falé ni* as a single three-syllable word, fa-le-ni, with stress on the second-to-last vowel.
 
-> *Note:* You may hear the word *eni* used as an adverb meaning "now." It is related to *ni* but more emphatic. Chapter 12: The *Ko* Pattern introduces the demonstrative pronouns *'eni*, *'ena*, and *ē* with *ko* sentences.
+> *Note:* You may hear the word *eni* used as an adverb meaning "now." It is related to *ni* but more emphatic. Lesson 12: The *Ko* Pattern introduces the demonstrative pronouns *'eni*, *'ena*, and *ē* with *ko* sentences.
 
 ### Being Somewhere
 
@@ -173,7 +173,7 @@ The question *Na'á ke 'i fē?* is one of the most common greetings in Tongan, a
 | *heni* | demonstrative (place) | here |
 | *hena* | demonstrative (place) | there (near you) |
 | *hē* | demonstrative (place) | over there |
-| *na* | demonstrative enclitic | that (near you) (also "they two" (Ch 2)) |
+| *na* | demonstrative enclitic | that (near you) (also "they two" (Lesson 2)) |
 
 **New vocabulary** (memorize these meanings):
 

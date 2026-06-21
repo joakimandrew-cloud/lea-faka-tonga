@@ -63,7 +63,7 @@ const PROMPTS = [
       { id: 'd', label: 'Tēvita will kill Kōlaiate.' },
     ],
     answer: 'a',
-    why: 'Even though the object Kōlaiate comes first, ʻe Tēvita still marks the doer and ʻa Kōlaiate the one acted upon. Word order is only emphasis here; the markers fix the roles (Ch 19: the meaning is the same as "Naʻe tāmateʻi ʻe Tēvita ʻa Kōlaiate").',
+    why: 'Even though the object Kōlaiate comes first, ʻe Tēvita still marks the doer and ʻa Kōlaiate the one acted upon. Word order is only emphasis here; the markers fix the roles (Lesson 19: the meaning is the same as "Naʻe tāmateʻi ʻe Tēvita ʻa Kōlaiate").',
   },
   {
     // Chapter-19.md L83: "Naʻe kai ʻe Sione ʻa e mā. Sione ate the bread."

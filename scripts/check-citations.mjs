@@ -128,7 +128,7 @@ async function exists(p) {
 }
 
 // Collect normalized heading text from a markdown file. For the chapter
-// title line (`# Chapter N: Title`) we index the bare "Title" too, so a
+// title line (`# Lesson N: Title`) we index the bare "Title" too, so a
 // §"Conjunctions" citation can match a chapter whose title is "Conjunctions".
 function collectHeadings(src) {
   const headings = new Set()
@@ -136,7 +136,7 @@ function collectHeadings(src) {
     const m = line.match(/^#{1,6}\s+(.*?)\s*$/)
     if (!m) continue
     headings.add(normalizeHeading(m[1]))
-    const title = m[1].match(/^Chapter\s+\d+:\s*(.+)$/)
+    const title = m[1].match(/^(?:Chapter|Lesson)\s+\d+:\s*(.+)$/)
     if (title) headings.add(normalizeHeading(title[1]))
   }
   return headings

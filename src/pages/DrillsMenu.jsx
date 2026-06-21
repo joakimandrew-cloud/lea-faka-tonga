@@ -58,7 +58,7 @@ function ShelfCard({ drill }) {
         <p className="drill-ndesc">{drill.blurb}</p>
       </div>
       <div className="drill-nfoot">
-        <span className="drill-nmeta">Ch {drill.ch} · {LEVELS[drill.level]}</span>
+        <span className="drill-nmeta">Lesson {drill.ch} · {LEVELS[drill.level]}</span>
         <span className="drill-ngo">{drill.action} →</span>
       </div>
     </Link>
@@ -94,7 +94,7 @@ function Shelf({ group, cards, chaptersOpen, onToggleChapters, filtering }) {
             onClick={onToggleChapters}
             aria-expanded={chaptersOpen}
           >
-            {chaptersOpen ? '− In the chapters' : `+ In the chapters · ${group.inChapters.length} more`}
+            {chaptersOpen ? '− In the lessons' : `+ In the lessons · ${group.inChapters.length} more`}
           </button>
         </div>
       )}
@@ -105,7 +105,7 @@ function Shelf({ group, cards, chaptersOpen, onToggleChapters, filtering }) {
               <Link to={routeFor(row.id)} className="drills-toc-row">
                 <span className="drills-toc-label">{row.label}</span>
                 <span className="drills-toc-leader" aria-hidden="true" />
-                <span className="drills-toc-ch">Ch {row.ch}</span>
+                <span className="drills-toc-ch">Lesson {row.ch}</span>
               </Link>
             </li>
           ))}
@@ -147,7 +147,7 @@ export default function DrillsMenu() {
           <h1>Practice <span className="dot">·</span> Drills</h1>
           <p className="lead">
             <span className="tongan">Ngāue Fakaʻilo.</span>{' '}
-            {total} targeted exercises, each isolating a single grammar pattern, grouped by the skill they build. Every card shows a taste of the real thing: swipe along a shelf to browse. More drills live inside the book chapters at the exact moment each pattern is taught; every group lists its own.
+            {total} targeted exercises, each isolating a single grammar pattern, grouped by the skill they build. Every card shows a taste of the real thing: swipe along a shelf to browse. More drills live inside the book lessons at the exact moment each pattern is taught; every group lists its own.
           </p>
         </div>
 
@@ -193,7 +193,7 @@ export default function DrillsMenu() {
         })}
 
         <div className="panel-colophon">
-          <div><strong>{total} Drills</strong> · One pattern each · Grouped by skill · The rest live in their chapters</div>
+          <div><strong>{total} Drills</strong> · One pattern each · Grouped by skill · The rest live in their lessons</div>
           <div className="tonga-sig">Ngāue lelei</div>
         </div>
 

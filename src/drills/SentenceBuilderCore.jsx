@@ -132,7 +132,7 @@ const PHRASES = [
       { id: 'd-e', tongan: 'ʻe', gloss: '' },
       { id: 'd-ha', tongan: 'ha', gloss: '' },
     ],
-    why: 'Intransitive subject takes ʻa e. Teachers are people, so the plural marker is kau (not ngaahi, which is for things): ʻa e kau faiako. With a plural subject, ʻalu takes its plural form ō (Ch 25): ō is the book’s plural form; ʻalu is also commonly heard in speech, so both are accepted here.',
+    why: 'Intransitive subject takes ʻa e. Teachers are people, so the plural marker is kau (not ngaahi, which is for things): ʻa e kau faiako. With a plural subject, ʻalu takes its plural form ō (Lesson 25): ō is the book’s plural form; ʻalu is also commonly heard in speech, so both are accepted here.',
   },
   {
     id: 'i-not-eat',

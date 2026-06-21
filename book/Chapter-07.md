@@ -1,6 +1,6 @@
-# Chapter 7: Prepositions: *Ki*, *'I*, and *Mei*
+# Lesson 7: Prepositions: *Ki*, *'I*, and *Mei*
 
-With *'i* (at, in) already in place, this chapter adds *ki* (to, toward) and *mei* (from), forming a complete set of three prepositions. The chapter also covers how these prepositions change form, and introduces *ai*, a particle that substitutes for the noun in a prepositional phrase.
+With *'i* (at, in) already in place, this lesson adds *ki* (to, toward) and *mei* (from), forming a complete set of three prepositions. The lesson also covers how these prepositions change form, and introduces *ai*, a particle that substitutes for the noun in a prepositional phrase.
 
 ---
 
@@ -25,7 +25,7 @@ Tongan classifies nouns into types, and the type determines which form of the pr
 | *fale* | *'i fale* | *ki fale* | *mei fale* |
 | *tahi* | *'i tahi* | *ki tahi* | *mei tahi* |
 
-Every *'i* phrase from the previous chapter has a *ki* counterpart and a *mei* counterpart: *'i 'api* (at home), *ki 'api* (to home), *mei 'api* (from home).
+Every *'i* phrase from the previous lesson has a *ki* counterpart and a *mei* counterpart: *'i 'api* (at home), *ki 'api* (to home), *mei 'api* (from home).
 
 With *mei* and *ki* together, you can describe a complete journey:
 
@@ -92,7 +92,7 @@ Here is the full pattern across all three form types:
 | to, toward | *ki* | *kia* | *kiate* |
 | from | *mei* | *meia* | *meiate* |
 
-The pronouns that follow *kiate*, *'iate*, and *meiate* are the postposed (long) forms you learned in the previous chapter: *au*, *koe*, *ia*, *kitaua*, *kimaua*, *kimoua*, *kinaua*, *kitautolu*, *kimautolu*, *kimoutolu*, *kinautolu*.
+The pronouns that follow *kiate*, *'iate*, and *meiate* are the postposed (long) forms you learned in the previous lesson: *au*, *koe*, *ia*, *kitaua*, *kimaua*, *kimoua*, *kinaua*, *kitautolu*, *kimautolu*, *kimoutolu*, *kinautolu*.
 
 | Pronoun | *kiate* (to) | *'iate* (in/at) | *meiate* (from) |
 |---|---|---|---|
@@ -115,7 +115,7 @@ The noun type determines the preposition form:
 | **Personal** (people) | *'ia* | *kia* | *meia* | *kia Sione* |
 | **Pronoun** | *'iate* | *kiate* | *meiate* | *kiate au* |
 
-> *Preview:* There is a third noun type, **common nouns**, which covers everything that is not a place or a person's name. Common nouns use the article *he* between the preposition and the noun: *ki he falé* (to the house). The next chapter covers articles.
+> *Preview:* There is a third noun type, **common nouns**, which covers everything that is not a place or a person's name. Common nouns use the article *he* between the preposition and the noun: *ki he falé* (to the house). The next lesson covers articles.
 
 ::: {.examples}
 *'Oku ou 'ofa lahi 'iate koe.* I love you very much.
@@ -228,7 +228,7 @@ The particle *ai* takes the place of a noun after a preposition. Instead of repe
 *Na'á ke 'alu ki fē?* Where did you go? (Lit. "You went to where?")
 :::
 
-Replace the destination with *fē* to ask where someone is going or went. This mirrors *'i fē* (where at?) from the previous chapter.
+Replace the destination with *fē* to ask where someone is going or went. This mirrors *'i fē* (where at?) from the previous lesson.
 
 ::: {.examples}
 *Té ke 'alu ki fē 'apongipongi?* Where will you go tomorrow?
@@ -242,7 +242,7 @@ Replace the destination with *fē* to ask where someone is going or went. This m
 *'Alu pē ki hē.* Just going over there.
 :::
 
-This is one of the most common expressions in spoken Tongan. It is a greeting: Tongans ask it when they see someone walking by, much the way English speakers say "How's it going?" The tense marker and pronoun are dropped. The full form uses a construction covered in Chapter 17: Possessives. Learn *'Alu ki fē?* as a fixed expression meaning "Where are you going?"
+This is one of the most common expressions in spoken Tongan. It is a greeting: Tongans ask it when they see someone walking by, much the way English speakers say "How's it going?" The tense marker and pronoun are dropped. The full form uses a construction covered in Lesson 17: Possessives. Learn *'Alu ki fē?* as a fixed expression meaning "Where are you going?"
 
 ---
 
@@ -287,7 +287,7 @@ The interrogative *hā* placed after a travel verb asks "by what means?" or "how
 *Na'á ku ha'u vakapuna.* I came by plane.
 :::
 
-*Hā* sits between the travel verb and any prepositional phrase. It has other uses in Tongan covered in Chapter 11: Question Words. In the pattern taught here, it asks specifically about means of transport.
+*Hā* sits between the travel verb and any prepositional phrase. It has other uses in Tongan covered in Lesson 11: Question Words. In the pattern taught here, it asks specifically about means of transport.
 
 ---
 

@@ -1,6 +1,6 @@
-# Chapter 4: Time Words
+# Lesson 4: Time Words
 
-Sentences built so far describe actions but not when they happen. This chapter adds time words to place events at specific moments: yesterday, tomorrow, last night, tonight.
+Sentences built so far describe actions but not when they happen. This lesson adds time words to place events at specific moments: yesterday, tomorrow, last night, tonight.
 
 ---
 
@@ -84,11 +84,11 @@ The past and future time words are single words. "Today" is different: it is a t
 
 *'Aho* *(day)* + *ni* *(this)* = *'aho ni*, literally "this day."
 
-The word *ni* is a **demonstrative**: a word that points to something, like "this" in English. It always follows the word it describes: *'aho ni*, not *ni 'aho*. Like the pronouns *ke* and *ku* from Chapter 1: The Basic Sentence, *ni* is an enclitic: it leans on the preceding word so the two are pronounced as one unit. The stress shifts forward: *'áho* alone, but *'ahó ni*. Demonstratives are covered fully in Chapter 6: Location. Treat *'aho ni* as a set phrase meaning "today."
+The word *ni* is a **demonstrative**: a word that points to something, like "this" in English. It always follows the word it describes: *'aho ni*, not *ni 'aho*. Like the pronouns *ke* and *ku* from Lesson 1: The Basic Sentence, *ni* is an enclitic: it leans on the preceding word so the two are pronounced as one unit. The stress shifts forward: *'áho* alone, but *'ahó ni*. Demonstratives are covered fully in Lesson 6: Location. Treat *'aho ni* as a set phrase meaning "today."
 
 When *'aho ni* appears as a time expression inside a sentence, the article *he* comes before it: *he 'ahó ni* (today, literally "on this day").
 
-> **Preview:** The word *he* before *'ahó ni* is the definite article, similar to "the" in English. The article *he* is introduced in Chapter 8: Articles. Treat *he 'ahó ni* as a set phrase meaning "today."
+> **Preview:** The word *he* before *'ahó ni* is the definite article, similar to "the" in English. The article *he* is introduced in Lesson 8: Articles. Treat *he 'ahó ni* as a set phrase meaning "today."
 
 ::: {.examples}
 *'Oku ou fiefia he 'ahó ni.* I am happy today.
@@ -96,7 +96,7 @@ When *'aho ni* appears as a time expression inside a sentence, the article *he* 
 *'Oku ou fiekaia he 'ahó ni.* I am hungry today.
 :::
 
-The word *fiekaia* *(hungry)* is a predicate adjective, like *fiefia* and *hela'ia* from the previous chapter.
+The word *fiekaia* *(hungry)* is a predicate adjective, like *fiefia* and *hela'ia* from the previous lesson.
 
 ::: {.examples}
 *Té u ngāue mālohi he 'ahó ni.* I will work hard today.
@@ -108,7 +108,7 @@ The word *fiekaia* *(hungry)* is a predicate adjective, like *fiefia* and *hela'
 
 > **Preview:** The word *lā'ā* *(sunny)* appears in the sentence above without a pronoun. Weather expressions in Tongan often follow this short pattern: tense marker + weather word, with no one "doing" the action.
 
-> *Note:* The stress shift in *'ahó ni* follows the enclitic pattern you learned in Chapter 1: The Basic Sentence. Think of *'aho* + *ni* as one word, *'ahoni*, with stress on the second-to-last vowel. 
+> *Note:* The stress shift in *'ahó ni* follows the enclitic pattern you learned in Lesson 1: The Basic Sentence. Think of *'aho* + *ni* as one word, *'ahoni*, with stress on the second-to-last vowel. 
 
 #### Tonight
 
@@ -138,7 +138,7 @@ At this stage, *'apō* is the form you will use most. Treat *'apōni* and *he po
 
 #### Days of the week
 
-These are useful to know alongside the time words above, even though using them in full sentences requires articles (Chapter 8: Articles) and time expressions covered in Chapter 42: Time Expressions and Personal Questions.
+These are useful to know alongside the time words above, even though using them in full sentences requires articles (Lesson 8: Articles) and time expressions covered in Lesson 42: Time Expressions and Personal Questions.
 
 | Tongan | English |
 |---|---|
@@ -172,7 +172,7 @@ This stacks: past tense marker + pronoun + verb + indefinite object + modifier +
 
 Here *kava* fills the object slot, as *mā* and *vai* do.
 
-Adding the preposed modifier *fa'a* from the previous chapter gives the most complex sentence you can build so far:
+Adding the preposed modifier *fa'a* from the previous lesson gives the most complex sentence you can build so far:
 
 ::: {.examples}
 *Na'a mau fa'a inu vai lahi 'aupito 'anepō.* We often drank a great deal of water last night.

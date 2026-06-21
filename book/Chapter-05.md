@@ -1,6 +1,6 @@
-# Chapter 5: Commands and Emphasis
+# Lesson 5: Commands and Emphasis
 
-Every sentence so far has required a tense marker and a pronoun. This chapter introduces commands, which use the verb alone, and emphatic pronouns, which add emphasis to any sentence pattern.
+Every sentence so far has required a tense marker and a pronoun. This lesson introduces commands, which use the verb alone, and emphatic pronouns, which add emphasis to any sentence pattern.
 
 ---
 
@@ -66,7 +66,7 @@ The singular *'alu* *(to go)* becomes *ō* with a dual or plural subject. The si
 | *'Alu!* | *Mou ō!* | Go! |
 | *Ha'u!* | *Mou ō mai!* | Come! |
 
-> *Note:* Most verbs keep the same form regardless of how many people are involved. Only a small number have special plural forms. *'Alu*/*ō* and *ha'u*/*ō mai* are the most common pair and the only ones taught in this chapter. Others exist and are covered in Chapter 25: Plural Markers.
+> *Note:* Most verbs keep the same form regardless of how many people are involved. Only a small number have special plural forms. *'Alu*/*ō* and *ha'u*/*ō mai* are the most common pair and the only ones taught in this lesson. Others exist and are covered in Lesson 25: Plural Markers.
 
 ---
 
@@ -107,9 +107,9 @@ The prohibition pattern also works with the verb prefix *fie* (want to). Place *
 *'Oua té ke fie inu.* Don't want to drink.
 :::
 
-The word *fie* placed before a verb means "want to," so *fie inu* is "want to drink." Here you only need to recognize that *fie* attaches to a verb; its full use as a helper verb is covered in Chapter 21: Auxiliary Verbs.
+The word *fie* placed before a verb means "want to," so *fie inu* is "want to drink." Here you only need to recognize that *fie* attaches to a verb; its full use as a helper verb is covered in Lesson 21: Auxiliary Verbs.
 
-> *Note:* A softer form of prohibition exists: *'oua na'a* in place of *'oua te*. *'Oua na'a* is less abrupt and preferred in polite speech. Both mean the same thing. The gentler form will be covered formally in Chapter 38: Warnings, Hopes, Permissions, and Uncertainty.
+> *Note:* A softer form of prohibition exists: *'oua na'a* in place of *'oua te*. *'Oua na'a* is less abrupt and preferred in polite speech. Both mean the same thing. The gentler form will be covered formally in Lesson 38: Warnings, Hopes, Permissions, and Uncertainty.
 
 ---
 
@@ -175,7 +175,7 @@ Here is the full set:
 
 A memory aid: the dual postposed forms end in *-ua* (from *ua*, the word for "two"), and the plural forms end in *-tolu* (from *tolu*, the word for "three").
 
-The postposed pronouns have two uses taught in this chapter: emphasis in statements and emphasis in commands. Both are explained below.
+The postposed pronouns have two uses taught in this lesson: emphasis in statements and emphasis in commands. Both are explained below.
 
 ---
 
@@ -341,7 +341,7 @@ Add the postposed pronoun to make each command emphatic.
 4. *Mou ō! → Mou ō \_\_\_!*
 5. *'Alu! → 'Alu \_\_\_!*
 
-#### Exercise 5: Translate into English. These sentences combine commands and emphasis with grammar from previous chapters
+#### Exercise 5: Translate into English. These sentences combine commands and emphasis with grammar from previous lessons
 
 1. *Mou kai mā mu'a!*
 2. *'Oua té ke mohe 'apongipongi!*

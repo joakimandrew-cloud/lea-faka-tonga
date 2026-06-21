@@ -105,7 +105,7 @@ export default function QuizRunner({ quiz, chapter }) {
               ? 'Perfect score!'
               : score >= questions.length / 2
                 ? 'Good work. Review the misses and try again.'
-                : 'Revisit the chapter and come back to try again.'}
+                : 'Revisit the lesson and come back to try again.'}
           </p>
           <button onClick={handleRestart} className="quiz-finish-btn">
             Try Again
@@ -116,7 +116,7 @@ export default function QuizRunner({ quiz, chapter }) {
   }
 
   // ── Active quiz ───────────────────────────────────────────────────────
-  const eyebrow = `CHAPTER ${quiz.chapter} · ${quiz.title.toUpperCase()}`
+  const eyebrow = `LESSON ${quiz.chapter} · ${quiz.title.toUpperCase()}`
 
   return (
     <div className="quiz">
@@ -141,7 +141,7 @@ export default function QuizRunner({ quiz, chapter }) {
             to={`/chapters/${quiz.chapter}`}
             className="quiz-eyebrow-link"
           >
-            Study Chapter {quiz.chapter}: {chapter.title} →
+            Study Lesson {quiz.chapter}: {chapter.title} →
           </Link>
         )}
       </div>

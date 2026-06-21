@@ -1,6 +1,6 @@
-# Chapter 1: The Basic Sentence
+# Lesson 1: The Basic Sentence
 
-This chapter introduces a three-part sentence pattern (tense marker, pronoun, verb) and shows you how to use it to make statements and ask questions about past actions. The sentence *Na'á ke kai?* ("Did you eat?") is your first example of this pattern in action.
+This lesson introduces a three-part sentence pattern (tense marker, pronoun, verb) and shows you how to use it to make statements and ask questions about past actions. The sentence *Na'á ke kai?* ("Did you eat?") is your first example of this pattern in action.
 
 ---
 
@@ -12,7 +12,7 @@ This chapter introduces a three-part sentence pattern (tense marker, pronoun, ve
 *Na'á ku kai.* I ate.
 :::
 
-These two sentences show the basic pattern for this chapter: a tense marker, a pronoun, and a verb, always in that order. You will build on this pattern and learn others as the book progresses.
+These two sentences show the basic pattern for this lesson: a tense marker, a pronoun, and a verb, always in that order. You will build on this pattern and learn others as the book progresses.
 
 ---
 
@@ -47,7 +47,7 @@ In English, verbs change form to show when something happened: "eat" becomes "at
 
 A **tense marker** is a word that tells you when an action happened. In English, you change the verb itself to show time: "eat" becomes "ate." In Tongan, the verb stays the same and a tense marker does that job instead. In the pattern you are learning, the tense marker is placed before the verb.
 
-This chapter introduces one tense marker: *na'a*. It marks the past tense, meaning the action already happened.
+This lesson introduces one tense marker: *na'a*. It marks the past tense, meaning the action already happened.
 
 *Na'a* always comes first in this pattern.
 
@@ -57,13 +57,13 @@ This chapter introduces one tense marker: *na'a*. It marks the past tense, meani
 
 The literal translation shows how the three parts line up. *Na'a* = past. *Ke* = you. *Kai* = eat. In this pattern, the tense marker comes first, then who did it, then what they did.
 
-> *Note:* Tongan has a second past tense marker, *na'e*, used when no pronoun follows directly. You will learn it in Chapter 9: The Negative. Every past tense sentence you build will use *na'a* followed by a pronoun.
+> *Note:* Tongan has a second past tense marker, *na'e*, used when no pronoun follows directly. You will learn it in Lesson 9: The Negative. Every past tense sentence you build will use *na'a* followed by a pronoun.
 
 #### What a Pronoun Is
 
 A **pronoun** is a word that takes the place of a name. Instead of saying "Sione ate," you can say "he ate." The word "he" is a pronoun.
 
-Tongan has two types of pronouns. A preposed pronoun comes before the verb and tells you who is doing the action. A postposed pronoun follows the verb or another key word in the sentence, rather than coming before it. You will learn postposed pronouns in Chapter 5: Commands and Emphasis.
+Tongan has two types of pronouns. A preposed pronoun comes before the verb and tells you who is doing the action. A postposed pronoun follows the verb or another key word in the sentence, rather than coming before it. You will learn postposed pronouns in Lesson 5: Commands and Emphasis.
 
 The two preposed pronouns you will use are:
 
@@ -74,7 +74,7 @@ The two preposed pronouns you will use are:
 
 In this pattern, the preposed pronoun goes between the tense marker and the verb. It tells you who did the action. The person doing the action is called the **subject**.
 
-*Ku* is the form of "I" used only after the past tense marker *na'a*. Other tense markers use different forms of "I." You will learn those in Chapter 2: Tense Markers and Pronouns.
+*Ku* is the form of "I" used only after the past tense marker *na'a*. Other tense markers use different forms of "I." You will learn those in Lesson 2: Tense Markers and Pronouns.
 
 ---
 
@@ -145,7 +145,7 @@ A typical exchange follows this pattern:
 *'Ikai, na'á ku mohe.* ↘ No, I slept.
 :::
 
-> *Note:* *'Ikai* as a full negative sentence pattern is taught in Chapter 9: The Negative. Use it simply to mean "no" when answering a question.
+> *Note:* *'Ikai* as a full negative sentence pattern is taught in Lesson 9: The Negative. Use it simply to mean "no" when answering a question.
 
 ---
 
@@ -161,7 +161,7 @@ Words like *ke* and *ku* that attach to the word before them this way are called
 
 Both *ke* and *ku* are enclitics, along with several other preposed pronouns. You will meet more enclitics as the book progresses.
 
-Throughout this book, an acute accent (´) on the tense marker shows where the stress falls in these combinations. You will see a full explanation of this convention in Chapter 2: Tense Markers and Pronouns.
+Throughout this book, an acute accent (´) on the tense marker shows where the stress falls in these combinations. You will see a full explanation of this convention in Lesson 2: Tense Markers and Pronouns.
 
 Practice saying these out loud:
 

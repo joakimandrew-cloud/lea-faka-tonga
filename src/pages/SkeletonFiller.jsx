@@ -28,7 +28,7 @@ export default function SkeletonFiller() {
             A Tongan sentence isn&rsquo;t a string of words that happen to
             line up. It&rsquo;s a shape with slots. A small set of core
             shapes covers most everyday clauses; longer sentences combine
-            and extend them, and some chapters teach word-building beyond
+            and extend them, and some lessons teach word-building beyond
             slot-filling.
           </p>
           <p>

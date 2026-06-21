@@ -1,6 +1,6 @@
-# Chapter 29: The Possessive System in Full
+# Lesson 29: The Possessive System in Full
 
-Building on the basic 'e-class / ho-class possessive division, this chapter explains the deeper principle behind the two classes, adds indefinite possessive forms, and shows how possessives behave with prepositions.
+Building on the basic 'e-class / ho-class possessive division, this lesson explains the deeper principle behind the two classes, adds indefinite possessive forms, and shows how possessives behave with prepositions.
 
 ---
 
@@ -53,7 +53,7 @@ When the verb has no object (an intransitive verb like *ngāue*, to work, or *fi
 
 ### The principle with everyday nouns
 
-The doer/receiver principle extends to all possessive choices, not only verbal nouns. An earlier chapter introduced the two possessive classes and listed which nouns fall into each. That division follows the same principle: you are the doer with your knife (*'eku hele*), but the receiver with your clothes (*hoku kofu*).
+The doer/receiver principle extends to all possessive choices, not only verbal nouns. An earlier lesson introduced the two possessive classes and listed which nouns fall into each. That division follows the same principle: you are the doer with your knife (*'eku hele*), but the receiver with your clothes (*hoku kofu*).
 
 Some nouns change class depending on your relationship to them:
 
@@ -109,7 +109,7 @@ The possessive forms taught so far (*'eku*, *ho'o*, *'ene*...) are definite: the
 | *ho'omou* | *ha'amou* | your (pl) |
 | *'enau* | *ha'anau* | their |
 
-> **Preview:** The construction *'oku 'i ai* ("there is / there exists") appears below minimally for the "to have" pattern. You met *'i ai* in Chapter 7 as a back-reference particle with a pronoun subject (*'Oku ou 'i ai*. "I am there"). The subjectless existential form used here is covered formally in Chapter 31: Existential Expressions. For now, treat *'Oku 'i ai ha'o X?* as the set question-frame meaning "Do you have X?"
+> **Preview:** The construction *'oku 'i ai* ("there is / there exists") appears below minimally for the "to have" pattern. You met *'i ai* in Lesson 7 as a back-reference particle with a pronoun subject (*'Oku ou 'i ai*. "I am there"). The subjectless existential form used here is covered formally in Lesson 31: Existential Expressions. For now, treat *'Oku 'i ai ha'o X?* as the set question-frame meaning "Do you have X?"
 
 Tongan has no verb meaning "to have." Instead, it combines *'oku 'i ai* (there is, there exists) with a possessive pronoun:
 
@@ -145,13 +145,13 @@ The indefinite form appears in the question (the speaker does not know if you ha
 
 The same class rules apply to indefinite possessives. Use the 'e-class indefinite (*ha'o*) for things you control, and the ho-class indefinite (*hao*) for things that shelter or define you.
 
-> **Preview:** Indefinite possessives can also appear before verbal nouns, as in *ha'aku toe lea* (my speaking again). This pattern is covered formally in Chapter 45: Verbal Nouns.
+> **Preview:** Indefinite possessives can also appear before verbal nouns, as in *ha'aku toe lea* (my speaking again). This pattern is covered formally in Lesson 45: Verbal Nouns.
 
 ---
 
 ### Possessives after prepositions
 
-An earlier chapter showed that ho-class possessives connect directly to *ki* and *'i*, with no article *he*: *ki hoku falé* (to my house), *'i hono lokí* (in his room). The same pattern holds after *mei* (from): *mei homau 'apí* (from our home).
+An earlier lesson showed that ho-class possessives connect directly to *ki* and *'i*, with no article *he*: *ki hoku falé* (to my house), *'i hono lokí* (in his room). The same pattern holds after *mei* (from): *mei homau 'apí* (from our home).
 
 'E-class possessives behave differently. When *ki*, *'i*, *mei*, or *'e* is followed by an 'e-class possessive, the article *he* appears between the preposition and the possessive (the second-person forms *ho'o*, *ho'omo*, and *ho'omou* are exceptions: they connect directly, with no *he*, as in *ki ho'o tohi*, *mei ho'omou ngāue*):
 

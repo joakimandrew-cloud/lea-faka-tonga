@@ -1,6 +1,6 @@
-# Chapter 27: Comparison and Degree
+# Lesson 27: Comparison and Degree
 
-This chapter introduces comparison: how to say something is bigger, better, the same, different, or like something else.
+This lesson introduces comparison: how to say something is bigger, better, the same, different, or like something else.
 
 ---
 
@@ -138,7 +138,7 @@ The expression *fai kehekehe* means "different" or "to differ." Like *tatau*, it
 *'Okú na fai kehekehe 'aupito.* They are very different.
 :::
 
-> **Preview:** The prefix *faka-* attached to a noun means "in the manner of" or "related to." *Faka-faiakó* = "teacher-related / pertaining to a teacher," *faka-toketā* = "doctor-related." It also appears in phrases like *lea faka-Tongá* ("the Tongan language") and *hiva faka-Tongá* ("Tongan-style singing"). The full *faka-* prefix system is covered formally in Chapter 32: The *Faka-* Prefix. For now, recognize *faka-X* as "of the X kind" or "X-style."
+> **Preview:** The prefix *faka-* attached to a noun means "in the manner of" or "related to." *Faka-faiakó* = "teacher-related / pertaining to a teacher," *faka-toketā* = "doctor-related." It also appears in phrases like *lea faka-Tongá* ("the Tongan language") and *hiva faka-Tongá* ("Tongan-style singing"). The full *faka-* prefix system is covered formally in Lesson 32: The *Faka-* Prefix. For now, recognize *faka-X* as "of the X kind" or "X-style."
 
 To ask about the difference between two things:
 
@@ -291,7 +291,7 @@ The word order may feel inverted compared to English. The thing named first is t
 
 ### *Huanoa* (how much more)
 
-> **Preview:** *Kapau* means "if." It opens the first (lesser) clause of the *huanoa* pattern below. *Kapau* and the full conditional system are taught formally in Chapter 30: Temporal, Conditional, and Concessive Conjunctions. For now, just read *kapau* as "if."
+> **Preview:** *Kapau* means "if." It opens the first (lesser) clause of the *huanoa* pattern below. *Kapau* and the full conditional system are taught formally in Lesson 30: Temporal, Conditional, and Concessive Conjunctions. For now, just read *kapau* as "if."
 
 ::: {.examples}
 *Kapau 'okú ne 'ofa ki he fanga puaká, huanoa 'ene 'ofa ki he kakaí!* If he loves the pigs, how much more does he love the people.
@@ -346,7 +346,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 | Tongan | Function | English |
 |--------|----------|---------|
 | *ange* | comparative marker | more (after adjective) |
-| *taha* | superlative marker | most, -est (after adjective) (also "one" (Ch 20)) |
+| *taha* | superlative marker | most, -est (after adjective) (also "one" (Lesson 20)) |
 | *tatau* | stative | same, identical |
 | *hangē* | comparative verb | be like, as if |
 | *huanoa* | discourse word | how much more |
@@ -356,12 +356,12 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 | Tongan | Type | English |
 |--------|------|---------|
 | *vave* | adjective | fast |
-| *talavou* | adjective | handsome, good-looking (also "young man" (Ch 18)) |
+| *talavou* | adjective | handsome, good-looking (also "young man" (Lesson 18)) |
 | *maea* | noun | rope |
 | *kehekehe* | adjective | different |
 | *mātu'a* | noun | parents |
 | *meimei* | adverb | almost, nearly |
-| *mei* | adverb | almost (lighter form of *meimei*) (also "from" (Ch 7)) |
+| *mei* | adverb | almost (lighter form of *meimei*) (also "from" (Lesson 7)) |
 | *matu'aki* | adverb | extremely, absolutely |
 | *lahi pē* | adverb phrase | mostly, mainly |
 | *tautefito ki* | adverb phrase | especially, particularly |

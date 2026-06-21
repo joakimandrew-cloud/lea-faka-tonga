@@ -1,12 +1,12 @@
-# Chapter 44: The Definitive Accent System
+# Lesson 44: The Definitive Accent System
 
-Chapter 18: Definiteness and the Definitive Accent introduced the basic stress shift. This chapter shows the full system: how it works with nested phrases, dropped openings, opening phrases that carry the accent, and long vowels under stress.
+Lesson 18: Definiteness and the Definitive Accent introduced the basic stress shift. This lesson shows the full system: how it works with nested phrases, dropped openings, opening phrases that carry the accent, and long vowels under stress.
 
 ---
 
 ### Three levels of definiteness, revisited
 
-Chapter 18: Definiteness and the Definitive Accent showed three levels of specificity. Here is the system in full.
+Lesson 18: Definiteness and the Definitive Accent showed three levels of specificity. Here is the system in full.
 
 Consider these three sentences:
 
@@ -72,7 +72,7 @@ The choice between *hatau* and *hotau* depends on how definite the speaker's tho
 
 ### The definitive accent at group end
 
-The basic rule, introduced in Chapter 18: Definiteness and the Definitive Accent, is this: when a noun group is definite, stress falls on the very last vowel of the entire group. As the group grows longer, the accent moves with it.
+The basic rule, introduced in Lesson 18: Definiteness and the Definitive Accent, is this: when a noun group is definite, stress falls on the very last vowel of the entire group. As the group grows longer, the accent moves with it.
 
 | Tongan | English |
 |---|---|
@@ -163,7 +163,7 @@ The accent on *ngāué* does two things at once. First, it marks the end of *e n
 
 Tongan sometimes drops the opening of a noun group when context makes it recoverable. The accent still falls on the last spoken word, marking the end of the unspoken whole.
 
-This pattern is most common in cleft sentences, the *ko* + subject + *na'á ne* + verb structure introduced in Chapter 36: Cleft Sentences and Emphatic Word Order.
+This pattern is most common in cleft sentences, the *ko* + subject + *na'á ne* + verb structure introduced in Lesson 36: Cleft Sentences and Emphatic Word Order.
 
 Compare the non-cleft version:
 
@@ -257,7 +257,7 @@ This emphatic use is limited to directional adverbs. It does not occur with verb
 
 ### Double vowels under the definitive accent
 
-Chapter 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel. Here is how that works.
+Lesson 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel. Here is how that works.
 
 Tongan does not stress long vowels under the definitive accent. When the accent would force stress onto a long vowel, the vowel splits into two short vowels, and the stress lands on the second.
 

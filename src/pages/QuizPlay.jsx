@@ -13,7 +13,7 @@ export default function QuizPlay() {
     return (
       <div>
         <div className="text-[var(--text-muted)] text-sm mb-4">
-          No quiz available for this chapter yet.
+          No quiz available for this lesson yet.
         </div>
         <Link
           to="/quizzes"

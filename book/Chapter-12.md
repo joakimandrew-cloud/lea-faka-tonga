@@ -1,4 +1,4 @@
-# Chapter 12: The *Ko* Pattern
+# Lesson 12: The *Ko* Pattern
 
 Unlike the verb-first sentences built so far, the *ko* pattern has no verb and no tense marker. It uses the word *ko* to identify or name something.
 
@@ -84,9 +84,9 @@ More exchanges:
 
 The word *vaka* *(boat, ship)* is new vocabulary. *Ko e hā ē?* is the most common form of this question. The *ē* carries a general "that" meaning broad enough for most pointing situations.
 
-> *Note:* The word *ko fē* (where, which) also uses *ko*. You may hear it in questions like *Ko fē e tohi?* (Where is the book?). This question word is covered formally in Chapter 13: *Ko* Questions.
+> *Note:* The word *ko fē* (where, which) also uses *ko*. You may hear it in questions like *Ko fē e tohi?* (Where is the book?). This question word is covered formally in Lesson 13: *Ko* Questions.
 
-> *Note:* The definitive accent (stress on the last vowel of a noun) marks specificity in *ko* sentences. *Ko e tohi 'eni* (with normal stress) means "This is **a** book." *Ko e tohí 'eni* (with shifted stress) means "This is **the** book (the one you were looking for)." This distinction is covered formally in Chapter 18: Definiteness and the Definitive Accent. All examples in this chapter use normal stress.
+> *Note:* The definitive accent (stress on the last vowel of a noun) marks specificity in *ko* sentences. *Ko e tohi 'eni* (with normal stress) means "This is **a** book." *Ko e tohí 'eni* (with shifted stress) means "This is **the** book (the one you were looking for)." This distinction is covered formally in Lesson 18: Definiteness and the Definitive Accent. All examples in this lesson use normal stress.
 
 ---
 

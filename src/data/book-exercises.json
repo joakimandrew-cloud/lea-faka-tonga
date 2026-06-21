@@ -1325,7 +1325,7 @@
     {
       "id": "ch5-ex5",
       "number": 5,
-      "title": "Translate into English. These sentences combine commands and emphasis with grammar from previous chapters",
+      "title": "Translate into English. These sentences combine commands and emphasis with grammar from previous lessons",
       "type": "translate_to_english",
       "instructions": "",
       "items": [
@@ -2494,7 +2494,7 @@
         },
         {
           "id": "ch9-ex2-6",
-          "prompt": "You will not eat fish tomorrow. > *Preview:* A few exercises below use *mo* + a name, meaning \"with\" (*mo Sione* = \"with Sione\"). You will study this fully in the next chapter; here you only need to read it as \"with.\"",
+          "prompt": "You will not eat fish tomorrow. > *Preview:* A few exercises below use *mo* + a name, meaning \"with\" (*mo Sione* = \"with Sione\"). You will study this fully in the next lesson; here you only need to read it as \"with.\"",
           "answer": "*'E 'ikai té ke kai ika 'apongipongi.*"
         }
       ]
@@ -2633,7 +2633,7 @@
     {
       "id": "ch9-ex5",
       "number": 5,
-      "title": "Translate into English. These sentences combine grammar from previous chapters with negation",
+      "title": "Translate into English. These sentences combine grammar from previous lessons with negation",
       "type": "translate_to_english",
       "instructions": "",
       "items": [
@@ -2947,7 +2947,7 @@
     {
       "id": "ch10-ex7",
       "number": 7,
-      "title": "Translate into English. These sentences combine grammar from this and previous chapters",
+      "title": "Translate into English. These sentences combine grammar from this and previous lessons",
       "type": "translate_to_english",
       "instructions": "",
       "items": [
@@ -12928,7 +12928,7 @@
         },
         {
           "id": "ch48-ex5-2",
-          "prompt": "*'Oku mau sipinga___ 'ene ngāué.* We use his work as an example. (*sipinga* = pattern, from Chapter 33)",
+          "prompt": "*'Oku mau sipinga___ 'ene ngāué.* We use his work as an example. (*sipinga* = pattern, from Lesson 33)",
           "answer": "*sipinga'aki*. We use his work as an example.",
           "accept": [
             "*sipinga'aki*"

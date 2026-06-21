@@ -1,7 +1,7 @@
-# Chapter 20: Numbers and Time
+# Lesson 20: Numbers and Time
 *Word Study*
 
-This chapter teaches the Tongan number system: how to count, how to say prices, how to count people, and how to tell time.
+This lesson teaches the Tongan number system: how to count, how to say prices, how to count people, and how to tell time.
 
 ---
 
@@ -175,13 +175,13 @@ For "at" a specific time, use *he* (which is *'i he* with *'i* dropped, a patter
 *He tolu.* At three.
 :::
 
-For minutes before the hour, Tongan uses the word *toe* *(remaining, still to go)* before the time phrase. This word has other uses covered in Chapter 22: Aspect Markers, but in time-telling it simply means "remaining":
+For minutes before the hour, Tongan uses the word *toe* *(remaining, still to go)* before the time phrase. This word has other uses covered in Lesson 22: Aspect Markers, but in time-telling it simply means "remaining":
 
 ::: {.examples}
 *'Oku toe 'a e miniti 'e nima ki he tolú.* Five minutes to three. (Lit. "Five minutes remain to the three.")
 :::
 
-For minutes after the hour, Tongan uses *'osi* *(finished, past)* to indicate that the hour has passed. Like *toe*, this word has broader uses covered in Chapter 22: Aspect Markers, but in time-telling it signals that the hour is complete:
+For minutes after the hour, Tongan uses *'osi* *(finished, past)* to indicate that the hour has passed. Like *toe*, this word has broader uses covered in Lesson 22: Aspect Markers, but in time-telling it signals that the hour is complete:
 
 ::: {.examples}
 *Kuo 'osi 'a e valú, miniti 'e hongofulu.* Ten minutes past eight. (Lit. "The eight is finished, ten minutes.")
@@ -232,7 +232,7 @@ For "second," "third," and higher, Tongan uses the ho-class possessive *hono* (w
 
 This is a natural extension of the possessive system: the ordinal literally says "its second," "its third."
 
-> *Note:* The word *tu'o* before a number means "times" in a counting sense: *tu'o taha* = once, *tu'o ua* = twice. This is covered in Chapter 22: Aspect Markers and Frequency.
+> *Note:* The word *tu'o* before a number means "times" in a counting sense: *tu'o taha* = once, *tu'o ua* = twice. This is covered in Lesson 22: Aspect Markers and Frequency.
 
 ---
 
@@ -256,8 +256,8 @@ The expression *me'a e fiha* *(how many)* is a conversational way to ask about q
 
 | Tongan | Function | English |
 |--------|----------|---------|
-| *'e* | numeric particle | connects a number to a noun (also the future-tense marker, Ch 9) |
-| *mā* | numeric connector | and (in compound numbers) (also "bread" (Ch 3)) |
+| *'e* | numeric particle | connects a number to a noun (also the future-tense marker, Lesson 9) |
+| *mā* | numeric connector | and (in compound numbers) (also "bread" (Lesson 3)) |
 | *toko* | people counter | precedes number when counting people |
 | *'uluaki* | ordinal word | first |
 | *kau* | group marker | marks a group of people |
@@ -271,7 +271,7 @@ The expression *me'a e fiha* *(how many)* is a conversational way to ask about q
 | *ua* | number | two |
 | *tolu* | number | three |
 | *fā* | number | four |
-| *nima* | number | five (also "hand" (Ch 17)) |
+| *nima* | number | five (also "hand" (Lesson 17)) |
 | *ono* | number | six |
 | *hongofulu* | number | ten |
 | *uofulu* | number | twenty |

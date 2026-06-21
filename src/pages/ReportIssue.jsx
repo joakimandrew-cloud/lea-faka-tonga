@@ -164,7 +164,7 @@ export default function ReportIssue() {
                 <span className="report-label">Where is it? <em>optional</em></span>
                 <input
                   type="text" value={form.where} onChange={update('where')}
-                  placeholder="e.g. Chapter 12, the second drill, or the quiz on page 3"
+                  placeholder="e.g. Lesson 12, the second drill, or the quiz on page 3"
                 />
               </label>
 
