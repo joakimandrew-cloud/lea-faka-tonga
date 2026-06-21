@@ -119,7 +119,7 @@ export default function ChapterBrowser() {
           )
 
           return (
-            <section key={tier.key} className="chapters-tier">
+            <section key={tier.key} className={`chapters-tier chapters-tier--${tier.key}`}>
               <header className="chapters-tier-banner">
                 <div className="chapters-tier-heading">
                   <h2 className="chapters-tier-name">{tier.name}</h2>
@@ -156,6 +156,8 @@ export default function ChapterBrowser() {
                       <ol className="chapter-list">
                         {all.map(ch => {
                           const isActive = ch.chapter === currentChapter
+                          const sample = ch.teaching?.key_rules?.[0]
+                          const topics = Array.isArray(ch.topics) ? ch.topics.slice(0, 2) : []
                           return (
                             <li key={ch.chapter}>
                               <Link
@@ -166,7 +168,21 @@ export default function ChapterBrowser() {
                                 <span className="chapter-list-num">{String(ch.chapter).padStart(2, '0')}</span>
                                 <span className="chapter-list-body">
                                   <span className="chapter-list-title">{ch.title}</span>
-                                  <span className="chapter-list-sub">{ch.preview}</span>
+                                  {sample?.example_tongan && (
+                                    <span className="chapter-list-sample">
+                                      {sample.example_tongan}
+                                      {sample.example_english && (
+                                        <span className="chapter-list-gloss">{sample.example_english}</span>
+                                      )}
+                                    </span>
+                                  )}
+                                  {topics.length > 0 && (
+                                    <span className="chapter-list-chips">
+                                      {topics.map((t, i) => (
+                                        <span key={i} className="chapter-list-chip">{t}</span>
+                                      ))}
+                                    </span>
+                                  )}
                                 </span>
                               </Link>
                             </li>

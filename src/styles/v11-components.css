@@ -1425,6 +1425,25 @@
   padding: 8px 0 18px;
   border-bottom: 2px solid var(--ink);
 }
+/* Level-band colour ramp: Basic calm · Intermediate warm · Advanced hot.
+   No CEFR codes — the bands are the app's plain Basic/Intermediate/Advanced tiers.
+   Scoped to .chapters-page so the Quizzes index (.quizzes-page), which shares the
+   tier-banner markup but not these modifiers, keeps its original look. */
+.chapters-page .chapters-tier-banner { padding: 14px 16px; }
+.chapters-page .chapters-tier--intermediate .chapters-tier-banner {
+  background: rgba(194, 74, 31, 0.07);
+  border-bottom-color: var(--red);
+}
+.chapters-page .chapters-tier--intermediate .chapters-tier-name { color: var(--red-dark); }
+.chapters-page .chapters-tier--intermediate .chapters-tier-blurb,
+.chapters-page .chapters-tier--intermediate .chapters-tier-count { color: var(--red-mid); }
+.chapters-page .chapters-tier--advanced .chapters-tier-banner {
+  background: var(--red);
+  border-bottom-color: var(--red-dark);
+}
+.chapters-page .chapters-tier--advanced .chapters-tier-name,
+.chapters-page .chapters-tier--advanced .chapters-tier-blurb,
+.chapters-page .chapters-tier--advanced .chapters-tier-count { color: var(--cream); }
 .chapters-tier-heading {
   display: flex;
   flex-direction: column;
@@ -1721,13 +1740,19 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 32px;
+}
+@media (min-width: 880px) {
+  .chapter-subsection .chapter-list { grid-template-columns: 1fr 1fr; }
 }
 .chapter-subsection .chapter-list-row {
   display: grid;
-  grid-template-columns: 36px 1fr;
-  align-items: baseline;
-  gap: 18px;
-  padding: 9px 8px;
+  grid-template-columns: 40px 1fr;
+  align-items: start;
+  gap: 16px;
+  padding: 12px 8px;
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
@@ -1750,26 +1775,56 @@
 .chapter-subsection .chapter-list-num {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--red);
   font-variant-numeric: tabular-nums;
-  line-height: 1;
+  line-height: 1.05;
 }
 .chapter-subsection .chapter-list-body {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 5px;
   min-width: 0;
 }
 .chapter-subsection .chapter-list-title {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink);
   line-height: 1.2;
 }
+/* Real Tongan example (lesson's first key rule) + muted English gloss */
+.chapter-subsection .chapter-list-sample {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.chapter-subsection .chapter-list-gloss {
+  color: var(--mid);
+  margin-left: 0.45em;
+}
+.chapter-subsection .chapter-list-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.chapter-subsection .chapter-list-chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--mid);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+/* legacy single-line preview (no longer rendered by ChapterBrowser) */
 .chapter-subsection .chapter-list-sub {
   font-family: 'Source Serif 4', serif;
   font-style: italic;
@@ -1798,6 +1853,7 @@
     gap: 8px;
     padding: 4px 0 14px;
   }
+  .chapters-page .chapters-tier-banner { padding: 12px 14px; }
   .chapters-tier-name { font-size: 36px; }
   .chapters-tier-count { padding-bottom: 0; }
   .chapter-row {
