@@ -61,7 +61,7 @@ export const cells = [
     kin: [{ t: 'Understand', accent: true, fx: 'grow' }, { t: 'it,' }, { t: 'don’t' }, { t: 'just' }, { t: 'guess', fx: 'dim' }],
   },
   {
-    id: 'feat-vocab', file: 'feat-vocab', fileMobile: 'feat-vocab-mobile', anim: 'reveal', grammar: 'flip', previewTitle: 'Vocab, your way',
+    id: 'feat-vocab', file: 'feat-vocab', fileMobile: 'feat-vocab-mobile', anim: 'reveal', grammar: 'flip', previewTitle: 'Make your own flashcards',
     eyebrow: 'Vocabulary, your way',
     headline: <>Any word list,<br />instant <span className="accent">flashcards</span>.</>,
     kin: [{ t: 'Any' }, { t: 'word' }, { t: 'list,' }, { t: 'instant' }, { t: 'flashcards', accent: true, fx: 'flip' }],
