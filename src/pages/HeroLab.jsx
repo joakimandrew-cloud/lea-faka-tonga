@@ -174,6 +174,15 @@ function BookAnchor() {
         <a href={BOOK_PDF} download className="hl-cta">Download PDF <span aria-hidden="true">→</span></a>
         <a href={BOOK_EPUB} download className="hl-cta-secondary">Download EPUB <span aria-hidden="true">→</span></a>
       </div>
+      {/* mobile-only: cue the first-time visitor to scroll down to the preview */}
+      <button
+        type="button"
+        className="hl-scrollcue"
+        onClick={() => document.querySelector('.hl-a-stage')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+      >
+        <span className="hl-scrollcue-label">See it in action</span>
+        <span className="hl-scrollcue-arrow" aria-hidden="true">↓</span>
+      </button>
     </div>
   )
 }

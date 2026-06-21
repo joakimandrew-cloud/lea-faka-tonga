@@ -74,6 +74,14 @@
 }
 .hl-downloads{display:flex; flex-wrap:wrap; gap:12px;}
 
+/* mobile-only scroll cue: invites the first-time visitor down to the preview */
+.hl-scrollcue{display:none; flex-direction:column; align-items:center; gap:5px;
+  margin-top:20px; background:none; border:none; cursor:pointer; padding:4px 10px;}
+.hl-scrollcue-label{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:12px;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--red-dark);}
+.hl-scrollcue-arrow{font-size:24px; line-height:1; color:var(--red); animation:hl-bounce 1.5s ease-in-out infinite;}
+@keyframes hl-bounce{0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);}}
+
 /* ---- The framed "stage" plate (mirror v11 .hero-cycler-stage) ---- */
 .hl-stage{
   width:100%; background:#fff; border:3px solid var(--ink);
@@ -170,27 +178,30 @@
    PORTRAIT + phone-sized (matches the -mobile clips → nothing cropped).
    ========================================================= */
 @media (max-width:900px){
-  .hl-a{flex-direction:column; gap:22px; padding:18px 16px 40px; align-items:stretch;}
+  .hl-a{flex-direction:column; gap:14px; padding:16px 16px 40px; align-items:stretch;}
   .hl-a-anchor,.hl-a-stage{width:100%;}
-  .hl-a-stage{order:-1;}                       /* the big preview leads on mobile */
+  /* cover + offer lead; the preview sits below and peeks up to invite a scroll */
   .hl-a-anchor{display:flex; justify-content:center;}
   .hl-a-anchor .hl-anchor{align-items:center; text-align:center;}
   .hl-a-anchor .hl-downloads{justify-content:center;}
+  .hl-scrollcue{display:flex;}
   .hl-note{display:none;}
 }
 @media (max-width:600px){
-  .hl-a{padding:12px 10px 36px; gap:18px;}
-  .hl-a-stage .hl-cell{aspect-ratio:390/780;}  /* tall, phone-shaped, near full-bleed */
-  .hl-headline{font-size:2rem;}
+  .hl-a{padding:12px 10px 36px; gap:12px;}
+  .hl-a-stage .hl-cell{aspect-ratio:390/700;}  /* phone-shaped, leaves room above + below */
+  .hl-headline{font-size:1.9rem;}
+  .hl-sub{font-size:17px; max-width:34ch;}
   .hl-cell-msg-head{font-size:1.45rem; margin-top:24px;}
   .hl-sent{font-size:22px;}
   .hl-topbar{gap:10px; padding:12px 16px;}
   .hl-topbar-brand{font-size:16px;}
-  .hl-anchor-cover{width:150px; margin:8px 0 16px;}   /* compact cover under the big preview */
+  .hl-anchor-cover{width:132px; margin:6px 0 14px;}   /* compact cover so the preview peeks */
 }
 
 /* Reduced motion: show the message statically, no autoplay/wipes. */
 @media (prefers-reduced-motion:reduce){
   .hl-cell-message,.hl-cell-preview{transition:none;}
-  .hl-reveal span,.hl-sent-word{animation:none; opacity:1; transform:none;}
+  .hl-reveal span,.hl-sent-word,.hl-scrollcue-arrow{animation:none;}
+  .hl-reveal span,.hl-sent-word{opacity:1; transform:none;}
 }
