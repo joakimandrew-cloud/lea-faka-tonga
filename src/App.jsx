@@ -26,6 +26,7 @@ import VerbalNounConverter from './pages/VerbalNounConverter'
 import DrillsMenu from './pages/DrillsMenu'
 import DrillPage from './pages/DrillPage'
 import ReportIssue from './pages/ReportIssue'
+import HeroLab from './pages/HeroLab'
 
 export default function App() {
   return (
@@ -37,6 +38,8 @@ export default function App() {
           <Route path="/quiz" element={<GrandmotherQuiz />} />
           <Route path="/keepers" element={<Keepers />} />
           <Route path="/report" element={<ReportIssue />} />
+          {/* Hidden prototype for the Home Hero Review — not linked from any nav. */}
+          <Route path="/hero-lab" element={<HeroLab />} />
           <Route path="/chapters" element={<ChapterBrowser />} />
           <Route element={<Layout />}>
             <Route path="/chapters/:num" element={<ChapterPractice />} />

@@ -1,0 +1,220 @@
+/* =========================================================================
+   hero-lab.css — Scoped to .hero-lab. A throwaway PROTOTYPE surface for the
+   Home Hero Review: two homepage-hero arrangements (Variant A: one cycling
+   stage · Variant B: scroll-reveal) so the owner can watch them on a phone
+   and pick one. Reuses the live v11 brand tokens + type verbatim so it reads
+   on-brand; nothing here touches Landing.jsx / v11-landing.css. Delete this
+   file + src/pages/HeroLab.jsx + the /hero-lab route once a winner is chosen.
+   ========================================================================= */
+
+.hero-lab {
+  --ink:#1a1612; --mid:#7a7570; --rule:#d8d2c4;
+  --red:#c24a1f; --red-dark:#8a2e14; --red-mid:#a63a19; --red-light:#e6653a;
+  --bg:#ffffff;
+  background:var(--bg); color:var(--ink);
+  font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;
+  min-height:100vh; overflow-x:hidden;
+}
+.hero-lab *{box-sizing:border-box; margin:0; padding:0;}
+
+/* ---- Top bar: the A | B toggle + a "this is a prototype" note ---- */
+.hl-topbar{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  padding:14px 24px; background:var(--ink);
+}
+.hl-topbar-brand{
+  font-family:'Barlow Condensed',sans-serif; font-weight:800;
+  font-size:18px; letter-spacing:0.14em; text-transform:uppercase; color:#fff;
+}
+.hl-topbar-brand .dot{color:var(--red-light);}
+.hl-toggle{display:flex; border:2px solid #fff;}
+.hl-toggle button{
+  font-family:'Barlow Condensed',sans-serif; font-weight:700;
+  font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+  color:#fff; background:transparent; border:none; cursor:pointer; padding:8px 16px;
+}
+.hl-toggle button.active{background:#fff; color:var(--ink);}
+.hl-note{
+  margin-left:auto; font-family:'Source Serif 4',Georgia,serif;
+  font-size:13px; color:#e9e5dd; max-width:40ch; line-height:1.4;
+}
+
+/* ---- Shared: eyebrow / headline / sub (mirror v11 .slide-*) ---- */
+.hl-eyebrow{
+  display:inline-block; background:var(--red); color:#fff;
+  font-family:'Barlow Condensed',sans-serif; font-weight:700;
+  font-size:12px; letter-spacing:0.22em; text-transform:uppercase;
+  padding:6px 13px; margin-bottom:16px;
+}
+.hl-headline{
+  font-family:'Barlow Condensed',sans-serif; font-weight:800;
+  font-size:clamp(2.3rem,4.4vw,4.4rem); line-height:0.92;
+  text-transform:uppercase; letter-spacing:-0.015em; color:var(--ink);
+  margin-bottom:16px; max-width:15ch;
+}
+.hl-headline .accent{color:var(--red);}
+.hl-sub{
+  font-family:'Source Serif 4',Georgia,serif; font-size:19px; line-height:1.55;
+  color:#3a352f; max-width:420px;
+}
+
+/* ---- Shared: CTAs (mirror v11 .cta-btn / .cta-secondary) ---- */
+.hl-cta,.hl-cta-secondary{
+  font-family:'Barlow Condensed',sans-serif; font-weight:700;
+  font-size:13px; letter-spacing:0.2em; text-transform:uppercase;
+  padding:12px 26px; cursor:pointer; text-decoration:none;
+  display:inline-flex; align-items:center; gap:7px;
+  transition:background .25s ease, color .25s ease, transform .2s ease;
+}
+.hl-cta{color:#fff; background:var(--red); border:2px solid var(--red-dark);}
+.hl-cta:hover{background:var(--red-dark); transform:translateY(-2px);}
+.hl-cta-secondary{color:var(--ink); background:transparent; border:2px solid var(--ink);}
+.hl-cta-secondary:hover{background:var(--ink); color:#fff; transform:translateY(-2px);}
+
+/* ---- Book anchor: still standing cover + Download PDF/EPUB ---- */
+.hl-anchor{display:flex; flex-direction:column; align-items:flex-start;}
+.hl-anchor-cover{
+  width:clamp(190px,17vw,280px); height:auto; display:block; margin:18px 0 22px;
+  filter:drop-shadow(0 22px 38px rgba(26,22,18,0.24));
+}
+.hl-downloads{display:flex; flex-wrap:wrap; gap:12px;}
+
+/* ---- The framed "stage" plate (mirror v11 .hero-cycler-stage) ---- */
+.hl-stage{
+  width:100%; background:#fff; border:3px solid var(--ink);
+  box-shadow:0 2px 0 var(--ink), 0 26px 48px rgba(26,22,18,0.22); overflow:hidden;
+}
+.hl-stage-stripe{
+  display:block; height:6px;
+  background:linear-gradient(90deg,var(--red-dark),var(--red),var(--red-light));
+}
+
+/* The 16:10 cell: a "message" layer that wipes into a "preview" layer. */
+.hl-cell{position:relative; width:100%; aspect-ratio:16/10; background:#fff; overflow:hidden;}
+.hl-cell-layer{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:6% 8%; text-align:center;
+}
+.hl-cell-message{opacity:1; background:#fff; z-index:2;
+  transition:opacity .5s ease, clip-path .6s ease;}
+.hl-cell-preview{opacity:0; clip-path:inset(0 100% 0 0); z-index:1; padding:0;
+  transition:opacity .5s ease .1s, clip-path .6s ease;}
+.hl-cell.is-preview .hl-cell-message{opacity:0; clip-path:inset(0 0 0 100%);}
+.hl-cell.is-preview .hl-cell-preview{opacity:1; clip-path:inset(0 0 0 0);}
+.hl-video{width:100%; height:100%; object-fit:cover; display:block;}
+
+.hl-cell-message .hl-eyebrow{margin-bottom:14px;}
+.hl-cell-msg-head{
+  font-family:'Barlow Condensed',sans-serif; font-weight:800;
+  font-size:clamp(1.35rem,2.4vw,2.1rem); line-height:0.96; text-transform:uppercase;
+  letter-spacing:-0.01em; color:var(--ink); margin-top:20px;
+}
+.hl-cell-msg-head .accent{color:var(--red);}
+
+/* mini-anim: Sentence Lab (swap a word, watch the meaning change) */
+.hl-sent{font-family:'Source Serif 4',Georgia,serif; font-size:clamp(18px,2vw,26px); line-height:1.5;}
+.hl-sent-to{font-style:italic; color:var(--ink);}
+.hl-sent-word{
+  display:inline-block; font-style:italic; color:#fff; background:var(--red);
+  padding:0 9px; border-radius:3px; animation:hl-pop .4s ease;
+}
+.hl-sent-en{margin-top:12px; font-size:clamp(15px,1.6vw,19px); color:var(--mid);}
+.hl-sent-en b{color:var(--red); font-style:normal; font-weight:600;}
+@keyframes hl-pop{0%{transform:translateY(-4px) scale(0.95); opacity:0.4;} 100%{transform:none; opacity:1;}}
+
+/* mini-anim: Drills (wrong → why → right) */
+.hl-drill{display:flex; flex-direction:column; align-items:center; gap:15px;}
+.hl-drill-q{font-family:'Source Serif 4',serif; font-size:clamp(17px,1.8vw,22px); color:var(--ink);}
+.hl-drill-q i{color:var(--red);}
+.hl-chips{display:flex; gap:14px;}
+.hl-chip{
+  font-family:'Source Serif 4',serif; font-style:italic; font-size:18px;
+  padding:8px 18px; border:2px solid var(--rule); background:#fff; border-radius:6px;
+  position:relative; transition:all .3s ease;
+}
+.hl-chip.wrong{border-color:var(--red-dark); color:var(--mid); opacity:0.55; text-decoration:line-through;}
+.hl-chip.right{border-color:#2e7d32; color:#1b5e20; box-shadow:0 4px 10px rgba(46,125,50,0.18);}
+.hl-chip .mark{
+  position:absolute; top:-10px; right:-10px; width:22px; height:22px; border-radius:50%;
+  display:grid; place-items:center; font-size:12px; font-weight:700; color:#fff;
+}
+.hl-chip.wrong .mark{background:var(--red-dark);}
+.hl-chip.right .mark{background:#2e7d32;}
+.hl-why{font-family:'Source Serif 4',serif; font-style:italic; font-size:15px; color:var(--mid); min-height:1.4em;}
+
+/* mini-anim: shared "reveal" stand-in (skeleton lines stroke in) */
+.hl-reveal{display:flex; flex-direction:column; gap:11px; width:72%; align-items:stretch;}
+.hl-reveal span{height:13px; border-radius:3px; transform-origin:left; opacity:0; animation:hl-grow .7s ease forwards;}
+.hl-reveal span:nth-child(1){width:92%; background:linear-gradient(90deg,var(--red),var(--red-light)); animation-delay:.05s;}
+.hl-reveal span:nth-child(2){width:72%; background:var(--rule); animation-delay:.2s;}
+.hl-reveal span:nth-child(3){width:84%; background:var(--rule); animation-delay:.35s;}
+.hl-reveal span:nth-child(4){width:58%; background:var(--rule); animation-delay:.5s;}
+@keyframes hl-grow{0%{opacity:0; transform:scaleX(0);} 100%{opacity:1; transform:scaleX(1);}}
+
+/* dots + caption */
+.hl-dots{display:flex; justify-content:center; gap:8px; margin-top:18px;}
+.hl-dot{width:30px; height:4px; padding:0; border:none; cursor:pointer; background:rgba(26,22,18,0.16); transition:background .2s ease;}
+.hl-dot.active{background:var(--red);}
+.hl-dot:hover{background:rgba(26,22,18,0.34);}
+.hl-stage-cap{margin-top:14px; text-align:center;}
+.hl-stage-cap-title{
+  font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(18px,1.6vw,24px);
+  letter-spacing:0.03em; text-transform:uppercase; color:var(--ink);
+}
+
+/* =========================================================
+   VARIANT A — One Stage: anchor (left) + cycling stage (right)
+   ========================================================= */
+.hl-a{max-width:1560px; margin:0 auto; padding:42px 48px 64px; display:flex; gap:48px; align-items:center;}
+.hl-a-anchor{width:34%; min-width:240px;}
+.hl-a-stage{width:66%;}
+
+/* =========================================================
+   VARIANT B — Scroll Reveal: anchor section, then one cell per scroll
+   ========================================================= */
+.hl-b{margin:0 auto;}
+.hl-b-anchor{
+  max-width:1560px; margin:0 auto;
+  padding:56px 48px 44px; display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+.hl-b-anchor .hl-headline{max-width:none;}
+.hl-b-anchor .hl-anchor{align-items:center;}
+.hl-split{
+  display:block; width:100%; height:48px;
+  background:linear-gradient(to bottom,
+    #fff 0 3px, var(--red-dark) 3px 15px, #fff 15px 18px,
+    var(--red) 18px 30px, #fff 30px 33px, var(--red-light) 33px 45px, #fff 45px 48px);
+}
+.hl-section{
+  padding:60px 48px; display:flex; justify-content:center;
+  opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;
+}
+.hl-section.inview{opacity:1; transform:none;}
+.hl-section-stage{width:min(880px,100%);}
+
+/* =========================================================
+   RESPONSIVE — stack everything on phones (the priority view)
+   ========================================================= */
+@media (max-width:900px){
+  .hl-a{flex-direction:column; gap:30px; padding:26px 22px 44px; align-items:stretch;}
+  .hl-a-anchor,.hl-a-stage{width:100%;}
+  .hl-a-anchor{display:flex; justify-content:center;}
+  .hl-a-anchor .hl-anchor{align-items:center; text-align:center;}
+  .hl-a-anchor .hl-downloads{justify-content:center;}
+  .hl-section{padding:38px 22px;}
+  .hl-b-anchor{padding:36px 22px 30px;}
+  .hl-note{display:none;}
+}
+@media (max-width:600px){
+  .hl-headline{font-size:2.1rem;}
+  .hl-cell-msg-head{font-size:1.25rem;}
+  .hl-topbar{gap:12px; padding:12px 16px;}
+}
+
+/* Reduced motion: drop the wipes + growth; show the message statically. */
+@media (prefers-reduced-motion:reduce){
+  .hl-cell-message,.hl-cell-preview{transition:none;}
+  .hl-reveal span,.hl-sent-word{animation:none; opacity:1; transform:none;}
+  .hl-section{transition:none; opacity:1; transform:none;}
+}
