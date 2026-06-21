@@ -14,15 +14,16 @@ import '../styles/hero-lab.css'
                    what's effectively live now).
      · Kinetic   — expressive animated typography per cell, soft fade into app.
      · Grammar   — real grammar micro-animations adapted from the video work
-                   (TenseRipple / sentence-swap / drills / ʻikai insert / card
+                   (TenseRipple / sentence-swap / drills / mini-quiz / card
                    flip), wiped into the app. Resolves the parked "bespoke vs
                    grammar-clip for Read/Quiz/Vocab" question by showing it.
+                   Each beat is matched to the real-app preview it dives into.
      · Dive      — kinetic type that you fly THROUGH as the app zooms forward
                    (the "dive into the screen" feel).
      · App-first — the real app plays full-bleed and the message overlays it.
 
    Every Tongan token here is verified against the project data (the swap +
-   drills use ika/moa/Sione already in the lab; TenseRipple + IkaiInsert copy
+   drills use ika/moa/Sione already in the lab; TenseRipple + the mini-quiz copy
    the exact tokens from video-remotion's concept data). No fabricated Tongan.
    Self-contained; Landing.jsx is untouched. Delete this file + hero-lab.css +
    the route once a style ships to the real homepage.
@@ -39,7 +40,7 @@ const PREVIEW_MS = 4400   // beat 2: the live-app preview clip
 const STYLES = [
   { id: 'wipe', label: 'Wipe', note: 'The baseline: a small bespoke animation per cell that wipes across into the live app.' },
   { id: 'kinetic', label: 'Kinetic', note: 'Expressive animated typography: the headline itself is the animation, then it softly dissolves into the app.' },
-  { id: 'grammar', label: 'Grammar', note: 'Real grammar micro-animations from the video work (swap a tense marker, insert ʻikai, flip a card) as each message, then into the app.' },
+  { id: 'grammar', label: 'Grammar', note: 'Real grammar micro-animations from the video work (swap a tense marker, answer a quiz, flip a card), each matched to the real-app preview it leads into.' },
   { id: 'dive', label: 'Dive', note: 'The headline rushes toward you and you fly through it as the app screen zooms forward, a dive into the website.' },
   { id: 'grammardive', label: 'Grammar+Dive', note: 'Best of both: the grammar concept plays as a quick teaching beat, then you dive THROUGH it into the real app screen where you actually do it.' },
   { id: 'appfirst', label: 'App-first', note: 'The real app leads, playing full-bleed; the message floats in over it as a caption.' },
@@ -75,7 +76,7 @@ const cells = [
     kin: [{ t: 'Every' }, { t: 'wrong', fx: 'strike' }, { t: 'answer' }, { t: 'shows' }, { t: 'you' }, { t: 'why', accent: true, fx: 'pulse' }],
   },
   {
-    id: 'feat-quiz', file: 'feat-quiz', fileMobile: 'feat-quiz-mobile', anim: 'reveal', grammar: 'ikai', previewTitle: 'Test yourself',
+    id: 'feat-quiz', file: 'feat-quiz', fileMobile: 'feat-quiz-mobile', anim: 'reveal', grammar: 'quiz', previewTitle: 'Test yourself',
     eyebrow: 'Quizzes that teach',
     headline: <><span className="accent">Understand</span> it,<br />don’t just guess.</>,
     kin: [{ t: 'Understand', accent: true, fx: 'grow' }, { t: 'it,' }, { t: 'don’t' }, { t: 'just' }, { t: 'guess', fx: 'dim' }],
@@ -159,28 +160,26 @@ function TenseRipple({ run }) {
   )
 }
 
-// Grammar (Quiz): drop one word, ʻikai, and the sentence turns negative.
-// Tokens verified against ikai-te-vs-ke-negation-insert.ts.
-function IkaiInsert({ run }) {
-  const [step, setStep] = useState(0)
+// Grammar (Quiz): illustrate what the quiz DOES — a question, the right answer,
+// then the reason — so it dives into the real quiz showing the same thing.
+// Both options are verified real forms (the positive vs the negative of the
+// same sentence); the "wrong" one is true Tongan, just not the answer asked.
+function MiniQuiz({ run }) {
+  const [step, setStep] = useState(0)   // 0 question, 1 answer locked, 2 reason
   useEffect(() => {
     if (!run) { setStep(0); return }
-    const t1 = setTimeout(() => setStep(1), 800)
-    const t2 = setTimeout(() => setStep(2), 1700)
+    const t1 = setTimeout(() => setStep(1), 900)
+    const t2 = setTimeout(() => setStep(2), 1800)
     return () => { clearTimeout(t1); clearTimeout(t2) }
   }, [run])
   return (
-    <div className="hl-ikai">
-      <div className="hl-ikai-row">
-        <span className="hl-tok">ʻOku</span>
-        {step >= 1 && <span className="hl-tok neg" key="ik">ʻikai</span>}
-        {step >= 2
-          ? <span className="hl-tok swap" key="teu">te u</span>
-          : <span className="hl-tok" key="ou">ou</span>}
-        <span className="hl-tok">fiefia</span>
+    <div className="hl-quiz">
+      <div className="hl-quiz-q">Which one means <i>“I am not happy”</i>?</div>
+      <div className="hl-quiz-opts">
+        <span className={`hl-qopt${step >= 1 ? ' dim' : ''}`}>ʻOku ou fiefia</span>
+        <span className={`hl-qopt${step >= 1 ? ' right' : ''}`}>ʻOku ʻikai te u fiefia{step >= 1 && <span className="mark">✓</span>}</span>
       </div>
-      <div className="hl-ikai-en">{step < 2 ? '“I am happy.”' : '“I am not happy.”'}</div>
-      <div className="hl-ripple-cap">{step < 1 ? 'Start with a fact…' : 'One word in, the meaning flips, and the quiz tells you why.'}</div>
+      <div className="hl-quiz-why">{step < 2 ? ' ' : 'ʻikai before the pronoun (it contracts to te u) makes it negative.'}</div>
     </div>
   )
 }
@@ -248,7 +247,7 @@ function pickAnim(cell, style) {
     return cell.grammar === 'tense' ? TenseRipple
       : cell.grammar === 'sentence' ? SentenceAnim
       : cell.grammar === 'drills' ? DrillsAnim
-      : cell.grammar === 'ikai' ? IkaiInsert
+      : cell.grammar === 'quiz' ? MiniQuiz
       : CardFlip
   }
   // wipe
