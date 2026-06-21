@@ -47,7 +47,7 @@
    TOP BAND — pure white, centered lockup
    ============================================================ */
 .v11-landing .top-band {
-  background: #ffffff;
+  background: #1a1612; /* black header — the reversed brand lockup */
   padding: 28px 48px 22px;
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@
 }
 .v11-landing .top-brand .logo-mark {
   width: 64px; height: 64px;
-  color: var(--red);
+  color: #ffffff; /* white emblem on the black band */
 }
 .v11-landing .top-brand .wordmark {
   font-family: 'Barlow Condensed', sans-serif;
@@ -73,7 +73,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1;
-  color: var(--ink);
+  color: #ffffff;
 }
 .v11-landing .top-sub {
   font-family: 'Barlow Condensed', sans-serif;
@@ -81,7 +81,7 @@
   font-size: 15px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #4a453f;
+  color: #9a938c; /* muted light on the black band */
 }
 
 /* ============================================================

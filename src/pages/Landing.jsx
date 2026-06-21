@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BASE, BOOK_PDF, BOOK_EPUB, MESSAGE_MS, PREVIEW_MS, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
+import LogoMark from '../components/LogoMark'
 import '../styles/v11-landing.css'
 
 // Founding Supporter — Buy Me a Coffee. $35+ locks lifetime access (first 100).
@@ -86,23 +87,10 @@ export default function Landing() {
   return (
     <div className="v11-landing">
 
-      {/* ========== TOP WHITE BAND ========== */}
+      {/* ========== TOP BLACK BAND (reversed brand lockup) ========== */}
       <div className="top-band reveal d1">
         <div className="top-brand">
-          <svg className="logo-mark" viewBox="0 0 100 100" fill="currentColor">
-            <polygon points="0,0 50,0 0,50" />
-            <polygon points="100,0 50,0 100,50" />
-            <polygon points="100,100 50,100 100,50" />
-            <polygon points="0,100 50,100 0,50" />
-            <polygon points="25,25 50,25 25,50" />
-            <polygon points="75,25 50,25 75,50" />
-            <polygon points="75,75 50,75 75,50" />
-            <polygon points="25,75 50,75 25,50" />
-            <polygon points="37.5,37.5 50,37.5 37.5,50" />
-            <polygon points="62.5,37.5 50,37.5 62.5,50" />
-            <polygon points="62.5,62.5 50,62.5 62.5,50" />
-            <polygon points="37.5,62.5 50,62.5 37.5,50" />
-          </svg>
+          <LogoMark className="logo-mark" />
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
         <div className="top-sub">Learn Tongan · free and open</div>
