@@ -1,10 +1,11 @@
 /* =========================================================================
-   hero-lab.css — Scoped to .hero-lab. A throwaway PROTOTYPE surface for the
-   Home Hero Review: two homepage-hero arrangements (Variant A: one cycling
-   stage · Variant B: scroll-reveal) so the owner can watch them on a phone
-   and pick one. Reuses the live v11 brand tokens + type verbatim so it reads
-   on-brand; nothing here touches Landing.jsx / v11-landing.css. Delete this
-   file + src/pages/HeroLab.jsx + the /hero-lab route once a winner is chosen.
+   hero-lab.css — Scoped to .hero-lab. The hidden /hero-lab iteration surface
+   for the homepage hero (owner chose Variant A: One Stage). A persistent
+   book-cover anchor + an auto-cycling stage of feature cells; each cell fuses
+   a message with an animation that wipes into the live-app preview clip.
+   The preview is responsive: landscape on desktop, PORTRAIT + phone-sized on
+   phones. Reuses the v11 brand tokens + type verbatim; nothing here touches
+   Landing.jsx / v11-landing.css. Delete with HeroLab.jsx + the route on ship.
    ========================================================================= */
 
 .hero-lab {
@@ -17,7 +18,7 @@
 }
 .hero-lab *{box-sizing:border-box; margin:0; padding:0;}
 
-/* ---- Top bar: the A | B toggle + a "this is a prototype" note ---- */
+/* ---- Top bar ---- */
 .hl-topbar{
   position:sticky; top:0; z-index:50;
   display:flex; align-items:center; gap:18px; flex-wrap:wrap;
@@ -28,16 +29,9 @@
   font-size:18px; letter-spacing:0.14em; text-transform:uppercase; color:#fff;
 }
 .hl-topbar-brand .dot{color:var(--red-light);}
-.hl-toggle{display:flex; border:2px solid #fff;}
-.hl-toggle button{
-  font-family:'Barlow Condensed',sans-serif; font-weight:700;
-  font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
-  color:#fff; background:transparent; border:none; cursor:pointer; padding:8px 16px;
-}
-.hl-toggle button.active{background:#fff; color:var(--ink);}
 .hl-note{
   margin-left:auto; font-family:'Source Serif 4',Georgia,serif;
-  font-size:13px; color:#e9e5dd; max-width:40ch; line-height:1.4;
+  font-size:13px; color:#e9e5dd; max-width:44ch; line-height:1.4;
 }
 
 /* ---- Shared: eyebrow / headline / sub (mirror v11 .slide-*) ---- */
@@ -90,7 +84,8 @@
   background:linear-gradient(90deg,var(--red-dark),var(--red),var(--red-light));
 }
 
-/* The 16:10 cell: a "message" layer that wipes into a "preview" layer. */
+/* The cell: a "message" layer that wipes into a "preview" layer.
+   Desktop = 16:10 (matches the landscape clips, so nothing is cropped). */
 .hl-cell{position:relative; width:100%; aspect-ratio:16/10; background:#fff; overflow:hidden;}
 .hl-cell-layer{
   position:absolute; inset:0; display:flex; flex-direction:column;
@@ -112,7 +107,7 @@
 }
 .hl-cell-msg-head .accent{color:var(--red);}
 
-/* mini-anim: Sentence Lab (swap a word, watch the meaning change) */
+/* mini-anim: Sentence Lab (swap a word) */
 .hl-sent{font-family:'Source Serif 4',Georgia,serif; font-size:clamp(18px,2vw,26px); line-height:1.5;}
 .hl-sent-to{font-style:italic; color:var(--ink);}
 .hl-sent-word{
@@ -143,7 +138,7 @@
 .hl-chip.right .mark{background:#2e7d32;}
 .hl-why{font-family:'Source Serif 4',serif; font-style:italic; font-size:15px; color:var(--mid); min-height:1.4em;}
 
-/* mini-anim: shared "reveal" stand-in (skeleton lines stroke in) */
+/* mini-anim: shared "reveal" stand-in */
 .hl-reveal{display:flex; flex-direction:column; gap:11px; width:72%; align-items:stretch;}
 .hl-reveal span{height:13px; border-radius:3px; transform-origin:left; opacity:0; animation:hl-grow .7s ease forwards;}
 .hl-reveal span:nth-child(1){width:92%; background:linear-gradient(90deg,var(--red),var(--red-light)); animation-delay:.05s;}
@@ -164,57 +159,38 @@
 }
 
 /* =========================================================
-   VARIANT A — One Stage: anchor (left) + cycling stage (right)
+   Variant A — One Stage: anchor (left) + cycling stage (right)
    ========================================================= */
 .hl-a{max-width:1560px; margin:0 auto; padding:42px 48px 64px; display:flex; gap:48px; align-items:center;}
 .hl-a-anchor{width:34%; min-width:240px;}
 .hl-a-stage{width:66%;}
 
 /* =========================================================
-   VARIANT B — Scroll Reveal: anchor section, then one cell per scroll
-   ========================================================= */
-.hl-b{margin:0 auto;}
-.hl-b-anchor{
-  max-width:1560px; margin:0 auto;
-  padding:56px 48px 44px; display:flex; flex-direction:column; align-items:center; text-align:center;
-}
-.hl-b-anchor .hl-headline{max-width:none;}
-.hl-b-anchor .hl-anchor{align-items:center;}
-.hl-split{
-  display:block; width:100%; height:48px;
-  background:linear-gradient(to bottom,
-    #fff 0 3px, var(--red-dark) 3px 15px, #fff 15px 18px,
-    var(--red) 18px 30px, #fff 30px 33px, var(--red-light) 33px 45px, #fff 45px 48px);
-}
-.hl-section{
-  padding:60px 48px; display:flex; justify-content:center;
-  opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;
-}
-.hl-section.inview{opacity:1; transform:none;}
-.hl-section-stage{width:min(880px,100%);}
-
-/* =========================================================
-   RESPONSIVE — stack everything on phones (the priority view)
+   RESPONSIVE — phones are the priority. The preview leads and goes
+   PORTRAIT + phone-sized (matches the -mobile clips → nothing cropped).
    ========================================================= */
 @media (max-width:900px){
-  .hl-a{flex-direction:column; gap:30px; padding:26px 22px 44px; align-items:stretch;}
+  .hl-a{flex-direction:column; gap:22px; padding:18px 16px 40px; align-items:stretch;}
   .hl-a-anchor,.hl-a-stage{width:100%;}
+  .hl-a-stage{order:-1;}                       /* the big preview leads on mobile */
   .hl-a-anchor{display:flex; justify-content:center;}
   .hl-a-anchor .hl-anchor{align-items:center; text-align:center;}
   .hl-a-anchor .hl-downloads{justify-content:center;}
-  .hl-section{padding:38px 22px;}
-  .hl-b-anchor{padding:36px 22px 30px;}
   .hl-note{display:none;}
 }
 @media (max-width:600px){
-  .hl-headline{font-size:2.1rem;}
-  .hl-cell-msg-head{font-size:1.25rem;}
-  .hl-topbar{gap:12px; padding:12px 16px;}
+  .hl-a{padding:12px 10px 36px; gap:18px;}
+  .hl-a-stage .hl-cell{aspect-ratio:390/780;}  /* tall, phone-shaped, near full-bleed */
+  .hl-headline{font-size:2rem;}
+  .hl-cell-msg-head{font-size:1.45rem; margin-top:24px;}
+  .hl-sent{font-size:22px;}
+  .hl-topbar{gap:10px; padding:12px 16px;}
+  .hl-topbar-brand{font-size:16px;}
+  .hl-anchor-cover{width:150px; margin:8px 0 16px;}   /* compact cover under the big preview */
 }
 
-/* Reduced motion: drop the wipes + growth; show the message statically. */
+/* Reduced motion: show the message statically, no autoplay/wipes. */
 @media (prefers-reduced-motion:reduce){
   .hl-cell-message,.hl-cell-preview{transition:none;}
   .hl-reveal span,.hl-sent-word{animation:none; opacity:1; transform:none;}
-  .hl-section{transition:none; opacity:1; transform:none;}
 }
