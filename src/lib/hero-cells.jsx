@@ -13,8 +13,9 @@ import '../styles/hero-lab.css'
    micro-animation, then dives THROUGH it into the real app screen.
 
    Every Tongan token is verified against the project data (ika/moa/Sione;
-   TenseRipple + the mini-quiz copy the exact tokens from video-remotion's
-   concept data). No fabricated Tongan. Preview clips live in public/feat-*.
+   TenseRipple copies the exact tokens from video-remotion's concept data; the
+   Quiz beat is English copy describing the real quiz). No fabricated Tongan.
+   Preview clips live in public/feat-*.
    ========================================================================= */
 
 export const BASE = import.meta.env.BASE_URL
@@ -57,8 +58,8 @@ export const cells = [
   {
     id: 'feat-quiz', file: 'feat-quiz', fileMobile: 'feat-quiz-mobile', anim: 'reveal', grammar: 'quiz', previewTitle: 'Test yourself',
     eyebrow: 'Quizzes that teach',
-    headline: <><span className="accent">Understand</span> it,<br />don’t just guess.</>,
-    kin: [{ t: 'Understand', accent: true, fx: 'grow' }, { t: 'it,' }, { t: 'don’t' }, { t: 'just' }, { t: 'guess', fx: 'dim' }],
+    headline: <>Test <span className="accent">yourself</span>.</>,
+    kin: [{ t: 'Test' }, { t: 'yourself', accent: true, fx: 'grow' }],
   },
   {
     id: 'feat-vocab', file: 'feat-vocab', fileMobile: 'feat-vocab-mobile', anim: 'reveal', grammar: 'flip', previewTitle: 'Make your own flashcards',
@@ -139,26 +140,25 @@ function TenseRipple({ run }) {
   )
 }
 
-// Grammar (Quiz): illustrate what the quiz DOES — a question, the right answer,
-// then the reason — so it dives into the real quiz showing the same thing.
-// Both options are verified real forms (the positive vs the negative of the
-// same sentence); the "wrong" one is true Tongan, just not the answer asked.
-function MiniQuiz({ run }) {
-  const [step, setStep] = useState(0)   // 0 question, 1 answer locked, 2 reason
-  useEffect(() => {
-    if (!run) { setStep(0); return }
-    const t1 = setTimeout(() => setStep(1), 900)
-    const t2 = setTimeout(() => setStep(2), 1800)
-    return () => { clearTimeout(t1); clearTimeout(t2) }
-  }, [run])
+// Grammar (Quiz): DESCRIBE the quiz instead of acting one out (the real quiz
+// clip plays a second later, so simulating one here just doubled up). Three
+// facts about what you get: a quiz per lesson, 10 questions, an explanation
+// after every answer. Counts verified against quizzes/ and src/data/quizzes.json
+// (52 lesson quizzes x 10 questions). The tiles rise in on a stagger.
+function QuizSpec({ run }) {
+  const stats = [
+    { n: '52', lab: 'lesson quizzes' },
+    { n: '10', lab: 'questions each' },
+    { n: '✓', lab: 'every answer explained', check: true },
+  ]
   return (
-    <div className="hl-quiz">
-      <div className="hl-quiz-q">Which one means <i>“I am not happy”</i>?</div>
-      <div className="hl-quiz-opts">
-        <span className={`hl-qopt${step >= 1 ? ' dim' : ''}`}>ʻOku ou fiefia</span>
-        <span className={`hl-qopt${step >= 1 ? ' right' : ''}`}>ʻOku ʻikai te u fiefia{step >= 1 && <span className="mark">✓</span>}</span>
-      </div>
-      <div className="hl-quiz-why">{step < 2 ? ' ' : 'ʻikai before the pronoun (it contracts to te u) makes it negative.'}</div>
+    <div className="hl-qspec" key={run ? 'run' : 'idle'}>
+      {stats.map((s, i) => (
+        <div className="hl-qstat" style={{ '--i': i }} key={s.lab}>
+          <span className={`hl-qstat-num${s.check ? ' is-check' : ''}`}>{s.n}</span>
+          <span className="hl-qstat-lab">{s.lab}</span>
+        </div>
+      ))}
     </div>
   )
 }
@@ -226,7 +226,7 @@ function pickAnim(cell, style) {
     return cell.grammar === 'tense' ? TenseRipple
       : cell.grammar === 'sentence' ? SentenceAnim
       : cell.grammar === 'drills' ? DrillsAnim
-      : cell.grammar === 'quiz' ? MiniQuiz
+      : cell.grammar === 'quiz' ? QuizSpec
       : CardFlip
   }
   // wipe

@@ -254,20 +254,20 @@
 .hl-ripple-en b{color:var(--red); font-weight:600;}
 .hl-ripple-cap{font-family:'Source Serif 4',Georgia,serif; font-style:italic; font-size:14px; color:var(--mid); margin-top:2px; max-width:34ch;}
 
-/* Quiz — illustrate the quiz itself: a question, the right answer, the reason
-   (so it dives into the real quiz showing exactly that) */
-.hl-quiz{display:flex; flex-direction:column; align-items:center; gap:13px; width:100%; max-width:92%;}
-.hl-quiz-q{font-family:'Source Serif 4',Georgia,serif; font-size:clamp(17px,1.9vw,22px); color:var(--ink);}
-.hl-quiz-q i{color:var(--red); font-style:italic;}
-.hl-quiz-opts{display:flex; flex-direction:column; gap:9px; width:100%; align-items:stretch;}
-.hl-qopt{
-  font-family:'Source Serif 4',Georgia,serif; font-style:italic; font-size:clamp(16px,2vw,22px);
-  text-align:center; padding:8px 14px; border:2px solid var(--rule); border-radius:8px; background:#fff;
-  position:relative; transition:border-color .3s ease, color .3s ease, opacity .3s ease, box-shadow .3s ease;}
-.hl-qopt.dim{opacity:0.5;}
-.hl-qopt.right{border-color:#2e7d32; color:#1b5e20; box-shadow:0 4px 10px rgba(46,125,50,0.18);}
-.hl-qopt .mark{margin-left:8px; color:#2e7d32; font-weight:700; font-style:normal;}
-.hl-quiz-why{font-family:'Source Serif 4',Georgia,serif; font-style:italic; font-size:14px; color:var(--mid); min-height:1.4em; max-width:38ch; text-align:center;}
+/* Quiz — DESCRIBE the quiz: three stat tiles (a quiz per lesson, 10 questions,
+   an explanation after every answer), then dive into the real quiz. Replaces
+   the old simulated mini-quiz. Tiles rise in on a stagger. */
+.hl-qspec{display:flex; gap:clamp(16px,2.6vw,34px); align-items:flex-start; justify-content:center;}
+.hl-qstat{
+  display:flex; flex-direction:column; align-items:center; gap:5px; max-width:12ch;
+  opacity:0; transform:translateY(12px);
+  animation:hl-qstat-in .5s cubic-bezier(.2,.7,.2,1) calc(var(--i)*0.13s) forwards;}
+.hl-qstat-num{font-family:'Barlow Condensed',sans-serif; font-weight:800;
+  font-size:clamp(36px,4.8vw,60px); line-height:0.85; color:var(--ink);}
+.hl-qstat-num.is-check{color:#2e7d32;}
+.hl-qstat-lab{font-family:'Source Serif 4',Georgia,serif;
+  font-size:clamp(12px,1.25vw,15px); color:var(--mid); line-height:1.25;}
+@keyframes hl-qstat-in{to{opacity:1; transform:none;}}
 
 /* Vocab — a flashcard flips Tongan to English */
 .hl-flipwrap{display:flex; flex-direction:column; align-items:center; gap:16px;}
@@ -320,6 +320,7 @@
   .hl-headline{font-size:1.9rem;}
   .hl-sub{font-size:17px; max-width:34ch;}
   .hl-cell-msg-head{font-size:1.45rem; margin-top:24px;}
+  .hl-qspec{gap:14px;}
   .hl-sent{font-size:22px;}
   .hl-kin{font-size:clamp(2rem,8.5vw,2.9rem); max-width:13ch;}  /* the portrait cell is narrow */
   .hl-overlay-card{max-width:86%; margin:0 0 7% 7%; padding:14px 16px;}
@@ -334,7 +335,7 @@
 @media (prefers-reduced-motion:reduce){
   .hl-cell-message,.hl-cell-preview{transition:none;}
   .hl-reveal span,.hl-sent-word,.hl-scrollcue-arrow,
-  .hl-kin .hl-w,.hl-ripple-marker,.hl-qopt,.hl-flip,.hl-overlay-card{animation:none; transition:none;}
+  .hl-kin .hl-w,.hl-ripple-marker,.hl-qstat,.hl-flip,.hl-overlay-card{animation:none; transition:none;}
   .hl-kin .hl-w.fx-strike::after{animation:none;}
-  .hl-reveal span,.hl-sent-word,.hl-kin .hl-w{opacity:1; transform:none;}
+  .hl-reveal span,.hl-sent-word,.hl-kin .hl-w,.hl-qstat{opacity:1; transform:none;}
 }
