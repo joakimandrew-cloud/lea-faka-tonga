@@ -58,7 +58,7 @@ export const cells = [
     // re-animate the tense-marker table (owner 2026-06-22): the real-app dive lands on that table
     // AND the actual plain-English explanation. Shorter intro + longer preview so the dive can hold
     // on the explanation (kuo-vs-naʻa), then the table, then a beat of the practice.
-    messageMs: 1600, previewMs: 6300,
+    messageMs: 1750, previewMs: 6300, rate: 0.75, holdMs: 15700,  // owner-tuned via /scrub 2026-06-23 (intro 1600→1750, speed ½→0.75×, hold 12600→15700)
     eyebrow: 'Real lessons, not word lists',
     headline: <>Every rule,<br /><span className="accent">explained</span>.</>,
     kin: [{ t: 'Every' }, { t: 'rule,' }, { t: 'explained', accent: true, fx: 'stamp' }],
@@ -340,7 +340,7 @@ export function StoryCell({ cell, style, active, reduceMotion, portrait }) {
     if (!v) return
     if (active && !reduceMotion && (appFirst || phase === 'preview')) {
       if (phase === 'preview' && !appFirst) { try { v.currentTime = 0 } catch { /* noop */ } }
-      v.playbackRate = PREVIEW_RATE   // half speed → calmer scroll-through + demos
+      v.playbackRate = cell.rate ?? PREVIEW_RATE   // half speed by default; per-cell `rate` override (owner-tuned via /scrub)
       v.play().catch(() => {})
     } else {
       v.pause()

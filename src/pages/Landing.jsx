@@ -83,7 +83,8 @@ export default function Landing() {
     if (reduceMotion) return
     const c = cells[idx]
     // preview plays at half speed (PREVIEW_RATE), so it needs ~2× its natural window to finish
-    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), messageMsFor(c, portrait) + (c.previewMs ?? PREVIEW_MS) / PREVIEW_RATE)
+    const previewWindow = c.holdMs ?? (c.previewMs ?? PREVIEW_MS) / (c.rate ?? PREVIEW_RATE)  // per-cell hold/rate override (owner-tuned via /scrub)
+    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), messageMsFor(c, portrait) + previewWindow)
     return () => clearTimeout(t)
   }, [idx, reduceMotion, portrait])
 
