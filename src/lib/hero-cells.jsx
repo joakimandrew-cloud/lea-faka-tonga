@@ -58,7 +58,7 @@ export const cells = [
     // re-animate the tense-marker table (owner 2026-06-22): the real-app dive lands on that table
     // AND the actual plain-English explanation. Shorter intro + longer preview so the dive can hold
     // on the explanation (kuo-vs-naʻa), then the table, then a beat of the practice.
-    messageMs: 1750, previewMs: 6300, rate: 0.75, holdMs: 15700,  // owner-tuned via /scrub 2026-06-23 (intro 1600→1750, speed ½→0.75×, hold 12600→15700)
+    messageMs: 1750, previewMs: 6300, rate: 0.75, diveDesktop: 1400,  // owner-tuned via /scrub 2026-06-23 (intro 1600→1750, speed ½→0.75×, dive 1300→1400 desktop). hold left to derive (previewMs/rate ≈ 8.4s) so the clip plays once, no replay.
     eyebrow: 'Real lessons, not word lists',
     headline: <>Every rule,<br /><span className="accent">explained</span>.</>,
     kin: [{ t: 'Every' }, { t: 'rule,' }, { t: 'explained', accent: true, fx: 'stamp' }],
@@ -349,11 +349,17 @@ export function StoryCell({ cell, style, active, reduceMotion, portrait }) {
 
   const running = active && !reduceMotion && (appFirst ? true : phase === 'message')
   const file = portrait && cell.fileMobile ? cell.fileMobile : cell.file
+  // per-feature dive (owner-tuned via /scrub): each cell can set its own dive duration,
+  // separately for desktop/phone; drives the CSS transition via --hl-dive (preview zoom)
+  // and --hl-dive-msg (the message scale-out, a touch quicker). Defaults preserve the
+  // general desktop value + the calmer phone value.
+  const diveMs = portrait ? (cell.diveMobile ?? 1800) : (cell.diveDesktop ?? 1300)
+  const diveVars = { '--hl-dive': `${diveMs}ms`, '--hl-dive-msg': `${Math.round(diveMs * 0.78)}ms` }
 
   return (
     <div className={`hl-stage${portrait ? ' is-portrait' : ''}`}>
       <span className="hl-stage-stripe" aria-hidden="true" />
-      <div className={`hl-cell hl-cx-${style}${phase === 'preview' ? ' is-preview' : ''}${appFirst ? ' is-appfirst' : ''}`}>
+      <div className={`hl-cell hl-cx-${style}${phase === 'preview' ? ' is-preview' : ''}${appFirst ? ' is-appfirst' : ''}`} style={diveVars}>
         <div className={`hl-cell-layer hl-cell-message${cell.messageTextOnly ? ' is-textonly' : ''}`}>
           <MessageInner cell={cell} style={style} running={running} />
         </div>
