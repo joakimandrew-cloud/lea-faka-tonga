@@ -58,7 +58,7 @@ export const cells = [
     // re-animate the tense-marker table (owner 2026-06-22): the real-app dive lands on that table
     // AND the actual plain-English explanation. Shorter intro + longer preview so the dive can hold
     // on the explanation (kuo-vs-naʻa), then the table, then a beat of the practice.
-    messageMs: 1750, previewMs: 6300, rate: 0.75, diveDesktop: 1400,  // owner-tuned via /scrub 2026-06-23 (intro 1600→1750, speed ½→0.75×, dive 1300→1400 desktop). hold left to derive (previewMs/rate ≈ 8.4s) so the clip plays once, no replay.
+    messageMs: 1750, previewMs: 5300, previewMsMobile: 6500, rate: 0.75, diveDesktop: 1400,  // owner-tuned via /scrub 2026-06-23. Desktop clip re-rendered with the first lesson pause trimmed (pans away ~1.54s = scrubber 3.8s; 6.38→5.31s); previewMs is per-viewport so the untouched 6.5s mobile clip isn't cut. intro 1600→1750, speed ½→0.75×, dive 1300→1400 (desktop).
     eyebrow: 'Real lessons, not word lists',
     headline: <>Every rule,<br /><span className="accent">explained</span>.</>,
     kin: [{ t: 'Every' }, { t: 'rule,' }, { t: 'explained', accent: true, fx: 'stamp' }],

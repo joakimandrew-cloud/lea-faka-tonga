@@ -66,7 +66,7 @@ const HERO = {
       intro: { label: 'Intro', min: 600, max: 4000, step: 50, unit: 'ms', value: messageMsFor(cell, env.portrait) },
       dive: { label: 'Dive', min: 400, max: 3000, step: 50, unit: 'ms', value: env.portrait ? (cell.diveMobile ?? 1800) : (cell.diveDesktop ?? 1300) },
       speed: { label: 'Preview speed', min: 0.25, max: 1, step: 0.05, unit: '×', value: cell.rate ?? PREVIEW_RATE },
-      hold: { label: 'Preview hold', min: 2000, max: 24000, step: 100, unit: 'ms', value: cell.holdMs ?? Math.round((cell.previewMs ?? PREVIEW_MS) / (cell.rate ?? PREVIEW_RATE)) },
+      hold: { label: 'Preview hold', min: 2000, max: 24000, step: 100, unit: 'ms', value: cell.holdMs ?? Math.round((env.portrait ? (cell.previewMsMobile ?? cell.previewMs ?? PREVIEW_MS) : (cell.previewMs ?? PREVIEW_MS)) / (cell.rate ?? PREVIEW_RATE)) },
     }
   },
   duration: vals => vals.intro + vals.hold,
