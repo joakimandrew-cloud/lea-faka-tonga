@@ -12,10 +12,10 @@ import '../styles/hero-lab.css'
    chosen `style`. Grammar+Dive (the homepage's style) plays a real grammar
    micro-animation, then dives THROUGH it into the real app screen.
 
-   Every Tongan token is verified against the project data (ika/moa/Sione;
-   TenseRipple copies the exact tokens from video-remotion's concept data; the
-   Quiz beat is English copy describing the real quiz). No fabricated Tongan.
-   Preview clips live in public/feat-*.
+   Every Tongan token is verified against the project data (ika/moa/Sione). The
+   grammar-style messages now DESCRIBE each feature in English (ReadSpec, SentenceSpec,
+   QuizSpec, VocabSpec) rather than re-acting the real-app screen the beat dives into,
+   so there is no fabricated Tongan in a message. Preview clips live in public/feat-*.
    ========================================================================= */
 
 export const BASE = import.meta.env.BASE_URL
@@ -39,6 +39,11 @@ export const lead = {
 export const cells = [
   {
     id: 'feat-read', file: 'feat-read', fileMobile: 'feat-read-mobile', anim: 'reveal', grammar: 'tense', previewTitle: 'Read the whole book',
+    // Message DESCRIBES what "explained" means (the rule · the why · examples) — it does NOT
+    // re-animate the tense-marker table (owner 2026-06-22): the real-app dive lands on that table
+    // AND the actual plain-English explanation. Shorter intro + longer preview so the dive can hold
+    // on the explanation (kuo-vs-naʻa), then the table, then a beat of the practice.
+    messageMs: 1600, previewMs: 6300,
     eyebrow: 'Real lessons, not word lists',
     headline: <>Every rule,<br /><span className="accent">explained</span>.</>,
     kin: [{ t: 'Every' }, { t: 'rule,' }, { t: 'explained', accent: true, fx: 'stamp' }],
@@ -154,30 +159,27 @@ function DrillsAnim({ run }) {
   )
 }
 
-// Grammar (Read): the Tongan verb is frozen; only the front marker changes and
-// the English re-conjugates. Tokens verified against tense-marker-swap.ts.
-function TenseRipple({ run }) {
-  const steps = [
-    { m: 'Naʻá', en: 'you ate' },
-    { m: 'ʻOku', en: 'you eat' },
-    { m: 'Kuó', en: 'you have eaten' },
-    { m: 'Té', en: 'you will eat' },
+// Grammar (Read): DESCRIBE what makes the lessons "explained" — the rule, the why, the examples —
+// instead of re-animating the tense-marker table (owner 2026-06-22). The dive lands on that exact
+// table AND the real plain-English explanation, so animating the markers here just doubled up
+// (same fix as Quiz/Sentence/Vocab). English only — no fabricated Tongan. Tiles rise in on a stagger.
+function ReadSpec({ run }) {
+  const points = [
+    { k: 'The rule', eg: 'stated plainly' },
+    { k: 'The why', eg: 'in plain English' },
+    { k: 'Examples', eg: 'see it in use' },
   ]
-  const [i, setI] = useState(0)
-  useEffect(() => {
-    if (!run) { setI(0); return }
-    const t = setInterval(() => setI(p => (p + 1) % steps.length), 720)
-    return () => clearInterval(t)
-  }, [run])
-  const s = steps[i]
   return (
-    <div className="hl-ripple">
-      <div className="hl-ripple-row">
-        <span className="hl-ripple-marker" key={s.m}>{s.m}</span>
-        <span className="hl-ripple-frozen">ke kai</span>
+    <div className="hl-sspec" key={run ? 'run' : 'idle'}>
+      <div className="hl-sdials">
+        {points.map((d, i) => (
+          <div className="hl-sdial" style={{ '--i': i }} key={d.k}>
+            <span className="hl-sdial-key">{d.k}</span>
+            <span className="hl-sdial-eg">{d.eg}</span>
+          </div>
+        ))}
       </div>
-      <div className="hl-ripple-en">“<b key={s.en}>{s.en}</b>.”</div>
-      <div className="hl-ripple-cap">One verb. Change the marker, the tense changes.</div>
+      <div className="hl-sdial-cap" style={{ '--i': 3 }}>The rule, the reason, real examples.</div>
     </div>
   )
 }
@@ -263,7 +265,7 @@ function KineticHeadline({ cell, run, variant }) {
 
 function pickAnim(cell, style) {
   if (style === 'grammar' || style === 'grammardive') {
-    return cell.grammar === 'tense' ? TenseRipple
+    return cell.grammar === 'tense' ? ReadSpec
       : cell.grammar === 'sentence' ? SentenceSpec
       : cell.grammar === 'drills' ? DrillsAnim
       : cell.grammar === 'quiz' ? QuizSpec
