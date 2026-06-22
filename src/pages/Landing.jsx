@@ -78,9 +78,11 @@ export default function Landing() {
   }, [])
 
   // Auto-advance the stage (one full message→dive→preview beat per cell).
+  // Per-cell timing: the quiz cell runs a shorter intro + longer preview (2-question clip).
   useEffect(() => {
     if (reduceMotion) return
-    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), MESSAGE_MS + PREVIEW_MS)
+    const c = cells[idx]
+    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), (c.messageMs ?? MESSAGE_MS) + (c.previewMs ?? PREVIEW_MS))
     return () => clearTimeout(t)
   }, [idx, reduceMotion])
 

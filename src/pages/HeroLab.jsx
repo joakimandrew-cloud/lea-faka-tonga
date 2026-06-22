@@ -79,7 +79,8 @@ export default function HeroLab() {
 
   useEffect(() => {
     if (reduceMotion) return
-    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), MESSAGE_MS + PREVIEW_MS)
+    const c = cells[idx]
+    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), (c.messageMs ?? MESSAGE_MS) + (c.previewMs ?? PREVIEW_MS))
     return () => clearTimeout(t)
   }, [idx, reduceMotion, style])
 

@@ -57,6 +57,9 @@ export const cells = [
   },
   {
     id: 'feat-quiz', file: 'feat-quiz', fileMobile: 'feat-quiz-mobile', anim: 'reveal', grammar: 'quiz', previewTitle: 'Test yourself',
+    // shorter intro (the QuizSpec describes the quiz fast), longer preview so the clip
+    // can play TWO questions — Q1 right, Q2 wrong — within the cell's total ~7s.
+    messageMs: 1300, previewMs: 5700,
     eyebrow: 'Quizzes that teach',
     headline: <>Test <span className="accent">yourself</span>.</>,
     kin: [{ t: 'Test' }, { t: 'yourself', accent: true, fx: 'grow' }],
@@ -271,7 +274,7 @@ export function StoryCell({ cell, style, active, reduceMotion, portrait }) {
   useEffect(() => {
     if (!active || reduceMotion) { setPhase('message'); return }
     setPhase('message')
-    const t = setTimeout(() => setPhase('preview'), MESSAGE_MS)
+    const t = setTimeout(() => setPhase('preview'), cell.messageMs ?? MESSAGE_MS)
     return () => clearTimeout(t)
   }, [active, reduceMotion, style, cell.id])
 
