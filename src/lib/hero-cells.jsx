@@ -72,10 +72,15 @@ export const cells = [
     kin: [{ t: 'Test' }, { t: 'yourself', accent: true, fx: 'grow' }],
   },
   {
-    id: 'feat-vocab', file: 'feat-vocab', fileMobile: 'feat-vocab-mobile', anim: 'reveal', grammar: 'flip', previewTitle: 'Make your own flashcards',
+    id: 'feat-vocab', file: 'feat-vocab', fileMobile: 'feat-vocab-mobile', anim: 'reveal', grammar: 'flip', previewTitle: 'Practice the vocabulary',
+    // Message DESCRIBES the three ways to study a lesson's words (Table · Flip cards · a
+    // dedicated Vocab section) — it does NOT act out a flip (owner 2026-06-22). The real-app
+    // clip below carries the flipping. Shorter intro + longer preview so the clip can play
+    // table → Cards → card-only flip → next card → Tongan-first→English-first.
+    messageMs: 1600, previewMs: 5900,
     eyebrow: 'Vocabulary, your way',
-    headline: <>Any word list,<br />instant <span className="accent">flashcards</span>.</>,
-    kin: [{ t: 'Any' }, { t: 'word' }, { t: 'list,' }, { t: 'instant' }, { t: 'flashcards', accent: true, fx: 'flip' }],
+    headline: <>Learn the words,<br />your <span className="accent">way</span>.</>,
+    kin: [{ t: 'Learn' }, { t: 'the' }, { t: 'words,' }, { t: 'your' }, { t: 'way', accent: true, fx: 'flip' }],
   },
 ]
 
@@ -200,30 +205,28 @@ function QuizSpec({ run }) {
   )
 }
 
-// Grammar (Vocab): a flashcard flips Tongan to English. Verified pairs.
-function CardFlip({ run }) {
-  const pairs = [{ to: 'ika', en: 'fish' }, { to: 'moa', en: 'chicken' }]
-  const [i, setI] = useState(0)
-  const [flipped, setFlipped] = useState(false)
-  useEffect(() => {
-    if (!run) { setI(0); setFlipped(false); return }
-    let flip = false, idx = 0
-    const t = setInterval(() => {
-      flip = !flip
-      if (!flip) idx = (idx + 1) % pairs.length
-      setFlipped(flip)
-      setI(idx)
-    }, 1050)
-    return () => clearInterval(t)
-  }, [run])
-  const p = pairs[i]
+// Grammar (Vocab): DESCRIBE the three ways to study a lesson's words instead of acting out
+// a flip (the real-app clip plays the flipping a second later, so demonstrating one here
+// just doubled up — same fix as the Quiz/Sentence beats). Three "ways" name the surfaces:
+// a Table, the same list as Flip cards, and a dedicated Vocab section. English only — no
+// fabricated Tongan. The ways + caption rise in on a stagger (reuses hl-sspec, like Sentence).
+function VocabSpec({ run }) {
+  const ways = [
+    { k: 'Table', eg: 'see the list' },
+    { k: 'Flip cards', eg: 'practice it' },
+    { k: 'Vocab section', eg: 'words on their own' },
+  ]
   return (
-    <div className="hl-flipwrap">
-      <div className={`hl-flip${flipped ? ' is-flipped' : ''}`}>
-        <div className="hl-flip-face hl-flip-front">{p.to}</div>
-        <div className="hl-flip-face hl-flip-back">{p.en}</div>
+    <div className="hl-sspec" key={run ? 'run' : 'idle'}>
+      <div className="hl-sdials">
+        {ways.map((d, i) => (
+          <div className="hl-sdial" style={{ '--i': i }} key={d.k}>
+            <span className="hl-sdial-key">{d.k}</span>
+            <span className="hl-sdial-eg">{d.eg}</span>
+          </div>
+        ))}
       </div>
-      <div className="hl-ripple-cap">Every word list becomes a deck you can flip.</div>
+      <div className="hl-sdial-cap" style={{ '--i': 3 }}>Every lesson’s words, learned your way.</div>
     </div>
   )
 }
@@ -264,7 +267,7 @@ function pickAnim(cell, style) {
       : cell.grammar === 'sentence' ? SentenceSpec
       : cell.grammar === 'drills' ? DrillsAnim
       : cell.grammar === 'quiz' ? QuizSpec
-      : CardFlip
+      : VocabSpec
   }
   // wipe
   return cell.anim === 'sentence' ? SentenceAnim : cell.anim === 'drills' ? DrillsAnim : RevealAnim
