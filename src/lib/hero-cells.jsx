@@ -35,6 +35,11 @@ export function messageMsFor(cell, portrait) {
   return Math.max(Math.round(base * 0.82), cell.messageTextOnly ? 1050 : 1300)
 }
 
+// Preview clips play at half speed (owner 2026-06-22) so the scroll-through and every
+// demo read calmly — each preview then lasts ~2× as long. The auto-advance window scales
+// by 1/PREVIEW_RATE (see Landing) so the slowed clip still plays through fully.
+export const PREVIEW_RATE = 0.5
+
 export const lead = {
   eyebrow: 'The whole course, free and open',
   headline: <>Find your<br /><span className="accent">Tongan</span>.</>,
@@ -335,6 +340,7 @@ export function StoryCell({ cell, style, active, reduceMotion, portrait }) {
     if (!v) return
     if (active && !reduceMotion && (appFirst || phase === 'preview')) {
       if (phase === 'preview' && !appFirst) { try { v.currentTime = 0 } catch { /* noop */ } }
+      v.playbackRate = PREVIEW_RATE   // half speed → calmer scroll-through + demos
       v.play().catch(() => {})
     } else {
       v.pause()

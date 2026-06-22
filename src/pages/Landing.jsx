@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { BASE, BOOK_PDF, BOOK_EPUB, PREVIEW_MS, messageMsFor, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
+import { BASE, BOOK_PDF, BOOK_EPUB, PREVIEW_MS, PREVIEW_RATE, messageMsFor, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
 import LogoMark from '../components/LogoMark'
 import '../styles/v11-landing.css'
 
@@ -82,7 +82,8 @@ export default function Landing() {
   useEffect(() => {
     if (reduceMotion) return
     const c = cells[idx]
-    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), messageMsFor(c, portrait) + (c.previewMs ?? PREVIEW_MS))
+    // preview plays at half speed (PREVIEW_RATE), so it needs ~2× its natural window to finish
+    const t = setTimeout(() => setIdx(p => (p + 1) % cells.length), messageMsFor(c, portrait) + (c.previewMs ?? PREVIEW_MS) / PREVIEW_RATE)
     return () => clearTimeout(t)
   }, [idx, reduceMotion, portrait])
 

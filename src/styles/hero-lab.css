@@ -136,8 +136,8 @@
    Grammar+Dive shares the same handoff, but the thing you fly through is the
    grammar micro-animation (the teaching beat) instead of the kinetic headline. */
 .hl-cx-dive,.hl-cx-grammardive{perspective:1100px;}
-.hl-cx-dive .hl-cell-message,.hl-cx-grammardive .hl-cell-message{opacity:1; transform:scale(1); transition:opacity .55s ease, transform .65s cubic-bezier(.6,0,.35,1);}
-.hl-cx-dive .hl-cell-preview,.hl-cx-grammardive .hl-cell-preview{opacity:0; transform:scale(.58); transition:opacity .5s ease, transform .8s cubic-bezier(.5,0,.25,1);}
+.hl-cx-dive .hl-cell-message,.hl-cx-grammardive .hl-cell-message{opacity:1; transform:scale(1); transition:opacity .7s ease, transform 1s cubic-bezier(.6,0,.35,1);}
+.hl-cx-dive .hl-cell-preview,.hl-cx-grammardive .hl-cell-preview{opacity:0; transform:scale(.58); transition:opacity .65s ease, transform 1.3s cubic-bezier(.5,0,.25,1);}
 .hl-cx-dive.is-preview .hl-cell-message,.hl-cx-grammardive.is-preview .hl-cell-message{opacity:0; transform:scale(1.7);}
 .hl-cx-dive.is-preview .hl-cell-preview,.hl-cx-grammardive.is-preview .hl-cell-preview{opacity:1; transform:scale(1);}
 /* Each new cell's message fades in (over its own poster) instead of hard-cutting from
@@ -145,7 +145,7 @@
    on phones (owner 2026-06-22). Runs once on mount; no fill-mode so the dive-out opacity
    transition still works when is-preview toggles. */
 @keyframes hl-msg-in{from{opacity:0;} to{opacity:1;}}
-.hl-cx-grammardive .hl-cell-message{animation:hl-msg-in .5s ease;}
+.hl-cx-grammardive .hl-cell-message{animation:hl-msg-in 1s ease;}
 
 /* App-first: the app is always on; the message floats over it, then clears. */
 .hl-cx-appfirst .hl-cell-preview{opacity:1;}
@@ -377,8 +377,8 @@
      stagger and the dive-zoom — so mobile feels as measured as desktop. Motion only; the
      per-feature timing and the video windows are untouched, so nothing loops or desyncs. */
   .hl-qstat,.hl-sdial,.hl-sdial-cap{animation-duration:.72s; animation-delay:calc(var(--i)*0.18s);}
-  .hl-cx-grammardive .hl-cell-message{transition:opacity .6s ease, transform .95s cubic-bezier(.6,0,.35,1);}
-  .hl-cx-grammardive .hl-cell-preview{transition:opacity .55s ease, transform 1.2s cubic-bezier(.5,0,.25,1);}
+  .hl-cx-grammardive .hl-cell-message{transition:opacity .8s ease, transform 1.4s cubic-bezier(.6,0,.35,1);}
+  .hl-cx-grammardive .hl-cell-preview{transition:opacity .7s ease, transform 1.8s cubic-bezier(.5,0,.25,1);}
 }
 
 /* Reduced motion: show the message statically, no autoplay/handoff/flourishes. */
