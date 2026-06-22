@@ -81,7 +81,7 @@
 /* ---- Book anchor: still standing cover + Download PDF/EPUB ---- */
 .hl-anchor{display:flex; flex-direction:column; align-items:flex-start;}
 .hl-anchor-cover{
-  width:clamp(190px,15vw,290px); height:auto; display:block; margin:10px 0 16px;
+  width:clamp(220px,22vw,400px); height:auto; display:block; margin:10px 0 16px;
   filter:drop-shadow(0 22px 38px rgba(26,22,18,0.24));
 }
 .hl-downloads{display:flex; flex-wrap:wrap; gap:12px;}
@@ -317,8 +317,8 @@
    Variant A — One Stage: anchor (left) + cycling stage (right)
    ========================================================= */
 .hl-a{max-width:2080px; margin:0 auto; padding:24px 56px 34px; display:flex; gap:56px; align-items:flex-start;}
-.hl-a-anchor{width:34%; min-width:240px;}
-.hl-a-stage{width:66%;}
+.hl-a-anchor{width:30%; min-width:240px;}
+.hl-a-stage{width:70%;}
 
 /* =========================================================
    RESPONSIVE — phones are the priority. The preview leads and goes
