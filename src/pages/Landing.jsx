@@ -89,7 +89,7 @@ export default function Landing() {
   return (
     <div className="v11-landing">
 
-      {/* ========== TOP BLACK BAND (reversed brand lockup) ========== */}
+      {/* ========== TOP WHITE BAND (centered brand lockup) ========== */}
       <div className="top-band reveal d1">
         <div className="top-brand">
           <LogoMark className="logo-mark" />
