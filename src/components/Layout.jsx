@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import LogoMark from './LogoMark'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import chapters from '../data/chapters.json'
 
@@ -112,14 +113,7 @@ export default function Layout() {
               onClick={() => navigate('/')}
               className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer"
             >
-              <svg className="brand-seal" viewBox="0 0 100 100" fill="currentColor" role="img" aria-label="Lea Faka-Tonga">
-                <polygon points="0,0 50,0 0,50" /><polygon points="100,0 50,0 100,50" />
-                <polygon points="100,100 50,100 100,50" /><polygon points="0,100 50,100 0,50" />
-                <polygon points="25,25 50,25 25,50" /><polygon points="75,25 50,25 75,50" />
-                <polygon points="75,75 50,75 75,50" /><polygon points="25,75 50,75 25,50" />
-                <polygon points="37.5,37.5 50,37.5 37.5,50" /><polygon points="62.5,37.5 50,37.5 62.5,50" />
-                <polygon points="62.5,62.5 50,62.5 62.5,50" /><polygon points="37.5,62.5 50,62.5 37.5,50" />
-              </svg>
+              <LogoMark className="brand-seal" />
               <span className="brand-text">LEA FAKA-TONGA</span>
             </button>
             <div className="theme-seg" role="group" aria-label="Theme">

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import LogoMark from '../components/LogoMark'
 import { Link, useLocation } from 'react-router-dom'
 import '../styles/v11-landing.css'
 import '../styles/v11-components.css'
@@ -22,14 +23,7 @@ const CORRECTION_ENDPOINT = 'ce1f8abf-810e-4362-b811-710f307a78a1' // Web3Forms 
 const EMPTY = { where: '', issue: '', fix: '', name: '', email: '', website: '' }
 
 const Logo = () => (
-  <svg className="logo-mark" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-    <polygon points="0,0 50,0 0,50" /><polygon points="100,0 50,0 100,50" />
-    <polygon points="100,100 50,100 100,50" /><polygon points="0,100 50,100 0,50" />
-    <polygon points="25,25 50,25 25,50" /><polygon points="75,25 50,25 75,50" />
-    <polygon points="75,75 50,75 75,50" /><polygon points="25,75 50,75 25,50" />
-    <polygon points="37.5,37.5 50,37.5 37.5,50" /><polygon points="62.5,37.5 50,37.5 62.5,50" />
-    <polygon points="62.5,62.5 50,62.5 62.5,50" /><polygon points="37.5,62.5 50,62.5 37.5,50" />
-  </svg>
+  <LogoMark className="logo-mark" />
 )
 
 export default function ReportIssue() {
