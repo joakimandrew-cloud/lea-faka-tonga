@@ -80,10 +80,10 @@ export default function Layout() {
     reportWhere = breadcrumbLabel
   }
 
-  // Lesson pages get a wide reading column; prose stays at a comfortable
-  // measure (see .lesson-reader CSS) while tables break out. Other sub-pages
-  // keep the original comfortable width.
-  const contentMaxW = currentChapterNum ? 'max-w-5xl' : 'max-w-3xl'
+  // Lesson pages get a slightly wider, centred reading column (max-w-4xl) than
+  // other sub-pages; everything in the column shares one width so it stays
+  // centred in the viewport with nothing breaking out. Others keep the original.
+  const contentMaxW = currentChapterNum ? 'max-w-4xl' : 'max-w-3xl'
 
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">

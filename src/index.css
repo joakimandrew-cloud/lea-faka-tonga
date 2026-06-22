@@ -815,37 +815,14 @@ body::before {
   --accent-hover: #FFFFFF;
 }
 
-/* ── Lesson reader: rail removed, comfortable measure, tables break out ─────
- * The lesson <main> widens to max-w-5xl (Layout). Prose, the lesson header,
- * the exercises and the practice block stay in a centered reading measure for
- * comfort, while wide tables (conjugation grids, vocab lists) break out to use
- * the full column. Scoped to .lesson-reader so flip cards and reference charts
- * (also .reading-page) are untouched. (kickoff 2026-06-22) */
-.lesson-reader {
-  --measure: 46rem;
-}
-
-/* Default: every block sits in a LEFT-ALIGNED comfortable column, so the prose
- * and the wider break-out tables share one left edge. (Centering the prose made
- * the full-width tables jut out to the LEFT of the text — fixed 2026-06-22.) */
-.lesson-reader > * {
-  max-width: var(--measure);
-}
-
-/* The book-content wrapper spans the full width so its tables can break out;
- * its prose returns to the reading measure, and only tables use the full room. */
-.lesson-reader > .lr-content {
-  max-width: none;
-}
-.lesson-reader > .lr-content > * {
-  max-width: var(--measure);
-}
-.lesson-reader > .lr-content > .ch-table-wrap {
-  max-width: none;
-}
-
-/* E — a touch larger type for the wider page, desktop only so mobile reading
- * stays exactly as it was (mobile keeps the 17px from .reading-page). */
+/* ── Lesson reader: rail removed, one centred reading column ───────────────
+ * The lesson <main> is a touch wider than other sub-pages (max-w-4xl, set in
+ * Layout) and stays centred in the viewport. Prose, tables, exercises and nav
+ * all share that one width, so the column reads centred with nothing breaking
+ * out to the side (an earlier break-out made tables jut left of the text). The
+ * only extra is slightly larger type, desktop-only, so mobile reading is
+ * unchanged. Scoped to .lesson-reader so flip cards / reference charts (also
+ * .reading-page) are untouched. (kickoff 2026-06-22) */
 @media (min-width: 768px) {
   .lesson-reader {
     font-size: 18px;

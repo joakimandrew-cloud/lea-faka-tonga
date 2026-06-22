@@ -202,7 +202,7 @@ export default function BookChapterContent({ chapterNum }) {
   if (!md) return null
 
   return (
-    <div className="mb-8 lr-content">
+    <div className="mb-8">
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
         rehypePlugins={[rehypeRaw, rehypeTableLabels]}
