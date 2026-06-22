@@ -290,7 +290,7 @@ function pickAnim(cell, style) {
   return cell.anim === 'sentence' ? SentenceAnim : cell.anim === 'drills' ? DrillsAnim : RevealAnim
 }
 
-function MessageInner({ cell, style, running }) {
+export function MessageInner({ cell, style, running }) {
   if (style === 'kinetic' || style === 'dive') {
     return (
       <>

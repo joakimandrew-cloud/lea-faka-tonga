@@ -147,6 +147,14 @@
 @keyframes hl-msg-in{from{opacity:0;} to{opacity:1;}}
 .hl-cx-grammardive .hl-cell-message{animation:hl-msg-in 1s ease;}
 
+/* Scrubber (/hero-scrub): freeze every transition so the page's JS can seek the
+   layers to an exact frame; the message's own animations are paused but stay
+   seekable via the Web Animations API (set currentTime). Scoped to .hl-scrub. */
+.hl-cell.hl-scrub .hl-cell-message,
+.hl-cell.hl-scrub .hl-cell-preview{transition:none !important;}
+.hl-cell.hl-scrub .hl-cell-message,
+.hl-cell.hl-scrub .hl-cell-message *{animation-play-state:paused !important;}
+
 /* App-first: the app is always on; the message floats over it, then clears. */
 .hl-cx-appfirst .hl-cell-preview{opacity:1;}
 .hl-cx-appfirst .hl-cell-message{
