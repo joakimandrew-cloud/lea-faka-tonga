@@ -350,6 +350,15 @@
   .hl-styles{margin-left:0; gap:5px;}
   .hl-style-chip{font-size:12px; padding:6px 11px;}
   .hl-anchor-cover{width:175px; margin:6px 0 14px;}   /* larger cover (owner request 2026-06-22); preview still peeks under the scroll-cue */
+
+  /* Calmer motion on phones (owner 2026-06-22): the JS cadence + the clips are identical
+     to desktop (verified), but the stage here is smaller and phone-tall, so the SAME-duration
+     desktop motion reads as faster. Slow the two on-screen motions ~45% — the teaching-tile
+     stagger and the dive-zoom — so mobile feels as measured as desktop. Motion only; the
+     per-feature timing and the video windows are untouched, so nothing loops or desyncs. */
+  .hl-qstat,.hl-sdial,.hl-sdial-cap{animation-duration:.72s; animation-delay:calc(var(--i)*0.18s);}
+  .hl-cx-grammardive .hl-cell-message{transition:opacity .6s ease, transform .95s cubic-bezier(.6,0,.35,1);}
+  .hl-cx-grammardive .hl-cell-preview{transition:opacity .55s ease, transform 1.2s cubic-bezier(.5,0,.25,1);}
 }
 
 /* Reduced motion: show the message statically, no autoplay/handoff/flourishes. */
