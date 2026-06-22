@@ -90,7 +90,7 @@ export default function ChapterPractice() {
   }
 
   return (
-    <div className="reading-page">
+    <div className="reading-page lesson-reader">
       {/* Chapter header */}
       <div className="mb-6">
         <div className="flex items-baseline gap-3 mb-2">
@@ -233,28 +233,35 @@ export default function ChapterPractice() {
         </div>
       )}
 
-      {/* ── Bottom chapter navigation (Continue to next) ── */}
+      {/* ── Bottom lesson navigation: a balanced prev / next pair so you can move
+          either direction from the foot without scrolling back up to the rail-less
+          header. (rail removed 2026-06-22) ── */}
       {(nextChapter || prevChapter) && (
-        <div className="mt-16 pt-8 border-t border-[var(--border)] text-center">
+        <div className="mt-16 pt-8 border-t border-[var(--border)] flex flex-col sm:flex-row gap-3">
+          {prevChapter ? (
+            <Link
+              to={`/lessons/${prevCh}`}
+              onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
+              className="flex-1 border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors"
+            >
+              <div className="text-[var(--accent)] text-[15px] font-medium">
+                &larr; Lesson {prevCh}
+              </div>
+              <div className="text-[var(--text-muted)] text-sm mt-0.5">{prevChapter.title}</div>
+            </Link>
+          ) : (
+            <div className="flex-1" aria-hidden="true" />
+          )}
           {nextChapter && (
             <Link
               to={`/lessons/${nextCh}`}
               onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
-              className="inline-block w-full sm:w-auto text-left border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors"
+              className="flex-1 border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors sm:text-right"
             >
               <div className="text-[var(--accent)] text-[15px] font-medium">
                 Continue to Lesson {nextCh} &rarr;
               </div>
               <div className="text-[var(--text-muted)] text-sm mt-0.5">{nextChapter.title}</div>
-            </Link>
-          )}
-          {prevChapter && (
-            <Link
-              to={`/lessons/${prevCh}`}
-              onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
-              className="block mt-4 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
-            >
-              &larr; Back to Lesson {prevCh}
             </Link>
           )}
         </div>

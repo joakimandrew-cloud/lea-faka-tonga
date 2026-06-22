@@ -733,10 +733,11 @@ body::before {
   letter-spacing: normal;
 
   /* Fill the Layout's <main> padding (py-10 px-8 on sub-pages) so the
-   * warm-gray surface reaches the header/footer rules. Width still tracks
-   * max-w-3xl; narrow side stripes of the Layout's cream will show beyond
-   * the column on wide viewports — that's Layout chrome, not the reading
-   * surface, so it sits outside this job's scope. */
+   * warm-gray surface reaches the header/footer rules. Width tracks the
+   * Layout <main> (max-w-3xl on most sub-pages; lessons widen to max-w-5xl
+   * and apply the .lesson-reader measure below). Narrow side stripes of the
+   * Layout's cream may show beyond the column on wide viewports — that's
+   * Layout chrome, not the reading surface. */
   margin: -2.5rem -2rem;
   padding: 2.5rem 2rem;
   min-height: calc(100vh - 3.5rem);
@@ -812,6 +813,44 @@ body::before {
   --text-faint: var(--text-strong);
   --accent: #F0ECE4;
   --accent-hover: #FFFFFF;
+}
+
+/* ── Lesson reader: rail removed, comfortable measure, tables break out ─────
+ * The lesson <main> widens to max-w-5xl (Layout). Prose, the lesson header,
+ * the exercises and the practice block stay in a centered reading measure for
+ * comfort, while wide tables (conjugation grids, vocab lists) break out to use
+ * the full column. Scoped to .lesson-reader so flip cards and reference charts
+ * (also .reading-page) are untouched. (kickoff 2026-06-22) */
+.lesson-reader {
+  --measure: 46rem;
+}
+
+/* Default: every block sits in a LEFT-ALIGNED comfortable column, so the prose
+ * and the wider break-out tables share one left edge. (Centering the prose made
+ * the full-width tables jut out to the LEFT of the text — fixed 2026-06-22.) */
+.lesson-reader > * {
+  max-width: var(--measure);
+}
+
+/* The book-content wrapper spans the full width so its tables can break out;
+ * its prose returns to the reading measure, and only tables use the full room. */
+.lesson-reader > .lr-content {
+  max-width: none;
+}
+.lesson-reader > .lr-content > * {
+  max-width: var(--measure);
+}
+.lesson-reader > .lr-content > .ch-table-wrap {
+  max-width: none;
+}
+
+/* E — a touch larger type for the wider page, desktop only so mobile reading
+ * stays exactly as it was (mobile keeps the 17px from .reading-page). */
+@media (min-width: 768px) {
+  .lesson-reader {
+    font-size: 18px;
+    line-height: 1.62;
+  }
 }
 
 /* ── Terminal Builder (/terminal-build) ─────────────────────────────────── */

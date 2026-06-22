@@ -80,32 +80,15 @@ export default function Layout() {
     reportWhere = breadcrumbLabel
   }
 
+  // Lesson pages get a wide reading column; prose stays at a comfortable
+  // measure (see .lesson-reader CSS) while tables break out. Other sub-pages
+  // keep the original comfortable width.
+  const contentMaxW = currentChapterNum ? 'max-w-5xl' : 'max-w-3xl'
+
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
-      {/* ── Fixed left sidebar: chapter index ── */}
-      <nav className="fixed left-0 top-0 w-10 h-screen z-20 hidden md:flex flex-col items-center border-r border-[var(--border)]">
-        <div className="chapter-sidebar overflow-y-auto flex-1 py-3 w-full">
-          {chapters.map(ch => {
-            const isActive = currentChapterNum === ch.chapter
-            return (
-              <div
-                key={ch.chapter}
-                onClick={() => navigate(`/lessons/${ch.chapter}`)}
-                className={`text-center text-[15px] py-[2px] transition-colors cursor-pointer ${
-                  isActive
-                    ? 'text-[var(--accent)] font-bold'
-                    : 'text-[var(--text-muted)] hover:text-[var(--accent)]'
-                }`}
-              >
-                {String(ch.chapter).padStart(2, '0')}
-              </div>
-            )
-          })}
-        </div>
-      </nav>
-
-      {/* ── Main area (offset by sidebar) ── */}
-      <div className="md:ml-10">
+      {/* ── Main area (full width; the left lesson-number rail was removed 2026-06-22) ── */}
+      <div>
         {/* ── Top header (two-row on mobile, single-row on desktop) ── */}
         <header className="site-header sticky top-0 z-10 bg-[var(--bg)] border-b border-[var(--border)]">
           <div className="site-header-brand">
@@ -139,30 +122,26 @@ export default function Layout() {
               >
                 &larr; Back
               </button>
-              {/* On a chapter page the chapter is already obvious (big number in
-                  the body + active in the sidebar), so "← Back" stands alone.
-                  Other sub-pages keep a quiet serif label for orientation. */}
-              {!currentChapterNum && (
-                <>
-                  <span className="context-sep" aria-hidden="true">/</span>
-                  <span className="context-label">
-                    {currentQuizNum ? `Lesson ${currentQuizNum} Quiz` : breadcrumbLabel}
-                  </span>
-                </>
-              )}
+              {/* Show the page label next to ← Back. On a lesson page this is the
+                  "which lesson am I in" cue that the left number rail used to give
+                  (rail removed 2026-06-22). */}
+              <span className="context-sep" aria-hidden="true">/</span>
+              <span className="context-label">
+                {currentQuizNum ? `Lesson ${currentQuizNum} Quiz` : breadcrumbLabel}
+              </span>
             </div>
           )}
         </header>
 
         {/* ── Content ── */}
-        <main className={isDrillsMenu || isQuizIndex ? '' : 'max-w-3xl mx-auto px-8 py-10'}>
+        <main className={isDrillsMenu || isQuizIndex ? '' : `${contentMaxW} mx-auto px-8 py-10`}>
           <Outlet />
         </main>
 
         {/* ── Footer: an end-of-lesson invitation to report a mistake, on every
             content page. The course is corrected in the open, so this stands as
             a friendly standing call (Option C from the A2 discoverability review). ── */}
-        <footer className="max-w-3xl mx-auto px-8 pt-8 pb-12 mt-6 border-t border-[var(--border)] text-center">
+        <footer className={`${contentMaxW} mx-auto px-8 pt-8 pb-12 mt-6 border-t border-[var(--border)] text-center`}>
           <div
             className="text-[var(--accent)] leading-none mb-2"
             style={{ fontFamily: "'Source Serif 4', Georgia, serif", fontSize: '30px' }}
