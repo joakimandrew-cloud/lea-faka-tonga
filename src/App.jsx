@@ -27,7 +27,7 @@ import DrillsMenu from './pages/DrillsMenu'
 import DrillPage from './pages/DrillPage'
 import ReportIssue from './pages/ReportIssue'
 import HeroLab from './pages/HeroLab'
-import HeroScrub from './pages/HeroScrub'
+import ScrubHub from './pages/ScrubHub'
 
 // The course unit is a "Lesson" in the UI and the URL (2026-06-22). Old
 // /chapters/:num links are kept alive as permanent redirects to /lessons/:num
@@ -50,8 +50,10 @@ export default function App() {
           <Route path="/report" element={<ReportIssue />} />
           {/* Hidden prototype for the Home Hero Review — not linked from any nav. */}
           <Route path="/hero-lab" element={<HeroLab />} />
-          {/* Hidden timing scrubber for directing the hero animation — not linked. */}
-          <Route path="/hero-scrub" element={<HeroScrub />} />
+          {/* Hidden animation scrubber (view + live-edit any registered animation),
+              not linked. /hero-scrub kept as an alias so older links still work. */}
+          <Route path="/scrub" element={<ScrubHub />} />
+          <Route path="/hero-scrub" element={<ScrubHub />} />
           <Route path="/lessons" element={<ChapterBrowser />} />
           {/* Course unit is a "Lesson" in the URL since 2026-06-22; the old
               /chapters/* paths stay as permanent redirects so saved and shared
