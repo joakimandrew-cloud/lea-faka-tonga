@@ -140,6 +140,12 @@
 .hl-cx-dive .hl-cell-preview,.hl-cx-grammardive .hl-cell-preview{opacity:0; transform:scale(.58); transition:opacity .5s ease, transform .8s cubic-bezier(.5,0,.25,1);}
 .hl-cx-dive.is-preview .hl-cell-message,.hl-cx-grammardive.is-preview .hl-cell-message{opacity:0; transform:scale(1.7);}
 .hl-cx-dive.is-preview .hl-cell-preview,.hl-cx-grammardive.is-preview .hl-cell-preview{opacity:1; transform:scale(1);}
+/* Each new cell's message fades in (over its own poster) instead of hard-cutting from
+   the previous clip — softens the cell→cell handoff that read as a jarring snap, esp.
+   on phones (owner 2026-06-22). Runs once on mount; no fill-mode so the dive-out opacity
+   transition still works when is-preview toggles. */
+@keyframes hl-msg-in{from{opacity:0;} to{opacity:1;}}
+.hl-cx-grammardive .hl-cell-message{animation:hl-msg-in .5s ease;}
 
 /* App-first: the app is always on; the message floats over it, then clears. */
 .hl-cx-appfirst .hl-cell-preview{opacity:1;}
@@ -339,9 +345,23 @@
   .hl-a-stage .hl-cell{aspect-ratio:390/700;}  /* phone-shaped, leaves room above + below */
   .hl-headline{font-size:1.9rem;}
   .hl-sub{font-size:17px; max-width:34ch;}
-  .hl-cell-msg-head{font-size:1.45rem; margin-top:24px;}
-  .hl-qspec{gap:14px;}
-  .hl-sdials{gap:14px;}
+  /* Message beat reads bigger + fuller on phones (owner 2026-06-22): the tall card was
+     mostly empty white with small text floating mid-frame. Enlarge the headline, eyebrow
+     and the spec tiles, and open the vertical rhythm so the content fills the frame. */
+  .hl-cell-msg-head{font-size:1.8rem; line-height:1.14; margin-top:26px;}
+  .hl-eyebrow{font-size:14px; letter-spacing:0.2em; padding:7px 15px;}
+  .hl-sspec{gap:22px;}
+  .hl-qspec{gap:18px;}
+  .hl-sdials{gap:16px;}
+  .hl-sdial-key{font-size:27px;}
+  .hl-sdial-eg{font-size:14.5px;}
+  .hl-sdial-cap{font-size:15.5px; max-width:28ch;}
+  .hl-qstat-num{font-size:48px;}
+  .hl-qstat-lab{font-size:13.5px;}
+  /* Text-only beat (drills) has just eyebrow + headline, so it can't fill the tall card
+     the way the spec beats do — give it a big, bold headline tight under its eyebrow so the
+     beat reads as a deliberate statement (the dwell is also trimmed in JS, see messageMsFor). */
+  .hl-cell-message.is-textonly .hl-cell-msg-head{font-size:2.4rem; line-height:1.08; margin-top:14px;}
   .hl-sent{font-size:22px;}
   .hl-kin{font-size:clamp(2rem,8.5vw,2.9rem); max-width:13ch;}  /* the portrait cell is narrow */
   .hl-overlay-card{max-width:86%; margin:0 0 7% 7%; padding:14px 16px;}
@@ -364,6 +384,7 @@
 /* Reduced motion: show the message statically, no autoplay/handoff/flourishes. */
 @media (prefers-reduced-motion:reduce){
   .hl-cell-message,.hl-cell-preview{transition:none;}
+  .hl-cx-grammardive .hl-cell-message{animation:none;}
   .hl-reveal span,.hl-sent-word,.hl-scrollcue-arrow,
   .hl-kin .hl-w,.hl-ripple-marker,.hl-qstat,.hl-sdial,.hl-sdial-cap,.hl-flip,.hl-overlay-card{animation:none; transition:none;}
   .hl-kin .hl-w.fx-strike::after{animation:none;}

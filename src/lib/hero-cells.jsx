@@ -25,6 +25,16 @@ export const BOOK_EPUB = `${BASE}downloads/Lea-Faka-Tonga.epub`
 export const MESSAGE_MS = 2600   // beat 1: the message + its animation
 export const PREVIEW_MS = 4400   // beat 2: the live-app preview clip
 
+// How long the message beat holds before diving. On phones the tall stage left the
+// message lingering on a near-static white card (owner 2026-06-22), so trim the dwell —
+// hardest on the text-only beat (no stagger to wait for), gentler on the spec beats but
+// never shorter than the tile stagger needs to finish (~1.3s). Desktop is unchanged.
+export function messageMsFor(cell, portrait) {
+  const base = cell.messageMs ?? MESSAGE_MS
+  if (!portrait) return base
+  return Math.max(Math.round(base * 0.82), cell.messageTextOnly ? 1050 : 1300)
+}
+
 export const lead = {
   eyebrow: 'The whole course, free and open',
   headline: <>Find your<br /><span className="accent">Tongan</span>.</>,
@@ -315,9 +325,9 @@ export function StoryCell({ cell, style, active, reduceMotion, portrait }) {
   useEffect(() => {
     if (!active || reduceMotion) { setPhase('message'); return }
     setPhase('message')
-    const t = setTimeout(() => setPhase('preview'), cell.messageMs ?? MESSAGE_MS)
+    const t = setTimeout(() => setPhase('preview'), messageMsFor(cell, portrait))
     return () => clearTimeout(t)
-  }, [active, reduceMotion, style, cell.id])
+  }, [active, reduceMotion, style, cell.id, portrait])
 
   // app-first plays the clip the whole time; others only once handed off.
   useEffect(() => {
@@ -338,7 +348,7 @@ export function StoryCell({ cell, style, active, reduceMotion, portrait }) {
     <div className={`hl-stage${portrait ? ' is-portrait' : ''}`}>
       <span className="hl-stage-stripe" aria-hidden="true" />
       <div className={`hl-cell hl-cx-${style}${phase === 'preview' ? ' is-preview' : ''}${appFirst ? ' is-appfirst' : ''}`}>
-        <div className="hl-cell-layer hl-cell-message">
+        <div className={`hl-cell-layer hl-cell-message${cell.messageTextOnly ? ' is-textonly' : ''}`}>
           <MessageInner cell={cell} style={style} running={running} />
         </div>
         <div className="hl-cell-layer hl-cell-preview">
