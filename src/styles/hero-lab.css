@@ -81,7 +81,7 @@
 /* ---- Book anchor: still standing cover + Download PDF/EPUB ---- */
 .hl-anchor{display:flex; flex-direction:column; align-items:flex-start;}
 .hl-anchor-cover{
-  width:clamp(190px,17vw,280px); height:auto; display:block; margin:18px 0 22px;
+  width:clamp(210px,20vw,380px); height:auto; display:block; margin:18px 0 22px;
   filter:drop-shadow(0 22px 38px rgba(26,22,18,0.24));
 }
 .hl-downloads{display:flex; flex-wrap:wrap; gap:12px;}
@@ -316,7 +316,7 @@
 /* =========================================================
    Variant A — One Stage: anchor (left) + cycling stage (right)
    ========================================================= */
-.hl-a{max-width:1560px; margin:0 auto; padding:42px 48px 64px; display:flex; gap:48px; align-items:center;}
+.hl-a{max-width:2080px; margin:0 auto; padding:42px 56px 64px; display:flex; gap:56px; align-items:center;}
 .hl-a-anchor{width:34%; min-width:240px;}
 .hl-a-stage{width:66%;}
 
@@ -349,7 +349,7 @@
   .hl-topbar-brand{font-size:16px;}
   .hl-styles{margin-left:0; gap:5px;}
   .hl-style-chip{font-size:12px; padding:6px 11px;}
-  .hl-anchor-cover{width:132px; margin:6px 0 14px;}   /* compact cover so the preview peeks */
+  .hl-anchor-cover{width:175px; margin:6px 0 14px;}   /* larger cover (owner request 2026-06-22); preview still peeks under the scroll-cue */
 }
 
 /* Reduced motion: show the message statically, no autoplay/handoff/flourishes. */

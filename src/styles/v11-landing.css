@@ -354,7 +354,7 @@
    ============================================================ */
 .v11-landing .bottom-band {
   background: #ffffff;
-  padding: 22px max(48px, calc((100% - 1560px) / 2)) 20px;
+  padding: 22px max(48px, calc((100% - 2080px) / 2)) 20px;
   display: flex;
   align-items: center;
   gap: 40px;
@@ -509,8 +509,8 @@
 .v11-landing .colophon strong { color: var(--ink); font-weight: 700; }
 
 /* Box section aligns to the same centred band as the hero (scoped — /drills
-   keeps the shared 1440 frame). */
-.v11-landing .panel-frame { max-width: 1560px; }
+   keeps the shared 1440 frame). Widened 1560→2080 with the hero, 2026-06-22. */
+.v11-landing .panel-frame { max-width: 2080px; }
 
 /* ============================================================
    LARGE SCREENS — fill the negative space, scale the lockup up
