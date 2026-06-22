@@ -45,12 +45,19 @@ export const cells = [
   },
   {
     id: 'feat-sentence', file: 'feat-sentence', fileMobile: 'feat-sentence-mobile', anim: 'sentence', grammar: 'sentence', previewTitle: 'Build your own sentences',
+    // shorter intro (the SentenceSpec dials read fast), longer preview so the clip
+    // can play THREE swaps — tense, pronoun, object — within the cell's total ~7s.
+    messageMs: 1700, previewMs: 5300,
     eyebrow: 'Your own grammar lab',
     headline: <>Swap a word,<br />watch the meaning <span className="accent">change</span>.</>,
     kin: [{ t: 'Swap' }, { t: 'a' }, { t: 'word,' }, { t: 'watch' }, { t: 'the' }, { t: 'meaning' }, { t: 'change', accent: true, fx: 'swap' }],
   },
   {
     id: 'feat-drills', file: 'feat-drills', fileMobile: 'feat-drills-mobile', anim: 'drills', grammar: 'drills', previewTitle: 'Practice as you go',
+    // Message is TEXT-ONLY (no recreated mini-animation, owner 2026-06-22): the real-app
+    // montage of wrong→why moments across different exercises carries the illustration.
+    // Shorter intro (headline reads fast) + longer preview so the montage can play.
+    messageTextOnly: true, messageMs: 1500, previewMs: 5000,
     eyebrow: 'Practice that teaches',
     headline: <>Every wrong answer<br />shows you <span className="accent">why</span>.</>,
     kin: [{ t: 'Every' }, { t: 'wrong', fx: 'strike' }, { t: 'answer' }, { t: 'shows' }, { t: 'you' }, { t: 'why', accent: true, fx: 'pulse' }],
@@ -74,7 +81,8 @@ export const cells = [
 
 /* ---- mini-animations (beat 1) ----------------------------------------- */
 
-// Wipe + Grammar (Sentence): ʻOku kai ʻe Sione ʻa e ika ⇄ moa, English tracks it.
+// Wipe (Sentence): ʻOku kai ʻe Sione ʻa e ika ⇄ moa, English tracks it. Kept for
+// the non-production "wipe" style only; Grammar+Dive now uses SentenceSpec (below).
 function SentenceAnim({ run }) {
   const opts = [{ to: 'ika', en: 'fish' }, { to: 'moa', en: 'chicken' }]
   const [i, setI] = useState(0)
@@ -90,6 +98,32 @@ function SentenceAnim({ run }) {
       <span className="hl-sent-word" key={o.to}>{o.to}</span>
       <span className="hl-sent-to">.</span>
       <div className="hl-sent-en">“Sione eats the <b key={o.en}>{o.en}</b>.”</div>
+    </div>
+  )
+}
+
+// Grammar (Sentence): DESCRIBE the Lab instead of acting out a swap (the real Lab
+// clip plays a second later, so demonstrating one here just doubled up — same fix
+// as the Quiz beat). Three "dials" name the parts you can change — tense, who,
+// what — with English examples; the real Tongan only ever appears in the live clip
+// below, so NO fabricated Tongan here. The dials + caption rise in on a stagger.
+function SentenceSpec({ run }) {
+  const dials = [
+    { k: 'Tense', eg: 'ate · eats · will eat' },
+    { k: 'Who', eg: 'I · you · he' },
+    { k: 'What', eg: 'fish · bread · taro' },
+  ]
+  return (
+    <div className="hl-sspec" key={run ? 'run' : 'idle'}>
+      <div className="hl-sdials">
+        {dials.map((d, i) => (
+          <div className="hl-sdial" style={{ '--i': i }} key={d.k}>
+            <span className="hl-sdial-key">{d.k}</span>
+            <span className="hl-sdial-eg">{d.eg}</span>
+          </div>
+        ))}
+      </div>
+      <div className="hl-sdial-cap" style={{ '--i': 3 }}>Change any part: the English re-translates live.</div>
     </div>
   )
 }
@@ -227,7 +261,7 @@ function KineticHeadline({ cell, run, variant }) {
 function pickAnim(cell, style) {
   if (style === 'grammar' || style === 'grammardive') {
     return cell.grammar === 'tense' ? TenseRipple
-      : cell.grammar === 'sentence' ? SentenceAnim
+      : cell.grammar === 'sentence' ? SentenceSpec
       : cell.grammar === 'drills' ? DrillsAnim
       : cell.grammar === 'quiz' ? QuizSpec
       : CardFlip
@@ -253,11 +287,13 @@ function MessageInner({ cell, style, running }) {
       </div>
     )
   }
+  // A cell can opt out of the recreated mini-animation (messageTextOnly): the message
+  // is then just eyebrow + headline, and the REAL-app preview carries the illustration.
   const Anim = pickAnim(cell, style)
   return (
     <>
       <span className="hl-eyebrow">{cell.eyebrow}</span>
-      <Anim run={running} />
+      {!cell.messageTextOnly && <Anim run={running} />}
       <h2 className="hl-cell-msg-head">{cell.headline}</h2>
     </>
   )
