@@ -106,7 +106,10 @@ export const cells = [
     // dedicated Vocab section) — it does NOT act out a flip (owner 2026-06-22). The real-app
     // clip below carries the flipping. Shorter intro + longer preview so the clip can play
     // table → Cards → card-only flip → next card → Tongan-first→English-first.
-    messageMs: 1600, previewMs: 5900,
+    // owner-tuned via /scrub 2026-06-23: intro 1600->1300, speed 1/2->0.9x. This is the longest clip
+    // (5.91s), so at 0.9x it plays once in ~6.5s; previewMs per-viewport (desktop 5850 / mobile 5800)
+    // advances ~65ms before it would loop, so the full deck plays through once. Cell ~7.8s.
+    messageMs: 1300, previewMs: 5850, previewMsMobile: 5800, rate: 0.9,
     eyebrow: 'Vocabulary, your way',
     headline: <>Learn the words,<br />your <span className="accent">way</span>.</>,
     kin: [{ t: 'Learn' }, { t: 'the' }, { t: 'words,' }, { t: 'your' }, { t: 'way', accent: true, fx: 'flip' }],
