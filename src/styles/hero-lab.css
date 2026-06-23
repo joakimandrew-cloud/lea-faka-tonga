@@ -81,7 +81,7 @@
 /* ---- Book anchor: still standing cover + Download PDF/EPUB ---- */
 .hl-anchor{display:flex; flex-direction:column; align-items:flex-start;}
 .hl-anchor-cover{
-  width:clamp(220px,22vw,400px); height:auto; display:block; margin:10px 0 16px;
+  width:clamp(280px,31vw,520px); height:auto; display:block; margin:10px 0 16px;  /* owner pick 2026-06-24: desktop Option 3 (~446px @1440) */
   filter:drop-shadow(0 22px 38px rgba(26,22,18,0.24));
 }
 .hl-downloads{display:flex; flex-wrap:wrap; gap:12px;}
@@ -335,8 +335,8 @@
    Variant A — One Stage: anchor (left) + cycling stage (right)
    ========================================================= */
 .hl-a{max-width:2080px; margin:0 auto; padding:24px 56px 34px; display:flex; gap:56px; align-items:flex-start;}
-.hl-a-anchor{width:30%; min-width:240px;}
-.hl-a-stage{width:70%;}
+.hl-a-anchor{width:37%; min-width:240px;}   /* widened 30→37% so the bigger cover fills its column (owner pick 2026-06-24) */
+.hl-a-stage{width:63%;}
 
 /* =========================================================
    RESPONSIVE — phones are the priority. The preview leads and goes
@@ -382,7 +382,7 @@
   .hl-topbar-brand{font-size:16px;}
   .hl-styles{margin-left:0; gap:5px;}
   .hl-style-chip{font-size:12px; padding:6px 11px;}
-  .hl-anchor-cover{width:175px; margin:6px 0 14px;}   /* larger cover (owner request 2026-06-22); preview still peeks under the scroll-cue */
+  .hl-anchor-cover{width:300px; margin:6px 0 14px;}   /* owner pick 2026-06-24: mobile Option 4 (cover leads; Download buttons sit just below the fold) */
 
   /* Calmer motion on phones (owner 2026-06-22): the JS cadence + the clips are identical
      to desktop (verified), but the stage here is smaller and phone-tall, so the SAME-duration
