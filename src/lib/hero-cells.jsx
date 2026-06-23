@@ -80,7 +80,10 @@ export const cells = [
     // Message is TEXT-ONLY (no recreated mini-animation, owner 2026-06-22): the real-app
     // montage of wrong→why moments across different exercises carries the illustration.
     // Shorter intro (headline reads fast) + longer preview so the montage can play.
-    messageTextOnly: true, messageMs: 1500, previewMs: 5000,
+    // owner-tuned via /scrub 2026-06-23: intro 1500->1150, speed 1/2->0.7x. previewMs is per-viewport
+    // (desktop 5000 / mobile 4950) so the window (previewMs / rate) advances ~80ms before the ~5.06s
+    // montage would loop: it plays through exactly once. Desktop cell ~8.3s, mobile ~8.1s.
+    messageTextOnly: true, messageMs: 1150, previewMs: 5000, previewMsMobile: 4950, rate: 0.7,
     eyebrow: 'Practice that teaches',
     headline: <>Every wrong answer<br />shows you <span className="accent">why</span>.</>,
     kin: [{ t: 'Every' }, { t: 'wrong', fx: 'strike' }, { t: 'answer' }, { t: 'shows' }, { t: 'you' }, { t: 'why', accent: true, fx: 'pulse' }],
