@@ -28,7 +28,7 @@ const ALL_PATTERNS = [
 const ALL_EXAMPLES = [
   // ── Statement: tense marker + pronoun, no negator and no Ko (Ch 1-2) ──
   { minChapter: 1,  opener: 'Naʻa ku',          rest: ' ʻalu ki kolo.',       english: 'I went to town.',               pattern: 'statement',  why: 'Naʻa is the past-tense statement opener (paired here with pronoun ku).' },
-  { minChapter: 2,  opener: 'ʻOku ou',          rest: ' kai.',                english: 'I am eating.',                  pattern: 'statement',  why: 'Tense marker (ʻOku) + pronoun (ou = "I") with no negator → a plain statement.' },
+  { minChapter: 2,  opener: 'ʻOku ou',          rest: ' kai.',                english: 'I eat.',                        pattern: 'statement',  why: 'Tense marker (ʻOku) + pronoun (ou = "I") with no negator → a plain statement.' },
   { minChapter: 2,  opener: 'Té ke',            rest: ' mohe.',               english: 'You will sleep.',               pattern: 'statement',  why: 'Future TM (Te) + pronoun ke = "you will…". A statement.' },
   { minChapter: 2,  opener: 'Kuó ne',           rest: ' ʻalu.',               english: 'He has gone.',                  pattern: 'statement',  why: 'Perfect TM (Kuo) + pronoun ne, with no negator or Ko, is a statement. The accent on Kuó marks the one-syllable pronoun.' },
   { minChapter: 2,  opener: 'Naʻa mau',         rest: ' kai.',                english: 'We (not you) ate.',             pattern: 'statement',  why: 'Past TM (Naʻa) + pronoun mau ("we, not you") = a plain past statement.' },

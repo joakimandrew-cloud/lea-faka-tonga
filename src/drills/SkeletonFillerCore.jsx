@@ -53,7 +53,7 @@ const ALL_EXERCISES = [
   {
     minChapter: 2,
     pattern: 'Present Statement',
-    english: 'I am eating.',
+    english: 'I eat.',
     parts: [
       { type: 'slot', role: 'TENSE',   answer: 'ʻOku', hint: 'present' },
       { type: 'slot', role: 'PRONOUN', answer: 'ou',   hint: 'I (after ʻOku)' },
@@ -121,7 +121,7 @@ const ALL_EXERCISES = [
   {
     minChapter: 9,
     pattern: 'Negation',
-    english: 'I am not eating.',
+    english: 'I do not eat.',
     parts: [
       { type: 'slot',  role: 'TENSE',   answer: 'ʻOku', hint: 'present' },
       { type: 'fixed', text: 'ʻikai te' },
