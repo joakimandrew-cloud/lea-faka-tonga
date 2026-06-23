@@ -92,7 +92,10 @@ export const cells = [
     id: 'feat-quiz', file: 'feat-quiz', fileMobile: 'feat-quiz-mobile', anim: 'reveal', grammar: 'quiz', previewTitle: 'Test yourself',
     // shorter intro (the QuizSpec describes the quiz fast), longer preview so the clip
     // can play TWO questions — Q1 right, Q2 wrong — within the cell's total ~7s.
-    messageMs: 1300, previewMs: 5700,
+    // owner-tuned via /scrub 2026-06-23: speed 1/2->0.9x (intro kept at 1300). The 5.76s clip plays once
+    // in ~6.4s at 0.9x; previewMs per-viewport (desktop 5700 / mobile 5650) advances ~60ms before it would
+    // loop, so both questions (Q1 right, Q2 wrong) play through once. Cell ~7.6s. (0.75x would have been ~9s.)
+    messageMs: 1300, previewMs: 5700, previewMsMobile: 5650, rate: 0.9,
     eyebrow: 'Quizzes that teach',
     headline: <>Test <span className="accent">yourself</span>.</>,
     kin: [{ t: 'Test' }, { t: 'yourself', accent: true, fx: 'grow' }],
