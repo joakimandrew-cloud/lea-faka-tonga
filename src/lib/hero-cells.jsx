@@ -65,9 +65,12 @@ export const cells = [
   },
   {
     id: 'feat-sentence', file: 'feat-sentence', fileMobile: 'feat-sentence-mobile', anim: 'sentence', grammar: 'sentence', previewTitle: 'Build your own sentences',
-    // shorter intro (the SentenceSpec dials read fast), longer preview so the clip
-    // can play THREE swaps — tense, pronoun, object — within the cell's total ~7s.
-    messageMs: 1700, previewMs: 5300,
+    // owner-tuned via /scrub 2026-06-23: intro 1700->1750, speed 1/2->0.85x, and the preview
+    // now plays the clip through EXACTLY ONCE so it never reaches the loop the owner saw "just after 7s".
+    // previewMs is per-viewport content-ms, held just under each clip's real length, so the window
+    // (previewMs / rate) advances a beat before the clip would repeat: desktop clip 5.65s -> ~8.3s
+    // total, mobile clip 5.40s -> ~7.7s. (A hard 7.0s end would need ~1.08x, i.e. faster than real time.)
+    messageMs: 1750, previewMs: 5600, previewMsMobile: 5350, rate: 0.85,
     eyebrow: 'Your own grammar lab',
     headline: <>Swap a word,<br />watch the meaning <span className="accent">change</span>.</>,
     kin: [{ t: 'Swap' }, { t: 'a' }, { t: 'word,' }, { t: 'watch' }, { t: 'the' }, { t: 'meaning' }, { t: 'change', accent: true, fx: 'swap' }],
