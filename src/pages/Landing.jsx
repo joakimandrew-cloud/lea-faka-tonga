@@ -130,7 +130,7 @@ export default function Landing() {
             52 lessons · beginner to advanced · checked by fluent speakers
           </div>
         </div>
-        <Link to="/support" className="free-note" style={{ textDecoration: 'none' }}>Free and open · name your price to support →</Link>
+        <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="free-note" style={{ textDecoration: 'none' }}>Free and open · name your price to support →</a>
       </div>
 
       {/* ========== Horizontal red-stripe split: white band → grey box field ========== */}

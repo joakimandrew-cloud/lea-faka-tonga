@@ -5,6 +5,9 @@ import '../styles/v11-landing.css'
 import '../styles/v11-components.css'
 import '../styles/offer.css'
 
+// Founding Supporter — support goes through Buy Me a Coffee (2026-06-25).
+const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
+
 // The Roll of Keepers — the public, costly-signal status object.
 // Names come from src/data/founders.json. Append real Keepers as they join;
 // never seed fake names. The wall is a git history of patrons.
@@ -51,7 +54,7 @@ export default function Keepers() {
                 The first names go here. Be among the first {250} Founding Keepers, your name cast into
                 the work, in your own community.
               </p>
-              <Link to="/support" className="cta-btn">Become a Founding Keeper →</Link>
+              <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="cta-btn">Become a Founding Keeper →</a>
             </div>
           ) : (
             <>
@@ -76,7 +79,7 @@ export default function Keepers() {
                 </div>
               ))}
               <div className="offer-keepers-link">
-                <Link to="/support" className="cta-btn">Add your name →</Link>
+                <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="cta-btn">Add your name →</a>
               </div>
             </>
           )}

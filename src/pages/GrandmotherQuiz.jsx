@@ -8,6 +8,7 @@ import '../styles/quiz.css'
 // emotional realization + the opt-in, not a graded exam.
 // Email endpoint is configurable; empty = local thank-you (no backend needed).
 const EMAIL_ACTION = '' // TODO: Buttondown/Formspree POST endpoint
+const BMC_URL = 'https://buymeacoffee.com/leafakatonga' // support goes through Buy Me a Coffee
 
 const QUESTIONS = [
   { ton: 'Kuo ke kai?', q: 'What did she just ask you?',
@@ -118,7 +119,7 @@ export default function GrandmotherQuiz() {
 
             <div className="quiz-result-cta">
               <Link to="/lessons/1" className="cta-btn">Start the free course →</Link>
-              <Link to="/support" className="cta-secondary">Why it’s free →</Link>
+              <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="cta-secondary">Why it’s free →</a>
             </div>
 
             <div className="quiz-signup">
