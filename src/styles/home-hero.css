@@ -1,0 +1,37 @@
+/* =========================================================================
+   home-hero — the live homepage hero (the "D2 / one action" treatment chosen
+   2026-06-25): centered single column, Free Preview framing, one primary
+   action (Start Lesson 1), the auto-cycling feature stage beneath it, and the
+   book download + support ask in a quiet foot. Reuses the hero-lab (.hl-*)
+   classes; only the single-column specifics live here.
+   ========================================================================= */
+
+/* primary "Start Lesson 1" call to action */
+.hv-start{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--red,#c24a1f); color:#fff; text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif; font-weight:800; text-transform:uppercase;
+  letter-spacing:0.04em; font-size:clamp(18px,1.5vw,23px);
+  padding:14px 28px; border-radius:8px; box-shadow:0 2px 0 var(--ink,#1a1612);
+  margin:4px 0 2px; transition:transform .15s ease;
+}
+.hv-start:hover{ transform:translateY(-2px); }
+
+/* the honest access line under the CTA */
+.hv-access{
+  font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:13.5px;
+  letter-spacing:0.05em; text-transform:uppercase; color:var(--ink,#4a453f);
+  opacity:.72; margin:12px 0 2px; max-width:46ch;
+}
+
+/* demoted "or take the book" links */
+.hv-dl-small{ gap:18px; margin-top:6px; }
+.hv-dl-small .hl-cta-secondary{ font-size:14px; padding:8px 14px; }
+
+/* centered single-column hero */
+.hl-a.hv-single{ flex-direction:column; align-items:center; text-align:center; max-width:1040px; gap:22px; }
+.hv-single .hv-single-head{ display:flex; flex-direction:column; align-items:center; max-width:44ch; }
+.hv-single .hv-start{ align-self:center; }
+.hv-single .hl-a-stage{ width:100% !important; max-width:900px; }
+.hv-single-foot{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+.hv-single-foot .hl-downloads{ justify-content:center; }

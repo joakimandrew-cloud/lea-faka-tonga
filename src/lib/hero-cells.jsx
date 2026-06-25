@@ -41,9 +41,9 @@ export function messageMsFor(cell, portrait) {
 export const PREVIEW_RATE = 0.5
 
 export const lead = {
-  eyebrow: 'The whole course, free and open',
+  eyebrow: 'Free preview',
   headline: <>Find your<br /><span className="accent">Tongan</span>.</>,
-  sub: 'Whether it’s your family’s language, you married into it, or you just love Tonga: 52 lessons, beginner to advanced, free to keep.',
+  sub: 'Apps give you a handful of words you forget. This teaches you Tongan, every rule explained, in order, beginner to fluent. Your first lesson is free, no signup.',
 }
 
 // Each cell carries a desktop (landscape) + mobile (portrait) preview clip,

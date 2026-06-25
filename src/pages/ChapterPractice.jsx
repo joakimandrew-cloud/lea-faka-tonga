@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import FreePreviewModal from '../components/FreePreviewModal'
 import { useChapter } from '../contexts/ChapterContext'
 import chapters from '../data/chapters.json'
 import sentencePatterns from '../data/sentence-patterns.json'
@@ -45,6 +46,8 @@ export default function ChapterPractice() {
   const { setChapter } = useChapter()
   const [patternIndex, setPatternIndex] = useState(null)
   const [showHint, setShowHint] = useState(false)
+  const [showFpp, setShowFpp] = useState(false)
+  const [fppVariant, setFppVariant] = useState('reframe')
 
   // Keep global chapter context in sync. Must run in an effect, not the
   // render body: setChapter updates ChapterProvider's state AND writes
@@ -52,6 +55,21 @@ export default function ChapterPractice() {
   useEffect(() => {
     setChapter(chapterNum)
   }, [chapterNum, setChapter])
+
+  // Free-preview pop-up: appears ONCE, after the reader has scrolled into the
+  // lesson (real engagement, not an ambush). `?fpp=1` forces it open for preview
+  // and ignores the "seen" flag so it can be reviewed repeatedly.
+  useEffect(() => {
+    const fppParam = new URLSearchParams(window.location.search).get('fpp')
+    if (fppParam) { setFppVariant(fppParam === '1' ? 'plain' : 'reframe'); setShowFpp(true); return }
+    if (localStorage.getItem('fpp-seen')) return
+    const onScroll = () => {
+      const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight
+      if (depth > 0.45) { setShowFpp(true); window.removeEventListener('scroll', onScroll) }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Hoisted above the early return so every hook runs unconditionally
   // (react-hooks/rules-of-hooks). Safe: getPatternsForChapter doesn't read
@@ -89,8 +107,15 @@ export default function ChapterPractice() {
     setShowHint(false)
   }
 
+  // Dismiss the pop-up and remember it, so it never auto-reappears for this visitor.
+  const closeFpp = () => {
+    setShowFpp(false)
+    try { localStorage.setItem('fpp-seen', '1') } catch { /* private mode */ }
+  }
+
   return (
     <div className="reading-page lesson-reader">
+      <FreePreviewModal open={showFpp} variant={fppVariant} onClose={closeFpp} />
       {/* Chapter header */}
       <div className="mb-6">
         <div className="flex items-baseline gap-3 mb-2">

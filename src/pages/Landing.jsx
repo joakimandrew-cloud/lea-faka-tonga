@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { BASE, BOOK_PDF, BOOK_EPUB, PREVIEW_MS, PREVIEW_RATE, messageMsFor, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
+import { BOOK_PDF, BOOK_EPUB, PREVIEW_MS, PREVIEW_RATE, messageMsFor, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
 import LogoMark from '../components/LogoMark'
 import '../styles/v11-landing.css'
+import '../styles/home-hero.css'
 
-// Founding Supporter — Buy Me a Coffee. $35+ locks lifetime access (first 100).
+// Buy Me a Coffee: $35+ keeps the site free for you, for life, when it goes members-only.
 const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
 
 const moduleCards = [
@@ -15,37 +16,9 @@ const moduleCards = [
   { num: '05', title: <>Reference<br />Charts</>, action: 'Lookup',   to: '/charts' },
 ]
 
-// The hero is the Grammar+Dive treatment chosen in /hero-lab: a fixed book-cover
-// anchor (the free offer, always in view) beside a stage that auto-cycles the
-// five features. Each cell plays a real grammar micro-animation (the teaching
-// beat) and then DIVES through it into the matching live-app preview clip — so
-// every beat shows the point, then lands you in the real site doing it.
-function HomeHeroAnchor() {
-  return (
-    <div className="hl-anchor">
-      <span className="hl-eyebrow">{lead.eyebrow}</span>
-      <h1 className="hl-headline">{lead.headline}</h1>
-      <p className="hl-sub">{lead.sub}</p>
-      <img className="hl-anchor-cover" src={`${BASE}cover-standing.png`} alt="Lea Faka-Tonga, the book" />
-      <div className="hl-downloads">
-        <a href={BOOK_PDF} download className="hl-cta">Download PDF <span aria-hidden="true">→</span></a>
-        <a href={BOOK_EPUB} download className="hl-cta-secondary">Download EPUB <span aria-hidden="true">→</span></a>
-      </div>
-      <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="hero-found-note hl-found-note">
-        <strong>Founding Supporter</strong>: give $35+ and lock in lifetime access (first 100) <span className="arrow">→</span>
-      </a>
-      {/* mobile-only: cue the first-time visitor down to the preview */}
-      <button
-        type="button"
-        className="hl-scrollcue"
-        onClick={() => document.querySelector('.hl-a-stage')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-      >
-        <span className="hl-scrollcue-label">See it in action</span>
-        <span className="hl-scrollcue-arrow" aria-hidden="true">↓</span>
-      </button>
-    </div>
-  )
-}
+// The homepage hero is the "D2 / one action" layout (chosen 2026-06-25):
+// Free Preview framing, one CTA (Start Lesson 1), the auto-cycling feature stage
+// beneath it, with the book download + support ask in a quiet foot. Rendered inline.
 
 export default function Landing() {
   const [idx, setIdx] = useState(0)
@@ -98,13 +71,18 @@ export default function Landing() {
           <LogoMark className="logo-mark" />
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
-        <div className="top-sub">Learn Tongan · free and open</div>
+        <div className="top-sub">Learn Tongan · the book is free</div>
       </div>
 
-      {/* ========== HERO — Grammar+Dive (from /hero-lab): book-cover anchor +
-          a stage that teaches each feature, then dives into the real app. ========== */}
-      <div className="hl-a home-hero">
-        <div className="hl-a-anchor"><HomeHeroAnchor /></div>
+      {/* ========== HERO: Free Preview, one action (Start Lesson 1), stage beneath ========== */}
+      <div className="hl-a home-hero hv-single">
+        <div className="hv-single-head">
+          <span className="hl-eyebrow">{lead.eyebrow}</span>
+          <h1 className="hl-headline">{lead.headline}</h1>
+          <p className="hl-sub">{lead.sub}</p>
+          <Link to="/lessons/1" className="hv-start">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
+          <p className="hv-access">Free while we build it, members-only later. The book stays free forever.</p>
+        </div>
         <div className="hl-a-stage">
           <StoryCell key={cells[idx].id} cell={cells[idx]} style="grammardive" active reduceMotion={reduceMotion} portrait={portrait} />
           <div className="hl-dots">
@@ -120,6 +98,15 @@ export default function Landing() {
           </div>
           <div className="hl-stage-cap"><span className="hl-stage-cap-title">{cells[idx].previewTitle}</span></div>
         </div>
+        <div className="hv-single-foot">
+          <div className="hl-downloads hv-dl-small">
+            <a href={BOOK_PDF} download className="hl-cta-secondary">Prefer the book? Download free (PDF)</a>
+            <a href={BOOK_EPUB} download className="hl-cta-secondary">EPUB</a>
+          </div>
+          <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="hero-found-note hl-found-note">
+            <strong>Support the work</strong>: $35+ keeps the site free for you, for life <span className="arrow">→</span>
+          </a>
+        </div>
       </div>
 
       {/* ========== BOTTOM WHITE BAND ========== */}
@@ -130,7 +117,7 @@ export default function Landing() {
             52 lessons · beginner to advanced · checked by fluent speakers
           </div>
         </div>
-        <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="free-note" style={{ textDecoration: 'none' }}>Free and open · name your price to support →</a>
+        <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="free-note" style={{ textDecoration: 'none' }}>Name your price to support →</a>
       </div>
 
       {/* ========== Horizontal red-stripe split: white band → grey box field ========== */}
