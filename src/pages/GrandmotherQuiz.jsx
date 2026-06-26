@@ -108,7 +108,7 @@ export default function GrandmotherQuiz() {
               </div>
             )}
           </div>
-          <Link to="/lessons/1" className="quiz-skip">Skip the test, just start learning →</Link>
+          <Link to="/lessons/1" state={{ fromStart: true }} className="quiz-skip">Skip the test, just start learning →</Link>
         </section>
       ) : (
         <section className="quiz-stage">
@@ -118,7 +118,7 @@ export default function GrandmotherQuiz() {
             <p className="quiz-result-body">{result.body}</p>
 
             <div className="quiz-result-cta">
-              <Link to="/lessons/1" className="cta-btn">Start the free course →</Link>
+              <Link to="/lessons/1" state={{ fromStart: true }} className="cta-btn">Start the free course →</Link>
               <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="cta-secondary">Why it’s free →</a>
             </div>
 

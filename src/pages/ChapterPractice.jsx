@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import FreePreviewModal from '../components/FreePreviewModal'
 import { useChapter } from '../contexts/ChapterContext'
 import chapters from '../data/chapters.json'
@@ -43,6 +43,12 @@ function getPatternsForChapter(chapterNum) {
 export default function ChapterPractice() {
   const { num } = useParams()
   const chapterNum = parseInt(num, 10)
+  const location = useLocation()
+  // Did the visitor arrive by clicking a "Start Lesson 1" funnel link (homepage
+  // hero / the quiz's start-the-course CTAs)? Those Links pass {fromStart:true}
+  // in router state; normal lessons-menu navigation does not. The pop-up is the
+  // free-preview pitch, so it belongs to that funnel entry, not to every lesson view.
+  const fromStart = location.state?.fromStart === true
   const { setChapter } = useChapter()
   const [patternIndex, setPatternIndex] = useState(null)
   const [showHint, setShowHint] = useState(false)
@@ -56,22 +62,20 @@ export default function ChapterPractice() {
     setChapter(chapterNum)
   }, [chapterNum, setChapter])
 
-  // Free-preview pop-up: appears ONCE, after the reader has engaged with the
-  // lesson (real engagement, not an ambush). It fires on whichever comes first:
-  //   - scrolled ~45% into the page, OR
-  //   - ~30s of reading (the reader who hasn't scrolled far yet), OR
-  //   - an on-load check, for pages that open already past the threshold
-  //     (short lesson, refresh mid-page, browser scroll restoration).
-  // `?fpp=1`/`2`/`3` forces it open for preview (plain / reframe / location) and
-  // ignores the "seen" flag, so the owner can review any variant any time, e.g.
-  // /lessons/1?fpp=3. The live default is 'location' (the /ideate winner).
+  // Free-preview pop-up: the support pitch for the free-preview funnel. It shows
+  // when the visitor arrived by clicking a "Start Lesson 1" link (fromStart) —
+  // EVERY time, no once-per-browser flag — and NOT when they reach a lesson via
+  // normal lessons navigation. It fires on whichever comes first: scrolled ~45%
+  // in, ~8s of reading, or a deferred on-load depth check (guarded so it can't
+  // ambush before content renders). `?fpp=1`/`2`/`3` force-opens a variant for
+  // preview (plain / reframe / location), e.g. /lessons/1?fpp=3. Default 'location'.
   useEffect(() => {
     const fppParam = new URLSearchParams(window.location.search).get('fpp')
     if (fppParam) {
       const byParam = { 1: 'plain', 2: 'reframe', 3: 'location' }
       setFppVariant(byParam[fppParam] || 'location'); setShowFpp(true); return
     }
-    if (localStorage.getItem('fpp-seen')) return
+    if (!fromStart) return
 
     let fired = false
     const fire = () => {
@@ -96,10 +100,10 @@ export default function ChapterPractice() {
     window.addEventListener('scroll', onScroll, { passive: true })
     // Let content settle, then catch a page that loaded already past 45%.
     const initialCheck = setTimeout(onScroll, 1200)
-    // The engaged reader who hasn't scrolled far still gets it.
-    const fallback = setTimeout(fire, 30000)
+    // Funnel entry → show shortly after they start reading (not an instant ambush).
+    const fallback = setTimeout(fire, 8000)
     return cleanup
-  }, [])
+  }, [fromStart])
 
   // Hoisted above the early return so every hook runs unconditionally
   // (react-hooks/rules-of-hooks). Safe: getPatternsForChapter doesn't read
@@ -137,11 +141,9 @@ export default function ChapterPractice() {
     setShowHint(false)
   }
 
-  // Dismiss the pop-up and remember it, so it never auto-reappears for this visitor.
-  const closeFpp = () => {
-    setShowFpp(false)
-    try { localStorage.setItem('fpp-seen', '1') } catch { /* private mode */ }
-  }
+  // Dismiss the pop-up. No persistence: it's tied to the "Start Lesson 1" funnel
+  // entry, so it shows again every time someone starts the course that way.
+  const closeFpp = () => setShowFpp(false)
 
   return (
     <div className="reading-page lesson-reader">

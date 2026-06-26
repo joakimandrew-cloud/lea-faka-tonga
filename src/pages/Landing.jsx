@@ -80,7 +80,7 @@ export default function Landing() {
           <span className="hl-eyebrow">{lead.eyebrow}</span>
           <h1 className="hl-headline">{lead.headline}</h1>
           <p className="hl-sub">{lead.sub}</p>
-          <Link to="/lessons/1" className="hv-start">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
+          <Link to="/lessons/1" state={{ fromStart: true }} className="hv-start">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
           <p className="hv-access">Free while we build it, members-only later. The book stays free forever.</p>
         </div>
         <div className="hl-a-stage">
