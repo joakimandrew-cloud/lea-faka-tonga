@@ -45,10 +45,11 @@ function LocationBody() {
   return (
     <>
       <span className="fpp-eyebrow">Free preview</span>
-      <h2 className="fpp-title" id="fpp-title">Keep it free for the next person.</h2>
+      <h2 className="fpp-title" id="fpp-title">The book is free. The site won&rsquo;t always be.</h2>
       <div className="fpp-body">
-        <p>It&rsquo;s all free right now: the <strong>book</strong> is yours forever, the <strong>website</strong> free while we build it. Soon the site won&rsquo;t be.</p>
-        <p>Pay <strong>$35</strong> once and it stays free for <strong>you</strong>, for life, and you keep it open for someone you&rsquo;ll never meet:</p>
+        <p>A complete course went into this: <strong>52 lessons</strong>, a workbook, quizzes, the interactive exercises you&rsquo;re using now, a video course in production, and native-speaker audio on the way.</p>
+        <p>The <strong>book</strong> is yours to download free, forever, PDF or EPUB, no signup. The <strong>website</strong>, with the interactive exercises, is free while we build it, then it becomes members-only.</p>
+        <p>Donate <strong>$35 or more</strong> now and you lock in <strong>lifetime membership</strong>: full access for life, even after the wall goes up, and you keep it open for the next person:</p>
       </div>
     </>
   )
@@ -77,7 +78,9 @@ export default function FreePreviewModal({ open, onClose, variant = 'location' }
 
   if (!open) return null
   const Body = variant === 'plain' ? PlainBody : variant === 'reframe' ? ReframeBody : LocationBody
-  const ctaLabel = variant === 'plain' ? 'Support on Buy Me a Coffee' : 'Keep it open'
+  const ctaLabel = variant === 'plain' ? 'Support on Buy Me a Coffee'
+    : variant === 'location' ? 'Lock in lifetime membership'
+    : 'Keep it open'
   return (
     <div className="fpp-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="fpp-title">
       <div className="fpp-card" onClick={(e) => e.stopPropagation()}>
