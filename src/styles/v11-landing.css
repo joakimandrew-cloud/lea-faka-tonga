@@ -31,6 +31,13 @@
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   overflow-x: hidden;
+
+  /* Scale the whole homepage up 25% (owner request 2026-06-27): one uniform
+     zoom keeps every proportion identical and is scoped to this wrapper, so the
+     shared hero engine (.hl-*, also used by /hero-lab) stays its own size there.
+     The "/" route renders <Landing> bare (not via <Layout>), so this wrapper IS
+     the entire homepage. overflow-x:hidden above clips any mobile sub-pixel spill. */
+  zoom: 1.25;
 }
 
 /* Zero-specificity reset (:where) so it stays a baseline only: every real rule
