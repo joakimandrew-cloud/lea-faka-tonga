@@ -47,6 +47,20 @@
 .fpp-body p{ font-size:16px; line-height:1.5; margin:0 0 12px; }
 .fpp-body strong{ font-weight:700; }
 
+/* The beneficiary, rendered AS a UI element (the 'location' variant) — a tinted
+   left-accent callout that reads as a recipient card, not body prose, sitting
+   right at the decision point above the button. */
+.fpp-beneficiary{
+  display:flex; gap:10px; align-items:flex-start;
+  margin:18px 0 4px; padding:13px 15px;
+  background:#faf5f0; border-left:4px solid #c24a1f;
+}
+.fpp-pin{ flex:none; margin-top:2px; }
+.fpp-beneficiary p{
+  margin:0; font-family:'Source Serif 4',Georgia,serif; font-style:italic;
+  font-size:15.5px; line-height:1.45; color:#1a1612;
+}
+
 .fpp-cta{
   display:flex; align-items:center; justify-content:center; gap:10px; margin-top:6px;
   background:#c24a1f; color:#fff; text-decoration:none;

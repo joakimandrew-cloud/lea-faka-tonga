@@ -47,7 +47,7 @@ export default function ChapterPractice() {
   const [patternIndex, setPatternIndex] = useState(null)
   const [showHint, setShowHint] = useState(false)
   const [showFpp, setShowFpp] = useState(false)
-  const [fppVariant, setFppVariant] = useState('reframe')
+  const [fppVariant, setFppVariant] = useState('location')
 
   // Keep global chapter context in sync. Must run in an effect, not the
   // render body: setChapter updates ChapterProvider's state AND writes
@@ -62,11 +62,15 @@ export default function ChapterPractice() {
   //   - ~30s of reading (the reader who hasn't scrolled far yet), OR
   //   - an on-load check, for pages that open already past the threshold
   //     (short lesson, refresh mid-page, browser scroll restoration).
-  // `?fpp=1` / `?fpp=2` forces it open for preview and ignores the "seen" flag,
-  // so the owner can review it any time at e.g. /lessons/1?fpp=2.
+  // `?fpp=1`/`2`/`3` forces it open for preview (plain / reframe / location) and
+  // ignores the "seen" flag, so the owner can review any variant any time, e.g.
+  // /lessons/1?fpp=3. The live default is 'location' (the /ideate winner).
   useEffect(() => {
     const fppParam = new URLSearchParams(window.location.search).get('fpp')
-    if (fppParam) { setFppVariant(fppParam === '1' ? 'plain' : 'reframe'); setShowFpp(true); return }
+    if (fppParam) {
+      const byParam = { 1: 'plain', 2: 'reframe', 3: 'location' }
+      setFppVariant(byParam[fppParam] || 'location'); setShowFpp(true); return
+    }
     if (localStorage.getItem('fpp-seen')) return
 
     let fired = false
