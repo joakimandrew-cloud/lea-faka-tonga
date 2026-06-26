@@ -104,7 +104,7 @@ export default function Landing() {
             <a href={BOOK_EPUB} download className="hl-cta-secondary">EPUB</a>
           </div>
           <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="hero-found-note hl-found-note">
-            <strong>Support the work</strong>: $35+ keeps the site free for you, for life <span className="arrow">→</span>
+            The book's yours, free. If it's worth something to you, <strong>support the work</strong>: $35+ keeps the site free for you, for life <span className="arrow">→</span>
           </a>
         </div>
       </div>
