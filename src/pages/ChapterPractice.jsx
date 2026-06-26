@@ -56,19 +56,45 @@ export default function ChapterPractice() {
     setChapter(chapterNum)
   }, [chapterNum, setChapter])
 
-  // Free-preview pop-up: appears ONCE, after the reader has scrolled into the
-  // lesson (real engagement, not an ambush). `?fpp=1` forces it open for preview
-  // and ignores the "seen" flag so it can be reviewed repeatedly.
+  // Free-preview pop-up: appears ONCE, after the reader has engaged with the
+  // lesson (real engagement, not an ambush). It fires on whichever comes first:
+  //   - scrolled ~45% into the page, OR
+  //   - ~30s of reading (the reader who hasn't scrolled far yet), OR
+  //   - an on-load check, for pages that open already past the threshold
+  //     (short lesson, refresh mid-page, browser scroll restoration).
+  // `?fpp=1` / `?fpp=2` forces it open for preview and ignores the "seen" flag,
+  // so the owner can review it any time at e.g. /lessons/1?fpp=2.
   useEffect(() => {
     const fppParam = new URLSearchParams(window.location.search).get('fpp')
     if (fppParam) { setFppVariant(fppParam === '1' ? 'plain' : 'reframe'); setShowFpp(true); return }
     if (localStorage.getItem('fpp-seen')) return
-    const onScroll = () => {
-      const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight
-      if (depth > 0.45) { setShowFpp(true); window.removeEventListener('scroll', onScroll) }
+
+    let fired = false
+    const fire = () => {
+      if (fired) return
+      fired = true
+      setShowFpp(true)
+      cleanup()
+    }
+    const pastDepth = () => {
+      const sh = document.documentElement.scrollHeight
+      // Require a genuinely scrollable page so the on-load check can't ambush
+      // against not-yet-rendered content (scrollHeight ≈ viewport).
+      if (sh <= window.innerHeight + 200) return false
+      return (window.scrollY + window.innerHeight) / sh > 0.45
+    }
+    const onScroll = () => { if (pastDepth()) fire() }
+    const cleanup = () => {
+      window.removeEventListener('scroll', onScroll)
+      clearTimeout(initialCheck)
+      clearTimeout(fallback)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    // Let content settle, then catch a page that loaded already past 45%.
+    const initialCheck = setTimeout(onScroll, 1200)
+    // The engaged reader who hasn't scrolled far still gets it.
+    const fallback = setTimeout(fire, 30000)
+    return cleanup
   }, [])
 
   // Hoisted above the early return so every hook runs unconditionally
