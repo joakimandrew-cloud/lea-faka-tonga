@@ -124,7 +124,7 @@ The compound prefix *faka-e-* is a more specific version of *faka-*. Where *faka
 
 ---
 
-> **Preview:** When *faka-* is combined with a reduplicated (repeated) form of a word, the meaning shifts. For example, *poto* (clever) becomes *fakapotopoto* (sensible, prudent, wise), not simply "to make clever." The combination of *faka-* with reduplication is covered formally in Lesson 50: Reduplication. Recognize words like *fakapotopoto* as having a nuanced meaning built from the base word.
+> **Preview:** When *faka-* is combined with a reduplicated (repeated) form of a word, the meaning shifts. For example, *poto* (clever) becomes *fakapotopoto* (sensible, prudent, wise), not simply "to make clever." The combination of *faka-* with reduplication is covered formally in Lesson 50: Reduplication and Expressive Sound Devices. Recognize words like *fakapotopoto* as having a nuanced meaning built from the base word.
 
 ---
 

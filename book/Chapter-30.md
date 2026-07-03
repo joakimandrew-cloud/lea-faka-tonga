@@ -38,7 +38,7 @@ This means the same thing as *Kapau té ke foki, té u kuki.* The only differenc
 
 ### While: *lolotonga* as a conjunction
 
-You met *lolotonga* in Lesson 22: Aspect Markers, where it meant "currently" or "in the act of," placed before a verb within a single clause. *Lolotonga* also works as a conjunction meaning "while." In this use, it sits between two full clauses, saying that one event happens during another.
+You met *lolotonga* in Lesson 22: Aspect Markers and Frequency, where it meant "currently" or "in the act of," placed before a verb within a single clause. *Lolotonga* also works as a conjunction meaning "while." In this use, it sits between two full clauses, saying that one event happens during another.
 
 ::: {.examples}
 *Na'á ku mohe lolotonga na'á ne lau tohi.* I slept while she was reading.
@@ -88,7 +88,7 @@ Another pattern for "when" uses *ko e* with *pē* (just, only) to express "as so
 
 Both patterns use *pea* to begin the main clause. The *'i he* pattern emphasizes a moment in time. The *ko e ... pē* pattern emphasizes immediacy.
 
-> **Preview:** The word *hilí* means "after" and works as a time marker between events, the opposite of *lolotonga* (while/during). *Hilí 'a e ngāué, na'a mau kai* (After the work, we ate). This is covered formally in Lesson 42: Time Expressions and Personal Questions. Recognize *hilí* as meaning "after" when you encounter it.
+> **Preview:** The word *hilí* means "after" and works as a time marker between events, the opposite of *lolotonga* (while/during). *Hilí 'a e ngāué, na'a mau kai* (After the work, we ate). This is covered formally in Lesson 42: Time Expressions. Recognize *hilí* as meaning "after" when you encounter it.
 
 ---
 

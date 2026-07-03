@@ -175,7 +175,7 @@ Both express the same meaning. The verbal noun construction is considered more n
 
 ### *Ko* + possessive + verbal noun, expanded
 
-Lesson 22: Aspect Markers introduced this pattern for actions happening right now. With the verbal noun constructions above, you can see how it fits into the broader system:
+Lesson 22: Aspect Markers and Frequency introduced this pattern for actions happening right now. With the verbal noun constructions above, you can see how it fits into the broader system:
 
 ::: {.examples}
 *Ko ho'o lele ki fē?* Where are you running to? (Lit. "It is your running to where?")

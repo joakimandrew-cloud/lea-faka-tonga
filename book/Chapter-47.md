@@ -43,7 +43,7 @@ The first *ka* is the conjunction ("if/when"). The pronoun *ke* (you) comes next
 
 ### *ka* versus *kapau*
 
-Lesson 30: Temporal and Conditional Conjunctions introduced *kapau* (if). Both words express conditions, but they differ in how likely the speaker considers the outcome.
+Lesson 30: Temporal, Conditional, and Concessive Conjunctions introduced *kapau* (if). Both words express conditions, but they differ in how likely the speaker considers the outcome.
 
 ::: {.examples}
 *Kapau 'e ha'u 'a Sēmisi, té u loto mamahi.* If Sēmisi comes, I will be upset. (He probably will not come.)

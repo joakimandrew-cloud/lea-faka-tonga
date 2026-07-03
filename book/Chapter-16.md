@@ -160,7 +160,7 @@ Compare the contrast in equational sentences:
 *Ko e ki'i tohi motu'a pē.* It is just a small old book. (*motu'a* = old)
 :::
 
-> *Note:* The word *si'isi'i* is the reduplicated form of *si'i* (small). Reduplication often intensifies meaning in Tongan. The full system of reduplication is covered in Lesson 50: Reduplication.
+> *Note:* The word *si'isi'i* is the reduplicated form of *si'i* (small). Reduplication often intensifies meaning in Tongan. The full system of reduplication is covered in Lesson 50: Reduplication and Expressive Sound Devices.
 
 ---
 

@@ -85,7 +85,7 @@ Before a verb with a noun subject, *te'eki* can stand without *te* or *ke*:
 *'Oku te'eki kamata 'a e ngāué.* The work has not started yet.
 :::
 
-> *Note:* The phrase *te'eki ai ke* can also mean "before" in the sense of something happening prior to another event: *Te'eki ai ke u lea, kuó ne lea mai.* (Before I could speak, he spoke to me.) This is an awareness item. You will encounter it in reading, but the formal treatment comes in Lesson 30: Temporal and Conditional Conjunctions.
+> *Note:* The phrase *te'eki ai ke* can also mean "before" in the sense of something happening prior to another event: *Te'eki ai ke u lea, kuó ne lea mai.* (Before I could speak, he spoke to me.) This is an awareness item. You will encounter it in reading, but the formal treatment comes in Lesson 30: Temporal, Conditional, and Concessive Conjunctions.
 
 ---
 

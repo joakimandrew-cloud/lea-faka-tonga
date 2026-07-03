@@ -51,8 +51,8 @@ const charts = [
         rows: [
           ['1st excl.', '\u2019eku', '\u2019ema', '\u2019emau'],
           ['1st incl.', '\u2013', '\u2019eta', '\u2019etau'],
-          ['2nd', 'ho\u2019o', '\u2019emo', 'ho\u2019omou'],
-          ['3rd', '\u2019ene', '\u2013', '\u2019enau'],
+          ['2nd', 'ho\u2019o', 'ho\u2019omo', 'ho\u2019omou'],
+          ['3rd', '\u2019ene', '\u2019ena', '\u2019enau'],
         ],
       },
       {
@@ -147,9 +147,9 @@ const charts = [
         label: 'ho-class (mo\u2019o + pronoun)',
         headers: ['', 'Singular', 'Plural'],
         rows: [
-          ['1st excl.', 'mo\u2019oku', '\u2013'],
+          ['1st excl.', 'mo\u2019oku', 'mo\u2019omau'],
           ['1st incl.', '\u2013', 'mo\u2019otau'],
-          ['2nd', 'mo\u2019ou', '\u2013'],
+          ['2nd', 'mo\u2019ou', 'mo\u2019omou'],
           ['3rd', 'mo\u2019ona', 'mo\u2019onau'],
         ],
       },
@@ -167,8 +167,8 @@ const charts = [
           ['1st sing.', 'si\u2019eku', 'si\u2019oku'],
           ['2nd sing.', 'si\u2019o', 'si\u2019o'],
           ['3rd sing.', 'si\u2019ene', 'si\u2019ono'],
-          ['1st incl. pl.', 'si\u2019etau', 'si\u2019otau'],
           ['1st excl. pl.', 'si\u2019emau', 'si\u2019omau'],
+          ['1st incl. pl.', 'si\u2019etau', 'si\u2019otau'],
           ['2nd pl.', 'si\u2019omou', 'si\u2019omou'],
           ['3rd pl.', 'si\u2019enau', 'si\u2019onau'],
         ],

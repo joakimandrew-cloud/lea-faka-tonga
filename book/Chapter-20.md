@@ -175,13 +175,13 @@ For "at" a specific time, use *he* (which is *'i he* with *'i* dropped, a patter
 *He tolu.* At three.
 :::
 
-For minutes before the hour, Tongan uses the word *toe* *(remaining, still to go)* before the time phrase. This word has other uses covered in Lesson 22: Aspect Markers, but in time-telling it simply means "remaining":
+For minutes before the hour, Tongan uses the word *toe* *(remaining, still to go)* before the time phrase. This word has other uses covered in Lesson 22: Aspect Markers and Frequency, but in time-telling it simply means "remaining":
 
 ::: {.examples}
 *'Oku toe 'a e miniti 'e nima ki he tolú.* Five minutes to three. (Lit. "Five minutes remain to the three.")
 :::
 
-For minutes after the hour, Tongan uses *'osi* *(finished, past)* to indicate that the hour has passed. Like *toe*, this word has broader uses covered in Lesson 22: Aspect Markers, but in time-telling it signals that the hour is complete:
+For minutes after the hour, Tongan uses *'osi* *(finished, past)* to indicate that the hour has passed. Like *toe*, this word has broader uses covered in Lesson 22: Aspect Markers and Frequency, but in time-telling it signals that the hour is complete:
 
 ::: {.examples}
 *Kuo 'osi 'a e valú, miniti 'e hongofulu.* Ten minutes past eight. (Lit. "The eight is finished, ten minutes.")

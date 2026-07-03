@@ -138,7 +138,7 @@ At this stage, *'apō* is the form you will use most. Treat *'apōni* and *he po
 
 #### Days of the week
 
-These are useful to know alongside the time words above, even though using them in full sentences requires articles (Lesson 8: Articles) and time expressions covered in Lesson 42: Time Expressions and Personal Questions.
+These are useful to know alongside the time words above, even though using them in full sentences requires articles (Lesson 8: Articles) and time expressions covered in Lesson 42: Time Expressions.
 
 | Tongan | English |
 |---|---|

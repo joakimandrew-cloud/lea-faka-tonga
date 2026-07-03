@@ -7,9 +7,10 @@
  *
  * Four checks:
  *
- *   1. EM-DASH (hard fail). Scans book/Chapter-*.md for U+2014. Em-dashes
- *      are banned from book/ per the zero-tolerance policy. Replace with
- *      comma, colon, semicolon, parens, or sentence split.
+ *   1. EM-DASH (hard fail). Scans all reader-facing book/ markdown for U+2014 —
+ *      the 52 chapters plus the front/back matter (Introduction, pronunciation,
+ *      charts, glossary). Em-dashes are banned from book/ per the zero-tolerance
+ *      policy. Replace with comma, colon, semicolon, parens, or sentence split.
  *
  *   1b. APP-CONTENT EM-DASH (hard fail). Extends the same ban to what the app
  *      renders: quiz/chart/chapter/pattern/graph data + drill & builder copy.
@@ -63,6 +64,15 @@ const A_E_PRECEDERS = ['kai', 'inu', 'lau', 'tā', 'tanu', 'tatala', 'fai', 'ako
 async function readChapterFiles() {
   const files = await fs.readdir(BOOK_DIR)
   return files.filter(f => /^Chapter-\d{2}\.md$/.test(f)).sort()
+}
+
+// Every reader-facing markdown file in book/: the 52 chapters plus the
+// front/back matter (Introduction, pronunciation guide, charts, glossary).
+// The em-dash hard-fail scans this wider set so the appendices — which are
+// not Chapter-NN.md and were previously unguarded — can't regress. (2026-07-03)
+async function readBookProseFiles() {
+  const files = await fs.readdir(BOOK_DIR)
+  return files.filter(f => /^(Chapter-\d{2}|Introduction|appendix-.+)\.md$/.test(f)).sort()
 }
 
 async function readJSON(p) {
@@ -300,9 +310,10 @@ async function main() {
   let exitCode = 0
 
   console.log('\n── Em-dash check (hard) ──')
-  const dashHits = await checkEmDashes(chapterFiles)
+  const proseFiles = await readBookProseFiles()
+  const dashHits = await checkEmDashes(proseFiles)
   if (dashHits.length === 0) {
-    console.log(`  ✓ no em-dashes (U+2014) in book/ (${chapterFiles.length} files scanned)`)
+    console.log(`  ✓ no em-dashes (U+2014) in book/ (${proseFiles.length} files scanned)`)
   } else {
     exitCode = 1
     for (const h of dashHits) {

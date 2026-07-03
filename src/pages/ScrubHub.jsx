@@ -17,7 +17,7 @@ export default function ScrubHub() {
       <div style={S.head}>
         <div style={S.kicker}>hidden · /scrub</div>
         <h1 style={S.h1}>Animation scrubber</h1>
-        <div style={S.sub}>View + direct any animation. Drag the slider (or ← → keys; Shift = 10&nbsp;ms; Space = play) to freeze a moment; drag a <b>dial</b> on the right to re-time it live; hit <b>Save</b> to hand me your numbers. Showing the timings for <b>this device</b> — open on your phone to tune the phone version.</div>
+        <div style={S.sub}>View + direct any animation. Drag the slider (or ← → keys; Shift = 10&nbsp;ms; Space = play) to freeze a moment; drag a <b>dial</b> on the right to re-time it live; hit <b>Save</b> to hand me your numbers. Showing the timings for <b>this device</b>: open on your phone to tune the phone version.</div>
         {SCENES.length > 1 && (
           <div style={S.picker}>
             <span style={S.pickerLabel}>Animation:</span>
