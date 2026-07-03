@@ -39,7 +39,7 @@ The difference between indefinite and semi-definite is subtle but real. Two patt
 The three-level system extends to possessive pronouns. Compare:
 
 ::: {.examples}
-*'Oku 'ikai ha'anau me'akaí.* They have no food. (Indefinite: *ha'anau*.)
+*'Oku 'ikai ke 'i ai ha'anau me'akaí.* They have no food. (Indefinite: *ha'anau*.)
 
 *Na'a nau 'omai 'enau me'akai.* They brought their food. (Semi-definite: *'enau*, no accent.)
 

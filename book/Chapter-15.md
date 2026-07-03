@@ -185,7 +185,7 @@ This same principle applies to the predicate locational pattern you already know
 
 ---
 
-### Quick Practice B: Predicate adjectives, weather, and questions with noun subjects
+### Quick Practice: Predicate adjectives, weather, and questions with noun subjects
 
 Translate each sentence to Tongan.
 

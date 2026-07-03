@@ -166,7 +166,7 @@ The pronoun object usually follows the verb phrase and comes before the *'e* nou
 
 ---
 
-### Quick Practice B: Passives, the required *ne*, and postposed pronoun objects
+### Quick Practice: Passives, the required *ne*, and postposed pronoun objects
 
 Rewrite each sentence as instructed.
 

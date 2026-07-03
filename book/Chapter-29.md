@@ -116,10 +116,12 @@ Tongan has no verb meaning "to have." Instead, it combines *'oku 'i ai* (there i
 ::: {.examples}
 *'Oku 'i ai ha'o kato?* Do you have a basket? (Lit. "Is there a-your basket?")
 
-*'Oku 'ikai ha'aku hele.* I don't have a knife. (Lit. "A-my knife does not exist.")
+*'Oku 'ikai ke 'i ai ha'aku hele.* I don't have a knife. (Lit. "There is not a knife of mine.")
 
 *'Oku 'i ai 'eku hele 'e ua.* I have two knives. (Definite form in the answer.)
 :::
+
+Since the pattern is built on *'oku 'i ai* ("there is"), the negative is its existential negative *'oku 'ikai ke 'i ai* ("there is not"), so "I do not have a knife" is *'Oku 'ikai ke 'i ai ha'aku hele*. Lesson 31 covers this negative form in full.
 
 The indefinite form appears in the question (the speaker does not know if you have one) and in the negative (you have none at all). The definite form returns in affirmative answers, because the thing is now specific.
 
@@ -138,7 +140,7 @@ The indefinite form appears in the question (the speaker does not know if you ha
 ::: {.examples}
 *'Oku 'i ai hao fale?* Do you have a house?
 
-*'Oku 'ikai haku fale.* I don't have a house.
+*'Oku 'ikai ke 'i ai haku fale.* I don't have a house.
 
 *'Oku 'i ai hoku fale pē taha.* I have just one house. (Definite form in the answer.)
 :::
@@ -284,10 +286,10 @@ Fill in the blank with the correct preposition and possessive combination. The c
 #### Exercise 3
 
 1. *'Oku 'i ai ha'o hele?*
-2. *'Oku 'ikai ha'aku kato.*
+2. *'Oku 'ikai ke 'i ai ha'aku kato.*
 3. *'Oku 'i ai ha'ane tohi?*
 4. *'Oku 'i ai hao fale?*
-5. *'Oku 'ikai haku kāinga.*
+5. *'Oku 'ikai ke 'i ai haku kāinga.*
 6. *'Oku 'i ai 'ene pa'anga lahi.*
 
 #### Exercise 4
@@ -303,6 +305,6 @@ Fill in the blank with the correct preposition and possessive combination. The c
 1. *'Ene tohi*
 2. *Hono fili*
 3. *'Oku 'i ai ha'o fala?*
-4. *'Oku 'ikai ha'aku me'akai.*
+4. *'Oku 'ikai ke 'i ai ha'aku me'akai.*
 5. *'Oku ou sai'ia 'i hono tokoua.*
 6. *Na'e tonu 'enau fili 'a Siale.*

@@ -143,7 +143,7 @@ In everyday speech, *'ai* often replaces *fai* and many other transitive verbs w
 
 ---
 
-### Quick Practice B: *fai* + verbal noun
+### Quick Practice: *fai* + verbal noun
 
 Translate each Tongan sentence to English.
 

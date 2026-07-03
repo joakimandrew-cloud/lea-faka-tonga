@@ -183,19 +183,6 @@ When *fē* appears as a common noun with the definite article, it means "which o
 
 ---
 
-### Quick Practice B: Postposed *hā* (what) and postposed *fē* (which)
-
-Choose *hā* or *fē* for each blank.
-
-1. *'Okú ke ako \_\_\_?* What are you studying?
-2. *'I he 'aho \_\_\_?* On which day?
-3. *'Okú ne faiako \_\_\_?* What does he teach?
-4. *'I he hala \_\_\_?* On which road?
-
-**Answers:** 1. *hā*. 2. *fē*. 3. *hā*. 4. *fē*
-
----
-
 ### *Fēfee'i* (how, transitive)
 
 ::: {.examples}
@@ -304,6 +291,10 @@ e. *Na'á ke mohe 'i fē?*
 4. *Na'á ke mohe 'i he fale \_\_\_?* Which house did you sleep in?
 5. *'Oku \_\_\_?* What's wrong?
 6. *'Okú ne 'alu ki he kolo \_\_\_?* Which town is he going to?
+7. *'Okú ke ako \_\_\_?* What are you studying?
+8. *'I he 'aho \_\_\_?* On which day?
+9. *'Okú ne faiako \_\_\_?* What does he teach?
+10. *'I he hala \_\_\_?* On which road?
 
 #### Exercise 6: Translate into English
 
@@ -361,6 +352,10 @@ e: 5
 4. *fē*
 5. *hā*
 6. *fē*
+7. *hā*
+8. *fē*
+9. *hā*
+10. *fē*
 
 #### Exercise 6
 

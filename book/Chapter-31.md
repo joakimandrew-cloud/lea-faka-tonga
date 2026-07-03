@@ -42,6 +42,8 @@ The negative existential follows the standard negation pattern. Place *'ikai ke*
 *'Oku 'ikai ke 'i ai ha me'akai 'i fale.* There is no food in the house.
 :::
 
+In everyday speech, the *ke 'i ai* is often dropped, leaving just *'oku 'ikai*: you may hear *'Oku 'ikai ha me'akai 'i fale* for "there is no food in the house." That shorter form is also correct. This book always teaches and drills the full *'oku 'ikai ke 'i ai*, which keeps the existential core *'i ai* visible.
+
 In past and future tenses:
 
 ::: {.examples}

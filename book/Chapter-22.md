@@ -246,7 +246,7 @@ The adverb *ai pē* means "still," "as always," "as before," or "as usual." It i
 
 ---
 
-### Quick Practice C: *toutou* and *ai pē*
+### Quick Practice: *toutou* and *ai pē*
 
 Fill in the blank with *toutou* (repeatedly) or *ai pē* (as always, as usual).
 
