@@ -1,5 +1,4 @@
 import { translate, buildTonganSentence } from '../engine/translate'
-import { okinafy } from '../lib/okinafy'
 
 export default function SentenceBar({ steps, isFinished, isQuestion = false, onUndo, onReset, completeness = 'incomplete' }) {
   if (steps.length === 0) {
@@ -27,15 +26,15 @@ export default function SentenceBar({ steps, isFinished, isQuestion = false, onU
             key={i}
             className="px-3 py-1 bg-[var(--bg-tone)] border border-[var(--border)] text-[var(--text)] font-tongan text-lg"
           >
-            {okinafy(step.word.tongan)}
+            {step.word.tongan}
             <span className="text-[var(--text-faint)] text-xs ml-2">{step.nodeId.replace(/_/g, ' ')}</span>
           </span>
         ))}
       </div>
 
       {/* Full Tongan sentence */}
-      <div className="font-tongan text-lg text-[var(--text)] mb-1" lang="to">
-        {okinafy(tongan)}
+      <div className="font-tongan text-lg text-[var(--text)] mb-1">
+        {tongan}
       </div>
 
       {/* Literal translation (Tongan word order) — shown when finished */}

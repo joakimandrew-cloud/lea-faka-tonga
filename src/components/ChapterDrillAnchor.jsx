@@ -11,7 +11,6 @@
  * inline inside the shared compact DrillFrame.
  */
 
-import { Suspense } from 'react'
 import DrillFrame from '../drills/DrillFrame'
 import { drillRegistry } from '../drills/registry'
 
@@ -43,9 +42,7 @@ export default function ChapterDrillAnchor({ drillId, chapterNum }) {
       </div>
 
       <DrillFrame mode="compact">
-        <Suspense fallback={<div className="py-6 text-sm text-[var(--text-faint)]">Loading practice…</div>}>
-          <Core chapterNum={chapterNum} embedded />
-        </Suspense>
+        <Core chapterNum={chapterNum} embedded />
       </DrillFrame>
     </div>
   )

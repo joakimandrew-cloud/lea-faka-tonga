@@ -1,7 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import vocabulary from '../data/book-vocabulary.json'
 import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
-import { okinafy } from '../lib/okinafy'
 import FlipCard from '../components/FlipCard'
 import '../styles/v11-components.css'
 
@@ -116,11 +115,8 @@ export default function FlipCards() {
     )
   }
 
-  // Display-only fakauʻa normalization — the underlying data stays ASCII
-  // (DECISIONS.md 2026-06-20 storage rule; site-analysis fix #3).
-  const tonganFace = okinafy(card.tongan)
-  const front = reversed ? card.english : tonganFace
-  const back = reversed ? tonganFace : card.english
+  const front = reversed ? card.english : card.tongan
+  const back = reversed ? card.tongan : card.english
   const frontLabel = reversed ? 'English' : 'Tongan'
   const backLabel = reversed ? 'Tongan' : 'English'
 

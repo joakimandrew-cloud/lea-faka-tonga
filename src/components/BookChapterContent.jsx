@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkDirective from 'remark-directive'
@@ -11,21 +11,22 @@ import remarkQuickPractice from '../lib/remark-quick-practice'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
 import QuickPractice from './QuickPractice'
 import VocabPracticeBlock from './VocabPracticeBlock'
-import { okinafy, okinafyDeep, looksTongan } from '../lib/okinafy'
-import { okinafyChildren, childrenToText } from '../lib/okinafy-react'
 
-// Each chapter markdown file becomes its own lazy chunk (no `eager`), so the
-// initial bundle no longer carries the whole book — a chapter is fetched the
-// first time it's opened, then cached below (site-analysis fix #2, 2026-07-03).
-const chapterLoaders = {}
-for (const [path, loader] of Object.entries(
-  import.meta.glob('../../book/Chapter-*.md', { query: '?raw', import: 'default' })
-)) {
+// Bulk-load every chapter markdown file at build time. Vite inlines each
+// file's contents as a string, so no runtime fetch is needed.
+const chapterFiles = import.meta.glob('../../book/Chapter-*.md', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+})
+
+const chapterMarkdown = {}
+for (const [path, content] of Object.entries(chapterFiles)) {
   const match = path.match(/Chapter-(\d+)\.md$/)
-  if (match) chapterLoaders[parseInt(match[1], 10)] = loader
+  if (match) {
+    chapterMarkdown[parseInt(match[1], 10)] = content
+  }
 }
-
-const chapterCache = new Map()
 
 function stripLeadingTitle(md) {
   if (!md) return md
@@ -69,16 +70,11 @@ const baseComponents = {
   p: ({ children }) => (
     <p className="text-[var(--text-strong)] leading-relaxed mb-3">{children}</p>
   ),
-  // Italic is the book's Tongan surface: normalize the fakauʻa at render time
-  // and mark genuinely Tongan spans lang="to" for screen readers (English
-  // run-in labels like *Word Study* stay unmarked). See src/lib/okinafy.js.
-  em: ({ children }) => {
-    const fixed = okinafyChildren(children)
-    const lang = looksTongan(okinafy(childrenToText(children))) ? 'to' : undefined
-    return <em className="font-tongan italic" lang={lang}>{fixed}</em>
-  },
+  em: ({ children }) => (
+    <em className="font-tongan italic">{children}</em>
+  ),
   strong: ({ children }) => (
-    <strong className="text-[var(--text-strong)] font-semibold">{okinafyChildren(children)}</strong>
+    <strong className="text-[var(--text-strong)] font-semibold">{children}</strong>
   ),
   ul: ({ children }) => (
     <ul className="list-disc list-inside text-[var(--text-strong)] mb-3 space-y-1">{children}</ul>
@@ -95,7 +91,7 @@ const baseComponents = {
   hr: () => <hr className="border-[var(--border)] my-6" />,
   code: ({ inline, children }) =>
     inline ? (
-      <code className="font-tongan italic bg-[var(--bg-tone)] px-1 py-0.5 rounded">{okinafyChildren(children)}</code>
+      <code className="font-tongan italic bg-[var(--bg-tone)] px-1 py-0.5 rounded">{children}</code>
     ) : (
       <pre className="bg-[var(--bg-tone)] border border-[var(--border)] p-3 my-3 overflow-x-auto text-sm text-[var(--text-strong)]">
         <code>{children}</code>
@@ -116,7 +112,7 @@ const baseComponents = {
       let rows = []
       if (typeof rowsJson === 'string') {
         try {
-          rows = okinafyDeep(JSON.parse(rowsJson))
+          rows = JSON.parse(rowsJson)
         } catch {
           rows = []
         }
@@ -136,7 +132,7 @@ const baseComponents = {
   },
   thead: ({ children }) => <thead className="bg-[var(--bg-tone)]">{children}</thead>,
   th: ({ children }) => (
-    <th className="border border-[var(--border)] px-3 py-2 text-left text-[var(--accent)] font-semibold">{okinafyChildren(children)}</th>
+    <th className="border border-[var(--border)] px-3 py-2 text-left text-[var(--accent)] font-semibold">{children}</th>
   ),
   td: ({ node, children }) => {
     // Preserve classes added by rehype-table-labels (e.g. vocab-type).
@@ -149,7 +145,7 @@ const baseComponents = {
         data-label={node?.properties?.['data-label'] || node?.properties?.dataLabel}
         colSpan={colSpan}
       >
-        {okinafyChildren(children)}
+        {children}
       </td>
     )
   },
@@ -168,24 +164,7 @@ const baseComponents = {
  * passed through as a prop (so each anchor knows its chapter context).
  */
 export default function BookChapterContent({ chapterNum }) {
-  // md derives straight from the module cache; the effect only fetches a
-  // missing chapter and bumps the counter so the render re-reads the cache.
-  const [, setLoadedCount] = useState(0)
-  const md = chapterCache.get(chapterNum) ?? null
-
-  useEffect(() => {
-    if (chapterCache.has(chapterNum)) return undefined
-    const loader = chapterLoaders[chapterNum]
-    if (!loader) return undefined
-    let alive = true
-    loader().then((content) => {
-      chapterCache.set(chapterNum, content)
-      if (alive) setLoadedCount((n) => n + 1)
-    })
-    return () => {
-      alive = false
-    }
-  }, [chapterNum])
+  const md = chapterMarkdown[chapterNum]
 
   const remarkPlugins = useMemo(
     () => [

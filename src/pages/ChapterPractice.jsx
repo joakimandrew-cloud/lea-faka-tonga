@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useLocation } from 'react-router-dom'
-import { okinafy } from '../lib/okinafy'
 import FreePreviewModal from '../components/FreePreviewModal'
 import { useChapter } from '../contexts/ChapterContext'
 import chapters from '../data/chapters.json'
@@ -162,7 +161,7 @@ export default function ChapterPractice() {
               key={i}
               className="text-xs px-2 py-1 border border-[var(--border)] text-[var(--text-muted)]"
             >
-              {okinafy(topic)}
+              {topic}
             </span>
           ))}
         </div>

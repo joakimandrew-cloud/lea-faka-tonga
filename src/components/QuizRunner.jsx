@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/v11-components.css'
-import { okinafy, looksTongan } from '../lib/okinafy'
 
 // ---------------------------------------------------------------------------
 // Render a snippet that may include Tongan glyphs or inline emphasis.
@@ -17,12 +16,9 @@ function renderInline(text) {
     if (text[i] === '*') {
       const end = text.indexOf('*', i + 1)
       if (end !== -1) {
-        // *…* is the Tongan surface: normalize the fakauʻa for display and
-        // tag real Tongan spans lang="to" (site-analysis fixes #3/#6).
-        const tongan = okinafy(text.slice(i + 1, end))
         parts.push(
-          <span key={key++} className="font-tongan" lang={looksTongan(tongan) ? 'to' : undefined}>
-            {tongan}
+          <span key={key++} className="font-tongan">
+            {text.slice(i + 1, end)}
           </span>
         )
         i = end + 1

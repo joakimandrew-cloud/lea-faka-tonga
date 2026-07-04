@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /hero-lab
-Disallow: /scrub
-Disallow: /hero-scrub
-
-Sitemap: https://leafakatonga.org/sitemap.xml

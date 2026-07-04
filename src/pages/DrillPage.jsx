@@ -18,7 +18,6 @@
  * aside) keep their own route; the menu links those cards there instead.
  */
 
-import { Suspense } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import DrillFrame from '../drills/DrillFrame'
 import { drillRegistry } from '../drills/registry'
@@ -40,9 +39,7 @@ export default function DrillPage() {
       title={meta.title}
       blurb={meta.blurb}
     >
-      <Suspense fallback={<div className="py-6 text-sm text-[var(--text-faint)]">Loading drill…</div>}>
-        <Core />
-      </Suspense>
+      <Core />
     </DrillFrame>
   )
 }
