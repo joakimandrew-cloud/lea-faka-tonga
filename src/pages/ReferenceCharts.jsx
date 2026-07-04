@@ -4,7 +4,7 @@ const charts = [
   {
     id: 'preposed',
     title: 'Preposed Pronouns',
-    description: 'Subject markers that follow tense particles (na\u2019a, \u2019oku, kuo, te).',
+    description: 'Subject markers that follow tense particles (na\u02BBa, \u02BBoku, kuo, te).',
     tables: [
       {
         headers: ['', 'Singular', 'Dual', 'Plural'],
@@ -17,8 +17,8 @@ const charts = [
       },
     ],
     notes: [
-      'ku: after na\u2019a (past)',
-      'ou: after \u2019oku (present)',
+      'ku: after na\u02BBa (past)',
+      'ou: after \u02BBoku (present)',
       'u: after kuo (perfect), te (future)',
     ],
   },
@@ -42,17 +42,17 @@ const charts = [
   {
     id: 'definite',
     title: 'Definite Possessives',
-    description: 'Used before nouns to show possession. \u2019e-class is for things you control or produce; ho-class is for inherent or permanent things.',
+    description: 'Used before nouns to show possession. \u02BBe-class is for things you control or produce; ho-class is for inherent or permanent things.',
     tables: [
       {
-        label: '\u2019e-class',
+        label: '\u02BBe-class',
         sublabel: 'actions, thoughts, children, food, tools',
         headers: ['', 'Singular', 'Dual', 'Plural'],
         rows: [
-          ['1st excl.', '\u2019eku', '\u2019ema', '\u2019emau'],
-          ['1st incl.', '\u2013', '\u2019eta', '\u2019etau'],
-          ['2nd', 'ho\u2019o', 'ho\u2019omo', 'ho\u2019omou'],
-          ['3rd', '\u2019ene', '\u2019ena', '\u2019enau'],
+          ['1st excl.', '\u02BBeku', '\u02BBema', '\u02BBemau'],
+          ['1st incl.', '\u2013', '\u02BBeta', '\u02BBetau'],
+          ['2nd', 'ho\u02BBo', 'ho\u02BBomo', 'ho\u02BBomou'],
+          ['3rd', '\u02BBene', '\u02BBena', '\u02BBenau'],
         ],
       },
       {
@@ -75,13 +75,13 @@ const charts = [
     description: 'Used with indefinite nouns: "a ... of mine" rather than "my ..."',
     tables: [
       {
-        label: '\u2019e-class',
+        label: '\u02BBe-class',
         headers: ['', 'Singular', 'Plural'],
         rows: [
-          ['1st excl.', 'ha\u2019aku', 'ha\u2019amau'],
-          ['1st incl.', '\u2013', 'ha\u2019atau'],
-          ['2nd', 'ha\u2019o', 'ha\u2019amou'],
-          ['3rd', 'ha\u2019ane', 'ha\u2019anau'],
+          ['1st excl.', 'ha\u02BBaku', 'ha\u02BBamau'],
+          ['1st incl.', '\u2013', 'ha\u02BBatau'],
+          ['2nd', 'ha\u02BBo', 'ha\u02BBamou'],
+          ['3rd', 'ha\u02BBane', 'ha\u02BBanau'],
         ],
       },
       {
@@ -96,8 +96,8 @@ const charts = [
       },
     ],
     notes: [
-      '\u2019a hai? whose? (\u2019e-class)',
-      '\u2019o hai? whose? (ho-class)',
+      '\u02BBa hai? whose? (\u02BBe-class)',
+      '\u02BBo hai? whose? (ho-class)',
     ],
   },
   {
@@ -106,23 +106,23 @@ const charts = [
     description: 'Used after the noun: "the book is mine" rather than "my book"',
     tables: [
       {
-        label: '\u2019e-class',
+        label: '\u02BBe-class',
         headers: ['', 'Singular', 'Plural'],
         rows: [
-          ['1st excl.', '\u2019a\u2019aku', '\u2019a\u2019amau'],
-          ['1st incl.', '\u2013', '\u2019a\u2019atau'],
-          ['2nd', '\u2019a\u2019au', '\u2019a\u2019amou'],
-          ['3rd', '\u2019a\u2019ana', '\u2019a\u2019anau'],
+          ['1st excl.', '\u02BBa\u02BBaku', '\u02BBa\u02BBamau'],
+          ['1st incl.', '\u2013', '\u02BBa\u02BBatau'],
+          ['2nd', '\u02BBa\u02BBau', '\u02BBa\u02BBamou'],
+          ['3rd', '\u02BBa\u02BBana', '\u02BBa\u02BBanau'],
         ],
       },
       {
         label: 'ho-class',
         headers: ['', 'Singular', 'Plural'],
         rows: [
-          ['1st excl.', '\u2019o\u2019oku', '\u2019o\u2019omau'],
-          ['1st incl.', '\u2013', '\u2019o\u2019otau'],
-          ['2nd', '\u2019o\u2019ou', '\u2019o\u2019omou'],
-          ['3rd', '\u2019o\u2019ona', '\u2019o\u2019onau'],
+          ['1st excl.', '\u02BBo\u02BBoku', '\u02BBo\u02BBomau'],
+          ['1st incl.', '\u2013', '\u02BBo\u02BBotau'],
+          ['2nd', '\u02BBo\u02BBou', '\u02BBo\u02BBomou'],
+          ['3rd', '\u02BBo\u02BBona', '\u02BBo\u02BBonau'],
         ],
       },
     ],
@@ -134,23 +134,23 @@ const charts = [
     description: 'Express "for someone": who the action benefits.',
     tables: [
       {
-        label: '\u2019e-class (ma\u2019a + pronoun)',
+        label: '\u02BBe-class (ma\u02BBa + pronoun)',
         headers: ['', 'Singular', 'Plural'],
         rows: [
-          ['1st excl.', 'ma\u2019aku', 'ma\u2019amau'],
-          ['1st incl.', '\u2013', 'ma\u2019atau'],
-          ['2nd', 'ma\u2019au', 'ma\u2019amou'],
-          ['3rd', 'ma\u2019ana', 'ma\u2019anau'],
+          ['1st excl.', 'ma\u02BBaku', 'ma\u02BBamau'],
+          ['1st incl.', '\u2013', 'ma\u02BBatau'],
+          ['2nd', 'ma\u02BBau', 'ma\u02BBamou'],
+          ['3rd', 'ma\u02BBana', 'ma\u02BBanau'],
         ],
       },
       {
-        label: 'ho-class (mo\u2019o + pronoun)',
+        label: 'ho-class (mo\u02BBo + pronoun)',
         headers: ['', 'Singular', 'Plural'],
         rows: [
-          ['1st excl.', 'mo\u2019oku', 'mo\u2019omau'],
-          ['1st incl.', '\u2013', 'mo\u2019otau'],
-          ['2nd', 'mo\u2019ou', 'mo\u2019omou'],
-          ['3rd', 'mo\u2019ona', 'mo\u2019onau'],
+          ['1st excl.', 'mo\u02BBoku', 'mo\u02BBomau'],
+          ['1st incl.', '\u2013', 'mo\u02BBotau'],
+          ['2nd', 'mo\u02BBou', 'mo\u02BBomou'],
+          ['3rd', 'mo\u02BBona', 'mo\u02BBonau'],
         ],
       },
     ],
@@ -162,20 +162,20 @@ const charts = [
     description: 'Express pity or affection: "my poor ..." or "my dear ..."',
     tables: [
       {
-        headers: ['Person', '\u2019e-class', 'ho-class'],
+        headers: ['Person', '\u02BBe-class', 'ho-class'],
         rows: [
-          ['1st sing.', 'si\u2019eku', 'si\u2019oku'],
-          ['2nd sing.', 'si\u2019o', 'si\u2019o'],
-          ['3rd sing.', 'si\u2019ene', 'si\u2019ono'],
-          ['1st excl. pl.', 'si\u2019emau', 'si\u2019omau'],
-          ['1st incl. pl.', 'si\u2019etau', 'si\u2019otau'],
-          ['2nd pl.', 'si\u2019omou', 'si\u2019omou'],
-          ['3rd pl.', 'si\u2019enau', 'si\u2019onau'],
+          ['1st sing.', 'si\u02BBeku', 'si\u02BBoku'],
+          ['2nd sing.', 'si\u02BBo', 'si\u02BBo'],
+          ['3rd sing.', 'si\u02BBene', 'si\u02BBono'],
+          ['1st excl. pl.', 'si\u02BBemau', 'si\u02BBomau'],
+          ['1st incl. pl.', 'si\u02BBetau', 'si\u02BBotau'],
+          ['2nd pl.', 'si\u02BBomou', 'si\u02BBomou'],
+          ['3rd pl.', 'si\u02BBenau', 'si\u02BBonau'],
         ],
       },
     ],
     notes: [
-      'si\u2019a: emotional indefinite article ("a poor/dear ...")',
+      'si\u02BBa: emotional indefinite article ("a poor/dear ...")',
     ],
   },
   {
@@ -184,13 +184,13 @@ const charts = [
     description: 'Generic "one" / "oneself" forms used for general statements.',
     tables: [
       {
-        headers: ['Type', '\u2019e-class', 'ho-class'],
+        headers: ['Type', '\u02BBe-class', 'ho-class'],
         rows: [
           ['Pronoun', 'kita', 'kita'],
-          ['Definite possessive', '\u2019ete', 'hoto'],
-          ['Indefinite possessive', 'ha\u2019ate', 'hato'],
-          ['Postposed possessive', '\u2019a\u2019ata', '\u2019o\u2019ota'],
-          ['Beneficiary', 'ma\u2019ata', 'mo\u2019ota'],
+          ['Definite possessive', '\u02BBete', 'hoto'],
+          ['Indefinite possessive', 'ha\u02BBate', 'hato'],
+          ['Postposed possessive', '\u02BBa\u02BBata', '\u02BBo\u02BBota'],
+          ['Beneficiary', 'ma\u02BBata', 'mo\u02BBota'],
         ],
       },
     ],
