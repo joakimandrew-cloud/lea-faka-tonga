@@ -1,7 +1,5 @@
 # Site-analysis fixes — implement all 6 findings (approved 2026-07-03)
 
-**DONE 2026-07-03 — deployed `eb34148`, run 28688980906 ✓, live-verified** (deep routes 200, per-route meta, 122 ʻ on Lesson 1, entry 86 KB gz, drills mount). Remaining manual: Andrew registers GoatCounter code `leafakatonga`. Follow-up flagged: PDF/EPUB downloads still ASCII-apostrophe.
-
 Source: `../business/Site-Analysis-2026-07-03.md` (findings 1–6, Andrew: "implement all findings").
 Ruling constraint discovered before work: DECISIONS.md 2026-06-20 — `book/` stores the fakauʻa as ASCII `'` on purpose; display layers normalize at render time (okinafy: `'`+vowel → ʻ, `'`+consonant untouched). So finding #3 = render-time normalization in the app, NOT a book/ rewrite.
 
@@ -12,4 +10,4 @@ Ruling constraint discovered before work: DECISIONS.md 2026-06-20 — `book/` st
 - [x] Step 5 — #1 SEO: `scripts/prerender.mjs` postbuild — per-route HTML (static routes + lessons 1–52) with title/description/canonical/og/twitter + JSON-LD, static lesson intro in #root, sitemap.xml, robots.txt, og-image.png; per-route document.title client side.
 - [x] Step 6 — #5 Founders: record "BMC supporter export = canonical founders list" in Founding-Presale-Kit.md + DECISIONS.md.
 - [x] Step 7 — Verify: vitest, build, preview + curl deep routes (200 + meta), headless screenshots (landing fonts unchanged, lesson shows ʻ), bundle-size diff.
-- [x] Step 8 — Ship: commit+push app repo, watch Actions deploy, live re-verify (deep-route 200, meta, ʻ live, payload), update analysis note statuses, commit vault.
+- [ ] Step 8 — Ship: commit+push app repo, watch Actions deploy, live re-verify (deep-route 200, meta, ʻ live, payload), update analysis note statuses, commit vault.
