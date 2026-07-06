@@ -290,11 +290,27 @@ export default function ChapterPractice() {
         </div>
       )}
 
+      {/* ── This lesson's own quiz: closes the read → test loop from the reading
+          side (quiz pages already link back "Study Lesson N"). Every lesson
+          1–52 has a quiz, so no existence guard. (SSR-02, 2026-07-06) ── */}
+      <div className="mt-16 pt-8 border-t border-[var(--border)]">
+        <Link
+          to={`/quizzes/${chapterNum}`}
+          onClick={() => window.scrollTo(0, 0)}
+          className="block border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors text-center"
+        >
+          <div className="text-[var(--accent)] text-[15px] font-medium">
+            Take the Lesson {chapterNum} quiz &rarr;
+          </div>
+          <div className="text-[var(--text-muted)] text-sm mt-0.5">10 questions on what you just read</div>
+        </Link>
+      </div>
+
       {/* ── Bottom lesson navigation: a balanced prev / next pair so you can move
           either direction from the foot without scrolling back up to the rail-less
           header. (rail removed 2026-06-22) ── */}
       {(nextChapter || prevChapter) && (
-        <div className="mt-16 pt-8 border-t border-[var(--border)] flex flex-col sm:flex-row gap-3">
+        <div className="mt-3 flex flex-col sm:flex-row gap-3">
           {prevChapter ? (
             <Link
               to={`/lessons/${prevCh}`}

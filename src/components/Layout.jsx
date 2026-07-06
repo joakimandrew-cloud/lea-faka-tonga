@@ -1,7 +1,19 @@
 import { useState, useEffect } from 'react'
 import LogoMark from './LogoMark'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom'
 import chapters from '../data/chapters.json'
+import { drillRegistry } from '../drills/registry'
+
+// The persistent in-app nav (SSR-01): the five surfaces the homepage tiles
+// advertise, as quiet text links in the header's context row. Landing and the
+// index pages outside <Layout /> keep their own headers.
+const NAV_LINKS = [
+  { label: 'Lessons', to: '/lessons' },
+  { label: 'Drills', to: '/drills' },
+  { label: 'Quizzes', to: '/quizzes' },
+  { label: 'Cards', to: '/cards' },
+  { label: 'Charts', to: '/charts' },
+]
 
 export default function Layout() {
   const location = useLocation()
@@ -18,6 +30,8 @@ export default function Layout() {
   const currentChapterNum = chapterMatch ? parseInt(chapterMatch[1], 10) : null
   const quizMatch = path.match(/^\/quizzes\/(\d+)/)
   const currentQuizNum = quizMatch ? parseInt(quizMatch[1], 10) : null
+  const drillMatch = path.match(/^\/drill\/([^/]+)/)
+  const currentDrillId = drillMatch ? drillMatch[1] : null
 
   const isChapterBrowser = path === '/lessons'
   const isFlipCards = path === '/cards'
@@ -31,7 +45,12 @@ export default function Layout() {
   const isClusivity = path === '/clusivity'
   const isQuizIndex = path === '/quizzes'
   const isDrillsMenu = path === '/drills'
-  const isSubPage = isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu
+  const isCharts = path === '/charts'
+  const isFakaSort = path === '/faka-sort'
+  const isCleftBuilder = path === '/cleft-builder'
+  const isAccentPlacement = path === '/accent-placement'
+  const isVerbalNoun = path === '/verbal-noun'
+  const isSubPage = isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu || isCharts || isFakaSort || isCleftBuilder || isAccentPlacement || isVerbalNoun || currentDrillId
 
   let breadcrumbLabel = ''
   let backTo = '/'
@@ -61,6 +80,19 @@ export default function Layout() {
     breadcrumbLabel = 'Lessons'
   } else if (isFlipCards) {
     breadcrumbLabel = 'Flip Cards'
+  } else if (isCharts) {
+    breadcrumbLabel = 'Reference Charts'
+  } else if (isFakaSort) {
+    breadcrumbLabel = 'Faka- Sorter'
+  } else if (isCleftBuilder) {
+    breadcrumbLabel = 'Cleft Builder'
+  } else if (isAccentPlacement) {
+    breadcrumbLabel = 'Accent Placement'
+  } else if (isVerbalNoun) {
+    breadcrumbLabel = 'Verbal Nouns'
+  } else if (currentDrillId) {
+    breadcrumbLabel = drillRegistry[currentDrillId]?.meta?.title ?? 'Drill'
+    backTo = '/drills'
   } else if (currentQuizNum) {
     breadcrumbLabel = `Lesson ${currentQuizNum} Quiz`
     backTo = '/quizzes'
@@ -129,6 +161,11 @@ export default function Layout() {
               <span className="context-label">
                 {currentQuizNum ? `Lesson ${currentQuizNum} Quiz` : breadcrumbLabel}
               </span>
+              <nav className="header-nav" aria-label="Site sections">
+                {NAV_LINKS.map(l => (
+                  <Link key={l.to} to={l.to}>{l.label}</Link>
+                ))}
+              </nav>
             </div>
           )}
         </header>

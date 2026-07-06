@@ -395,6 +395,7 @@ body::before {
 .site-header-context {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap; /* long lesson titles push the section nav to its own line */
   gap: 10px;
   padding: 4px 12px 6px;
   border-top: 1px solid var(--border);
@@ -425,6 +426,29 @@ body::before {
   font-style: italic;
 }
 
+/* Persistent section nav (SSR-01): five quiet tracked-uppercase text links,
+   right-aligned in the context row. Same voice as the theme pill's labels. */
+.site-header-context .header-nav {
+  margin-left: auto;
+  display: flex;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+.site-header-context .header-nav a {
+  color: var(--text-strong);
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+.site-header-context .header-nav a:hover {
+  opacity: 1;
+}
+
 @media (min-width: 768px) {
   .site-header {
     flex-direction: row;
@@ -443,6 +467,13 @@ body::before {
   }
   .site-header-context .back-link {
     font-size: 0.875rem;
+  }
+  /* Desktop: the context row is content-sized, so the nav sits inline after
+     the page label — a hairline echoes the breadcrumb separator. */
+  .site-header-context .header-nav {
+    margin-left: 6px;
+    padding-left: 18px;
+    border-left: 1px solid var(--border);
   }
 }
 
