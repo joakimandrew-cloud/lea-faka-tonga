@@ -248,7 +248,7 @@ For each pair, choose the sentence that uses articles correctly.
 3. I will go to the cafeteria.
 4. I drank some kava.
 5. Help the teacher.
-6. We want the water.
+6. We wanted the water.
 
 #### Exercise 4
 

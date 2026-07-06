@@ -13,7 +13,7 @@ export default function NotFound() {
         That page isn&rsquo;t part of the course.
       </h1>
       <p className="text-[var(--text-muted)] mb-6 max-w-md">
-        The lesson list has everything, in order — or start from the beginning.
+        The lesson list has everything, in order. Or start from the beginning.
       </p>
       <div className="flex gap-3">
         <Link to="/lessons" className="px-4 py-2 bg-[var(--accent)] text-white font-semibold">
