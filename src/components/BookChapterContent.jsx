@@ -11,6 +11,8 @@ import remarkQuickPractice from '../lib/remark-quick-practice'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
 import QuickPractice from './QuickPractice'
 import VocabPracticeBlock from './VocabPracticeBlock'
+import { okinafy, okinafyDeep, looksTongan } from '../lib/okinafy'
+import { okinafyChildren, childrenToText } from '../lib/okinafy-react'
 
 // Bulk-load every chapter markdown file at build time. Vite inlines each
 // file's contents as a string, so no runtime fetch is needed.
@@ -70,11 +72,16 @@ const baseComponents = {
   p: ({ children }) => (
     <p className="text-[var(--text-strong)] leading-relaxed mb-3">{children}</p>
   ),
-  em: ({ children }) => (
-    <em className="font-tongan italic">{children}</em>
-  ),
+  // Italic is the book's Tongan surface: normalize the fakauʻa at render time
+  // and mark genuinely Tongan spans lang="to" for screen readers (English
+  // run-in labels like *Word Study* stay unmarked). See src/lib/okinafy.js.
+  em: ({ children }) => {
+    const fixed = okinafyChildren(children)
+    const lang = looksTongan(okinafy(childrenToText(children))) ? 'to' : undefined
+    return <em className="font-tongan italic" lang={lang}>{fixed}</em>
+  },
   strong: ({ children }) => (
-    <strong className="text-[var(--text-strong)] font-semibold">{children}</strong>
+    <strong className="text-[var(--text-strong)] font-semibold">{okinafyChildren(children)}</strong>
   ),
   ul: ({ children }) => (
     <ul className="list-disc list-inside text-[var(--text-strong)] mb-3 space-y-1">{children}</ul>
@@ -91,7 +98,7 @@ const baseComponents = {
   hr: () => <hr className="border-[var(--border)] my-6" />,
   code: ({ inline, children }) =>
     inline ? (
-      <code className="font-tongan italic bg-[var(--bg-tone)] px-1 py-0.5 rounded">{children}</code>
+      <code className="font-tongan italic bg-[var(--bg-tone)] px-1 py-0.5 rounded">{okinafyChildren(children)}</code>
     ) : (
       <pre className="bg-[var(--bg-tone)] border border-[var(--border)] p-3 my-3 overflow-x-auto text-sm text-[var(--text-strong)]">
         <code>{children}</code>
@@ -112,7 +119,7 @@ const baseComponents = {
       let rows = []
       if (typeof rowsJson === 'string') {
         try {
-          rows = JSON.parse(rowsJson)
+          rows = okinafyDeep(JSON.parse(rowsJson))
         } catch {
           rows = []
         }
@@ -132,7 +139,7 @@ const baseComponents = {
   },
   thead: ({ children }) => <thead className="bg-[var(--bg-tone)]">{children}</thead>,
   th: ({ children }) => (
-    <th className="border border-[var(--border)] px-3 py-2 text-left text-[var(--accent)] font-semibold">{children}</th>
+    <th className="border border-[var(--border)] px-3 py-2 text-left text-[var(--accent)] font-semibold">{okinafyChildren(children)}</th>
   ),
   td: ({ node, children }) => {
     // Preserve classes added by rehype-table-labels (e.g. vocab-type).
@@ -145,7 +152,7 @@ const baseComponents = {
         data-label={node?.properties?.['data-label'] || node?.properties?.dataLabel}
         colSpan={colSpan}
       >
-        {children}
+        {okinafyChildren(children)}
       </td>
     )
   },

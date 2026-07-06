@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { okinafy, looksTongan } from '../lib/okinafy'
 
 // ---------------------------------------------------------------------------
 // Shared exercise widgets — the tap-only rendering primitives (owner ruling
@@ -34,12 +35,14 @@ export function renderPromptText(text) {
         continue
       }
     }
-    // Italic (Tongan)
+    // Italic (Tongan) — normalized to the real fakauʻa at render time and
+    // tagged lang="to" when the span is genuinely Tongan (fixes #3/#6).
     if (text[i] === '*') {
       const end = text.indexOf('*', i + 1)
       if (end !== -1) {
+        const tongan = okinafy(text.slice(i + 1, end))
         parts.push(
-          <span key={key++} className="font-tongan italic">{text.slice(i + 1, end)}</span>
+          <span key={key++} className="font-tongan italic" lang={looksTongan(tongan) ? 'to' : undefined}>{tongan}</span>
         )
         i = end + 1
         continue

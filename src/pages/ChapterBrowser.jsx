@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import LogoMark from '../components/LogoMark'
 import { Link } from 'react-router-dom'
+import { okinafy } from '../lib/okinafy'
 import { useChapter } from '../contexts/ChapterContext'
 import chapters from '../data/chapters.json'
 import '../styles/v11-components.css'
@@ -158,7 +159,7 @@ export default function ChapterBrowser() {
                                   <span className="chapter-list-title">{ch.title}</span>
                                   {sample?.example_tongan && (
                                     <span className="chapter-list-sample">
-                                      {sample.example_tongan}
+                                      {okinafy(sample.example_tongan)}
                                       {sample.example_english && (
                                         <span className="chapter-list-gloss">{sample.example_english}</span>
                                       )}
@@ -167,7 +168,7 @@ export default function ChapterBrowser() {
                                   {topics.length > 0 && (
                                     <span className="chapter-list-chips">
                                       {topics.map((t, i) => (
-                                        <span key={i} className="chapter-list-chip">{t}</span>
+                                        <span key={i} className="chapter-list-chip">{okinafy(t)}</span>
                                       ))}
                                     </span>
                                   )}

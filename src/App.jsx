@@ -28,6 +28,8 @@ import DrillPage from './pages/DrillPage'
 import ReportIssue from './pages/ReportIssue'
 import HeroLab from './pages/HeroLab'
 import ScrubHub from './pages/ScrubHub'
+import NotFound from './pages/NotFound'
+import RouteChrome from './components/RouteChrome'
 
 // The course unit is a "Lesson" in the UI and the URL (2026-06-22). Old
 // /chapters/:num links are kept alive as permanent redirects to /lessons/:num
@@ -42,6 +44,7 @@ export default function App() {
   return (
     <ChapterProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <RouteChrome />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/support" element={<Offer />} />
@@ -89,6 +92,8 @@ export default function App() {
             <Route path="/definiteness-flip" element={<Navigate to="/drill/definiteness-flip" replace />} />
             <Route path="/drills" element={<DrillsMenu />} />
             <Route path="/drill/:id" element={<DrillPage />} />
+            {/* Unknown URL → friendly in-app 404 (site-analysis fix #6). */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
