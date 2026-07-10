@@ -42,14 +42,16 @@ function ReframeBody() {
 }
 
 function LocationBody() {
+  // Rewritten 2026-07-10 (owner): lead with the deal, not the credentials —
+  // free now / paid soon / $35 locks lifetime, in that order, before anything else.
   return (
     <>
       <span className="fpp-eyebrow">Free preview</span>
-      <h2 className="fpp-title" id="fpp-title">The book is free. The site won&rsquo;t always be.</h2>
+      <h2 className="fpp-title" id="fpp-title">Free for now. Members-only soon.</h2>
       <div className="fpp-body">
-        <p>A complete course went into this: <strong>52 lessons</strong>, a workbook, quizzes, the interactive exercises you&rsquo;re using now, a video course in production, and native-speaker audio on the way.</p>
-        <p>The <strong>book</strong> is yours to download free, forever, PDF or EPUB, no signup. The <strong>website</strong>, with the interactive exercises, is free while we build it, then it becomes members-only.</p>
-        <p>Donate <strong>$35 or more</strong> now and you lock in <strong>lifetime membership</strong>: full access for life, even after the wall goes up, and you keep it open for the next person:</p>
+        <p>Everything on this site is <strong>free</strong> while we build it: all <strong>52 lessons</strong>, the drills, the quizzes, the flip cards. Soon, the website moves to <strong>paid membership</strong>.</p>
+        <p>Donate <strong>$35 or more</strong> now and you lock in <strong>lifetime membership</strong>: full access for life, even after the wall goes up.</p>
+        <p>The <strong>book</strong> stays free forever, PDF or EPUB, no signup. And your support keeps this open for the next person:</p>
       </div>
     </>
   )

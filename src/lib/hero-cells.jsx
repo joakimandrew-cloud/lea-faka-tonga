@@ -43,7 +43,7 @@ export const PREVIEW_RATE = 0.5
 export const lead = {
   eyebrow: 'Free preview',
   headline: <>Find your<br /><span className="accent">Tongan</span>.</>,
-  sub: 'Apps give you a handful of words you forget. This teaches you Tongan, every rule explained, in order, beginner to fluent. Your first lesson is free, no signup.',
+  sub: 'Apps give you a handful of words you forget. This teaches you Tongan, every rule explained, in order, beginner to fluent. Every lesson is free right now, no signup.',
 }
 
 // Each cell carries a desktop (landscape) + mobile (portrait) preview clip,

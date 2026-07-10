@@ -205,6 +205,15 @@ export default function Layout() {
           >
             Tell us what&rsquo;s off &rarr;
           </button>
+          {/* Cold-visitor framing (CVC-02): a Google arrival can land on any in-app
+              page without ever passing the homepage — this is the one line that
+              tells them what this is. Same voice as the header nav links. */}
+          <div
+            className="text-[var(--text-muted)]"
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '28px' }}
+          >
+            Learn Tongan &middot; the book is free
+          </div>
         </footer>
 
       </div>

@@ -65,23 +65,32 @@ export default function ChapterPractice() {
 
   // Free-preview pop-up: the support pitch for the free-preview funnel. It shows
   // when the visitor arrived by clicking a "Start Lesson 1" link (fromStart) —
-  // EVERY time, no once-per-browser flag — and NOT when they reach a lesson via
-  // normal lessons navigation. It fires on whichever comes first: scrolled ~45%
-  // in, ~8s of reading, or a deferred on-load depth check (guarded so it can't
-  // ambush before content renders). `?fpp=1`/`2`/`3` force-opens a variant for
-  // preview (plain / reframe / location), e.g. /lessons/1?fpp=3. Default 'location'.
+  // EVERY time, no once-per-browser flag (owner ruling 2026-06-27) — and NOT when
+  // they reach a lesson via normal lessons navigation. A COLD DEEP LINK (CVC-01)
+  // is the third case: a first document load that lands straight on a lesson
+  // (history idx 0, so no in-app navigation preceded it) — a Google/shared-link
+  // arrival. They get the same pitch ONCE per browser (fpp-seen), with a gentler
+  // 30s fallback since they never clicked anything promising one. Triggers fire
+  // on whichever comes first: scrolled ~45% in, the time fallback, or a deferred
+  // on-load depth check (guarded so it can't ambush before content renders).
+  // `?fpp=1`/`2`/`3` force-opens a variant for preview (plain / reframe /
+  // location), e.g. /lessons/1?fpp=3. Default 'location'.
   useEffect(() => {
     const fppParam = new URLSearchParams(window.location.search).get('fpp')
     if (fppParam) {
       const byParam = { 1: 'plain', 2: 'reframe', 3: 'location' }
       setFppVariant(byParam[fppParam] || 'location'); setShowFpp(true); return
     }
-    if (!fromStart) return
+    const coldArrival = !fromStart
+      && (window.history.state?.idx ?? 0) === 0
+      && !localStorage.getItem('fpp-seen')
+    if (!fromStart && !coldArrival) return
 
     let fired = false
     const fire = () => {
       if (fired) return
       fired = true
+      if (coldArrival) localStorage.setItem('fpp-seen', '1')
       setShowFpp(true)
       cleanup()
     }
@@ -101,8 +110,9 @@ export default function ChapterPractice() {
     window.addEventListener('scroll', onScroll, { passive: true })
     // Let content settle, then catch a page that loaded already past 45%.
     const initialCheck = setTimeout(onScroll, 1200)
-    // Funnel entry → show shortly after they start reading (not an instant ambush).
-    const fallback = setTimeout(fire, 8000)
+    // Funnel entry → show shortly after they start reading (not an instant
+    // ambush). Cold arrival → give them real reading time first.
+    const fallback = setTimeout(fire, fromStart ? 8000 : 30000)
     return cleanup
   }, [fromStart])
 

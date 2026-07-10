@@ -98,6 +98,12 @@ export default function ChapterBrowser() {
       </div>
 
       <div className="chapters-groups">
+        {/* Cold-visitor framing (CVC-03): Google can land a stranger here directly —
+            without this line the page is an unlabelled syllabus starting "BASIC".
+            The nbsp groups keep mobile wraps at the middots, never mid-phrase. */}
+        <div className="chapters-course-intro">
+          The&nbsp;full&nbsp;course &middot; 52&nbsp;lessons &middot; free&nbsp;while&nbsp;we&nbsp;build&nbsp;it
+        </div>
         {TIERS.map(tier => {
           const tierGroups = tier.groupKeys
             .map(key => GROUPS.find(g => g.key === key))
