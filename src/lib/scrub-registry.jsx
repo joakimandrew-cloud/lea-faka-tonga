@@ -111,5 +111,70 @@ const HERO = {
   },
 }
 
-export const SCENES = [HERO]
+/* ---- Scene 2: Basics grammar clips (Remotion renders) ------------------ */
+/* The six Lesson clips built 2026-07-22 (plans/readalong-new-animations.md),
+   served from public/clips/. The scrubber seeks the finished render
+   frame-by-frame; the Speed dial previews a global re-timing. Applying a
+   saved speed for real = scale the scene's beat grid in
+   video-remotion/src/scenes/<id>.tsx and re-render (dials can't re-cut a
+   rendered video — see spec/Animation-Scrubber.md). Parts mirror each
+   scene's view.beats in its concept file (BEAT = 600ms). */
+
+const BEAT_MS = 600 // video-remotion/src/theme/timing.ts BEAT (18f @ 30fps)
+const PART_COLORS = ['#d98a3a', '#b8470f', '#2e7d4f', '#7a5c9e', '#3a7ca5', '#c2452f']
+const CLIPS = [
+  { id: 'KaiIsAlwaysKai', label: 'L1 · Kai is always kai', beats: 16, phases: [['sting', 2], ['stage', 2], ['eat→ate', 2], ['glosses', 3], ['naʻá ke kai', 3], ['rule', 4]] },
+  { id: 'AdjectiveInVerbSlot', label: 'L3 · Adjective in the verb slot', beats: 18, phases: [['sting', 2], ['slot', 2], ['mālohi drops', 3], ['vaivai swap', 3], ['tense ladder', 5], ['rule', 3]] },
+  { id: 'CommandBySubtraction', label: 'L5 · Command by subtraction', beats: 16, phases: [['sting', 2], ['Té u nofo', 2], ['peel', 2], ['Nofo!', 3], ['Mou nofo!', 3], ['rule', 4]] },
+  { id: 'KiKiaKiate', label: 'L7 · ki → kia → kiate', beats: 18, phases: [['sting', 2], ['ki Tonga', 2], ['kia Sione', 3], ['kiate au', 3], ['3×3 grid', 3], ['payoff + rule', 5]] },
+  { id: 'QuestionWordSlot', label: 'L11 · Question in the answer slot', beats: 16, phases: [['sting', 2], ['the question', 3], ['the answer', 4], ['when pair', 4], ['rule', 3]] },
+  { id: 'VerblessKo', label: 'L12 · The verbless ko sentence', beats: 16, phases: [['sting', 2], ['scaffold', 2], ['drop + ko rises', 4], ['Ko e hele ʻeni', 3.5], ['fala swap', 2], ['rule', 2.5]] },
+]
+
+function ClipStage({ variantIndex }) {
+  const clip = CLIPS[variantIndex]
+  return (
+    <div className="hl-stage" style={{ background: '#000', display: 'grid', placeItems: 'center' }}>
+      <video key={clip.id} className="hl-video" muted playsInline preload="auto" style={{ width: '100%', height: '100%', objectFit: 'contain' }}>
+        <source src={`${BASE}clips/${clip.id}.mp4`} type="video/mp4" />
+      </video>
+    </div>
+  )
+}
+
+const BASICS_CLIPS = {
+  id: 'basics-clips',
+  label: 'Basics grammar clips',
+  variants: CLIPS.map(c => ({ id: c.id, label: c.label })),
+
+  defaults() {
+    return {
+      speed: { label: 'Speed', min: 0.5, max: 1.5, step: 0.05, unit: '×', value: 1 },
+    }
+  },
+  duration: (vals, vi) => Math.round((CLIPS[vi].beats * BEAT_MS) / vals.speed),
+  parts: (vals, vi) => {
+    let acc = 0
+    return CLIPS[vi].phases.map(([name, b], i) => {
+      acc += (b * BEAT_MS) / vals.speed
+      return { name, color: PART_COLORS[i % PART_COLORS.length], end: Math.round(acc) }
+    })
+  },
+  readout: (vals, vi, env, t) => `beat ${((t * vals.speed) / BEAT_MS).toFixed(1)} · clip ${((t * vals.speed) / 1000).toFixed(2)}s`,
+  Stage: ClipStage,
+  seek(root, t, { vals, mode }) {
+    const v = root.querySelector('video')
+    if (!v) return
+    const clip = (t / 1000) * vals.speed
+    if (mode === 'play') {
+      if (v.paused) { try { v.currentTime = clip } catch { /* noop */ }; v.playbackRate = vals.speed; v.play().catch(() => {}) }
+      else { v.playbackRate = vals.speed }
+    } else {
+      v.pause()
+      try { v.currentTime = clip } catch { /* noop */ }
+    }
+  },
+}
+
+export const SCENES = [HERO, BASICS_CLIPS]
 export const getScene = id => SCENES.find(s => s.id === id) || SCENES[0]
