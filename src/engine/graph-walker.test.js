@@ -5207,13 +5207,15 @@ describe('2C.5b — §36 "have" construction (ʻoku ʻi ai + possessive, Ch 29)'
     expect(renderTongan(s)).toBe('ʻOku ʻi ai haʻo kato')
   })
 
-  it('ʻOku ʻikai haʻaku hele (present negative, e-class — I don\'t have a knife)', () => {
+  // Negated heads carry the FULL ʻikai ke ʻi ai form per the 2026-06-15
+  // owner ruling (DECISIONS.md): teach/drill the full form everywhere.
+  it('ʻOku ʻikai ke ʻi ai haʻaku hele (present negative, e-class — I don\'t have a knife)', () => {
     let s = createWalkerState('have_construction', 999)
-    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai' })
+    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai ke ʻi ai' })
     s = advanceInFrame(s, { tongan: 'ʻeku' })
     s = advanceInFrame(s, { tongan: 'hele' })
     s = finishWalker(s, 'FINISH_STATEMENT')
-    expect(renderTongan(s)).toBe('ʻOku ʻikai haʻaku hele')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke ʻi ai haʻaku hele')
   })
 
   it('ʻOku ʻi ai ʻeku hele (present affirmative, e-class — I have a knife)', () => {
@@ -5234,13 +5236,13 @@ describe('2C.5b — §36 "have" construction (ʻoku ʻi ai + possessive, Ch 29)'
     expect(renderTongan(s)).toBe('ʻOku ʻi ai hao fale')
   })
 
-  it('ʻOku ʻikai haku fale (present negative, ho-class — I don\'t have a house)', () => {
+  it('ʻOku ʻikai ke ʻi ai haku fale (present negative, ho-class — I don\'t have a house)', () => {
     let s = createWalkerState('have_construction', 999)
-    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai' })
+    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai ke ʻi ai' })
     s = advanceInFrame(s, { tongan: 'ʻeku' })
     s = advanceInFrame(s, { tongan: 'fale' })
     s = finishWalker(s, 'FINISH_STATEMENT')
-    expect(renderTongan(s)).toBe('ʻOku ʻikai haku fale')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke ʻi ai haku fale')
   })
 
   it('ʻOku ʻi ai hoku fale (present affirmative, ho-class — I have a house)', () => {
@@ -5261,13 +5263,13 @@ describe('2C.5b — §36 "have" construction (ʻoku ʻi ai + possessive, Ch 29)'
     expect(renderTongan(s)).toBe('Naʻe ʻi ai haʻane tohi')
   })
 
-  it('ʻOku ʻikai haʻanau paʻanga (present negative, e-class plural — they don\'t have money)', () => {
+  it('ʻOku ʻikai ke ʻi ai haʻanau paʻanga (present negative, e-class plural — they don\'t have money)', () => {
     let s = createWalkerState('have_construction', 999)
-    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai' })
+    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai ke ʻi ai' })
     s = advanceInFrame(s, { tongan: 'ʻenau' })
     s = advanceInFrame(s, { tongan: 'paʻanga' })
     s = finishWalker(s, 'FINISH_STATEMENT')
-    expect(renderTongan(s)).toBe('ʻOku ʻikai haʻanau paʻanga')
+    expect(renderTongan(s)).toBe('ʻOku ʻikai ke ʻi ai haʻanau paʻanga')
   })
 
   // --- Structural assertions ---
@@ -5293,14 +5295,14 @@ describe('2C.5b — §36 "have" construction (ʻoku ʻi ai + possessive, Ch 29)'
     expect(node.next[0].required).toBe(true)
   })
 
-  it('negated entries use ʻikai (no ʻi ai), affirmative entries use ʻi ai', () => {
+  it('negated entries use the full ʻikai ke ʻi ai (2026-06-15 ruling), affirmative entries use ʻi ai', () => {
     const node = grammarGraph.nodes.have_head
     for (const w of node.words) {
       if (w.tags.includes('negated')) {
-        expect(w.tongan, `negated ${w.english}`).toContain('ʻikai')
-        expect(w.tongan, `negated ${w.english}`).not.toContain('ʻi ai')
+        expect(w.tongan, `negated ${w.english}`).toContain('ʻikai ke ʻi ai')
       } else {
         expect(w.tongan, `${w.english}`).toContain('ʻi ai')
+        expect(w.tongan, `${w.english}`).not.toContain('ʻikai')
       }
     }
   })
@@ -8937,9 +8939,9 @@ describe('2E.2 integration: have_construction present affirmative + English', ()
 })
 
 describe('2E.2 integration: have_construction present negated + English', () => {
-  it("walks ʻOku ʻikai + ʻeku + tohi → 'I do not have a book.'", () => {
+  it("walks ʻOku ʻikai ke ʻi ai + ʻeku + tohi → 'I do not have a book.'", () => {
     let s = createWalkerState('have_construction', 999)
-    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai' })
+    s = advanceInFrame(s, { tongan: 'ʻOku ʻikai ke ʻi ai' })
     s = advanceInFrame(s, { tongan: 'ʻeku' })
     s = advanceInFrame(s, { tongan: 'tohi' })
     s = finishWalker(s, 'FINISH_STATEMENT')

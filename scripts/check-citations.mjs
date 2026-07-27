@@ -66,6 +66,7 @@
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -130,14 +131,23 @@ async function exists(p) {
 // Collect normalized heading text from a markdown file. For the chapter
 // title line (`# Lesson N: Title`) we index the bare "Title" too, so a
 // §"Conjunctions" citation can match a chapter whose title is "Conjunctions".
+//
+// Returns a Map (normalized heading -> { line, raw, depth }) rather than a
+// Set. `.has()` is identical on both, so every validator below behaves
+// exactly as before; the extra payload is used only by --emit-index, which
+// needs to point a resolved citation at a line on disk.
 function collectHeadings(src) {
-  const headings = new Set()
-  for (const line of src.split('\n')) {
-    const m = line.match(/^#{1,6}\s+(.*?)\s*$/)
+  const headings = new Map()
+  const lines = src.split('\n')
+  const add = (key, payload) => { if (!headings.has(key)) headings.set(key, payload) }
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const m = line.match(/^(#{1,6})\s+(.*?)\s*$/)
     if (!m) continue
-    headings.add(normalizeHeading(m[1]))
-    const title = m[1].match(/^(?:Chapter|Lesson)\s+\d+:\s*(.+)$/)
-    if (title) headings.add(normalizeHeading(title[1]))
+    const payload = { line: i + 1, raw: m[2], depth: m[1].length }
+    add(normalizeHeading(m[2]), payload)
+    const title = m[2].match(/^(?:Chapter|Lesson)\s+\d+:\s*(.+)$/)
+    if (title) add(normalizeHeading(title[1]), payload)
   }
   return headings
 }
@@ -156,6 +166,63 @@ function readableLines(src) {
 }
 
 // ── on-disk reference indexes (built once) ───────────────────────────────
+
+// The closed frame set, harvested from exactly two places: grammar-spec's
+// "Entry Points Summary" section (every backticked ID in the leading column
+// of any table row there, including the reconciled graph-frame table that
+// follows it) ∪ the frame tags Function-Templates defines (its tables and its
+// own `**Frame:**` lines).
+//
+// Exported so build-frame-index.mjs compiles the SAME set the lint enforces —
+// one harvest implementation, never two. `provenance` records where each tag
+// was found (file + line + the row text) for the frame index; the lint uses
+// only `frameTags` and `entryPointCount`.
+export async function harvestFrameTags(specSrcMaybe) {
+  const specSrc = specSrcMaybe != null ? specSrcMaybe : ((await readFileOrNull(GRAMMAR_SPEC)) || '')
+  const frameTags = new Set()
+  const provenance = new Map()
+  const noteSource = (tag, rec) => { if (!provenance.has(tag)) provenance.set(tag, rec) }
+  const lineOf = (src, offset) => src.slice(0, offset).split('\n').length
+
+  const epStart = specSrc.indexOf('## Entry Points Summary')
+  if (epStart !== -1) {
+    const rest = specSrc.slice(epStart)
+    const end = rest.indexOf('\n## ', 1)
+    const section = end === -1 ? rest : rest.slice(0, end)
+    for (const m of section.matchAll(/^\|\s*`([^`\s]+)`\s*\|/gm)) {
+      frameTags.add(m[1])
+      noteSource(m[1], {
+        origin: 'entry_points_summary',
+        file: 'spec/grammar-spec.md',
+        line: lineOf(specSrc, epStart + m.index),
+        row: section.slice(m.index).split('\n')[0].trim(),
+      })
+    }
+  }
+  const entryPointCount = frameTags.size
+
+  const ftSrc = (await readFileOrNull(FUNCTION_TEMPLATES)) || ''
+  for (const m of ftSrc.matchAll(/\|\s*`([a-zʻ'’_āēīōū]+)`\s*\|/g)) {
+    frameTags.add(m[1])
+    noteSource(m[1], {
+      origin: 'function_templates_table',
+      file: 'source-materials/Function-Templates.md',
+      line: lineOf(ftSrc, m.index),
+      row: ftSrc.slice(m.index).split('\n')[0].trim(),
+    })
+  }
+  for (const m of ftSrc.matchAll(/^\*\*Frame:\*\*\s*`([^`\s]+)`/gm)) {
+    frameTags.add(m[1])
+    noteSource(m[1], {
+      origin: 'function_templates_frame_line',
+      file: 'source-materials/Function-Templates.md',
+      line: lineOf(ftSrc, m.index),
+      row: ftSrc.slice(m.index).split('\n')[0].trim(),
+    })
+  }
+
+  return { frameTags, entryPointCount, provenance }
+}
 
 async function buildReferenceData() {
   // LFT chapter headings, keyed by chapter number.
@@ -195,20 +262,9 @@ async function buildReferenceData() {
   // Frame tags — the closed set for `**Frame:**` declarations: entry-point
   // IDs from grammar-spec's "Entry Points Summary" table, plus the frame tags
   // Function-Templates defines (in its tables and its own **Frame:** lines).
-  const frameTags = new Set()
-  const epStart = specSrc.indexOf('## Entry Points Summary')
-  if (epStart !== -1) {
-    const rest = specSrc.slice(epStart)
-    const end = rest.indexOf('\n## ', 1)
-    const section = end === -1 ? rest : rest.slice(0, end)
-    for (const m of section.matchAll(/^\|\s*`([^`\s]+)`\s*\|/gm)) frameTags.add(m[1])
-  }
-  const entryPointCount = frameTags.size
-  const ftSrc = (await readFileOrNull(FUNCTION_TEMPLATES)) || ''
-  for (const m of ftSrc.matchAll(/\|\s*`([a-zʻ'’_āēīōū]+)`\s*\|/g)) frameTags.add(m[1])
-  for (const m of ftSrc.matchAll(/^\*\*Frame:\*\*\s*`([^`\s]+)`/gm)) frameTags.add(m[1])
+  const { frameTags, entryPointCount, provenance: frameSources } = await harvestFrameTags(specSrc)
 
-  return { lftHeadings, conceptIds, specSections, churchwardFiles, shumwayRanges, frameTags, entryPointCount }
+  return { lftHeadings, conceptIds, specSections, churchwardFiles, shumwayRanges, frameTags, entryPointCount, frameSources }
 }
 
 // ── token validators ─────────────────────────────────────────────────────
@@ -231,7 +287,15 @@ function shumwayInRange(n, ranges) {
 }
 
 // Scan one line for every citation token and push violations.
-function checkLine(file, n, text, ref, push) {
+//
+// `emit` is optional and null on the lint path: when supplied (--emit-index)
+// every token this function inspects is also reported to it, resolved or not,
+// with the key that identifies its on-disk target. It never influences
+// validation — no `push` call, no control flow, depends on it.
+function checkLine(file, n, text, ref, push, emit = null) {
+  const record = emit
+    ? (token, kind, ok, key) => emit({ file, line: n, token, kind, ok, key })
+    : () => {}
   // 1. Numbered folder paths: NN-Word/ that doesn't exist on disk.
   for (const m of text.matchAll(/\b(\d{2})-([A-Za-z][A-Za-z-]*)\//g)) {
     const token = m[0]
@@ -241,6 +305,7 @@ function checkLine(file, n, text, ref, push) {
     // resolve. (We confirm against the known real targets for the suggestion.)
     const suggest = REAL_DIR_FOR[token.toLowerCase()] || 'use the real un-prefixed directory name'
     push(file, { n, token, why: `numbered-prefix path "${token}" does not exist on disk`, suggest, dirPath })
+    record(token, 'path', false, { type: 'path', path: token })
   }
 
   // 2. LFT Ch. N [§"heading"]
@@ -249,19 +314,24 @@ function checkLine(file, n, text, ref, push) {
     const chap = parseInt(m[1], 10)
     if (chap < 1 || chap > LFT_CHAPTER_MAX) {
       push(file, { n, token, why: `LFT chapter ${chap} out of range (1..${LFT_CHAPTER_MAX})`, suggest: 'cite an existing chapter' })
+      record(token, 'lft', false, { type: 'lft', chapter: chap, heading: m[2] ?? null })
       continue
     }
     const headings = ref.lftHeadings.get(chap)
     if (!headings) {
       push(file, { n, token, why: `book/Chapter-${String(chap).padStart(2, '0')}.md not found`, suggest: 'cite an existing chapter' })
+      record(token, 'lft', false, { type: 'lft', chapter: chap, heading: m[2] ?? null })
       continue
     }
     const heading = m[2]
     if (heading != null && heading.trim() !== '') {
       if (!headings.has(normalizeHeading(heading))) {
         push(file, { n, token, kind: 'heading', why: `Ch.${chap} has no heading matching §"${heading}"`, suggest: 'verify the section exists in that chapter (likely a wrong-chapter citation)' })
+        record(token, 'lft', false, { type: 'lft', chapter: chap, heading })
+        continue
       }
     }
+    record(token, 'lft', true, { type: 'lft', chapter: chap, heading: heading && heading.trim() !== '' ? heading : null })
   }
 
   // 3. Grammar Concept X# / (X#) and the malformed range string.
@@ -273,8 +343,12 @@ function checkLine(file, n, text, ref, push) {
     const id = m[1].toUpperCase()
     if (!isConceptValid(id)) {
       push(file, { n, token, why: `Grammar Concept ${id} is not a valid id`, suggest: suggestConcept(id[0]) })
+      record(token, 'concept', false, { type: 'concept', id })
     } else if (!ref.conceptIds.has(id)) {
       push(file, { n, token, why: `Grammar Concept ${id} not found as a "### ${id}." heading`, suggest: 'check Grammar-Concepts-for-Students.md' })
+      record(token, 'concept', false, { type: 'concept', id })
+    } else {
+      record(token, 'concept', true, { type: 'concept', id })
     }
   }
 
@@ -284,8 +358,12 @@ function checkLine(file, n, text, ref, push) {
     const sec = parseInt(m[1], 10)
     if (sec < 1 || sec > GRAMMAR_SPEC_SECTION_MAX) {
       push(file, { n, token, why: `grammar-spec §${sec} out of range (1..${GRAMMAR_SPEC_SECTION_MAX})`, suggest: 'cite an existing section' })
+      record(token, 'spec', false, { type: 'spec', section: sec })
     } else if (!ref.specSections.has(sec)) {
       push(file, { n, token, why: `grammar-spec has no "## ${sec}." section`, suggest: 'check grammar-spec.md' })
+      record(token, 'spec', false, { type: 'spec', section: sec })
+    } else {
+      record(token, 'spec', true, { type: 'spec', section: sec })
     }
   }
 
@@ -295,6 +373,9 @@ function checkLine(file, n, text, ref, push) {
     const chap = parseInt(m[1], 10)
     if (chap < 1 || chap > CHURCHWARD_CHAPTER_MAX || !ref.churchwardFiles.has(chap)) {
       push(file, { n, token, why: `Churchward Ch. ${chap} has no file source-materials/Churchward/${String(chap).padStart(2, '0')}.md`, suggest: `valid Churchward chapters are 1..${CHURCHWARD_CHAPTER_MAX}` })
+      record(token, 'churchward', false, { type: 'churchward', chapter: chap })
+    } else {
+      record(token, 'churchward', true, { type: 'churchward', chapter: chap })
     }
   }
 
@@ -305,6 +386,9 @@ function checkLine(file, n, text, ref, push) {
     if (!shumwayInRange(lesson, ref.shumwayRanges)) {
       const hi = ref.shumwayRanges.reduce((a, [, h]) => Math.max(a, h), 0)
       push(file, { n, token, why: `Shumway Lesson ${lesson} is outside the available lesson files`, suggest: `available lessons are 0..${hi}` })
+      record(token, 'shumway', false, { type: 'shumway', lesson })
+    } else {
+      record(token, 'shumway', true, { type: 'shumway', lesson })
     }
   }
 
@@ -316,8 +400,12 @@ function checkLine(file, n, text, ref, push) {
       const idm = fm[1].match(/^`([^`]+)`/)
       if (!idm) {
         push(file, { n, token: `**Frame:** ${fm[1].slice(0, 48)}`, kind: 'frame', why: 'Frame line does not start with a backticked frame tag', suggest: 'use a tag from grammar-spec "Entry Points Summary" or Function-Templates (e.g. `statement`, `transitive_statement`)' })
+        record(`**Frame:** ${fm[1].slice(0, 48)}`, 'frame', false, { type: 'frame', tag: null })
       } else if (!ref.frameTags.has(idm[1])) {
         push(file, { n, token: `\`${idm[1]}\``, kind: 'frame', why: `frame tag "${idm[1]}" is not in grammar-spec's Entry Points Summary or Function-Templates`, suggest: 'pick a real tag (e.g. statement, transitive_statement, noun_subject, reported_speech_pehē)' })
+        record(`\`${idm[1]}\``, 'frame', false, { type: 'frame', tag: idm[1] })
+      } else {
+        record(`\`${idm[1]}\``, 'frame', true, { type: 'frame', tag: idm[1] })
       }
     }
   }
@@ -325,6 +413,9 @@ function checkLine(file, n, text, ref, push) {
   for (const m of text.matchAll(/\*\*`([^`]+)`\*\*\s+frame\b/g)) {
     if (!ref.frameTags.has(m[1])) {
       push(file, { n, token: `\`${m[1]}\``, kind: 'frame', why: `frame tag "${m[1]}" is not in grammar-spec's Entry Points Summary or Function-Templates`, suggest: 'pick a real tag from the closed frame set' })
+      record(`\`${m[1]}\``, 'frame', false, { type: 'frame', tag: m[1] })
+    } else {
+      record(`\`${m[1]}\``, 'frame', true, { type: 'frame', tag: m[1] })
     }
   }
 }
@@ -336,12 +427,211 @@ const REAL_DIR_FOR = {
   '01-source-materials/': 'source-materials/',
 }
 
+// ── --emit-index: resolve every checked citation to what's on disk ────────
+//
+// The resolution/substance split (analysis R2): this index answers "does the
+// citation resolve, and what is at the other end" cheaply, so a walkthrough
+// does not re-open five source files to confirm a pointer exists. It does NOT
+// answer "does the source actually establish the claim" — substance checks
+// still open the source. `contentHash` is the hash of the resolved SECTION, so
+// a stale index is detectable: rebuild and diff the hashes.
+
+const INDEX_OUT = path.join(SPEC_DIR, 'Citation-Index.json')
+const INDEX_REGEN = 'node scripts/check-citations.mjs --emit-index   (from lea-faka-tonga-app/)'
+
+function sha12(s) {
+  return createHash('sha256').update(s, 'utf8').digest('hex').slice(0, 12)
+}
+
+// The block of markdown a heading owns: from its line down to the next
+// heading of the same or shallower depth (or EOF).
+function sectionAt(lines, headingLine, depth) {
+  const start = headingLine - 1
+  let end = lines.length
+  for (let i = start + 1; i < lines.length; i++) {
+    const m = lines[i].match(/^(#{1,6})\s+\S/)
+    if (m && m[1].length <= depth) { end = i; break }
+  }
+  return lines.slice(start, end).join('\n')
+}
+
+function snippetOf(text, headingLine) {
+  const body = text.split('\n').slice(1).map(l => l.trim()).filter(Boolean)
+  const first = body.find(l => !/^[|>#-]/.test(l)) || body[0] || ''
+  return { line: headingLine, snippet: first.length > 220 ? `${first.slice(0, 217)}…` : first }
+}
+
+// Cache of parsed markdown files, so resolving 900 citations reads each file once.
+function makeFileCache() {
+  const cache = new Map()
+  return async (rel) => {
+    if (cache.has(rel)) return cache.get(rel)
+    const src = await readFileOrNull(path.join(REPO_ROOT, rel))
+    const entry = src == null ? null : { src, lines: src.split('\n') }
+    cache.set(rel, entry)
+    return entry
+  }
+}
+
+// Find a heading line by predicate; returns { line, depth, raw } or null.
+function findHeading(lines, predicate) {
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^(#{1,6})\s+(.*?)\s*$/)
+    if (m && predicate(m[2], m[1].length)) return { line: i + 1, depth: m[1].length, raw: m[2] }
+  }
+  return null
+}
+
+async function resolveTarget(key, getFile, ref) {
+  const whole = (rel, f, heading) => ({
+    file: rel,
+    line: 1,
+    heading,
+    snippet: snippetOf(f.src, 1).snippet,
+    contentHash: sha12(f.src),
+    scope: 'file',
+  })
+
+  if (key.type === 'lft') {
+    const rel = `book/Chapter-${String(key.chapter).padStart(2, '0')}.md`
+    const f = await getFile(rel)
+    if (!f) return null
+    if (key.heading) {
+      const want = normalizeHeading(key.heading)
+      const h = findHeading(f.lines, (raw) => {
+        if (normalizeHeading(raw) === want) return true
+        const t = raw.match(/^(?:Chapter|Lesson)\s+\d+:\s*(.+)$/)
+        return !!t && normalizeHeading(t[1]) === want
+      })
+      if (!h) return null
+      const section = sectionAt(f.lines, h.line, h.depth)
+      return { file: rel, line: h.line, heading: h.raw, snippet: snippetOf(section, h.line).snippet, contentHash: sha12(section), scope: 'section' }
+    }
+    const title = findHeading(f.lines, (_, d) => d === 1)
+    return whole(rel, f, title ? title.raw : null)
+  }
+
+  if (key.type === 'concept') {
+    const rel = 'spec/Grammar-Concepts-for-Students.md'
+    const f = await getFile(rel)
+    if (!f) return null
+    const h = findHeading(f.lines, (raw, d) => d === 3 && raw.toUpperCase().startsWith(`${key.id}.`))
+    if (!h) return null
+    const section = sectionAt(f.lines, h.line, h.depth)
+    return { file: rel, line: h.line, heading: h.raw, snippet: snippetOf(section, h.line).snippet, contentHash: sha12(section), scope: 'section' }
+  }
+
+  if (key.type === 'spec') {
+    const rel = 'spec/grammar-spec.md'
+    const f = await getFile(rel)
+    if (!f) return null
+    const h = findHeading(f.lines, (raw, d) => d === 2 && new RegExp(`^${key.section}\\.\\s`).test(raw))
+    if (!h) return null
+    const section = sectionAt(f.lines, h.line, h.depth)
+    return { file: rel, line: h.line, heading: h.raw, snippet: snippetOf(section, h.line).snippet, contentHash: sha12(section), scope: 'section' }
+  }
+
+  if (key.type === 'churchward') {
+    const rel = `source-materials/Churchward/${String(key.chapter).padStart(2, '0')}.md`
+    const f = await getFile(rel)
+    if (!f) return null
+    const title = findHeading(f.lines, () => true)
+    return whole(rel, f, title ? title.raw : null)
+  }
+
+  if (key.type === 'shumway') {
+    const range = ref.shumwayRanges.find(([lo, hi]) => key.lesson >= lo && key.lesson <= hi)
+    if (!range) return null
+    const pad = (v) => String(v).padStart(3, '0')
+    const rel = `source-materials/Shumway/shumway_L${pad(range[0])}-L${pad(range[1])}.md`
+    const f = await getFile(rel)
+    if (!f) return null
+    const h = findHeading(f.lines, (raw) => new RegExp(`^(?:PRE-)?LESSON\\s+${key.lesson}\\b`, 'i').test(raw))
+    if (!h) {
+      const title = findHeading(f.lines, () => true)
+      return whole(rel, f, title ? title.raw : null)
+    }
+    const section = sectionAt(f.lines, h.line, h.depth)
+    return { file: rel, line: h.line, heading: h.raw, snippet: snippetOf(section, h.line).snippet, contentHash: sha12(section), scope: 'section' }
+  }
+
+  if (key.type === 'frame') {
+    const src = key.tag != null ? ref.frameSources.get(key.tag) : null
+    if (!src) return null
+    return { file: src.file, line: src.line, heading: src.origin, snippet: src.row, contentHash: sha12(src.row), scope: 'row' }
+  }
+
+  return null
+}
+
+async function emitCitationIndex(records, ref, scanFiles) {
+  const getFile = makeFileCache()
+
+  // Group by the citation token itself: one entry per distinct citation,
+  // listing every place it is cited from.
+  const byToken = new Map()
+  for (const r of records) {
+    const id = `${r.kind} ${r.token}`
+    if (!byToken.has(id)) byToken.set(id, { citation: r.token, kind: r.kind, key: r.key, lintResolves: r.ok, citedFrom: [] })
+    const e = byToken.get(id)
+    e.citedFrom.push({ file: r.file, line: r.line })
+    if (!r.ok) e.lintResolves = false
+  }
+
+  const citations = []
+  for (const e of [...byToken.values()]) {
+    const target = e.lintResolves ? await resolveTarget(e.key, getFile, ref) : null
+    citations.push({
+      citation: e.citation,
+      kind: e.kind,
+      resolves: e.lintResolves && target != null,
+      target,
+      citedFrom: e.citedFrom.sort((a, b) => a.file.localeCompare(b.file) || a.line - b.line),
+    })
+  }
+  citations.sort((a, b) => a.kind.localeCompare(b.kind) || a.citation.localeCompare(b.citation))
+
+  const byKind = {}
+  for (const c of citations) {
+    byKind[c.kind] = byKind[c.kind] || { distinct: 0, sites: 0, unresolved: 0 }
+    byKind[c.kind].distinct += 1
+    byKind[c.kind].sites += c.citedFrom.length
+    if (!c.resolves) byKind[c.kind].unresolved += 1
+  }
+
+  const out = {
+    _generated: {
+      note: 'GENERATED FILE — do not edit by hand. Derived index of every citation the lint validates.',
+      regen: INDEX_REGEN,
+      what: 'Resolution layer only: "does this citation resolve, and what is at the other end". Substance ("does the source establish the claim") still requires opening the source — see reviews/translate-pipeline-analysis.md R2.',
+      contentHash: 'sha256, first 12 hex, of the resolved section (or whole file where scope is "file"). Rebuild and diff to detect a source that moved under a citation.',
+      scannedFiles: scanFiles.length,
+    },
+    summary: {
+      distinctCitations: citations.length,
+      citationSites: citations.reduce((a, c) => a + c.citedFrom.length, 0),
+      unresolved: citations.filter(c => !c.resolves).length,
+      byKind,
+    },
+    citations,
+  }
+
+  await fs.writeFile(INDEX_OUT, `${JSON.stringify(out, null, 2)}\n`, 'utf8')
+  console.log(`\n── Citation index ──`)
+  console.log(`  ✓ wrote ${path.relative(REPO_ROOT, INDEX_OUT)} — ${citations.length} distinct citation(s), ${out.summary.citationSites} site(s), ${out.summary.unresolved} unresolved`)
+}
+
 // ── orchestration ─────────────────────────────────────────────────────────
 
-export async function runCitationCheck(scanFiles = null) {
+export async function runCitationCheck(scanFiles = null, opts = {}) {
   // Default scan = the translation specs/skills/log PLUS every book chapter.
   if (scanFiles == null) scanFiles = [...SCAN_FILES, ...(await bookScanFiles())]
   const ref = await buildReferenceData()
+
+  // --emit-index only: collect every inspected token. Null on the lint path,
+  // so checkLine's `record` is a no-op and nothing below changes.
+  const indexRecords = opts.emitIndex ? [] : null
+  const emit = indexRecords ? (r) => indexRecords.push(r) : null
 
   // Verify any NN-Word/ path against disk before flagging, so a future real
   // numbered directory wouldn't false-positive.
@@ -366,7 +656,7 @@ export async function runCitationCheck(scanFiles = null) {
     }
     for (const { n, text, skip } of readableLines(src)) {
       if (skip) continue
-      checkLine(rel, n, text, ref, push)
+      checkLine(rel, n, text, ref, push, emit)
     }
   }
 
@@ -414,6 +704,7 @@ export async function runCitationCheck(scanFiles = null) {
   } else {
     console.log(`\n  ${errors} hard citation violation(s)${warnings ? `, ${warnings} warning(s)` : ''}`)
   }
+  if (indexRecords) await emitCitationIndex(indexRecords, ref, scanFiles)
   return errors
 }
 
@@ -428,8 +719,11 @@ const STRICT_FILES = new Set([
 ])
 
 // Allow running standalone: `node scripts/check-citations.mjs`
+// With `--emit-index`, additionally write spec/Citation-Index.json. The flag
+// is purely additive: validation, output, and exit code are unchanged.
 if (import.meta.url === `file://${process.argv[1]}`) {
-  runCitationCheck()
+  const emitIndex = process.argv.slice(2).includes('--emit-index')
+  runCitationCheck(null, { emitIndex })
     .then(total => process.exit(total === 0 ? 0 : 1))
     .catch(err => { console.error(err); process.exit(2) })
 }

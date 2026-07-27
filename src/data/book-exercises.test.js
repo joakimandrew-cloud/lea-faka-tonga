@@ -16,7 +16,7 @@ const byId = (id) => allExercises.find((ex) => ex.id === id)
 describe('classification', () => {
   it('has the expected interactive-type counts', () => {
     expect(ofType('matching').length).toBe(10)
-    expect(ofType('mcq').length).toBe(7)
+    expect(ofType('mcq').length).toBe(48) // 7→50 in the tap-only conversion (a895844), 50→48 with Ch-53 removal
     expect(ofType('transform').length).toBe(14)
   })
 
