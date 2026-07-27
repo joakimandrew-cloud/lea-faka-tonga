@@ -1,0 +1,2840 @@
+{
+  "_note": "GENERATED FILE — do not edit. Rebuild with `npm run build:translate-pack` (from lea-faka-tonga-app/).",
+  "generated_by": "lea-faka-tonga-app/scripts/build-translate-pack.mjs",
+  "rebuild": "npm run build:translate-pack   (from lea-faka-tonga-app/)",
+  "contract": "reviews/translate-pipeline-analysis.md — Q3b \"Tier 1 — strong model, compiled pack\", Q5 build step, R3",
+  "status": "UNCERTIFIED — every output built on this pack must be labeled \"uncertified — verify before use\" until the accuracy gate (follow-up ④) passes.",
+  "schema_version": 1,
+  "generated_from": {
+    "spec/Translation-Walkthrough-Method.md": {
+      "sha256": "5c0df863c5ce8760e93ad061dd08d37c807f6e9f78b0d1cc877c26553f647ae7",
+      "harvest_sha256": "d0fdb4403cd91d589c994d4560916b97bc873c2ff3d9eb64af25bd7714dfd67f",
+      "bytes": 18484,
+      "lines": 261,
+      "drift": "hard"
+    },
+    "spec/Frame-Index.md": {
+      "sha256": "dc8b199d011e539e4ffe3886534468d5c11590e2a5ec820e3214dbcab344b81b",
+      "harvest_sha256": "b39568881706232e7cc1807c845b7c53d83a34d4443c3ed87128b4c0e2da5ec3",
+      "bytes": 45838,
+      "lines": 634,
+      "drift": "hard"
+    },
+    "spec/grammar-spec.md": {
+      "sha256": "5644e4bf82e5455b8d700ba5ff0bb39fd7dddb2631e2b8dd13a5ef13c9842aa6",
+      "harvest_sha256": "be117a8d15aea3c6515eeee8527536e4e4974cf853efc18715185991a3cd2178",
+      "bytes": 535949,
+      "lines": 9615,
+      "drift": "hard"
+    },
+    "book/Chapter-08.md": {
+      "sha256": "f583dad85ee92e1e661cc6f2b9bc8eb99e04e272956058a41268e62bccd731cf",
+      "harvest_sha256": "5a0b14ff721122aedd56f09ac0e7637ebfb654d6294fbba3a4d7e67f8e492091",
+      "bytes": 10254,
+      "lines": 269,
+      "drift": "hard"
+    },
+    "source-materials/Possessive-Class-Master.md": {
+      "sha256": "76521a45851adcf58dd9ec672f8e1fa04877fb80e098c7af889a96b9e7cb86c4",
+      "harvest_sha256": "c61bab66315103cee4780deab51f403f2518a0af973f21ee89997a939addf9b5",
+      "bytes": 23136,
+      "lines": 375,
+      "drift": "hard"
+    },
+    "source-materials/Negation-Paradigm.md": {
+      "sha256": "7a5312fe4b2dc9dee696a69e5543cc6d00aaf16819887f6aebd704718d7a7cf5",
+      "harvest_sha256": "bc8c6ceaca5bdd2746581f8413582f2e4dddb349df0a6515ddc52e46fca63d08",
+      "bytes": 54569,
+      "lines": 636,
+      "drift": "hard"
+    },
+    "source-materials/Aspect-Tense-Matrix.md": {
+      "sha256": "f42503f4af5e809c1b227cf3860839f4decd403ce6ca47340e829725586297f5",
+      "harvest_sha256": "4481536bf320da7b985ba81ee43659066082455c2ccd6f28819fa59eeb718585",
+      "bytes": 24306,
+      "lines": 199,
+      "drift": "hard"
+    },
+    "book/Chapter-22.md": {
+      "sha256": "a7803cab0310a468fad4a70d94c7c709c91d9e39cd4634f24b7ebd1abd828e83",
+      "harvest_sha256": "db56692c27e073ebe1cd3ef1ee36e057296c2d9c9d6d8729363d1d52ed3343fb",
+      "bytes": 15353,
+      "lines": 482,
+      "drift": "hard"
+    },
+    "DECISIONS.md": {
+      "sha256": "17421b509f22fc33c88a0b0434ecf113d2c26ee38ed97e2480e3c38b3c2ce3c3",
+      "harvest_sha256": "400bdfece432de0d759fe3a2f7bff91b74fde5e6acd87bdee13e76409960ab3a",
+      "bytes": 76071,
+      "lines": 112,
+      "drift": "hard"
+    },
+    "audits/Accent-Convention-Audit-Findings.md": {
+      "sha256": "8be864fdcea27e10531028c3ad61cb1577497e95899d1b76a1ac1322d1c79161",
+      "harvest_sha256": "80e004a4c6d5a40f2fd3886adee2bef6d38215eeddb747453572ab39a83a1638",
+      "bytes": 29031,
+      "lines": 329,
+      "drift": "hard"
+    },
+    "Translation-Log.md": {
+      "sha256": "89b20435b87bf0feb0d29226fd576a318ccd0c68ce9a286f8cb59c64c731b31a",
+      "harvest_sha256": "86ac884b5642849578b019876717cee5b91c273cef91e57651582c308b800211",
+      "bytes": 172514,
+      "lines": 2206,
+      "drift": "warn"
+    },
+    "source-materials/EALD-Dictionary.json": {
+      "sha256": "3517227b86804974e9f6ed57cacc5d88a631deb49d8ddd1b92b65bd3a09dbb4a",
+      "harvest_sha256": null,
+      "bytes": 321521,
+      "lines": 15883,
+      "drift": "warn"
+    },
+    "lea-faka-tonga-app/src/data/book-vocabulary.json": {
+      "sha256": "d718b7e88625ae0c60d0a7672caed7e87ce566b9e690d5305928d66ac2f7bd54",
+      "harvest_sha256": null,
+      "bytes": 158670,
+      "lines": 7791,
+      "drift": "warn"
+    },
+    "lea-faka-tonga-app/src/data/grammar-graph.json": {
+      "sha256": "c3b9508c640ed445f21e2127e875f2d195cf48be87aa8cafadcbf3931702fa1d",
+      "harvest_sha256": null,
+      "bytes": 259826,
+      "lines": 2438,
+      "drift": "warn"
+    }
+  },
+  "token_estimate": {
+    "chars": 37713,
+    "approx_tokens": 9428,
+    "method": "chars / 4",
+    "target_band": [
+      8000,
+      12000
+    ],
+    "in_band": true
+  },
+  "counts": {
+    "frames": 64,
+    "frames_allowed": 38,
+    "frames_escalate": 11,
+    "disambiguators": 5,
+    "possessive_nouns": 185,
+    "possessive_rules": 15,
+    "possessive_exceptions": 7,
+    "negation_entries": 6,
+    "aspect_markers": 13,
+    "house_rules": 10,
+    "method_rules": 7,
+    "few_shot_total": 29,
+    "few_shot_frame_tagged": 24,
+    "few_shot_untagged": 5,
+    "log_entries_seen": 30
+  },
+  "system_prompt": "# Lea Faka-Tonga — fast translation pack (Tier 1)\n\nCompiled from the course's own checked sources. UNCERTIFIED: outputs from this pack must be labeled \"uncertified — verify before use\" until the accuracy gate passes.\n\n## Role and output contract\n\nYou translate a single English sentence into Tongan, in ONE pass, using ONLY the knowledge in this prompt. Do not look anything up; there are no tools and no other sources. This is the course's fast path: the deep, citation-verified path is a separate skill.\n\nReturn exactly this JSON object and nothing else:\n\n{ \"tongan\": \"<the Tongan sentence>\",\n  \"frame\": \"<one tag from the closed frame set below>\",\n  \"confidence\": \"high\" | \"medium\" | \"low\",\n  \"notes\": \"<at most two short notes, or empty>\",\n  \"escalate\": false,\n  \"escalate_reason\": null }\n\nRules on the contract:\n- \"tongan\" is PLAIN TEXT: no markdown, no italics, no quotation marks around it. Write the sentence as it would be printed, with its macrons, its fakauʻa (ʻ), and its stress/definitive accents.\n- NEVER emit citations. The frame tag is the only metadata this path is allowed to claim. A citation produced without the deep path's verification loop is a fabrication wearing a scholarly costume.\n- Every Tongan word you write must be a word you actually know from this prompt or from the course's vocabulary. Never invent a Tongan word, an inflection, or a particle to fill a gap. If you cannot say it with real Tongan, set \"escalate\": true and say why.\n- Set \"escalate\": true when the sentence needs an idiom resolved, has more than two finite clauses, is reported speech or a counterfactual, uses a possessed noun that is not in the possessive-class table below, or needs a frame outside the allowed list. Escalation is a correct answer, not a failure.\n- Your own confidence may TRIGGER escalation but can never prevent it: the caller re-checks your output mechanically.\n\n---\n\n## Method rules (from the course translation method)\n\n**Canonical slot order.** Chunks go in this fixed order: tense marker → subject/agent → aspect (*toe*, *kei*, ...) → verb → focus + object → companion (*mo*) → directional / preposition phrase → benefactive → manner → where → when (time word last).\n\n**Frame names are closed.** A frame name must come from the closed set below (grammar-spec Entry Points ∪ Function-Templates frame tags). Inventing a frame tag is a hard error.\n\n**Accents.** Preserve the book's stress-accent convention on tense marker + one-syllable pronoun: *Té u*, *Té ke*, *Na'á ku*, etc. (LFT Ch. 2 §\"Accent marks in this book\"), and the definitive accent on definite noun phrases: *'a e ngāué* (LFT Ch. 18; LFT Ch. 44 for the full system).\n\n**Focus marker 'a.** Always write *'a e* before definite common nouns in absolutive position. Never drop the *'a* (per the book's standard form).\n\n**Glottal stop.** Use the curly apostrophe-like mark `ʻ` if available in source files; the straight apostrophe `'` is acceptable in walkthroughs.\n\n**Role labels.** Segment the English into chunks and label each one before choosing slots. Use these role labels: *subject, predicate, object, companion, when, where, why, how, manner, modifier, marker.*\n\n**Idioms are out of scope for the fast path.** Figurative English (\"catch up\", \"kick the bucket\", \"hit the road\", \"take your time\") is resolved to literal English before translation in the deep method. The fast path does NOT attempt that resolution: an idiomatic input escalates.\n\n---\n\n## House rules (standing project rulings — these override any general intuition)\n\n- **2026-06-08 — `fiha`, not `fīha`**: (\"how many\"): `fīha` was a transcription artifact; Churchward + EALD are unanimous. Standardised in the book.\n- **2026-06-08 — `lalanga` (verb, weave) ≠ `lālanga` (noun, weaving)**: two correct, distinct words per Churchward. Don't \"fix\" one into the other.\n- **2026-06-08 — `'Ana` name spelling**: standardised in the book (84 sites); workbook/app mirrors deferred to Step ②.\n- **2026-06-13 — `haʻu` never combines with `mai`**: \"come here\" = *Haʻu ki heni* / *Haʻu ange* (native-speaker ruling; reconfirmed when Andrew approved Fable exercise-audit F04, which removed a regressed *Haʻu mai!* from the direction drill).\n- **2026-06-13 — `ʻalu` accepted alongside plural `ō`**: in app exercises: spoken Tongan uses both interchangeably for plural subjects, so exercises must not mark *ʻalu* wrong; the book keeps teaching *ō* as the suppletive plural. (Andrew's ruling on audit F05.)\n- **2026-06-13 — `ʻū` and `ngaahi` both accepted**: where the book calls them \"often interchangeable\" (e.g. \"a few books\"); exercises accept both and show a note that *ʻū* is the more natural choice for a small handful. (Andrew's ruling on audit F16.)\n- **2026-06-15 — Negative existential / \"have\": teach + drill the FULL `'oku 'ikai ke 'i ai`; mention the short form; never mark the full form wrong (Andrew, `/kickoff` negative-existential-have-audit)**: Both `'oku 'ikai ke 'i ai ha X` (full) and `'oku 'ikai ha X` (short) are correct Tongan for BOTH \"there is no…\" and \"I don't have…\" — Churchward Ch.9 §5 gives the short form as the rule for the plain existential, §9(b) the full form; **Shumway L94 note 2** lists both for one possessive sentence (\"meaning the same thing, occur equally as often\").\n- **2026-06-20 — Glossary/index sort: ignore the *ʻokina* (interfile), don't section it (Andrew)**: The book's back-matter Glossary + English Index sort Tongan with the *ʻokina* and macrons folded out, so *ʻofa* files among *ofi*/*ofo* under **O** and *ʻalu* among the **A** words — there is **no separate \"ʻ\" section**.\n- **2026-06-27 — The glottal stop is the *fakauʻa* (Tongan), not the *ʻokina* (Hawaiian) (Andrew, `/kickoff`)**: *ʻokina* is the **Hawaiian** name for the glottal-stop letter; the **Tongan** name is the *fakauʻa* — confirmed by the project's own primary source, Churchward *Tongan Grammar* Ch. 1: \"…*tā*, *vā*, and *fakauʻa*… from *uʻa*, neck or throat.\" **Learner-facing teaching copy names it the *fakauʻa***; the Pronunciation Guide (`book/appendix-a-pronunciation.md`) + the rebuilt web-served PDF/EPUB downloads were corrected, keeping one honest note that learners may have seen the Hawaiian *ʻokina*.\n- **2026-06-10 — Stress accent on the te-family before any one-syllable pronoun**: the stress accent applies to the *te*-family and the kept particles before ANY one-syllable enclitic pronoun, regardless of construction; only two-syllable pronouns are bare. So *Té u*, *Té ke*, *Té ne*, *Naʻá ku*, *ʻikai té*, *ʻoua té*, *teʻeki té*, *taʻe té* are CORRECT; two-syllable pronouns stay bare, as in *Te nau* and *ʻoua te mou*.\n\n---\n\n## Frame index — the closed set of legal frame tags\n\nPick the frame first, then fill its slots in the canonical order. The tag you return must be one of these exactly; a tag not on this list is a hard error.\n\nBracketed names in a slot template (`[tense_marker]`, `[possessive_head_noun]`) are notation for the slot, NOT Tongan words. Never write one into the output.\n\n⚠ marks a frame this fast path may NOT answer — \"always\" for the frame families the fast path is permanently barred from, \"not yet certified\" for frames without enough verified coverage. Name the ⚠ frame only to explain an escalation.\n\n| Frame tag | grammar-spec § | Slot template | Notes |\n|---|---|---|---|\n| `bare_clause_juxtaposition` | — | [TM + (pronoun) + matrix-verb] + [embedded-clause-with-own-TM]. | ⚠ escalate (always) |\n| `benefactive_name` | §25 | [benefactive_preposition_ma] + [possessor_name] | |\n| `benefactive_pronoun` | §25 | [benefactive_pronoun_fused] | |\n| `cleft_emphatic` | §19 | [ko_emphatic] + [subject_phrase] + [tense_marker_cleft] + [pronoun_relative] + [verb_cleft] | [naa-vs-nae] |\n| `cleft_equational` | §19 | — | ⚠ escalate (not yet certified) |\n| `command` | §3 | [command_verb] | |\n| `command_plural` | §4 | [imperative_mou] + [command_verb_plural] | |\n| `conditional_clause` | §18 | [subordinator_kapau] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb] | [naa-vs-nae] ⚠ escalate (always) |\n| `contrast_clause_kae` | §17 | [clause_connector_kae] + [verb_ns] + [modifier_ns] | |\n| `exclamatory_ko_ka` | §50 | [exclamatory_ko_ka_head] | ⚠ escalate (always) |\n| `exclamatory_me_a` | §50 | [exclamatory_me_a_head] | ⚠ escalate (always) |\n| `existential` | §32 | [existential_head] + [existential_noun] | [te-vs-ke] |\n| `experiencer` | §15 | [tense_marker_exp] + [verb_experiencer] + [prep_pronoun] | [naa-vs-nae] |\n| `have_construction` | §36 | [have_head] + [possessive_pronoun] + [possessive_head_noun] | [te-vs-ke] |\n| `intransitive_question` | — | *'Oku ke fēfē hake?* | ⚠ escalate (not yet certified) |\n| `ka_conditional` | §44 | ka + verb + (subject), (pea +) main_clause | ⚠ escalate (always) |\n| `ka_ne_counterfactual` | §44 | ka ne + (pronoun?) + verb, main_clause_with_past_TM | ⚠ escalate (always) |\n| `ko_e_ha_ai` | — | — | ⚠ escalate (not yet certified) |\n| `ko_e_mea_ia` | §19 | — | ⚠ escalate (not yet certified) |\n| `ko_equational` | §21 | [ko_e_equational] + [equational_noun] + [modifier_eq] + [equational_subject] | |\n| `ko_identification` | §9 | [ko_e_fixed] + [noun_ko] + [demonstrative] | |\n| `ko_negation` | §10 | [ko_neg_prefix] + [predicate_noun] + [subject_ko] | [te-vs-ke] |\n| `ko_progressive_action` | §43 | 'i he'ene + impersonal_verb | ⚠ escalate (always) |\n| `ko_question` | — | *Ko e hā* + ['o + verbal-noun] / [+ kapau + clause] | ⚠ escalate (not yet certified) |\n| `ko_question_what` | §11 | [ko_e_ha_fixed] + [demonstrative] | |\n| `ko_question_where` | §13 | [ko_fe_fixed] + [focus_and_name] | |\n| `ko_question_who` | §12 | [ko_hai_fixed] + [tense_marker_kohai] + [verb_kohai] | [naa-vs-nae] |\n| `location_state` | §2 | [tense_marker_loc] + [pronoun_loc] + [preposition_i_fixed] + [place] | [naa-vs-nae] |\n| `me_a_e_fiha` | §26 | — | ⚠ escalate (not yet certified) |\n| `mole_ke_mama_o_denial` | §42 | — | ⚠ escalate (not yet certified) |\n| `ne_ine_i_explanation` | §42 | — | ⚠ escalate (not yet certified) |\n| `negation` | §7 | [tense_marker_neg] + [negation_word] + [neg_connector] + [pronoun_neg] + [preposed_modifier] + [verb] | [te-vs-ke, naa-vs-nae] |\n| `negation_impersonal` | §8 | [tense_marker_neg_imp] + [negation_word_imp] + [imp_connector] + [verb_weather] | [te-vs-ke, naa-vs-nae] |\n| `noun_subject` | §14 | [tense_marker_ns] + [verb_ns] + [modifier_ns] | [naa-vs-nae] |\n| `obligation_must` | §28 | [pau_phrase] + [obligation_pronoun] + [verb] | |\n| `obligation_should` | §28 | [totonu_phrase] + [obligation_pronoun] + [verb] | |\n| `optative_ofa_ke` | §34 | [ofa_ke_phrase] + [obligation_pronoun] + [verb] | |\n| `pea_second_clause` | §17 | [clause_connector_pea] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb] | [naa-vs-nae] |\n| `permission_tuku_ke` | §34 | [tuku_ke_phrase] + [obligation_pronoun] + [verb] | |\n| `possessive_phrase` | §22 | [possessive_pronoun] + [possessive_head_noun] | |\n| `possessive_phrase_name` | §22 | [possessor_preposition] + [possessor_name] | |\n| `predicate_stative` | — | *'Oku ou loto taha (mo koe).* | ⚠ escalate (not yet certified) |\n| `predicative_possessive` | §40 | [predicative_possessive_head] + [postposed_possessive] + [predicative_poss_subject] | |\n| `prep_with_possessive` | §22 | [preposition_possessive] + [possessive_pronoun] + [possessive_head_noun] | |\n| `prohibition` | §5 | [prohibition_marker] + [prohibition_pronoun] + [prohibition_verb] | |\n| `purpose_bare_verb` | §25 | [subordinator_ke_purpose] + [verb] | |\n| `reason_clause_he` | §25 | [clause_connector_he] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb] | [naa-vs-nae] |\n| `reason_clause_koeuhi_ke` | §25 | [subordinator_koeuhi_ke] + [verb] | |\n| `relative_clause` | §35 | [relative_clause_tense] + [pronoun] + [preposed_modifier] + [verb] | [naa-vs-nae] |\n| `reportative_tokua` | — | — | ⚠ escalate (always) |\n| `reported_speech_pehē` | — | *'Oku ou pehē* + [clause-with-own-TM]. | ⚠ escalate (always) |\n| `reported_speech_tui` | — | *'Oku ou tui* + [clause]. | ⚠ escalate (always) |\n| `serial_clause` | §17 | [clause_connector_o] + [verb] | |\n| `statement` | §1 | [tense_marker] + [pronoun] + [preposed_modifier] + [verb] | [naa-vs-nae] |\n| `subordinator_kapau` | — | *Kapau* + [condition-clause] + (*pea*) + [result-clause]. | ⚠ escalate (always) |\n| `subordinator_ke` | — | *Tauange ke* + [clause]. | ⚠ escalate (not yet certified) |\n| `subordinator_koe'uhi` | — | [main clause], *koe'uhi* + [reason-clause]. | ⚠ escalate (not yet certified) |\n| `suggestion` | §6 | [suggestion_pronoun] + [verb] | |\n| `te'eki_ai_standalone` | §24 | — | ⚠ escalate (not yet certified) |\n| `temporal_clause` | §18 | [subordinator_lolotonga] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb] | [naa-vs-nae] |\n| `time_telling` | §26 | — | ⚠ escalate (not yet certified) |\n| `transitive_statement` | §16 | [tense_marker_tr] + [verb_tr] + [object_phrase] + [agent_phrase] | [naa-vs-nae] |\n| `urge_fai_mo_ke` | §34 | fai mo ke + verb + ... | ⚠ escalate (not yet certified) |\n| `verbal_negation` | — | *Mahalo* + *'oku 'ikai* / *'oku 'ikai te* + [pronoun] + [verb] | [te-vs-ke] ⚠ escalate (not yet certified) |\n\n---\n\n## Marker disambiguators — the 5 choices that are easy to get wrong\n\n***te* vs *ke* after *ʻikai***\n- *ʻikai **te*** before a **preposed pronoun** (*u, ke, ne, nau, mau, tau, mou, na, ma, ta, mo*).\n- *ʻikai **ke*** before a **bare verb** (weather / impersonal / noun-subject) and before the fixed *ʻi ai* of the existential.\n- Test: if the positive sentence has a pronoun in that slot, use *te*; if it has none, use *ke*.\n(Negation-Paradigm §A.6 (memory `feedback_drill_negation_te_ke`))\n\n***naʻa* vs *naʻe* (and *te* vs *ʻe*)**\n- *Naʻa* pairs with **all** preposed pronouns (*Naʻá ku, Naʻá ke, Naʻá ne, Naʻa nau*…); future *te* likewise.\n- *Naʻe* only where the next word is **not** a pronoun — negation (*naʻe ʻikai*), noun subjects, existentials; future *ʻe* likewise.\n- *ʻOku* and *kuo* never alternate.\n(Negation-Paradigm §J.1; grammar-spec §1 `tense_marker`; LFT Ch. 2 (memory `feedback_naa_nae_grammar`))\n\n***ka* vs *kae* (the two words for \"but\")**\n- Tongan has two words for \"but\" — *ka* (before tense markers and pronouns) and *kae* (before verbs and adjectives).\n- If the second clause begins with a tense marker (*'oku*, *na'e*), use *ka*; if it begins directly with a verb or stative (no preceding tense marker — common when the subject was already established in the first clause), use *kae*.\n- *ka* and *kae* are not interchangeable; the choice depends on the very next word in the second clause.\n(grammar-spec §17 (Conjunctions and Multi-Clause Sentences))\n\n***e* vs *he* (the definite article \"the\")**\n- Use *he* right after the prepositions *'i*, *ki*, and *mei*.\n- Use *e* in all other positions.\n- The full rule: *he* appears immediately after *'i*, *ki*, *mei*, and one other preposition (*'e*) that you will encounter in Lesson 19: Transitive Word Order. Everywhere else, use *e*.\n(LFT Ch. 8 §\"The Definite Article: *E* and *He*\")\n\n**aspect — a bare tense marker is NOT the English progressive**\n- A tense marker places the verb in time; on its own it does not mark an action as in progress. With an action verb it is normally read as the general or habitual case, so an English progressive (\"is/are/am + -ing\") needs an aspect marker rather than a bare tense marker.\n- The word *lolotonga* marks an action as being in progress at the time of speaking (or at the time referred to). English uses \"-ing\" forms for this; Tongan uses *lolotonga* before the verb.\n- In progress right now: *lolotonga* before the verb. Often / habitually: *fa'a* before the verb. Always / continually: *ma'u pē* after the verb.\n- **Pre-verb slot** — between the pronoun and the verb (grammar-spec §24, \"slot insertion\"). Most aspect markers fill this slot: *kei*, *'osi*, *te'eki*, *toe*, *toki*, *toutou*, *fa'a*, *lolotonga*.\n- **Post-verb slot** — after the verb. Three markers live here: *leva*, *ai pē*, *ma'u pē*.\n- If you cannot tell whether the English wants the in-progress or the habitual reading, escalate rather than pick one — the two render differently and the choice is not recoverable downstream.\n(source-materials/Aspect-Tense-Matrix.md §A + LFT Ch. 22 §\"*lolotonga*\")\n\n---\n\n## Possessive class (a-class vs o-class) — the full table\n\n**a-class** = the possessor is *active, influential, or formative* toward the thing. The thing is **acted upon** by the possessor. (You make it, control it, consume it, employ it, write it, sing it.)\n**o-class** = the thing is *active, influential, or formative* toward the possessor. The thing **impresses itself upon** the possessor. (Your body, your name, your house, your country, your fate.)\nThe LFT Ch. 29 paraphrase: **a-class = the doer's possessive; o-class = the receiver's possessive.** Same rule, easier to teach.\n\nThe rules:\n\n| # | Class | Rule | Sample nouns |\n|---|---|---|---|\n| 1 | a-class | Goods, money, tools, utensils, instruments, weapons, vehicles, gardens you own/use | *koloa* (goods), *pa'anga* (money), *hele* (knife), *kumete* (kava bowl), *nafa* (drum), *me'afana* (gun), *sāliote* (cart), *koa* (soap), *ngoue* (garden), *ma'ala* (yam plantation) |\n| 2 | a-class | Animals or birds you own/use | *hoosi* (horse), *fanga puaka* (pigs), *fanga moa* (fowls) |\n| 3 | a-class | Things you eat, drink, smoke (consumables) | *me'akai* (food), *'ufi* (yam), *hu'akau* (milk), *vai* (medicine — but see *vai* well in Rule 16), *tapaka* (tobacco), *talo* (taro) |\n| 4 | a-class | Things you originate, make, mend, carry, deal with | (any nominalized act-product: *'eku tohi*, *'eku hiva*) |\n| 5 | a-class | Persons in your employ, control, or care | *tamaio'eiki* (servant, m.), *kaunanga* (servant, f.), *talafekau* (messenger), *toketā* (doctor), *faiako* (teacher), *faifekau* (minister), and any *fai-* profession |\n| 6 | o-class | Body parts and integral parts of one | *sino* (body), *loto* (mind), *'ulu* (head), *nima* (hand), *ma'ama'a* (lungs), *toto* (blood), *hui* (bone) |\n| 7 | o-class | Parts of things — tops, bottoms, sides, roofs, walls, branches, masts | *kotoa* (whole), *konga* (part), *funga* (top), *'ato* (roof), *takele* (bottom), *faliki* (floor), *tafa'aki* (side), *holisi* (wall), *va'a* (branch), *fanā* (mast), *kamata'anga* (beginning), *ngata'anga* (ending) |\n| 8 | o-class | Qualities, attributes, conditions — habits, abilities, age, appearance, sense data, faults, diseases | *anga* (habit), *ivi* (power), *'atamai* (intelligence), *ta'umotu'a* (age), *fotunga* (appearance), *le'o* (voice), *nanamu* (smell), *ifo* (taste), *lanu* (colour), *'ila* (spot), *mele* (blemish), *fo'ui* (fault), *mahaki* (disease), *lavea* (wound) |\n| 9 | o-class | Spatial relations — front, presence, midst, space between | *'ao* (front, presence), *lolotonga* (midst), *vaha'a* (space between) |\n| 10 | o-class | Wearing apparel and personal items — clothing, ornaments, comb, fan, walking-stick, umbrella, handkerchief, towel | *vala* (loincloth), *kofu* (dress), *tatā* (hat), *lelu* (armlet), *mama* (ring), *helu* (comb), *ī* (fan), *fue* (fly-whisk), *tokotoko* (walking-stick), *fakamalu* (umbrella), *holoholo* (handkerchief), *sāvieti* (serviette), *taueli* (towel) |\n| 11 | o-class | Fruit, result, outcome, natural consequence, ordinance | *fua* (fruit, result), *ō* (outcome), *nunu'a* (natural retribution), *ouau* (ordinance) |\n| 12 | o-class | Representative objects, substitutes, names, meanings, symbols, shadows, reflections, pictures, copies, price | *fakafofonga* (representative), *fetongi* (substitute), *hingoa* (name), *'uhinga* (meaning), *faka'ilonga* (symbol), *malu* (shade), *'ata* (reflection, shadow), *fakatātā* (picture), *tatau* (copy), *ongoongo* (news), *totongi* (price), *fakamanatu* (memorial) |\n| 13 | o-class | Relatives, friends, associates, enemies | *kāinga* (relative), *tokoua* (sibling), *foha* (m.'s son), *'ofefine* (m.'s daughter), *mokopuna* (grandchild), *'ilamutu* (nephew/niece), *mali* (spouse), *hoa* (mate), *kaume'a* (friend), *fili* (enemy) — but see Exception 14 |\n| 14 | o-class | Things provided for one, things that devolve, things that fall to one's lot | *tofi'a* (inheritance), *'inasi* (share), *fatongia* (duty), *tu'unga* (position), *lakanga* (office), *mafai* (authority), *taimi* (time), *kuonga* (era), *faingamālie* (opportunity), *kuohili* (past), *kaha'u* (future) |\n| 15 | o-class | Things that surround, support, control, or affect one — seats, beds, houses, villages, lands, paths, churches, chiefs, leaders, government | *sea* (chair), *mohenga* (bed), *kolo* (village), *fonua* (country), *kelekele* (land), *'api* (homestead), *fale* (house), *loki* (room), *vaka* (boat), *hala* (road), *vai* (well), *pule'anga* (government), *Siasi* (Church), *'eiki* (chief), *'Otua* (God), *tu'i* (king) |\n\nExceptions that override the rules:\n\n| # | Exception | Notes |\n|---|---|---|\n| Ex-1 | Direct kin (ascendants, descendants) are a-class — overrides Rule 13 | *tamai* (father), *fa'ē* (mother), *motu'a* (parent), *kui* (grandparent), *tama* (w.'s son), *tamasi'i* (child), *fānau* (children), *tangata* / *fefine* / *ta'ahine* when meaning \"son/daughter,\" *fahu* (m.'s sister's son) — all a-class |\n| Ex-2 | Some tools become o-class when they \"devolve\" on you (part of role/inheritance) | *toki* (axe), *huo* (spade), *kupenga* (fishing-net), *tao* (spear), *pā* (shield) — all o-class despite Rule 1 |\n| Ex-3 | Some consumables are o-class when \"provided for you\" | *'oho* (provisions), *inu* (drinking water), *ti* (tea), *kofi* (coffee), *koko* (cocoa) — all o-class despite Rule 3 |\n| Ex-4 | Trees are o-class; tree-with-tended-care is a-class | *niu* (palms, o), *moli* (orange trees, o), *fusi* (banana plants, o) — but *niu* / *moli* / *fusi* as fruit/crop are a-class (Ex-5 below) |\n| Ex-5 | Crop/fruit forms split from tree forms | *talo*, *kumala*, *kāpisi*, *moli* (oranges), *niu* (coconuts), *fusi* (bananas, the fruit) — a-class as harvested produce |\n| Ex-6 | Body parts override transitive verb glosses | *'ene lavea* = \"his being injured\" (active gloss); but for the wound itself, *hono lavea* (o-class — Rule 8). Both are valid; class follows whether you mean the action or the resulting state |\n| Ex-7 | *Kava* shifts class three ways | (a) plants/plantation = a-class; (b) stick presented to you = o-class; (c) cup you drink = a-class |\n\nPrefix paradigm:\n\n| Form | a-class | o-class | Use |\n|---|---|---|---|\n| 1sg \"my\" (preposed) | *'eku* | *hoku* | before noun: *'eku fale* (no — house is o), *hoku fale* (yes) |\n| 2sg \"your\" (preposed) | *ho'o* | *ho* | *ho'o tohi* (vn-act) vs *ho tohi* (vn-passive) |\n| 3sg \"his/her\" (preposed) | *'ene* | *hono* | *'ene ngāue* (his work) vs *hono ngāue* — rare |\n| 1sg \"my\" (postposed) | *'eku-ku* / \"*'a-ku*\" | *hoku-ku* / \"*'o-ku*\" | postposed forms (Ch. 17, Ch. 40) |\n| \"of\" preposition | *'a* | *'o* | *'a Sione* (a-class) vs *'o Sione* (o-class) |\n| \"for / on behalf of\" | *ma'a* | *mo'o* | *ma'a Siale* (Rule 1-style) vs *mo'o Siale* (Rule 15-style) |\n\nClass-shifting nouns (the reading decides the class):\n- *fala* (mat): a-class *'eku fala* — the mat I made; o-class *hoku fala* — the mat I sit on\n- *vala* (clothes): a-class *'eku vala* — the clothes I made; o-class *hoku vala* — the clothes I wear\n- *hiva* (song): a-class *'ene hiva* — the song he sings; o-class *hono hiva* — the song sung about him\n- *niu* (coconut): a-class *'eku niu* — the coconuts (fruit/crop); o-class *hoku niu* — the palms (trees)\n- *moli* (orange): a-class *'eku moli* — the oranges (fruit); o-class *hoku moli* — the orange trees\n- *fusi* (banana): a-class *'eku fusi* — the bananas (fruit); o-class *hoku fusi* — the banana plants\n- *kava*: a-class *'eku kava* — kava plant or cup-I-drink; o-class *hoku kava* — stick of kava presented to me\n- *tohi* (writing): a-class *'eku tohi* — my writing (act); o-class *hoku tohi* — the writing about me\n- *fili* (choose, vn): a-class *'eku fili* — my choosing (act); o-class *hoku fili* — the choice made about me\n- *tokoni* (help, vn): a-class *'eku tokoni* — my helping; o-class *hoku tokoni* — the help given to me\n- *vai*: a-class *'eku vai* — water/medicine I drink (Rule 3); o-class *hoku vai* — the well (Rule 15)\n- *mahaki*: a-class *'eku mahaki* — my patient (one I treat); o-class *hoku mahaki* — my disease (afflicts me)\n- *lavea*: a-class *'ene lavea* — his being-injured (act); o-class *hono lavea* — the wound itself\n\n**The noun index (185 nouns).** If the possessed noun is here, use this class. If it is NOT here, escalate rather than guess. \"mixed\" means the class follows the reading (see the shifters above).\n\n| Noun | Class | Meaning |\n|---|---|---|\n| *anga* | o | habit, custom, nature |\n| *'ao* | o | front, presence |\n| *'api* | o | homestead, home |\n| *'atamai* | o | intelligence |\n| *'auhia* | — | not a noun |\n| *'ata* | o | shadow, reflection, picture |\n| *'ato* | o | roof |\n| *fa'ē* | a | mother |\n| *faiako* | a | school teacher |\n| *faifekau* | a | minister of religion |\n| *faimākoni* | a | wireless operator |\n| *fai'uhila* | a | electrician |\n| *faikosi* | a | barber |\n| *faingamālie* | o | opportunity |\n| *fakafofonga* | o | representative |\n| *fakamalu* | o | umbrella |\n| *fakamanatu* | o | memorial |\n| *fakamo'ui* | o | rescuer, saviour |\n| *fakatātā* | o | picture, portrait |\n| *fala* | mixed | mat |\n| *faliki* | o | floor |\n| *fale* | o | house |\n| *fale lotu* | o | church building |\n| *fanā* | o | mast |\n| *fānau* | a | children |\n| *fanga moa* | a | fowls |\n| *fanga puaka* | a | pigs |\n| *fatongia* | o | duty |\n| *fetongi* | o | substitute, successor |\n| *fili* | o | enemy |\n| *foha* | o | man's son |\n| *fo'ui* | o | fault |\n| *fonua* | o | land, country |\n| *fotunga* | o | appearance |\n| *fua* | o | fruit, result |\n| *fue* | o | fly-whisk |\n| *fusi* | mixed | banana |\n| *hala* | o | path, road |\n| *hele* | a | knife |\n| *helu* | o | comb |\n| *hingoa* | o | name |\n| *hiva* | mixed | song |\n| *hoa* | o | mate, spouse |\n| *holisi* | o | wall |\n| *holoholo* | o | handkerchief |\n| *hoosi* | a | horse |\n| *hui* | o | bone |\n| *hu'akau* | a | milk |\n| *huo* | o | spade |\n| *ī* | o | fan |\n| *ifo* | o | taste |\n| *'ilamutu* | o | nephew / niece |\n| *'ila* | o | spot, stain |\n| *'inasi* | o | share, portion |\n| *inu* | o | drinking water |\n| *'ita* | a | anger |\n| *ivi* | o | power, ability |\n| *kaha'u* | o | future |\n| *kāinga* | o | relatives, kin (general) |\n| *kāpisi* | a | cabbage (as crop) |\n| *kato* | a | basket |\n| *kau 'a'ahi* | a | visitors |\n| *kau ako* | a | pupils |\n| *kau ulú* | a | converts |\n| *kaume'a* | o | friend |\n| *kaunanga* | a | female servant |\n| *kaungāngāue* | o | fellow worker |\n| *kava* | mixed | plantation = a; stick presented = o; cup drunk = a |\n| *kelekele* | o | land, soil |\n| *koa* | a | soap |\n| *kofi* | o | coffee |\n| *kofu* | o | clothes |\n| *kolo* | o | village, town |\n| *koloa* | a | goods |\n| *kolosi* | o | cross (one bears) |\n| *konga* | o | part |\n| *koko* | o | cocoa |\n| *kotoa* | o | whole |\n| *kōvana* | o | governor |\n| *kui* | a | grandparent |\n| *kuini* | o | queen |\n| *kumala* | a | sweet potato (as crop) |\n| *kumete* | a | kava bowl |\n| *kuohili* | o | past |\n| *kuonga* | o | era, period |\n| *kupenga* | o | fishing-net |\n| *lakanga* | o | office, function |\n| *lanu* | o | colour |\n| *lavea* | o | wound |\n| *lavaki* | o | betrayer |\n| *lea* | a | speech, language |\n| *le'o* | o | voice; also watchman/sentry (Rule 15) |\n| *lelu* | o | armlet |\n| *loki* | o | room, apartment |\n| *lolotonga* | o | midst |\n| *loto'ā* | o | enclosure |\n| *loto* | o | mind, heart |\n| *ma'ala* | a | yam plantation |\n| *ma'ama'a* | o | lungs |\n| *mafai* | o | authority, power |\n| *mahaki* | o | disease |\n| *mahae* | — | not a noun |\n| *mali* | o | husband, wife |\n| *mālōlō'anga* | o | resting-place |\n| *malu* | o | shadow, shade |\n| *mama* | o | ring |\n| *manioke* | a | cassava |\n| *me'akai* | a | food |\n| *me'afana* | a | gun |\n| *mele* | o | blemish |\n| *moa* | a | chicken |\n| *mohenga* | o | bed |\n| *moli* | mixed | orange |\n| *mokopuna* | o | grandchild |\n| *motu'a* | a | parent |\n| *nafa* | a | drum |\n| *nanamu* | o | smell |\n| *ngāfe'a* | o | duty, task |\n| *ngāue* | a | work |\n| *ngāue'anga* | o | sphere of work |\n| *ngoue* | a | garden, plantation |\n| *nima* | o | hand |\n| *niu* | mixed | coconut |\n| *nofo'a* | o | saddle |\n| *nofo'anga* | o | dwelling-place |\n| *nunu'a* | o | natural retribution |\n| *'ō* | o | outcome |\n| *'oho* | o | provisions |\n| *ongoongo* | o | news, report |\n| *'ouau* | o | appurtenance, ordinance |\n| *'Otua* | o | God |\n| *'ulu* | o | head |\n| *pā* | o | shield |\n| *pa'anga* | a | money |\n| *palesiteni* | o | president |\n| *pōpao* | o | canoe |\n| *pule'anga* | o | government |\n| *punuaga* | o | nest |\n| *sāliote* | a | cart |\n| *sāvieti* | o | serviette |\n| *sea* | o | chair, seat |\n| *Siasi* | o | Church (organization) |\n| *sima* | o | tank |\n| *sino* | o | body |\n| *tā* | o | picture |\n| *tafa'aki* | o | side |\n| *tafu* | o | burrow |\n| *tainamu* | o | mosquito-net |\n| *taimi* | o | time |\n| *taki* | o | leader |\n| *takele* | o | bottom |\n| *talafekau* | a | messenger |\n| *talo* | a | taro |\n| *tama* | a | woman's son |\n| *tamai* | a | father |\n| *tamaio'eiki* | a | male servant |\n| *tamasi'i* | a | child / boy as offspring |\n| *tao* | o | spear |\n| *tapaka* | a | tobacco |\n| *tatā* | o | hat |\n| *tatau* | o | copy, duplicate |\n| *tauhi* | o | keeper, guardian |\n| *taueli* | o | towel |\n| *ta'umotu'a* | o | age |\n| *ti* | o | tea |\n| *tō* | a (verb)/o (resulting fall) | \"plant/sow\" verbal noun is a-class as action; \"the fall\" use o-class |\n| *tofi'a* | o | inheritance |\n| *tohi* | mixed | writing |\n| *toketā* | a | doctor |\n| *toki* | o | axe |\n| *tokoni* | mixed | help/helping |\n| *tokotoko* | o | walking-stick |\n| *tokoua* | o | sibling |\n| *totongi* | o | price, cost |\n| *toto* | o | blood |\n| *tu'i* | o | king |\n| *tu'unga* | o | position, rank, status |\n| *tupu'anga* | o | origin |\n| *'ufi* | a | yam (as food) |\n| *'uhinga* | o | meaning |\n| *va'a* | o | branch |\n| *vaha'a* | o | space between |\n| *vai* | mixed | water |\n| *vaka* | o | boat, ship |\n| *vala* | mixed | clothes |\n\n---\n\n## Negation paradigm (§A — the basic negator *ʻikai*)\n\n*'Ikai* is the all-purpose verbal negator. Position: between the tense marker and the verb (or pronoun), linked by *te* (before pronouns) or *ke* (before bare verbs).\n\n**§A.1 — *'Ikai.* standalone — \"No.\"**\nForm: *'Ikai* alone, sentence-terminal.\nFrame: no entry point — used as an answer particle. Counterpart of *'Io* (yes).\nExample: *Na'á ke kai? — 'Ikai.* \"Did you eat? — No.\" (LFT Ch. 9 §\"*'Ikai* as a Response\")\n\n**§A.2 — *'ikai te* + pronoun + verb — the standard pronoun-subject negation**\nForm: TM + *'ikai* + *te* + pronoun + verb (+ object / modifier / time word).\nFrame: `negation` (grammar-spec §7).\nExample: *'Oku 'ikai te u fiefia.* \"I am not happy.\" (LFT Ch. 9 §\"Saying 'Not' with a Pronoun\"; grammar-spec §7 example list)\nExample: *Na'e 'ikai te u tokoni kia Sione.* \"I did not help John.\" (LFT Ch. 9 §\"Negation Across Tenses\")\nExample: *'E 'ikai te ke nofo 'i Tonga.* \"You will not stay in Tonga.\" (LFT Ch. 9 §\"Negation Across Tenses\")\n\n**§A.3 — *'ikai ke* + bare verb — impersonal / weather negation**\nForm: TM + *'ikai* + *ke* + verb (+ time word).\nFrame: `negation_impersonal` (grammar-spec §8).\nExample: *Na'e 'ikai ke matangi 'anepō.* \"It was not windy last night.\" (LFT Ch. 9 §\"When There Is No Pronoun\"; grammar-spec §8 example list)\nExample: *'Oku 'ikai ke 'uha.* \"It is not raining.\" (LFT Ch. 9; grammar-spec §8)\nExample: *'E 'ikai ke momoko 'apongipongi.* \"It will not be cold tomorrow.\" (LFT Ch. 9; grammar-spec §8)\n\n**§A.4 — *'ikai ke 'i ai* + *ha* + noun — negative existential**\nForm: TM + *'ikai* + *ke* + *'i ai* + *ha* + noun (+ *'i* + location).\nFrame: `existential` (grammar-spec §32 — the negated form of the `existential` entry point).\nExample: *'Oku 'ikai ke 'i ai ha taha.* \"There is no one.\" (grammar-spec §32 example list)\nExample: *'Oku 'ikai ke 'i ai ha me'akai 'i fale.* \"There is no food in the house.\" (grammar-spec §32)\nExample: *Na'e 'ikai ke 'i ai ha vaka.* \"There was no boat.\" (grammar-spec §32)\n\n**§A.5 — *'ikai* with focus marker — noun-subject negation**\nForm: TM + *'ikai* + *ke* + verb + *'a e* + noun (+ *'e* + agent, if transitive).\nFrame: `negation_impersonal` with the noun-subject extension (the same *ke*-form is used because the post-verb noun is a subject, not a pronoun).\nExample: *Na'e 'ikai ke 'alu 'a Sione.* \"Sione did not go.\" [synthesis — pattern from grammar-spec §8 (impersonal negation extends to noun subjects) + §14 (noun-subject statement frame)]\nExample: *'Oku 'ikai ke 'i ai ha taha.* \"There is no one.\" (grammar-spec §32 — also a *ke* + verb-like + noun frame)\n\n**§A.6 — Quick disambiguation: when do I use *te* vs *ke* after *'ikai*?**\n| Next word after *'ikai* | Connector | Frame |\n|---|---|---|\n| A preposed pronoun (*u*, *ke*, *ne*, *nau*, *mau*, *tau*, *mou*, *na*, *ma*, *ta*, *mo*) | *te* | `verbal_negation` (§A.2) |\n| A bare verb (weather, impersonal, noun-subject) | *ke* | `negation_impersonal` (§A.3, §A.5) |\n| The fixed verb-like *'i ai* (existential) | *ke* | `existential` (§A.4) |\n| *ko e* + noun (Ko identification) | (no connector — *'ikai* sits inside the fixed phrase *'Oku 'ikai ko e*) | `ko_negation` (§B) |\n\n---\n\n## Verified examples (from the course's own citation-checked translation log)\n\nEvery pair below came out of the deep six-step method with every row cited and re-verified. Match their register and their orthography (fakauʻa, macrons, stress accents, definitive accents).\n\nEN: Let's go now.\nTO: Tau 'alu leva.\nframe: `suggestion`\n\nEN: Could you please pass me the book?\nTO: To'o mai angé mu'a 'a e tohí.\nframe: `command`\n\nEN: I also want just one.\nTO: 'Oku ou fie ma'u foki ha taha pē.\nframe: `statement`\n\nEN: Please don't be angry.\nTO: 'Oua na'á ke 'ita.\nframe: `prohibition`\n\nEN: Are you a doctor?\nTO: Ko e tōketā koe?\nframe: `ko_identification`\n\nEN: Please let me go to the market.\nTO: Tuku ke u 'alu ki he maketi mu'a.\nframe: `permission_tuku_ke`\n\nEN: Sione is eating his food.\nTO: 'Oku kai 'e Sione 'a 'ene me'akai.\nframe: `transitive_statement`\n\nEN: Please bring me a book.\nTO: 'Omi angé mu'a ha tohi.\nframe: `command`\n\nEN: She speaks as though she is tired.\nTO: 'Okú ne lea 'o hangē kuo helaʻia.\nframe: `statement`\n\nEN: Let me get on with it.\nTO: Tuku ke u fai 'a e me'a.\nframe: `permission_tuku_ke`\n\nEN: Sēmisi is working without pay.\nTO: 'Oku ngāue ta'e totongi 'a Sēmisi.\nframe: `statement`\n\nEN: I have already slept.\nTO: Kuó ku 'osi mohe.\nframe: `statement`\n\nEN: She hasn't come back again yet.\nTO: 'Oku te'eki ke ne toe foki mai.\nframe: `statement`\n\nEN: Are you still working?\nTO: 'Okú ke kei ngāue?\nframe: `statement`\n\nEN: She's still studying, but she hasn't returned home yet.\nTO: 'Okú ne kei ako, ka 'oku te'eki ke ne foki ki 'api.\nframe: `statement`\n\nEN: She always lives in Vava'u.\nTO: 'Okú ne nofo ma'u pē 'i Vava'u.\nframe: `statement`\n\n**Recognise-and-escalate examples.** These are correct translations, but their frames are ⚠ on this path. Study them to RECOGNISE the pattern in an input; do not answer one — escalate it.\n\nEN: If I was planning on going to a new place to get an old friend's dinner plate, I would first consider how I might walk the distance from where I would be to where I might be.\nTO: Kapau 'oku ou fakakaukau ke 'alu ki ha feitu'u fo'ou 'o ma'u 'a e peleti kai 'a ha kaume'a motu'a, té u tōmu'a fakakaukau pe té u lava 'o lue fēfē 'i he mama'ó mei he feitu'u té u 'i ai ki he feitu'u té u 'i ai nai.\nframe: `subordinator_kapau`\n\nEN: She said that Sione would come.\nTO: Na'á ne pehē 'e ha'u 'a Sione.\nframe: `reported_speech_pehē`\n\nEN: If I were rich, I would travel.\nTO: Ka ne u koloa'ia, 'e u fefononga'aki.\nframe: `ka_ne_counterfactual`\n\nEN: This work is the same as that work.\nTO: 'Oku tatau 'a e ngāue ko eni mo e ngāue ko ē.\nframe: `predicate_stative`\n\nEN: She will not go to the market.\nTO: 'E 'ikai te ne 'alu ki he maketi.\nframe: `verbal_negation`\n\nEN: Where did you come from?\nTO: Na'á ke ha'u mei fē?\nframe: `intransitive_question`\n\nEN: Why did you go to Nuku'alofa?\nTO: Ko e hā na'á ke 'alu ai ki Nuku'alofa?\nframe: `ko_e_ha_ai`\n\nEN: Mele has reportedly gone to Samoa.\nTO: Tokua kuo 'alu 'a Mele ki Hā'amoa.\nframe: `reportative_tokua`\n\n**Verified pairs whose walkthrough recorded no frame tag from the closed set.** Use the Tongan; do not invent a frame from them.\n\nEN: Sorry I was late.\nTO: Fakamolemole, koe'uhi na'á ku tomui.\n\nEN: It is reported that the young man has come from Vava'u. (more literal: They say the young man (over there) has come from Vava'u.)\nTO: Tokua kuo ha'u 'a e talavou ko ē mei Vava'u.\n\nEN: It seems Sione has become angry. (more literal: It looks as if Sione has become angry.)\nTO: 'Oku ngalingali kuo 'ita 'a Sione.\n\nEN: When I returned from town, my brother was already sleeping.\nTO: 'I he 'eku foki mei kolo, pea na'e 'osi mohe 'a hoku tokoua.\n\nEN: Have you always lived in this location ever since you first moved here?\nTO: Talu ho'o fuofua hiki mai ki heni, kuó ke nofo ma'u pē 'i he feitu'ú ni?\n\n---\n\n## When to escalate\n\nSet \"escalate\": true and explain in one line when any of these is true:\n- The English needs an idiom or phrasal verb resolved first.\n- The sentence has more than two finite clauses.\n- It is reported speech (\"said/told/asked that…\") or a counterfactual (\"would have…\", \"if … had …\").\n- A possessed noun is not in the noun index above.\n- The frame you would need is marked ⚠, or is not on the list at all.\n- Any word you would have to write is one you cannot vouch for as real Tongan.\n\nEscalating costs nothing. Writing a Tongan word that does not exist is the one unrecoverable error.\n",
+  "sections": [
+    {
+      "id": "role",
+      "title": "Role and output contract",
+      "chars": 1638,
+      "approx_tokens": 410
+    },
+    {
+      "id": "method",
+      "title": "Method rules (from the course translation method)",
+      "chars": 1491,
+      "approx_tokens": 373
+    },
+    {
+      "id": "house",
+      "title": "House rules (standing project rulings — these override any general intuition)",
+      "chars": 3080,
+      "approx_tokens": 770
+    },
+    {
+      "id": "frames",
+      "title": "Frame index — the closed set of legal frame tags",
+      "chars": 6436,
+      "approx_tokens": 1609
+    },
+    {
+      "id": "disambiguators",
+      "title": "Marker disambiguators — the 5 choices that are easy to get wrong",
+      "chars": 3015,
+      "approx_tokens": 754
+    },
+    {
+      "id": "possessive",
+      "title": "Possessive class (a-class vs o-class) — the full table",
+      "chars": 13880,
+      "approx_tokens": 3470
+    },
+    {
+      "id": "negation",
+      "title": "Negation paradigm (§A — the basic negator *ʻikai*)",
+      "chars": 3112,
+      "approx_tokens": 778
+    },
+    {
+      "id": "examples",
+      "title": "Verified examples (from the course's own citation-checked translation log)",
+      "chars": 3702,
+      "approx_tokens": 926
+    },
+    {
+      "id": "escalation",
+      "title": "When to escalate",
+      "chars": 583,
+      "approx_tokens": 146
+    }
+  ],
+  "data": {
+    "method_rules": [
+      {
+        "id": "slot-order",
+        "title": "Canonical slot order",
+        "text": "Chunks go in this fixed order: tense marker → subject/agent → aspect (*toe*, *kei*, ...) → verb → focus + object → companion (*mo*) → directional / preposition phrase → benefactive → manner → where → when (time word last)."
+      },
+      {
+        "id": "closed-frames",
+        "title": "Frame names are closed",
+        "text": "A frame name must come from the closed set below (grammar-spec Entry Points ∪ Function-Templates frame tags). Inventing a frame tag is a hard error."
+      },
+      {
+        "id": "accents",
+        "title": "Accents",
+        "text": "Preserve the book's stress-accent convention on tense marker + one-syllable pronoun: *Té u*, *Té ke*, *Na'á ku*, etc. (LFT Ch. 2 §\"Accent marks in this book\"), and the definitive accent on definite noun phrases: *'a e ngāué* (LFT Ch. 18; LFT Ch. 44 for the full system)."
+      },
+      {
+        "id": "focus-marker",
+        "title": "Focus marker 'a",
+        "text": "Always write *'a e* before definite common nouns in absolutive position. Never drop the *'a* (per the book's standard form)."
+      },
+      {
+        "id": "glottal",
+        "title": "Glottal stop",
+        "text": "Use the curly apostrophe-like mark `ʻ` if available in source files; the straight apostrophe `'` is acceptable in walkthroughs."
+      },
+      {
+        "id": "roles",
+        "title": "Role labels",
+        "text": "Segment the English into chunks and label each one before choosing slots. Use these role labels: *subject, predicate, object, companion, when, where, why, how, manner, modifier, marker.*"
+      },
+      {
+        "id": "idioms",
+        "title": "Idioms are out of scope for the fast path",
+        "text": "Figurative English (\"catch up\", \"kick the bucket\", \"hit the road\", \"take your time\") is resolved to literal English before translation in the deep method. The fast path does NOT attempt that resolution: an idiomatic input escalates."
+      }
+    ],
+    "house_rules": [
+      {
+        "date": "2026-06-08",
+        "headline": "`fiha`, not `fīha`",
+        "detail": "(\"how many\"): `fīha` was a transcription artifact; Churchward + EALD are unanimous. Standardised in the book."
+      },
+      {
+        "date": "2026-06-08",
+        "headline": "`lalanga` (verb, weave) ≠ `lālanga` (noun, weaving)",
+        "detail": "two correct, distinct words per Churchward. Don't \"fix\" one into the other."
+      },
+      {
+        "date": "2026-06-08",
+        "headline": "`'Ana` name spelling",
+        "detail": "standardised in the book (84 sites); workbook/app mirrors deferred to Step ②."
+      },
+      {
+        "date": "2026-06-13",
+        "headline": "`haʻu` never combines with `mai`",
+        "detail": "\"come here\" = *Haʻu ki heni* / *Haʻu ange* (native-speaker ruling; reconfirmed when Andrew approved Fable exercise-audit F04, which removed a regressed *Haʻu mai!* from the direction drill)."
+      },
+      {
+        "date": "2026-06-13",
+        "headline": "`ʻalu` accepted alongside plural `ō`",
+        "detail": "in app exercises: spoken Tongan uses both interchangeably for plural subjects, so exercises must not mark *ʻalu* wrong; the book keeps teaching *ō* as the suppletive plural. (Andrew's ruling on audit F05.)"
+      },
+      {
+        "date": "2026-06-13",
+        "headline": "`ʻū` and `ngaahi` both accepted",
+        "detail": "where the book calls them \"often interchangeable\" (e.g. \"a few books\"); exercises accept both and show a note that *ʻū* is the more natural choice for a small handful. (Andrew's ruling on audit F16.)"
+      },
+      {
+        "date": "2026-06-15",
+        "headline": "Negative existential / \"have\": teach + drill the FULL `'oku 'ikai ke 'i ai`; mention the short form; never mark the full form wrong (Andrew, `/kickoff` negative-existential-have-audit)",
+        "detail": "Both `'oku 'ikai ke 'i ai ha X` (full) and `'oku 'ikai ha X` (short) are correct Tongan for BOTH \"there is no…\" and \"I don't have…\" — Churchward Ch.9 §5 gives the short form as the rule for the plain existential, §9(b) the full form; **Shumway L94 note 2** lists both for one possessive sentence (\"meaning the same thing, occur equally as often\")."
+      },
+      {
+        "date": "2026-06-20",
+        "headline": "Glossary/index sort: ignore the *ʻokina* (interfile), don't section it (Andrew)",
+        "detail": "The book's back-matter Glossary + English Index sort Tongan with the *ʻokina* and macrons folded out, so *ʻofa* files among *ofi*/*ofo* under **O** and *ʻalu* among the **A** words — there is **no separate \"ʻ\" section**."
+      },
+      {
+        "date": "2026-06-27",
+        "headline": "The glottal stop is the *fakauʻa* (Tongan), not the *ʻokina* (Hawaiian) (Andrew, `/kickoff`)",
+        "detail": "*ʻokina* is the **Hawaiian** name for the glottal-stop letter; the **Tongan** name is the *fakauʻa* — confirmed by the project's own primary source, Churchward *Tongan Grammar* Ch. 1: \"…*tā*, *vā*, and *fakauʻa*… from *uʻa*, neck or throat.\" **Learner-facing teaching copy names it the *fakauʻa***; the Pronunciation Guide (`book/appendix-a-pronunciation.md`) + the rebuilt web-served PDF/EPUB downloads were corrected, keeping one honest note that learners may have seen the Hawaiian *ʻokina*."
+      },
+      {
+        "date": "2026-06-10",
+        "headline": "Stress accent on the te-family before any one-syllable pronoun",
+        "detail": "the stress accent applies to the *te*-family and the kept particles before ANY one-syllable enclitic pronoun, regardless of construction; only two-syllable pronouns are bare. So *Té u*, *Té ke*, *Té ne*, *Naʻá ku*, *ʻikai té*, *ʻoua té*, *teʻeki té*, *taʻe té* are CORRECT; two-syllable pronouns stay bare, as in *Te nau* and *ʻoua te mou*."
+      }
+    ],
+    "frames": {
+      "bare_clause_juxtaposition": {
+        "tag": "bare_clause_juxtaposition",
+        "section": null,
+        "template": "[TM + (pronoun) + matrix-verb] + [embedded-clause-with-own-TM].",
+        "disambiguators": []
+      },
+      "benefactive_name": {
+        "tag": "benefactive_name",
+        "section": "§25",
+        "template": "[benefactive_preposition_ma] + [possessor_name]",
+        "disambiguators": []
+      },
+      "benefactive_pronoun": {
+        "tag": "benefactive_pronoun",
+        "section": "§25",
+        "template": "[benefactive_pronoun_fused]",
+        "disambiguators": []
+      },
+      "cleft_emphatic": {
+        "tag": "cleft_emphatic",
+        "section": "§19",
+        "template": "[ko_emphatic] + [subject_phrase] + [tense_marker_cleft] + [pronoun_relative] + [verb_cleft]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "cleft_equational": {
+        "tag": "cleft_equational",
+        "section": "§19",
+        "template": null,
+        "disambiguators": []
+      },
+      "command": {
+        "tag": "command",
+        "section": "§3",
+        "template": "[command_verb]",
+        "disambiguators": []
+      },
+      "command_plural": {
+        "tag": "command_plural",
+        "section": "§4",
+        "template": "[imperative_mou] + [command_verb_plural]",
+        "disambiguators": []
+      },
+      "conditional_clause": {
+        "tag": "conditional_clause",
+        "section": "§18",
+        "template": "[subordinator_kapau] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "contrast_clause_kae": {
+        "tag": "contrast_clause_kae",
+        "section": "§17",
+        "template": "[clause_connector_kae] + [verb_ns] + [modifier_ns]",
+        "disambiguators": []
+      },
+      "exclamatory_ko_ka": {
+        "tag": "exclamatory_ko_ka",
+        "section": "§50",
+        "template": "[exclamatory_ko_ka_head]",
+        "disambiguators": []
+      },
+      "exclamatory_me_a": {
+        "tag": "exclamatory_me_a",
+        "section": "§50",
+        "template": "[exclamatory_me_a_head]",
+        "disambiguators": []
+      },
+      "existential": {
+        "tag": "existential",
+        "section": "§32",
+        "template": "[existential_head] + [existential_noun]",
+        "disambiguators": [
+          "te-vs-ke"
+        ]
+      },
+      "experiencer": {
+        "tag": "experiencer",
+        "section": "§15",
+        "template": "[tense_marker_exp] + [verb_experiencer] + [prep_pronoun]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "have_construction": {
+        "tag": "have_construction",
+        "section": "§36",
+        "template": "[have_head] + [possessive_pronoun] + [possessive_head_noun]",
+        "disambiguators": [
+          "te-vs-ke"
+        ]
+      },
+      "intransitive_question": {
+        "tag": "intransitive_question",
+        "section": null,
+        "template": "*'Oku ke fēfē hake?*",
+        "disambiguators": []
+      },
+      "ka_conditional": {
+        "tag": "ka_conditional",
+        "section": "§44",
+        "template": "ka + verb + (subject), (pea +) main_clause",
+        "disambiguators": []
+      },
+      "ka_ne_counterfactual": {
+        "tag": "ka_ne_counterfactual",
+        "section": "§44",
+        "template": "ka ne + (pronoun?) + verb, main_clause_with_past_TM",
+        "disambiguators": []
+      },
+      "ko_e_mea_ia": {
+        "tag": "ko_e_mea_ia",
+        "section": "§19",
+        "template": null,
+        "disambiguators": []
+      },
+      "ko_equational": {
+        "tag": "ko_equational",
+        "section": "§21",
+        "template": "[ko_e_equational] + [equational_noun] + [modifier_eq] + [equational_subject]",
+        "disambiguators": []
+      },
+      "ko_identification": {
+        "tag": "ko_identification",
+        "section": "§9",
+        "template": "[ko_e_fixed] + [noun_ko] + [demonstrative]",
+        "disambiguators": []
+      },
+      "ko_negation": {
+        "tag": "ko_negation",
+        "section": "§10",
+        "template": "[ko_neg_prefix] + [predicate_noun] + [subject_ko]",
+        "disambiguators": [
+          "te-vs-ke"
+        ]
+      },
+      "ko_progressive_action": {
+        "tag": "ko_progressive_action",
+        "section": "§43",
+        "template": "'i he'ene + impersonal_verb",
+        "disambiguators": []
+      },
+      "ko_question": {
+        "tag": "ko_question",
+        "section": null,
+        "template": "*Ko e hā* + ['o + verbal-noun] / [+ kapau + clause]",
+        "disambiguators": []
+      },
+      "ko_question_what": {
+        "tag": "ko_question_what",
+        "section": "§11",
+        "template": "[ko_e_ha_fixed] + [demonstrative]",
+        "disambiguators": []
+      },
+      "ko_question_where": {
+        "tag": "ko_question_where",
+        "section": "§13",
+        "template": "[ko_fe_fixed] + [focus_and_name]",
+        "disambiguators": []
+      },
+      "ko_question_who": {
+        "tag": "ko_question_who",
+        "section": "§12",
+        "template": "[ko_hai_fixed] + [tense_marker_kohai] + [verb_kohai]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "location_state": {
+        "tag": "location_state",
+        "section": "§2",
+        "template": "[tense_marker_loc] + [pronoun_loc] + [preposition_i_fixed] + [place]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "me_a_e_fiha": {
+        "tag": "me_a_e_fiha",
+        "section": "§26",
+        "template": null,
+        "disambiguators": []
+      },
+      "mole_ke_mama_o_denial": {
+        "tag": "mole_ke_mama_o_denial",
+        "section": "§42",
+        "template": null,
+        "disambiguators": []
+      },
+      "ne_ine_i_explanation": {
+        "tag": "ne_ine_i_explanation",
+        "section": "§42",
+        "template": null,
+        "disambiguators": []
+      },
+      "negation": {
+        "tag": "negation",
+        "section": "§7",
+        "template": "[tense_marker_neg] + [negation_word] + [neg_connector] + [pronoun_neg] + [preposed_modifier] + [verb]",
+        "disambiguators": [
+          "te-vs-ke",
+          "naa-vs-nae"
+        ]
+      },
+      "negation_impersonal": {
+        "tag": "negation_impersonal",
+        "section": "§8",
+        "template": "[tense_marker_neg_imp] + [negation_word_imp] + [imp_connector] + [verb_weather]",
+        "disambiguators": [
+          "te-vs-ke",
+          "naa-vs-nae"
+        ]
+      },
+      "noun_subject": {
+        "tag": "noun_subject",
+        "section": "§14",
+        "template": "[tense_marker_ns] + [verb_ns] + [modifier_ns]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "obligation_must": {
+        "tag": "obligation_must",
+        "section": "§28",
+        "template": "[pau_phrase] + [obligation_pronoun] + [verb]",
+        "disambiguators": []
+      },
+      "obligation_should": {
+        "tag": "obligation_should",
+        "section": "§28",
+        "template": "[totonu_phrase] + [obligation_pronoun] + [verb]",
+        "disambiguators": []
+      },
+      "optative_ofa_ke": {
+        "tag": "optative_ofa_ke",
+        "section": "§34",
+        "template": "[ofa_ke_phrase] + [obligation_pronoun] + [verb]",
+        "disambiguators": []
+      },
+      "pea_second_clause": {
+        "tag": "pea_second_clause",
+        "section": "§17",
+        "template": "[clause_connector_pea] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "permission_tuku_ke": {
+        "tag": "permission_tuku_ke",
+        "section": "§34",
+        "template": "[tuku_ke_phrase] + [obligation_pronoun] + [verb]",
+        "disambiguators": []
+      },
+      "possessive_phrase": {
+        "tag": "possessive_phrase",
+        "section": "§22",
+        "template": "[possessive_pronoun] + [possessive_head_noun]",
+        "disambiguators": []
+      },
+      "possessive_phrase_name": {
+        "tag": "possessive_phrase_name",
+        "section": "§22",
+        "template": "[possessor_preposition] + [possessor_name]",
+        "disambiguators": []
+      },
+      "predicate_stative": {
+        "tag": "predicate_stative",
+        "section": null,
+        "template": "*'Oku ou loto taha (mo koe).*",
+        "disambiguators": []
+      },
+      "predicative_possessive": {
+        "tag": "predicative_possessive",
+        "section": "§40",
+        "template": "[predicative_possessive_head] + [postposed_possessive] + [predicative_poss_subject]",
+        "disambiguators": []
+      },
+      "prep_with_possessive": {
+        "tag": "prep_with_possessive",
+        "section": "§22",
+        "template": "[preposition_possessive] + [possessive_pronoun] + [possessive_head_noun]",
+        "disambiguators": []
+      },
+      "prohibition": {
+        "tag": "prohibition",
+        "section": "§5",
+        "template": "[prohibition_marker] + [prohibition_pronoun] + [prohibition_verb]",
+        "disambiguators": []
+      },
+      "purpose_bare_verb": {
+        "tag": "purpose_bare_verb",
+        "section": "§25",
+        "template": "[subordinator_ke_purpose] + [verb]",
+        "disambiguators": []
+      },
+      "reason_clause_he": {
+        "tag": "reason_clause_he",
+        "section": "§25",
+        "template": "[clause_connector_he] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "reason_clause_koeuhi_ke": {
+        "tag": "reason_clause_koeuhi_ke",
+        "section": "§25",
+        "template": "[subordinator_koeuhi_ke] + [verb]",
+        "disambiguators": []
+      },
+      "relative_clause": {
+        "tag": "relative_clause",
+        "section": "§35",
+        "template": "[relative_clause_tense] + [pronoun] + [preposed_modifier] + [verb]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "reportative_tokua": {
+        "tag": "reportative_tokua",
+        "section": null,
+        "template": null,
+        "disambiguators": []
+      },
+      "reported_speech_pehē": {
+        "tag": "reported_speech_pehē",
+        "section": null,
+        "template": "*'Oku ou pehē* + [clause-with-own-TM].",
+        "disambiguators": []
+      },
+      "reported_speech_tui": {
+        "tag": "reported_speech_tui",
+        "section": null,
+        "template": "*'Oku ou tui* + [clause].",
+        "disambiguators": []
+      },
+      "serial_clause": {
+        "tag": "serial_clause",
+        "section": "§17",
+        "template": "[clause_connector_o] + [verb]",
+        "disambiguators": []
+      },
+      "statement": {
+        "tag": "statement",
+        "section": "§1",
+        "template": "[tense_marker] + [pronoun] + [preposed_modifier] + [verb]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "subordinator_kapau": {
+        "tag": "subordinator_kapau",
+        "section": null,
+        "template": "*Kapau* + [condition-clause] + (*pea*) + [result-clause].",
+        "disambiguators": []
+      },
+      "subordinator_ke": {
+        "tag": "subordinator_ke",
+        "section": null,
+        "template": "*Tauange ke* + [clause].",
+        "disambiguators": []
+      },
+      "subordinator_koe'uhi": {
+        "tag": "subordinator_koe'uhi",
+        "section": null,
+        "template": "[main clause], *koe'uhi* + [reason-clause].",
+        "disambiguators": []
+      },
+      "suggestion": {
+        "tag": "suggestion",
+        "section": "§6",
+        "template": "[suggestion_pronoun] + [verb]",
+        "disambiguators": []
+      },
+      "te'eki_ai_standalone": {
+        "tag": "te'eki_ai_standalone",
+        "section": "§24",
+        "template": null,
+        "disambiguators": []
+      },
+      "temporal_clause": {
+        "tag": "temporal_clause",
+        "section": "§18",
+        "template": "[subordinator_lolotonga] + [tense_marker] + [pronoun] + [preposed_modifier] + [verb]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "time_telling": {
+        "tag": "time_telling",
+        "section": "§26",
+        "template": null,
+        "disambiguators": []
+      },
+      "transitive_statement": {
+        "tag": "transitive_statement",
+        "section": "§16",
+        "template": "[tense_marker_tr] + [verb_tr] + [object_phrase] + [agent_phrase]",
+        "disambiguators": [
+          "naa-vs-nae"
+        ]
+      },
+      "urge_fai_mo_ke": {
+        "tag": "urge_fai_mo_ke",
+        "section": "§34",
+        "template": "fai mo ke + verb + ...",
+        "disambiguators": []
+      },
+      "verbal_negation": {
+        "tag": "verbal_negation",
+        "section": null,
+        "template": "*Mahalo* + *'oku 'ikai* / *'oku 'ikai te* + [pronoun] + [verb]",
+        "disambiguators": [
+          "te-vs-ke"
+        ]
+      },
+      "ko_e_ha_ai": {
+        "tag": "ko_e_ha_ai",
+        "section": null,
+        "template": null,
+        "disambiguators": [],
+        "missing_from_frame_index": true
+      }
+    },
+    "disambiguators": [
+      {
+        "id": "te-vs-ke",
+        "title": "*te* vs *ke* after *ʻikai*",
+        "rules": [
+          "*ʻikai **te*** before a **preposed pronoun** (*u, ke, ne, nau, mau, tau, mou, na, ma, ta, mo*).",
+          "*ʻikai **ke*** before a **bare verb** (weather / impersonal / noun-subject) and before the fixed *ʻi ai* of the existential.",
+          "Test: if the positive sentence has a pronoun in that slot, use *te*; if it has none, use *ke*."
+        ],
+        "source": "Negation-Paradigm §A.6 (memory `feedback_drill_negation_te_ke`)"
+      },
+      {
+        "id": "naa-vs-nae",
+        "title": "*naʻa* vs *naʻe* (and *te* vs *ʻe*)",
+        "rules": [
+          "*Naʻa* pairs with **all** preposed pronouns (*Naʻá ku, Naʻá ke, Naʻá ne, Naʻa nau*…); future *te* likewise.",
+          "*Naʻe* only where the next word is **not** a pronoun — negation (*naʻe ʻikai*), noun subjects, existentials; future *ʻe* likewise.",
+          "*ʻOku* and *kuo* never alternate."
+        ],
+        "source": "Negation-Paradigm §J.1; grammar-spec §1 `tense_marker`; LFT Ch. 2 (memory `feedback_naa_nae_grammar`)"
+      },
+      {
+        "id": "ka-vs-kae",
+        "title": "*ka* vs *kae* (the two words for \"but\")",
+        "rules": [
+          "Tongan has two words for \"but\" — *ka* (before tense markers and pronouns) and *kae* (before verbs and adjectives).",
+          "If the second clause begins with a tense marker (*'oku*, *na'e*), use *ka*; if it begins directly with a verb or stative (no preceding tense marker — common when the subject was already established in the first clause), use *kae*.",
+          "*ka* and *kae* are not interchangeable; the choice depends on the very next word in the second clause."
+        ],
+        "source": "grammar-spec §17 (Conjunctions and Multi-Clause Sentences)"
+      },
+      {
+        "id": "e-vs-he",
+        "title": "*e* vs *he* (the definite article \"the\")",
+        "rules": [
+          "Use *he* right after the prepositions *'i*, *ki*, and *mei*.",
+          "Use *e* in all other positions.",
+          "The full rule: *he* appears immediately after *'i*, *ki*, *mei*, and one other preposition (*'e*) that you will encounter in Lesson 19: Transitive Word Order. Everywhere else, use *e*."
+        ],
+        "source": "LFT Ch. 8 §\"The Definite Article: *E* and *He*\""
+      },
+      {
+        "id": "aspect-vs-bare-tm",
+        "title": "aspect — a bare tense marker is NOT the English progressive",
+        "rules": [
+          "A tense marker places the verb in time; on its own it does not mark an action as in progress. With an action verb it is normally read as the general or habitual case, so an English progressive (\"is/are/am + -ing\") needs an aspect marker rather than a bare tense marker.",
+          "The word *lolotonga* marks an action as being in progress at the time of speaking (or at the time referred to). English uses \"-ing\" forms for this; Tongan uses *lolotonga* before the verb.",
+          "In progress right now: *lolotonga* before the verb. Often / habitually: *fa'a* before the verb. Always / continually: *ma'u pē* after the verb.",
+          "**Pre-verb slot** — between the pronoun and the verb (grammar-spec §24, \"slot insertion\"). Most aspect markers fill this slot: *kei*, *'osi*, *te'eki*, *toe*, *toki*, *toutou*, *fa'a*, *lolotonga*.",
+          "**Post-verb slot** — after the verb. Three markers live here: *leva*, *ai pē*, *ma'u pē*.",
+          "If you cannot tell whether the English wants the in-progress or the habitual reading, escalate rather than pick one — the two render differently and the choice is not recoverable downstream."
+        ],
+        "source": "source-materials/Aspect-Tense-Matrix.md §A + LFT Ch. 22 §\"*lolotonga*\""
+      }
+    ],
+    "allowed_frames": [
+      "benefactive_name",
+      "benefactive_pronoun",
+      "cleft_emphatic",
+      "command",
+      "command_plural",
+      "contrast_clause_kae",
+      "existential",
+      "experiencer",
+      "have_construction",
+      "ko_equational",
+      "ko_identification",
+      "ko_negation",
+      "ko_question_what",
+      "ko_question_where",
+      "ko_question_who",
+      "location_state",
+      "negation",
+      "negation_impersonal",
+      "noun_subject",
+      "obligation_must",
+      "obligation_should",
+      "optative_ofa_ke",
+      "pea_second_clause",
+      "permission_tuku_ke",
+      "possessive_phrase",
+      "possessive_phrase_name",
+      "predicative_possessive",
+      "prep_with_possessive",
+      "prohibition",
+      "purpose_bare_verb",
+      "reason_clause_he",
+      "reason_clause_koeuhi_ke",
+      "relative_clause",
+      "serial_clause",
+      "statement",
+      "suggestion",
+      "temporal_clause",
+      "transitive_statement"
+    ],
+    "escalate_frames": [
+      "bare_clause_juxtaposition",
+      "conditional_clause",
+      "exclamatory_ko_ka",
+      "exclamatory_me_a",
+      "ka_conditional",
+      "ka_ne_counterfactual",
+      "ko_progressive_action",
+      "reportative_tokua",
+      "reported_speech_pehē",
+      "reported_speech_tui",
+      "subordinator_kapau"
+    ],
+    "log_frame_counts": {
+      "subordinator_kapau": 1,
+      "reported_speech_pehē": 1,
+      "ka_ne_counterfactual": 1,
+      "suggestion": 1,
+      "command": 2,
+      "statement": 8,
+      "predicate_stative": 1,
+      "verbal_negation": 1,
+      "prohibition": 1,
+      "ko_identification": 1,
+      "intransitive_question": 1,
+      "ko_e_ha_ai": 1,
+      "permission_tuku_ke": 2,
+      "reportative_tokua": 1,
+      "transitive_statement": 1
+    },
+    "possessive": {
+      "core": [
+        "**a-class** = the possessor is *active, influential, or formative* toward the thing. The thing is **acted upon** by the possessor. (You make it, control it, consume it, employ it, write it, sing it.)",
+        "**o-class** = the thing is *active, influential, or formative* toward the possessor. The thing **impresses itself upon** the possessor. (Your body, your name, your house, your country, your fate.)"
+      ],
+      "paraphrase": "The LFT Ch. 29 paraphrase: **a-class = the doer's possessive; o-class = the receiver's possessive.** Same rule, easier to teach.",
+      "rules": [
+        {
+          "n": 1,
+          "class": "a",
+          "rule": "Goods, money, tools, utensils, instruments, weapons, vehicles, gardens you own/use",
+          "citation": "Churchward Ch. 13 §18(a), examples §21",
+          "samples": "*koloa* (goods), *pa'anga* (money), *hele* (knife), *kumete* (kava bowl), *nafa* (drum), *me'afana* (gun), *sāliote* (cart), *koa* (soap), *ngoue* (garden), *ma'ala* (yam plantation)"
+        },
+        {
+          "n": 2,
+          "class": "a",
+          "rule": "Animals or birds you own/use",
+          "citation": "Churchward Ch. 13 §18(b), §23",
+          "samples": "*hoosi* (horse), *fanga puaka* (pigs), *fanga moa* (fowls)"
+        },
+        {
+          "n": 3,
+          "class": "a",
+          "rule": "Things you eat, drink, smoke (consumables)",
+          "citation": "Churchward Ch. 13 §18(c), §24",
+          "samples": "*me'akai* (food), *'ufi* (yam), *hu'akau* (milk), *vai* (medicine — but see *vai* well in Rule 16), *tapaka* (tobacco), *talo* (taro)"
+        },
+        {
+          "n": 4,
+          "class": "a",
+          "rule": "Things you originate, make, mend, carry, deal with",
+          "citation": "Churchward Ch. 13 §18(d), §26",
+          "samples": "(any nominalized act-product: *'eku tohi*, *'eku hiva*)"
+        },
+        {
+          "n": 5,
+          "class": "a",
+          "rule": "Persons in your employ, control, or care",
+          "citation": "Churchward Ch. 13 §18(e), §27",
+          "samples": "*tamaio'eiki* (servant, m.), *kaunanga* (servant, f.), *talafekau* (messenger), *toketā* (doctor), *faiako* (teacher), *faifekau* (minister), and any *fai-* profession"
+        },
+        {
+          "n": 6,
+          "class": "o",
+          "rule": "Body parts and integral parts of one",
+          "citation": "Churchward Ch. 13 §19(a), §28",
+          "samples": "*sino* (body), *loto* (mind), *'ulu* (head), *nima* (hand), *ma'ama'a* (lungs), *toto* (blood), *hui* (bone)"
+        },
+        {
+          "n": 7,
+          "class": "o",
+          "rule": "Parts of things — tops, bottoms, sides, roofs, walls, branches, masts",
+          "citation": "Churchward Ch. 13 §29",
+          "samples": "*kotoa* (whole), *konga* (part), *funga* (top), *'ato* (roof), *takele* (bottom), *faliki* (floor), *tafa'aki* (side), *holisi* (wall), *va'a* (branch), *fanā* (mast), *kamata'anga* (beginning), *ngata'anga* (ending)"
+        },
+        {
+          "n": 8,
+          "class": "o",
+          "rule": "Qualities, attributes, conditions — habits, abilities, age, appearance, sense data, faults, diseases",
+          "citation": "Churchward Ch. 13 §30",
+          "samples": "*anga* (habit), *ivi* (power), *'atamai* (intelligence), *ta'umotu'a* (age), *fotunga* (appearance), *le'o* (voice), *nanamu* (smell), *ifo* (taste), *lanu* (colour), *'ila* (spot), *mele* (blemish), *fo'ui* (fault), *mahaki* (disease), *lavea* (wound)"
+        },
+        {
+          "n": 9,
+          "class": "o",
+          "rule": "Spatial relations — front, presence, midst, space between",
+          "citation": "Churchward Ch. 13 §31",
+          "samples": "*'ao* (front, presence), *lolotonga* (midst), *vaha'a* (space between)"
+        },
+        {
+          "n": 10,
+          "class": "o",
+          "rule": "Wearing apparel and personal items — clothing, ornaments, comb, fan, walking-stick, umbrella, handkerchief, towel",
+          "citation": "Churchward Ch. 13 §32",
+          "samples": "*vala* (loincloth), *kofu* (dress), *tatā* (hat), *lelu* (armlet), *mama* (ring), *helu* (comb), *ī* (fan), *fue* (fly-whisk), *tokotoko* (walking-stick), *fakamalu* (umbrella), *holoholo* (handkerchief), *sāvieti* (serviette), *taueli* (towel)"
+        },
+        {
+          "n": 11,
+          "class": "o",
+          "rule": "Fruit, result, outcome, natural consequence, ordinance",
+          "citation": "Churchward Ch. 13 §33",
+          "samples": "*fua* (fruit, result), *ō* (outcome), *nunu'a* (natural retribution), *ouau* (ordinance)"
+        },
+        {
+          "n": 12,
+          "class": "o",
+          "rule": "Representative objects, substitutes, names, meanings, symbols, shadows, reflections, pictures, copies, price",
+          "citation": "Churchward Ch. 13 §35",
+          "samples": "*fakafofonga* (representative), *fetongi* (substitute), *hingoa* (name), *'uhinga* (meaning), *faka'ilonga* (symbol), *malu* (shade), *'ata* (reflection, shadow), *fakatātā* (picture), *tatau* (copy), *ongoongo* (news), *totongi* (price), *fakamanatu* (memorial)"
+        },
+        {
+          "n": 13,
+          "class": "o",
+          "rule": "Relatives, friends, associates, enemies",
+          "citation": "Churchward Ch. 13 §19(c), §36",
+          "samples": "*kāinga* (relative), *tokoua* (sibling), *foha* (m.'s son), *'ofefine* (m.'s daughter), *mokopuna* (grandchild), *'ilamutu* (nephew/niece), *mali* (spouse), *hoa* (mate), *kaume'a* (friend), *fili* (enemy) — but see Exception 14"
+        },
+        {
+          "n": 14,
+          "class": "o",
+          "rule": "Things provided for one, things that devolve, things that fall to one's lot",
+          "citation": "Churchward Ch. 13 §19(d), §38–39",
+          "samples": "*tofi'a* (inheritance), *'inasi* (share), *fatongia* (duty), *tu'unga* (position), *lakanga* (office), *mafai* (authority), *taimi* (time), *kuonga* (era), *faingamālie* (opportunity), *kuohili* (past), *kaha'u* (future)"
+        },
+        {
+          "n": 15,
+          "class": "o",
+          "rule": "Things that surround, support, control, or affect one — seats, beds, houses, villages, lands, paths, churches, chiefs, leaders, government",
+          "citation": "Churchward Ch. 13 §19(e), §40–44",
+          "samples": "*sea* (chair), *mohenga* (bed), *kolo* (village), *fonua* (country), *kelekele* (land), *'api* (homestead), *fale* (house), *loki* (room), *vaka* (boat), *hala* (road), *vai* (well), *pule'anga* (government), *Siasi* (Church), *'eiki* (chief), *'Otua* (God), *tu'i* (king)"
+        }
+      ],
+      "exceptions": [
+        {
+          "id": "Ex-1",
+          "rule": "Direct kin (ascendants, descendants) are a-class — overrides Rule 13",
+          "citation": "Churchward Ch. 13 §37",
+          "notes": "*tamai* (father), *fa'ē* (mother), *motu'a* (parent), *kui* (grandparent), *tama* (w.'s son), *tamasi'i* (child), *fānau* (children), *tangata* / *fefine* / *ta'ahine* when meaning \"son/daughter,\" *fahu* (m.'s sister's son) — all a-class"
+        },
+        {
+          "id": "Ex-2",
+          "rule": "Some tools become o-class when they \"devolve\" on you (part of role/inheritance)",
+          "citation": "Churchward Ch. 13 §22",
+          "notes": "*toki* (axe), *huo* (spade), *kupenga* (fishing-net), *tao* (spear), *pā* (shield) — all o-class despite Rule 1"
+        },
+        {
+          "id": "Ex-3",
+          "rule": "Some consumables are o-class when \"provided for you\"",
+          "citation": "Churchward Ch. 13 §25",
+          "notes": "*'oho* (provisions), *inu* (drinking water), *ti* (tea), *kofi* (coffee), *koko* (cocoa) — all o-class despite Rule 3"
+        },
+        {
+          "id": "Ex-4",
+          "rule": "Trees are o-class; tree-with-tended-care is a-class",
+          "citation": "Churchward Ch. 13 §53, §55",
+          "notes": "*niu* (palms, o), *moli* (orange trees, o), *fusi* (banana plants, o) — but *niu* / *moli* / *fusi* as fruit/crop are a-class (Ex-5 below)"
+        },
+        {
+          "id": "Ex-5",
+          "rule": "Crop/fruit forms split from tree forms",
+          "citation": "Churchward Ch. 13 §51–52",
+          "notes": "*talo*, *kumala*, *kāpisi*, *moli* (oranges), *niu* (coconuts), *fusi* (bananas, the fruit) — a-class as harvested produce"
+        },
+        {
+          "id": "Ex-6",
+          "rule": "Body parts override transitive verb glosses",
+          "citation": "Churchward Ch. 11 §6–7, Ch. 13 §30",
+          "notes": "*'ene lavea* = \"his being injured\" (active gloss); but for the wound itself, *hono lavea* (o-class — Rule 8). Both are valid; class follows whether you mean the action or the resulting state"
+        },
+        {
+          "id": "Ex-7",
+          "rule": "*Kava* shifts class three ways",
+          "citation": "Churchward Ch. 13 §56",
+          "notes": "(a) plants/plantation = a-class; (b) stick presented to you = o-class; (c) cup you drink = a-class"
+        }
+      ],
+      "paradigm": [
+        {
+          "form": "1sg \"my\" (preposed)",
+          "a": "*'eku*",
+          "o": "*hoku*",
+          "use": "before noun: *'eku fale* (no — house is o), *hoku fale* (yes)"
+        },
+        {
+          "form": "2sg \"your\" (preposed)",
+          "a": "*ho'o*",
+          "o": "*ho*",
+          "use": "*ho'o tohi* (vn-act) vs *ho tohi* (vn-passive)"
+        },
+        {
+          "form": "3sg \"his/her\" (preposed)",
+          "a": "*'ene*",
+          "o": "*hono*",
+          "use": "*'ene ngāue* (his work) vs *hono ngāue* — rare"
+        },
+        {
+          "form": "1sg \"my\" (postposed)",
+          "a": "*'eku-ku* / \"*'a-ku*\"",
+          "o": "*hoku-ku* / \"*'o-ku*\"",
+          "use": "postposed forms (Ch. 17, Ch. 40)"
+        },
+        {
+          "form": "\"of\" preposition",
+          "a": "*'a*",
+          "o": "*'o*",
+          "use": "*'a Sione* (a-class) vs *'o Sione* (o-class)"
+        },
+        {
+          "form": "\"for / on behalf of\"",
+          "a": "*ma'a*",
+          "o": "*mo'o*",
+          "use": "*ma'a Siale* (Rule 1-style) vs *mo'o Siale* (Rule 15-style)"
+        }
+      ],
+      "shifters": [
+        {
+          "noun": "*fala* (mat)",
+          "aClass": "*'eku fala* — the mat I made",
+          "oClass": "*hoku fala* — the mat I sit on",
+          "citation": "L 17; Churchward §32 analogue"
+        },
+        {
+          "noun": "*vala* (clothes)",
+          "aClass": "*'eku vala* — the clothes I made",
+          "oClass": "*hoku vala* — the clothes I wear",
+          "citation": "L 29; C 13 §32"
+        },
+        {
+          "noun": "*hiva* (song)",
+          "aClass": "*'ene hiva* — the song he sings",
+          "oClass": "*hono hiva* — the song sung about him",
+          "citation": "L 29"
+        },
+        {
+          "noun": "*niu* (coconut)",
+          "aClass": "*'eku niu* — the coconuts (fruit/crop)",
+          "oClass": "*hoku niu* — the palms (trees)",
+          "citation": "L 29; C 13 §52–53"
+        },
+        {
+          "noun": "*moli* (orange)",
+          "aClass": "*'eku moli* — the oranges (fruit)",
+          "oClass": "*hoku moli* — the orange trees",
+          "citation": "C 13 §52–53"
+        },
+        {
+          "noun": "*fusi* (banana)",
+          "aClass": "*'eku fusi* — the bananas (fruit)",
+          "oClass": "*hoku fusi* — the banana plants",
+          "citation": "C 13 §52–53"
+        },
+        {
+          "noun": "*kava*",
+          "aClass": "*'eku kava* — kava plant or cup-I-drink",
+          "oClass": "*hoku kava* — stick of kava presented to me",
+          "citation": "C 13 §56"
+        },
+        {
+          "noun": "*tohi* (writing)",
+          "aClass": "*'eku tohi* — my writing (act)",
+          "oClass": "*hoku tohi* — the writing about me",
+          "citation": "L 29"
+        },
+        {
+          "noun": "*fili* (choose, vn)",
+          "aClass": "*'eku fili* — my choosing (act)",
+          "oClass": "*hoku fili* — the choice made about me",
+          "citation": "L 29"
+        },
+        {
+          "noun": "*tokoni* (help, vn)",
+          "aClass": "*'eku tokoni* — my helping",
+          "oClass": "*hoku tokoni* — the help given to me",
+          "citation": "L 29"
+        },
+        {
+          "noun": "*vai*",
+          "aClass": "*'eku vai* — water/medicine I drink (Rule 3)",
+          "oClass": "*hoku vai* — the well (Rule 15)",
+          "citation": "C 13 §24, §42"
+        },
+        {
+          "noun": "*mahaki*",
+          "aClass": "*'eku mahaki* — my patient (one I treat)",
+          "oClass": "*hoku mahaki* — my disease (afflicts me)",
+          "citation": "C 13 §30 + §27"
+        },
+        {
+          "noun": "*lavea*",
+          "aClass": "*'ene lavea* — his being-injured (act)",
+          "oClass": "*hono lavea* — the wound itself",
+          "citation": "C 13 §11, §30"
+        }
+      ],
+      "index": [
+        {
+          "noun": "anga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "habit, custom, nature"
+        },
+        {
+          "noun": "'ao",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §31",
+          "notes": "front, presence"
+        },
+        {
+          "noun": "'api",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41; L 17, L 46",
+          "notes": "homestead, home — also \"local\"-class for prepositions (grammar-spec §20)"
+        },
+        {
+          "noun": "'atamai",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "intelligence"
+        },
+        {
+          "noun": "'auhia",
+          "alt": [],
+          "class": "—",
+          "source": "(verb, see Verb-Collocation §B)",
+          "notes": "not a noun"
+        },
+        {
+          "noun": "'ata",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "shadow, reflection, picture"
+        },
+        {
+          "noun": "'ato",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "roof"
+        },
+        {
+          "noun": "fa'ē",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §37; L 29",
+          "notes": "mother — direct-kin exception"
+        },
+        {
+          "noun": "faiako",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "school teacher — \"person in your employ\""
+        },
+        {
+          "noun": "faifekau",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "minister of religion"
+        },
+        {
+          "noun": "faimākoni",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "wireless operator"
+        },
+        {
+          "noun": "fai'uhila",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "electrician"
+        },
+        {
+          "noun": "faikosi",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "barber"
+        },
+        {
+          "noun": "faingamālie",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §39",
+          "notes": "opportunity"
+        },
+        {
+          "noun": "fakafofonga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "representative"
+        },
+        {
+          "noun": "fakamalu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "umbrella"
+        },
+        {
+          "noun": "fakamanatu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "memorial"
+        },
+        {
+          "noun": "fakamo'ui",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "rescuer, saviour"
+        },
+        {
+          "noun": "fakatātā",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "picture, portrait"
+        },
+        {
+          "noun": "fala",
+          "alt": [],
+          "class": "mixed",
+          "source": "L 17",
+          "notes": "mat — a-class if made (*'eku fala*); o-class if used (*hoku fala*)"
+        },
+        {
+          "noun": "faliki",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "floor"
+        },
+        {
+          "noun": "fale",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41; L 17",
+          "notes": "house"
+        },
+        {
+          "noun": "fale lotu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41",
+          "notes": "church building"
+        },
+        {
+          "noun": "fanā",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "mast"
+        },
+        {
+          "noun": "fānau",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §37; L 29",
+          "notes": "children — direct-kin exception"
+        },
+        {
+          "noun": "fanga moa",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §23",
+          "notes": "fowls"
+        },
+        {
+          "noun": "fanga puaka",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §23",
+          "notes": "pigs"
+        },
+        {
+          "noun": "fatongia",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "duty"
+        },
+        {
+          "noun": "fetongi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "substitute, successor"
+        },
+        {
+          "noun": "fili",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "enemy"
+        },
+        {
+          "noun": "foha",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "man's son"
+        },
+        {
+          "noun": "fo'ui",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "fault"
+        },
+        {
+          "noun": "fonua",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41; L 17",
+          "notes": "land, country"
+        },
+        {
+          "noun": "fotunga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "appearance"
+        },
+        {
+          "noun": "fua",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §33",
+          "notes": "fruit, result"
+        },
+        {
+          "noun": "fue",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "fly-whisk"
+        },
+        {
+          "noun": "fusi",
+          "alt": [],
+          "class": "mixed",
+          "source": "C 13 §52–53",
+          "notes": "banana — fruit a-class; plant o-class"
+        },
+        {
+          "noun": "hala",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41",
+          "notes": "path, road"
+        },
+        {
+          "noun": "hele",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21; L 17",
+          "notes": "knife"
+        },
+        {
+          "noun": "helu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "comb"
+        },
+        {
+          "noun": "hingoa",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35; L 17",
+          "notes": "name"
+        },
+        {
+          "noun": "hiva",
+          "alt": [],
+          "class": "mixed",
+          "source": "L 29",
+          "notes": "song — a-class if sung by you; o-class if sung about you"
+        },
+        {
+          "noun": "hoa",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "mate, spouse"
+        },
+        {
+          "noun": "holisi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "wall"
+        },
+        {
+          "noun": "holoholo",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "handkerchief"
+        },
+        {
+          "noun": "hoosi",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §23",
+          "notes": "horse"
+        },
+        {
+          "noun": "hui",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §28",
+          "notes": "bone"
+        },
+        {
+          "noun": "hu'akau",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §24",
+          "notes": "milk"
+        },
+        {
+          "noun": "huo",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §22 (Ex-2)",
+          "notes": "spade — tool exception"
+        },
+        {
+          "noun": "ī",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "fan"
+        },
+        {
+          "noun": "ifo",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "taste"
+        },
+        {
+          "noun": "'ilamutu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "nephew / niece"
+        },
+        {
+          "noun": "'ila",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "spot, stain"
+        },
+        {
+          "noun": "'inasi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "share, portion"
+        },
+        {
+          "noun": "inu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §25 (Ex-3)",
+          "notes": "drinking water — consumable exception"
+        },
+        {
+          "noun": "'ita",
+          "alt": [],
+          "class": "a",
+          "source": "L 17",
+          "notes": "anger — emotion the possessor exhibits"
+        },
+        {
+          "noun": "ivi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "power, ability"
+        },
+        {
+          "noun": "kaha'u",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §39",
+          "notes": "future"
+        },
+        {
+          "noun": "kāinga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36; L 29",
+          "notes": "relatives, kin (general)"
+        },
+        {
+          "noun": "kāpisi",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §51",
+          "notes": "cabbage (as crop)"
+        },
+        {
+          "noun": "kato",
+          "alt": [],
+          "class": "a",
+          "source": "L 17",
+          "notes": "basket"
+        },
+        {
+          "noun": "kau 'a'ahi",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "visitors"
+        },
+        {
+          "noun": "kau ako",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "pupils"
+        },
+        {
+          "noun": "kau ulú",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "converts"
+        },
+        {
+          "noun": "kaume'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "friend"
+        },
+        {
+          "noun": "kaunanga",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "female servant"
+        },
+        {
+          "noun": "kaungāngāue",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "fellow worker"
+        },
+        {
+          "noun": "kava",
+          "alt": [],
+          "class": "mixed",
+          "source": "C 13 §56 (Ex-7)",
+          "notes": "plantation = a; stick presented = o; cup drunk = a"
+        },
+        {
+          "noun": "kelekele",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41",
+          "notes": "land, soil"
+        },
+        {
+          "noun": "koa",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "soap"
+        },
+        {
+          "noun": "kofi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §25 (Ex-3)",
+          "notes": "coffee — consumable exception"
+        },
+        {
+          "noun": "kofu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32; L 17",
+          "notes": "clothes"
+        },
+        {
+          "noun": "kolo",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41; L 29",
+          "notes": "village, town"
+        },
+        {
+          "noun": "koloa",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "goods"
+        },
+        {
+          "noun": "kolosi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "cross (one bears)"
+        },
+        {
+          "noun": "konga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "part"
+        },
+        {
+          "noun": "koko",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §25 (Ex-3)",
+          "notes": "cocoa — consumable exception"
+        },
+        {
+          "noun": "kotoa",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "whole"
+        },
+        {
+          "noun": "kōvana",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "governor"
+        },
+        {
+          "noun": "kui",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §37",
+          "notes": "grandparent — direct-kin exception"
+        },
+        {
+          "noun": "kuini",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "queen"
+        },
+        {
+          "noun": "kumala",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §51; L 29",
+          "notes": "sweet potato (as crop)"
+        },
+        {
+          "noun": "kumete",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "kava bowl"
+        },
+        {
+          "noun": "kuohili",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §39",
+          "notes": "past"
+        },
+        {
+          "noun": "kuonga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §39",
+          "notes": "era, period"
+        },
+        {
+          "noun": "kupenga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §22 (Ex-2)",
+          "notes": "fishing-net — tool exception"
+        },
+        {
+          "noun": "lakanga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "office, function"
+        },
+        {
+          "noun": "lanu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "colour"
+        },
+        {
+          "noun": "lavea",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "wound — but see Ex-6 for verb form"
+        },
+        {
+          "noun": "lavaki",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "betrayer"
+        },
+        {
+          "noun": "lea",
+          "alt": [],
+          "class": "a",
+          "source": "L 17",
+          "notes": "speech, language"
+        },
+        {
+          "noun": "le'o",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30, §44",
+          "notes": "voice; also watchman/sentry (Rule 15)"
+        },
+        {
+          "noun": "lelu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "armlet"
+        },
+        {
+          "noun": "loki",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41; L 17",
+          "notes": "room, apartment"
+        },
+        {
+          "noun": "lolotonga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §31",
+          "notes": "midst"
+        },
+        {
+          "noun": "loto'ā",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §43",
+          "notes": "enclosure"
+        },
+        {
+          "noun": "loto",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §28",
+          "notes": "mind, heart"
+        },
+        {
+          "noun": "ma'ala",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "yam plantation"
+        },
+        {
+          "noun": "ma'ama'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §28",
+          "notes": "lungs"
+        },
+        {
+          "noun": "mafai",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "authority, power"
+        },
+        {
+          "noun": "mahaki",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "disease — but see Ex-6 / Class-shift"
+        },
+        {
+          "noun": "mahae",
+          "alt": [],
+          "class": "—",
+          "source": "(verb, see Verb-Collocation §B)",
+          "notes": "not a noun"
+        },
+        {
+          "noun": "mali",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "husband, wife"
+        },
+        {
+          "noun": "mālōlō'anga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §43",
+          "notes": "resting-place"
+        },
+        {
+          "noun": "malu",
+          "alt": [
+            "malumalu"
+          ],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "shadow, shade"
+        },
+        {
+          "noun": "mama",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "ring"
+        },
+        {
+          "noun": "manioke",
+          "alt": [],
+          "class": "a",
+          "source": "L 17",
+          "notes": "cassava"
+        },
+        {
+          "noun": "me'akai",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §24; L 17",
+          "notes": "food"
+        },
+        {
+          "noun": "me'afana",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "gun"
+        },
+        {
+          "noun": "mele",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "blemish"
+        },
+        {
+          "noun": "moa",
+          "alt": [],
+          "class": "a",
+          "source": "L 17",
+          "notes": "chicken"
+        },
+        {
+          "noun": "mohenga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §40",
+          "notes": "bed"
+        },
+        {
+          "noun": "moli",
+          "alt": [],
+          "class": "mixed",
+          "source": "C 13 §52–53",
+          "notes": "orange — fruit a-class; tree o-class"
+        },
+        {
+          "noun": "mokopuna",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36",
+          "notes": "grandchild"
+        },
+        {
+          "noun": "motu'a",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §37",
+          "notes": "parent — direct-kin exception"
+        },
+        {
+          "noun": "nafa",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "drum"
+        },
+        {
+          "noun": "nanamu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "smell"
+        },
+        {
+          "noun": "ngāfe'a",
+          "alt": [
+            "ngafa"
+          ],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "duty, task"
+        },
+        {
+          "noun": "ngāue",
+          "alt": [],
+          "class": "a",
+          "source": "L 17",
+          "notes": "work"
+        },
+        {
+          "noun": "ngāue'anga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "sphere of work"
+        },
+        {
+          "noun": "ngoue",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "garden, plantation"
+        },
+        {
+          "noun": "nima",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §28; L 17",
+          "notes": "hand"
+        },
+        {
+          "noun": "niu",
+          "alt": [],
+          "class": "mixed",
+          "source": "C 13 §52–53; L 29",
+          "notes": "coconut — fruit/crop a-class; palm tree o-class"
+        },
+        {
+          "noun": "nofo'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §40",
+          "notes": "saddle"
+        },
+        {
+          "noun": "nofo'anga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §43",
+          "notes": "dwelling-place"
+        },
+        {
+          "noun": "nunu'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §33",
+          "notes": "natural retribution"
+        },
+        {
+          "noun": "'ō",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §33",
+          "notes": "outcome"
+        },
+        {
+          "noun": "'oho",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §25 (Ex-3)",
+          "notes": "provisions — consumable exception"
+        },
+        {
+          "noun": "ongoongo",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "news, report"
+        },
+        {
+          "noun": "'ouau",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §33",
+          "notes": "appurtenance, ordinance"
+        },
+        {
+          "noun": "'Otua",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "God"
+        },
+        {
+          "noun": "'ulu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §28",
+          "notes": "head"
+        },
+        {
+          "noun": "pā",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §22 (Ex-2)",
+          "notes": "shield — tool exception"
+        },
+        {
+          "noun": "pa'anga",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21; L 17",
+          "notes": "money"
+        },
+        {
+          "noun": "palesiteni",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "president"
+        },
+        {
+          "noun": "pōpao",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41",
+          "notes": "canoe"
+        },
+        {
+          "noun": "pule'anga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §43",
+          "notes": "government"
+        },
+        {
+          "noun": "punuaga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41",
+          "notes": "nest"
+        },
+        {
+          "noun": "sāliote",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §21",
+          "notes": "cart"
+        },
+        {
+          "noun": "sāvieti",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "serviette"
+        },
+        {
+          "noun": "sea",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §40",
+          "notes": "chair, seat"
+        },
+        {
+          "noun": "Siasi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §43",
+          "notes": "Church (organization)"
+        },
+        {
+          "noun": "sima",
+          "alt": [
+            "vai sima"
+          ],
+          "class": "o",
+          "source": "C 13 §42",
+          "notes": "tank"
+        },
+        {
+          "noun": "sino",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §28",
+          "notes": "body"
+        },
+        {
+          "noun": "tā",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "picture"
+        },
+        {
+          "noun": "tafa'aki",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "side"
+        },
+        {
+          "noun": "tafu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41",
+          "notes": "burrow"
+        },
+        {
+          "noun": "tainamu",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §40",
+          "notes": "mosquito-net"
+        },
+        {
+          "noun": "taimi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §39",
+          "notes": "time"
+        },
+        {
+          "noun": "taki",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "leader"
+        },
+        {
+          "noun": "takele",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "bottom"
+        },
+        {
+          "noun": "talafekau",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "messenger"
+        },
+        {
+          "noun": "talo",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §51; L 17",
+          "notes": "taro"
+        },
+        {
+          "noun": "tama",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §37",
+          "notes": "woman's son — direct-kin exception"
+        },
+        {
+          "noun": "tamai",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §37; L 29",
+          "notes": "father — direct-kin exception"
+        },
+        {
+          "noun": "tamaio'eiki",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "male servant"
+        },
+        {
+          "noun": "tamasi'i",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §37",
+          "notes": "child / boy as offspring — direct-kin exception"
+        },
+        {
+          "noun": "tao",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §22 (Ex-2)",
+          "notes": "spear — tool exception"
+        },
+        {
+          "noun": "tapaka",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §24",
+          "notes": "tobacco"
+        },
+        {
+          "noun": "tatā",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32; L 17",
+          "notes": "hat"
+        },
+        {
+          "noun": "tatau",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "copy, duplicate"
+        },
+        {
+          "noun": "tauhi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "keeper, guardian"
+        },
+        {
+          "noun": "taueli",
+          "alt": [
+            "tauveli"
+          ],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "towel"
+        },
+        {
+          "noun": "ta'umotu'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §30",
+          "notes": "age"
+        },
+        {
+          "noun": "ti",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §25 (Ex-3)",
+          "notes": "tea — consumable exception"
+        },
+        {
+          "noun": "tō",
+          "alt": [],
+          "class": "a (verb)/o (resulting fall)",
+          "source": "L 17 (as verb); class depends on use",
+          "notes": "\"plant/sow\" verbal noun is a-class as action; \"the fall\" use o-class"
+        },
+        {
+          "noun": "tofi'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "inheritance"
+        },
+        {
+          "noun": "tohi",
+          "alt": [],
+          "class": "mixed",
+          "source": "L 29",
+          "notes": "writing — a-class if you wrote it; o-class if written about you"
+        },
+        {
+          "noun": "toketā",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §27",
+          "notes": "doctor"
+        },
+        {
+          "noun": "toki",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §22 (Ex-2)",
+          "notes": "axe — tool exception"
+        },
+        {
+          "noun": "tokoni",
+          "alt": [],
+          "class": "mixed",
+          "source": "L 29",
+          "notes": "help/helping — a-class if you do it; o-class if you receive it"
+        },
+        {
+          "noun": "tokotoko",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §32",
+          "notes": "walking-stick"
+        },
+        {
+          "noun": "tokoua",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §36; L 17, L 29",
+          "notes": "sibling"
+        },
+        {
+          "noun": "totongi",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "price, cost"
+        },
+        {
+          "noun": "toto",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §28",
+          "notes": "blood"
+        },
+        {
+          "noun": "tu'i",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §44",
+          "notes": "king"
+        },
+        {
+          "noun": "tu'unga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §38",
+          "notes": "position, rank, status"
+        },
+        {
+          "noun": "tupu'anga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §43",
+          "notes": "origin"
+        },
+        {
+          "noun": "'ufi",
+          "alt": [],
+          "class": "a",
+          "source": "C 13 §24",
+          "notes": "yam (as food)"
+        },
+        {
+          "noun": "'uhinga",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §35",
+          "notes": "meaning"
+        },
+        {
+          "noun": "va'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §29",
+          "notes": "branch"
+        },
+        {
+          "noun": "vaha'a",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §31",
+          "notes": "space between"
+        },
+        {
+          "noun": "vai",
+          "alt": [],
+          "class": "mixed",
+          "source": "C 13 §24 (as medicine, a); §42 (as well, o)",
+          "notes": "water — context-dependent"
+        },
+        {
+          "noun": "vaka",
+          "alt": [],
+          "class": "o",
+          "source": "C 13 §41; L 17",
+          "notes": "boat, ship"
+        },
+        {
+          "noun": "vala",
+          "alt": [],
+          "class": "mixed",
+          "source": "C 13 §32; L 29",
+          "notes": "clothes — o-class for wearing apparel (Rule 10); a-class if made by you (verbal-noun analogue)"
+        }
+      ]
+    },
+    "negation": {
+      "lead": "*'Ikai* is the all-purpose verbal negator. Position: between the tense marker and the verb (or pronoun), linked by *te* (before pronouns) or *ke* (before bare verbs).",
+      "entries": [
+        {
+          "id": "§A.1",
+          "title": "*'Ikai.* standalone — \"No.\"",
+          "form": "*'Ikai* alone, sentence-terminal.",
+          "examples": [
+            "*Na'á ke kai? — 'Ikai.* \"Did you eat? — No.\" (LFT Ch. 9 §\"*'Ikai* as a Response\")"
+          ],
+          "frame": "no entry point — used as an answer particle. Counterpart of *'Io* (yes).",
+          "table": []
+        },
+        {
+          "id": "§A.2",
+          "title": "*'ikai te* + pronoun + verb — the standard pronoun-subject negation",
+          "form": "TM + *'ikai* + *te* + pronoun + verb (+ object / modifier / time word).",
+          "examples": [
+            "*'Oku 'ikai te u fiefia.* \"I am not happy.\" (LFT Ch. 9 §\"Saying 'Not' with a Pronoun\"; grammar-spec §7 example list)",
+            "*Na'e 'ikai te u tokoni kia Sione.* \"I did not help John.\" (LFT Ch. 9 §\"Negation Across Tenses\")",
+            "*'E 'ikai te ke nofo 'i Tonga.* \"You will not stay in Tonga.\" (LFT Ch. 9 §\"Negation Across Tenses\")"
+          ],
+          "frame": "`negation` (grammar-spec §7).",
+          "table": [],
+          "frame_corrected_from": "verbal_negation"
+        },
+        {
+          "id": "§A.3",
+          "title": "*'ikai ke* + bare verb — impersonal / weather negation",
+          "form": "TM + *'ikai* + *ke* + verb (+ time word).",
+          "examples": [
+            "*Na'e 'ikai ke matangi 'anepō.* \"It was not windy last night.\" (LFT Ch. 9 §\"When There Is No Pronoun\"; grammar-spec §8 example list)",
+            "*'Oku 'ikai ke 'uha.* \"It is not raining.\" (LFT Ch. 9; grammar-spec §8)",
+            "*'E 'ikai ke momoko 'apongipongi.* \"It will not be cold tomorrow.\" (LFT Ch. 9; grammar-spec §8)"
+          ],
+          "frame": "`negation_impersonal` (grammar-spec §8).",
+          "table": []
+        },
+        {
+          "id": "§A.4",
+          "title": "*'ikai ke 'i ai* + *ha* + noun — negative existential",
+          "form": "TM + *'ikai* + *ke* + *'i ai* + *ha* + noun (+ *'i* + location).",
+          "examples": [
+            "*'Oku 'ikai ke 'i ai ha taha.* \"There is no one.\" (grammar-spec §32 example list)",
+            "*'Oku 'ikai ke 'i ai ha me'akai 'i fale.* \"There is no food in the house.\" (grammar-spec §32)",
+            "*Na'e 'ikai ke 'i ai ha vaka.* \"There was no boat.\" (grammar-spec §32)"
+          ],
+          "frame": "`existential` (grammar-spec §32 — the negated form of the `existential` entry point).",
+          "table": []
+        },
+        {
+          "id": "§A.5",
+          "title": "*'ikai* with focus marker — noun-subject negation",
+          "form": "TM + *'ikai* + *ke* + verb + *'a e* + noun (+ *'e* + agent, if transitive).",
+          "examples": [
+            "*Na'e 'ikai ke 'alu 'a Sione.* \"Sione did not go.\" [synthesis — pattern from grammar-spec §8 (impersonal negation extends to noun subjects) + §14 (noun-subject statement frame)]",
+            "*'Oku 'ikai ke 'i ai ha taha.* \"There is no one.\" (grammar-spec §32 — also a *ke* + verb-like + noun frame)"
+          ],
+          "frame": "`negation_impersonal` with the noun-subject extension (the same *ke*-form is used because the post-verb noun is a subject, not a pronoun).",
+          "table": []
+        },
+        {
+          "id": "§A.6",
+          "title": "Quick disambiguation: when do I use *te* vs *ke* after *'ikai*?",
+          "form": null,
+          "examples": [],
+          "frame": null,
+          "table": [
+            [
+              "Next word after *'ikai*",
+              "Connector",
+              "Frame"
+            ],
+            [
+              "A preposed pronoun (*u*, *ke*, *ne*, *nau*, *mau*, *tau*, *mou*, *na*, *ma*, *ta*, *mo*)",
+              "*te*",
+              "`verbal_negation` (§A.2)"
+            ],
+            [
+              "A bare verb (weather, impersonal, noun-subject)",
+              "*ke*",
+              "`negation_impersonal` (§A.3, §A.5)"
+            ],
+            [
+              "The fixed verb-like *'i ai* (existential)",
+              "*ke*",
+              "`existential` (§A.4)"
+            ],
+            [
+              "*ko e* + noun (Ko identification)",
+              "(no connector — *'ikai* sits inside the fixed phrase *'Oku 'ikai ko e*)",
+              "`ko_negation` (§B)"
+            ]
+          ]
+        }
+      ]
+    },
+    "aspect": {
+      "markers": [
+        {
+          "form": "kuo",
+          "sense": "perfective",
+          "slot": null
+        },
+        {
+          "form": "kei",
+          "sense": "continuative",
+          "slot": "pre-verb"
+        },
+        {
+          "form": "'osi",
+          "sense": "finished / already",
+          "slot": "pre-verb"
+        },
+        {
+          "form": "te'eki",
+          "sense": "not yet",
+          "slot": "pre-verb"
+        },
+        {
+          "form": "toe",
+          "sense": "again / repetition",
+          "slot": "pre-verb"
+        },
+        {
+          "form": "toki",
+          "sense": "just / not until",
+          "slot": "pre-verb"
+        },
+        {
+          "form": "toutou",
+          "sense": "repeatedly",
+          "slot": "pre-verb"
+        },
+        {
+          "form": "fa'a",
+          "sense": "often / habitually",
+          "slot": "pre-verb"
+        },
+        {
+          "form": "leva",
+          "sense": "immediately — POSTPOSED",
+          "slot": "post-verb"
+        },
+        {
+          "form": "ai pē",
+          "sense": "still / as before — POSTPOSED",
+          "slot": "post-verb"
+        },
+        {
+          "form": "ma'u pē",
+          "sense": "continually / always — POSTPOSED",
+          "slot": "post-verb"
+        },
+        {
+          "form": "hili",
+          "sense": "after — SUBORDINATOR",
+          "slot": null
+        },
+        {
+          "form": "lolotonga",
+          "sense": "currently / in progress",
+          "slot": "pre-verb"
+        }
+      ],
+      "disambiguator": {
+        "id": "aspect-vs-bare-tm",
+        "title": "aspect — a bare tense marker is NOT the English progressive",
+        "rules": [
+          "A tense marker places the verb in time; on its own it does not mark an action as in progress. With an action verb it is normally read as the general or habitual case, so an English progressive (\"is/are/am + -ing\") needs an aspect marker rather than a bare tense marker.",
+          "The word *lolotonga* marks an action as being in progress at the time of speaking (or at the time referred to). English uses \"-ing\" forms for this; Tongan uses *lolotonga* before the verb.",
+          "In progress right now: *lolotonga* before the verb. Often / habitually: *fa'a* before the verb. Always / continually: *ma'u pē* after the verb.",
+          "**Pre-verb slot** — between the pronoun and the verb (grammar-spec §24, \"slot insertion\"). Most aspect markers fill this slot: *kei*, *'osi*, *te'eki*, *toe*, *toki*, *toutou*, *fa'a*, *lolotonga*.",
+          "**Post-verb slot** — after the verb. Three markers live here: *leva*, *ai pē*, *ma'u pē*.",
+          "If you cannot tell whether the English wants the in-progress or the habitual reading, escalate rather than pick one — the two render differently and the choice is not recoverable downstream."
+        ],
+        "source": "source-materials/Aspect-Tense-Matrix.md §A + LFT Ch. 22 §\"*lolotonga*\""
+      }
+    },
+    "few_shot": {
+      "tagged": [
+        {
+          "date": "2026-06-20",
+          "label": "hypothetical walk to fetch a plate",
+          "english": "If I was planning on going to a new place to get an old friend's dinner plate, I would first consider how I might walk the distance from where I would be to where I might be.",
+          "tongan": "Kapau 'oku ou fakakaukau ke 'alu ki ha feitu'u fo'ou 'o ma'u 'a e peleti kai 'a ha kaume'a motu'a, té u tōmu'a fakakaukau pe té u lava 'o lue fēfē 'i he mama'ó mei he feitu'u té u 'i ai ki he feitu'u té u 'i ai nai.",
+          "frame": "subordinator_kapau",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "she said that Sione would come",
+          "english": "She said that Sione would come.",
+          "tongan": "Na'á ne pehē 'e ha'u 'a Sione.",
+          "frame": "reported_speech_pehē",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "if I were rich, I would travel",
+          "english": "If I were rich, I would travel.",
+          "tongan": "Ka ne u koloa'ia, 'e u fefononga'aki.",
+          "frame": "ka_ne_counterfactual",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "let's go now",
+          "english": "Let's go now.",
+          "tongan": "Tau 'alu leva.",
+          "frame": "suggestion",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "could you please pass me the book?",
+          "english": "Could you please pass me the book?",
+          "tongan": "To'o mai angé mu'a 'a e tohí.",
+          "frame": "command",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "I also want just one",
+          "english": "I also want just one.",
+          "tongan": "'Oku ou fie ma'u foki ha taha pē.",
+          "frame": "statement",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "this work is the same as that work",
+          "english": "This work is the same as that work.",
+          "tongan": "'Oku tatau 'a e ngāue ko eni mo e ngāue ko ē.",
+          "frame": "predicate_stative",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "she will not go to the market",
+          "english": "She will not go to the market.",
+          "tongan": "'E 'ikai te ne 'alu ki he maketi.",
+          "frame": "verbal_negation",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "please don't be angry",
+          "english": "Please don't be angry.",
+          "tongan": "'Oua na'á ke 'ita.",
+          "frame": "prohibition",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "are you a doctor?",
+          "english": "Are you a doctor?",
+          "tongan": "Ko e tōketā koe?",
+          "frame": "ko_identification",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "na'á ke ha'u mei fē?",
+          "english": "Where did you come from?",
+          "tongan": "Na'á ke ha'u mei fē?",
+          "frame": "intransitive_question",
+          "derived_from": "TO→EN"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "why did you go to Nuku'alofa?",
+          "english": "Why did you go to Nuku'alofa?",
+          "tongan": "Ko e hā na'á ke 'alu ai ki Nuku'alofa?",
+          "frame": "ko_e_ha_ai",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "tuku ke u 'alu ki he maketi mu'a",
+          "english": "Please let me go to the market.",
+          "tongan": "Tuku ke u 'alu ki he maketi mu'a.",
+          "frame": "permission_tuku_ke",
+          "derived_from": "TO→EN"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "tokua kuo 'alu 'a Mele ki Hā'amoa",
+          "english": "Mele has reportedly gone to Samoa.",
+          "tongan": "Tokua kuo 'alu 'a Mele ki Hā'amoa.",
+          "frame": "reportative_tokua",
+          "derived_from": "TO→EN"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "Sione is eating his food",
+          "english": "Sione is eating his food.",
+          "tongan": "'Oku kai 'e Sione 'a 'ene me'akai.",
+          "frame": "transitive_statement",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "please bring me a book",
+          "english": "Please bring me a book.",
+          "tongan": "'Omi angé mu'a ha tohi.",
+          "frame": "command",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "she speaks as though she is tired",
+          "english": "She speaks as though she is tired.",
+          "tongan": "'Okú ne lea 'o hangē kuo helaʻia.",
+          "frame": "statement",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "let me get on with it",
+          "english": "Let me get on with it.",
+          "tongan": "Tuku ke u fai 'a e me'a.",
+          "frame": "permission_tuku_ke",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "'oku ngāue ta'e totongi 'a Sēmisi",
+          "english": "Sēmisi is working without pay.",
+          "tongan": "'Oku ngāue ta'e totongi 'a Sēmisi.",
+          "frame": "statement",
+          "derived_from": "TO→EN"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "kuó ku 'osi mohe",
+          "english": "I have already slept.",
+          "tongan": "Kuó ku 'osi mohe.",
+          "frame": "statement",
+          "derived_from": "TO→EN"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "she hasn't come back again yet",
+          "english": "She hasn't come back again yet.",
+          "tongan": "'Oku te'eki ke ne toe foki mai.",
+          "frame": "statement",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "are you still working",
+          "english": "Are you still working?",
+          "tongan": "'Okú ke kei ngāue?",
+          "frame": "statement",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "she's still studying not returned home",
+          "english": "She's still studying, but she hasn't returned home yet.",
+          "tongan": "'Okú ne kei ako, ka 'oku te'eki ke ne foki ki 'api.",
+          "frame": "statement",
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "she always lives in Vava'u",
+          "english": "She always lives in Vava'u.",
+          "tongan": "'Okú ne nofo ma'u pē 'i Vava'u.",
+          "frame": "statement",
+          "derived_from": "EN→TO"
+        }
+      ],
+      "untagged": [
+        {
+          "date": "2026-05-14",
+          "label": "sorry I was late",
+          "english": "Sorry I was late.",
+          "tongan": "Fakamolemole, koe'uhi na'á ku tomui.",
+          "frame": null,
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "tokua kuo ha'u 'a e talavou ko ē mei Vava'u",
+          "english": "It is reported that the young man has come from Vava'u. (more literal: They say the young man (over there) has come from Vava'u.)",
+          "tongan": "Tokua kuo ha'u 'a e talavou ko ē mei Vava'u.",
+          "frame": null,
+          "derived_from": "TO→EN"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "'oku ngalingali kuo 'ita 'a Sione",
+          "english": "It seems Sione has become angry. (more literal: It looks as if Sione has become angry.)",
+          "tongan": "'Oku ngalingali kuo 'ita 'a Sione.",
+          "frame": null,
+          "derived_from": "TO→EN"
+        },
+        {
+          "date": "2026-05-13",
+          "label": "when I returned from town brother already sleeping",
+          "english": "When I returned from town, my brother was already sleeping.",
+          "tongan": "'I he 'eku foki mei kolo, pea na'e 'osi mohe 'a hoku tokoua.",
+          "frame": null,
+          "derived_from": "EN→TO"
+        },
+        {
+          "date": "2026-05-09",
+          "label": "always lived here since moving",
+          "english": "Have you always lived in this location ever since you first moved here?",
+          "tongan": "Talu ho'o fuofua hiki mai ki heni, kuó ke nofo ma'u pē 'i he feitu'ú ni?",
+          "frame": null,
+          "derived_from": "EN→TO"
+        }
+      ],
+      "rejected": [
+        {
+          "date": "2026-05-30",
+          "direction": "TO→EN",
+          "label": "\"shop dialogue: canned beef and soap\"",
+          "start": 118,
+          "why": "no single-sentence Input/Assembled pair on one line (multi-line entry)"
+        }
+      ]
+    }
+  }
+}

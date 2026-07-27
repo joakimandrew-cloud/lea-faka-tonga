@@ -42,11 +42,21 @@
  *      verifies every citation token in the translation specs, skills, and
  *      Translation-Log.md resolves to a real chapter/section/source on disk.
  *
+ *   6. TRANSLATE-PACK ANTI-DRIFT (hard fail). Delegated to
+ *      build-translate-pack.mjs --verify — confirms the committed
+ *      src/data/translate-pack.json + translate-allowset.json still match the
+ *      sources they were compiled from. A changed RULE source (method spec,
+ *      frame index, possessive/negation sheets, DECISIONS, accent canon,
+ *      grammar-spec, Ch 8) fails the build until the pack is rebuilt; an
+ *      additive change (a new Translation-Log entry) prints as non-blocking.
+ *      (2026-07-27)
+ *
  * Exits 0 on clean run (warnings OK), 1 on any hard-check failure.
  */
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { spawn } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { runCitationCheck } from './check-citations.mjs'
 
@@ -302,6 +312,30 @@ async function checkAppEmDashes() {
   return { hard, warn }
 }
 
+// ── Translate-pack anti-drift (2026-07-27) ────────────────────────────────
+// src/data/translate-pack.json + translate-allowset.json are compiled from the
+// method spec, frame index, possessive/negation sheets, DECISIONS, the accent
+// canon and Translation-Log (reviews/translate-pipeline-analysis.md Q5). They
+// are committed artifacts — the Pages workflow never runs extraction — so a
+// source edit would otherwise leave the fast translation path quoting rules the
+// vault no longer holds.
+//
+// The check re-runs the builder in --verify mode rather than reimplementing the
+// harvest: one harvest implementation, never two (the harvestFrameTags pattern).
+// It exits 1 when a RULE source's harvested slice changed; an additive change
+// (a new Translation-Log entry, a vocabulary refresh) prints as non-blocking.
+async function checkTranslatePack() {
+  const script = path.join(APP_ROOT, 'scripts', 'build-translate-pack.mjs')
+  return await new Promise((resolve) => {
+    const child = spawn(process.execPath, [script, '--verify'], { cwd: APP_ROOT })
+    let out = ''
+    child.stdout.on('data', (d) => { out += d })
+    child.stderr.on('data', (d) => { out += d })
+    child.on('close', (code) => resolve({ code: code ?? 1, out: out.trimEnd() }))
+    child.on('error', (err) => resolve({ code: 1, out: `  ✗ could not run build-translate-pack.mjs --verify: ${err.message}` }))
+  })
+}
+
 async function main() {
   const chapterFiles = await readChapterFiles()
   const chapters = await readJSON(CHAPTERS_JSON)
@@ -371,6 +405,11 @@ async function main() {
     console.log(`  ⚠ ${appDashWarn.length} em-dash(es) in components (warning — incl. the BookExercises /[–—]/ detection regex, which is logic, not prose):`)
     for (const w of appDashWarn) console.log(`  ⚠ ${w.file}:${w.line}  ${w.ctx}`)
   }
+
+  console.log('\n── Translate-pack anti-drift (hard) ──')
+  const packCheck = await checkTranslatePack()
+  console.log(packCheck.out)
+  if (packCheck.code !== 0) exitCode = 1
 
   const citationViolations = await runCitationCheck()
   if (citationViolations > 0) exitCode = 1
