@@ -44,7 +44,25 @@
  *      one of the available lesson-range files in source-materials/Shumway/
  *      (e.g. shumway_L000-L030.md … shumway_L121-L130.md).
  *
- *   7. FRAME TAGS. A `**Frame:**` declaration line must start with a
+ *   7. SYNTHESIS-SHEET § CITATIONS. `<Sheet-Name> §X` / `<Sheet-Name> §X.N`
+ *      (e.g. `Negation-Paradigm §A.5`, `Function-Templates §L.2`). The sheet
+ *      must be one of the source-materials/*.md synthesis sheets, and the
+ *      cited § must exist as a `## §X —` / `### §X.N —` heading in it. Sheets
+ *      that use no § scheme at all (Possessive-Class-Master, Vocabulary-Pool)
+ *      cannot be resolved that way: those citations are reported as a
+ *      separately-counted "unverifiable" note, never an error. If a sheet that
+ *      IS declared to carry a § scheme harvests zero §-headings, that is a
+ *      hard error (renamed or restructured) — the same reference-set
+ *      integrity guard already used for the Entry Points table.
+ *
+ *   8. EALD: <word>. The headword must exist in the `tongan` field of some
+ *      category in source-materials/EALD-Dictionary.json. Markdown italics and
+ *      trailing punctuation are stripped, and matching is accent- and
+ *      fakauʻa-insensitive (macrons folded, ʻ‘’' folded, lowercased). An
+ *      italicised span is one headword (so `*fie maʻu*` looks up the two-word
+ *      entry); a bare comma-run after `EALD:` is a list of headwords.
+ *
+ *   9. FRAME TAGS. A `**Frame:**` declaration line must start with a
  *      backticked tag, and that tag (also when mentioned as "the **`tag`**
  *      frame") must exist in the closed frame set: grammar-spec's
  *      "Entry Points Summary" table ∪ Function-Templates frame tags.
@@ -79,7 +97,30 @@ const CHURCHWARD_DIR = path.join(REPO_ROOT, 'source-materials', 'Churchward')
 const SHUMWAY_DIR = path.join(REPO_ROOT, 'source-materials', 'Shumway')
 const GRAMMAR_CONCEPTS = path.join(SPEC_DIR, 'Grammar-Concepts-for-Students.md')
 const GRAMMAR_SPEC = path.join(SPEC_DIR, 'grammar-spec.md')
-const FUNCTION_TEMPLATES = path.join(REPO_ROOT, 'source-materials', 'Function-Templates.md')
+const SOURCE_MATERIALS_DIR = path.join(REPO_ROOT, 'source-materials')
+const FUNCTION_TEMPLATES = path.join(SOURCE_MATERIALS_DIR, 'Function-Templates.md')
+const EALD_DICTIONARY = path.join(SOURCE_MATERIALS_DIR, 'EALD-Dictionary.json')
+
+// Synthesis sheets DECLARED to carry a `§X` / `§X.N` heading scheme. If one of
+// these harvests zero §-headings (renamed, restructured, deleted), that is a
+// hard error — otherwise every citation into it would fail, or pass, for the
+// wrong reason. Same guard as `entryPointCount === 0` for frame tags.
+// Sheets deliberately absent from this list (Vocabulary-Pool, the EALD dumps,
+// Churchward-Paragraph-Index) use prose headings; citations into them are
+// "unverifiable", not wrong. Possessive-Class-Master was given a § scheme on
+// 2026-07-27 (CL-017) precisely so its Tier-1 citations become checkable.
+const SHEETS_WITH_SECTION_SCHEME = [
+  'Aspect-Tense-Matrix',
+  'Discourse-Particles',
+  'Equatives',
+  'Function-Templates',
+  'Idiom-Corpus',
+  'Interrogative-Paradigm',
+  'Negation-Paradigm',
+  'Parallel-Corpus',
+  'Possessive-Class-Master',
+  'Verb-Collocation-Index',
+]
 
 // Files scanned for citation tokens. Repo-root-relative — extend freely.
 const SCAN_FILES = [
@@ -118,6 +159,86 @@ function normalizeHeading(s) {
     .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase()
+}
+
+// Tongan-lexeme folding for EALD headword lookup and §-ID comparison. Built
+// ON normalizeHeading (italics, apostrophe variants, whitespace, case) and
+// adds only what a dictionary lookup needs on top: combining marks stripped,
+// so a macron / definitive-accent difference (*ngāue* vs *ngaue*, *té* vs
+// *te*) never masks a real headword. Deliberately NOT folded into
+// normalizeHeading itself — that would loosen every existing §"heading"
+// comparison.
+function foldTongan(s) {
+  return normalizeHeading(s)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .normalize('NFC')
+}
+
+function escapeRe(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+// LFT §"heading" comparison, tolerant of cosmetic drift (CL-001, approved
+// 2026-07-27). The log cites sections by meaning, not by transcription, and
+// three differences defeated the old exact-equality test: quote style
+// (§"Saying 'Not'…" vs `### Saying "Not"…`), separator style (the log uses
+// em-dashes the book's house rule bans in headings), and abbreviation
+// (§"*'osi*" vs `### *'osi*: already, finished`).
+//
+// Folding is scoped to THIS comparison, not to normalizeHeading — loosening
+// the shared normalizer would loosen every other check with it.
+//
+// CAVEAT: the anchored-prefix rule below is a pass/fail test only. It is
+// deliberately NOT used by --emit-index (which still resolves via exact
+// normalizeHeading equality in resolveTarget), because an abbreviated citation
+// can prefix more than one heading and would emit the wrong line number.
+function foldForHeadingMatch(s) {
+  return foldTongan(s.replace(/[“”"]/g, "'"))
+    .replace(/\s*[:—–]\s*/g, ' | ')
+    .replace(/\s+-\s+/g, ' | ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+// Headings that are NOT teaching content. The word-boundary substring rule is
+// barred from matching these: without the restriction, `Ch. 22 §"*kuo*"` and
+// `Ch. 16 §"Subject-first emphasis"` — both genuinely wrong citations — get
+// silently green-lit by an Exercise heading that happens to contain the words.
+const NON_CONTENT_HEADING = /^(?:exercises?\b|exercise \d|quick practice|answers?\b|words to learn)/
+
+function headingMatchesCitation(rawHeading, citation) {
+  const h = foldForHeadingMatch(rawHeading)
+  const c = foldForHeadingMatch(citation)
+  if (!c || !h) return false
+  if (h === c) return true                                    // (a) equal
+  if (h.split(' | ')[0] === c) return true                    // (b) pre-separator head
+  if (h.startsWith(`${c} `)) return true                      // (c) anchored prefix
+  if (NON_CONTENT_HEADING.test(h)) return false               // (d) content headings only
+  return new RegExp(`(?:^|\\W)${escapeRe(c)}(?:\\W|$)`).test(h)
+}
+
+function lftHeadingResolves(headings, citation) {
+  if (headings.has(normalizeHeading(citation))) return true
+  for (const p of headings.values()) if (headingMatchesCitation(p.raw, citation)) return true
+  return false
+}
+
+// EALD headword key. foldTongan (italics, apostrophe variants, macrons, case)
+// plus the two asymmetries the R7 triage found: headwords are stored with
+// their own trailing punctuation (`ʻOku ke fēfē hake?` — CL-004) and with
+// spacing that citations don't always mirror (`fiemaʻu` vs `fie maʻu` —
+// CL-005). Applied to BOTH sides of the lookup, so folding can never turn a
+// miss into a false pass.
+function ealdKey(s) {
+  return foldTongan(s).replace(/[.,;:!?)\]]+$/, '').replace(/\s+/g, '')
+}
+
+// Name-shaped token: capitalized, single word. EALD carries 38 capitalized
+// headwords (Mālō, Tulou!, ʻAositelelia), so this is only ever consulted AFTER
+// a lookup miss — never as a reason to skip the lookup (CL-006).
+function looksLikeProperNoun(word) {
+  return /^[A-ZĀĒĪŌŪ]/.test(word) && !/\s/.test(word)
 }
 
 async function readFileOrNull(p) {
@@ -264,7 +385,46 @@ async function buildReferenceData() {
   // Function-Templates defines (in its tables and its own **Frame:** lines).
   const { frameTags, entryPointCount, provenance: frameSources } = await harvestFrameTags(specSrc)
 
-  return { lftHeadings, conceptIds, specSections, churchwardFiles, shumwayRanges, frameTags, entryPointCount, frameSources }
+  // Synthesis sheets: every source-materials/*.md, keyed by folded basename,
+  // each carrying the §-IDs harvested from its own headings. A sheet with an
+  // empty `sections` map has no § scheme (prose headings only).
+  const sheets = new Map()
+  const smEntries = (await fs.readdir(SOURCE_MATERIALS_DIR).catch(() => [])).filter(f => f.endsWith('.md'))
+  for (const f of smEntries.sort()) {
+    const name = f.slice(0, -3)
+    const src = await readFileOrNull(path.join(SOURCE_MATERIALS_DIR, f))
+    if (src == null) continue
+    const sections = new Map()
+    for (const m of src.matchAll(/^(#{1,6})\s+§\s*([A-Za-z][A-Za-z0-9.]*?)\.?(?=\s|$)/gm)) {
+      const id = foldTongan(m[2])
+      if (!sections.has(id)) sections.set(id, { line: src.slice(0, m.index).split('\n').length, raw: m[2], depth: m[1].length })
+    }
+    sheets.set(foldTongan(name), { name, rel: `source-materials/${f}`, sections })
+  }
+
+  // EALD headwords, folded, from every category's `tongan` field.
+  const ealdWords = new Map()
+  const ealdRaw = await readFileOrNull(EALD_DICTIONARY)
+  let ealdParsed = ealdRaw != null
+  if (ealdRaw != null) {
+    try {
+      const dict = JSON.parse(ealdRaw)
+      for (const [cat, entries] of Object.entries(dict.categories || {})) {
+        for (const e of entries || []) {
+          if (!e || typeof e.tongan !== 'string') continue
+          // A headword may carry slash alternants ("vakai/sio", CL-003) — index
+          // every one of them, plus the whole string, so both forms resolve.
+          const forms = e.tongan.includes('/') ? [e.tongan, ...e.tongan.split('/')] : [e.tongan]
+          for (const form of forms) {
+            const key = ealdKey(form)
+            if (key && !ealdWords.has(key)) ealdWords.set(key, { tongan: e.tongan, english: e.english || '', category: cat })
+          }
+        }
+      }
+    } catch { ealdParsed = false }
+  }
+
+  return { lftHeadings, conceptIds, specSections, churchwardFiles, shumwayRanges, frameTags, entryPointCount, frameSources, sheets, ealdWords, ealdParsed }
 }
 
 // ── token validators ─────────────────────────────────────────────────────
@@ -284,6 +444,52 @@ function suggestConcept(letter) {
 
 function shumwayInRange(n, ranges) {
   return ranges.some(([lo, hi]) => n >= lo && n <= hi)
+}
+
+// Pull the headword(s) out of every `EALD: …` mention on a line.
+//
+// Three shapes occur in the corpus, so all three are handled:
+//   EALD: *fakamolemole* "forgive…"   → one italicised headword
+//   EALD: *fie maʻu* "want…"          → an italic span may be a two-word entry
+//   EALD: ʻalu, vakai, fale, Viliami  → a bare comma-run is a list of headwords
+// The run stops at the first item that isn't a bare Tongan-shaped word, so a
+// gloss ("late, behind, tardy") or a parenthetical is never mistaken for one.
+// The literal placeholder `EALD: <word>` in the format exemplars is skipped:
+// `<` can't start a word, so the pattern simply doesn't match.
+const EALD_LETTER = "A-Za-zĀĒĪŌŪāēīōūʻ‘’'"
+const EALD_ITEM = new RegExp(`^\\*([^*\\n]+)\\*|^([${EALD_LETTER}][${EALD_LETTER}\\-]*)`)
+
+// A comma after an EALD headword usually starts another headword — but it also
+// starts the NEXT citation in a chained "…: EALD: mamaʻo, LFT Ch. 32" cell.
+// These leading words mean the run has ended, not that the dictionary should
+// contain a headword called "LFT".
+const EALD_RUN_STOPPERS = new Set([
+  'lft', 'churchward', 'shumway', 'eald', 'grammar', 'frame', 'ch', 'lesson',
+  'grammar-spec', 'negation-paradigm', 'function-templates', 'equatives',
+  'interrogative-paradigm', 'discourse-particles', 'aspect-tense-matrix',
+  'idiom-corpus', 'verb-collocation-index', 'parallel-corpus',
+  'possessive-class-master', 'vocabulary-pool',
+])
+
+function ealdCitedWords(text) {
+  const out = []
+  const anchor = /EALD:\s*/g
+  let a
+  while ((a = anchor.exec(text)) !== null) {
+    let rest = text.slice(a.index + a[0].length)
+    for (let first = true; ; first = false) {
+      const it = rest.match(EALD_ITEM)
+      if (!it) break
+      const word = (it[1] != null ? it[1] : it[2]).replace(/[.,;:!?)]+$/, '').trim()
+      if (!first && it[1] == null && EALD_RUN_STOPPERS.has(word.toLowerCase())) break
+      if (word) out.push({ token: `EALD: ${word}`, word })
+      rest = rest.slice(it[0].length)
+      const sep = rest.match(/^\s*,\s*/)
+      if (!sep) break
+      rest = rest.slice(sep[0].length)
+    }
+  }
+  return out
 }
 
 // Scan one line for every citation token and push violations.
@@ -325,7 +531,7 @@ function checkLine(file, n, text, ref, push, emit = null) {
     }
     const heading = m[2]
     if (heading != null && heading.trim() !== '') {
-      if (!headings.has(normalizeHeading(heading))) {
+      if (!lftHeadingResolves(headings, heading)) {
         push(file, { n, token, kind: 'heading', why: `Ch.${chap} has no heading matching §"${heading}"`, suggest: 'verify the section exists in that chapter (likely a wrong-chapter citation)' })
         record(token, 'lft', false, { type: 'lft', chapter: chap, heading })
         continue
@@ -392,7 +598,47 @@ function checkLine(file, n, text, ref, push, emit = null) {
     }
   }
 
-  // 7. **Frame:** declarations — the tag must be backticked and in the closed
+  // 7. Synthesis-sheet § citations: `<Sheet-Name> §X` / `<Sheet-Name> §X.N`.
+  //    The name pattern is deliberately loose (any TitleCase[-TitleCase…] word
+  //    before a §); a name that isn't one of the source-materials sheets is
+  //    simply not this token class and is skipped. Renamed or vanished sheets
+  //    are caught by the SHEETS_WITH_SECTION_SCHEME integrity guard instead.
+  for (const m of text.matchAll(/\b([A-Z][A-Za-z]*(?:-[A-Z][A-Za-z]*)*)(?:\.md)?\s*§\s*([A-Za-z](?:\.\d+)*)\b/g)) {
+    const sheet = ref.sheets.get(foldTongan(m[1]))
+    if (!sheet) continue
+    const token = `${m[1]} §${m[2]}`
+    const id = foldTongan(m[2])
+    if (sheet.sections.size === 0) {
+      push(file, { n, token, kind: 'sheet-noscheme', why: `${sheet.name} has no § heading scheme; citation unverifiable`, suggest: 'cite that sheet by heading text, or give it a § scheme' })
+      record(token, 'sheet', false, { type: 'sheet', sheet: sheet.name, section: m[2] })
+    } else if (!sheet.sections.has(id)) {
+      const parent = id.includes('.') ? id.split('.')[0] : null
+      const known = [...sheet.sections.values()].filter(sec => !sec.raw.includes('.')).map(sec => `§${sec.raw}`).join(', ')
+      push(file, { n, token, kind: 'heading', why: `${sheet.name} has no "§${m[2]}" heading`, suggest: parent && sheet.sections.has(parent) ? `§${parent.toUpperCase()} exists — check the subsection number` : `top-level sections there are ${known || '(none)'}` })
+      record(token, 'sheet', false, { type: 'sheet', sheet: sheet.name, section: m[2] })
+    } else {
+      record(token, 'sheet', true, { type: 'sheet', sheet: sheet.name, section: m[2] })
+    }
+  }
+
+  // 8. `EALD: <word>` headword lookups.
+  for (const { token, word } of ealdCitedWords(text)) {
+    const key = ealdKey(word)
+    if (!key) continue
+    if (ref.ealdWords.has(key)) {
+      record(token, 'eald', true, { type: 'eald', word: key })
+    } else if (looksLikeProperNoun(word)) {
+      // A name pointed at a dictionary that carries common words (CL-006).
+      // Non-blocking note everywhere, never a violation.
+      push(file, { n, token, kind: 'eald-propernoun', why: `"${word}" is name-shaped and is not an EALD headword; EALD carries common words, not personal/place names`, suggest: 'cite Vocabulary-Pool, Shumway or Churchward for names, or drop the source tag' })
+      record(token, 'eald', false, { type: 'eald', word: key })
+    } else {
+      push(file, { n, token, kind: 'eald', why: `"${word}" is not a headword in source-materials/EALD-Dictionary.json`, suggest: 'check the spelling (macrons and fakauʻa are already folded), or cite the source that does have it' })
+      record(token, 'eald', false, { type: 'eald', word: key })
+    }
+  }
+
+  // 9. **Frame:** declarations — the tag must be backticked and in the closed
   //    frame set (Entry Points Summary ∪ Function-Templates tags).
   {
     const fm = text.match(/^[\s>*-]*\*\*Frame:\*\*\s*(.*)$/)
@@ -409,7 +655,7 @@ function checkLine(file, n, text, ref, push, emit = null) {
       }
     }
   }
-  // 7b. "the **`tag`** frame" prose mentions (reverse-spec style).
+  // 9b. "the **`tag`** frame" prose mentions (reverse-spec style).
   for (const m of text.matchAll(/\*\*`([^`]+)`\*\*\s+frame\b/g)) {
     if (!ref.frameTags.has(m[1])) {
       push(file, { n, token: `\`${m[1]}\``, kind: 'frame', why: `frame tag "${m[1]}" is not in grammar-spec's Entry Points Summary or Function-Templates`, suggest: 'pick a real tag from the closed frame set' })
@@ -555,6 +801,24 @@ async function resolveTarget(key, getFile, ref) {
     return { file: rel, line: h.line, heading: h.raw, snippet: snippetOf(section, h.line).snippet, contentHash: sha12(section), scope: 'section' }
   }
 
+  if (key.type === 'sheet') {
+    const sheet = ref.sheets.get(foldTongan(key.sheet))
+    if (!sheet) return null
+    const sec = sheet.sections.get(foldTongan(key.section))
+    if (!sec) return null
+    const f = await getFile(sheet.rel)
+    if (!f) return null
+    const section = sectionAt(f.lines, sec.line, sec.depth)
+    return { file: sheet.rel, line: sec.line, heading: `§${sec.raw}`, snippet: snippetOf(section, sec.line).snippet, contentHash: sha12(section), scope: 'section' }
+  }
+
+  if (key.type === 'eald') {
+    const entry = ref.ealdWords.get(key.word)
+    if (!entry) return null
+    const row = `${entry.tongan} — ${entry.english}${entry.category ? ` (${entry.category})` : ''}`
+    return { file: 'source-materials/EALD-Dictionary.json', line: 0, heading: entry.tongan, snippet: row, contentHash: sha12(row), scope: 'entry' }
+  }
+
   if (key.type === 'frame') {
     const src = key.tag != null ? ref.frameSources.get(key.tag) : null
     if (!src) return null
@@ -621,6 +885,84 @@ async function emitCitationIndex(records, ref, scanFiles) {
   console.log(`  ✓ wrote ${path.relative(REPO_ROOT, INDEX_OUT)} — ${citations.length} distinct citation(s), ${out.summary.citationSites} site(s), ${out.summary.unresolved} unresolved`)
 }
 
+// ── source-materials/ internal graph — REPORT ONLY ───────────────────────
+//
+// The synthesis sheets cite each other, the book, the specs, Churchward,
+// Shumway and the dictionary heavily (~2k edges). Those edges are worth
+// seeing, but they were never part of the gate: this section runs the exact
+// same resolvers over source-materials/*.md and prints counts plus a capped
+// sample of what didn't resolve. It returns nothing, is never added to
+// `errors`, and therefore cannot move any exit code — not this script's, and
+// not `npm run check:style`'s, which reads only runCitationCheck()'s return.
+// Escalating it later is a deliberate act: count these into `errors`.
+
+const SM_REPORT_SAMPLE_CAP = 20
+
+async function runSourceMaterialsReport(ref) {
+  const files = (await fs.readdir(SOURCE_MATERIALS_DIR).catch(() => []))
+    .filter(f => f.endsWith('.md')).sort().map(f => `source-materials/${f}`)
+
+  const byKind = new Map()   // kind -> { total, unresolved, samples[] }
+  const bump = (kind, ok, sample) => {
+    if (!byKind.has(kind)) byKind.set(kind, { total: 0, unresolved: 0, samples: [] })
+    const s = byKind.get(kind)
+    s.total += 1
+    if (!ok) {
+      s.unresolved += 1
+      if (s.samples.length < SM_REPORT_SAMPLE_CAP) s.samples.push(sample)
+    }
+  }
+
+  const byFile = new Map()
+  const push = (file, v) => {
+    if (!byFile.has(file)) byFile.set(file, [])
+    byFile.get(file).push(v)
+  }
+
+  const seen = []
+  for (const rel of files) {
+    const src = await readFileOrNull(path.join(REPO_ROOT, rel))
+    if (src == null) continue
+    for (const { n, text, skip } of readableLines(src)) {
+      if (skip) continue
+      checkLine(rel, n, text, ref, push, (r) => seen.push(r))
+    }
+  }
+
+  // Same disk check the gate applies: an NN-Word/ path that really exists is
+  // not a violation. Build the set of genuinely-unresolved (file,line,token).
+  const realMisses = new Set()
+  for (const [file, vs] of byFile) {
+    for (const v of vs) {
+      if (v.dirPath && await exists(v.dirPath)) continue
+      realMisses.add(`${file}:${v.n}:${v.token}`)
+    }
+  }
+
+  for (const r of seen) {
+    const ok = r.ok && !realMisses.has(`${r.file}:${r.line}:${r.token}`)
+    bump(r.kind, ok, `${r.file}:${r.line} — ${r.token}`)
+  }
+
+  const kinds = [...byKind.entries()].sort((a, b) => b[1].total - a[1].total)
+  const totalEdges = kinds.reduce((a, [, s]) => a + s.total, 0)
+  const totalUnres = kinds.reduce((a, [, s]) => a + s.unresolved, 0)
+
+  console.log('\n── source-materials/ internal citation graph (REPORT ONLY — never affects the exit code) ──')
+  console.log(`  ${files.length} file(s) scanned · ${totalEdges} edge(s) · ${totalUnres} unresolved`)
+  if (totalEdges === 0) { console.log('  (no citation tokens found)'); return }
+  console.log('\n  by edge type:')
+  for (const [kind, s] of kinds) {
+    console.log(`    ${kind.padEnd(12)} ${String(s.total).padStart(5)} edge(s)   ${String(s.unresolved).padStart(5)} unresolved`)
+  }
+  for (const [kind, s] of kinds) {
+    if (s.unresolved === 0) continue
+    console.log(`\n  unresolved — ${kind} (showing ${s.samples.length} of ${s.unresolved}):`)
+    for (const line of s.samples) console.log(`    · ${line}`)
+  }
+  console.log('\n  (report only — nothing above is counted as an error or a warning)')
+}
+
 // ── orchestration ─────────────────────────────────────────────────────────
 
 export async function runCitationCheck(scanFiles = null, opts = {}) {
@@ -645,6 +987,24 @@ export async function runCitationCheck(scanFiles = null, opts = {}) {
   // otherwise frame-tag validation would silently pass everything.
   if (ref.entryPointCount === 0) {
     push('spec/grammar-spec.md', { n: 0, token: 'Entry Points Summary', why: 'no entry-point IDs harvested — the "## Entry Points Summary" table is missing or renamed, so frame-tag validation has no reference set', suggest: 'restore the table in spec/grammar-spec.md' })
+  }
+
+  // The same guard for the synthesis sheets: a sheet declared to carry a §
+  // scheme that harvests zero §-headings has been renamed or restructured, and
+  // every citation into it would otherwise fail (or pass) for the wrong reason.
+  for (const name of SHEETS_WITH_SECTION_SCHEME) {
+    const sheet = ref.sheets.get(foldTongan(name))
+    if (!sheet) {
+      push(`source-materials/${name}.md`, { n: 0, token: name, why: 'declared synthesis sheet is missing from source-materials/', suggest: 'restore the file, or drop it from SHEETS_WITH_SECTION_SCHEME in check-citations.mjs' })
+    } else if (sheet.sections.size === 0) {
+      push(sheet.rel, { n: 0, token: name, why: 'sheet is declared to use a § heading scheme but harvested zero "§X" headings — renamed or restructured', suggest: 'restore the § headings, or drop it from SHEETS_WITH_SECTION_SCHEME in check-citations.mjs' })
+    }
+  }
+
+  // And for the dictionary: an unreadable or unparseable EALD-Dictionary.json
+  // would make every `EALD: <word>` lookup fail identically.
+  if (!ref.ealdParsed || ref.ealdWords.size === 0) {
+    push('source-materials/EALD-Dictionary.json', { n: 0, token: 'EALD-Dictionary.json', why: 'no EALD headwords harvested — the dictionary is missing, unparseable, or has no categories, so `EALD: <word>` lookups have no reference set', suggest: 'restore source-materials/EALD-Dictionary.json' })
   }
 
   for (const rel of scanFiles) {
@@ -675,18 +1035,31 @@ export async function runCitationCheck(scanFiles = null, opts = {}) {
   // every other token class, and any mismatch in the canonical specs/skills,
   // is a hard ERROR. This keeps the source-of-truth specs strict while
   // surfacing — without blocking — drift in the author-facing log.
+  //
+  // `eald` joins that lax set: an unresolvable headword in the historical log
+  // or a book chapter is drift to triage, not a build-stopper. `sheet-noscheme`
+  // is neither error nor warning — the sheet simply has no § scheme to check
+  // against, so it is a separately-counted "unverifiable" note everywhere.
   const sev = (file, v) =>
-    ((v.kind === 'heading' || v.kind === 'frame') && !STRICT_FILES.has(file)) ? 'warn' : 'error'
+    NOTE_KINDS.has(v.kind) ? 'note'
+      : (LAX_KINDS.has(v.kind) && !STRICT_FILES.has(file)) ? 'warn'
+        : 'error'
 
   let errors = 0
   let warnings = 0
+  let notes = 0
   console.log('\n── Citation validation (hard) ──')
-  for (const rel of scanFiles) {
+  // Union of the scanned files and any file a reference-set integrity guard
+  // pushed to (those targets — grammar-spec, a synthesis sheet, the dictionary
+  // — are reference sources, not scan files, so they must be printed too).
+  const reportFiles = [...scanFiles, ...[...byFile.keys()].filter(f => !scanFiles.includes(f))]
+  for (const rel of reportFiles) {
     const vs = (byFile.get(rel) || []).sort((a, b) => a.n - b.n)
     if (vs.length === 0) continue
     const errs = vs.filter(v => sev(rel, v) === 'error')
     const warns = vs.filter(v => sev(rel, v) === 'warn')
-    if (errs.length === 0 && warns.length === 0) continue
+    const nts = vs.filter(v => sev(rel, v) === 'note')
+    if (errs.length === 0 && warns.length === 0 && nts.length === 0) continue
     console.log(`\n  ${rel}`)
     for (const v of errs) {
       errors += 1
@@ -698,13 +1071,20 @@ export async function runCitationCheck(scanFiles = null, opts = {}) {
       const loc = v.n > 0 ? `${rel}:${v.n}` : rel
       console.log(`  ⚠ ${loc} — ${v.token} — ${v.why}${v.suggest ? ` — → ${v.suggest}` : ''}`)
     }
+    for (const v of nts) {
+      notes += 1
+      const loc = v.n > 0 ? `${rel}:${v.n}` : rel
+      console.log(`  ? ${loc} — ${v.token} — ${v.why}${v.suggest ? ` — → ${v.suggest}` : ''}`)
+    }
   }
+  const tail = `${warnings ? `${warnings} warning(s)` : ''}${warnings && notes ? ', ' : ''}${notes ? `${notes} note(s) (unverifiable sheet § / proper noun)` : ''}`
   if (errors === 0) {
-    console.log(`  ✓ no hard citation violations across ${scanFiles.length} scanned file(s)${warnings ? ` (${warnings} warning(s): log heading/frame drift, non-blocking)` : ''}`)
+    console.log(`  ✓ no hard citation violations across ${scanFiles.length} scanned file(s)${tail ? ` (${tail}: non-blocking)` : ''}`)
   } else {
-    console.log(`\n  ${errors} hard citation violation(s)${warnings ? `, ${warnings} warning(s)` : ''}`)
+    console.log(`\n  ${errors} hard citation violation(s)${tail ? `, ${tail}` : ''}`)
   }
   if (indexRecords) await emitCitationIndex(indexRecords, ref, scanFiles)
+  if (opts.sourceMaterialsReport) await runSourceMaterialsReport(ref)
   return errors
 }
 
@@ -718,12 +1098,28 @@ const STRICT_FILES = new Set([
   '.claude/skills/reverse-translate/SKILL.md',
 ])
 
+// Violation kinds held to a warning outside STRICT_FILES: pointer drift in the
+// historical log or the book, rather than a broken source-of-truth template.
+const LAX_KINDS = new Set(['heading', 'frame', 'eald'])
+
+// Neither error nor warning, anywhere: the check ran and returned "cannot be
+// verified this way", which is information, not a defect. `sheet-noscheme` =
+// the cited sheet has no § scheme to anchor against; `eald-propernoun` = a
+// name looked up in a dictionary of common words (CL-006).
+const NOTE_KINDS = new Set(['sheet-noscheme', 'eald-propernoun'])
+
 // Allow running standalone: `node scripts/check-citations.mjs`
 // With `--emit-index`, additionally write spec/Citation-Index.json. The flag
 // is purely additive: validation, output, and exit code are unchanged.
+// The source-materials/ graph report prints on a standalone run and can be
+// suppressed with --no-sm-report. It is OFF when check-style.mjs imports
+// runCitationCheck(), so the gate's output stays the signal it always was —
+// and being report-only, it never touches either exit code regardless.
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const emitIndex = process.argv.slice(2).includes('--emit-index')
-  runCitationCheck(null, { emitIndex })
+  const argv = process.argv.slice(2)
+  const emitIndex = argv.includes('--emit-index')
+  const sourceMaterialsReport = !argv.includes('--no-sm-report')
+  runCitationCheck(null, { emitIndex, sourceMaterialsReport })
     .then(total => process.exit(total === 0 ? 0 : 1))
     .catch(err => { console.error(err); process.exit(2) })
 }
