@@ -12,7 +12,7 @@ function normalize(s) {
 // A single pure derived view over getFlatSteps replaces the scattered B1-B3/B6
 // repeat guards with ONE model: every adjunct step carries a ROLE, each role has
 // a budget (max count), and each content role carries a set of normalized content
-// keys used to forbid repeating the same filler (plans/Terminal-Build-Analysis.md
+// keys used to forbid repeating the same filler (plans/archive/2026-05-29-terminal-build-analysis.md
 // B6, 3). Two surfaces read the SAME view, so there is one place that answers
 // "has this role been used up / has this filler already been said?":
 //   - validateOption (the menu chokepoint) enforces the role-count budgets;
@@ -285,7 +285,7 @@ const CLAUSE_COMPLETION_NODE_IDS = new Set([
 // (`Naʻa mau hiva kimautolu ʻanepō`). For transitive emphasis after an object
 // the book uses the distinct `ʻe + pronoun` agent construction (`Te u fai ia
 // ʻe au`), so listing `object`/`article` here also retires the suspect bare-
-// pronoun edge off `object` (plans/Terminal-Build-Analysis.md §B4).
+// pronoun edge off `object` (plans/archive/2026-05-29-terminal-build-analysis.md §B4).
 //
 // Verb-phrase-internal slots (manner `modifier`, `directional`, comparatives,
 // post-verbal aspect) are deliberately NOT listed: a manner modifier must NOT
@@ -294,7 +294,7 @@ const CLAUSE_COMPLETION_NODE_IDS = new Set([
 // EDGE is offered); it does not by itself forbid a VP-internal adjunct from
 // being RE-offered AFTER the emphatic (e.g. `nofo au lelei` via the manner
 // edges / adjuncts hub). That inverse ordering is a separate VP-internal-order
-// concern, tracked as a follow-up in plans/Terminal-Build-Fix-Tracker.md.
+// concern, tracked as a follow-up in plans/archive/2026-05-29-terminal-build-fix-tracker.md.
 const COMPLEMENT_ADJUNCT_NODE_IDS = new Set([
   // direct object (bare, with-article, and the §16 transitive object slots)
   'object', 'article', 'object_phrase', 'object_phrase_cleft',
@@ -395,7 +395,7 @@ function getClauseConnectorEdges(state) {
 // verb / clause-completion nodes (command_verb, verb_kohai, prohibition_verb,
 // noun_subject_name, the post-verbal adjunct phrases, etc.) without re-authoring
 // each edge per node. This is the menu-layer half of the recommended direction
-// (plans/Terminal-Build-Analysis.md §3/§4 A4); the structural "stop anchoring on
+// (plans/archive/2026-05-29-terminal-build-analysis.md §3/§4 A4); the structural "stop anchoring on
 // the last node" rewrite (§P2) is deferred.
 //
 // Four targets are PLACEMENT-BOUND — they are grammatical only beside a specific
@@ -434,7 +434,7 @@ function getHubExtensions(state) {
   // them — the FINISH-only tail is a documented decision, not an §A gap. These
   // nodes carry no route_to_hub today (so this is defensive), but the guard
   // pins the contract and survives a future route_to_hub addition.
-  // See plans/Terminal-Build-Analysis.md §A5/§A6, §5.
+  // See plans/archive/2026-05-29-terminal-build-analysis.md §A5/§A6, §5.
   if (anchorNode.terminal_idiom) return []
   const hub = grammarGraph.nodes[HUB_NODE_ID]
   if (!hub || !Array.isArray(hub.next)) return []
@@ -1191,7 +1191,7 @@ function replaceTopFrame(state, newFrame) {
 // is offered and how it is classified. This is the chokepoint the P2-2 repetition
 // layer (role tags + a seenContentKeys set) will extend; today it reproduces the
 // legacy per-source filtering EXACTLY so the P2-1 refactor is behavior-preserving
-// (parity proven against the reachability probe — plans/Terminal-Build-Fix-Tracker.md).
+// (parity proven against the reachability probe — plans/archive/2026-05-29-terminal-build-fix-tracker.md).
 //
 // `candidate.source` records where the edge came from so the repeat-hiding scope
 // matches the pre-P2-1 behavior:

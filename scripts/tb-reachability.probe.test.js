@@ -167,7 +167,7 @@ function bfsSeed(firstWordItem) {
 }
 
 // Gated: this probe explores ~169k states (~65s) and is the regression oracle
-// for the sentence-builder fix plan (plans/Terminal-Build-Analysis.md), NOT a
+// for the sentence-builder fix plan (plans/archive/2026-05-29-terminal-build-analysis.md), NOT a
 // unit test. Opt in with TB_PROBE=1 so it stays out of the normal `npm test`.
 describe.skipIf(process.env.TB_PROBE !== '1')('terminal-build reachability probe (per-first-word BFS)', () => {
   it('explores the option space and writes a report', () => {

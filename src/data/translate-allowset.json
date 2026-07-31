@@ -62,10 +62,10 @@
       "drift": "hard"
     },
     "DECISIONS.md": {
-      "sha256": "17421b509f22fc33c88a0b0434ecf113d2c26ee38ed97e2480e3c38b3c2ce3c3",
-      "harvest_sha256": "400bdfece432de0d759fe3a2f7bff91b74fde5e6acd87bdee13e76409960ab3a",
-      "bytes": 76071,
-      "lines": 112,
+      "sha256": "7a3e9ef681d11298b22f521257559a154712201af828b901e33c47c520819f1e",
+      "harvest_sha256": "40c54f40a08c5bf5606f1d5cdf5ab2915a356c4d84f00ecde6b7e323c8b9a8b6",
+      "bytes": 82375,
+      "lines": 119,
       "drift": "hard"
     },
     "audits/Accent-Convention-Audit-Findings.md": {
@@ -76,9 +76,9 @@
       "drift": "hard"
     },
     "Translation-Log.md": {
-      "sha256": "89b20435b87bf0feb0d29226fd576a318ccd0c68ce9a286f8cb59c64c731b31a",
+      "sha256": "0f4c37e7d27f9bed584374fd7b1e180553105e72fc08295e4e3b705ace1c6f6d",
       "harvest_sha256": "86ac884b5642849578b019876717cee5b91c273cef91e57651582c308b800211",
-      "bytes": 172514,
+      "bytes": 172568,
       "lines": 2206,
       "drift": "warn"
     },

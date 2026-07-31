@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
  *
  * Curation: audits/Exercise-Overwhelm-Review.md (X01–X04) cut the board from
  * 49 cards to 28, judge-verified; the skill-family grouping survives from
- * that review. Presentation (Andrew's ruling, plans/drills-page-visual-refresh.md):
+ * that review. Presentation (Andrew's ruling, plans/archive/2026-06-13-drills-page-visual-refresh.md):
  * each skill family is a horizontally swipeable shelf of large cards, and the
  * top half of every card previews a REAL item from that drill's deck — the
  * sample sentences are verbatim from the Cores, never invented. A search box

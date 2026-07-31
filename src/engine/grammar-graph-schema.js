@@ -147,7 +147,7 @@ const NODE_REQUIRED = ['label', 'description', 'words', 'next']
 // P2-4: `terminal_idiom` is an optional boolean marking a node whose single-pick
 // completion is a LINGUISTICALLY CORRECT fixed idiom, not an over-restriction gap
 // (the exclamatory ko-ka / meʻa heads, predicative-possessive / equational / ko
-// subjects — see plans/Terminal-Build-Analysis.md §A5/§A6, §5). getHubExtensions
+// subjects — see plans/archive/2026-05-29-terminal-build-analysis.md §A5/§A6, §5). getHubExtensions
 // skips these nodes so the FINISH-only tail is a documented decision, not a defect.
 const NODE_ALLOWED = new Set([...NODE_REQUIRED, 'constraints', 'word_filter', 'route_to_hub', 'terminal_idiom'])
 

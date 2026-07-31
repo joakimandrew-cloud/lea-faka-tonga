@@ -112,7 +112,7 @@ const HERO = {
 }
 
 /* ---- Scene 2: Basics grammar clips (Remotion renders) ------------------ */
-/* The six Lesson clips built 2026-07-22 (plans/readalong-new-animations.md),
+/* The six Lesson clips built 2026-07-22 (plans/archive/2026-07-01-readalong-new-animations.md),
    served from public/clips/. The scrubber seeks the finished render
    frame-by-frame; the Speed dial previews a global re-timing. Applying a
    saved speed for real = scale the scene's beat grid in

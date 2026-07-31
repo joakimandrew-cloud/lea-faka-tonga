@@ -36,7 +36,7 @@ const ALLOWLIST = path.join(REPO_ROOT, 'audits', 'eva-allowlist.json')
 const OUT_JSON = path.join(REPO_ROOT, 'audits', 'eva-flags.json')
 const OUT_MD = path.join(REPO_ROOT, 'audits', 'eva-flags.md')
 
-// Severity table. See plans/how-would-you-check-eager-lighthouse.md.
+// Severity table. See plans/archive/2026-05-08-exercise-validation-audit.md.
 const SEVERITY = {
   'count-mismatch': 'blocker',
   'unmarked-answer': 'blocker',

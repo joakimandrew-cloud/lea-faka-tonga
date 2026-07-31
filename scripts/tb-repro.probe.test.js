@@ -57,7 +57,7 @@ function maxRepeat(startState, tok, limit = 20) {
 }
 
 // Gated: reproduces specific over-permission bugs for the analysis in
-// plans/Terminal-Build-Analysis.md. Opt in with TB_PROBE=1.
+// plans/archive/2026-05-29-terminal-build-analysis.md. Opt in with TB_PROBE=1.
 describe.skipIf(process.env.TB_PROBE !== '1')('tb repro', () => {
   it('modifier lelei repetition', () => {
     // Build "Naʻe fiefia" then hammer lelei
