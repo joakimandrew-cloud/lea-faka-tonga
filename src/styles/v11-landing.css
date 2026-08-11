@@ -30,6 +30,10 @@
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  /* NOTE if anything on this page ever needs position:sticky: `hidden` makes
+     this wrapper a scroll container, which disables sticky in every descendant.
+     Switch to `overflow-x: clip` (clips identically, creates no scroll
+     container) rather than removing the clip. */
   overflow-x: hidden;
 
   /* Scale the whole homepage up 25% (owner request 2026-06-27): one uniform
@@ -498,6 +502,17 @@
 .v11-landing .panel-section-grey .panel-card:focus-visible .panel-card-title { color:#ffffff; }
 .v11-landing .panel-section-grey .panel-colophon { color: var(--mid); }
 .v11-landing .panel-section-grey .panel-colophon strong { color: var(--ink); }
+
+/* The homepage colophon now closes the tour instead of sitting inside the
+   (removed) tile panel, so it carries its own frame and light-ground colour.
+   Added 2026-08-11 with <HomeTour /> — see DECISIONS, option E. */
+.v11-landing .home-colophon {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 44px;
+  color: var(--mid);
+}
+.v11-landing .home-colophon strong { color: var(--ink); }
 /* phones: keep the boxes compact (don't regress the 2026-06-16 mobile declutter) */
 @media (max-width:640px) {
   .v11-landing .panel-section-grey .panel-card { min-height:88px; }
@@ -559,6 +574,22 @@
   .v11-landing .top-brand .logo-mark { width: 44px; height: 44px; }
   .v11-landing .top-brand { gap: 14px; margin-bottom: 8px; }
   .v11-landing .top-sub { font-size: 12px; letter-spacing: 0.25em; }
+
+  /* Phones: side by side, the logo and wordmark could not fit "LEA FAKA-TONGA"
+     on one line, so it broke to "LEA FAKA-" / "TONGA". Those two lines are
+     centred inside their own box, so "TONGA" sat indented while the logo hung
+     off to the left of a two-line block, and the lockup read as crooked
+     (Andrew, 2026-08-11 phone check). Stack it instead, and scale the wordmark
+     so it holds one line at any phone width.
+
+     The coefficient looks small because this wrapper carries zoom:1.25 — a
+     declared font-size renders 25% larger. Verified one line and centred at
+     320 / 360 / 390 / 430. */
+  .v11-landing .top-brand { flex-direction: column; gap: 10px; }
+  .v11-landing .top-brand .wordmark {
+    font-size: clamp(20px, calc(0.108 * (100vw - 56px)), 36px);
+    white-space: nowrap;
+  }
 
   .v11-landing .hero-canvas svg.geo.desktop { display: none; }
   .v11-landing .hero-canvas svg.geo.mobile { display: block; }

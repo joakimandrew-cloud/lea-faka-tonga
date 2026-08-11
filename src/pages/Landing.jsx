@@ -2,19 +2,17 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOK_PDF, BOOK_EPUB, PREVIEW_MS, PREVIEW_RATE, messageMsFor, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
 import LogoMark from '../components/LogoMark'
+import HomeTour from '../components/HomeTour'
 import '../styles/v11-landing.css'
 import '../styles/home-hero.css'
 
 // Buy Me a Coffee: $35+ keeps the site free for you, for life, when it goes members-only.
 const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
 
-const moduleCards = [
-  { num: '01', title: 'Lessons',                  action: 'Start',    to: '/lessons' },
-  { num: '02', title: 'Exercises',                action: 'Practice', to: '/drills' },
-  { num: '03', title: 'Quizzes',                  action: 'Test',     to: '/quizzes' },
-  { num: '04', title: <>Vocab<br />Flip Cards</>, action: 'Flip',     to: '/cards' },
-  { num: '05', title: <>Reference<br />Charts</>, action: 'Lookup',   to: '/charts' },
-]
+// The five module tiles that used to sit under the hero were replaced by
+// <HomeTour /> on 2026-08-11 (DECISIONS, option E). Every doorway they carried
+// still exists: Lessons, Drills and Cards are the tour stages' own links,
+// Quizzes is the Test section, and Charts is in the closing strip.
 
 // The homepage hero is the "D2 / one action" layout (chosen 2026-06-25):
 // Free Preview framing, one CTA (Start Lesson 1), the auto-cycling feature stage
@@ -80,7 +78,7 @@ export default function Landing() {
           <span className="hl-eyebrow">{lead.eyebrow}</span>
           <h1 className="hl-headline">{lead.headline}</h1>
           <p className="hl-sub">{lead.sub}</p>
-          <Link to="/lessons/1" state={{ fromStart: true }} className="hv-start">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
+          <Link to="/lessons/1" state={{ fromStart: true }} className="hv-start">Start Lesson 1, free</Link>
           <p className="hv-access">Free while we build it, members-only later. The book stays free forever.</p>
         </div>
         <div className="hl-a-stage">
@@ -104,7 +102,7 @@ export default function Landing() {
             <a href={BOOK_EPUB} download className="hl-cta-secondary">EPUB</a>
           </div>
           <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="hero-found-note hl-found-note">
-            The book's yours, free. If it's worth something to you, <strong>support the work</strong>: $35+ keeps the site free for you, for life <span className="arrow">→</span>
+            The book's yours, free. If it's worth something to you, <strong>support the work</strong>: $35+ keeps the site free for you, for life
           </a>
         </div>
       </div>
@@ -117,42 +115,19 @@ export default function Landing() {
             52 lessons · beginner to advanced · checked by fluent speakers
           </div>
         </div>
-        <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="free-note" style={{ textDecoration: 'none' }}>Name your price to support →</a>
+        <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="free-note" style={{ textDecoration: 'none' }}>Name your price to support</a>
       </div>
 
-      {/* ========== Horizontal red-stripe split: white band → grey box field ========== */}
-      <div className="section-split-grey" aria-hidden="true" />
+      {/* ========== THE TOUR ==========
+          Replaces the old five word-tiles (DECISIONS 2026-08-11, option E):
+          six sections that show the product working, each one a doorway into
+          the surface it shows. The tile grid is gone, not its navigation. */}
+      <HomeTour />
 
-      {/* ========== § 01 · Five Ways In — light panel ========== */}
-      <div className="panel-section panel-section-grey">
-        <div className="panel-frame">
-          <div className="panel-cards cards-5">
-            {moduleCards.map((c, i) => (
-              <Link
-                key={c.num}
-                to={c.to}
-                className={`panel-card panel-card-c${i + 1} scroll-reveal`}
-                style={{ transitionDelay: `${i * 0.08}s` }}
-              >
-                <span className="panel-card-stripe" aria-hidden="true" />
-                <div className="panel-card-body">
-                  <div className="panel-card-center">
-                    <div className="panel-card-title">{c.title}</div>
-                  </div>
-                </div>
-                <div className="panel-card-foot">
-                  <span className="panel-card-tag">{c.action}</span>
-                  <span className="panel-card-arrow" aria-hidden="true">→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="panel-colophon">
-            <div><strong>Lea Faka-Tonga</strong> · 2026</div>
-            <Link to="/report" style={{ color: 'var(--red)', textDecoration: 'none' }}>Spot a mistake? Tell us →</Link>
-          </div>
-        </div>
+      {/* No arrow on the colophon link: Andrew, 2026-08-11 taste pass. */}
+      <div className="panel-colophon home-colophon">
+        <div><strong>Lea Faka-Tonga</strong> · 2026</div>
+        <Link to="/report" style={{ color: 'var(--red)', textDecoration: 'none' }}>Spot a mistake? Tell us</Link>
       </div>
 
     </div>
