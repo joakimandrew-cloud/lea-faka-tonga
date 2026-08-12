@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { BOOK_PDF, BOOK_EPUB, PREVIEW_MS, PREVIEW_RATE, messageMsFor, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
 import LogoMark from '../components/LogoMark'
 import HomeTour from '../components/HomeTour'
+import TLWRibbon from '../components/TLWRibbon'   // Tongan Language Week ribbon — PROTOTYPE, remove with its two lines below
+import { NAV_LINKS } from '../lib/nav-links'
 import '../styles/v11-landing.css'
 import '../styles/home-hero.css'
 
@@ -63,6 +65,11 @@ export default function Landing() {
   return (
     <div className="v11-landing">
 
+      {/* ========== TONGAN LANGUAGE WEEK RIBBON (PROTOTYPE) ==========
+          Delete this line + the TLWRibbon import above to remove it entirely;
+          ?tlw=off hides it for a look. See components/TLWRibbon.jsx. */}
+      <TLWRibbon />
+
       {/* ========== TOP WHITE BAND (centered brand lockup) ========== */}
       <div className="top-band reveal d1">
         <div className="top-brand">
@@ -70,6 +77,14 @@ export default function Landing() {
           <span className="wordmark">Lea Faka-Tonga</span>
         </div>
         <div className="top-sub">Learn Tongan · the book is free</div>
+        {/* The same five section links the sub-page header carries (SSR-01) —
+            the homepage was the one page with no nav at all (2026-08-12).
+            Identical .header-nav voice; .home-nav only re-centres it here. */}
+        <nav className="header-nav home-nav" aria-label="Site sections">
+          {NAV_LINKS.map(l => (
+            <Link key={l.to} to={l.to}>{l.label}</Link>
+          ))}
+        </nav>
       </div>
 
       {/* ========== HERO: Free Preview, one action (Start Lesson 1), stage beneath ========== */}

@@ -426,10 +426,12 @@ body::before {
   font-style: italic;
 }
 
-/* Persistent section nav (SSR-01): five quiet tracked-uppercase text links,
-   right-aligned in the context row. Same voice as the theme pill's labels. */
-.site-header-context .header-nav {
-  margin-left: auto;
+/* Persistent section nav (SSR-01): five quiet tracked-uppercase text links.
+   Same voice as the theme pill's labels.
+   The voice lives on the bare `.header-nav` class (2026-08-12) so the homepage
+   top band can render the identical element — "/" is <Landing /> outside
+   <Layout />, so it has its own header. Placement stays per-context below. */
+.header-nav {
   display: flex;
   gap: 14px;
   font-family: 'Inter', sans-serif;
@@ -439,14 +441,19 @@ body::before {
   font-style: normal;
 }
 
-.site-header-context .header-nav a {
+.header-nav a {
   color: var(--text-strong);
   opacity: 0.55;
   transition: opacity 0.2s;
 }
 
-.site-header-context .header-nav a:hover {
+.header-nav a:hover {
   opacity: 1;
+}
+
+/* Sub-page context row: right-aligned after the breadcrumb. */
+.site-header-context .header-nav {
+  margin-left: auto;
 }
 
 @media (min-width: 768px) {

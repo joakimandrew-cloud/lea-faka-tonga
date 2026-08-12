@@ -3,17 +3,10 @@ import LogoMark from './LogoMark'
 import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom'
 import chapters from '../data/chapters.json'
 import { drillRegistry } from '../drills/registry'
-
-// The persistent in-app nav (SSR-01): the five surfaces the homepage tiles
-// advertise, as quiet text links in the header's context row. Landing and the
-// index pages outside <Layout /> keep their own headers.
-const NAV_LINKS = [
-  { label: 'Lessons', to: '/lessons' },
-  { label: 'Drills', to: '/drills' },
-  { label: 'Quizzes', to: '/quizzes' },
-  { label: 'Cards', to: '/cards' },
-  { label: 'Charts', to: '/charts' },
-]
+// The persistent in-app nav (SSR-01): the five surfaces, as quiet text links in
+// the header's context row. The list moved to lib/nav-links.js on 2026-08-12 so
+// the homepage (rendered outside <Layout />) shows the identical five.
+import { NAV_LINKS } from '../lib/nav-links'
 
 export default function Layout() {
   const location = useLocation()

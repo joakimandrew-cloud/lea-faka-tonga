@@ -95,6 +95,23 @@
   color: var(--mid); /* muted dark on the white band */
 }
 
+/* Section nav in the homepage band (2026-08-12). The voice is the shared
+   .header-nav from index.css — untouched; this only centres it under the
+   lockup and pins the ink to the homepage palette, since this wrapper is
+   always the white band and never follows the dark theme. */
+.v11-landing .home-nav {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+.v11-landing .home-nav a {
+  color: var(--ink);
+  opacity: 0.5;
+  text-decoration: none;
+}
+.v11-landing .home-nav a:hover { opacity: 1; color: var(--red); }
+
 /* ============================================================
    HERO CANVAS — diagonal wedge geometry
    ============================================================ */
@@ -574,6 +591,23 @@
   .v11-landing .top-brand .logo-mark { width: 44px; height: 44px; }
   .v11-landing .top-brand { gap: 14px; margin-bottom: 8px; }
   .v11-landing .top-sub { font-size: 12px; letter-spacing: 0.25em; }
+  /* Phones: the five links hold one line down to ~360px at this tracking
+     (remember the wrapper's zoom:1.25 — declared 9px renders ~11px). */
+  .v11-landing .home-nav {
+    gap: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.09em;
+    margin-top: 10px;
+  }
+  /* Narrow phones (360 and down): shave the tracking again so all five hold
+     one line rather than dropping CHARTS to a lonely second row. */
+  @media (max-width: 380px) {
+    .v11-landing .home-nav {
+      gap: 5px 8px;
+      font-size: 8.5px;
+      letter-spacing: 0.06em;
+    }
+  }
 
   /* Phones: side by side, the logo and wordmark could not fit "LEA FAKA-TONGA"
      on one line, so it broke to "LEA FAKA-" / "TONGA". Those two lines are

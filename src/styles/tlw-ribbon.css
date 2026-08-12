@@ -1,0 +1,80 @@
+/* =============================================================================
+   tlw-ribbon.css — Tongan Language Week ribbon (PROTOTYPE, see TLWRibbon.jsx)
+   Delete this file with the component; nothing else imports it.
+
+   No new tokens: the wash and the rule are the homepage's own red (--red
+   #c24a1f) at low alpha, the type is the two faces already loaded
+   (Source Serif 4 for the words, Barlow Condensed for the chrome).
+   ========================================================================== */
+
+.tlw-ribbon {
+  /* the faintest warm wash of the site red — reads as festive, not as a sale */
+  background: rgba(194, 74, 31, 0.055);
+  border-bottom: 1px solid rgba(194, 74, 31, 0.18);
+  padding: 9px 24px;
+  text-align: center;
+  position: relative;
+  z-index: 11;
+}
+
+.tlw-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  line-height: 1.35;
+}
+
+.tlw-tongan {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #c24a1f; /* var(--red) — hard-coded because the ribbon can sit outside
+                     the .v11-landing wrapper that defines it */
+}
+
+.tlw-dash {
+  color: rgba(194, 74, 31, 0.5);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 14px;
+}
+
+.tlw-en {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7a7570; /* the homepage's muted ink (--mid) */
+}
+
+.tlw-cta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c24a1f;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(194, 74, 31, 0.4);
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+  white-space: nowrap;
+}
+
+.tlw-cta:hover {
+  border-bottom-color: #c24a1f;
+}
+
+/* Phones: the dash separator stops earning its place once the line wraps. */
+@media (max-width: 700px) {
+  .tlw-ribbon { padding: 8px 16px; }
+  .tlw-inner { gap: 2px 8px; }
+  .tlw-dash { display: none; }
+  .tlw-tongan { font-size: 13.5px; }
+  .tlw-en { font-size: 11px; letter-spacing: 0.14em; }
+  .tlw-cta { font-size: 11.5px; }
+}
