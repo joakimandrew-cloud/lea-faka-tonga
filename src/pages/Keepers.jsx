@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom'
 import LogoMark from '../components/LogoMark'
 import founders from '../data/founders.json'
+import { supportUrl } from '../lib/partner-link'
 import '../styles/v11-landing.css'
 import '../styles/v11-components.css'
 import '../styles/offer.css'
 
-// Founding Supporter — support goes through Buy Me a Coffee (2026-06-25).
-const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
+// Founding Supporter: support goes through Buy Me a Coffee (2026-06-25). The
+// URL is resolved per render by src/lib/partner-link.js, so a visitor who came
+// in through a partner link buys that partner's item.
 
 // The Roll of Keepers — the public, costly-signal status object.
 // Names come from src/data/founders.json. Append real Keepers as they join;
@@ -23,6 +25,7 @@ const Logo = () => (
 )
 
 export default function Keepers() {
+  const BMC_URL = supportUrl()
   const grouped = TIER_ORDER.map(t => ({ ...t, people: founders.filter(f => f.tier === t.key) }))
   const total = founders.length
 

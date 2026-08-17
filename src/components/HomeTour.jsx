@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { supportUrl } from '../lib/partner-link'
 import '../styles/home-tour.css'
 
 /**
@@ -26,7 +27,8 @@ import '../styles/home-tour.css'
  * "Naʻa ku ʻalu" is the sentence the builder screenshots actually build.
  */
 
-const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
+/* The support link's URL is resolved per render by src/lib/partner-link.js:
+   the ordinary Buy Me a Coffee page, or a remembered partner's item. */
 
 /* Order matters: the demos play once through and REST on the last one, so the
    richest frame goes last. The vocab-to-cards flip is the sparsest (a single
@@ -72,6 +74,7 @@ const FILL_MS = 900      // the Practice headline's colour fill
 const PHONE_Q = '(max-width: 980px)'
 
 export default function HomeTour() {
+  const BMC_URL = supportUrl()
   const rootRef = useRef(null)
   const [gmPick, setGmPick] = useState(null)
   // Initialised from the media query rather than defaulting to desktop, so the

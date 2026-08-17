@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import LogoMark from '../components/LogoMark'
 import { Link } from 'react-router-dom'
+import { supportUrl } from '../lib/partner-link'
 import '../styles/v11-landing.css'
 import '../styles/quiz.css'
 
@@ -8,7 +9,8 @@ import '../styles/quiz.css'
 // emotional realization + the opt-in, not a graded exam.
 // Email endpoint is configurable; empty = local thank-you (no backend needed).
 const EMAIL_ACTION = '' // TODO: Buttondown/Formspree POST endpoint
-const BMC_URL = 'https://buymeacoffee.com/leafakatonga' // support goes through Buy Me a Coffee
+// Support goes through Buy Me a Coffee; the URL is resolved per render by
+// src/lib/partner-link.js so a remembered partner's item is used when there is one.
 
 const QUESTIONS = [
   { ton: 'Kuo ke kai?', q: 'What did she just ask you?',
@@ -39,6 +41,7 @@ const Logo = () => (
 )
 
 export default function GrandmotherQuiz() {
+  const BMC_URL = supportUrl()
   const [idx, setIdx] = useState(0)
   const [picked, setPicked] = useState(null)
   const [score, setScore] = useState(0)

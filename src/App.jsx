@@ -26,6 +26,7 @@ import VerbalNounConverter from './pages/VerbalNounConverter'
 import DrillsMenu from './pages/DrillsMenu'
 import DrillPage from './pages/DrillPage'
 import ReportIssue from './pages/ReportIssue'
+import PartnerRedirect from './pages/PartnerRedirect'
 import HeroLab from './pages/HeroLab'
 import ScrubHub from './pages/ScrubHub'
 import NotFound from './pages/NotFound'
@@ -51,6 +52,13 @@ export default function App() {
           <Route path="/quiz" element={<GrandmotherQuiz />} />
           <Route path="/keepers" element={<Keepers />} />
           <Route path="/report" element={<ReportIssue />} />
+          {/* Partner (affiliate) links. Ships UNLINKED: no nav, no footer, and
+              nothing points at it from the site. The slug is looked up in
+              src/data/partners.json, the click is counted, and the visitor is
+              forwarded to that partner's destination. An unknown slug goes to
+              the homepage rather than a 404, so a mistyped link in a
+              promoter's post never dead-ends. */}
+          <Route path="/r/:slug" element={<PartnerRedirect />} />
           {/* Hidden prototype for the Home Hero Review — not linked from any nav. */}
           <Route path="/hero-lab" element={<HeroLab />} />
           {/* Hidden animation scrubber (view + live-edit any registered animation),

@@ -1,0 +1,7 @@
+{
+  "kulisi": {
+    "name": "Neil Crisp",
+    "destination": "https://buymeacoffee.com/leafakatonga/e/566823",
+    "note": "destination is the Buy Me a Coffee URL the site's support buttons point at while this partner is remembered in a visitor's browser (up to 60 days after they arrive through /r/kulisi). It is NOT where the link lands: /r/<slug> lands on the free course, because that is what the partner's posts promise. Neil Crisp's dedicated $35 shop item is Lifetime Access to Lea Faka-Tonga Website (via Neil Crisp aka Kulisi); the general item everyone else buys is https://buymeacoffee.com/leafakatonga/e/549116. Editing this file on disk changes nothing on the live site until it is redeployed. Adding another partner is a new block: a slug key, a name, a destination, and a note. Slugs are matched case-insensitively, so /r/Kulisi and /r/kulisi both work."
+  }
+}

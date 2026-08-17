@@ -5,11 +5,14 @@ import LogoMark from '../components/LogoMark'
 import HomeTour from '../components/HomeTour'
 import TLWRibbon from '../components/TLWRibbon'   // Tongan Language Week ribbon — PROTOTYPE, remove with its two lines below
 import { NAV_LINKS } from '../lib/nav-links'
+import { supportUrl } from '../lib/partner-link'
 import '../styles/v11-landing.css'
 import '../styles/home-hero.css'
 
 // Buy Me a Coffee: $35+ keeps the site free for you, for life, when it goes members-only.
-const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
+// The URL is resolved per render by src/lib/partner-link.js, so a visitor who
+// arrived through a partner link lands on that partner's item instead of the
+// ordinary page. Nothing about the offer or the copy changes.
 
 // The five module tiles that used to sit under the hero were replaced by
 // <HomeTour /> on 2026-08-11 (DECISIONS, option E). Every doorway they carried
@@ -21,6 +24,7 @@ const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
 // beneath it, with the book download + support ask in a quiet foot. Rendered inline.
 
 export default function Landing() {
+  const BMC_URL = supportUrl()
   const [idx, setIdx] = useState(0)
   const [reduceMotion, setReduceMotion] = useState(false)
   const [portrait, setPortrait] = useState(false)

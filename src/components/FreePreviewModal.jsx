@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { supportUrl } from '../lib/partner-link'
 import '../styles/free-preview-modal.css'
 
 // The one pop-up that explains the model and leads to Buy Me a Coffee.
@@ -11,7 +12,8 @@ import '../styles/free-preview-modal.css'
 //                not a named individual) right above the button, so the $35 reads
 //                as delivery to someone else, not access you already have.
 // Stateless: the host (a lesson page) decides WHEN to open it; this just renders.
-const BMC_URL = 'https://buymeacoffee.com/leafakatonga'
+// The button's URL comes from src/lib/partner-link.js, so a visitor who arrived
+// through a partner link gets that partner's Buy Me a Coffee item. Copy unchanged.
 
 function PlainBody() {
   return (
@@ -71,6 +73,7 @@ function Beneficiary() {
 }
 
 export default function FreePreviewModal({ open, onClose, variant = 'location' }) {
+  const BMC_URL = supportUrl()
   useEffect(() => {
     if (!open) return
     const onKey = (e) => { if (e.key === 'Escape') onClose() }
