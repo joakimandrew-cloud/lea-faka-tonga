@@ -5,7 +5,7 @@ import LogoMark from '../components/LogoMark'
 import HomeTour from '../components/HomeTour'
 import TLWRibbon from '../components/TLWRibbon'   // Tongan Language Week ribbon — PROTOTYPE, remove with its two lines below
 import { NAV_LINKS } from '../lib/nav-links'
-import { supportUrl } from '../lib/partner-link'
+import { supportUrl, readPartner } from '../lib/partner-link'
 import '../styles/v11-landing.css'
 import '../styles/home-hero.css'
 
@@ -25,6 +25,10 @@ import '../styles/home-hero.css'
 
 export default function Landing() {
   const BMC_URL = supportUrl()
+  // A visitor who arrived through a partner link is sent to that partner's fixed
+  // $35 item, where there is no price to name, so the label has to match the
+  // destination. Everyone else keeps the ruled copy (DECISIONS 2026-06-25).
+  const SUPPORT_LABEL = readPartner() ? 'Support the work, $35' : 'Name your price to support'
   const [idx, setIdx] = useState(0)
   const [reduceMotion, setReduceMotion] = useState(false)
   const [portrait, setPortrait] = useState(false)
@@ -134,7 +138,7 @@ export default function Landing() {
             52 lessons · beginner to advanced · checked by fluent speakers
           </div>
         </div>
-        <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="free-note" style={{ textDecoration: 'none' }}>Name your price to support</a>
+        <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="free-note" style={{ textDecoration: 'none' }}>{SUPPORT_LABEL}</a>
       </div>
 
       {/* ========== THE TOUR ==========
