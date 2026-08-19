@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Internal surfaces: prototype labs, the animation scrubber, and partner
+# redirect links. Not part of the course, not for the index.
+Disallow: /hero-lab
+Disallow: /scrub
+Disallow: /hero-scrub
+Disallow: /r/
+
+Sitemap: https://leafakatonga.org/sitemap.xml
