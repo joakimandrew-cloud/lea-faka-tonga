@@ -272,6 +272,19 @@ const H1_STYLE = 'font-size:2rem;line-height:1.2;margin:0 0 1.25rem;font-weight:
 const P_STYLE = 'margin:0 0 1rem'
 const link = (href, text) => `<a href="${href}" style="color:#c24a1f;text-decoration:underline">${text}</a>`
 
+// The two standalone topic pages, linked from the bottom of every static block.
+// The app footer carries the same pair, but that footer is rendered by React,
+// so a crawler reading raw HTML would never see it. Repeating the links here is
+// what actually keeps those pages out of orphan status.
+function topicLinks(exclude) {
+  const all = [
+    ['/alphabet', 'The Tongan alphabet and pronunciation'],
+    ['/grammar/tense-markers', 'Tongan tense markers explained'],
+  ].filter(([to]) => to !== exclude)
+  if (!all.length) return ''
+  return `<p style="${P_STYLE}">${all.map(([to, label]) => link(to, label)).join(' &middot; ')}</p>`
+}
+
 function lessonRootHtml({ num, title, intro, total }) {
   const prev = shift(num, -1)
   const next = shift(num, 1)
@@ -289,6 +302,7 @@ function lessonRootHtml({ num, title, intro, total }) {
     intro.map((p) => `<p style="${P_STYLE}">${inlineMdToHtml(p)}</p>`).join('') +
     `<p style="${P_STYLE}">${link(`/quizzes/${num}`, `Take the lesson ${num} quiz`)}</p>` +
     `<p style="${P_STYLE}">${nav}</p>` +
+    topicLinks() +
     `</article>`
   )
 }
@@ -360,6 +374,7 @@ function docRootHtml(doc) {
     (doc.eyebrow ? `<div style="${EYEBROW_STYLE}">${esc(doc.eyebrow)}</div>` : '') +
     `<h1 style="${H1_STYLE}">${esc(doc.h1)}</h1>` +
     doc.blocks.map(docBlockHtml).join('') +
+    topicLinks(doc.path) +
     `</article>`
   )
 }
@@ -530,6 +545,7 @@ function drillRootHtml({ id, meta, card, lessons, titles, question, engine }) {
     `<h1 style="${H1_STYLE}">${esc(title)}</h1>` +
     ps.map((p) => `<p style="${P_STYLE}">${p}</p>`).join('') +
     `<p style="${P_STYLE}">${nav.join(' &middot; ')}</p>` +
+    topicLinks() +
     `</article>`
   )
 }
