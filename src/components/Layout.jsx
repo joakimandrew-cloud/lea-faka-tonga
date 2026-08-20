@@ -43,7 +43,9 @@ export default function Layout() {
   const isCleftBuilder = path === '/cleft-builder'
   const isAccentPlacement = path === '/accent-placement'
   const isVerbalNoun = path === '/verbal-noun'
-  const isSubPage = isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu || isCharts || isFakaSort || isCleftBuilder || isAccentPlacement || isVerbalNoun || currentDrillId
+  const isAlphabet = path === '/alphabet'
+  const isTenseMarkers = path === '/grammar/tense-markers'
+  const isSubPage = isAlphabet || isTenseMarkers || isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu || isCharts || isFakaSort || isCleftBuilder || isAccentPlacement || isVerbalNoun || currentDrillId
 
   let breadcrumbLabel = ''
   let backTo = '/'
@@ -83,6 +85,10 @@ export default function Layout() {
     breadcrumbLabel = 'Accent Placement'
   } else if (isVerbalNoun) {
     breadcrumbLabel = 'Verbal Nouns'
+  } else if (isAlphabet) {
+    breadcrumbLabel = 'Alphabet & Pronunciation'
+  } else if (isTenseMarkers) {
+    breadcrumbLabel = 'Tense Markers'
   } else if (currentDrillId) {
     breadcrumbLabel = drillRegistry[currentDrillId]?.meta?.title ?? 'Drill'
     backTo = '/drills'
@@ -201,9 +207,25 @@ export default function Layout() {
           {/* Cold-visitor framing (CVC-02): a Google arrival can land on any in-app
               page without ever passing the homepage — this is the one line that
               tells them what this is. Same voice as the header nav links. */}
+          {/* The two standalone topic pages. Each answers one common question in
+              full and hands the reader into the course. Linked from every page
+              under this layout so they are not orphans that only the sitemap
+              knows about. */}
           <div
             className="text-[var(--text-muted)]"
             style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '28px' }}
+          >
+            <Link to="/alphabet" className="hover:text-[var(--accent)] transition-colors">
+              Alphabet &amp; pronunciation
+            </Link>
+            {' '}&middot;{' '}
+            <Link to="/grammar/tense-markers" className="hover:text-[var(--accent)] transition-colors">
+              Tense markers
+            </Link>
+          </div>
+          <div
+            className="text-[var(--text-muted)]"
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '10px' }}
           >
             Learn Tongan &middot; the book is free
           </div>

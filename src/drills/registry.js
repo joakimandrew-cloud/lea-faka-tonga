@@ -1,5 +1,5 @@
 /**
- * Drill registry — single source of truth for which drill maps to which Core.
+ * Drill registry: single source of truth for which drill maps to which Core.
  *
  * Keyed by drillId (the same id used in src/data/drill-map.json and in the
  * standalone route paths). Each entry exposes the Core component plus the
@@ -99,7 +99,7 @@ export const drillRegistry = {
   },
   'adjective-flip': {
     Core: AdjectiveFlipCore,
-    meta: { title: `Adjective order: before or after the noun`, blurb: `Most adjectives follow the noun (fale foʻou); a few — fuʻu, kiʻi, ʻuluaki, muʻaki, toe — come before it.` },
+    meta: { title: `Adjective order: before or after the noun`, blurb: `Most adjectives follow the noun (fale foʻou); a few (fuʻu, kiʻi, ʻuluaki, muʻaki, toe) come before it.` },
   },
   'skeleton-filler': {
     Core: SkeletonFillerCore,
@@ -131,7 +131,7 @@ export const drillRegistry = {
   },
   'question-word-picker': {
     Core: QuestionWordPickerCore,
-    meta: { title: `Which question word?`, blurb: `where / when / how / how-many — the question word sits where the answer would go.` },
+    meta: { title: `Which question word?`, blurb: `where / when / how / how-many: the question word sits where the answer would go.` },
   },
   'ka-or-kae-picker': {
     Core: KaOrKaePickerCore,
@@ -191,7 +191,7 @@ export const drillRegistry = {
   },
   'te-disambiguator': {
     Core: TeDisambiguatorCore,
-    meta: { title: `The three jobs of te`, blurb: `Future marker, negation connector after ʻikai, or "one" — by position.` },
+    meta: { title: `The three jobs of te`, blurb: `Future marker, negation connector after ʻikai, or "one", told apart by position.` },
   },
   'ko-question-picker': {
     Core: KoQuestionPickerCore,
@@ -203,7 +203,7 @@ export const drillRegistry = {
   },
   'tm-by-context-picker': {
     Core: TmByContextPickerCore,
-    meta: { title: `Naʻa or Naʻe? Te or ʻE? te or ke?`, blurb: `One rule, three pairs: use the pronoun form when a pronoun follows — past, future, and negation after ʻikai.` },
+    meta: { title: `Naʻa or Naʻe? Te or ʻE? te or ke?`, blurb: `One rule, three pairs: use the pronoun form when a pronoun follows, in the past, the future, and negation after ʻikai.` },
   },
   'equational-subject-picker': {
     Core: EquationalSubjectPickerCore,
@@ -215,7 +215,7 @@ export const drillRegistry = {
   },
   'auxiliary-picker': {
     Core: AuxiliaryPickerCore,
-    meta: { title: `Want / Can / Like`, blurb: `fie + verb, lava ʻo + verb, saiʻia + phrase — pick by what links to the verb.` },
+    meta: { title: `Want / Can / Like`, blurb: `fie + verb, lava ʻo + verb, saiʻia + phrase; pick by what links to the verb.` },
   },
   'should-or-must-picker': {
     Core: ShouldOrMustPickerCore,
@@ -239,7 +239,7 @@ export const drillRegistry = {
   },
   'benefactive-sorter': {
     Core: BenefactiveSorterCore,
-    meta: { title: 'Benefactive Sorter', blurb: 'maʻa (ʻe-class) vs moʻo (ho-class) — by what the recipient gets.' },
+    meta: { title: 'Benefactive Sorter', blurb: 'maʻa (ʻe-class) vs moʻo (ho-class), told apart by what the recipient gets.' },
   },
   'doer-receiver-picker': {
     Core: DoerReceiverPickerCore,
@@ -283,7 +283,7 @@ export const drillRegistry = {
   },
   'accent-placement-picker': {
     Core: AccentPlacementPickerCore,
-    meta: { title: `Where the accent lands`, blurb: `Spot which word in a noun phrase carries the accent — and which sit outside the group.` },
+    meta: { title: `Where the accent lands`, blurb: `Spot which word in a noun phrase carries the accent, and which sit outside the group.` },
   },
   'verbal-noun-converter': {
     Core: VerbalNounConverterCore,
@@ -301,7 +301,7 @@ export const drillRegistry = {
   // ── Phase 3: new exercises (menu + /drill/:id; no chapter anchor) ──
   'sentence-builder': {
     Core: SentenceBuilderCore,
-    meta: { title: `Build a whole Tongan sentence`, blurb: `Assemble the sentence from tiles — pick the right ʻa / ʻe / ʻa e / ʻe he markers and the right order.` },
+    meta: { title: `Build a whole Tongan sentence`, blurb: `Assemble the sentence from tiles: pick the right ʻa / ʻe / ʻa e / ʻe he markers and the right order.` },
   },
   'pronoun-paradigm': {
     Core: PronounParadigmCore,
@@ -317,15 +317,15 @@ export const drillRegistry = {
   },
   'connector-disambiguator': {
     Core: ConnectorDisambiguatorCore,
-    meta: { title: `Which connector: and / with / but / because`, blurb: `Three words for "and" (mo, pea, ʻo), two for "but" (ka, kae), ke for purpose, he for reason — choose by what is being joined.` },
+    meta: { title: `Which connector: and / with / but / because`, blurb: `Three words for "and" (mo, pea, ʻo), two for "but" (ka, kae), ke for purpose, he for reason; choose by what is being joined.` },
   },
   'kinship-possessive': {
     Core: KinshipPossessiveCore,
-    meta: { title: `Family: my / your / his`, blurb: `Relatives are ho-class — but parents and children flip to e-class (ʻeku tamai, hoku tokoua).` },
+    meta: { title: `Family: my / your / his`, blurb: `Relatives are ho-class, but parents and children flip to e-class (ʻeku tamai, hoku tokoua).` },
   },
   'vocab-cloze': {
     Core: VocabClozeCore,
-    meta: { title: `Fill the blank (vocabulary)`, blurb: `A known frame with one word missing and an English cue — recall the Tongan word.` },
+    meta: { title: `Fill the blank (vocabulary)`, blurb: `A known frame with one word missing and an English cue; recall the Tongan word.` },
   },
 
   // ── Coverage drills for previously undrilled TEACH chapters (Ch 18 / 37 / 46) ──
@@ -335,20 +335,20 @@ export const drillRegistry = {
   },
   'postposed-possessive-picker': {
     Core: PostposedPossessivePickerCore,
-    meta: { title: `That one is MINE`, blurb: `Ownership after the noun: ʻaʻaku (things you control) vs. ʻoʻoku (things that shelter or define you) — and ʻa hai / ʻo hai for "whose?".` },
+    meta: { title: `That one is MINE`, blurb: `Ownership after the noun: ʻaʻaku (things you control) vs. ʻoʻoku (things that shelter or define you), plus ʻa hai / ʻo hai for "whose?".` },
   },
   'noun-class-sorter': {
     Core: NounClassSorterCore,
-    meta: { title: `Person, place, or thing: which "to"?`, blurb: `kia Mele, ki kolo, ki he motú — names and places skip the article; everything else takes he and the accent.` },
+    meta: { title: `Person, place, or thing: which "to"?`, blurb: `kia Mele, ki kolo, ki he motú; names and places skip the article; everything else takes he and the accent.` },
   },
 
   // ── Sentence Lab: manipulate a taught sentence (word-swap) ──
   'sentence-lab': {
     Core: SentenceLabCore,
-    meta: { title: `Swap a word, watch the meaning change`, blurb: `Take a taught sentence and change one word at a time — the English re-translates live as you swap.` },
+    meta: { title: `Swap a word, watch the meaning change`, blurb: `Take a taught sentence and change one word at a time, and the English re-translates live as you swap.` },
   },
 
-  // ── Drills-Pedagogical-Review 2026-06-17 — chapter-fills (half-drilled chapters) ──
+  // ── Drills-Pedagogical-Review 2026-06-17: chapter-fills (half-drilled chapters) ──
   'same-as-like': {
     Core: SameAsLikeCore,
     meta: { title: `Same as / like`, blurb: `tatau mo (the same as) and ʻo hangē (like / as if): the comparisons beyond "more" and "most".` },
@@ -374,7 +374,7 @@ export const drillRegistry = {
     meta: { title: `Seem / look like`, blurb: `ngali (seems, firmer) vs ngalingali (looks as if, tentative).` },
   },
 
-  // ── Drills-Pedagogical-Review 2026-06-17 — real-use exchanges ──
+  // ── Drills-Pedagogical-Review 2026-06-17: real-use exchanges ──
   'greet-thank': {
     Core: GreetThankCore,
     meta: { title: `Greet, thank & respond`, blurb: `Mālō e lelei, the how-are-you reply, and the mālō-e thanks family, in context.` },
@@ -388,7 +388,7 @@ export const drillRegistry = {
     meta: { title: `Introduce yourself`, blurb: `Ask and answer name and age: Ko hai ho hingoa? Ko ho taʻu fiha eni?` },
   },
 
-  // ── Drills-Pedagogical-Review 2026-06-17 — new drill types ──
+  // ── Drills-Pedagogical-Review 2026-06-17: new drill types ──
   'read-it-back': {
     Core: ReadItBackCore,
     meta: { title: `Read it back`, blurb: `Read a Tongan sentence and pick what it means. Comprehension, the one thing nothing else drills.` },

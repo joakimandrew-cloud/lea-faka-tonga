@@ -60,6 +60,18 @@ export const STATIC_META = {
     description:
       'Tongan grammar at a glance: tense markers, the full pronoun table, a-class and o-class possessives, articles, prepositions, and the small words that hold a sentence together.',
   },
+  // Standalone topic pages. Content lives in src/seo/pages/<name>.js and is
+  // rendered both by the React route and by the prerenderer.
+  '/alphabet': {
+    title: `The Tongan Alphabet and Pronunciation | Learn Tongan Free`,
+    description:
+      'Tongan has 17 letters: five vowels, eleven consonants, and the fakauʻa. How each one sounds, why a macron or a glottal stop changes the word, and where the stress falls.',
+  },
+  '/grammar/tense-markers': {
+    title: `Tongan Tense Markers Explained: naʻa, ʻoku, kuo, te | Learn Tongan`,
+    description:
+      'Tongan marks tense with one small word in front of the verb, and the verb never changes form. The four markers, when naʻa becomes naʻe and te becomes ʻe, and how the negative works.',
+  },
   '/quiz': {
     title: `How Much Tongan Do You Already Know? | ${SITE_NAME}`,
     description:

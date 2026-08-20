@@ -24,21 +24,10 @@ import { Link } from 'react-router-dom'
 import { LEVELS, GROUPS } from '../data/drills-catalog'
 
 // Drills with a richer bespoke page keep their own route; the rest use the
-// generic /drill/:id route that mounts the registry Core.
-const BESPOKE = {
-  'tense-swapper': '/tense-swap',
-  'first-word-quiz': '/first-word',
-  'skeleton-filler': '/skeleton-filler',
-  'possessive-sorter': '/possessive-sort',
-  'clusivity-corner': '/clusivity',
-  'adjective-flip': '/adjective-flip',
-  'faka-pattern-sorter': '/faka-sort',
-  'cleft-builder': '/cleft-builder',
-  'accent-placement-picker': '/accent-placement',
-  'verbal-noun-converter': '/verbal-noun',
-  'terminal-builder': '/sentence-builder',
-}
-const routeFor = (id) => BESPOKE[id] || `/drill/${id}`
+// generic /drill/:id route that mounts the registry Core. The map moved to
+// src/lib/drill-routes.js so the prerenderer can point /drill/:id at the same
+// canonical URL this menu links to.
+import { routeFor } from '../lib/drill-routes'
 
 function ShelfCard({ drill }) {
   const s = drill.sample

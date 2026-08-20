@@ -25,6 +25,8 @@ import AccentPlacementPicker from './pages/AccentPlacementPicker'
 import VerbalNounConverter from './pages/VerbalNounConverter'
 import DrillsMenu from './pages/DrillsMenu'
 import DrillPage from './pages/DrillPage'
+import Alphabet from './pages/Alphabet'
+import TenseMarkers from './pages/TenseMarkers'
 import ReportIssue from './pages/ReportIssue'
 import PartnerRedirect from './pages/PartnerRedirect'
 import HeroLab from './pages/HeroLab'
@@ -84,6 +86,11 @@ export default function App() {
             <Route path="/skeleton-filler" element={<SkeletonFiller />} />
             <Route path="/clusivity" element={<ClusivityCorner />} />
             <Route path="/faka-sort" element={<FakaSorter />} />
+            {/* Standalone topic pages. Each teaches one searched-for question
+                in full and hands the reader into the lesson that drills it;
+                prerendered with their own content like the lesson pages. */}
+            <Route path="/alphabet" element={<Alphabet />} />
+            <Route path="/grammar/tense-markers" element={<TenseMarkers />} />
             <Route path="/quizzes" element={<QuizIndex />} />
             <Route path="/quizzes/:num" element={<QuizPlay />} />
             <Route path="/cleft-builder" element={<CleftBuilder />} />
