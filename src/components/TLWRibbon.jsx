@@ -38,8 +38,10 @@ export default function TLWRibbon() {
         <span className="tlw-tongan">Uike Kātoangaʻi ʻo e lea faka-Tonga</span>
         <span className="tlw-dash" aria-hidden="true">—</span>
         <span className="tlw-en">Tongan Language Week, 16–22 August</span>
+        {/* No arrow: Andrew's 2026-08-11 taste ruling removed every arrow from
+            the homepage, and this ribbon shipped after it with one. */}
         <Link to="/lessons/1" state={{ fromStart: true }} className="tlw-cta">
-          Start Lesson 1, free &rarr;
+          Start Lesson 1, free
         </Link>
       </div>
     </div>

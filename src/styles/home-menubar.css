@@ -1,0 +1,157 @@
+/* =============================================================================
+   home-menubar.css · the homepage's persistent section menu (HomeMenuBar.jsx).
+   Scoped to .home-menubar; it renders inside .v11-landing, so it inherits that
+   wrapper's palette tokens (--ink, --red, --rule, --mid) and its zoom: 1.25.
+
+   READ THE ZOOM before touching a size here: every length below is multiplied
+   by 1.25 on screen. A declared 11px reaches the eye at 13.75px, and the goal
+   standard (goals/home-menu.md) is written in rendered pixels, not declared.
+   ========================================================================== */
+
+.home-menubar {
+  position: fixed;   /* NOT sticky: .v11-landing's overflow-x:hidden makes it a
+                        scroll container, which kills sticky in every descendant */
+  top: 0;
+  left: 0;
+  right: 0;          /* two zero offsets, never width:100%. Under zoom a
+                        percentage width resolves in the scaled space and spills */
+  z-index: 60;       /* above the top band (10) and the language-week ribbon (11) */
+  background: #ffffff;
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 1px 12px rgba(26, 22, 18, 0.06);
+
+  /* Hidden until the band's own menu has scrolled off. visibility (rather than
+     opacity alone) takes it out of the tab order and out of screen readers
+     while it is away, with no extra attribute to keep in sync. */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 0.26s ease, opacity 0.26s ease, visibility 0.26s;
+}
+
+.home-menubar.is-up {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-menubar .hmb-in {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ── Brand mark, doubling as back-to-top ─────────────────────────────────── */
+.home-menubar .hmb-mark {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: none;
+  border: 0;
+  padding: 10px 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.home-menubar .hmb-seal { width: 22px; height: 22px; color: var(--red); }
+.home-menubar .hmb-word {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.home-menubar .hmb-mark:hover .hmb-word { color: var(--red); }
+
+/* ── The five sections ───────────────────────────────────────────────────── */
+.home-menubar .hmb-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+.home-menubar .hmb-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;          /* 13.75px on screen */
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);        /* full ink: at 0.5 opacity this row measured 3.42:1,
+                               under the 4.5:1 AA floor for text this size */
+  white-space: nowrap;
+  padding: 13px 9px;        /* 39px tall declared, 48px rendered, so a thumb that
+                               misses the word by a few pixels still lands */
+  border-radius: 6px;
+  transition: color 0.18s, background 0.18s;
+}
+.home-menubar .hmb-nav a:hover {
+  color: var(--red);
+  background: rgba(194, 74, 31, 0.07);
+}
+
+/* ── The one action, repeated once the hero's button is off screen ───────── */
+.home-menubar .hmb-cta {
+  flex: 0 0 auto;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: var(--red);
+  padding: 9px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.home-menubar .hmb-cta:hover { background: var(--red-dark); }
+
+/* ── Tablet: the wordmark goes, the emblem stays ─────────────────────────── */
+@media (max-width: 900px) {
+  .home-menubar .hmb-word { display: none; }
+  .home-menubar .hmb-in { gap: 12px; padding: 0 14px; }
+}
+
+/* ── Phone: the five sections are the whole bar ──────────────────────────────
+   The emblem and the button are dropped rather than shrunk. Five words at a
+   readable size is already the full width of a 360px phone, and a squeezed
+   version of all three would put every one of them under the size the goal
+   asks for. "Start Lesson 1" is still the hero's own button at the top. */
+@media (max-width: 640px) {
+  .home-menubar .hmb-mark,
+  .home-menubar .hmb-cta { display: none; }
+  .home-menubar .hmb-in { padding: 0 8px; gap: 0; }
+  .home-menubar .hmb-nav {
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .home-menubar .hmb-nav a {
+    padding: 13px 4px;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Narrow phones (375 and down): shave the tracking and a fraction of the size so
+   the row keeps a real margin at 320 rather than ending 5px from the edge. The
+   floor is 10.4px declared, which is the goal's 13px on screen; below that the
+   row would be back to being decoration. */
+@media (max-width: 375px) {
+  .home-menubar .hmb-nav a {
+    font-size: 10.6px;
+    padding: 13px 2px;
+    letter-spacing: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-menubar { transition: none; }
+}

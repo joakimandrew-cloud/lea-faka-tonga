@@ -98,19 +98,43 @@
 /* Section nav in the homepage band (2026-08-12). The voice is the shared
    .header-nav from index.css — untouched; this only centres it under the
    lockup and pins the ink to the homepage palette, since this wrapper is
-   always the white band and never follows the dark theme. */
+   always the white band and never follows the dark theme.
+
+   Redrawn 2026-08-20 as a bounded bar with thin dividers (goals/home-menu.md,
+   owner ruling from the four-way comparison in reviews/home-menu-options.md).
+   What it replaced: five 11px grey capitals sitting straight under a grey
+   capitals strapline, which read as a second line of the tagline. Nothing said
+   clickable until you hovered, the row measured 3.42:1 against white where AA
+   for that size is 4.5:1, and the tap targets were 16.9px tall.
+
+   The bar carries no red of its own, because the 2026-06-25 hero ruling gives
+   "Start Lesson 1, free" the only red button above the fold. Red arrives on
+   hover. Sizes look small because this wrapper carries zoom: 1.25, so the
+   declared 11px reaches the eye at 13.75px. */
 .v11-landing .home-nav {
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-top: 12px;
+  gap: 0;
+  margin-top: 18px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 11px;
+  letter-spacing: 0.13em;
 }
 .v11-landing .home-nav a {
   color: var(--ink);
-  opacity: 0.5;
+  opacity: 1;
   text-decoration: none;
+  font-weight: 600;
+  padding: 12px 20px;       /* 38px tall declared, 48px rendered, for the thumb */
+  border-left: 1px solid var(--rule);
+  transition: color 0.18s, background 0.18s;
 }
-.v11-landing .home-nav a:hover { opacity: 1; color: var(--red); }
+.v11-landing .home-nav a:first-child { border-left: 0; }
+.v11-landing .home-nav a:hover {
+  color: var(--red);
+  background: rgba(194, 74, 31, 0.05);
+}
 
 /* ============================================================
    HERO CANVAS — diagonal wedge geometry
@@ -591,22 +615,24 @@
   .v11-landing .top-brand .logo-mark { width: 44px; height: 44px; }
   .v11-landing .top-brand { gap: 14px; margin-bottom: 8px; }
   .v11-landing .top-sub { font-size: 12px; letter-spacing: 0.25em; }
-  /* Phones: the five links hold one line down to ~360px at this tracking
-     (remember the wrapper's zoom:1.25 — declared 9px renders ~11px). */
+  /* Phones: the dividers come off and the row wraps to two centred lines
+     inside the same two hairlines. Five words will not hold one line at a
+     readable size, and a wrapped divider leaves a hanging rule before CARDS
+     that reads as a broken table. The old rule held one line by dropping to
+     8.5px, which rendered at 10.6px and was the reason nobody could read it
+     (goals/home-menu.md, 2026-08-20). */
   .v11-landing .home-nav {
-    gap: 6px 10px;
-    font-size: 9px;
-    letter-spacing: 0.09em;
-    margin-top: 10px;
+    gap: 0 4px;
+    padding: 3px 0;
+    margin-top: 14px;
+    font-size: 10.5px;      /* 13.1px on screen */
+    letter-spacing: 0.06em;
   }
-  /* Narrow phones (360 and down): shave the tracking again so all five hold
-     one line rather than dropping CHARTS to a lonely second row. */
-  @media (max-width: 380px) {
-    .v11-landing .home-nav {
-      gap: 5px 8px;
-      font-size: 8.5px;
-      letter-spacing: 0.06em;
-    }
+  .v11-landing .home-nav a { border-left: 0; padding: 11px 9px; }
+  /* Narrow phones (375 and down): shave the padding so three words still hold
+     the first row. The size does not move; 13px on screen is the floor. */
+  @media (max-width: 375px) {
+    .v11-landing .home-nav a { padding: 11px 7px; }
   }
 
   /* Phones: side by side, the logo and wordmark could not fit "LEA FAKA-TONGA"

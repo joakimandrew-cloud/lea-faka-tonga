@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOK_PDF, BOOK_EPUB, PREVIEW_MS, PREVIEW_RATE, messageMsFor, lead, cells, StoryCell } from '../lib/hero-cells.jsx'
 import LogoMark from '../components/LogoMark'
+import HomeMenuBar from '../components/HomeMenuBar'
 import HomeTour from '../components/HomeTour'
 import TLWRibbon from '../components/TLWRibbon'   // Tongan Language Week ribbon — PROTOTYPE, remove with its two lines below
 import { NAV_LINKS } from '../lib/nav-links'
@@ -77,6 +78,12 @@ export default function Landing() {
           Delete this line + the TLWRibbon import above to remove it entirely;
           ?tlw=off hides it for a look. See components/TLWRibbon.jsx. */}
       <TLWRibbon />
+
+      {/* ========== PERSISTENT MENU ==========
+          The five sections again, fixed to the top, revealed once the band's
+          own menu has scrolled away. Before this the homepage had a menu for
+          its first 285px and none for the remaining 8,527px (goals/home-menu.md). */}
+      <HomeMenuBar />
 
       {/* ========== TOP WHITE BAND (centered brand lockup) ========== */}
       <div className="top-band reveal d1">
