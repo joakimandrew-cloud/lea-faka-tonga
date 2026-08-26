@@ -6,6 +6,7 @@ import HomeMenuBar from '../components/HomeMenuBar'
 import HomeTour from '../components/HomeTour'
 import TLWRibbon from '../components/TLWRibbon'   // Tongan Language Week ribbon — PROTOTYPE, remove with its two lines below
 import { NAV_LINKS } from '../lib/nav-links'
+import TopicLinks from '../components/TopicLinks'
 import { supportUrl, readPartner } from '../lib/partner-link'
 import '../styles/v11-landing.css'
 import '../styles/home-hero.css'
@@ -153,6 +154,15 @@ export default function Landing() {
           six sections that show the product working, each one a doorway into
           the surface it shows. The tile grid is gone, not its navigation. */}
       <HomeTour />
+
+      {/* ========== THE SEVEN TOPIC PAGES ==========
+          The same strip <Layout /> carries in its footer. This page renders
+          outside <Layout />, so until 2026-08-26 the homepage linked to none of
+          the seven. Colour comes from the landing palette, not the theme
+          variables: this band is always light. */}
+      <div className="home-topic-strip">
+        <TopicLinks />
+      </div>
 
       {/* No arrow on the colophon link: Andrew, 2026-08-11 taste pass. */}
       <div className="panel-colophon home-colophon">

@@ -7,6 +7,10 @@ import { drillRegistry } from '../drills/registry'
 // the header's context row. The list moved to lib/nav-links.js on 2026-08-12 so
 // the homepage (rendered outside <Layout />) shows the identical five.
 import { NAV_LINKS } from '../lib/nav-links'
+// The seven standalone topic pages, as the uppercase strip in the footer below.
+// Lifted out 2026-08-26 so <Landing />, which renders outside this layout, can
+// show the identical strip instead of linking to none of them.
+import TopicLinks from './TopicLinks'
 
 export default function Layout() {
   const location = useLocation()
@@ -45,6 +49,9 @@ export default function Layout() {
   const isVerbalNoun = path === '/verbal-noun'
   const isAlphabet = path === '/alphabet'
   const isTenseMarkers = path === '/grammar/tense-markers'
+  // The hub the seven topic pages hang off (2026-08-26). An index page like
+  // /quizzes, so it takes the same full-bleed main and its own breadcrumb.
+  const isTopics = path === '/topics'
   // The topic pages added 2026-08-26. Each is an ArticlePage like the two
   // above, so it wants the same breadcrumb chrome and the same pre-filled
   // "where is it?" on the report form.
@@ -56,7 +63,7 @@ export default function Layout() {
     '/grammar/ko-sentences': 'The Ko Pattern',
   }
   const topicCrumb = TOPIC_CRUMBS[path]
-  const isSubPage = isAlphabet || isTenseMarkers || Boolean(topicCrumb) || isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu || isCharts || isFakaSort || isCleftBuilder || isAccentPlacement || isVerbalNoun || currentDrillId
+  const isSubPage = isTopics || isAlphabet || isTenseMarkers || Boolean(topicCrumb) || isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu || isCharts || isFakaSort || isCleftBuilder || isAccentPlacement || isVerbalNoun || currentDrillId
 
   let breadcrumbLabel = ''
   let backTo = '/'
@@ -96,6 +103,8 @@ export default function Layout() {
     breadcrumbLabel = 'Accent Placement'
   } else if (isVerbalNoun) {
     breadcrumbLabel = 'Verbal Nouns'
+  } else if (isTopics) {
+    breadcrumbLabel = 'Topics'
   } else if (isAlphabet) {
     breadcrumbLabel = 'Alphabet & Pronunciation'
   } else if (isTenseMarkers) {
@@ -183,7 +192,7 @@ export default function Layout() {
         </header>
 
         {/* ── Content ── */}
-        <main className={isDrillsMenu || isQuizIndex ? '' : `${contentMaxW} mx-auto px-8 py-10`}>
+        <main className={isDrillsMenu || isQuizIndex || isTopics ? '' : `${contentMaxW} mx-auto px-8 py-10`}>
           <Outlet />
         </main>
 
@@ -220,22 +229,14 @@ export default function Layout() {
           {/* Cold-visitor framing (CVC-02): a Google arrival can land on any in-app
               page without ever passing the homepage — this is the one line that
               tells them what this is. Same voice as the header nav links. */}
-          {/* The two standalone topic pages. Each answers one common question in
-              full and hands the reader into the course. Linked from every page
-              under this layout so they are not orphans that only the sitemap
-              knows about. */}
-          <div
-            className="text-[var(--text-muted)]"
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '28px' }}
-          >
-            <Link to="/alphabet" className="hover:text-[var(--accent)] transition-colors">
-              Alphabet &amp; pronunciation
-            </Link>
-            {' '}&middot;{' '}
-            <Link to="/grammar/tense-markers" className="hover:text-[var(--accent)] transition-colors">
-              Tense markers
-            </Link>
-          </div>
+          {/* All seven standalone topic pages. Each answers one common question
+              in full and hands the reader into the course. Linked from every
+              page under this layout so they are not orphans that only the
+              sitemap knows about. It carried two of the seven until 2026-08-26,
+              which left the other five with no internal link anywhere on the
+              site; the list now lives in src/lib/topic-pages.js and the strip
+              in components/TopicLinks.jsx, so the homepage shows the same one. */}
+          <TopicLinks className="text-[var(--text-muted)]" style={{ marginTop: '28px' }} />
           <div
             className="text-[var(--text-muted)]"
             style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '10px' }}

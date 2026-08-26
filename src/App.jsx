@@ -25,6 +25,7 @@ import AccentPlacementPicker from './pages/AccentPlacementPicker'
 import VerbalNounConverter from './pages/VerbalNounConverter'
 import DrillsMenu from './pages/DrillsMenu'
 import DrillPage from './pages/DrillPage'
+import Topics from './pages/Topics'
 import Alphabet from './pages/Alphabet'
 import TenseMarkers from './pages/TenseMarkers'
 import Greetings from './pages/Greetings'
@@ -93,7 +94,10 @@ export default function App() {
             <Route path="/faka-sort" element={<FakaSorter />} />
             {/* Standalone topic pages. Each teaches one searched-for question
                 in full and hands the reader into the lesson that drills it;
-                prerendered with their own content like the lesson pages. */}
+                prerendered with their own content like the lesson pages.
+                /topics is their hub, and the only one of these in the header
+                nav; the list they all share is src/lib/topic-pages.js. */}
+            <Route path="/topics" element={<Topics />} />
             <Route path="/alphabet" element={<Alphabet />} />
             <Route path="/greetings" element={<Greetings />} />
             <Route path="/grammar/tense-markers" element={<TenseMarkers />} />

@@ -60,6 +60,13 @@ export const STATIC_META = {
     description:
       'Tongan grammar at a glance: tense markers, the full pronoun table, a-class and o-class possessives, articles, prepositions, and the particles that hold a sentence together.',
   },
+  // The hub for the standalone topic pages below. /topics rather than /grammar,
+  // because the alphabet and the greetings are not grammar.
+  '/topics': {
+    title: `Tongan Topics: One Question Answered Each | ${SITE_NAME}`,
+    description:
+      'Seven pages that each answer one common question about Tongan in full, outside the lesson order: the alphabet, greetings, tense markers, word order, the negative, possessives, and the ko pattern.',
+  },
   // Standalone topic pages. Content lives in src/seo/pages/<name>.js and is
   // rendered both by the React route and by the prerenderer.
   '/alphabet': {

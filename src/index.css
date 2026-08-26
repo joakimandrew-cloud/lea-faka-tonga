@@ -433,6 +433,10 @@ body::before {
    <Layout />, so it has its own header. Placement stays per-context below. */
 .header-nav {
   display: flex;
+  /* Six links since Topics joined the row (2026-08-26). At 390px the six only
+     just hold one line in the sub-page context row, so let it break rather
+     than overflow. It has no effect at any width where the row still fits. */
+  flex-wrap: wrap;
   gap: 14px;
   font-family: 'Inter', sans-serif;
   font-size: 10px;

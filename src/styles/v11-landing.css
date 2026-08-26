@@ -560,6 +560,28 @@
   .v11-landing .panel-section-grey .panel-card-center { padding:14px 12px; }
 }
 
+/* The seven standalone topic pages, the same strip <Layout /> carries in its
+   footer (components/TopicLinks.jsx). Added here 2026-08-26: the homepage
+   renders outside <Layout />, so it was the one page linking to none of them.
+
+   The colour is the landing palette rather than the theme-following
+   --text-muted the Layout copy uses. This wrapper is always the white band and
+   never follows the dark theme, so the theme variable would go pale on white.
+   Same reasoning as .v11-landing .home-nav above. */
+.v11-landing .home-topic-strip {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 8px 24px 0;
+  text-align: center;
+}
+.v11-landing .topic-strip { color: var(--mid); }
+.v11-landing .topic-strip a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.v11-landing .topic-strip a:hover { color: var(--red); }
+
 /* Light-mode colophon used inside the new .panel-section on the landing page. */
 .v11-landing .colophon {
   padding: 24px 0 40px;

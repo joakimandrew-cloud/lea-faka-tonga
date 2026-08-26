@@ -119,8 +119,8 @@
   .home-menubar .hmb-in { gap: 12px; padding: 0 14px; }
 }
 
-/* ── Phone: the five sections are the whole bar ──────────────────────────────
-   The emblem and the button are dropped rather than shrunk. Five words at a
+/* ── Phone: the six sections are the whole bar ───────────────────────────────
+   The emblem and the button are dropped rather than shrunk. Six words at a
    readable size is already the full width of a 360px phone, and a squeezed
    version of all three would put every one of them under the size the goal
    asks for. "Start Lesson 1" is still the hero's own button at the top. */
@@ -140,15 +140,33 @@
   }
 }
 
-/* Narrow phones (375 and down): shave the tracking and a fraction of the size so
-   the row keeps a real margin at 320 rather than ending 5px from the edge. The
-   floor is 10.4px declared, which is the goal's 13px on screen; below that the
-   row would be back to being decoration. */
-@media (max-width: 375px) {
+/* Phones below 431px: shave the tracking and a fraction of the size so the row
+   keeps a real margin at 320 rather than ending 5px from the edge. The floor is
+   10.4px declared, which is the goal's 13px on screen; below that the row would
+   be back to being decoration.
+
+   The ceiling was 375px while the bar carried five links. Topics made it six
+   (2026-08-26), and six at full size overruns a 390px viewport by 27px, which
+   the container's overflow-x: hidden turns into a clipped word rather than a
+   scrollbar. 430 is the width at which six fit unshrunk. */
+@media (max-width: 430px) {
   .home-menubar .hmb-nav a {
     font-size: 10.6px;
     padding: 13px 2px;
     letter-spacing: 0;
+  }
+}
+
+/* Very narrow phones (340 and down): six words at the readable floor do not fit
+   on one line, and the floor is not negotiable, so the row wraps to two centred
+   lines instead. The bar grows taller rather than the words growing smaller,
+   which is what the homepage's own top band already does at this width. */
+@media (max-width: 340px) {
+  .home-menubar .hmb-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 6px;
+    row-gap: 0;
   }
 }
 

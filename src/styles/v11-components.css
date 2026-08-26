@@ -1355,6 +1355,60 @@
   .quizzes-page .chapters-groups { padding: 8px 20px 24px; }
 }
 
+/* ── Topics hub (the quizzes-page frame, 2026-08-26) ────────── */
+.topics-page {
+  /* Self-contained tokens, the same idiom .chapters-page and .panel-section
+     use so a v11 block can render outside .v11-landing. Without them the red
+     group chip is white text on a transparent ground, the hover marker has no
+     colour, and the underline the row title draws on hover never appears,
+     since every one of those reads var(--red).
+
+     --ink and --bg are left out deliberately. The heading, the row titles and
+     the grid rule then fall back to the theme's own text colour, which is what
+     keeps this page readable when the site is in dark mode. */
+  --red:        #c24a1f;
+  --red-dark:   #8a2e14;
+  --mid:        #7a7570;
+  --rule:       #d8d2c4;
+
+  padding-bottom: 32px;
+}
+.topics-page * { box-sizing: border-box; }
+/* The chip takes its ink from var(--bg), which follows the theme and would go
+   dark-on-red in dark mode. The chip ground is always the same red, so pin it. */
+.topics-page .chapters-group-chip,
+.topics-page .chapters-group-chip svg { color: #ffffff; }
+/* The shared .panel-heading .lead is a hard-coded #4a4540, which all but
+   disappears on the dark theme. Bring it to the same grey the group leads on
+   this page already use, so the two read alike. Light mode is untouched. */
+.dark .topics-page .panel-heading .lead { color: var(--mid); }
+.topics-page .panel-heading {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 48px 16px;
+}
+.topics-page .chapters-groups {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 8px 48px 32px;
+}
+/* No number column on these rows. A topic page sits outside the lesson order,
+   so it has no number to print, and the 46px red numeral the lesson and quiz
+   rows carry would be inventing one. The title and its line take the full row. */
+.topics-page .chapter-row {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (max-width: 1000px) {
+  .topics-page .panel-heading { padding: 24px 32px 12px; }
+  .topics-page .chapters-groups { padding: 8px 32px 32px; }
+}
+@media (max-width: 640px) {
+  .topics-page .panel-heading { padding: 20px 20px 10px; }
+  .topics-page .chapters-groups { padding: 8px 20px 24px; }
+  .topics-page .chapter-row { grid-template-columns: 1fr; }
+}
+
 /* ── Brand band ────────────────────────────────────────────── */
 .chapters-brand-band {
   background: #ffffff;
