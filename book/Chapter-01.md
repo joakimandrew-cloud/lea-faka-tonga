@@ -157,7 +157,7 @@ When *na'a* is followed by a pronoun like *ke* or *ku*, the two words are pronou
 
 Say *na'á ku* as one unit: na-'a-ku. Where does the stress go? Count back to the second-to-last vowel of the combined unit. That vowel is the second *a* of *na'a*. The same applies to *na'á ke*: na-'a-ke, stress on the second *a*.
 
-Words like *ke* and *ku* that attach to the word before them this way are called **enclitics**. The term comes from a Greek word meaning "to lean on." An enclitic is a small grammatical word that cannot carry its own stress, so it leans on the word before it. Because the enclitic adds a syllable to the combined unit, the normal stress rule (second-to-last vowel) lands in a new place: what was the last vowel of the original word.
+Words like *ke* and *ku* that attach to the word before them this way are called **enclitics**. The term comes from a Greek word meaning "to lean on." An enclitic is a grammatical word that cannot carry its own stress, so it leans on the word before it. Because the enclitic adds a syllable to the combined unit, the normal stress rule (second-to-last vowel) lands in a new place: what was the last vowel of the original word.
 
 Both *ke* and *ku* are enclitics, along with several other preposed pronouns. You will meet more enclitics as the book progresses.
 

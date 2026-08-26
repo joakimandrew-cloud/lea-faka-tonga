@@ -1,5 +1,5 @@
 /**
- * graded-lab — round generator for the Sentence Lab's graded "Test yourself"
+ * graded-lab: round generator for the Sentence Lab's graded "Test yourself"
  * mode ("Make the sentence mean: '…'"). Pure + framework-free so it runs under
  * the node test environment and is fully unit-testable.
  *
@@ -8,7 +8,7 @@
  *     slots from the engine, assemble, and use the engine's OWN English as the
  *     target meaning. No Tongan is ever hand-authored.
  *   - Only `method === 'composed'` targets qualify (never the 'gloss' word-salad
- *     fallback, and not the 'override' table — composed is the clean, parametric
+ *     fallback, and not the 'override' table; composed is the clean, parametric
  *     path), exactly the filter the free Lab applies for its meaning line.
  *   - The seed is a DIFFERENT valid fill of the SAME pattern, and every round is
  *     VERIFIED SOLVABLE: a target-directed greedy walk must reach the target

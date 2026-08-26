@@ -2357,7 +2357,7 @@
       },
       {
         "id": "q8",
-        "prompt": "In the phrase *kai 'a e mā* (\"eat the bread\"), what role does the small word *'a* play?",
+        "prompt": "In the phrase *kai 'a e mā* (\"eat the bread\"), what role does *'a* play?",
         "options": [
           {
             "label": "A",
@@ -4073,7 +4073,7 @@
       },
       {
         "id": "q4",
-        "prompt": "What role does the small word *'e* play in *'E Sione, ha'u!*?",
+        "prompt": "What role does *'e* play in *'E Sione, ha'u!*?",
         "options": [
           {
             "label": "A",
@@ -6395,7 +6395,7 @@
       },
       {
         "id": "q10",
-        "prompt": "In *'Io, 'oku ou sai'ia lahi ai*, what does the small word *ai* stand in for?",
+        "prompt": "In *'Io, 'oku ou sai'ia lahi ai*, what does *ai* stand in for?",
         "options": [
           {
             "label": "A",
@@ -11747,7 +11747,7 @@
             "label": "D",
             "text": "It leans on the preceding word and shifts its stress forward.",
             "correct": true,
-            "explanation": "An enclitic is a small word that attaches to the word before it; *fále* becomes *falé ni*, with the accent pushed to the last syllable."
+            "explanation": "An enclitic is a word that attaches to the word before it; *fále* becomes *falé ni*, with the accent pushed to the last syllable."
           }
         ]
       },

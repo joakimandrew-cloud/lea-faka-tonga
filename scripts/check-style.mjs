@@ -13,11 +13,16 @@
  *      policy. Replace with comma, colon, semicolon, parens, or sentence split.
  *
  *   1b. APP-CONTENT EM-DASH (hard fail). Extends the same ban to what the app
- *      renders: quiz/chart/chapter/pattern/graph data + drill & builder copy.
- *      Catches —, the — escape, and &mdash;. JSX is comment-stripped so
- *      JSDoc em-dashes don't trip it; marketing pages (Offer/Landing/Keepers)
- *      are excluded pending an owner ruling; components are warning-only (they
- *      carry a legit /[–—]/ dash-detection regex). (2026-06-15)
+ *      renders. Walks every .js/.jsx/.json under src/data, src/seo, src/drills,
+ *      src/pages and src/components. Catches —, the — escape, and &mdash;.
+ *      JSX is comment-stripped so JSDoc em-dashes don't trip it; components are
+ *      warning-only (they carry a legit /[–—]/ dash-detection regex).
+ *      (2026-06-15; scope widened from a five-filename allowlist 2026-08-26)
+ *
+ *   1c. APP-COPY A4 BELITTLING (hard fail). "small/little/tiny word(s)" on the
+ *      same surfaces, per reviews/Book-Complaint-Types-Review-2026-07.md. The
+ *      pattern and its citation exemption match scripts/check-video-copy.mjs,
+ *      which already guarded the video surfaces. (2026-08-26)
  *
  *   2. CHAPTER CONTIGUITY (hard fail). Verifies Chapter-01..NN.md exist
  *      with no gaps or extras, and that src/data/chapters.json has the
@@ -261,55 +266,114 @@ async function checkAEPattern(chapterFiles) {
 // pass (2026-06-16): their sales copy was de-em-dashed, so the prior exclusion is
 // gone and they hard-fail like every other page. Components are warning-only because
 // they legitimately contain a dash-detection regex (/[–—]/ in BookExercises).
-const APP_DATA_FILES = ['quizzes.json', 'sentence-patterns.json', 'chapters.json', 'grammar-graph.json', 'book-exercises.json']
+// Surfaces walked: every .js, .jsx and .json the app renders copy from. This
+// replaced a hardcoded five-filename allowlist on 2026-08-26, which was the
+// reason 34 em-dashes sat unseen in src/data/drills-catalog.js (its blurbs
+// render live on the drills menu) while the check printed a green tick.
+const APP_COPY_DIRS = ['src/data', 'src/seo', 'src/drills', 'src/pages', 'src/components']
+const APP_COPY_EXTS = ['.js', '.jsx', '.json']
 
+// Warning-only for the em-dash rule (NOT for A4): components legitimately carry
+// a dash-detection regex, /[–—]/ in BookExercises, which is logic, not prose.
+const EM_DASH_WARN_DIRS = ['src/components/']
+
+// Out of scope: dev tests, and the two compiled engine artifacts. The translate
+// pack and allowset are harvested verbatim from the method spec and grammar
+// sources, so their dashes belong to those sources; drift in them is caught by
+// the translate-pack anti-drift check below, not by a copy rule.
+const APP_COPY_EXCLUDE = [
+  /\.test\.[jt]sx?$/,
+  /^src\/data\/translate-(pack|allowset)\.json$/,
+]
+
+// A JSON key beginning with an underscore is the file's own dev metadata
+// (`_note`, `_comment`): never rendered, so it is engine metadata, not copy.
+const JSON_META_LINE = /^\s*"_[A-Za-z0-9]*"\s*:/
+
+// A4 belittling, from reviews/Book-Complaint-Types-Review-2026-07.md. Same
+// pattern and same citation exemption as scripts/check-video-copy.mjs, which
+// guards the video surfaces; this brings the app surfaces under the rule too.
+const BELITTLE = /\b(small|little|tiny)\s+words?\b/i
+// A line that merely CITES the rule (an attestation header, the checklist name)
+// is not a use of it.
+const CITES_RULE = /Book-Complaint-Types-Review|writing rules applied|no "small word"/i
+
+// Blank out comments while preserving line and column positions, so a reported
+// file:line still points at the real line. (Blanking used to delete the newlines
+// inside block comments, which shifted every line number after one.)
 function stripJsComments(s) {
-  return s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/[^\n]*/g, '$1')
+  return s
+    .replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' '))
+    .replace(/(^|[^:])\/\/[^\n]*/g, (m, p1) => p1 + ' '.repeat(m.length - p1.length))
 }
 
-function emDashHits(text) {
+const EM_DASH_RE = /—|&mdash;|\\u2014/g
+
+function emDashHits(text, { skipJsonMeta = false } = {}) {
   const hits = []
   const lines = text.split('\n')
   for (let i = 0; i < lines.length; i++) {
     const l = lines[i]
-    if (l.includes(EM_DASH) || l.includes('&mdash;') || l.includes('\\u2014')) {
-      hits.push({ line: i + 1, ctx: l.trim().slice(0, 90) })
-    }
+    if (skipJsonMeta && JSON_META_LINE.test(l)) continue
+    const n = (l.match(EM_DASH_RE) || []).length
+    if (n > 0) hits.push({ line: i + 1, count: n, ctx: l.trim().slice(0, 90) })
   }
   return hits
 }
 
-async function listJsxFiles(dir) {
+function belittleHits(text, { skipJsonMeta = false } = {}) {
+  const hits = []
+  const lines = text.split('\n')
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i]
+    if (skipJsonMeta && JSON_META_LINE.test(l)) continue
+    if (CITES_RULE.test(l)) continue
+    const m = l.match(BELITTLE)
+    if (m) hits.push({ line: i + 1, hit: m[0], ctx: l.trim().slice(0, 90) })
+  }
+  return hits
+}
+
+// Every copy file under a surface directory, as APP_ROOT-relative posix paths.
+async function listCopyFiles(dir) {
   const out = []
   async function walk(d) {
     const entries = await fs.readdir(d, { withFileTypes: true }).catch(() => [])
     for (const e of entries) {
       const p = path.join(d, e.name)
-      if (e.isDirectory()) await walk(p)
-      else if (e.name.endsWith('.jsx')) out.push(p)
+      if (e.isDirectory()) { await walk(p); continue }
+      if (!APP_COPY_EXTS.includes(path.extname(e.name))) continue
+      const rel = path.relative(APP_ROOT, p).split(path.sep).join('/')
+      if (APP_COPY_EXCLUDE.some(re => re.test(rel))) continue
+      out.push(rel)
     }
   }
   await walk(dir)
   return out.sort()
 }
 
-async function checkAppEmDashes() {
-  const hard = [], warn = []
-  for (const f of APP_DATA_FILES) {
-    const t = await fs.readFile(path.join(APP_ROOT, 'src/data', f), 'utf8').catch(() => null)
-    if (t) for (const h of emDashHits(t)) hard.push({ file: `src/data/${f}`, ...h })
-  }
-  for (const dir of ['src/drills', 'src/pages']) {
-    for (const p of await listJsxFiles(path.join(APP_ROOT, dir))) {
-      const t = stripJsComments(await fs.readFile(p, 'utf8'))
-      for (const h of emDashHits(t)) hard.push({ file: path.relative(APP_ROOT, p), ...h })
+async function checkAppCopy() {
+  const dash = { hard: [], warn: [] }
+  const a4 = []
+  let scanned = 0
+  for (const dir of APP_COPY_DIRS) {
+    for (const rel of await listCopyFiles(path.join(APP_ROOT, dir))) {
+      const raw = await fs.readFile(path.join(APP_ROOT, rel), 'utf8')
+      scanned++
+      const isJson = rel.endsWith('.json')
+      // JSX is comment-stripped: its JSDoc is never rendered, and stripping it
+      // is what keeps ~200 doc-comment dashes out of the report. .js and .json
+      // are read whole, so a data file's header prose is held to the same rule.
+      const dashText = rel.endsWith('.jsx') ? stripJsComments(raw) : raw
+      const bucket = EM_DASH_WARN_DIRS.some(d => rel.startsWith(d)) ? dash.warn : dash.hard
+      for (const h of emDashHits(dashText, { skipJsonMeta: isJson })) bucket.push({ file: rel, ...h })
+      // A4 is checked on the raw text: a belittling gloss in a code comment is
+      // still the wrong way to describe the thing, and CITES_RULE covers the
+      // one legitimate case, a comment quoting the rule itself.
+      for (const h of belittleHits(raw, { skipJsonMeta: isJson })) a4.push({ file: rel, ...h })
     }
   }
-  for (const p of await listJsxFiles(path.join(APP_ROOT, 'src/components'))) {
-    const t = stripJsComments(await fs.readFile(p, 'utf8'))
-    for (const h of emDashHits(t)) warn.push({ file: path.relative(APP_ROOT, p), ...h })
-  }
-  return { hard, warn }
+  return { dash, a4, scanned }
 }
 
 // ── Translate-pack anti-drift (2026-07-27) ────────────────────────────────
@@ -392,18 +456,37 @@ async function main() {
     for (const w of aeWarn) console.log(`  ⚠ ${w.file}:${w.line}  "${w.hit}"  → ${w.ctx}`)
   }
 
-  console.log('\n── App-content em-dash check (hard) ──')
-  const { hard: appDash, warn: appDashWarn } = await checkAppEmDashes()
+  const { dash: appDashResult, a4: appA4, scanned: appScanned } = await checkAppCopy()
+  const appDash = appDashResult.hard, appDashWarn = appDashResult.warn
+  const dashTotal = appDash.reduce((n, h) => n + h.count, 0)
+  const dashWarnTotal = appDashWarn.reduce((n, h) => n + h.count, 0)
+
+  console.log(`\n── App-content em-dash check (hard) ── ${appScanned} copy file(s) scanned: ${APP_COPY_DIRS.join(', ')} (.js/.jsx/.json)`)
   if (appDash.length === 0) {
-    console.log('  ✓ no em-dashes (U+2014 / &mdash;) in app content (data files, drills, all pages)')
+    console.log('  ✓ no em-dashes (U+2014 / &mdash;) in app copy')
   } else {
     exitCode = 1
-    for (const h of appDash) console.log(`  ✗ ${h.file}:${h.line}  ${h.ctx}`)
-    console.log(`  ${appDash.length} app-content em-dash(es) — replace per house style (comma/colon/semicolon/parens/split; en-dash for placeholders)`)
+    for (const h of appDash) console.log(`  ✗ ${h.file}:${h.line}  (${h.count})  ${h.ctx}`)
+    const byFile = new Map()
+    for (const h of appDash) byFile.set(h.file, (byFile.get(h.file) || 0) + h.count)
+    const top = [...byFile].sort((a, b) => b[1] - a[1]).map(([f, n]) => `${f} (${n})`).join(', ')
+    console.log(`  FAIL [em-dash] ${dashTotal} em-dash(es) across ${appDash.length} line(s) in ${byFile.size} file(s): ${top}`)
+    console.log(`  Fix: comma, colon, semicolon, parens, or split the sentence; en-dash stays for placeholders.`)
   }
   if (appDashWarn.length) {
-    console.log(`  ⚠ ${appDashWarn.length} em-dash(es) in components (warning — incl. the BookExercises /[–—]/ detection regex, which is logic, not prose):`)
+    console.log(`  ⚠ ${dashWarnTotal} em-dash(es) in components (warning only, incl. the BookExercises /[–—]/ detection regex, which is logic, not prose):`)
     for (const w of appDashWarn) console.log(`  ⚠ ${w.file}:${w.line}  ${w.ctx}`)
+  }
+
+  console.log('\n── App-copy A4 belittling check (hard) ──')
+  if (appA4.length === 0) {
+    console.log('  ✓ no "small/little/tiny word(s)" in app copy')
+  } else {
+    exitCode = 1
+    for (const h of appA4) console.log(`  ✗ ${h.file}:${h.line}  "${h.hit}"  ${h.ctx}`)
+    const files = [...new Set(appA4.map(h => h.file))]
+    console.log(`  FAIL [A4 belittling] ${appA4.length} hit(s) in ${files.length} file(s): ${files.join(', ')}`)
+    console.log(`  Rule: reviews/Book-Complaint-Types-Review-2026-07.md A4. Name the thing (a tense marker, an article, a particle) instead of calling it small.`)
   }
 
   console.log('\n── Translate-pack anti-drift (hard) ──')

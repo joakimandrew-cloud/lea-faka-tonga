@@ -28,15 +28,15 @@ export default {
   path: '/grammar/tense-markers',
   eyebrow: 'Grammar',
   h1: 'Tongan tense markers: naʻa, ʻoku, kuo and te',
-  chips: ['Four markers', 'The verb never changes', 'naʻe and ʻe', 'Negation'],
+  chips: ['Four markers', 'The verb keeps its form', 'naʻe and ʻe', 'Negation'],
   blocks: [
     {
       k: 'p',
       text:
-        'Tongan shows tense with one small word in front of the verb. The verb itself never ' +
-        'changes: *kai* is "eat", "ate" and "eaten" all at once, and the word in front of it ' +
-        'says which one you mean. There are four of these markers, and they all fill the same ' +
-        'slot, so swapping one for another moves the sentence through time and leaves ' +
+        'Tongan shows tense with one word in front of the verb. The verb itself does not change ' +
+        'form to show tense: *kai* is "eat", "ate" and "eaten" all at once, and the word in ' +
+        'front of it says which one you mean. There are four of these markers, and they all fill ' +
+        'the same slot, so swapping one for another moves the sentence through time and leaves ' +
         'everything else standing.',
     },
     {
@@ -215,7 +215,8 @@ export default {
     {
       k: 'p',
       text:
-        'Tense says when. A second small word, sitting between the marker and the verb, says ' +
+        'Tense says when. A second word, an aspect marker sitting between the tense marker and ' +
+        'the verb, says ' +
         'what stage the action has reached: *kei* for still, *\'osi* for already, *te\'eki ai* ' +
         'for not yet, *toe* for again. The tense marker keeps its own job while this happens.',
     },

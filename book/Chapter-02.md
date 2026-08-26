@@ -252,7 +252,7 @@ Every pronoun fills the same position in this sentence pattern: after the tense 
 
 ### Pronunciation: Stress Across All Combinations
 
-In the last lesson, you learned that *ke* and *ku* are enclitics, small words that lean on the tense marker before them so the two are pronounced as one unit, with stress falling on the second-to-last vowel of the combination. The same applies to every one-syllable pronoun paired with any tense marker.
+In the last lesson, you learned that *ke* and *ku* are enclitics, words that lean on the tense marker before them so the two are pronounced as one unit, with stress falling on the second-to-last vowel of the combination. The same applies to every one-syllable pronoun paired with any tense marker.
 
 In Tongan, every vowel is a separate syllable. The pronoun *u* is one syllable. So is *ke*, *ne*, *na*, *ma*, *ta*, and *mo*. But *ou* is two syllables (o-u), because it contains two vowels. Similarly, *mau*, *tau*, *mou*, and *nau* are each two syllables.
 

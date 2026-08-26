@@ -105,7 +105,7 @@ Tongan farewells depend on who is leaving and who is staying. There are three ba
 *Mohe ā!* Goodnight. (Said to someone going to bed.)
 :::
 
-You already know the verbs *'alu* (go), *nofo* (stay), and *mohe* (sleep) as imperative forms. These farewells use the same bare-verb imperative pattern, with the addition of a small word: *ā*.
+You already know the verbs *'alu* (go), *nofo* (stay), and *mohe* (sleep) as imperative forms. These farewells use the same bare-verb imperative pattern, with the addition of *ā*.
 
 #### The tonal adverb *ā*
 

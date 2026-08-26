@@ -1,11 +1,11 @@
 /**
- * lab-engine — the pure, engine-adjacent helpers shared by the Sentence Lab's
+ * lab-engine: the pure, engine-adjacent helpers shared by the Sentence Lab's
  * free "Explore" mode (SentenceLabCore) and its graded "Test yourself" mode
  * (graded-lab.js). Extracted verbatim from the shipped SentenceLabCore so the
  * free Lab's behaviour is unchanged; kept framework-free so it runs under the
  * node test environment.
  *
- * Engine reuse only (zero engine changes — review §"Sentence Lab"):
+ * Engine reuse only (zero engine changes; review §"Sentence Lab"):
  *   - assembleSentence(patternId, filledSlots) → {tongan, english, method, parts}
  *   - getOptionsForSlot(patternId, slotId, filledSlots, maxChapter) → alternatives
  */
@@ -23,7 +23,7 @@ export function getPatternById(patternId) {
 }
 
 // Pick a fully-taught pattern for this chapter that produces a NATURAL English
-// translation (not the word-by-word `gloss` fallback — that would make the
+// translation (not the word-by-word `gloss` fallback; that would make the
 // "meaning" line read like word salad). Among those, prefer the richest (most
 // slots to swap). No chapterNum (standalone /drill) → the whole catalogue is
 // eligible. Falls back to the richest taught pattern if none translate cleanly.
@@ -82,7 +82,7 @@ export function reconcile(patternId, filled, maxChapter) {
 }
 
 // ---------------------------------------------------------------------------
-// English comparison (graded mode) — both sides are engine-generated English,
+// English comparison (graded mode): both sides are engine-generated English,
 // so a light normalise (case, trailing punctuation, whitespace) is enough to
 // compare a learner's composed meaning to the target meaning. The engine's
 // English is the ground truth on BOTH sides (no hand-authored strings).

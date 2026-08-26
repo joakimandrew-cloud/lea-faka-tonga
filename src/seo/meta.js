@@ -58,7 +58,7 @@ export const STATIC_META = {
   '/charts': {
     title: `Tongan Grammar Charts | ${SITE_NAME}`,
     description:
-      'Tongan grammar at a glance: tense markers, the full pronoun table, a-class and o-class possessives, articles, prepositions, and the small words that hold a sentence together.',
+      'Tongan grammar at a glance: tense markers, the full pronoun table, a-class and o-class possessives, articles, prepositions, and the particles that hold a sentence together.',
   },
   // Standalone topic pages. Content lives in src/seo/pages/<name>.js and is
   // rendered both by the React route and by the prerenderer.
@@ -70,7 +70,7 @@ export const STATIC_META = {
   '/grammar/tense-markers': {
     title: `Tongan Tense Markers Explained: naʻa, ʻoku, kuo, te | Learn Tongan`,
     description:
-      'Tongan marks tense with one small word in front of the verb, and the verb never changes form. The four markers, when naʻa becomes naʻe and te becomes ʻe, and how the negative works.',
+      'Tongan marks tense with one word in front of the verb, and the verb does not change form to show tense. The four markers, when naʻa becomes naʻe and te becomes ʻe, and how the negative works.',
   },
   '/quiz': {
     title: `How Much Tongan Do You Already Know? | ${SITE_NAME}`,

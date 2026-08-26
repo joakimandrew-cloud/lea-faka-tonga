@@ -1,6 +1,6 @@
 # Lesson 8: Articles
 
-Nouns so far have appeared either as indefinite objects joined directly to a verb (*kai mā*, *inu vai*) or after a preposition (*ki Tonga*, *'i 'api*). This lesson introduces articles, the small words placed before a noun to signal whether you mean "a" thing or "the" thing. Tongan has two articles: *ha* for "a," "some," or "any," and *e* (or *he*) for "the."
+Nouns so far have appeared either as indefinite objects joined directly to a verb (*kai mā*, *inu vai*) or after a preposition (*ki Tonga*, *'i 'api*). This lesson introduces articles, the words placed before a noun to signal whether you mean "a" thing or "the" thing. Tongan has two articles: *ha* for "a," "some," or "any," and *e* (or *he*) for "the."
 
 ---
 
@@ -130,7 +130,7 @@ The full contrast looks like this:
 *'Oku ou fiema'u 'a e talō.* I want the taro.
 :::
 
-> **Preview of the focus marker *'a*:** The small word *'a* before the article *e* is a focus marker. It signals which noun is most directly connected to the verb's action. When a definite noun is the object of a verb, *'a* appears before the article: *kai 'a e mā* (eat the bread). You will learn the full pattern in Lesson 15: Noun Subjects, and again in Lesson 19: Transitive Word Order. For now, notice that *'a e* belongs together as a unit before definite nouns that are acted on by the verb.
+> **Preview of the focus marker *'a*:** The word *'a* before the article *e* is a focus marker. It signals which noun is most directly connected to the verb's action. When a definite noun is the object of a verb, *'a* appears before the article: *kai 'a e mā* (eat the bread). You will learn the full pattern in Lesson 15: Noun Subjects, and again in Lesson 19: Transitive Word Order. For now, notice that *'a e* belongs together as a unit before definite nouns that are acted on by the verb.
 
 In the third sentence, notice the stress on the last vowel of *talō*. This is the definitive accent, a stress shift that marks a definite noun as fully specific (both speaker and listener know exactly which one). The definitive accent is covered formally in Lesson 18: Definiteness and the Definitive Accent. The basic distinction between *ha* (indefinite) and *e*/*he* (definite) is what matters.
 

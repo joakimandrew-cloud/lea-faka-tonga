@@ -1,11 +1,11 @@
 /**
- * drillEyebrow — the single source for a drill's "Ch N · Level" eyebrow.
+ * drillEyebrow: the single source for a drill's "Ch N · Level" eyebrow.
  *
  * The curated chapter + level for every drill already lives in the menu's
  * GROUPS array (cards carry both ch and level; in-chapter rows carry ch).
  * Rather than restate that data, this derives a flat { id → {ch, level} }
  * lookup from GROUPS so DrillFrame can render one consistent eyebrow on
- * every door (bespoke page, /drill/:id, and — implicitly — the chapter
+ * every door (bespoke page, /drill/:id, and, implicitly, the chapter
  * anchor strip). One source, no drift.
  */
 

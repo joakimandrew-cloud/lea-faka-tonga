@@ -51,7 +51,7 @@ Earlier lessons introduced demonstratives for place (*heni*, *hena*, *hē*) and 
 
 #### Near me: *ni*, *eni*, *heni*, *peheni*
 
-These forms refer to what is near the speaker or in the speaker's current focus. *Ni* is an enclitic (a small word that leans on the word before it and shifts its stress forward): *fále* becomes *falé ni*.
+These forms refer to what is near the speaker or in the speaker's current focus. *Ni* is an enclitic (a word that leans on the word before it and shifts its stress forward): *fále* becomes *falé ni*.
 
 ::: {.examples}
 *'I he falé ni 'oku mau lotu ai.* In this house we pray.

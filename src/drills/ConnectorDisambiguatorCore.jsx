@@ -2,7 +2,7 @@
  * ConnectorDisambiguatorCore — Phase 3E: which connector?
  *
  * Tongan splits the work English does with "and", "but", and "because"
- * across several small words. The drill makes the learner choose by the
+ * across several distinct connectors. The drill makes the learner choose by the
  * join being made:
  *   - mo  — "with / and", joining two nouns (ʻalu mo Sione);
  *   - pea — "and then", chaining two clauses in sequence (… peá u foki);
