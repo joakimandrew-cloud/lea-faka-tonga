@@ -356,8 +356,13 @@ async function checkAppCopy() {
   const dash = { hard: [], warn: [] }
   const a4 = []
   let scanned = 0
-  for (const dir of APP_COPY_DIRS) {
-    for (const rel of await listCopyFiles(path.join(APP_ROOT, dir))) {
+  // index.html is the shell served on every route, so its comments reach the
+  // wire even though nothing renders them. Three em dashes lived there through
+  // the 2026-08-26 sweep precisely because the walk below only covers src/.
+  const extra = ['index.html']
+  for (const dir of [...APP_COPY_DIRS, null]) {
+    const rels = dir === null ? extra : await listCopyFiles(path.join(APP_ROOT, dir))
+    for (const rel of rels) {
       const raw = await fs.readFile(path.join(APP_ROOT, rel), 'utf8')
       scanned++
       const isJson = rel.endsWith('.json')
@@ -461,7 +466,7 @@ async function main() {
   const dashTotal = appDash.reduce((n, h) => n + h.count, 0)
   const dashWarnTotal = appDashWarn.reduce((n, h) => n + h.count, 0)
 
-  console.log(`\n── App-content em-dash check (hard) ── ${appScanned} copy file(s) scanned: ${APP_COPY_DIRS.join(', ')} (.js/.jsx/.json)`)
+  console.log(`\n── App-content em-dash check (hard) ── ${appScanned} copy file(s) scanned: ${APP_COPY_DIRS.join(', ')} (.js/.jsx/.json) plus index.html`)
   if (appDash.length === 0) {
     console.log('  ✓ no em-dashes (U+2014 / &mdash;) in app copy')
   } else {
