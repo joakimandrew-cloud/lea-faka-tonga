@@ -45,6 +45,11 @@ import { tokenizeInline } from '../src/seo/inline.js'
 import { GROUPS, LEVELS } from '../src/data/drills-catalog.js'
 import alphabetDoc from '../src/seo/pages/alphabet.js'
 import tenseMarkersDoc from '../src/seo/pages/tense-markers.js'
+import greetingsDoc from '../src/seo/pages/greetings.js'
+import wordOrderDoc from '../src/seo/pages/word-order.js'
+import negationDoc from '../src/seo/pages/negation.js'
+import possessivesDoc from '../src/seo/pages/possessives.js'
+import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = path.join(ROOT, 'dist')
@@ -272,14 +277,22 @@ const H1_STYLE = 'font-size:2rem;line-height:1.2;margin:0 0 1.25rem;font-weight:
 const P_STYLE = 'margin:0 0 1rem'
 const link = (href, text) => `<a href="${href}" style="color:#c24a1f;text-decoration:underline">${text}</a>`
 
-// The two standalone topic pages, linked from the bottom of every static block.
-// The app footer carries the same pair, but that footer is rendered by React,
+// The standalone topic pages, linked from the bottom of every static block.
+// The app footer carries the first two, but that footer is rendered by React,
 // so a crawler reading raw HTML would never see it. Repeating the links here is
-// what actually keeps those pages out of orphan status.
+// what actually keeps those pages out of orphan status, and it is the only
+// internal path to the five added on 2026-08-26, whose footer entry is still
+// Andrew's call (the footer is shared by every page, so adding to it changes
+// every page).
 function topicLinks(exclude) {
   const all = [
     ['/alphabet', 'The Tongan alphabet and pronunciation'],
+    ['/greetings', 'Tongan greetings and what they mean'],
     ['/grammar/tense-markers', 'Tongan tense markers explained'],
+    ['/grammar/word-order', 'Tongan word order'],
+    ['/grammar/negation', 'Saying "not" in Tongan'],
+    ['/grammar/possessives', 'Tongan possessives'],
+    ['/grammar/ko-sentences', 'The Tongan ko pattern'],
   ].filter(([to]) => to !== exclude)
   if (!all.length) return ''
   return `<p style="${P_STYLE}">${all.map(([to, label]) => link(to, label)).join(' &middot; ')}</p>`
@@ -379,7 +392,17 @@ function docRootHtml(doc) {
   )
 }
 
-const DOCS = { [alphabetDoc.path]: alphabetDoc, [tenseMarkersDoc.path]: tenseMarkersDoc }
+const DOCS = Object.fromEntries(
+  [
+    alphabetDoc,
+    greetingsDoc,
+    tenseMarkersDoc,
+    wordOrderDoc,
+    negationDoc,
+    possessivesDoc,
+    koSentencesDoc,
+  ].map((d) => [d.path, d])
+)
 
 /* The static block a non-JS crawler reads on a drill page
    ==================================================================

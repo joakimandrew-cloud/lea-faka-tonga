@@ -64,7 +64,7 @@ Inclusive *'etau* includes the listener ("our, yours and mine"). Exclusive *'ema
 | *homou* | your (pl.) | *homou fale* (your house) |
 | *honau* | their | *honau 'api* (their home) |
 
-Notice the pattern: every 'e-class pronoun contains a glottal stop in the possessive element (*'eku*, *'ene*, *'etau*), while no ho-class pronoun does (*hoku*, *hono*, *hotau*). The reliable test is the glottal stop, not the first letter: the 'e-class second-person forms *ho'o*, *ho'omo*, and *ho'omou* also begin with *h*, but each still carries a glottal stop. This distinction holds across the entire system.
+Notice the pattern: every 'e-class pronoun contains a glottal stop in the possessive element (*'eku*, *'ene*, *'etau*), while no ho-class pronoun does (*hoku*, *hono*, *hotau*). The reliable test is the glottal stop, not the first letter: the 'e-class second-person forms *ho'o*, *ho'omo*, and *ho'omou* also begin with *h*, but each still carries a glottal stop. This test is for the table above; Lesson 37 has ho-class forms that carry one too.
 
 When the prepositions *ki* or *'i* appear before a ho-class possessive pronoun, the article *he* does not intervene. The preposition goes directly before the possessive:
 

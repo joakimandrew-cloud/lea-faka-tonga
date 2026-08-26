@@ -67,10 +67,35 @@ export const STATIC_META = {
     description:
       'Tongan has 17 letters: five vowels, eleven consonants, and the fakauʻa. How each one sounds, why a macron or a glottal stop changes the word, and where the stress falls.',
   },
+  '/greetings': {
+    title: `Mālō e lelei: Tongan Greetings and What They Mean | Learn Tongan`,
+    description:
+      'Mālō e lelei is the everyday Tongan hello, and it says something closer to "the being-in-good-health is worthy of praise". How to answer it, how to ask after someone, how to say thank you, and which of the two goodbyes to use.',
+  },
   '/grammar/tense-markers': {
     title: `Tongan Tense Markers Explained: naʻa, ʻoku, kuo, te | Learn Tongan`,
     description:
       'Tongan marks tense with one word in front of the verb, and the verb does not change form to show tense. The four markers, when naʻa becomes naʻe and te becomes ʻe, and how the negative works.',
+  },
+  '/grammar/word-order': {
+    title: `Tongan Word Order: The Verb Comes First | Learn Tongan`,
+    description:
+      'In the pattern Tongan starts from, the tense marker and the verb come first and the subject follows. Where a pronoun goes instead, why a name takes ʻa, when the doer takes ʻe, and why either noun can come first.',
+  },
+  '/grammar/negation': {
+    title: `How to Say "Not" in Tongan: ʻikai te and ʻikai ke | Learn Tongan`,
+    description:
+      'Tongan negates a sentence with ʻikai between the tense marker and what follows, linked by te before a pronoun and ke before a verb. The tense markers that change shape, negating a ko sentence, and the taʻe- prefix.',
+  },
+  '/grammar/possessives': {
+    title: `Tongan Possessives: ʻeku or hoku, and Why There Are Two | Learn Tongan`,
+    description:
+      'Tongan has two sets of possessives, chosen by your relationship to the thing rather than by the thing itself. The ʻe-class and ho-class words, the doer and receiver principle behind them, ʻa and ʻo, and how to ask whose.',
+  },
+  '/grammar/ko-sentences': {
+    title: `The Tongan ko Pattern: Saying What Something Is | Learn Tongan`,
+    description:
+      'Ko e hele ʻeni means "this is a knife", a Tongan sentence with no verb and no tense marker. The ko pattern for identifying things and people, its four question words, its negative, and fronting for emphasis.',
   },
   '/quiz': {
     title: `How Much Tongan Do You Already Know? | ${SITE_NAME}`,

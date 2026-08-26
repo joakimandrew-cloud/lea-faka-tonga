@@ -298,6 +298,33 @@ const BELITTLE = /\b(small|little|tiny)\s+words?\b/i
 // is not a use of it.
 const CITES_RULE = /Book-Complaint-Types-Review|writing rules applied|no "small word"/i
 
+// A5 over-general declaratives and the A4 dismissive adverb. WARNING, never
+// hard, on Andrew's ruling of 2026-08-26: of the three A5 hits on the pages
+// built that day, two were lifted almost verbatim from book/ (Ch-19:19 "always
+// 'e, never 'a" and Ch-14:173 "always correct to include it") and the third
+// described one example sentence rather than a rule. Blocking would have
+// stopped a correct ship three times. These rules live in
+// scripts/check-video-copy.mjs too, which guards the video surfaces; that
+// script is not wired into any npm script, which is why the app surfaces went
+// unchecked for A5 until now.
+const ABSOLUTE = /\b(never|always)\b/i
+const DISMISSIVE = /\bsimply\b/i
+
+function softCopyHits(text, { skipJsonMeta = false } = {}) {
+  const hits = []
+  const lines = text.split('\n')
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i]
+    if (skipJsonMeta && JSON_META_LINE.test(l)) continue
+    if (CITES_RULE.test(l)) continue
+    const a5 = l.match(ABSOLUTE)
+    if (a5) hits.push({ line: i + 1, rule: 'A5 absolute', hit: a5[0], ctx: l.trim().slice(0, 90) })
+    const dis = l.match(DISMISSIVE)
+    if (dis) hits.push({ line: i + 1, rule: 'A4 dismissive', hit: dis[0], ctx: l.trim().slice(0, 90) })
+  }
+  return hits
+}
+
 // Blank out comments while preserving line and column positions, so a reported
 // file:line still points at the real line. (Blanking used to delete the newlines
 // inside block comments, which shifted every line number after one.)
@@ -352,9 +379,24 @@ async function listCopyFiles(dir) {
   return out.sort()
 }
 
+// Files this working tree has changed relative to HEAD, as APP_ROOT-relative
+// posix paths. Used to scope advisory warnings to what a ship is introducing.
+async function changedAppFiles() {
+  return new Promise(resolve => {
+    const p = spawn('git', ['status', '--porcelain', '--untracked-files=all'], { cwd: APP_ROOT })
+    let out = ''
+    p.stdout.on('data', d => { out += d })
+    p.on('close', () => resolve(
+      out.split('\n').map(l => l.slice(3).trim()).filter(Boolean)
+    ))
+    p.on('error', () => resolve([]))
+  })
+}
+
 async function checkAppCopy() {
   const dash = { hard: [], warn: [] }
   const a4 = []
+  const soft = []
   let scanned = 0
   // index.html is the shell served on every route, so its comments reach the
   // wire even though nothing renders them. Three em dashes lived there through
@@ -376,9 +418,23 @@ async function checkAppCopy() {
       // still the wrong way to describe the thing, and CITES_RULE covers the
       // one legitimate case, a comment quoting the rule itself.
       for (const h of belittleHits(raw, { skipJsonMeta: isJson })) a4.push({ file: rel, ...h })
+      // A5 and the dismissive adverb are advisory: they flag lines worth a human
+      // read rather than lines that are wrong. Scoped to prose surfaces only.
+      // A5 bites on TEACHING CLAIMS, not on content that legitimately contains
+      // the words. Exercise prompts translate "she never had a chance" and the
+      // vocabulary file glosses "as always"; scanning those produced 153 hits,
+      // which is the same as no warning at all. Scoped to the surfaces that
+      // make claims about how Tongan works. (2026-08-26)
+      // Engine metadata joins the content files in the skip list: grammar-graph
+      // and drill-map describe nodes to the builder, not Tongan to a learner.
+      const A5_SKIP = ['src/data/book-exercises.json', 'src/data/book-vocabulary.json',
+                       'src/data/grammar-graph.json', 'src/data/drill-map.json']
+      if (!rel.endsWith('.jsx') && !A5_SKIP.includes(rel)) {
+        for (const h of softCopyHits(raw, { skipJsonMeta: isJson })) soft.push({ file: rel, ...h })
+      }
     }
   }
-  return { dash, a4, scanned }
+  return { dash, a4, soft, scanned }
 }
 
 // ── Translate-pack anti-drift (2026-07-27) ────────────────────────────────
@@ -461,7 +517,7 @@ async function main() {
     for (const w of aeWarn) console.log(`  ⚠ ${w.file}:${w.line}  "${w.hit}"  → ${w.ctx}`)
   }
 
-  const { dash: appDashResult, a4: appA4, scanned: appScanned } = await checkAppCopy()
+  const { dash: appDashResult, a4: appA4, soft: appSoft, scanned: appScanned } = await checkAppCopy()
   const appDash = appDashResult.hard, appDashWarn = appDashResult.warn
   const dashTotal = appDash.reduce((n, h) => n + h.count, 0)
   const dashWarnTotal = appDashWarn.reduce((n, h) => n + h.count, 0)
@@ -493,6 +549,31 @@ async function main() {
     console.log(`  FAIL [A4 belittling] ${appA4.length} hit(s) in ${files.length} file(s): ${files.join(', ')}`)
     console.log(`  Rule: reviews/Book-Complaint-Types-Review-2026-07.md A4. Name the thing (a tense marker, an article, a particle) instead of calling it small.`)
   }
+
+  console.log('\n── App-copy A5 absolutes and dismissive "simply" (warning) ──')
+  if (appSoft.length === 0) {
+    console.log('  ✓ nothing flagged')
+  } else {
+    // Judge a ship on what it changes. The standing backlog is real (most of it
+    // is chapters.json lesson-rule cards written long before this check existed)
+    // but printing 145 lines every run is a warning nobody reads, which is the
+    // failure this whole check exists to correct. So: detail for files this
+    // working tree touched, a single count for the rest. (2026-08-26)
+    const changed = new Set(await changedAppFiles())
+    const mine = appSoft.filter(h => changed.has(h.file))
+    const backlog = appSoft.length - mine.length
+    if (mine.length === 0) {
+      console.log(`  ✓ nothing flagged in the files this tree changed`)
+    } else {
+      for (const h of mine) console.log(`    ⚠ ${h.file}:${h.line}  [${h.rule}] "${h.hit}"  ${h.ctx}`)
+      console.log(`  ${mine.length} flagged in changed files. Read each.`)
+    }
+    if (backlog) console.log(`  (${backlog} more in files this tree did not touch: a standing backlog, not this ship's doing. Run with A5_ALL=1 to list them.)`)
+    if (process.env.A5_ALL) for (const h of appSoft) console.log(`    · ${h.file}:${h.line}  [${h.rule}] "${h.hit}"`)
+  }
+  console.log('  Advisory, never blocking: a scoped "never" is often the precise word, and')
+  console.log('  a claim quoted from book/ keeps its wording. Fix only the ones that state a')
+  console.log('  rule about Tongan at large which the sources do not support.')
 
   console.log('\n── Translate-pack anti-drift (hard) ──')
   const packCheck = await checkTranslatePack()

@@ -45,7 +45,18 @@ export default function Layout() {
   const isVerbalNoun = path === '/verbal-noun'
   const isAlphabet = path === '/alphabet'
   const isTenseMarkers = path === '/grammar/tense-markers'
-  const isSubPage = isAlphabet || isTenseMarkers || isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu || isCharts || isFakaSort || isCleftBuilder || isAccentPlacement || isVerbalNoun || currentDrillId
+  // The topic pages added 2026-08-26. Each is an ArticlePage like the two
+  // above, so it wants the same breadcrumb chrome and the same pre-filled
+  // "where is it?" on the report form.
+  const TOPIC_CRUMBS = {
+    '/greetings': 'Greetings',
+    '/grammar/word-order': 'Word Order',
+    '/grammar/negation': 'The Negative',
+    '/grammar/possessives': 'Possessives',
+    '/grammar/ko-sentences': 'The Ko Pattern',
+  }
+  const topicCrumb = TOPIC_CRUMBS[path]
+  const isSubPage = isAlphabet || isTenseMarkers || Boolean(topicCrumb) || isTerminalBuild || isSentenceBuilder || isTenseSwap || isFirstWord || isPossessiveSort || isAdjectiveFlip || isSkeletonFiller || isClusivity || currentChapterNum || isChapterBrowser || isFlipCards || isQuizIndex || currentQuizNum || isDrillsMenu || isCharts || isFakaSort || isCleftBuilder || isAccentPlacement || isVerbalNoun || currentDrillId
 
   let breadcrumbLabel = ''
   let backTo = '/'
@@ -89,6 +100,8 @@ export default function Layout() {
     breadcrumbLabel = 'Alphabet & Pronunciation'
   } else if (isTenseMarkers) {
     breadcrumbLabel = 'Tense Markers'
+  } else if (topicCrumb) {
+    breadcrumbLabel = topicCrumb
   } else if (currentDrillId) {
     breadcrumbLabel = drillRegistry[currentDrillId]?.meta?.title ?? 'Drill'
     backTo = '/drills'
