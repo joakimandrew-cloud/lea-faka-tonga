@@ -19,7 +19,7 @@ export default function BookExercises({ chapterNum }) {
   // Always-open (owner ruling 2026-06-16): every exercise renders expanded as a
   // titled block — no accordion, just part of the page.
   return (
-    <div className="mb-8">
+    <div id="lesson-exercises" className="scroll-mt-40 md:scroll-mt-24 mb-8">
       <h2 className="text-sm text-[var(--accent)] uppercase tracking-widest border-b border-[var(--border)] pb-2 mb-4">
         Book Exercises
       </h2>

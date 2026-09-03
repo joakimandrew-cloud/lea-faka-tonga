@@ -15,7 +15,12 @@
 import { visit } from 'unist-util-visit'
 import drillMap from '../data/drill-map.json'
 
-function slugify(text) {
+/**
+ * The one slugger. Exported since 2026-09-03 (UX-06) so the section ids the
+ * renderer puts on each H3 are the same strings this plugin already matches
+ * drill-map anchors against: one source, no drift.
+ */
+export function slugify(text) {
   return text
     .toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')

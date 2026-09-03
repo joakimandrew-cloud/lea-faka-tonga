@@ -8,7 +8,9 @@ import sentencePatterns from '../data/sentence-patterns.json'
 import TeachingPanel from '../components/TeachingPanel'
 import SlotBuilder from '../components/SlotBuilder'
 import BookChapterContent from '../components/BookChapterContent'
+import { chapterSections } from '../lib/chapter-markdown'
 import BookExercises from '../components/BookExercises'
+import bookExercises from '../data/book-exercises.json'
 import SentenceLabCore from '../drills/SentenceLabCore'
 
 // ---------------------------------------------------------------------------
@@ -121,6 +123,14 @@ export default function ChapterPractice() {
   // `chapter`, and the result is discarded on the not-found path anyway.
   const chapterPatterns = useMemo(() => getPatternsForChapter(chapterNum), [chapterNum])
 
+  // UX-06: the lesson's own sections, for the "On this page" row. Lesson 7 is
+  // 20,382px at 390 wide, twenty-four phone screens, and had no way to jump.
+  const sections = useMemo(() => chapterSections(chapterNum), [chapterNum])
+  const hasBookExercises = useMemo(
+    () => (bookExercises[chapterNum] || []).some(ex => ex.items.length > 0),
+    [chapterNum],
+  )
+
   const chapter = chapters.find(c => c.chapter === chapterNum)
   if (!chapter) {
     return <div className="text-[var(--text-muted)]">Lesson not found.</div>
@@ -198,6 +208,26 @@ export default function ChapterPractice() {
           )}
         </div>
       </div>
+
+      {/* ── On this page (UX-06) ──────────────────────────────────────────
+          Text only, in the chip voice the topic row above already uses. Every
+          entry is an anchor into this page: the lesson's own sections (which
+          include Words to Learn), then its exercises and its quiz. The book is
+          untouched; the ids are put on at render time by remark-heading-ids. */}
+      {sections.length > 0 && (
+        <nav className="lesson-jump" aria-label="On this page">
+          <span className="lesson-jump-label">On this page</span>
+          <span className="lesson-jump-links">
+            {sections.map(s => (
+              <a key={s.id} href={`#${s.id}`} className="lesson-jump-link">{s.label}</a>
+            ))}
+            {hasBookExercises && (
+              <a href="#lesson-exercises" className="lesson-jump-link">Exercises</a>
+            )}
+            <a href="#lesson-quiz" className="lesson-jump-link">Quiz</a>
+          </span>
+        </nav>
+      )}
 
       {/* Full book chapter content */}
       <BookChapterContent chapterNum={chapterNum} />
@@ -304,7 +334,7 @@ export default function ChapterPractice() {
       {/* ── This lesson's own quiz: closes the read → test loop from the reading
           side (quiz pages already link back "Study Lesson N"). Every lesson
           1–52 has a quiz, so no existence guard. (SSR-02, 2026-07-06) ── */}
-      <div className="mt-16 pt-8 border-t border-[var(--border)]">
+      <div id="lesson-quiz" className="scroll-mt-40 md:scroll-mt-24 mt-16 pt-8 border-t border-[var(--border)]">
         <Link
           to={`/quizzes/${chapterNum}`}
           onClick={() => window.scrollTo(0, 0)}

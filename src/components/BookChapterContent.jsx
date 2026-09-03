@@ -7,53 +7,19 @@ import rehypeTableLabels from '../lib/rehype-table-labels'
 import remarkExamples from '../lib/remark-examples'
 import remarkMergeVocab from '../lib/remark-merge-vocab'
 import remarkDrillAnchors from '../lib/remark-drill-anchors'
+import remarkHeadingIds from '../lib/remark-heading-ids'
 import remarkQuickPractice from '../lib/remark-quick-practice'
 import ChapterDrillAnchor from './ChapterDrillAnchor'
 import QuickPractice from './QuickPractice'
 import VocabPracticeBlock from './VocabPracticeBlock'
 import { okinafy, okinafyDeep, looksTongan } from '../lib/okinafy'
 import { okinafyChildren, childrenToText } from '../lib/okinafy-react'
-
-// Bulk-load every chapter markdown file at build time. Vite inlines each
-// file's contents as a string, so no runtime fetch is needed.
-const chapterFiles = import.meta.glob('../../book/Chapter-*.md', {
-  eager: true,
-  query: '?raw',
-  import: 'default',
-})
-
-const chapterMarkdown = {}
-for (const [path, content] of Object.entries(chapterFiles)) {
-  const match = path.match(/Chapter-(\d+)\.md$/)
-  if (match) {
-    chapterMarkdown[parseInt(match[1], 10)] = content
-  }
-}
-
-function stripLeadingTitle(md) {
-  if (!md) return md
-  return md.replace(/^##\s+Chapter\s+\d+:.*?\n+/m, '')
-}
-
-// Pandoc fenced divs (`::: {.examples}`) aren't understood by remark-directive
-// out of the box — it expects `:::examples`. Rewrite the opener so the rest of
-// the pipeline can treat this as a container directive; the PDF/EPUB toolchain
-// continues to read the source form verbatim.
-function normalizeExamplesFence(md) {
-  if (!md) return md
-  return md.replace(/^:::\s*\{\.examples\}\s*$/gm, ':::examples')
-}
-
-// The ### Exercises / ### Answers tail is rendered interactively by
-// <BookExercises> in ChapterPractice, so strip it from the static markdown here
-// to avoid a double render. (The mid-chapter Quick Practice blocks are removed
-// separately by remark-quick-practice, which replaces each with an interactive
-// <QuickPractice> anchor.) The optional dashes group consumes the `---`
-// separator that precedes the heading so no dangling <hr> is left behind.
-function stripExercisesSection(md) {
-  if (!md) return md
-  return md.replace(/\n+(?:-{3,}[^\n]*\n+)?###[ \t]+Exercises[\s\S]*$/, '\n')
-}
+import {
+  chapterMarkdown,
+  stripLeadingTitle,
+  normalizeExamplesFence,
+  stripExercisesSection,
+} from '../lib/chapter-markdown'
 
 // Styled renderers that match the warm ivory theme.
 const baseComponents = {
@@ -63,8 +29,10 @@ const baseComponents = {
   h2: ({ children }) => (
     <h2 className="text-lg text-[var(--accent)] font-semibold mt-6 mb-3 border-b border-[var(--border)] pb-1">{children}</h2>
   ),
-  h3: ({ children }) => (
-    <h3 className="text-base text-[var(--accent)]/90 font-semibold mt-5 mb-2">{children}</h3>
+  // The id comes from remark-heading-ids and is what the lesson's "On this
+  // page" row jumps to (UX-06). scroll-mt clears the sticky site header.
+  h3: ({ node, children }) => (
+    <h3 id={node?.properties?.id} className="scroll-mt-40 md:scroll-mt-24 text-base text-[var(--accent)]/90 font-semibold mt-5 mb-2">{children}</h3>
   ),
   h4: ({ children }) => (
     <h4 className="text-sm text-[var(--accent)] uppercase tracking-wider mt-4 mb-2">{children}</h4>
@@ -180,6 +148,8 @@ export default function BookChapterContent({ chapterNum }) {
       remarkDirective,
       remarkExamples,
       [remarkDrillAnchors, { chapterNum }],
+      // UX-06: puts the section ids on the H3s the "On this page" row links to.
+      remarkHeadingIds,
       [remarkQuickPractice, { chapterNum }],
     ],
     [chapterNum]
