@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import LogoMark from './LogoMark'
 import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom'
 import chapters from '../data/chapters.json'
@@ -11,16 +10,15 @@ import { NAV_LINKS } from '../lib/nav-links'
 // Lifted out 2026-08-26 so <Landing />, which renders outside this layout, can
 // show the identical strip instead of linking to none of them.
 import TopicLinks from './TopicLinks'
+// The Light/Dark pill (UX-03). It used to be written out here with its own
+// useState and its own effect, which is why /lessons, outside this layout,
+// never saw the saved theme. The effect now runs in App and the pill is a
+// component both headers can mount.
+import ThemeToggle from './ThemeToggle'
 
 export default function Layout() {
   const location = useLocation()
   const navigate = useNavigate()
-  const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark')
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark)
-    localStorage.setItem('theme', dark ? 'dark' : 'light')
-  }, [dark])
   const path = location.pathname
 
   const chapterMatch = path.match(/^\/lessons\/(\d+)/)
@@ -152,20 +150,7 @@ export default function Layout() {
               <LogoMark className="brand-seal" />
               <span className="brand-text">LEA FAKA-TONGA</span>
             </button>
-            <div className="theme-seg" role="group" aria-label="Theme">
-              <span
-                className={!dark ? 'on' : ''}
-                onClick={() => setDark(false)}
-              >
-                Light
-              </span>
-              <span
-                className={dark ? 'on' : ''}
-                onClick={() => setDark(true)}
-              >
-                Dark
-              </span>
-            </div>
+            <ThemeToggle />
           </div>
           {isSubPage && (
             <div className="site-header-context">

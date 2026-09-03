@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
+import { useThemeEffect } from './lib/use-theme'
 import { ChapterProvider } from './contexts/ChapterContext'
 import Layout from './components/Layout'
 import Landing from './pages/Landing'
@@ -50,6 +51,11 @@ function ChapterRedirect() {
 }
 
 export default function App() {
+  // UX-03: the saved theme is applied here, above the router, so the routes
+  // that render outside <Layout /> respect it too. It used to run inside the
+  // layout, which left /lessons white for a reader in dark mode.
+  useThemeEffect()
+
   return (
     <ChapterProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL}>

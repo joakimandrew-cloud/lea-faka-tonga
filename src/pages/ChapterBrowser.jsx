@@ -3,6 +3,11 @@ import LogoMark from '../components/LogoMark'
 import { Link } from 'react-router-dom'
 import { okinafy } from '../lib/okinafy'
 import { useChapter } from '../contexts/ChapterContext'
+// UX-03: this page renders outside <Layout />, so it carried neither the six
+// section links every other in-app page has nor the theme pill. Both are shared
+// pieces now, so the band below shows the identical ones.
+import { NAV_LINKS } from '../lib/nav-links'
+import ThemeToggle from '../components/ThemeToggle'
 import chapters from '../data/chapters.json'
 import '../styles/v11-components.css'
 
@@ -108,7 +113,15 @@ export default function ChapterBrowser() {
           <LogoMark className="logo-mark" />
           <span className="wordmark">Lea Faka-Tonga</span>
         </Link>
-        <Link to="/" className="home-link">← Home</Link>
+        <div className="chapters-brand-actions">
+          <Link to="/" className="home-link">← Home</Link>
+          <nav className="header-nav" aria-label="Site sections">
+            {NAV_LINKS.map(l => (
+              <Link key={l.to} to={l.to}>{l.label}</Link>
+            ))}
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
 
       <div className="chapters-groups">

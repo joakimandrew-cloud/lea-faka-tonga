@@ -1488,6 +1488,50 @@
 }
 .chapters-brand-band .home-link:hover { color: var(--red); }
 
+/* UX-03 (2026-09-03): the right-hand side of the band. It used to hold "← Home"
+   alone, which made /lessons the one in-app surface with no route to the other
+   five and no theme pill. The row is the shared .header-nav and the shared
+   .theme-seg, in the order the layout header puts them. */
+.chapters-brand-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+/* The 44px hit box batch 1 gave the same row inside the layout header (UX-02),
+   applied here for the same reason and in the same way: the line box grows, the
+   10px tracked type does not move. */
+.chapters-brand-band .header-nav a {
+  display: inline-block;
+  line-height: 44px;
+}
+.chapters-brand-band .home-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* UX-03: /lessons renders outside <Layout />, so until the theme effect moved
+   up to App it never saw the .dark class and a dark-mode reader got a white
+   page. It sees the class now, so the four hard-coded light values in the block
+   above have to answer to it: the page ground, the brand band, the ink and the
+   hairlines. --bg and --cream are deliberately left white here, because in this
+   scope they are the text colour on the red group chip and on the advanced tier
+   banner rather than a ground. The values are the site's own dark tokens from
+   index.css, the same idiom .dark .reading-page already uses. */
+.dark .chapters-page {
+  --ink:  #f0e6d2;
+  --rule: #3a2e22;
+  background: #1a1410;
+}
+.dark .chapters-brand-band { background: #1a1410; }
+.dark .chapters-page .chapter-subsection .chapter-list-row:hover,
+.dark .chapters-page .chapter-subsection .chapter-list-row:focus-visible,
+.dark .chapters-page .chapter-subsection .chapter-list-row.is-active {
+  background: rgba(240, 230, 210, 0.06);
+}
+
 /* ── Chapter groups ────────────────────────────────────────── */
 .chapters-groups {
   max-width: 1040px;
