@@ -327,17 +327,20 @@ export default function SentenceBuilder() {
           ))}
         </div>
 
-        <button
-          type="button"
-          onClick={() => chooseEntryPoint(null)}
-          className="tb-chooser-skip"
-        >
-          {'›'} or just start building {'→'}
-        </button>
-
-        <Link to="/terminal-build" className="tb-chooser-skip" style={{ opacity: 0.7 }}>
-          {'›'} or use the bare terminal canvas {'→'}
-        </Link>
+        {/* UX-13 (2026-09-03): two exits, each on its own line and named for
+            what it does, so neither reads as a footnote to the other. */}
+        <div className="tb-chooser-exits">
+          <button
+            type="button"
+            onClick={() => chooseEntryPoint(null)}
+            className="tb-chooser-skip"
+          >
+            Just start building {'→'}
+          </button>
+          <Link to="/terminal-build" className="tb-chooser-skip">
+            Bare terminal canvas, advanced {'→'}
+          </Link>
+        </div>
 
         {error && <div className="tb-error">{error}</div>}
       </div>

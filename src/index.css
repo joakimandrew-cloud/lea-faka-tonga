@@ -1361,6 +1361,21 @@ body::before {
   transition: color 0.15s;
 }
 .terminal-builder .tb-chooser-skip:hover { color: var(--tb-hover-fg); }
+/* UX-13 (2026-09-03): the chooser's two exits stack, one per line, with
+   room to tap each on a phone. */
+.terminal-builder .tb-chooser-exits {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 6px;
+}
+.terminal-builder .tb-chooser-exits .tb-chooser-skip {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
 
 /* On-demand "Show how this was built" breakdown sits below the translation. */
 .terminal-builder .tb-explain { margin-top: 1rem; }
