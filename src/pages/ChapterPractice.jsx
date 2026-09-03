@@ -318,47 +318,48 @@ export default function ChapterPractice() {
           side (quiz pages already link back "Study Lesson N"). Every lesson
           1–52 has a quiz, so no existence guard. (SSR-02, 2026-07-06) ── */}
       <div id="lesson-quiz" className="scroll-mt-40 md:scroll-mt-24 mt-16 pt-8 border-t border-[var(--border)]">
+        {/* UX-08 (2026-09-03): the quiz card and the two lesson links used to be
+            three outlined boxes of one weight, so the read-then-test step the
+            July ruling added did not read as the next one. The card takes the
+            --accent-faint fill it already used on hover and a heavier label;
+            hover now moves the border instead. */}
         <Link
           to={`/quizzes/${chapterNum}`}
           onClick={() => window.scrollTo(0, 0)}
-          className="block border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors text-center"
+          className="block border border-[var(--accent)] bg-[var(--accent-faint)] rounded-lg px-7 py-4 hover:border-[var(--accent-hover)] transition-colors text-center"
         >
-          <div className="text-[var(--accent)] text-[15px] font-medium">
+          <div className="text-[var(--accent)] text-[15px] font-semibold">
             Take the Lesson {chapterNum} quiz &rarr;
           </div>
           <div className="text-[var(--text-muted)] text-sm mt-0.5">10 questions on what you just read</div>
         </Link>
       </div>
 
-      {/* ── Bottom lesson navigation: a balanced prev / next pair so you can move
-          either direction from the foot without scrolling back up to the rail-less
-          header. (rail removed 2026-06-22) ── */}
+      {/* ── Bottom lesson navigation: you can still move either direction from
+          the foot without scrolling back to the rail-less header (rail removed
+          2026-06-22), but as plain text links on one line under the quiz card,
+          so the card is visibly the primary step (UX-08). The 44px hit box
+          batch 1 set stays. ── */}
       {(nextChapter || prevChapter) && (
-        <div className="mt-3 flex flex-col sm:flex-row gap-3">
+        <div className="mt-2 flex items-center justify-between gap-4 text-sm">
           {prevChapter ? (
             <Link
               to={`/lessons/${prevCh}`}
               onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
-              className="flex-1 border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors"
+              className="inline-flex items-center min-h-[44px] text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
             >
-              <div className="text-[var(--accent)] text-[15px] font-medium">
-                &larr; Lesson {prevCh}
-              </div>
-              <div className="text-[var(--text-muted)] text-sm mt-0.5">{prevChapter.title}</div>
+              &larr; Lesson {prevCh}
             </Link>
           ) : (
-            <div className="flex-1" aria-hidden="true" />
+            <span aria-hidden="true" />
           )}
           {nextChapter && (
             <Link
               to={`/lessons/${nextCh}`}
               onClick={() => { setPatternIndex(null); window.scrollTo(0, 0) }}
-              className="flex-1 border border-[var(--accent)] rounded-lg px-7 py-4 hover:bg-[var(--accent-faint)] transition-colors sm:text-right"
+              className="inline-flex items-center min-h-[44px] text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
             >
-              <div className="text-[var(--accent)] text-[15px] font-medium">
-                Continue to Lesson {nextCh} &rarr;
-              </div>
-              <div className="text-[var(--text-muted)] text-sm mt-0.5">{nextChapter.title}</div>
+              Continue to Lesson {nextCh} &rarr;
             </Link>
           )}
         </div>
