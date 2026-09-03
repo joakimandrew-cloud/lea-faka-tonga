@@ -300,7 +300,7 @@ export default function HomeTour() {
                 Drills for every skill, and when you miss, it tells you why. That&rsquo;s the
                 difference between practicing and memorizing.
               </p>
-              <Link className="t-pill on-dark" to="/drills">Browse the drill board</Link>
+              <Link className="t-pill on-dark" to="/drills">Browse the drills</Link>
             </div>
             <div className="stage-media">
               <div className="xf">

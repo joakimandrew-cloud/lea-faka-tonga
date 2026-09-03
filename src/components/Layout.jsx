@@ -68,7 +68,7 @@ export default function Layout() {
   let breadcrumbLabel = ''
   let backTo = '/'
   if (isDrillsMenu) {
-    breadcrumbLabel = 'Practice Drills'
+    breadcrumbLabel = 'Drills'
   } else if (isTerminalBuild) {
     breadcrumbLabel = 'Build a Sentence'
   } else if (isSentenceBuilder) {
@@ -92,9 +92,9 @@ export default function Layout() {
   } else if (isChapterBrowser) {
     breadcrumbLabel = 'Lessons'
   } else if (isFlipCards) {
-    breadcrumbLabel = 'Flip Cards'
+    breadcrumbLabel = 'Cards'
   } else if (isCharts) {
-    breadcrumbLabel = 'Reference Charts'
+    breadcrumbLabel = 'Charts'
   } else if (isFakaSort) {
     breadcrumbLabel = 'Faka- Sorter'
   } else if (isCleftBuilder) {
