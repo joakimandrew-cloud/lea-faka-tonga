@@ -98,6 +98,14 @@ export default function QuizRunner({ quiz, chapter }) {
   // ── Finish screen ─────────────────────────────────────────────────────
   if (finished) {
     const perfect = score === questions.length
+    // UX-10 (2026-09-03): the finish screen used to end on Try Again alone.
+    // "Revisit the lesson" was advice with no link, because the "Study Lesson N"
+    // link that rides above every question is gone on this one screen. A pass
+    // (8 or more) points on to the next lesson's quiz; anything less points at
+    // the next lesson itself. Both are dropped at Lesson 52, which has no next.
+    const nextChapter = quiz.chapter + 1
+    const hasNext = nextChapter <= 52
+    const passed = score >= 8
     return (
       <div className="quiz">
         <div className="quiz-finish">
@@ -114,6 +122,22 @@ export default function QuizRunner({ quiz, chapter }) {
           <button onClick={handleRestart} className="quiz-finish-btn">
             Try Again
           </button>
+          <div className="quiz-finish-links">
+            <Link to={`/lessons/${quiz.chapter}`} className="quiz-finish-link">
+              Revisit Lesson {quiz.chapter} →
+            </Link>
+            {hasNext && (
+              passed ? (
+                <Link to={`/quizzes/${nextChapter}`} className="quiz-finish-link">
+                  Lesson {nextChapter} quiz →
+                </Link>
+              ) : (
+                <Link to={`/lessons/${nextChapter}`} className="quiz-finish-link">
+                  Continue to Lesson {nextChapter} →
+                </Link>
+              )
+            )}
+          </div>
         </div>
       </div>
     )
