@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useRef, useEffect } from 'react'
 import LogoMark from '../components/LogoMark'
 import { Link } from 'react-router-dom'
 import { okinafy } from '../lib/okinafy'
@@ -77,6 +77,20 @@ function ChipIcon() {
 
 export default function ChapterBrowser() {
   const { chapter: currentChapter, setChapter } = useChapter()
+  // UX-01: the index is 12 phone screens long and the only trace of a returning
+  // learner was a grey highlight somewhere down it. The row below names where
+  // they stopped, and the ref pulls that highlighted row onto the screen.
+  const activeRowRef = useRef(null)
+
+  const resume = useMemo(
+    () => (currentChapter > 1 ? chapters.find(c => c.chapter === currentChapter) : null),
+    [currentChapter],
+  )
+
+  useEffect(() => {
+    if (!resume || !activeRowRef.current) return
+    activeRowRef.current.scrollIntoView({ block: 'center' })
+  }, [resume])
 
   const byGroup = useMemo(() => {
     const map = Object.fromEntries(GROUPS.map(g => [g.key, []]))
@@ -104,6 +118,11 @@ export default function ChapterBrowser() {
         <div className="chapters-course-intro">
           The&nbsp;full&nbsp;course &middot; 52&nbsp;lessons &middot; free&nbsp;while&nbsp;we&nbsp;build&nbsp;it
         </div>
+        {resume && (
+          <Link to={`/lessons/${resume.chapter}`} className="chapters-continue">
+            Continue &middot; Lesson&nbsp;{resume.chapter} &middot; {resume.title}
+          </Link>
+        )}
         {TIERS.map(tier => {
           const tierGroups = tier.groupKeys
             .map(key => GROUPS.find(g => g.key === key))
@@ -157,6 +176,7 @@ export default function ChapterBrowser() {
                             <li key={ch.chapter}>
                               <Link
                                 to={`/lessons/${ch.chapter}`}
+                                ref={isActive ? activeRowRef : null}
                                 className={`chapter-list-row${isActive ? ' is-active' : ''}`}
                                 onClick={() => setChapter(ch.chapter)}
                               >
