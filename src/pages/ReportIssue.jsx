@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import LogoMark from '../components/LogoMark'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import '../styles/v11-landing.css'
 import '../styles/v11-components.css'
 import '../styles/offer.css'
@@ -28,6 +28,7 @@ const Logo = () => (
 
 export default function ReportIssue() {
   const location = useLocation()
+  const navigate = useNavigate()
   // Seed "Where is it?" from the page the reader came from (Layout passes it as
   // router state; a ?where= query param also works for shared links), so a
   // correction arrives already located and nobody has to retype "Chapter 12".
@@ -38,7 +39,19 @@ export default function ReportIssue() {
   const [sent, setSent] = useState(false)
   const [sentVia, setSentVia] = useState(null) // 'endpoint' | 'mailto' — which path actually carried the report
   const [sending, setSending] = useState(false)
+  // UX-14 (2026-09-03): a send that fails now says so and keeps the form. It
+  // used to redirect to mailto and show the thanks screen either way, so a
+  // visitor whose mail app never opened was told the report had arrived.
+  const [failed, setFailed] = useState(false)
   const thanksRef = useRef(null)
+  const errorRef = useRef(null)
+
+  useEffect(() => {
+    if (failed && errorRef.current) {
+      errorRef.current.focus()
+      errorRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }, [failed])
 
   // On success, move focus to the confirmation and bring it into view, so
   // keyboard + screen-reader users are told it worked instead of being
@@ -90,15 +103,17 @@ export default function ReportIssue() {
       fd.append('suggested_fix', form.fix.trim())
       try {
         setSending(true)
+        setFailed(false)
         const res = await fetch(url, { method: 'POST', headers: { Accept: 'application/json' }, body: fd })
         const data = await res.json().catch(() => ({}))
         if (!res.ok || data.success === false) throw new Error('submit rejected')
         setSentVia('endpoint')
         setSent(true)
       } catch {
-        window.location.href = mailtoHref() // fall back to the visitor's mail app
-        setSentVia('mailto')
-        setSent(true)
+        // Keep the form and everything typed into it, and say plainly that it
+        // did not go. The mail app is offered as a second try, not taken on
+        // the visitor's behalf.
+        setFailed(true)
       } finally {
         setSending(false)
       }
@@ -116,6 +131,16 @@ export default function ReportIssue() {
 
       {/* ── Top band ── */}
       <div className="top-band">
+        {/* UX-14: the only labelled way off this page was at the foot of a
+            2,553px scroll. This one goes back to whatever the reader was
+            reading when they spotted the mistake. */}
+        <button
+          type="button"
+          className="report-back"
+          onClick={() => (window.history.length > 1 ? navigate(-1) : navigate('/'))}
+        >
+          &larr; Back
+        </button>
         <Link to="/" className="top-brand" style={{ textDecoration: 'none' }}>
           <Logo />
           <span className="wordmark">Lea Faka-Tonga</span>
@@ -199,8 +224,19 @@ export default function ReportIssue() {
                 Leave your name if you like, and contributors can be thanked on the <Link to="/keepers" style={{ color: 'var(--red)' }}>Roll of Keepers</Link>.
               </p>
 
+              {failed && (
+                <div className="report-error" role="alert" tabIndex={-1} ref={errorRef}>
+                  <p className="report-error-body">
+                    We could not send that. Your text is still here. Try again, or open it in your mail app.
+                  </p>
+                  <a href={mailtoHref()} className="report-error-mail">
+                    Open it in my mail app →
+                  </a>
+                </div>
+              )}
+
               <button type="submit" className="cta-btn" disabled={sending}>
-                {sending ? 'Sending…' : 'Send it to us →'}
+                {sending ? 'Sending…' : failed ? 'Try again →' : 'Send it to us →'}
               </button>
               <p className="report-fineprint">
                 No account, no sign-in. Your report comes straight to us and we read every one. Your email, if you leave one, is only used to reply and never shared.

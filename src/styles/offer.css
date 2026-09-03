@@ -670,6 +670,60 @@
   margin: 0;
 }
 
+/* UX-14 (2026-09-03): the failed-send state. Red rule and red type, the page's
+   own colours, with the form left standing underneath it. */
+.v11-landing .report-error {
+  border: 2px solid var(--red);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  outline: none;
+}
+.v11-landing .report-error-body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+}
+.v11-landing .report-error-mail {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+}
+.v11-landing .report-error-mail:hover { text-decoration: underline; }
+
+/* UX-14: the back link in the brand band, at the top of the page instead of
+   the foot. Absolute so the centred lockup below it does not move. */
+.v11-landing .report-back {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.v11-landing .report-back:hover { text-decoration: underline; }
+
 /* success state */
 .v11-landing .report-thanks {
   max-width: 620px;
