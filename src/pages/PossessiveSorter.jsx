@@ -8,12 +8,13 @@
 
 import DrillFrame from '../drills/DrillFrame'
 import PossessiveSorterCore from '../drills/PossessiveSorterCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function PossessiveSorter() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('possessive-sorter')}
       eyebrow={drillEyebrow('possessive-sorter')}
       title="The two classes of possession."
       blurb={

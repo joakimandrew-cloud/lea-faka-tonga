@@ -11,6 +11,7 @@
  */
 
 import { useState, useEffect } from 'react'
+import DeckComplete from './DeckComplete'
 
 const PAIRS = [
   { past: { id: 'anepo',  tongan: 'ʻanepō',       gloss: 'last night' },
@@ -180,9 +181,17 @@ export default function TimePairMatcherCore() {
               </div>
             ))}
           </div>
-          <button onClick={handleNewRound} className="pcs-next">
-            New round {'\u2192'}
-          </button>
+          {/* UX-09 (2026-09-03): the matcher ends on the same card every other
+              drill ends on, so a finished round says so and offers the way
+              back to the lesson as well as another round. */}
+          <DeckComplete
+            right={score.right}
+            total={score.total}
+            onAgain={handleNewRound}
+            againLabel="New round →"
+            onFresh={handleReset}
+            message="Every pair matched."
+          />
         </div>
       )}
     </section>

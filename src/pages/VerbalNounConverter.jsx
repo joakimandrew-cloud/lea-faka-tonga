@@ -1,11 +1,12 @@
 import DrillFrame from '../drills/DrillFrame'
 import VerbalNounConverterCore from '../drills/VerbalNounConverterCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function VerbalNounConverter() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('verbal-noun-converter')}
       eyebrow={drillEyebrow('verbal-noun-converter')}
       title="Convert the subject to a possessive."
       blurb={

@@ -18,6 +18,7 @@
  */
 
 import { useState } from 'react'
+import DeckComplete from './DeckComplete'
 
 const EXAMPLES = [
   {
@@ -95,6 +96,7 @@ export default function DefinitenessFlipCore() {
   const [guess, setGuess] = useState(null)
   const [score, setScore] = useState({ right: 0, total: 0 })
   const [streak, setStreak] = useState(0)
+  const [finished, setFinished] = useState(false)
 
   if (mode === 'explore') {
     const example = EXAMPLES[exampleIdx]
@@ -170,17 +172,52 @@ export default function DefinitenessFlipCore() {
     setStreak(s => right ? s + 1 : 0)
   }
 
+  // A fresh shuffled quiz deck. Built once here rather than inline in three
+  // places, so "Go again" and "start fresh" cannot drift apart.
+  const freshDeck = () => shuffle(EXAMPLES.flatMap(e => [
+    { ...e, target: 'indefinite' },
+    { ...e, target: 'definite' },
+  ]))
+
   const handleNext = () => {
-    if (quizIdx < deck.length - 1) {
-      setQuizIdx(quizIdx + 1)
-    } else {
-      setDeck(shuffle(EXAMPLES.flatMap(e => [
-        { ...e, target: 'indefinite' },
-        { ...e, target: 'definite' },
-      ])))
-      setQuizIdx(0)
+    // UX-09: the last item ends the deck instead of silently reshuffling.
+    if (quizIdx >= deck.length - 1) {
+      setFinished(true)
+      return
     }
+    setQuizIdx(quizIdx + 1)
     setGuess(null)
+  }
+
+  const handleReset = () => {
+    setDeck(freshDeck())
+    setQuizIdx(0)
+    setGuess(null)
+    setScore({ right: 0, total: 0 })
+    setStreak(0)
+    setFinished(false)
+  }
+
+  const handleContinue = () => {
+    const keptScore = score
+    const keptStreak = streak
+    handleReset()
+    setScore(keptScore)
+    setStreak(keptStreak)
+  }
+
+  // ── Deck complete (UX-09, 2026-09-03) ─────────────────────────────────
+  if (finished) {
+    return (
+      <section className="pcs-card">
+        <DeckComplete
+          right={score.right}
+          total={score.total}
+          onAgain={handleContinue}
+          onFresh={handleReset}
+        />
+      </section>
+    )
   }
 
   return (

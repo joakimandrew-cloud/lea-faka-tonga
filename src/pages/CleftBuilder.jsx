@@ -1,11 +1,12 @@
 import DrillFrame from '../drills/DrillFrame'
 import CleftBuilderCore from '../drills/CleftBuilderCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function CleftBuilder() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('cleft-builder')}
       eyebrow={drillEyebrow('cleft-builder')}
       title="Build the cleft, tile by tile."
       blurb={

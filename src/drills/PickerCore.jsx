@@ -30,6 +30,7 @@
  */
 import { useState, useRef, useEffect } from 'react'
 import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
+import DeckComplete from './DeckComplete'
 
 function shuffle(arr) {
   const out = [...arr]
@@ -287,28 +288,17 @@ export default function PickerCore({
       </div>
 
       {finished ? (
-        <>
-          <div className="pcs-noun-frame">
-            <div className="pcs-prompt-label">Deck complete</div>
-            <div className="pcs-noun">{score.right} / {score.total} correct</div>
-            <div className="pcs-noun-gloss">
-              {perfect
-                ? 'Perfect: every answer right.'
-                : 'You made it through the whole deck.'}
-            </div>
-          </div>
-          <div className="pcs-next-container">
-            {!isTouch && (
-              <span className="pcs-keyboard-hint">Press <kbd>{'\u21B5'}</kbd> to go again</span>
-            )}
-            <button onClick={handleReset} className="pcs-reset" type="button">
-              start fresh
-            </button>
-            <button onClick={handleContinue} className="pcs-next" type="button">
-              Go again {'\u2192'}
-            </button>
-          </div>
-        </>
+        /* The card this was is now the shared one (UX-09, 2026-09-03): same
+           look, same buttons, plus the two exits the frame supplies. */
+        <DeckComplete
+          right={score.right}
+          total={score.total}
+          onAgain={handleContinue}
+          onFresh={handleReset}
+          hint={!isTouch
+            ? <span className="pcs-keyboard-hint">Press <kbd>{'\u21B5'}</kbd> to go again</span>
+            : null}
+        />
       ) : (
         <>
           <div className="pcs-noun-frame">

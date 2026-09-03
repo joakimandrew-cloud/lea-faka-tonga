@@ -7,12 +7,13 @@
 
 import DrillFrame from '../drills/DrillFrame'
 import FakaSorterCore from '../drills/FakaSorterCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function FakaSorter() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('faka-pattern-sorter')}
       eyebrow={drillEyebrow('faka-pattern-sorter')}
       title="One prefix, four jobs."
       blurb={

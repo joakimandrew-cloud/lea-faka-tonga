@@ -34,6 +34,15 @@ for (const [id, level] of Object.entries(LEVEL_OVERRIDES)) {
   FRAME_META[id] = { ...(FRAME_META[id] || {}), level }
 }
 
+/**
+ * The lesson a drill belongs to, or null. Same FRAME_META the eyebrow reads,
+ * so "Lesson 8" in the eyebrow and "Back to Lesson 8" on the end card stay
+ * one fact. Added 2026-09-03 for UX-09.
+ */
+export function drillLesson(id) {
+  return FRAME_META[id]?.ch ?? null
+}
+
 export function drillEyebrow(id) {
   const m = FRAME_META[id]
   if (!m) return ''

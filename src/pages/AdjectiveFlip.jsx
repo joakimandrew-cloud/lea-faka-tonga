@@ -5,12 +5,13 @@
 
 import DrillFrame from '../drills/DrillFrame'
 import AdjectiveFlipCore from '../drills/AdjectiveFlipCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function AdjectiveFlip() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('adjective-flip')}
       eyebrow={drillEyebrow('adjective-flip')}
       title="Where does the adjective go?"
       blurb={

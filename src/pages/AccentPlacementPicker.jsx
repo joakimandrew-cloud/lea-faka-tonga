@@ -1,11 +1,12 @@
 import DrillFrame from '../drills/DrillFrame'
 import AccentPlacementPickerCore from '../drills/AccentPlacementPickerCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function AccentPlacementPicker() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('accent-placement-picker')}
       eyebrow={drillEyebrow('accent-placement-picker')}
       title="Where does the accent fall?"
       blurb={

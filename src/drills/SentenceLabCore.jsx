@@ -19,6 +19,7 @@ import { useMemo, useState, useRef, useEffect } from 'react'
 import { getOptionsForSlot, assembleSentence } from '../engine/slot-engine'
 import { pickPattern, seedFill, reconcile, getPatternById, englishMatches, pronounClarification } from './lab-engine'
 import { newRound } from './graded-lab'
+import DeckComplete from './DeckComplete'
 
 // Dismiss the active dropdown on outside click / Escape. Shared by both modes.
 function useDismiss(activeSlot, setActiveSlot, wrapRef) {
@@ -141,6 +142,9 @@ function ExploreLab({ chapterNum }) {
   )
 }
 
+// One set of graded rounds. Ten, the same length as the site's quizzes.
+const ROUND_SET = 10
+
 // ── Test yourself (graded) mode — "make the sentence mean X" ────────────────
 function GradedLab({ chapterNum }) {
   const maxChapter = chapterNum || 52
@@ -150,6 +154,13 @@ function GradedLab({ chapterNum }) {
   const [activeSlot, setActiveSlot] = useState(null)
   const [checked, setChecked] = useState(false)   // pressed Check on a non-answer
   const [revealed, setRevealed] = useState(false) // gave up → answer shown
+  // UX-09 (2026-09-03): the Lab generated rounds for ever, so there was no
+  // point at which a learner had finished anything. A set is ROUND_SET long,
+  // scored, and ends on the card every other drill ends on. The length matches
+  // the site's quizzes, which are ten questions.
+  const [done, setDone] = useState(0)
+  const [score, setScore] = useState({ right: 0, total: 0 })
+  const [finished, setFinished] = useState(false)
   const wrapRef = useRef(null)
 
   const pattern = useMemo(() => (round ? getPatternById(round.patternId) : null), [round])
@@ -168,13 +179,33 @@ function GradedLab({ chapterNum }) {
 
   useDismiss(activeSlot, setActiveSlot, wrapRef)
 
-  const startRound = () => {
+  const nextRound = () => {
     const r = newRound(maxChapter)
     setRound(r)
     setFilledSlots(r?.seedFill || {})
     setActiveSlot(null)
     setChecked(false)
     setRevealed(false)
+  }
+
+  // Finishing a round: banked as right if it was solved, wrong if the answer
+  // was shown. The set ends at ROUND_SET.
+  const finishRound = (wasSolved) => {
+    const total = done + 1
+    setScore(sc => ({ right: sc.right + (wasSolved ? 1 : 0), total: sc.total + 1 }))
+    setDone(total)
+    if (total >= ROUND_SET) {
+      setFinished(true)
+      return
+    }
+    nextRound()
+  }
+
+  const startSet = (keepScore) => {
+    setDone(0)
+    setFinished(false)
+    if (!keepScore) setScore({ right: 0, total: 0 })
+    nextRound()
   }
   const handleSwap = (slotId, option) => {
     setFilledSlots((prev) => reconcile(round.patternId, { ...prev, [slotId]: option }, maxChapter))
@@ -185,6 +216,21 @@ function GradedLab({ chapterNum }) {
     setFilledSlots(round.targetFill)
     setActiveSlot(null)
     setRevealed(true)
+  }
+
+  if (finished) {
+    return (
+      <section className="pcs-card">
+        <DeckComplete
+          right={score.right}
+          total={score.total}
+          onAgain={() => startSet(true)}
+          onFresh={() => startSet(false)}
+          againLabel="Another ten →"
+          message="You worked through ten sentences."
+        />
+      </section>
+    )
   }
 
   if (!round || !pattern || !assembled) {
@@ -202,8 +248,8 @@ function GradedLab({ chapterNum }) {
   return (
     <section className="pcs-card" ref={wrapRef}>
       <div className="pcs-card-row">
-        <span>Make the sentence mean&hellip;</span>
-        <button onClick={startRound} className="pcs-reset" aria-label="New target sentence">new</button>
+        <span>Make the sentence mean&hellip; <span className="pcs-progress">{done + 1} / {ROUND_SET}</span></span>
+        <button onClick={nextRound} className="pcs-reset" aria-label="New target sentence">new</button>
       </div>
 
       <div className="x-lab-target">&ldquo;{round.targetEnglish}&rdquo;</div>
@@ -238,7 +284,9 @@ function GradedLab({ chapterNum }) {
           </>
         )}
         {(solved || revealed) && (
-          <button type="button" className="x-nav" onClick={startRound}>Next sentence</button>
+          <button type="button" className="x-nav" onClick={() => finishRound(solved)}>
+            {done + 1 >= ROUND_SET ? 'Finish' : 'Next sentence'}
+          </button>
         )}
       </div>
     </section>

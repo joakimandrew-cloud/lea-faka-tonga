@@ -27,6 +27,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react'
+import DeckComplete from './DeckComplete'
 
 const PHRASES = [
   {
@@ -259,6 +260,7 @@ export default function SentenceBuilderCore() {
   const [answered, setAnswered] = useState(null)
   const [score, setScore] = useState({ right: 0, total: 0 })
   const [streak, setStreak] = useState(0)
+  const [finished, setFinished] = useState(false)
 
   const current = deck[idx]
   const correctOrder = current.parts.map(p => p.id)
@@ -293,8 +295,10 @@ export default function SentenceBuilderCore() {
   }
 
   const handleNext = () => {
-    const nextIdx = idx + 1 >= deck.length ? 0 : idx + 1
-    const nextDeck = idx + 1 >= deck.length ? shuffle(PHRASES) : deck
+    // UX-09: the last item ends the deck instead of silently reshuffling.
+    if (idx + 1 >= deck.length) { setFinished(true); return }
+    const nextIdx = idx + 1
+    const nextDeck = deck
     setDeck(nextDeck)
     setIdx(nextIdx)
     setPool(buildPool(nextDeck[nextIdx]))
@@ -311,6 +315,17 @@ export default function SentenceBuilderCore() {
     setAnswered(null)
     setScore({ right: 0, total: 0 })
     setStreak(0)
+    setFinished(false)
+  }
+
+  // "Go again" from the end card (UX-09): a fresh shuffled deck, with the run's
+  // score carried over, which is what PickerCore's own Go again already did.
+  const handleContinue = () => {
+    const keptScore = score
+    const keptStreak = streak
+    handleReset()
+    setScore(keptScore)
+    setStreak(keptStreak)
   }
 
   const handleClear = () => {
@@ -323,6 +338,22 @@ export default function SentenceBuilderCore() {
 
   const perfect = score.total > 0 && score.right === score.total
   const pct = deck.length > 0 ? ((idx + (answered !== null ? 1 : 0)) / deck.length) * 100 : 0
+
+  // ── Deck complete (UX-09, 2026-09-03) ─────────────────────────────────
+  // The deck used to reshuffle at the last item and put the learner back at 1
+  // with nothing said. It ends here instead, on the shared card.
+  if (finished) {
+    return (
+      <section className="pcs-card">
+        <DeckComplete
+          right={score.right}
+          total={score.total}
+          onAgain={handleContinue}
+          onFresh={handleReset}
+        />
+      </section>
+    )
+  }
 
   return (
     <section className="pcs-card">

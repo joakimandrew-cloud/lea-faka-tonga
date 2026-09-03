@@ -3,6 +3,8 @@ import vocabulary from '../data/book-vocabulary.json'
 import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
 import { okinafy } from '../lib/okinafy'
 import FlipCard from '../components/FlipCard'
+import DeckComplete from '../drills/DeckComplete'
+import { DrillEndLinks } from '../drills/drill-end-links'
 import '../styles/v11-components.css'
 
 const categories = [...new Set(vocabulary.map(v => v.category))].sort()
@@ -26,6 +28,9 @@ export default function FlipCards() {
   const [reversed, setReversed] = useState(false)
   const [shuffled, setShuffled] = useState(false)
   const [shuffleOrder, setShuffleOrder] = useState(null)
+  // UX-09 (2026-09-03): the counter used to read 210 / 210 and then wrap to 1
+  // with nothing said. The deck ends now.
+  const [finished, setFinished] = useState(false)
 
   const filtered = useMemo(() => {
     let base = vocabulary
@@ -51,12 +56,14 @@ export default function FlipCards() {
     setCategory(val)
     setIndex(0)
     setFlipped(false)
+    setFinished(false)
   }, [])
 
   const handleTierChange = useCallback((val) => {
     setTier(val)
     setIndex(0)
     setFlipped(false)
+    setFinished(false)
   }, [])
 
   const handleShuffle = useCallback(() => {
@@ -69,6 +76,7 @@ export default function FlipCards() {
     }
     setIndex(0)
     setFlipped(false)
+    setFinished(false)
   }, [shuffled])
 
   const handlePrev = useCallback(() => {
@@ -78,8 +86,19 @@ export default function FlipCards() {
 
   const handleNext = useCallback(() => {
     setFlipped(false)
-    setIndex(i => (i < filtered.length - 1 ? i + 1 : 0))
-  }, [filtered.length])
+    // The last card ends the deck instead of silently starting it again.
+    if (index >= filtered.length - 1) {
+      setFinished(true)
+      return
+    }
+    setIndex(i => i + 1)
+  }, [filtered.length, index])
+
+  const handleDeckAgain = useCallback(() => {
+    setFinished(false)
+    setIndex(0)
+    setFlipped(false)
+  }, [])
 
   const handleFlip = useCallback(() => {
     setFlipped(f => !f)
@@ -127,6 +146,12 @@ export default function FlipCards() {
   return (
     <div className="flip-cards">
 
+      {/* UX-12: /cards was the one practice surface with no heading at all, so
+          the nav said Cards, the breadcrumb said Flip Cards and the page said
+          nothing. Same Barlow Condensed uppercase and red middot as the
+          /drills and /quizzes headings, sized for the reading column. */}
+      <h1 className="fc-heading">Cards <span className="dot">&middot;</span> Vocab</h1>
+
       {/* Toolbar: tier chips + category + direction, counter right */}
       <div className="fc-toolbar">
         <div className="fc-filters">
@@ -163,6 +188,25 @@ export default function FlipCards() {
         </span>
       </div>
 
+      {finished ? (
+        /* UX-09: the end of the deck, on the same card the drills end on.
+           The links context is supplied here because /cards renders outside
+           DrillFrame; there is no lesson behind a vocabulary deck, so the one
+           exit is the drills board. */
+        <DrillEndLinks.Provider value={{ backTo: '/drills' }}>
+          <section className="pcs-card">
+            <DeckComplete
+              right={filtered.length}
+              total={filtered.length}
+              unit="cards"
+              message="That is the whole deck at this filter."
+              onAgain={handleDeckAgain}
+              againLabel="Start again →"
+            />
+          </section>
+        </DrillEndLinks.Provider>
+      ) : (
+        <>
       {/* Card — the shared FlipCard (identical to the in-chapter deck) */}
       <FlipCard
         front={front}
@@ -191,6 +235,8 @@ export default function FlipCards() {
       {/* Keyboard hint (pointless on touch devices, so hidden there) */}
       {!isTouch && (
         <div className="x-hint">Arrow keys to navigate · Space to flip</div>
+      )}
+        </>
       )}
 
     </div>

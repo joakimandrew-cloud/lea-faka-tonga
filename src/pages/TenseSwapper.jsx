@@ -5,12 +5,13 @@
 
 import DrillFrame from '../drills/DrillFrame'
 import TenseSwapperCore from '../drills/TenseSwapperCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function TenseSwapper() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('tense-swapper')}
       eyebrow={drillEyebrow('tense-swapper')}
       title="Particles do the work."
       blurb={

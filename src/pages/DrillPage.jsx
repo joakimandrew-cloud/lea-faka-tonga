@@ -21,7 +21,7 @@
 import { useParams, Navigate } from 'react-router-dom'
 import DrillFrame from '../drills/DrillFrame'
 import { drillRegistry } from '../drills/registry'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function DrillPage() {
   const { id } = useParams()
@@ -35,6 +35,7 @@ export default function DrillPage() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson(id)}
       eyebrow={drillEyebrow(id)}
       title={meta.title}
       blurb={meta.blurb}

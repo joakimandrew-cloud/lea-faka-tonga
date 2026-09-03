@@ -5,12 +5,13 @@
 
 import DrillFrame from '../drills/DrillFrame'
 import ClusivityCornerCore from '../drills/ClusivityCornerCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function ClusivityCorner() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('clusivity-corner')}
       eyebrow={drillEyebrow('clusivity-corner')}
       title={<>&ldquo;We&rdquo; has four meanings.</>}
       blurb={

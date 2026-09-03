@@ -5,12 +5,13 @@
 
 import DrillFrame from '../drills/DrillFrame'
 import SkeletonFillerCore from '../drills/SkeletonFillerCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function SkeletonFiller() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('skeleton-filler')}
       eyebrow={drillEyebrow('skeleton-filler')}
       title="Fill the skeleton."
       blurb={

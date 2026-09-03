@@ -5,12 +5,13 @@
 
 import DrillFrame from '../drills/DrillFrame'
 import FirstWordQuizCore from '../drills/FirstWordQuizCore'
-import { drillEyebrow } from '../drills/drill-eyebrow'
+import { drillEyebrow, drillLesson } from '../drills/drill-eyebrow'
 
 export default function FirstWordQuiz() {
   return (
     <DrillFrame
       backTo="/drills"
+      lessonNum={drillLesson('first-word-quiz')}
       eyebrow={drillEyebrow('first-word-quiz')}
       title="The first word commits you."
       blurb={
