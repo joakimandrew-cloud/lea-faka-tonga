@@ -455,6 +455,26 @@
   cursor: pointer;
 }
 
+/* UX-10 (2026-09-03): where to go after the score. The same quiet red link
+   voice as the "Study Lesson N" link above every question, at a 44px hit box
+   (UX-07). No new tokens. */
+.quiz-finish-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  margin-top: 10px;
+}
+.quiz-finish-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+  color: var(--fc-red-light);
+  text-decoration: none;
+}
+.quiz-finish-link:hover { text-decoration: underline; }
+
 /* ── Smooth theme transitions ─────────────────────────────────────────── */
 .quiz,
 .quiz-meta,
@@ -507,6 +527,22 @@
   font-family: 'Inter', sans-serif;
   outline: none;
 }
+
+/* UX-12 (2026-09-03): the page's own name. The /drills and /quizzes headings
+   are .panel-heading h1 (Barlow Condensed 800 uppercase with a red middot) at
+   64px on a full-bleed index; /cards sits in the reading column, so it takes
+   the same voice at reading-column size on the shell's own tokens. */
+.fc-heading {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--fc-text);
+  margin: 0 0 4px;
+}
+.fc-heading .dot { color: var(--fc-red); padding: 0 .15em; }
 
 /* ── Toolbar (single consolidated row) ────────────────────────────────── */
 .fc-toolbar {
@@ -1545,6 +1581,25 @@
   margin: 0 0 30px;
 }
 
+/* UX-01: the returning learner's row. Same tracked capitals as the eyebrow
+   above it, in the page's red so it reads as the one thing to press, with a
+   44px hit box (UX-02). Shown only when a lesson past the first was opened. */
+.chapters-continue {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: -22px 0 24px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.chapters-continue:hover { border-bottom-color: var(--red); }
+
 .chapters-group {
   background: transparent;
   border: none;
@@ -2179,3 +2234,24 @@
   .vp-seg-btn { flex: 1; }
 }
 
+
+/* ── UX-07 (2026-09-03): the board and quiz controls reach a thumb ─────────
+   Measured at 390: the fourteen shelf arrows 30 x 30px, the seven
+   "+ IN THE LESSONS" toggles 20.5px tall, the quiz PREVIOUS and NEXT buttons
+   32px tall. Hit box only: the square arrow grows to 44 x 44 and everything
+   else keeps its width, and no type, border or colour changes. */
+.drills-board .drill-shelf-arrow {
+  min-width: 44px;
+  min-height: 44px;
+}
+.drills-board .drills-chapters-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.quiz-nav-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

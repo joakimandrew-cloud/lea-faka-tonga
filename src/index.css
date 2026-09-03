@@ -394,10 +394,13 @@ body::before {
 
 .site-header-context {
   display: flex;
-  align-items: baseline;
+  /* UX-02 (2026-09-03): centred, not baseline-aligned, because Back and the
+     section links now carry a 44px hit box and a baseline row would hang the
+     breadcrumb off the bottom of it. The type is unchanged. */
+  align-items: center;
   flex-wrap: wrap; /* long lesson titles push the section nav to its own line */
   gap: 10px;
-  padding: 4px 12px 6px;
+  padding: 0 12px 2px;
   border-top: 1px solid var(--border);
   /* Serif voice + body text colour so the row reads like the chapter it sits
    * above, instead of the old red Inter chip. (N4 redesign 2026-06-18) */
@@ -410,6 +413,10 @@ body::before {
   color: var(--text-strong);
   opacity: 0.72;
   transition: opacity 0.2s;
+  /* UX-02: 44.6 x 18.7px was half a thumb. The box grows, the type does not. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .site-header-context .back-link:hover {
@@ -458,6 +465,28 @@ body::before {
 /* Sub-page context row: right-aligned after the breadcrumb. */
 .site-header-context .header-nav {
   margin-left: auto;
+}
+
+/* UX-02 (2026-09-03): the six section links measured 41.6-56.6 wide by 15px
+   tall at 390, which is the row a learner moves between surfaces with on a
+   phone. The line-height carries the hit box to 44px and leaves the 10px
+   tracked type exactly as it was. Scoped to the sub-page context row on
+   purpose: the bare .header-nav class is shared with the homepage top band,
+   whose 40px standard was ruled on 2026-08-20 and is not reopened here. */
+.site-header-context .header-nav a {
+  display: inline-block;
+  line-height: 44px;
+}
+
+/* UX-02: the seven topic links in the footer strip measured 14 to 34.9px tall
+   on app pages and 16px on the homepage. Same treatment, same type: an
+   inline-block line box carries the 44px, and because the box is 44px tall the
+   wrapped rows of the strip can no longer overlap each other's hit areas.
+   The middot separators between them are plain text and keep the strip's
+   own line-height, so the reading rhythm is unchanged. */
+.topic-strip a {
+  display: inline-block;
+  line-height: 44px;
 }
 
 @media (min-width: 768px) {
@@ -3419,3 +3448,92 @@ body::before {
   .ch-table th,
   .ch-table td { padding: 5px 8px !important; }
 }
+
+/* ── UX-07 (2026-09-03): the skeleton-filler controls reach a thumb ────────
+   Measured at 390: the seven pool words 40.5px tall, RESET 15px, Check 37.5px.
+   Padding and a minimum height only; the type, the pill shape and the colours
+   are exactly as they were. */
+.skf-pool-word,
+.skf-action,
+.skf-next {
+  min-height: 44px;
+}
+.skf-action,
+.skf-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.skf-reset {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* ── UX-06 (2026-09-03): "On this page" ───────────────────────────────────
+   A lesson runs to 24 phone screens and had no way to jump inside it. Text
+   only, in the same bordered chip the topic row above already uses, with the
+   44px hit box the rest of this batch gives every control. No new tokens. */
+.lesson-jump {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 0 0 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.lesson-jump-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.lesson-jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lesson-jump-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.lesson-jump-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+/* The chip is the affordance here; .reading-page a underlines every link in a
+   lesson, which on a bordered chip reads as two boxes around one word. */
+.reading-page .lesson-jump-link {
+  text-decoration: none;
+}
+
+/* ── UX-09 (2026-09-03): the shared end-of-deck card ──────────────────────
+   The card itself is PickerCore's, unchanged. These are the two exits it now
+   carries, in the frame's own quiet link voice (.x-frame-back), and a wrap so
+   four controls still fit a 390px row. */
+.pcs-next-container.pcs-end-row {
+  flex-wrap: wrap;
+  gap: 12px 16px;
+}
+.pcs-end-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.pcs-end-link:hover { color: var(--accent); }

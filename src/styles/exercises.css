@@ -407,3 +407,31 @@
   0%, 100% { border-color: var(--border); color: var(--text-strong); }
   25%, 65% { border-color: var(--wrong); color: var(--wrong); }
 }
+
+/* ── UX-07 (2026-09-03): practice controls reach a thumb ───────────────────
+   Every control a learner taps while practising was measured under 44px on a
+   phone: the reveal buttons at 24.3px tall, the word-bank options at 40.3px
+   wide, the card filters at 35.5 to 41px, the category select at 34px. The
+   box grows with padding and a minimum; no type size, colour or border
+   changes, so the Tactile Deck look (2026-06-13) is untouched. */
+.x-opt {
+  min-height: 44px;
+  align-items: center;
+}
+.x-bank .x-opt {
+  min-width: 44px;
+  justify-content: center;
+}
+.x-chip,
+.x-select {
+  min-height: 44px;
+}
+.x-chip {
+  display: inline-flex;
+  align-items: center;
+}
+/* The book-exercise "tap to reveal" line (components/exercise-widgets.jsx). */
+.x-reveal-btn {
+  min-height: 44px;
+  align-items: center;
+}

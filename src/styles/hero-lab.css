@@ -321,10 +321,16 @@
 .hl-flip-back{background:#fff; color:var(--ink); border:2px solid var(--rule); font-size:clamp(20px,2.6vw,30px); transform:rotateY(180deg);}
 
 /* dots + caption */
-.hl-dots{display:flex; justify-content:center; gap:8px; margin-top:18px;}
-.hl-dot{width:30px; height:4px; padding:0; border:none; cursor:pointer; background:rgba(26,22,18,0.16); transition:background .2s ease;}
-.hl-dot.active{background:var(--red);}
-.hl-dot:hover{background:rgba(26,22,18,0.34);}
+/* UX-02 (2026-09-03): the five slide dots were 37.5 x 5px of tappable area.
+   The bar people see is unchanged at 30 x 4px; 20px of transparent padding
+   above and below carries the hit box to 44px, and background-clip keeps the
+   paint on the content box so nothing looks bigger. The negative margins on
+   the row give that padding back to the layout, so the stage and its caption
+   sit exactly where they did. Nothing else inside the ruled hero moves. */
+.hl-dots{display:flex; justify-content:center; gap:8px; margin-top:-2px; margin-bottom:-20px;}
+.hl-dot{box-sizing:content-box; width:30px; height:4px; padding:20px 0; border:none; cursor:pointer; background-color:rgba(26,22,18,0.16); background-clip:content-box; transition:background-color .2s ease;}
+.hl-dot.active{background-color:var(--red);}
+.hl-dot:hover{background-color:rgba(26,22,18,0.34);}
 .hl-stage-cap{margin-top:14px; text-align:center;}
 .hl-stage-cap-title{
   font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(18px,1.6vw,24px);

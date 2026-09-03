@@ -159,7 +159,7 @@ export function RevealItem({ item, index }) {
           type="button"
           onClick={() => setRevealed(true)}
           aria-label="Reveal answer"
-          className="ml-8 mt-2 flex items-baseline gap-2 text-sm text-left cursor-pointer rounded focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]"
+          className="x-reveal-btn ml-8 mt-2 flex items-baseline gap-2 text-sm text-left cursor-pointer rounded focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--accent)]"
         >
           <span className="text-[var(--accent)]/70 text-xs flex-shrink-0">Answer</span>
           <span className="text-[var(--text-muted)] text-[17px] blur-[7px] select-none transition-[filter] duration-[400ms]">
