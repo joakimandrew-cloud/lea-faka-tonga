@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/v11-components.css'
 import { okinafy, looksTongan } from '../lib/okinafy'
+// UX-11: the one thing a finished quiz leaves behind. Best score per lesson,
+// in the browser only.
+import { recordQuizScore } from '../lib/quiz-scores'
 
 // ---------------------------------------------------------------------------
 // Render a snippet that may include Tongan glyphs or inline emphasis.
@@ -55,6 +58,14 @@ export default function QuizRunner({ quiz, chapter }) {
     setScore(0)
     setFinished(false)
   }, [quiz.chapter])
+
+  // UX-11: the finish screen is the moment the run is over, so that is where
+  // the score is kept. Best only, so a worse second attempt never erases a
+  // good first one.
+  useEffect(() => {
+    if (!finished) return
+    recordQuizScore(quiz.chapter, score, questions.length)
+  }, [finished, quiz.chapter, score, questions.length])
 
   const question = questions[currentIndex]
   if (!question) return null

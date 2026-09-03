@@ -8,6 +8,9 @@ import { useChapter } from '../contexts/ChapterContext'
 // pieces now, so the band below shows the identical ones.
 import { NAV_LINKS } from '../lib/nav-links'
 import ThemeToggle from '../components/ThemeToggle'
+// UX-11: a lesson whose quiz has been finished carries a tick, so the index
+// shows what has been done as well as where the learner stopped.
+import { readQuizScores, bestQuizScore } from '../lib/quiz-scores'
 import chapters from '../data/chapters.json'
 import '../styles/v11-components.css'
 
@@ -104,6 +107,7 @@ export default function ChapterBrowser() {
   // chips are the pair /drills already uses, in this page's own palette.
   const [query, setQuery] = useState('')
   const [level, setLevel] = useState('all')
+  const [scores] = useState(readQuizScores)
   const filtering = query.trim() !== '' || level !== 'all'
 
   const resume = useMemo(
@@ -252,6 +256,7 @@ export default function ChapterBrowser() {
                           const isActive = ch.chapter === currentChapter
                           const sample = ch.teaching?.key_rules?.[0]
                           const topics = Array.isArray(ch.topics) ? ch.topics.slice(0, 2) : []
+                          const best = bestQuizScore(scores, ch.chapter)
                           return (
                             <li key={ch.chapter}>
                               <Link
@@ -279,6 +284,14 @@ export default function ChapterBrowser() {
                                     </span>
                                   )}
                                 </span>
+                                {best && (
+                                  <span className="chapter-list-tick">
+                                    <span aria-hidden="true">&#10003;</span>
+                                    <span className="sr-only">
+                                      Quiz done, best score {best.best} out of {best.of}
+                                    </span>
+                                  </span>
+                                )}
                               </Link>
                             </li>
                           )

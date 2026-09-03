@@ -1840,6 +1840,23 @@
   background-size: 100% 1.5px;
 }
 
+/* UX-11 (2026-09-03): the best score, beside the quiz it belongs to. Same
+   tracked capitals as the tier count above it, in the page's red so a finished
+   quiz reads as the small win it is. The third grid column is added on the
+   quizzes index alone; it collapses to nothing on a row with no score, so a
+   learner who has finished none sees exactly the page they saw before. */
+.quizzes-page .chapter-row { grid-template-columns: 64px 1fr auto; }
+.chapter-row-score {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+  padding-left: 12px;
+}
+
 .chapter-row-preview {
   display: block;
   font-family: 'Source Serif 4', serif;
@@ -2046,6 +2063,30 @@
   border-radius: 2px;
   padding: 3px 9px;
   white-space: nowrap;
+}
+/* UX-11 (2026-09-03): a lesson whose quiz has been finished carries a tick in
+   the page's red, in the same tracked capitals as the tier count. The third
+   column is `auto`, so a row with no score keeps its two-column shape. */
+.chapter-subsection .chapter-list-row { grid-template-columns: 40px 1fr auto; }
+.chapter-subsection .chapter-list-tick {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--red);
+  padding-left: 8px;
+}
+/* Visually hidden, read by screen readers. First use is the UX-11 score text. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 /* legacy single-line preview (no longer rendered by ChapterBrowser) */
 .chapter-subsection .chapter-list-sub {

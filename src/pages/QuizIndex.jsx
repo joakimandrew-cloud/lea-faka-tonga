@@ -1,6 +1,10 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import quizzes from '../data/quizzes.json'
 import chapters from '../data/chapters.json'
+// UX-11: fifty-two identical rows however many a learner had finished. The
+// best score now rides beside the row it belongs to.
+import { readQuizScores, bestQuizScore } from '../lib/quiz-scores'
 
 const GROUPS = [
   { key: 'foundations',          name: 'Foundations',           verbPhrase: 'Build the sentence',  lead: 'Tense markers, pronouns, verbs, modifiers, time, commands, and location.' },
@@ -27,6 +31,8 @@ function ChipIcon() {
 }
 
 export default function QuizIndex() {
+  const [scores] = useState(readQuizScores)
+
   const entries = Object.values(quizzes)
     .filter(q => q && Array.isArray(q.questions) && q.questions.length > 0)
     .map(q => ({ quiz: q, chapter: chapters.find(c => c.chapter === q.chapter) }))
@@ -89,20 +95,29 @@ export default function QuizIndex() {
                       <div className="chapters-empty">No quizzes available yet.</div>
                     ) : (
                       <div className="chapters-group-grid">
-                        {groupEntries.map(({ quiz, chapter }) => (
-                          <Link
-                            key={quiz.chapter}
-                            to={`/quizzes/${quiz.chapter}`}
-                            className="chapter-row"
-                          >
-                            <span className="chapter-row-marker" aria-hidden="true" />
-                            <span className="chapter-row-num">{String(quiz.chapter).padStart(2, '0')}</span>
-                            <span className="chapter-row-body">
-                              <span className="chapter-row-title">{chapter.title}</span>
-                              <span className="chapter-row-preview">{chapter.preview ?? `${quiz.questions.length} questions`}</span>
-                            </span>
-                          </Link>
-                        ))}
+                        {groupEntries.map(({ quiz, chapter }) => {
+                          const best = bestQuizScore(scores, quiz.chapter)
+                          return (
+                            <Link
+                              key={quiz.chapter}
+                              to={`/quizzes/${quiz.chapter}`}
+                              className="chapter-row"
+                            >
+                              <span className="chapter-row-marker" aria-hidden="true" />
+                              <span className="chapter-row-num">{String(quiz.chapter).padStart(2, '0')}</span>
+                              <span className="chapter-row-body">
+                                <span className="chapter-row-title">{chapter.title}</span>
+                                <span className="chapter-row-preview">{chapter.preview ?? `${quiz.questions.length} questions`}</span>
+                              </span>
+                              {best && (
+                                <span className="chapter-row-score">
+                                  <span aria-hidden="true">{best.best} / {best.of}</span>
+                                  <span className="sr-only">Best score {best.best} out of {best.of}</span>
+                                </span>
+                              )}
+                            </Link>
+                          )
+                        })}
                       </div>
                     )}
                   </section>
