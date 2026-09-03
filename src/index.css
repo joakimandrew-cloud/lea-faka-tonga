@@ -868,6 +868,17 @@ body::before {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+/* UX-08 (2026-09-04): the foot quiz card is the one filled object in the
+   lesson foot, so it reads as the next step; prev and next stay as underlined
+   text links beneath it. Unlayered on purpose: the .reading-page a rule above
+   is unlayered too and would otherwise beat any utility class. */
+.reading-page a.lesson-quiz-card {
+  background: var(--surface-sunken);
+  text-decoration: none;
+}
+.reading-page a.lesson-quiz-card:hover {
+  border-color: var(--text-strong);
+}
 
 .dark .reading-page {
   --bg: #1A1612;

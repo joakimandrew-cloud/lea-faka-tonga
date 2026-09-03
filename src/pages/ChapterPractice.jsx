@@ -320,13 +320,15 @@ export default function ChapterPractice() {
       <div id="lesson-quiz" className="scroll-mt-40 md:scroll-mt-24 mt-16 pt-8 border-t border-[var(--border)]">
         {/* UX-08 (2026-09-03): the quiz card and the two lesson links used to be
             three outlined boxes of one weight, so the read-then-test step the
-            July ruling added did not read as the next one. The card takes the
-            --accent-faint fill it already used on hover and a heavier label;
-            hover now moves the border instead. */}
+            July ruling added did not read as the next one. The card is now the
+            one filled object in the foot (a solid --surface-sunken fill, no
+            underline, a heavier label); lesson pages keep --accent near-black
+            per the 2026-06-15 ruling, so the fill is grey, not red, and the
+            6% --accent-faint tint first tried here was invisible on white. */}
         <Link
           to={`/quizzes/${chapterNum}`}
           onClick={() => window.scrollTo(0, 0)}
-          className="block border border-[var(--accent)] bg-[var(--accent-faint)] rounded-lg px-7 py-4 hover:border-[var(--accent-hover)] transition-colors text-center"
+          className="lesson-quiz-card block border border-[var(--accent)] rounded-lg px-7 py-4 transition-colors text-center"
         >
           <div className="text-[var(--accent)] text-[15px] font-semibold">
             Take the Lesson {chapterNum} quiz &rarr;
