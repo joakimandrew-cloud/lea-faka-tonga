@@ -1,4 +1,4 @@
-import { useMemo, useRef, useEffect } from 'react'
+import { useMemo, useRef, useState, useEffect } from 'react'
 import LogoMark from '../components/LogoMark'
 import { Link } from 'react-router-dom'
 import { okinafy } from '../lib/okinafy'
@@ -71,6 +71,20 @@ const TIERS = [
   },
 ]
 
+// UX-04: what a typed query is matched against. The lesson's title and the two
+// topic chips the row already prints, nothing hidden. Chips are matched in both
+// spellings because the row renders them through okinafy, so a learner typing a
+// plain apostrophe should still find "ʻoku".
+function matchesLesson(ch, query) {
+  const q = query.trim().toLowerCase()
+  if (!q) return true
+  if (ch.title.toLowerCase().includes(q)) return true
+  const topics = Array.isArray(ch.topics) ? ch.topics.slice(0, 2) : []
+  return topics.some(
+    t => t.toLowerCase().includes(q) || okinafy(t).toLowerCase().includes(q),
+  )
+}
+
 function ChipIcon() {
   return (
     <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none">
@@ -86,6 +100,11 @@ export default function ChapterBrowser() {
   // learner was a grey highlight somewhere down it. The row below names where
   // they stopped, and the ref pulls that highlighted row onto the screen.
   const activeRowRef = useRef(null)
+  // UX-04: fifty-two lessons with no search and no level jump. The box and the
+  // chips are the pair /drills already uses, in this page's own palette.
+  const [query, setQuery] = useState('')
+  const [level, setLevel] = useState('all')
+  const filtering = query.trim() !== '' || level !== 'all'
 
   const resume = useMemo(
     () => (currentChapter > 1 ? chapters.find(c => c.chapter === currentChapter) : null),
@@ -104,6 +123,21 @@ export default function ChapterBrowser() {
     }
     return map
   }, [])
+
+  // The typed query narrows the rows; the level chip hides whole bands. Both
+  // are applied here so every count on the page reports what is actually shown.
+  const visibleByGroup = useMemo(() => {
+    const map = {}
+    for (const g of GROUPS) {
+      map[g.key] = (byGroup[g.key] || []).filter(ch => matchesLesson(ch, query))
+    }
+    return map
+  }, [byGroup, query])
+
+  const shownTotal = TIERS.reduce((sum, tier) => {
+    if (level !== 'all' && level !== tier.key) return sum
+    return sum + tier.groupKeys.reduce((n, key) => n + (visibleByGroup[key]?.length || 0), 0)
+  }, 0)
 
   return (
     <div className="chapters-page">
@@ -136,14 +170,46 @@ export default function ChapterBrowser() {
             Continue &middot; Lesson&nbsp;{resume.chapter} &middot; {resume.title}
           </Link>
         )}
+        {/* UX-04: the search box and the level chips, ported from /drills.
+            BASIC, not BEGINNER: the bands below have been named Basic /
+            Intermediate / Advanced since UX-12 unified the public names. */}
+        <div className="chapters-filter">
+          <input
+            type="search"
+            className="chapters-search"
+            placeholder="Search lessons (e.g., possessive, tense, greetings)"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search lessons"
+          />
+          <div className="chapters-chips" role="group" aria-label="Filter by level">
+            {[['all', 'All'], ['basic', 'Basic'], ['intermediate', 'Intermediate'], ['advanced', 'Advanced']].map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                className={`chapters-chip${level === key ? ' is-active' : ''}`}
+                onClick={() => setLevel(key)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {filtering && shownTotal === 0 && (
+          <p className="chapters-no-match">No lesson matches.</p>
+        )}
+
         {TIERS.map(tier => {
+          if (level !== 'all' && level !== tier.key) return null
           const tierGroups = tier.groupKeys
             .map(key => GROUPS.find(g => g.key === key))
             .filter(Boolean)
           const tierCount = tierGroups.reduce(
-            (sum, g) => sum + (byGroup[g.key]?.length || 0),
+            (sum, g) => sum + (visibleByGroup[g.key]?.length || 0),
             0,
           )
+          if (filtering && tierCount === 0) return null
 
           return (
             <section key={tier.key} className={`chapters-tier chapters-tier--${tier.key}`}>
@@ -158,7 +224,8 @@ export default function ChapterBrowser() {
               </header>
 
               {tierGroups.map(group => {
-                const all = byGroup[group.key] || []
+                const all = visibleByGroup[group.key] || []
+                if (filtering && all.length === 0) return null
 
                 return (
                   <section key={group.key} className="chapter-subsection">
