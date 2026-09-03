@@ -26,9 +26,15 @@ for (const [path, content] of Object.entries(chapterFiles)) {
   }
 }
 
+// The lesson page's own header already prints the number and the title, and
+// the breadcrumb repeats it, so the title in the markdown is a third copy
+// (UX-05). This has always meant to remove it; the pattern was written when the
+// heading was `## Chapter N:` and stopped matching when the book relabelled its
+// unit `# Lesson N:` on 2026-06-22, which is how a second H1 came back above
+// the fold. Both spellings are handled now, and only the first one in a file.
 export function stripLeadingTitle(md) {
   if (!md) return md
-  return md.replace(/^##\s+Chapter\s+\d+:.*?\n+/m, '')
+  return md.replace(/^#{1,2}[ \t]+(?:Chapter|Lesson)[ \t]+\d+:.*?\n+/m, '')
 }
 
 // Pandoc fenced divs (`::: {.examples}`) aren't understood by remark-directive

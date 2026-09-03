@@ -187,26 +187,9 @@ export default function ChapterPractice() {
           ))}
         </div>
 
-        <div className="flex gap-3 text-sm">
-          {prevCh && (
-            <Link
-              to={`/lessons/${prevCh}`}
-              className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
-              onClick={() => setPatternIndex(null)}
-            >
-              &larr; Lesson {prevCh}
-            </Link>
-          )}
-          {nextCh && (
-            <Link
-              to={`/lessons/${nextCh}`}
-              className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
-              onClick={() => setPatternIndex(null)}
-            >
-              Lesson {nextCh} &rarr;
-            </Link>
-          )}
-        </div>
+        {/* UX-05 (2026-09-03): a "← Lesson 6 · Lesson 8 →" pair used to sit
+            here, so the first thing a learner could act on at the head of a
+            lesson was leaving it. The foot already owns that job. */}
       </div>
 
       {/* ── On this page (UX-06) ──────────────────────────────────────────
