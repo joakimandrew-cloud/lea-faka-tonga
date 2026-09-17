@@ -1,15 +1,33 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import coverImage from '../assets/course-entrance-cover.png'
 import {
+  ENTRANCE_BOX,
   ENTRANCE_DURATION,
+  ENTRANCE_POSTS,
+  ENTRANCE_SOURCE,
+  entranceCamera,
+  entranceFrame,
   entranceGeometry,
+  landingVisual,
   markEntranceSeen,
+  polygonBounds,
+  postLanding,
+  postTravelProgress,
   readEntranceSeen,
+  rectOnScreen,
   shouldShowEntrance,
+  shrinkPolygon,
 } from '../lib/course-entrance'
 import '../styles/course-entrance.css'
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
+// Clicks this soon after the start belong to the same gesture (a double
+// click), so they do not skip the animation.
+const SKIP_GUARD_MS = 400
+const POST_KEYS = ['site', 'book']
+// The real homepage door cards each stone lands on.
+const DOOR_SELECTORS = { book: '.ld-door-book', site: '.ld-door-site' }
+const toPoints = points => points.map(point => point.join(',')).join(' ')
 
 function initialPhase() {
   if (typeof window === 'undefined') return 'complete'
@@ -31,10 +49,85 @@ function prefersReducedMotion() {
     && window.matchMedia(REDUCED_MOTION_QUERY).matches
 }
 
+function rectOf(element) {
+  if (!element) return null
+  const rect = element.getBoundingClientRect()
+  return { x: rect.left, y: rect.top, width: rect.width, height: rect.height }
+}
+
+function setBox(element, rect) {
+  element.style.transform = `translate3d(${rect.x}px, ${rect.y}px, 0)`
+  element.style.width = `${rect.width}px`
+  element.style.height = `${rect.height}px`
+}
+
+// Draws one moment of the entrance. Everything is measured before anything is
+// written, so each frame costs at most one layout.
+function paintEntrance(scene, elapsed) {
+  if (!scene.root || !scene.camera) return
+  const frame = entranceFrame(elapsed)
+  const viewport = currentViewport()
+  const camera = entranceCamera(entranceGeometry(viewport), frame.push)
+
+  const targets = {}
+  for (const key of POST_KEYS) {
+    const doorEl = frame.travel > 0 ? document.querySelector(DOOR_SELECTORS[key]) : null
+    const doorRect = rectOf(doorEl)
+    // A door card the layout has pushed off screen (a landscape phone before
+    // any scroll) is not a real landing target, so the post fades in place
+    // instead of flying off the visible screen.
+    const reachable = doorRect && rectOnScreen(doorRect, viewport)
+    let visual = null
+    if (reachable) {
+      const explicit = rectOf(doorEl?.querySelector('[data-entrance-visual]'))
+      const explicitTarget = landingVisual({ explicit, legacy: null, door: null, viewport })
+      const legacy = explicitTarget
+        ? null
+        : rectOf(doorEl?.querySelector('.ld-door-visual'))
+      visual = landingVisual({ explicit, legacy, door: doorRect, viewport })
+    }
+    targets[key] = {
+      door: reachable ? doorRect : null,
+      visual,
+    }
+  }
+
+  scene.root.dataset.controls = frame.controls > 0.5 ? 'shown' : 'hidden'
+  scene.start.style.opacity = frame.controls
+  scene.stage.style.opacity = frame.stage
+  scene.dusk.style.opacity = frame.dusk
+  scene.camera.setAttribute('transform', `matrix(${camera.scale} 0 0 ${camera.scale} ${camera.x} ${camera.y})`)
+  scene.surround.style.opacity = frame.surround
+  scene.scenery.style.opacity = frame.scenery
+
+  for (const key of POST_KEYS) {
+    const nodes = scene.posts[key]
+    if (!nodes.layer || !nodes.stone) continue
+    const { door, visual } = targets[key]
+    const travel = postTravelProgress(elapsed, key)
+    const { layer, stone } = postLanding({ camera, post: ENTRANCE_POSTS[key], door, visual, travel })
+    setBox(nodes.layer, layer)
+    setBox(nodes.stone, stone)
+    nodes.layer.style.opacity = frame.posts
+    nodes.layer.style.setProperty('--ce-chrome', door ? frame.chrome : 0)
+  }
+}
+
 export default function CourseEntrance({ children }) {
   const [phase, setPhase] = useState(initialPhase)
   const [viewport, setViewport] = useState(currentViewport)
   const entranceRef = useRef(null)
+  const startRef = useRef(null)
+  const stageRef = useRef(null)
+  const duskRef = useRef(null)
+  const cameraRef = useRef(null)
+  const surroundRef = useRef(null)
+  const sceneryRef = useRef(null)
+  const bookLayerRef = useRef(null)
+  const bookStoneRef = useRef(null)
+  const siteLayerRef = useRef(null)
+  const siteStoneRef = useRef(null)
+  const startedAtRef = useRef(0)
   const finishTimerRef = useRef(null)
   const focusHomeRef = useRef(false)
   const active = phase !== 'complete'
@@ -43,6 +136,20 @@ export default function CourseEntrance({ children }) {
     () => entranceGeometry(viewport),
     [viewport],
   )
+
+  const sceneNodes = useCallback(() => ({
+    root: entranceRef.current,
+    start: startRef.current,
+    stage: stageRef.current,
+    dusk: duskRef.current,
+    camera: cameraRef.current,
+    surround: surroundRef.current,
+    scenery: sceneryRef.current,
+    posts: {
+      book: { layer: bookLayerRef.current, stone: bookStoneRef.current },
+      site: { layer: siteLayerRef.current, stone: siteStoneRef.current },
+    },
+  }), [])
 
   const clearFinishTimer = useCallback(() => {
     if (finishTimerRef.current !== null) {
@@ -66,6 +173,7 @@ export default function CourseEntrance({ children }) {
       return
     }
 
+    startedAtRef.current = performance.now()
     setPhase('entering')
     clearFinishTimer()
     finishTimerRef.current = window.setTimeout(
@@ -89,6 +197,17 @@ export default function CourseEntrance({ children }) {
     setPhase('intro')
   }, [phase])
 
+  // A click anywhere on the moving stage skips to the homepage, except the
+  // second half of the click that started it.
+  function handleStageClick(event) {
+    if (phase !== 'entering') return
+    if (event.target.closest?.('.course-entrance-start') && event.detail === 0) {
+      finishEntrance()
+      return
+    }
+    if (performance.now() - startedAtRef.current >= SKIP_GUARD_MS) finishEntrance()
+  }
+
   useEffect(() => {
     function updateViewport() {
       setViewport(currentViewport())
@@ -111,6 +230,33 @@ export default function CourseEntrance({ children }) {
     if (phase !== 'intro') return
     entranceRef.current?.focus({ preventScroll: true })
   }, [phase])
+
+  // The resting cover is frame 0 of the same drawing, so a replay or a resize
+  // before the click always starts from a clean picture.
+  useLayoutEffect(() => {
+    if (phase !== 'intro') return
+    paintEntrance(sceneNodes(), 0)
+  }, [phase, sceneNodes, viewport])
+
+  useEffect(() => {
+    if (phase !== 'entering') return undefined
+    const scene = sceneNodes()
+    const startedAt = startedAtRef.current || performance.now()
+    let frame = 0
+
+    function tick() {
+      const elapsed = performance.now() - startedAt
+      paintEntrance(scene, elapsed)
+      if (elapsed >= ENTRANCE_DURATION) {
+        finishEntrance()
+        return
+      }
+      frame = window.requestAnimationFrame(tick)
+    }
+
+    frame = window.requestAnimationFrame(tick)
+    return () => window.cancelAnimationFrame(frame)
+  }, [finishEntrance, phase, sceneNodes])
 
   useEffect(() => {
     if (phase !== 'complete' || !focusHomeRef.current) return undefined
@@ -162,30 +308,22 @@ export default function CourseEntrance({ children }) {
 
   useEffect(() => () => clearFinishTimer(), [clearFinishTimer])
 
-  function handleTransitionEnd(event) {
-    if (
-      phase === 'entering'
-      && event.propertyName === 'transform'
-      && event.target.classList.contains('course-entrance-art')
-    ) finishEntrance()
-  }
-
   const gatewayPoints = geometry.gateway.split(' ').map(point => point.split(',').map(Number))
   const gatewayCenter = gatewayPoints.reduce(
     (center, [x, y]) => ({ x: center.x + x / gatewayPoints.length, y: center.y + y / gatewayPoints.length }),
     { x: 0, y: 0 },
   )
   const rootStyle = {
-    '--ce-duration': `${ENTRANCE_DURATION}ms`,
-    '--ce-scale': geometry.transform.scale,
-    '--ce-translate-x': geometry.transform.translateX,
-    '--ce-translate-y': geometry.transform.translateY,
     '--ce-gateway-x': `${gatewayCenter.x}px`,
     '--ce-gateway-y': `${gatewayCenter.y}px`,
     '--ce-gateway-width': `${Math.max(48, Math.max(...gatewayPoints.map(([x]) => x)) - Math.min(...gatewayPoints.map(([x]) => x)))}px`,
     '--ce-gateway-height': `${Math.max(48, Math.max(...gatewayPoints.map(([, y]) => y)) - Math.min(...gatewayPoints.map(([, y]) => y)))}px`,
   }
-  const maskId = 'course-entrance-gateway-mask'
+  const maskId = 'course-entrance-scenery-mask'
+  const postRefs = {
+    book: { layer: bookLayerRef, stone: bookStoneRef },
+    site: { layer: siteLayerRef, stone: siteStoneRef },
+  }
 
   return (
     <div className="course-entrance-shell">
@@ -194,13 +332,14 @@ export default function CourseEntrance({ children }) {
         inert={active ? true : undefined}
         aria-hidden={active ? 'true' : undefined}
       >
-        {children(replayEntrance)}
+        {children(replayEntrance, !active)}
       </div>
 
       <section
         className="course-entrance"
         data-phase={phase}
         data-layout={geometry.layout}
+        data-controls="shown"
         ref={entranceRef}
         tabIndex="-1"
         style={rootStyle}
@@ -209,12 +348,10 @@ export default function CourseEntrance({ children }) {
         aria-labelledby="course-entrance-title"
         aria-hidden={active ? undefined : 'true'}
         inert={active ? undefined : true}
-        onTransitionEnd={handleTransitionEnd}
+        onClick={handleStageClick}
       >
         <svg
           className="course-entrance-visual"
-          viewBox={`0 0 ${viewport.width} ${viewport.height}`}
-          preserveAspectRatio="none"
           role="img"
           aria-labelledby="course-entrance-art-title"
         >
@@ -226,33 +363,72 @@ export default function CourseEntrance({ children }) {
               maskUnits="userSpaceOnUse"
               x="0"
               y="0"
-              width={viewport.width}
-              height={viewport.height}
+              width={ENTRANCE_SOURCE.width}
+              height={ENTRANCE_SOURCE.height}
             >
-              <rect width={viewport.width} height={viewport.height} fill="white" />
-              <polygon className="course-entrance-gateway" points={geometry.gateway} fill="black" />
+              <polygon points={toPoints(ENTRANCE_BOX)} fill="white" />
+              {POST_KEYS.map(key => (
+                <polygon key={key} points={toPoints(shrinkPolygon(ENTRANCE_POSTS[key], 0.985))} fill="black" />
+              ))}
             </mask>
           </defs>
-          <g mask={`url(#${maskId})`}>
-            <rect className="course-entrance-backdrop" width={viewport.width} height={viewport.height} />
+          <g className="course-entrance-stage" ref={stageRef}>
+            <rect className="course-entrance-backdrop" width="100%" height="100%" />
+            <rect className="course-entrance-dusk" width="100%" height="100%" ref={duskRef} />
+          </g>
+          <g ref={cameraRef}>
             <image
               className="course-entrance-art"
+              ref={surroundRef}
               href={coverImage}
-              x={geometry.image.x}
-              y={geometry.image.y}
-              width={geometry.image.width}
-              height={geometry.image.height}
+              width={ENTRANCE_SOURCE.width}
+              height={ENTRANCE_SOURCE.height}
               preserveAspectRatio="none"
               onError={finishEntrance}
             />
+            <image
+              className="course-entrance-scenery"
+              ref={sceneryRef}
+              href={coverImage}
+              width={ENTRANCE_SOURCE.width}
+              height={ENTRANCE_SOURCE.height}
+              preserveAspectRatio="none"
+              mask={`url(#${maskId})`}
+            />
           </g>
         </svg>
+
+        {POST_KEYS.map(key => {
+          const bounds = polygonBounds(ENTRANCE_POSTS[key])
+          const clipId = `course-entrance-post-${key}`
+          return (
+            <div className="course-entrance-post" data-post={key} ref={postRefs[key].layer} key={key} aria-hidden="true">
+              <div className="course-entrance-post-stone" ref={postRefs[key].stone}>
+                <svg viewBox={`${bounds.x} ${bounds.y} ${bounds.width} ${bounds.height}`} preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <defs>
+                    <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
+                      <polygon points={toPoints(ENTRANCE_POSTS[key])} />
+                    </clipPath>
+                  </defs>
+                  <image
+                    href={coverImage}
+                    width={ENTRANCE_SOURCE.width}
+                    height={ENTRANCE_SOURCE.height}
+                    preserveAspectRatio="none"
+                    clipPath={`url(#${clipId})`}
+                  />
+                </svg>
+              </div>
+            </div>
+          )
+        })}
 
         <h1 className="course-entrance-sr-only" id="course-entrance-title" lang="to">Lea Faka-Tonga</h1>
         <button
           className="course-entrance-start"
           type="button"
-          onClick={phase === 'entering' ? finishEntrance : enterCourse}
+          ref={startRef}
+          onClick={phase === 'intro' ? enterCourse : undefined}
           aria-labelledby="course-entrance-invitation"
           aria-describedby="course-entrance-hint"
         >
