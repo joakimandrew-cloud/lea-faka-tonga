@@ -1,118 +1,121 @@
-import { useMemo, useRef, useState, useEffect } from 'react'
-import LogoMark from '../components/LogoMark'
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { okinafy } from '../lib/okinafy'
+import LogoMark from '../components/LogoMark'
 import { useChapter } from '../contexts/ChapterContext'
-// UX-03: this page renders outside <Layout />, so it carried neither the six
-// section links every other in-app page has nor the theme pill. Both are shared
-// pieces now, so the band below shows the identical ones.
 import { NAV_LINKS } from '../lib/nav-links'
-import ThemeToggle from '../components/ThemeToggle'
-// UX-11: a lesson whose quiz has been finished carries a tick, so the index
-// shows what has been done as well as where the learner stopped.
-import { readQuizScores, bestQuizScore } from '../lib/quiz-scores'
+import { okinafy } from '../lib/okinafy'
+import { bestQuizScore, readQuizScores } from '../lib/quiz-scores'
+import { useTheme } from '../lib/use-theme'
+import {
+  filterLessons,
+  groupLessons,
+  LESSON_GROUPS,
+  LESSON_TIERS,
+  resolveOpenGroupKeys,
+  splitMixedTonganText,
+} from '../lib/lesson-browser'
 import chapters from '../data/chapters.json'
-import '../styles/v11-components.css'
+import '../styles/learning-desk-lessons.css'
 
-const GROUPS = [
-  {
-    key: 'foundations',
-    name: 'Foundations',
-    verbPhrase: 'Build the sentence',
-    lead: 'Tense markers, pronouns, verbs, modifiers, time, commands, and location.',
-  },
-  {
-    key: 'core-grammar',
-    name: 'Core Grammar',
-    verbPhrase: 'Connect ideas',
-    lead: 'Prepositions, articles, negation, comitative mo, question words, the ko pattern, and everyday greetings.',
-  },
-  {
-    key: 'structure-possession',
-    name: 'Structure & Possession',
-    verbPhrase: 'Mark the subject',
-    lead: 'Noun subjects, equational sentences, possessives, definiteness, transitive word order, plus numbers and time.',
-  },
-  {
-    key: 'expanding-sentences',
-    name: 'Expanding Sentences',
-    verbPhrase: 'Add nuance',
-    lead: 'Auxiliaries, aspect, obligation, conjunctions, plurals, purpose, comparison, directionals, and conditionals.',
-  },
-  {
-    key: 'shaping-meaning',
-    name: 'Shaping Meaning',
-    verbPhrase: 'Refine expression',
-    lead: 'Existentials, faka- prefix, instrumental ʻaki, reported speech, compound adjectives, clefts, postposed possessives, modal nuances, relative clauses, and spatial nouns.',
-  },
-  {
-    key: 'advanced-patterns',
-    name: 'Advanced Patterns',
-    verbPhrase: 'Master the patterns',
-    lead: 'Word class flexibility, advanced time and definitive accent, verbal nouns, noun classes, conditionals, productive suffixes and prefixes, reduplication, special pronouns, and emotional and respectful registers.',
-  },
-]
+const BOOK_PDF = `${import.meta.env.BASE_URL}downloads/Lea-Faka-Tonga.pdf`
 
-const TIERS = [
-  {
-    key: 'basic',
-    name: 'Basic',
-    blurb: 'Build the sentence.',
-    groupKeys: ['foundations', 'core-grammar', 'structure-possession'],
-  },
-  {
-    key: 'intermediate',
-    name: 'Intermediate',
-    blurb: 'Expand and refine.',
-    groupKeys: ['expanding-sentences', 'shaping-meaning'],
-  },
-  {
-    key: 'advanced',
-    name: 'Advanced',
-    blurb: 'Productive morphology and register.',
-    groupKeys: ['advanced-patterns'],
-  },
-]
+function MixedText({ children, scope = 'mixed' }) {
+  return splitMixedTonganText(children, scope).map((segment, index) => (
+    <Fragment key={`${index}-${segment.text}`}>
+      {segment.tongan ? <span lang="to">{segment.text}</span> : segment.text}
+    </Fragment>
+  ))
+}
 
-// UX-04: what a typed query is matched against. The lesson's title and the two
-// topic chips the row already prints, nothing hidden. Chips are matched in both
-// spellings because the row renders them through okinafy, so a learner typing a
-// plain apostrophe should still find "ʻoku".
-function matchesLesson(ch, query) {
-  const q = query.trim().toLowerCase()
-  if (!q) return true
-  if (ch.title.toLowerCase().includes(q)) return true
-  const topics = Array.isArray(ch.topics) ? ch.topics.slice(0, 2) : []
-  return topics.some(
-    t => t.toLowerCase().includes(q) || okinafy(t).toLowerCase().includes(q),
+function SearchIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+      <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" strokeWidth="1.8" />
+      <path d="m15.5 15.5 4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
   )
 }
 
-function ChipIcon() {
+function LessonRow({ lesson, active, activeRowRef, score, onChoose }) {
+  const sample = lesson.teaching?.key_rules?.[0]
+  const topics = Array.isArray(lesson.topics) ? lesson.topics.slice(0, 2) : []
+
   return (
-    <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none">
-      <rect x="1" y="1" width="10" height="10" stroke="currentColor" strokeWidth="1" />
-      <rect x="3.5" y="3.5" width="5" height="5" fill="currentColor" />
-    </svg>
+    <li>
+      <Link
+        to={`/lessons/${lesson.chapter}`}
+        ref={active ? activeRowRef : null}
+        className={`desk-lesson${active ? ' is-current' : ''}`}
+        aria-current={active ? 'step' : undefined}
+        onClick={() => onChoose(lesson.chapter)}
+      >
+        <span className="desk-num">{String(lesson.chapter).padStart(2, '0')}</span>
+        <span className="desk-lesson-copy">
+          <span className="desk-lesson-title"><MixedText>{lesson.title}</MixedText></span>
+          {sample?.example_tongan && (
+            <span className="desk-example">
+              <span lang="to">{okinafy(sample.example_tongan)}</span>
+              {sample.example_english && (
+                <span className="desk-gloss">
+                  <MixedText scope="gloss">{sample.example_english}</MixedText>
+                </span>
+              )}
+            </span>
+          )}
+          {topics.length > 0 && (
+            <span className="desk-topics">
+              {topics.map((topic, index) => (
+                <Fragment key={`${lesson.chapter}-${index}`}>
+                  {index > 0 && <span aria-hidden="true"> · </span>}
+                  <MixedText>{okinafy(topic)}</MixedText>
+                </Fragment>
+              ))}
+            </span>
+          )}
+        </span>
+        {score !== null && (
+          <span className="desk-score">
+            <span aria-hidden="true">✓</span>
+            <span className="sr-only">Quiz done, best score {score.best} out of {score.of}</span>
+          </span>
+        )}
+        <span className="desk-next" aria-hidden="true">›</span>
+      </Link>
+    </li>
   )
 }
 
 export default function ChapterBrowser() {
   const { chapter: currentChapter, setChapter } = useChapter()
-  // UX-01: the index is 12 phone screens long and the only trace of a returning
-  // learner was a grey highlight somewhere down it. The row below names where
-  // they stopped, and the ref pulls that highlighted row onto the screen.
-  const activeRowRef = useRef(null)
-  // UX-04: fifty-two lessons with no search and no level jump. The box and the
-  // chips are the pair /drills already uses, in this page's own palette.
+  const [dark, setDark] = useTheme()
   const [query, setQuery] = useState('')
   const [level, setLevel] = useState('all')
   const [scores] = useState(readQuizScores)
-  const filtering = query.trim() !== '' || level !== 'all'
+  const activeRowRef = useRef(null)
+  const searchRef = useRef(null)
 
-  const resume = useMemo(
-    () => (currentChapter > 1 ? chapters.find(c => c.chapter === currentChapter) : null),
+  const currentLesson = useMemo(
+    () => chapters.find(lesson => lesson.chapter === currentChapter) || null,
     [currentChapter],
+  )
+  const resume = currentChapter > 1 ? currentLesson : null
+  const startLesson = resume || chapters[0]
+  const currentGroup = currentLesson?.group || LESSON_GROUPS[0].key
+  const [manualOpenGroups, setManualOpenGroups] = useState(() => new Set([currentGroup]))
+  const searchActive = query.trim().length > 0
+
+  const visibleLessons = useMemo(
+    () => filterLessons(chapters, { query, level }),
+    [query, level],
+  )
+  const visibleByGroup = useMemo(() => groupLessons(visibleLessons), [visibleLessons])
+  const matchedGroupKeys = useMemo(
+    () => LESSON_GROUPS.filter(group => visibleByGroup[group.key].length > 0).map(group => group.key),
+    [visibleByGroup],
+  )
+  const openGroupKeys = useMemo(
+    () => resolveOpenGroupKeys(manualOpenGroups, matchedGroupKeys, searchActive),
+    [manualOpenGroups, matchedGroupKeys, searchActive],
   )
 
   useEffect(() => {
@@ -120,79 +123,121 @@ export default function ChapterBrowser() {
     activeRowRef.current.scrollIntoView({ block: 'center' })
   }, [resume])
 
-  const byGroup = useMemo(() => {
-    const map = Object.fromEntries(GROUPS.map(g => [g.key, []]))
-    for (const ch of chapters) {
-      if (map[ch.group]) map[ch.group].push(ch)
-    }
-    return map
-  }, [])
+  function chooseLevel(nextLevel) {
+    setLevel(nextLevel)
+    if (nextLevel === 'all') return
+    const firstGroup = LESSON_TIERS.find(tier => tier.key === nextLevel)?.groupKeys[0]
+    if (!firstGroup) return
+    setManualOpenGroups(previous => new Set([...previous, firstGroup]))
+  }
 
-  // The typed query narrows the rows; the level chip hides whole bands. Both
-  // are applied here so every count on the page reports what is actually shown.
-  const visibleByGroup = useMemo(() => {
-    const map = {}
-    for (const g of GROUPS) {
-      map[g.key] = (byGroup[g.key] || []).filter(ch => matchesLesson(ch, query))
-    }
-    return map
-  }, [byGroup, query])
+  function recordGroupToggle(key, open) {
+    if (searchActive) return
+    setManualOpenGroups(previous => {
+      const next = new Set(previous)
+      if (open) next.add(key)
+      else next.delete(key)
+      return next
+    })
+  }
 
-  const shownTotal = TIERS.reduce((sum, tier) => {
-    if (level !== 'all' && level !== tier.key) return sum
-    return sum + tier.groupKeys.reduce((n, key) => n + (visibleByGroup[key]?.length || 0), 0)
-  }, 0)
+  function resetFilters() {
+    setQuery('')
+    setLevel('all')
+    requestAnimationFrame(() => searchRef.current?.focus())
+  }
+
+  const resultSuffix = searchActive
+    ? ' matching your search'
+    : level === 'all'
+      ? ' · Basic to Advanced'
+      : ` · ${LESSON_TIERS.find(tier => tier.key === level)?.name}`
 
   return (
-    <div className="chapters-page">
-
-      <div className="chapters-brand-band">
-        <Link to="/" className="brand">
-          <LogoMark className="logo-mark" />
-          <span className="wordmark">Lea Faka-Tonga</span>
+    <div className="learning-desk-lessons" data-theme={dark ? 'dark' : 'light'}>
+      <header className="desk-header">
+        <Link to="/" className="desk-brand" aria-label="Lea Faka-Tonga home">
+          <LogoMark className="desk-brand-mark" />
+          <span>Lea Faka-Tonga</span>
         </Link>
-        <div className="chapters-brand-actions">
-          <Link to="/" className="home-link">← Home</Link>
-          <nav className="header-nav" aria-label="Site sections">
-            {NAV_LINKS.map(l => (
-              <Link key={l.to} to={l.to}>{l.label}</Link>
-            ))}
-          </nav>
-          <ThemeToggle />
-        </div>
-      </div>
+        <nav className="desk-nav" aria-label="Course sections">
+          {NAV_LINKS.map(link => (
+            <Link
+              key={link.to}
+              to={link.to}
+              aria-current={link.to === '/lessons' ? 'page' : undefined}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <button
+          className="desk-theme"
+          type="button"
+          aria-label={`Switch to ${dark ? 'light' : 'dark'} mode`}
+          aria-pressed={dark}
+          onClick={() => setDark(!dark)}
+        >
+          <span aria-hidden="true">{dark ? '☀' : '◐'}</span>
+          {dark ? 'Light' : 'Dark'}
+        </button>
+      </header>
 
-      <div className="chapters-groups">
-        {/* Cold-visitor framing (CVC-03): Google can land a stranger here directly —
-            without this line the page is an unlabelled syllabus starting "BASIC".
-            The nbsp groups keep mobile wraps at the middots, never mid-phrase. */}
-        <div className="chapters-course-intro">
-          The&nbsp;full&nbsp;course &middot; 52&nbsp;lessons &middot; free&nbsp;while&nbsp;we&nbsp;build&nbsp;it
-        </div>
-        {resume && (
-          <Link to={`/lessons/${resume.chapter}`} className="chapters-continue">
-            Continue &middot; Lesson&nbsp;{resume.chapter} &middot; {resume.title}
-          </Link>
-        )}
-        {/* UX-04: the search box and the level chips, ported from /drills.
-            BASIC, not BEGINNER: the bands below have been named Basic /
-            Intermediate / Advanced since UX-12 unified the public names. */}
-        <div className="chapters-filter">
-          <input
-            type="search"
-            className="chapters-search"
-            placeholder="Search lessons (e.g., possessive, tense, greetings)"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            aria-label="Search lessons"
-          />
-          <div className="chapters-chips" role="group" aria-label="Filter by level">
-            {[['all', 'All'], ['basic', 'Basic'], ['intermediate', 'Intermediate'], ['advanced', 'Advanced']].map(([key, label]) => (
+      <main className="desk-main">
+        <section className="desk-intro" aria-labelledby="lessons-title">
+          <div>
+            <p className="desk-eyebrow">The full course · Basic to Advanced</p>
+            <h1 id="lessons-title">52 lessons.<br />One clear path.</h1>
+            <p className="desk-lead">
+              Learn Tongan with explanations, practice, and feedback. Start at the beginning or find the lesson you need.
+            </p>
+          </div>
+          <div className="desk-start">
+            <div className="desk-start-head">
+              <div>
+                <span>{resume ? 'Continue where you left off' : 'Your first lesson'}</span>
+                <h2><MixedText>{startLesson.title}</MixedText></h2>
+              </div>
+              <span className="desk-page-number">{String(startLesson.chapter).padStart(2, '0')}</span>
+            </div>
+            <div className="desk-start-body">
+              <p>{resume ? 'Ready for your next step?' : <>New to Tongan? <strong>Start here.</strong></>}</p>
+              <Link
+                className="desk-primary"
+                to={`/lessons/${startLesson.chapter}`}
+                state={resume ? undefined : { fromStart: true }}
+              >
+                {resume ? `Continue Lesson ${startLesson.chapter}` : 'Start Lesson 1, free'}
+              </Link>
+              <p className="desk-access">Free while we build it, members-only later.</p>
+            </div>
+          </div>
+        </section>
+
+        <div className="desk-tools">
+          <label className="desk-search">
+            <SearchIcon />
+            <input
+              ref={searchRef}
+              type="search"
+              aria-label="Search lessons"
+              placeholder="Search lessons or topics"
+              value={query}
+              onChange={event => setQuery(event.target.value)}
+            />
+          </label>
+          <div className="desk-filters" role="group" aria-label="Filter by level">
+            {[
+              ['all', 'All'],
+              ['basic', 'Basic'],
+              ['intermediate', 'Intermediate'],
+              ['advanced', 'Advanced'],
+            ].map(([key, label]) => (
               <button
                 key={key}
                 type="button"
-                className={`chapters-chip${level === key ? ' is-active' : ''}`}
-                onClick={() => setLevel(key)}
+                aria-pressed={level === key}
+                onClick={() => chooseLevel(key)}
               >
                 {label}
               </button>
@@ -200,111 +245,89 @@ export default function ChapterBrowser() {
           </div>
         </div>
 
-        {filtering && shownTotal === 0 && (
-          <p className="chapters-no-match">No lesson matches.</p>
-        )}
+        <p className="desk-result" role="status" aria-live="polite">
+          {visibleLessons.length} {visibleLessons.length === 1 ? 'lesson' : 'lessons'}{resultSuffix}
+        </p>
 
-        {TIERS.map(tier => {
-          if (level !== 'all' && level !== tier.key) return null
-          const tierGroups = tier.groupKeys
-            .map(key => GROUPS.find(g => g.key === key))
-            .filter(Boolean)
-          const tierCount = tierGroups.reduce(
-            (sum, g) => sum + (visibleByGroup[g.key]?.length || 0),
-            0,
-          )
-          if (filtering && tierCount === 0) return null
+        <div className="desk-course">
+          {visibleLessons.length === 0 ? (
+            <div className="desk-empty">
+              <p>No lessons match your search.</p>
+              <button className="desk-reset" type="button" onClick={resetFilters}>
+                Clear search and filters
+              </button>
+            </div>
+          ) : (
+            LESSON_TIERS.map(tier => {
+              if (level !== 'all' && level !== tier.key) return null
+              const tierGroups = tier.groupKeys
+                .map(key => LESSON_GROUPS.find(group => group.key === key))
+                .filter(group => group && visibleByGroup[group.key].length > 0)
+              const tierCount = tierGroups.reduce(
+                (total, group) => total + visibleByGroup[group.key].length,
+                0,
+              )
+              if (tierCount === 0) return null
 
-          return (
-            <section key={tier.key} className={`chapters-tier chapters-tier--${tier.key}`}>
-              <header className="chapters-tier-banner">
-                <div className="chapters-tier-heading">
-                  <h2 className="chapters-tier-name">{tier.name}</h2>
-                  <p className="chapters-tier-blurb">{tier.blurb}</p>
-                </div>
-                <div className="chapters-tier-count">
-                  {tierCount} lesson{tierCount === 1 ? '' : 's'}
-                </div>
-              </header>
-
-              {tierGroups.map(group => {
-                const all = visibleByGroup[group.key] || []
-                if (filtering && all.length === 0) return null
-
-                return (
-                  <section key={group.key} className="chapter-subsection">
-                    <div className="subsection-head">
-                      <div className="subsection-head-left">
-                        <span className="subsection-pill">
-                          <ChipIcon />
-                          {group.name}
-                        </span>
-                        <h3 className="subsection-title">{group.verbPhrase}</h3>
-                      </div>
-                      <span className="subsection-count">
-                        {all.length} lesson{all.length === 1 ? '' : 's'}
-                      </span>
+              return (
+                <section key={tier.key} className="desk-tier" aria-label={`${tier.name} lessons`}>
+                  <header className="desk-tier-head">
+                    <div className="desk-tier-title">
+                      <h2>{tier.name}</h2>
+                      <p>{tier.blurb}</p>
                     </div>
-                    <p className="subsection-sub">{group.lead}</p>
-                    <hr className="subsection-rule" />
+                    <span className="desk-tier-count">
+                      {tierCount} {tierCount === 1 ? 'lesson' : 'lessons'}
+                    </span>
+                  </header>
 
-                    {all.length === 0 ? (
-                      <div className="chapters-empty">No lessons in this section.</div>
-                    ) : (
-                      <ol className="chapter-list">
-                        {all.map(ch => {
-                          const isActive = ch.chapter === currentChapter
-                          const sample = ch.teaching?.key_rules?.[0]
-                          const topics = Array.isArray(ch.topics) ? ch.topics.slice(0, 2) : []
-                          const best = bestQuizScore(scores, ch.chapter)
-                          return (
-                            <li key={ch.chapter}>
-                              <Link
-                                to={`/lessons/${ch.chapter}`}
-                                ref={isActive ? activeRowRef : null}
-                                className={`chapter-list-row${isActive ? ' is-active' : ''}`}
-                                onClick={() => setChapter(ch.chapter)}
-                              >
-                                <span className="chapter-list-num">{String(ch.chapter).padStart(2, '0')}</span>
-                                <span className="chapter-list-body">
-                                  <span className="chapter-list-title">{ch.title}</span>
-                                  {sample?.example_tongan && (
-                                    <span className="chapter-list-sample">
-                                      {okinafy(sample.example_tongan)}
-                                      {sample.example_english && (
-                                        <span className="chapter-list-gloss">{sample.example_english}</span>
-                                      )}
-                                    </span>
-                                  )}
-                                  {topics.length > 0 && (
-                                    <span className="chapter-list-chips">
-                                      {topics.map((t, i) => (
-                                        <span key={i} className="chapter-list-chip">{okinafy(t)}</span>
-                                      ))}
-                                    </span>
-                                  )}
-                                </span>
-                                {best && (
-                                  <span className="chapter-list-tick">
-                                    <span aria-hidden="true">&#10003;</span>
-                                    <span className="sr-only">
-                                      Quiz done, best score {best.best} out of {best.of}
-                                    </span>
-                                  </span>
-                                )}
-                              </Link>
-                            </li>
-                          )
-                        })}
-                      </ol>
-                    )}
-                  </section>
-                )
-              })}
-            </section>
-          )
-        })}
-      </div>
+                  {tierGroups.map(group => {
+                    const groupLessonList = visibleByGroup[group.key]
+                    return (
+                      <details
+                        key={group.key}
+                        className="desk-group"
+                        data-group={group.key}
+                        open={openGroupKeys.has(group.key)}
+                        onToggle={event => recordGroupToggle(group.key, event.currentTarget.open)}
+                      >
+                        <summary>
+                          <span>
+                            <span className="desk-group-label">{group.name}</span>
+                            <span className="desk-group-title">{group.verbPhrase}</span>
+                          </span>
+                          <span className="desk-group-meta">
+                            <span>{groupLessonList.length} {groupLessonList.length === 1 ? 'lesson' : 'lessons'}</span>
+                            <span className="desk-expand" aria-hidden="true">+</span>
+                          </span>
+                        </summary>
+                        <p className="desk-group-lead"><MixedText>{group.lead}</MixedText></p>
+                        <ol className="desk-lesson-list">
+                          {groupLessonList.map(lesson => (
+                            <LessonRow
+                              key={lesson.chapter}
+                              lesson={lesson}
+                              active={lesson.chapter === currentChapter}
+                              activeRowRef={activeRowRef}
+                              score={bestQuizScore(scores, lesson.chapter)}
+                              onChoose={setChapter}
+                            />
+                          ))}
+                        </ol>
+                      </details>
+                    )
+                  })}
+                </section>
+              )
+            })
+          )}
+        </div>
+
+        <footer className="desk-foot">
+          <a href={BOOK_PDF}>Download the free book (PDF)</a>
+          <Link to="/report">Spot a mistake? Tell us</Link>
+        </footer>
+      </main>
     </div>
   )
 }

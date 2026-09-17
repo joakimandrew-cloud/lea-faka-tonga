@@ -1,0 +1,414 @@
+.learning-desk-lessons {
+  --desk-bg: #fff;
+  --desk-ink: #15253d;
+  --desk-muted: #526075;
+  --desk-red: #a52d25;
+  --desk-cta: #b50b05;
+  --desk-cta-hover: #890702;
+  --desk-line: #c8d1dc;
+  --desk-soft: #eef3f8;
+  --desk-panel: #f6f9fc;
+  --desk-band: #15253d;
+  --desk-band-text: #fff;
+  min-height: 100vh;
+  color-scheme: light;
+  background: var(--desk-bg);
+  color: var(--desk-ink);
+  font: 400 15px/1.5 'Inter', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.learning-desk-lessons[data-theme='dark'] {
+  --desk-bg: #101b2c;
+  --desk-ink: #f1f5fb;
+  --desk-muted: #b8c7d9;
+  --desk-red: #f6a499;
+  --desk-cta: #c02e24;
+  --desk-cta-hover: #cf3a30;
+  --desk-line: #43536a;
+  --desk-soft: #1b2b41;
+  --desk-panel: #162338;
+  --desk-band: #253d5b;
+  color-scheme: dark;
+}
+
+.learning-desk-lessons,
+.learning-desk-lessons * { box-sizing: border-box; }
+.learning-desk-lessons h1,
+.learning-desk-lessons h2,
+.learning-desk-lessons p { margin: 0; font-family: inherit; }
+.learning-desk-lessons a { color: inherit; text-decoration: none; }
+.learning-desk-lessons button,
+.learning-desk-lessons input { font: inherit; }
+.learning-desk-lessons button,
+.learning-desk-lessons summary { cursor: pointer; }
+.learning-desk-lessons [lang='to'] {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.learning-desk-lessons .desk-header {
+  padding: 13px 30px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: var(--desk-panel);
+  border-bottom: 1px solid var(--desk-line);
+}
+.learning-desk-lessons .desk-brand {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--desk-ink);
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+}
+.learning-desk-lessons .desk-brand-mark { width: 33px; height: 33px; color: var(--desk-red); }
+.learning-desk-lessons .desk-nav {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-left: auto;
+}
+.learning-desk-lessons .desk-nav a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  font-size: 12px;
+  font-weight: 700;
+}
+.learning-desk-lessons .desk-nav a[aria-current='page'] { border-color: var(--desk-red); }
+.learning-desk-lessons .desk-nav a:hover { color: var(--desk-red); }
+.learning-desk-lessons .desk-theme {
+  min-height: 44px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--desk-line);
+  border-radius: 8px;
+  background: var(--desk-bg);
+  color: var(--desk-muted);
+  font-size: 12px;
+}
+.learning-desk-lessons .desk-theme:hover { color: var(--desk-ink); border-color: var(--desk-muted); }
+
+.learning-desk-lessons .desk-main { max-width: 1200px; padding: 42px 40px 44px; margin: auto; }
+.learning-desk-lessons .desk-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 34px;
+}
+.learning-desk-lessons .desk-eyebrow {
+  color: var(--desk-red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.learning-desk-lessons h1 {
+  margin: 13px 0 16px;
+  font-size: clamp(38px, 4.6vw, 53px);
+  line-height: .98;
+  letter-spacing: -.05em;
+  font-weight: 900;
+}
+.learning-desk-lessons .desk-lead {
+  max-width: 420px;
+  color: var(--desk-muted);
+  font-size: 17px;
+  line-height: 1.5;
+}
+.learning-desk-lessons .desk-start {
+  overflow: hidden;
+  border: 1px solid var(--desk-line);
+  border-radius: 14px;
+  background: var(--desk-panel);
+}
+.learning-desk-lessons .desk-start-head {
+  padding: 18px 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--desk-band);
+  color: var(--desk-band-text);
+}
+.learning-desk-lessons .desk-start-head > div > span { color: inherit; font-size: 12px; opacity: .85; }
+.learning-desk-lessons .desk-start h2 {
+  margin-top: 5px;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1.2;
+}
+.learning-desk-lessons .desk-page-number {
+  padding: 5px 7px;
+  display: inline-flex;
+  border: 1px solid currentColor;
+  border-radius: 7px;
+  font-variant-numeric: tabular-nums;
+}
+.learning-desk-lessons .desk-start-body { padding: 19px 23px; }
+.learning-desk-lessons .desk-start-body > p { margin-bottom: 12px; color: var(--desk-muted); font-size: 13px; }
+.learning-desk-lessons .desk-primary {
+  min-height: 48px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--desk-cta);
+  color: #fff;
+  box-shadow: 0 5px 14px rgba(181, 11, 5, .1);
+  font-size: 14px;
+  font-weight: 700;
+}
+.learning-desk-lessons .desk-primary:hover { background: var(--desk-cta-hover); }
+.learning-desk-lessons .desk-start-body > .desk-access { margin: 11px 0 0; font-size: 11px; }
+
+.learning-desk-lessons .desk-tools {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--desk-line);
+  border-bottom: 1px solid var(--desk-line);
+}
+.learning-desk-lessons .desk-search {
+  min-width: 180px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 13px;
+  border: 1px solid var(--desk-line);
+  border-radius: 9px;
+  background: var(--desk-bg);
+  color: var(--desk-muted);
+}
+.learning-desk-lessons .desk-search input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--desk-ink);
+  font-size: 14px;
+}
+.learning-desk-lessons .desk-search:focus-within { outline: 3px solid var(--desk-red); outline-offset: 2px; }
+.learning-desk-lessons .desk-search input::placeholder { color: var(--desk-muted); opacity: 1; }
+.learning-desk-lessons .desk-filters { display: flex; gap: 3px; }
+.learning-desk-lessons .desk-filters button {
+  min-height: 44px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--desk-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.learning-desk-lessons .desk-filters button[aria-pressed='true'] { background: var(--desk-ink); color: var(--desk-bg); }
+.learning-desk-lessons .desk-filters button:hover { box-shadow: inset 0 0 0 1px var(--desk-line); }
+.learning-desk-lessons .desk-result { padding: 12px 0 19px; color: var(--desk-muted); font-size: 12px; }
+
+.learning-desk-lessons .desk-tier {
+  overflow: hidden;
+  margin-bottom: 28px;
+  border: 1px solid var(--desk-line);
+  border-radius: 14px;
+}
+.learning-desk-lessons .desk-tier-head {
+  padding: 19px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--desk-band);
+  color: var(--desk-band-text);
+}
+.learning-desk-lessons .desk-tier-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px 17px; }
+.learning-desk-lessons .desk-tier-title h2 { font-size: 28px; font-weight: 800; line-height: 1.1; letter-spacing: -.04em; }
+.learning-desk-lessons .desk-tier-title p { color: inherit; font-size: 13px; opacity: .86; }
+.learning-desk-lessons .desk-tier-count { font-size: 12px; white-space: nowrap; }
+.learning-desk-lessons .desk-group + .desk-group { border-top: 1px solid var(--desk-line); }
+.learning-desk-lessons .desk-group summary {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  list-style: none;
+  background: var(--desk-panel);
+}
+.learning-desk-lessons .desk-group summary::-webkit-details-marker { display: none; }
+.learning-desk-lessons .desk-group summary:hover { background: var(--desk-soft); }
+.learning-desk-lessons .desk-group-label {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--desk-red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+.learning-desk-lessons .desk-group-title {
+  display: block;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -.03em;
+}
+.learning-desk-lessons .desk-group-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--desk-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.learning-desk-lessons .desk-expand { width: 20px; display: inline-block; font-size: 21px; font-weight: 400; text-align: center; }
+.learning-desk-lessons details[open] .desk-expand { transform: rotate(45deg); }
+.learning-desk-lessons .desk-group-lead {
+  padding: 0 24px 19px;
+  border-bottom: 1px solid var(--desk-line);
+  background: var(--desk-panel);
+  color: var(--desk-muted);
+  font-size: 12px;
+}
+.learning-desk-lessons .desk-lesson-list {
+  margin: 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 30px;
+  list-style: none;
+}
+.learning-desk-lessons .desk-lesson-list li { min-width: 0; border-bottom: 1px solid var(--desk-line); }
+.learning-desk-lessons .desk-lesson-list li:nth-last-child(-n+2) { border-bottom: 0; }
+.learning-desk-lessons .desk-lesson {
+  min-height: 145px;
+  padding: 22px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  border-radius: 5px;
+}
+.learning-desk-lessons .desk-lesson.is-current { background: var(--desk-soft); box-shadow: 0 0 0 8px var(--desk-soft); }
+.learning-desk-lessons .desk-lesson:hover .desk-lesson-title { text-decoration: underline; text-underline-offset: 4px; }
+.learning-desk-lessons .desk-num {
+  min-width: 23px;
+  padding-top: 2px;
+  color: var(--desk-red);
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.learning-desk-lessons .desk-lesson-copy { min-width: 0; }
+.learning-desk-lessons .desk-lesson-title { display: block; font-size: 16px; font-weight: 700; line-height: 1.35; letter-spacing: -.025em; }
+.learning-desk-lessons .desk-example { display: block; margin-top: 9px; font-size: 15px; line-height: 1.4; }
+.learning-desk-lessons .desk-example > [lang='to'] { font-size: 17px; line-height: 1.55; }
+.learning-desk-lessons .desk-gloss { display: block; margin-top: 2px; color: var(--desk-muted); font-size: 12px; }
+.learning-desk-lessons .desk-topics { display: block; margin-top: 9px; color: var(--desk-muted); font-size: 11px; line-height: 1.55; }
+.learning-desk-lessons .desk-score {
+  min-width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--desk-red);
+  color: var(--desk-bg);
+  font-size: 12px;
+  font-weight: 800;
+}
+.learning-desk-lessons .desk-next { margin-left: auto; flex: none; color: var(--desk-muted); font-size: 19px; line-height: 1.3; }
+.learning-desk-lessons .desk-empty { padding: 35px 10px; text-align: center; }
+.learning-desk-lessons .desk-reset {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--desk-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.learning-desk-lessons .desk-foot {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  color: var(--desk-muted);
+  font-size: 12px;
+}
+.learning-desk-lessons .desk-foot a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 3px; }
+
+.learning-desk-lessons a:focus-visible,
+.learning-desk-lessons button:focus-visible,
+.learning-desk-lessons summary:focus-visible {
+  outline: 3px solid var(--desk-red);
+  outline-offset: 3px;
+}
+
+@media (max-width: 820px) {
+  .learning-desk-lessons .desk-header { flex-wrap: wrap; gap: 0 15px; padding: 10px 24px; }
+  .learning-desk-lessons .desk-brand { margin-right: auto; }
+  .learning-desk-lessons .desk-nav { order: 3; width: 100%; margin: 4px 0 0; justify-content: space-between; }
+  .learning-desk-lessons .desk-intro { gap: 28px; }
+  .learning-desk-lessons .desk-main { padding: 30px 24px; }
+  .learning-desk-lessons .desk-tools { flex-wrap: wrap; gap: 12px; }
+  .learning-desk-lessons .desk-search { flex-basis: 100%; }
+}
+
+@media (max-width: 580px) {
+  .learning-desk-lessons .desk-header { padding: 8px 16px; }
+  .learning-desk-lessons .desk-brand { font-size: 20px; }
+  .learning-desk-lessons .desk-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; }
+  .learning-desk-lessons .desk-nav a { min-width: 0; justify-content: center; font-size: 12px; }
+  .learning-desk-lessons .desk-main { padding: 25px 17px 24px; }
+  .learning-desk-lessons .desk-intro { grid-template-columns: 1fr; gap: 23px; margin-bottom: 25px; }
+  .learning-desk-lessons h1 { margin-top: 10px; font-size: 42px; }
+  .learning-desk-lessons .desk-lead { font-size: 16px; }
+  .learning-desk-lessons .desk-start-head,
+  .learning-desk-lessons .desk-start-body { padding: 16px 18px; }
+  .learning-desk-lessons .desk-primary { width: 100%; }
+  .learning-desk-lessons .desk-filters { width: 100%; justify-content: space-between; }
+  .learning-desk-lessons .desk-filters button { padding: 0 9px; font-size: 12px; }
+  .learning-desk-lessons .desk-search input { font-size: 16px; }
+  .learning-desk-lessons .desk-tier-head { padding: 19px 17px; gap: 12px; }
+  .learning-desk-lessons .desk-tier-title { display: block; }
+  .learning-desk-lessons .desk-tier-title h2 { font-size: 27px; }
+  .learning-desk-lessons .desk-tier-title p { margin-top: 6px; font-size: 12px; }
+  .learning-desk-lessons .desk-group summary { padding: 19px 17px; }
+  .learning-desk-lessons .desk-group-title { font-size: 19px; }
+  .learning-desk-lessons .desk-group-meta { gap: 10px; }
+  .learning-desk-lessons .desk-group-lead { padding: 0 17px 18px; }
+  .learning-desk-lessons .desk-lesson-list { padding: 0 17px; grid-template-columns: 1fr; }
+  .learning-desk-lessons .desk-lesson-list li:nth-last-child(2) { border-bottom: 1px solid var(--desk-line); }
+  .learning-desk-lessons .desk-lesson { min-height: 0; }
+  .learning-desk-lessons .desk-foot { display: block; }
+  .learning-desk-lessons .desk-foot a { display: flex; }
+}
+
+@media (max-width: 340px) {
+  .learning-desk-lessons .desk-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learning-desk-lessons *,
+  .learning-desk-lessons *::before,
+  .learning-desk-lessons *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
