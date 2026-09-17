@@ -4,6 +4,7 @@ import '@fontsource/inter/700.css'
 import '@fontsource/inter/900.css'
 import LogoMark from '../components/LogoMark'
 import LearningDeskSample from '../components/LearningDeskSample'
+import CourseEntrance from '../components/CourseEntrance'
 import TopicLinks from '../components/TopicLinks'
 import coverConcept from '../assets/learning-desk-cover-concept.png'
 import { BOOK_EPUB, BOOK_PDF } from '../lib/hero-cells.jsx'
@@ -30,6 +31,7 @@ export default function Landing() {
   }
 
   return (
+    <CourseEntrance>{replayEntrance => (
     <div className="learning-desk">
       <a className="ld-skip" href="#learning-desk-main">Skip to content</a>
 
@@ -114,6 +116,7 @@ export default function Landing() {
           {partner ? 'Support the work through your partner' : 'Support the work'}: $35+ keeps the site free for you, for life.
         </a>
         <Link to="/report">Spot a mistake? Tell us</Link>
+        <button className="course-entrance-replay" type="button" onClick={replayEntrance}>Replay entrance</button>
       </footer>
 
       <dialog
@@ -133,5 +136,6 @@ export default function Landing() {
         <img src={coverConcept} width="1047" height="1502" alt="Lea Faka-Tonga cover concept shown at a larger size" />
       </dialog>
     </div>
+    )}</CourseEntrance>
   )
 }
