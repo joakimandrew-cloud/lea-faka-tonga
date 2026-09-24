@@ -18,12 +18,12 @@ Tongan has three common time words for the recent past:
 | ------------- | -------------------------- |
 | *'aneafi* | yesterday                  |
 | *'anepō*      | last night                 |
-| *'anenai* | a while ago, earlier today |
+| *'anenai* | a short time ago, earlier today, or earlier in the present speech |
 
 ::: {.examples}
 *Na'á ku mohe 'aneafi.* I slept yesterday.
 
-*Na'a mau ako lea 'anenai.* We studied language a while ago.
+*Na'a mau ako lea 'anenai.* We studied language a little while ago.
 :::
 
 In the second sentence, *ako* *(study)* combines with *lea* in the verb-object compound *ako lea* *(study language)*, which works as a unit, just as *kai mā* and *inu vai* do. The time word follows the compound, in the same end position as always.
@@ -71,7 +71,7 @@ The past and future words come in pairs. Past time words begin with *'ane-*. Fut
 | Past (*'ane-*) | | Future (*'a-*) | |
 |---|---|---|---|
 | *'anepō* | last night | *'apō* | tonight |
-| *'anenai* | a while ago | *'anai* | in a little while |
+| *'anenai* | a short time ago | *'anai* | in a little while |
 | *'aneafi* | yesterday | *'apongipongi* | tomorrow |
 
 The third pair does not share an ending, but the pattern in the first two makes them easier to remember: *'ane-* looks back, *'a-* looks forward.
@@ -195,7 +195,7 @@ Adding the preposed modifier *fa'a* from the previous lesson gives the most comp
 |--------|------|---------|
 | *'aneafi* | time word | yesterday |
 | *'anepō* | time word | last night |
-| *'anenai* | time word | a while ago |
+| *'anenai* | time word | a short time ago, earlier today, or earlier in the present speech |
 | *'apongipongi* | time word | tomorrow |
 | *'apō* | time word | tonight |
 | *'anai* | time word | in a little while |
@@ -243,7 +243,7 @@ The English in parentheses tells you when. Add the correct Tongan time word to t
 
 1. *Na'á ku kai mā \_\_\_.* (yesterday)
 2. *Te mau hiva \_\_\_.* (tonight)
-3. *Na'a nau mohe \_\_\_.* (a while ago)
+3. *Na'a nau mohe \_\_\_.* (a short time ago)
 4. *Té u 'alu \_\_\_.* (tomorrow)
 5. *Na'á ke ngāue \_\_\_.* (last night)
 6. *'Oku ou fiefia \_\_\_.* (today)
@@ -278,7 +278,7 @@ Arrange the words into a correct Tongan sentence, then translate to English.
 
 1. I slept yesterday.
 2. They will sing tonight.
-3. We (not including you) ate taro a while ago.
+3. We (not including you) ate taro a short time ago.
 4. Will you go tomorrow?
 5. He/She worked hard yesterday.
 6. I am tired today.
@@ -311,7 +311,7 @@ Arrange the words into a correct Tongan sentence, then translate to English.
 2. *Té* (future: *'apongipongi* = tomorrow; accent before *u*)
 3. *Na'a* (past: *'anepō* = last night; no accent before *nau*)
 4. *Té* (future: *'apō* = tonight; accent before *ke*)
-5. *Na'a* (past: *'anenai* = a while ago; no accent before *mau*)
+5. *Na'a* (past: *'anenai* = a short time ago; no accent before *mau*)
 6. *Té* (future: *'anai* = in a little while; accent before *ne*)
 
 #### Exercise 5
@@ -321,6 +321,6 @@ Arrange the words into a correct Tongan sentence, then translate to English.
 3. *Té ke 'alu 'apongipongi.* You will go tomorrow.
 4. *Na'a nau fa'a kai ika 'anepō.* They often ate fish last night.
 5. *'Oku ou fiekaia he 'ahó ni.* I am hungry today.
-6. *Na'á ku ngāue lahi 'aupito 'anenai.* I worked very hard a while ago.
+6. *Na'á ku ngāue lahi 'aupito 'anenai.* I worked very hard a short time ago.
 
 ---
