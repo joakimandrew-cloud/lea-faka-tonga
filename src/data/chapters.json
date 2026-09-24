@@ -208,7 +208,7 @@
     "chapter": 4,
     "title": "Time Words",
     "topics": [
-      "Yesterday, last night, a while ago",
+      "Yesterday, last night, a short time ago",
       "Tomorrow, tonight, in a while",
       "Today",
       "Time words go last"
@@ -228,9 +228,9 @@
           "example_english": "I slept yesterday."
         },
         {
-          "rule": "Past: ʻaneafi (yesterday), ʻanepō (last night), ʻanenai (a while ago)",
+          "rule": "Past: ʻaneafi (yesterday), ʻanepō (last night), ʻanenai (a short time ago)",
           "example_tongan": "Naʻa mau kai talo ʻanenai.",
-          "example_english": "We ate taro a while ago."
+          "example_english": "We ate taro a short time ago."
         },
         {
           "rule": "Future: ʻapongipongi (tomorrow), ʻapō (tonight), ʻanai (in a while)",
@@ -261,7 +261,7 @@
           ],
           [
             "ʻanenai",
-            "a while ago",
+            "a short time ago",
             "ʻanai",
             "in a while"
           ]
