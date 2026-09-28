@@ -1,0 +1,14 @@
+{
+  "approval": "Andrew, 2026-09-26; exclusive website set reaffirmed 2026-09-29",
+  "source": "src/components/kupesi-approved.js",
+  "shapes": {
+    "nest": "58f807b84f32456636420891a9d0162d3f4093406177eb37c963ef2e240b67be",
+    "nest-inv": "58f807b84f32456636420891a9d0162d3f4093406177eb37c963ef2e240b67be",
+    "leaf": "45810cb105bcd0834ec19f3a5f3c4e534740a3d84d32c94a1fa079231b4a76fb",
+    "leaf-inv": "45810cb105bcd0834ec19f3a5f3c4e534740a3d84d32c94a1fa079231b4a76fb",
+    "lens": "1d1a2e0d9bc06c70ebb669662bb10f2309bfc60f291c7424fcecabff9b81705b",
+    "lens-inv": "1d1a2e0d9bc06c70ebb669662bb10f2309bfc60f291c7424fcecabff9b81705b",
+    "pinwheel": "8a2954f3aedabfe490dd3f3359124a0e7d665886efebae29b97a1b95c08c68b0",
+    "pinwheel-inv": "8a2954f3aedabfe490dd3f3359124a0e7d665886efebae29b97a1b95c08c68b0"
+  }
+}

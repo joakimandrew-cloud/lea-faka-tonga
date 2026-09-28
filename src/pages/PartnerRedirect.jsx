@@ -15,9 +15,8 @@ import { rememberPartner } from '../lib/partner-link'
 // checkout screen is a different thing from what they were promised, and it
 // would cost him more credibility than the commission is worth. So the click
 // lands on the homepage, and the partner is remembered for 60 days
-// (src/lib/partner-link.js). Every support button on the site points at his
-// dedicated Buy Me a Coffee item for as long as he is remembered, so whoever
-// does decide to back the work is still provably his.
+// (src/lib/partner-link.js). Course access remains free. Optional support
+// opens the general donation page; partner attribution is retained separately.
 //
 // The destination is the homepage rather than /lessons/1 because that is
 // where the offer is explained, where the free book download sits, and where

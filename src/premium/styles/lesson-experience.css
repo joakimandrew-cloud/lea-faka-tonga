@@ -1,0 +1,78 @@
+.mobile-compass { display: none; }
+
+.mobile-compass-dialog {
+  width: min(560px, calc(100vw - 24px));
+  max-height: min(76vh, 680px);
+  margin: auto auto 12px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 22px;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+}
+.mobile-compass-dialog::backdrop { background: rgba(18, 17, 16, .62); backdrop-filter: blur(3px); }
+.mobile-compass-sheet { max-height: min(76vh, 680px); overflow: auto; overscroll-behavior: contain; }
+.mobile-compass-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 66px; padding: 10px 14px 10px 22px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.mobile-compass-head strong { font: 750 19px/1.2 var(--f-display); text-transform: uppercase; letter-spacing: .04em; }
+.mobile-compass-close { width: 44px; height: 44px; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--ink); background: var(--paper-soft); font-size: 28px; line-height: 1; }
+.mobile-compass-list { list-style: none; margin: 0; padding: 8px 12px 16px; }
+.mobile-compass-list button { width: 100%; min-height: 52px; display: grid; grid-template-columns: 38px minmax(0, 1fr); align-items: center; gap: 10px; padding: 8px 10px; border: 0; border-radius: 12px; color: var(--ink); background: transparent; text-align: left; font: 650 16px/1.35 var(--f-ui); }
+.mobile-compass-list button > span:first-child { color: var(--muted); font: 700 12px/1 var(--f-display); letter-spacing: .1em; }
+.mobile-compass-list button:hover { background: var(--paper-soft); }
+.mobile-compass-list button.is-active { color: var(--ink); background: var(--orange-soft); }
+.mobile-compass-list button.is-active > span:first-child { color: var(--red); }
+.mobile-compass-open:focus-visible,
+.mobile-compass-close:focus-visible,
+.mobile-compass-list button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+@media (max-width: 1080px) {
+  .mobile-compass {
+    position: sticky;
+    top: 70px;
+    z-index: 38;
+    display: block;
+    padding: 10px max(var(--gutter), calc((100vw - 960px) / 2));
+    color: #fff;
+    background: var(--band);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 8px 24px -20px rgba(0,0,0,.85);
+    transition: transform .35s var(--ease-out);
+  }
+  html[data-hdr='hidden'] .mobile-compass { transform: translateY(-70px); }
+  .mobile-compass-main { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; }
+  .mobile-compass-copy { min-width: 0; }
+  .mobile-compass-k { display: block; color: var(--orange); font: 800 10px/1 var(--f-display); letter-spacing: .15em; text-transform: uppercase; }
+  .mobile-compass-t { display: block; margin-top: 4px; overflow: hidden; color: #fff; font: 700 14px/1.25 var(--f-ui); text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-compass-t .to { color: inherit; }
+  .mobile-compass-open { min-height: 42px; padding: 0 15px; border: 1px solid rgba(255,255,255,.34); border-radius: 999px; color: #fff; background: transparent; font: 700 13px/1 var(--f-ui); }
+  .mobile-compass-segs { display: grid; grid-template-columns: repeat(var(--compass-count, 1), 1fr); gap: 3px; margin-top: 8px; }
+  .mobile-compass-segs i { height: 3px; border-radius: 3px; background: rgba(255,255,255,.24); }
+  .mobile-compass-segs i.is-past { background: rgba(255,255,255,.82); }
+  .mobile-compass-segs i.is-active { background: var(--orange); }
+  .lesson .ls-sec,
+  .lesson .ls-h2,
+  .lesson .ls-h3,
+  .lesson .xs { scroll-margin-top: 158px; }
+  .lesson .ls-h2:focus-visible { outline: 3px solid var(--focus); outline-offset: 7px; border-radius: 4px; }
+}
+
+@media (max-width: 880px) {
+  .mobile-compass { top: 62px; }
+  html[data-hdr='hidden'] .mobile-compass { transform: translateY(-62px); }
+  .lesson .ls-sec,
+  .lesson .ls-h2,
+  .lesson .ls-h3,
+  .lesson .xs { scroll-margin-top: 150px; }
+}
+
+@media (max-width: 480px) {
+  .mobile-compass-dialog { width: calc(100vw - 16px); margin-bottom: 8px; }
+  .mobile-compass { padding-block: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-compass { transition: none; }
+  .mobile-compass-dialog::backdrop { backdrop-filter: none; }
+}

@@ -1,26 +1,7 @@
 import partners from '../data/partners.json'
 
-// ─────────────────────────────────────────────────────────────────────────
-// Which Buy Me a Coffee URL do the site's support buttons point at?
-//
-// Normally: the one shop page everybody sees, DEFAULT_SUPPORT_URL.
-//
-// After a visitor arrives through a partner link (/r/<slug>, see
-// src/pages/PartnerRedirect.jsx), that partner's slug is remembered in this
-// browser for PARTNER_TTL_DAYS days, and every support button points at his
-// dedicated Buy Me a Coffee item instead. Buy Me a Coffee records which item
-// was bought, so a sale through that item is his by definition. Nothing else
-// on the site changes: same copy, same buttons, same price.
-//
-// Rules this module holds to, because it runs on every render of the
-// homepage and cannot be allowed to break a page:
-//   1. It never throws. Any failure falls back to DEFAULT_SUPPORT_URL.
-//   2. localStorage may be missing or blocked (private browsing, an embedded
-//      webview, a locked-down browser). Every access is wrapped.
-//   3. A partner older than the window is ignored AND cleared.
-//   4. A slug that is no longer in partners.json is treated as no partner,
-//      and cleared, so retiring a partner is a data edit in that file.
-// ─────────────────────────────────────────────────────────────────────────
+// Partner attribution is retained for 60 days. All lesson access is free;
+// optional support uses the general donation page.
 
 export const DEFAULT_SUPPORT_URL = 'https://buymeacoffee.com/leafakatonga'
 
@@ -131,18 +112,9 @@ export function readPartner() {
   return { ...partner, storedAt: ts }
 }
 
-/**
- * The Buy Me a Coffee URL every support button on the site should use.
- * The remembered partner's dedicated item when one is live, otherwise the
- * ordinary page. Never throws.
- */
+/** Optional support never purchases access. Attribution is retained separately. */
 export function supportUrl() {
-  try {
-    const partner = readPartner()
-    return partner ? partner.destination : DEFAULT_SUPPORT_URL
-  } catch {
-    return DEFAULT_SUPPORT_URL
-  }
+  return DEFAULT_SUPPORT_URL
 }
 
 /** Forget the remembered partner. Exported for tests and manual clean-up. */

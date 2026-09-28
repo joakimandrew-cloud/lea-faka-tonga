@@ -1,0 +1,28 @@
+.home-pattern-band {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  overflow: hidden;
+  padding: 8px 0;
+  background: #fff;
+}
+.home-pattern-band .kp-tile {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  color: #b92e0e;
+  --kp-ground: #fff;
+  border-radius: 3px;
+}
+html[data-premium-variant='white-red'] .ftr .home-pattern-band {
+  background: #fff;
+}
+html[data-premium-variant='white-red'] .ftr .home-pattern-band .kp-tile {
+  color: #b92e0e;
+  --kp-ground: #fff;
+}
+@media (max-width: 760px) {
+  .home-pattern-band { gap: 4px; padding: 6px 0; }
+  .home-pattern-band .kp-tile { width: 36px; height: 36px; flex-basis: 36px; }
+}

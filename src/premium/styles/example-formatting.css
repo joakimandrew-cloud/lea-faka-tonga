@@ -1,0 +1,24 @@
+.pair-source {
+  color: var(--ink);
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.pair-source .to {
+  font-size: inherit;
+}
+
+.pair-source .md-b {
+  background: none;
+  color: var(--red);
+  font-weight: 700;
+  padding: 0;
+}
+
+.pair.is-big .pair-source {
+  font-size: clamp(30px, 3vw, 38px);
+}
+
+.ex-inline .pair-source {
+  font-size: 22px;
+}

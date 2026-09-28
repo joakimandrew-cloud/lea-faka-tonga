@@ -1,0 +1,48 @@
+/* Exact utility subset used by the reused builder and Sentence Lab sources.
+   It is scoped to .premium-core and intentionally contains no preflight. */
+.premium-core .relative { position: relative; }
+.premium-core .fixed { position: fixed; }
+.premium-core .inset-0 { inset: 0; }
+.premium-core .z-40 { z-index: 40; }
+.premium-core .inline-flex { display: inline-flex; }
+.premium-core .flex-col { flex-direction: column; }
+.premium-core .items-start { align-items: flex-start; }
+.premium-core .bg-transparent { background-color: transparent; }
+.premium-core .outline-none { outline: 2px solid transparent; outline-offset: 2px; }
+.premium-core .mt-1 { margin-top: .25rem; }
+.premium-core .mt-4 { margin-top: 1rem; }
+.premium-core .mb-1 { margin-bottom: .25rem; }
+.premium-core .mb-2 { margin-bottom: .5rem; }
+.premium-core .ml-2 { margin-left: .5rem; }
+.premium-core .pl-4 { padding-left: 1rem; }
+.premium-core .pr-4 { padding-right: 1rem; }
+.premium-core .pb-1 { padding-bottom: .25rem; }
+.premium-core .py-1\.5 { padding-block: .375rem; }
+.premium-core .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: .75rem; }
+.premium-core .space-y-5 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.25rem; }
+.premium-core .w-full { width: 100%; }
+.premium-core .border-collapse { border-collapse: collapse; }
+.premium-core .border-l-2 { border-left-width: 2px; border-left-style: solid; }
+.premium-core .border-t { border-top-width: 1px; border-top-style: solid; }
+.premium-core .border-\[var\(--accent\)\] { border-color: var(--accent); }
+.premium-core .border-\[var\(--surface-sunken\)\] { border-color: var(--surface-sunken); }
+.premium-core .align-top { vertical-align: top; }
+.premium-core .text-left { text-align: left; }
+.premium-core .font-normal { font-weight: 400; }
+.premium-core .italic { font-style: italic; }
+.premium-core .whitespace-nowrap { white-space: nowrap; }
+.premium-core .uppercase { text-transform: uppercase; }
+.premium-core .cursor-pointer { cursor: pointer; }
+.premium-core .text-xs { font-size: .75rem; line-height: 1rem; }
+.premium-core .text-sm { font-size: .875rem; line-height: 1.4rem; }
+.premium-core .tracking-\[0\.1em\] { letter-spacing: .1em; }
+.premium-core .tracking-\[0\.15em\] { letter-spacing: .15em; }
+.premium-core .tracking-wider { letter-spacing: .05em; }
+.premium-core .leading-relaxed { line-height: 1.625; }
+.premium-core .text-\[var\(--text\)\] { color: var(--text); }
+.premium-core .text-\[var\(--text-strong\)\] { color: var(--text-strong); }
+.premium-core .text-\[var\(--text-muted\)\] { color: var(--text-muted); }
+.premium-core .text-\[var\(--text-faint\)\] { color: var(--text-faint); }
+.premium-core .text-\[var\(--accent\)\] { color: var(--accent); }
+.premium-core .hover\:text-\[var\(--accent-hover\)\]:hover { color: var(--accent-hover); }
+.premium-core .transition-colors { transition: color .15s, border-color .15s, background-color .15s; }

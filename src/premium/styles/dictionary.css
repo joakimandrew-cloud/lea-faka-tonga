@@ -1,0 +1,31 @@
+/* /dictionary. Built on catalog.css; existing tokens only (the quiz list's rows,
+   the registry's display type, the .to Tongan face). */
+.dictionary-list { margin: 28px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.dictionary-entry { display: grid; grid-template-columns: minmax(150px, .42fr) minmax(0, 1fr) auto; gap: 18px; align-items: baseline; min-height: 64px; padding: 16px 4px; border-bottom: 1px solid var(--line); }
+.dictionary-tongan { color: var(--ink); font-size: 24px; line-height: 1.15; }
+.dictionary-english { color: var(--muted); font: 17px/1.5 var(--f-serif); }
+.dictionary-meta { display: flex; align-items: baseline; justify-content: flex-end; gap: 14px; white-space: nowrap; }
+.dictionary-pos { color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.dictionary-lesson { color: var(--red); font-size: 13px; font-weight: 750; text-decoration: none; }
+a.dictionary-lesson:hover { text-decoration: underline; text-underline-offset: 4px; }
+.dictionary-lesson.is-supplemental { color: var(--muted); }
+.dictionary-note { margin: 28px 0 0; color: var(--muted); font-size: 14px; }
+.dictionary-browse { margin-top: 28px; }
+.dictionary-browse > p:first-child { margin: 0 0 12px; color: var(--muted); font: 700 12px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; }
+.dictionary-alphabet { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 6px; }
+.dictionary-alphabet button { min-width: 44px; min-height: 48px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--paper); color: var(--ink); font: 650 18px var(--f-ui); cursor: pointer; }
+.dictionary-alphabet button:hover { border-color: var(--red); color: var(--red); }
+.dictionary-alphabet button[aria-pressed='true'] { border-color: var(--red); background: var(--red); color: #fff; }
+.dictionary-alphabet button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.dictionary-browse .dictionary-browse-help { margin: 12px 0 0; color: var(--muted); font: 13px/1.5 var(--f-ui); }
+
+@media (max-width: 640px) {
+  .dictionary-alphabet { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
+  .dictionary-alphabet button { min-width: 0; padding-inline: 4px; }
+}
+
+@media (max-width: 620px) {
+  .dictionary-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 14px 0; }
+  .dictionary-english { grid-column: 1; }
+  .dictionary-meta { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; align-items: flex-end; gap: 4px; }
+}

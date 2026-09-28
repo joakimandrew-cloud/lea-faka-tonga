@@ -50,6 +50,18 @@ export const STATIC_META = {
     description:
       'Thirty tap-only Tongan practice drills grouped by skill: tense markers, pronouns, possessives, articles, prepositions, question words, and more. Each one is tied to the lesson that teaches it.',
   },
+  '/dictionary': {
+    title: `Tongan Dictionary, Browse and Search | ${SITE_NAME}`,
+    description: 'Browse the course vocabulary by letter, including vowels beginning with fakauʻa, or search in Tongan and English.',
+  },
+  '/help': {
+    title: `Help and Free Downloads | ${SITE_NAME}`,
+    description: 'Download the free Tongan course, report a mistake or find help with lessons and practice.',
+  },
+  '/drill/tense-swap': {
+    title: `Practise Tongan Tense Markers | ${SITE_NAME}`,
+    description: 'Practise choosing a tense marker using examples from the course.',
+  },
   '/cards': {
     title: `Tongan Vocabulary Flash Cards | ${SITE_NAME}`,
     description:
@@ -187,7 +199,7 @@ export const STATIC_META = {
   '/support': {
     title: `Support the Work | ${SITE_NAME}`,
     description:
-      'The book is free and stays free. If it is worth something to you, a one-off contribution keeps the site free for you, for life.',
+      'All 52 lessons and the book are free. Optional contributions support the work.',
   },
 }
 

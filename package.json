@@ -32,7 +32,10 @@
     "check:fidelity": "node scripts/check-locators.mjs; node scripts/check-glosses.mjs; node scripts/check-grammaticality.mjs; node scripts/check-internal-consistency.mjs; node scripts/check-orthography.mjs",
     "build:source-map": "node scripts/build-source-map.mjs",
     "check:originality": "node scripts/check-originality.mjs",
-    "audit:all": "npm run check:style && npm run validate:drills && npm run audit:eva"
+    "audit:all": "npm run check:style && npm run validate:drills && npm run audit:eva",
+    "test:premium": "node --test --test-concurrency=1 src/premium/test/*.test.js",
+    "check:premium-copy": "node scripts/premium/check-copy.mjs",
+    "check:motifs": "node scripts/premium/check-motifs.mjs"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.2.8",
@@ -44,7 +47,12 @@
     "react-router-dom": "^7.14.0",
     "rehype-raw": "^7.0.0",
     "remark-directive": "^4.0.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.0",
+    "motion": "^13.4.3",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

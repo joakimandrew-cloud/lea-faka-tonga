@@ -1,0 +1,56 @@
+/* The original premium tense cycle, adapted to the white/red landing page. */
+.wr-home .wr-home__sentence .wr-home__section-intro { max-width: 680px; margin: 0 auto 38px; text-align: center; }
+.wr-sentence-cycle { max-width: 1000px; margin: 0 auto; }
+.wr-sentence-cycle__card { padding: 28px 36px 32px; color: #171717; background: #f5f4f1; border: 1px solid #e1e0dc; border-radius: 20px; }
+.wr-sentence-cycle__top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 20px; }
+.wr-sentence-cycle__eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--wr-red-deep); font: 650 16px var(--f-display); letter-spacing: .13em; text-transform: uppercase; }
+.wr-sentence-cycle__eyebrow > span { width: 9px; height: 9px; border-radius: 50%; background: var(--wr-red); box-shadow: 0 0 0 5px #b92e0e12; }
+.wr-sentence-cycle__controls { display: flex; align-items: center; gap: 12px; }
+.wr-sentence-cycle__controls button { min-height: 44px; font: 600 13px var(--f-ui); cursor: pointer; }
+.wr-sentence-cycle__play { min-width: 44px; padding: 10px 3px; color: #605b54; border: 0; background: none; text-decoration: underline; text-underline-offset: 4px; }
+.wr-sentence-cycle__another { padding: 10px 18px; border: 1px solid #d9d6cf; border-radius: 999px; background: #fff; color: #292620; }
+.wr-sentence-cycle__another span { margin-left: 7px; font-size: 18px; }
+.wr-sentence-cycle__another:hover { border-color: var(--wr-red); color: var(--wr-red); }
+.wr-sentence-cycle__stage { min-height: 268px; display: flex; flex-direction: column; justify-content: center; padding: 35px 0 30px; }
+.wr-sentence-cycle__sentence { display: flex; flex-wrap: wrap; align-items: start; gap: 26px 24px; font: italic 450 clamp(42px, 5.3vw, 68px)/1.2 var(--f-serif); }
+.wr-sentence-cycle__column { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+.wr-sentence-cycle__prefix { color: var(--wr-red); }
+.wr-sentence-cycle__slot { display: inline-grid; overflow: hidden; padding: .08em .09em .14em; margin: -.08em -.09em -.14em; }
+.wr-sentence-cycle__slot > span { grid-area: 1 / 1; white-space: nowrap; }
+.wr-sentence-cycle__tag { font: 600 12px/1.4 var(--f-display); text-transform: uppercase; letter-spacing: .13em; }
+.wr-sentence-cycle__body .wr-sentence-cycle__tag { padding-top: 6px; border-top: 2px solid #26231f; color: #69645c; }
+.wr-sentence-cycle .wr-sentence-cycle__english { margin: 28px 0 0; color: #4d4943; font-size: 21px; line-height: 1.5; }
+.wr-sentence-cycle__tenses { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.wr-sentence-cycle__tenses button { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 7px; min-height: 87px; padding: 15px 18px; border: 1px solid #d4d0c9; border-radius: 12px; background: transparent; color: #514d47; text-align: left; cursor: pointer; }
+.wr-sentence-cycle__tense-label { font: 650 15px var(--f-display); text-transform: uppercase; letter-spacing: .08em; }
+.wr-sentence-cycle__tenses .to { font: italic 450 22px/1.3 var(--f-serif); }
+.wr-sentence-cycle__tenses button:hover { border-color: var(--wr-red); }
+.wr-sentence-cycle__tenses button[aria-pressed="true"] { background: var(--wr-red); border-color: var(--wr-red); color: white; }
+.wr-sentence-cycle__timer { position: absolute; bottom: 0; left: 0; height: 3px; width: 100%; transform-origin: left; background: #ffffff8c; animation: wr-cycle-timer linear both; }
+.wr-sentence-cycle :focus-visible { outline: 3px solid var(--wr-red-deep); outline-offset: 4px; }
+.wr-sentence-cycle .wr-sentence-cycle__note { margin: 20px 0 0; color: #69645c; text-align: center; font-size: 14px; line-height: 1.75; }
+.wr-sentence-cycle__note a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; font-weight: 650; color: #7f2c17; text-decoration: underline; text-underline-offset: 4px; }
+.wr-sentence-cycle__note-separator { margin: 0 12px; color: #9b958b; }
+.wr-sentence-cycle__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@keyframes wr-cycle-timer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (max-width: 760px) {
+  .wr-home .wr-home__sentence .wr-home__section-intro { margin-bottom: 28px; }
+  .wr-sentence-cycle__card { padding: 22px; border-radius: 16px; }
+  .wr-sentence-cycle__stage { min-height: 275px; padding: 34px 0 28px; }
+  .wr-sentence-cycle__sentence { font-size: clamp(35px, 6.5vw, 48px); gap: 25px 18px; }
+  .wr-sentence-cycle .wr-sentence-cycle__english { margin-top: 26px; font-size: 18px; }
+  .wr-sentence-cycle__tenses { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .wr-sentence-cycle__tenses button { min-height: 81px; padding: 12px 14px; }
+  .wr-sentence-cycle__note-separator { display: none; }
+  .wr-sentence-cycle__note a { display: flex; justify-content: center; }
+}
+@media (max-width: 420px) {
+  .wr-sentence-cycle__card { padding: 20px 17px; }
+  .wr-sentence-cycle__controls { width: 100%; justify-content: space-between; flex-direction: row-reverse; }
+  .wr-sentence-cycle__another { padding: 9px 14px; }
+  .wr-sentence-cycle__tag { font-size: 11px; }
+  .wr-sentence-cycle__tenses .to { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wr-sentence-cycle__timer { animation: none; }
+}
