@@ -134,11 +134,13 @@ test('the actual premium App renders every generated route without the NotBuilt 
   })
   try {
     const { default: App } = await server.ssrLoadModule('/src/premium/App.jsx')
-    const routes = [...new Set([...distRoutes(), ...canonicalPatterns.map(sample)])].sort()
+    const baseRoutes = [...distRoutes(), ...canonicalPatterns.map(sample)]
+    const routes = [...new Set(baseRoutes.flatMap(route => route === '/' ? [route] : [route, `${route}/`]))].sort()
     for (const pathname of routes) {
       const html = await renderRoute(App, pathname)
       assert.ok(html.length > 200, `${pathname} produces a nonempty application shell`)
       assert.doesNotMatch(html, /class="wr-missing|Page not found/, `${pathname} does not fall through to NotBuilt`)
+      assert.doesNotMatch(html, /premium-reference-missing|Topic not found/, `${pathname} does not lose a resource article`)
     }
 
     const control = await renderRoute(App, '/route-parity-negative-control')

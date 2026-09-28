@@ -22,8 +22,9 @@ const TOPIC_COMPONENTS = {
 
 export default function TopicArticle() {
   const location = useLocation()
-  const Topic = TOPIC_COMPONENTS[location.pathname]
-  const metadata = TOPIC_PAGES.find(topic => topic.to === location.pathname)
+  const pathname = location.pathname.replace(/\/+$/, '') || '/'
+  const Topic = TOPIC_COMPONENTS[pathname]
+  const metadata = TOPIC_PAGES.find(topic => topic.to === pathname)
   useTitle(metadata?.label || 'Topic not found')
 
   if (!Topic || !metadata) {
