@@ -83,7 +83,12 @@
   .practice-film__stage .dr-opt { font-size: 20px; }
   .practice-film__stage .dr-sentence { font-size: 44px; }
   .practice-film__stage .fc-to { font-size: 56px !important; }
-  .practice-film__stage .qz-q { font-size: 22px; }
+  .practice-film__stage .qz-q { font-size: 20px; }
+  .practice-film__stage .qz-opts { gap: 6px; }
+  .practice-film__stage .qz-opt { min-height: 44px; padding: 6px 10px; }
+  .practice-film__stage .qz-ot { font-size: 15px; line-height: 1.35; }
+  .practice-film__stage .qz-why-in { padding: 12px; }
+  .practice-film__stage .qz-why-h { font-size: 20px; }
   .practice-film__stage .qz-why-p { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
