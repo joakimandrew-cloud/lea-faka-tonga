@@ -164,6 +164,11 @@
 .wr-home__access-card.is-featured > p { color: #ffe6e5 !important; }
 .wr-home__access-card strong { display: block; margin-top: auto; margin-bottom: 22px; font-family: var(--f-display); font-size: 34px; text-transform: uppercase; }
 .wr-home__access-card.is-featured .wr-home__button--primary { color: var(--wr-red); background: #fff; border-color: #fff; }
+.wr-home__access-card > p + strong { padding-top: 28px; }
+.wr-home__access-card strong small { display: block; margin-top: 5px; font: 500 12px/1.4 var(--f-ui); text-transform: none; }
+.wr-home__membership-card .wr-home__button { padding-inline: 16px; font-size: 13px; }
+.wr-home__lifetime-note { margin: 26px 0 8px; font-size: 14px; color: #555; }
+.wr-home__lifetime-note + .wr-home__dictionary-note { margin-top: 0; }
 .wr-home__supporter-note { margin-bottom: 0; color: #666; font-size: 12px; line-height: 1.55; }
 .wr-home__downloads { display: flex; gap: 8px; }
 .wr-home__downloads a { min-width: 74px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; color: var(--wr-red); border: 1px solid var(--wr-red); font-weight: 800; text-decoration: none; }
@@ -226,4 +231,3 @@
   .wr-home__hero-lede { font-size: 14px; }
   .wr-home__book-route { font-size: 10px; }
 }
-

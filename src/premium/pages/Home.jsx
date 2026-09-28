@@ -5,6 +5,7 @@ import { useTitle } from '../lib/title.js'
 import HomePatternBand from '../components/HomePatternBand.jsx'
 import HomeSentenceDemo from '../components/HomeSentenceDemo.jsx'
 import HomePracticePreview from '../components/HomePracticePreview.jsx'
+import { AUDIO_MEMBERSHIP_NOTICE, EXISTING_SUPPORTER_NOTICE, LIFETIME_MEMBERSHIP_NOTICE, LIFETIME_MEMBERSHIP_URL } from '../lib/membership-offer.js'
 import '../styles/white-red-home.css'
 import '../styles/home-practice-film.css'
 
@@ -21,7 +22,7 @@ export default function Home() {
             <p className="wr-home__hero-lede">See how the words fit together, change one part, and understand what changed. Begin with the real pattern from Lesson 1.</p>
             <div className="wr-home__hero-action">
               <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
-              <p className="wr-home__access-note">All 52 lessons and practice tools are free.</p>
+              <p className="wr-home__access-note">All 52 lessons are open during the free preview.</p>
             </div>
             <p className="wr-home__book-route">Prefer the book? <a href={PDF_URL}>Download the free PDF</a> or <a href={EPUB_URL}>EPUB</a>. Free forever, with lifetime updates.</p>
           </div>
@@ -59,10 +60,10 @@ export default function Home() {
           <h2 id="wr-path-heading">Start with the sentence. Build from there.</h2>
         </div>
         <ol className="wr-home__lesson-path">
-          <li><span className="wr-home__lesson-number">Lesson 1</span><h3>The Basic Sentence</h3><p>Statements and questions about past actions.</p><span className="wr-home__access-pill">Free on the website</span></li>
-          <li><span className="wr-home__lesson-number">Lesson 2</span><h3>Tense Markers and Pronouns</h3><p>Expand the same pattern with more tense markers and pronouns.</p><span className="wr-home__access-pill">Free on the website</span></li>
-          <li><span className="wr-home__lesson-number">Lesson 3</span><h3>Descriptive Words</h3><p>Use descriptive words in the sentence pattern.</p><span className="wr-home__access-pill">Free on the website</span></li>
-          <li className="wr-home__path-continue"><span className="wr-home__lesson-number">Lessons 4–52</span><h3>Continue the course</h3><p>Work through the established sequence from beginner to advanced.</p><span className="wr-home__access-pill">Free on the website</span></li>
+          <li><span className="wr-home__lesson-number">Lesson 1</span><h3>The Basic Sentence</h3><p>Statements and questions about past actions.</p><span className="wr-home__access-pill">Free preview</span></li>
+          <li><span className="wr-home__lesson-number">Lesson 2</span><h3>Tense Markers and Pronouns</h3><p>Expand the same pattern with more tense markers and pronouns.</p><span className="wr-home__access-pill">Free preview</span></li>
+          <li><span className="wr-home__lesson-number">Lesson 3</span><h3>Descriptive Words</h3><p>Use descriptive words in the sentence pattern.</p><span className="wr-home__access-pill">Free preview</span></li>
+          <li className="wr-home__path-continue"><span className="wr-home__lesson-number">Lessons 4–52</span><h3>Continue the course</h3><p>Work through the established sequence from beginner to advanced.</p><span className="wr-home__access-pill">Free preview</span></li>
         </ol>
         <Link className="wr-home__button wr-home__button--secondary" to="/lessons">See all 52 lessons <span aria-hidden="true">→</span></Link>
       </section>
@@ -70,19 +71,19 @@ export default function Home() {
       <section className="wr-home__access" aria-labelledby="wr-access-heading">
         <div className="wr-home__section-intro">
           <p className="wr-home__eyebrow">Choose how you learn</p>
-          <h2 id="wr-access-heading">The whole course. Free to learn.</h2>
-          <p>Read a lesson, practise what you learn, or take the book with you. All 52 lessons are open.</p>
+          <h2 id="wr-access-heading">Free preview now.<br />Lifetime membership for US$35.</h2>
+          <p>Explore all 52 lessons for free today. {AUDIO_MEMBERSHIP_NOTICE}</p>
         </div>
         <div className="wr-home__access-grid">
           <article className="wr-home__access-card is-featured">
-            <p className="wr-home__access-kicker">Start on the website</p><h3>Lessons 1–3</h3>
-            <p>Read the lessons and use the website practice.</p><strong>Free</strong>
+            <p className="wr-home__access-kicker">Explore the course</p><h3>All 52 lessons</h3>
+            <p>Read the lessons and try the drills, quizzes and flip cards while we add the audio.</p><strong>Free preview</strong>
             <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1 <span aria-hidden="true">→</span></Link>
           </article>
-          <article className="wr-home__access-card">
-            <p className="wr-home__access-kicker">Continue on the website</p><h3>Lessons 4–52</h3>
-            <p>Continue through the rest of the course on the website.</p><strong>Free</strong>
-            <p className="wr-home__supporter-note">Existing supporter commitments are honoured, including audio when it is available.</p>
+          <article className="wr-home__access-card wr-home__membership-card">
+            <p className="wr-home__access-kicker">Support it now</p><h3>Lifetime membership</h3>
+            <p>{LIFETIME_MEMBERSHIP_NOTICE}</p><strong>US$35 <small>One-time donation</small></strong>
+            <a className="wr-home__button wr-home__button--primary" href={LIFETIME_MEMBERSHIP_URL}>Secure lifetime membership <span aria-hidden="true">↗</span></a>
           </article>
           <article className="wr-home__access-card">
             <p className="wr-home__access-kicker">Keep the complete book</p><h3>PDF or EPUB</h3>
@@ -91,6 +92,7 @@ export default function Home() {
             <div className="wr-home__downloads"><a href={PDF_URL}>PDF</a><a href={EPUB_URL}>EPUB</a></div>
           </article>
         </div>
+        <p className="wr-home__lifetime-note">{EXISTING_SUPPORTER_NOTICE}</p>
         <p className="wr-home__dictionary-note"><Link to="/dictionary">Dictionary search and definitions</Link> stay free.</p>
       </section>
 
@@ -99,7 +101,7 @@ export default function Home() {
         <p className="wr-home__eyebrow">Your first pattern is waiting</p>
         <h2 id="wr-closing-heading">Start with one sentence.<br />Then build the next.</h2>
         <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
-        <p className="wr-home__access-note">All 52 lessons and practice tools are free.</p>
+        <p className="wr-home__access-note">All 52 lessons are open during the free preview.</p>
       </section>
     </div>
   )

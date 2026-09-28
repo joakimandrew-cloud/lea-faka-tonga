@@ -11,6 +11,7 @@ import { markLessonDone, markLessonOpened, useProgress } from '../lib/progress.j
 import { Examples, Pairs, Table, Note, Para, List, WordCards, Md } from '../components/lesson/Blocks.jsx'
 import { ExerciseSet } from '../components/lesson/Exercises.jsx'
 import MobileCompass from '../components/lesson/MobileCompass.jsx'
+import MembershipNotice from '../components/MembershipNotice.jsx'
 import { EmbeddedDrill, QuickPractice } from '../components/lesson/Practice.jsx'
 import { PatternFigure, CombinatorFigure, IntonationFigure, StressFigure } from '../components/lesson/Figures1.jsx'
 import { KupesiTile } from '../components/Kupesi.jsx'
@@ -293,6 +294,7 @@ export default function Lesson() {
 
   return (
     <article className="lesson">
+      <MembershipNotice />
       <header className="ls-hero">
         <div className="wrap ls-hero-grid">
           <div className="ls-hero-copy">
