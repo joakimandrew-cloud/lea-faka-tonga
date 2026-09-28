@@ -141,6 +141,13 @@ test('the actual premium App renders every generated route without the NotBuilt 
       assert.ok(html.length > 200, `${pathname} produces a nonempty application shell`)
       assert.doesNotMatch(html, /class="wr-missing|Page not found/, `${pathname} does not fall through to NotBuilt`)
       assert.doesNotMatch(html, /premium-reference-missing|Topic not found/, `${pathname} does not lose a resource article`)
+      if (/^\/lessons\/\d+\/?$/.test(pathname)) {
+        assert.equal((html.match(/id="membership-notice-title"/g) || []).length, 1, `${pathname} shows one preview notice`)
+        assert.match(html, /audio is added to every Tongan example, including sentences and exercises/)
+        assert.match(html, /https:\/\/buymeacoffee\.com\/leafakatonga\/e\/549116/)
+        assert.match(html, /before the price increases/)
+        assert.ok(html.indexOf('membership-notice-title') < html.indexOf('class="ls-hero"'), 'notice appears before lesson content')
+      }
     }
 
     const control = await renderRoute(App, '/route-parity-negative-control')
