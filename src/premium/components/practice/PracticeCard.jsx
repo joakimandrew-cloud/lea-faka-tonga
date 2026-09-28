@@ -12,7 +12,10 @@ function cardTextSize(text) {
   return ''
 }
 
-export default function PracticeCard({ word, flipped, onFlip, onSwipe, front, depth, demo = false }) {
+// meaning (optional, book-vocabulary decks only): { count, also } when the same
+// Tongan word is another card in the course. Lesson decks and the homepage
+// film never pass it, so they render exactly as before.
+export default function PracticeCard({ word, flipped, onFlip, onSwipe, front, depth, demo = false, meaning }) {
   const x = useMotionValue(0)
   const rotation = useTransform(x, [-240, 240], [-14, 14])
   const knownOpacity = useTransform(x, [30, 140], [0, 1])
@@ -24,7 +27,10 @@ export default function PracticeCard({ word, flipped, onFlip, onSwipe, front, de
     else if (info.offset.x < -120 || info.velocity.x < -600) onSwipe('again')
     else animate(x, 0, { type: 'spring', stiffness: 500, damping: 30 })
   }
-  const tongan = <><T className={`fc-to ${cardTextSize(word.to)}`.trim()}>{word.to}</T><span className="fc-sub">Tongan</span></>
+  const count = meaning?.count
+  const markOf = () => meaning ? <><span className="visually-hidden">, has {count} meanings in this course</span><span className="fc-meanings" aria-hidden="true">{count} meanings</span></> : null
+  const alsoOf = (apart) => meaning?.also?.length ? <span className={`fc-also${apart ? ' is-apart' : ''}`}>also means: <Md text={meaning.also.join(' · ')} /></span> : null
+  const tongan = <><T className={`fc-to ${cardTextSize(word.to)}`.trim()}>{word.to}</T>{markOf()}<span className="fc-sub">Tongan</span></>
   const english = <><span className={`fc-en ${cardTextSize(word.en)}`.trim()}><Md text={word.en} /></span><span className="fc-type"><Md text={word.type} /></span></>
 
   return (
@@ -50,7 +56,9 @@ export default function PracticeCard({ word, flipped, onFlip, onSwipe, front, de
         </div>
         <div className="fc-face fc-back" aria-hidden={!flipped}>
           {front === 'to' && <T className="fc-mini">{word.to}</T>}
+          {front === 'to' && meaning && <span className="fc-mini-meaning">{markOf()}{alsoOf(false)}</span>}
           {front === 'to' ? english : tongan}
+          {front !== 'to' && alsoOf(true)}
         </div>
       </Motion.div>
       {top && (

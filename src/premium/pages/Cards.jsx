@@ -12,16 +12,24 @@ import {
   globalDeckKey,
   lessonCards,
   lessonDeckKey,
+  listDeckKey,
   restartDeck,
   shuffleDeck,
   useDeckProgress,
 } from '../lib/card-progress.js'
+import { deckForLists, lists as VOCAB_LISTS, otherMeanings } from '@app/lib/vocab-decks.js'
 import Card from '../components/practice/PracticeCard.jsx'
 import '../styles/cards.css'
 
 const ALL_GLOBAL_CARDS = globalCards(vocabulary)
 const CATEGORIES = [...new Set(vocabulary.map(item => item.category))].sort()
 const TIER_LABELS = { essential: 'Essential', useful: 'Useful', all: 'All' }
+
+// Same Tongan word, another card in the course (hiva: nine, and sing).
+function meaningOf(card) {
+  const others = otherMeanings(card)
+  return others.length ? { count: others.length + 1, also: others.map(other => other.english) } : undefined
+}
 
 function wordsOf(lesson, number) {
   if (!lesson) return []
@@ -35,7 +43,7 @@ function wordsOf(lesson, number) {
 }
 
 
-function Deck({ deckKey, words, mode, lessonNumber }) {
+function Deck({ deckKey, words, mode, lessonNumber, meaningFor }) {
   const [state, setState] = useDeckProgress(deckKey, words)
   const [flipped, setFlipped] = useState(false)
   const [exitDirection, setExitDirection] = useState(0)
@@ -94,6 +102,7 @@ function Deck({ deckKey, words, mode, lessonNumber }) {
                 onFlip={() => setFlipped(value => !value)}
                 onSwipe={swipe}
                 front={state.direction}
+                meaning={meaningFor?.(card)}
               />
             ))}
           </AnimatePresence>
@@ -148,7 +157,16 @@ export default function Cards() {
   const lessonNumber = Math.min(52, Math.max(1, Number(lessonParam) || 1))
   const [tier, setTier] = useState('essential')
   const [category, setCategory] = useState('all')
+  // Themed lists, in the order chosen. While any is on, the deck is those lists
+  // in their natural order and tier and category step aside, unchanged, so
+  // All words brings them straight back.
+  const [chosenLists, setChosenLists] = useState([])
+  const listsOn = chosenLists.length > 0
   const filtered = useMemo(() => filterGlobalCards(ALL_GLOBAL_CARDS, tier, category), [tier, category])
+  const listWords = useMemo(() => globalCards(deckForLists(chosenLists)), [chosenLists])
+  const globalWords = listsOn ? listWords : filtered
+  const globalKey = listsOn ? listDeckKey(chosenLists) : globalDeckKey(tier, category)
+  const toggleList = id => setChosenLists(current => current.includes(id) ? current.filter(value => value !== id) : [...current, id])
   const lesson = chapters.find(chapter => chapter.chapter === lessonNumber)
   useTitle(mode === 'global' ? 'Vocabulary flip cards' : `Flip cards: Lesson ${lessonNumber}`)
 
@@ -169,22 +187,32 @@ export default function Cards() {
 
         {mode === 'global' ? (
           <>
-            <div className="cards-controls global-controls">
+            <div className={`cards-controls global-controls${listsOn ? ' is-set-aside' : ''}`}>
               <div className="cards-dir" role="group" aria-label="Vocabulary tier">
                 {Object.entries(TIER_LABELS).map(([value, label]) => (
-                  <button key={value} type="button" aria-pressed={tier === value} className={tier === value ? 'is-on' : ''} onClick={() => setTier(value)}>{label}</button>
+                  <button key={value} type="button" aria-pressed={tier === value} className={tier === value ? 'is-on' : ''} disabled={listsOn} onClick={() => setTier(value)}>{label}</button>
                 ))}
               </div>
               <label className="cards-select">
                 <span>Category</span>
-                <select value={category} onChange={event => setCategory(event.target.value)}>
+                <select value={category} disabled={listsOn} onChange={event => setCategory(event.target.value)}>
                   <option value="all">All categories</option>
                   {CATEGORIES.map(value => <option key={value} value={value}>{value[0].toUpperCase() + value.slice(1)}</option>)}
                 </select>
               </label>
-              <span className="cards-filter-count" role="status">{filtered.length} cards</span>
+              <span className="cards-filter-count" role="status">{globalWords.length} cards</span>
             </div>
-            <Deck key={globalDeckKey(tier, category)} deckKey={globalDeckKey(tier, category)} words={filtered} mode="global" />
+            <div className="cards-lists" role="group" aria-labelledby="cards-lists-label">
+              <span className="cards-lists-label" id="cards-lists-label">Lists</span>
+              <div className="cards-lists-chips">
+                <button type="button" aria-pressed={!listsOn} onClick={() => setChosenLists([])}>All words</button>
+                {VOCAB_LISTS.map(list => (
+                  <button key={list.id} type="button" aria-pressed={chosenLists.includes(list.id)} onClick={() => toggleList(list.id)}>{list.label}</button>
+                ))}
+              </div>
+              {listsOn && <p className="cards-lists-note">Lists show every word, so the tier and category are set aside. Choose All words to go back to them.</p>}
+            </div>
+            <Deck key={globalKey} deckKey={globalKey} words={globalWords} mode="global" meaningFor={meaningOf} />
           </>
         ) : (
           <>
