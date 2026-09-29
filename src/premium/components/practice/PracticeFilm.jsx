@@ -105,7 +105,7 @@ export default function PracticeFilm({ surface, autoCycle, playing, setPlaying, 
   const playback = reduceMotion ? 'still' : finished ? 'finished' : !playing ? 'paused' : !visible ? 'offscreen' : !pageVisible ? 'hidden' : running ? 'playing' : 'loading'
   return (
     <div className="practice-film" data-playback-state={playback} data-frame={JSON.stringify(frame)}>
-      <div className="practice-film__heading"><div><p className="practice-film__source">{surface.source}{surface.id === 'drills' && ` · Example ${frame.exampleIndex + 1} of ${DRILL_PREVIEW_CARDS.length}`}</p><h3>{surface.description}</h3></div><span className="practice-film__badge">{reduceMotion ? 'Still preview' : 'Animated preview'}</span></div>
+      <div className="practice-film__heading"><h3>{surface.description}</h3>{surface.id === 'drills' && <span className="practice-film__count" aria-label={`Example ${frame.exampleIndex + 1} of ${DRILL_PREVIEW_CARDS.length}`}>{frame.exampleIndex + 1} / {DRILL_PREVIEW_CARDS.length}</span>}</div>
       <MotionConfig reducedMotion={reduceMotion ? 'always' : 'user'} transition={reduceMotion ? { duration: 0 } : undefined}>
         <div ref={stage} className={`practice-film__stage wr-inner is-${surface.id}`}>
           {!ready ? <p className="practice-loading" role="status">{failed ? 'This preview could not load. You can still open the activity below.' : 'Loading the practice preview…'}</p>
@@ -116,7 +116,6 @@ export default function PracticeFilm({ surface, autoCycle, playing, setPlaying, 
       <div className="practice-film__footer">
         <div className="practice-film__playback">
           {!reduceMotion && <button type="button" data-practice-playback disabled={!ready} onClick={() => { if (finished) { setElapsed(0); onReplay() } else setPlaying(value => !value) }} aria-label={finished ? 'Replay previews' : playing ? 'Pause preview' : 'Play preview'}><span aria-hidden="true">{finished ? '↻' : playing ? 'Ⅱ' : '▷'}</span>{finished ? 'Replay all' : playing ? 'Pause' : 'Play'}</button>}
-          <span>{reduceMotion ? 'An example from the activity.' : autoCycle ? 'A quick look at all three activities.' : 'Your turn when you’re ready.'}</span>
         </div>
         <Link className="wr-home__button wr-home__button--primary" to={surface.to} onPointerEnter={onHold}>Try {surface.name.toLowerCase()}</Link>
       </div>

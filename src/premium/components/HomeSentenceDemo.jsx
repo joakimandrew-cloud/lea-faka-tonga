@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { AnimatePresence, motion as Motion, useReducedMotion } from 'motion/react'
 import T from './T.jsx'
 import { PREFIXES, SENTENCE_CYCLE, TENSES } from '../data/home-sentence-cycle.js'
@@ -93,10 +92,8 @@ export default function HomeSentenceDemo() {
             </button>
           ))}
         </div>
+        <p className="wr-sentence-cycle__note">The opening words tell you when and who. The main word keeps its form.</p>
       </div>
-      <p className="wr-sentence-cycle__note">The opening words tell you when and who. The main word keeps its form.<br />
-        <Link to="/lessons/2">Tense &amp; pronouns · Lesson 2</Link><span className="wr-sentence-cycle__note-separator" aria-hidden="true"> / </span><Link to="/lessons/3">Verbs &amp; adjectives · Lesson 3</Link>
-      </p>
     </div>
   )
 }
