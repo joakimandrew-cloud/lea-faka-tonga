@@ -1,0 +1,783 @@
+{
+  "themes": [
+    {
+      "id": "parts-of-body",
+      "label": "Parts of body",
+      "source": "Shumway, Intensive Course in Tongan, Word List A (p. 635)"
+    },
+    {
+      "id": "colours",
+      "label": "Colours",
+      "source": "Shumway, Intensive Course in Tongan, Lesson 60 (colour words)"
+    },
+    {
+      "id": "land-animals",
+      "label": "Land animals",
+      "source": "Shumway, Intensive Course in Tongan, Word List K (p. 650)"
+    }
+  ],
+  "entries": [
+    {
+      "id": "wl-body-001",
+      "theme": "parts-of-body",
+      "tongan": "'ulu",
+      "english": "head",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0003"
+    },
+    {
+      "id": "wl-body-002",
+      "theme": "parts-of-body",
+      "tongan": "ihu",
+      "english": "nose",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0016"
+    },
+    {
+      "id": "wl-body-003",
+      "theme": "parts-of-body",
+      "tongan": "kete",
+      "english": "stomach, belly",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0019"
+    },
+    {
+      "id": "wl-body-004",
+      "theme": "parts-of-body",
+      "tongan": "ngutu",
+      "english": "mouth, lips",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0032"
+    },
+    {
+      "id": "wl-body-005",
+      "theme": "parts-of-body",
+      "tongan": "nifo",
+      "english": "tooth, teeth",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0033"
+    },
+    {
+      "id": "wl-body-006",
+      "theme": "parts-of-body",
+      "tongan": "nima",
+      "english": "hand",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0239"
+    },
+    {
+      "id": "wl-body-007",
+      "theme": "parts-of-body",
+      "tongan": "telinga",
+      "english": "ear",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0045"
+    },
+    {
+      "id": "wl-body-008",
+      "theme": "parts-of-body",
+      "tongan": "va'e",
+      "english": "leg, foot",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0511"
+    },
+    {
+      "id": "wl-body-009",
+      "theme": "parts-of-body",
+      "tongan": "sino",
+      "english": "body",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0038"
+    },
+    {
+      "id": "wl-body-010",
+      "theme": "parts-of-body",
+      "tongan": "louulu",
+      "english": "hair (of head)",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0024"
+    },
+    {
+      "id": "wl-body-011",
+      "theme": "parts-of-body",
+      "tongan": "kia",
+      "english": "neck",
+      "part_of_speech": "noun",
+      "register": "",
+      "other_sense_course_id": "book-v0139"
+    },
+    {
+      "id": "wl-body-012",
+      "theme": "parts-of-body",
+      "tongan": "mata",
+      "english": "face, eyes",
+      "part_of_speech": "noun",
+      "register": "",
+      "other_sense_course_id": "book-v0498"
+    },
+    {
+      "id": "wl-body-013",
+      "theme": "parts-of-body",
+      "tongan": "pule",
+      "english": "upper belly, just below the chest",
+      "part_of_speech": "noun",
+      "register": "",
+      "other_sense_course_id": "book-v0427"
+    },
+    {
+      "id": "wl-body-014",
+      "theme": "parts-of-body",
+      "tongan": "tu'a",
+      "english": "back (of the body)",
+      "part_of_speech": "noun",
+      "register": "",
+      "other_sense_course_id": "book-v0501"
+    },
+    {
+      "id": "wl-body-015",
+      "theme": "parts-of-body",
+      "tongan": "'aofi nima",
+      "english": "palm of the hand",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-016",
+      "theme": "parts-of-body",
+      "tongan": "'aofi va'e",
+      "english": "sole of the foot",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-017",
+      "theme": "parts-of-body",
+      "tongan": "'ate",
+      "english": "liver",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-018",
+      "theme": "parts-of-body",
+      "tongan": "'ate'iva'e",
+      "english": "calf, the back of the lower leg",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-019",
+      "theme": "parts-of-body",
+      "tongan": "'atepili",
+      "english": "spleen",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-020",
+      "theme": "parts-of-body",
+      "tongan": "'elelo",
+      "english": "tongue",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-021",
+      "theme": "parts-of-body",
+      "tongan": "'uto",
+      "english": "brain",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-022",
+      "theme": "parts-of-body",
+      "tongan": "alanga",
+      "english": "thigh",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-023",
+      "theme": "parts-of-body",
+      "tongan": "ava'i ihu",
+      "english": "nostril",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-024",
+      "theme": "parts-of-body",
+      "tongan": "fā'efine",
+      "english": "armpit",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-025",
+      "theme": "parts-of-body",
+      "tongan": "fakatangata",
+      "english": "male genitals",
+      "part_of_speech": "noun",
+      "register": "polite"
+    },
+    {
+      "id": "wl-body-026",
+      "theme": "parts-of-body",
+      "tongan": "fatafata",
+      "english": "chest",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-027",
+      "theme": "parts-of-body",
+      "tongan": "fatu",
+      "english": "stomach (said of a chief)",
+      "part_of_speech": "noun",
+      "register": "noble word"
+    },
+    {
+      "id": "wl-body-028",
+      "theme": "parts-of-body",
+      "tongan": "fulufulu",
+      "english": "body hair; also fur or feathers",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-029",
+      "theme": "parts-of-body",
+      "tongan": "halanga toto",
+      "english": "blood vessel, vein",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-030",
+      "theme": "parts-of-body",
+      "tongan": "hivi'iva'e",
+      "english": "shin",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-031",
+      "theme": "parts-of-body",
+      "tongan": "huhu",
+      "english": "a woman's breast",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-032",
+      "theme": "parts-of-body",
+      "tongan": "hui tu'a",
+      "english": "backbone, spine",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-033",
+      "theme": "parts-of-body",
+      "tongan": "hui vakavaka",
+      "english": "rib, ribs",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-034",
+      "theme": "parts-of-body",
+      "tongan": "kakano",
+      "english": "flesh, muscle",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-035",
+      "theme": "parts-of-body",
+      "tongan": "kālava",
+      "english": "blood vessel, vein",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-036",
+      "theme": "parts-of-body",
+      "tongan": "kemo",
+      "english": "eyebrow",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-037",
+      "theme": "parts-of-body",
+      "tongan": "kia'inima",
+      "english": "inside of the elbow",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-038",
+      "theme": "parts-of-body",
+      "tongan": "kia'iva'e",
+      "english": "back of the knee, where it bends",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-039",
+      "theme": "parts-of-body",
+      "tongan": "kili",
+      "english": "skin",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-040",
+      "theme": "parts-of-body",
+      "tongan": "kona",
+      "english": "lower belly",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-041",
+      "theme": "parts-of-body",
+      "tongan": "kou'ahe",
+      "english": "cheek",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-042",
+      "theme": "parts-of-body",
+      "tongan": "kumukumu",
+      "english": "chin",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-043",
+      "theme": "parts-of-body",
+      "tongan": "louhi'i nima",
+      "english": "finger",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-044",
+      "theme": "parts-of-body",
+      "tongan": "louhi'i va'e",
+      "english": "toe",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-045",
+      "theme": "parts-of-body",
+      "tongan": "loungutu",
+      "english": "lips",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-046",
+      "theme": "parts-of-body",
+      "tongan": "ma'ama'a",
+      "english": "lungs",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-047",
+      "theme": "parts-of-body",
+      "tongan": "mafu",
+      "english": "heart",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-048",
+      "theme": "parts-of-body",
+      "tongan": "monga",
+      "english": "throat",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-049",
+      "theme": "parts-of-body",
+      "tongan": "ngākau",
+      "english": "intestines, bowels",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-050",
+      "theme": "parts-of-body",
+      "tongan": "nge'esi 'ulu",
+      "english": "skull",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-051",
+      "theme": "parts-of-body",
+      "tongan": "nge'esi nima",
+      "english": "fingernail",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-052",
+      "theme": "parts-of-body",
+      "tongan": "nge'esi va'e",
+      "english": "toenail",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-053",
+      "theme": "parts-of-body",
+      "tongan": "pito",
+      "english": "navel, belly button",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-054",
+      "theme": "parts-of-body",
+      "tongan": "tenga",
+      "english": "thigh",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-055",
+      "theme": "parts-of-body",
+      "tongan": "to'oto'onga",
+      "english": "the organs inside the body",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-056",
+      "theme": "parts-of-body",
+      "tongan": "toto",
+      "english": "blood",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-057",
+      "theme": "parts-of-body",
+      "tongan": "tu'ungaiku",
+      "english": "buttocks, bottom",
+      "part_of_speech": "noun",
+      "register": "polite"
+    },
+    {
+      "id": "wl-body-058",
+      "theme": "parts-of-body",
+      "tongan": "tui",
+      "english": "knee",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-059",
+      "theme": "parts-of-body",
+      "tongan": "tui'inima",
+      "english": "elbow",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-060",
+      "theme": "parts-of-body",
+      "tongan": "tumu'aki",
+      "english": "crown of the head",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-061",
+      "theme": "parts-of-body",
+      "tongan": "tunga'inima",
+      "english": "wrist, the bony knob at the wrist",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-062",
+      "theme": "parts-of-body",
+      "tongan": "tunga'iva'e",
+      "english": "ankle, the bony knob at the ankle",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-063",
+      "theme": "parts-of-body",
+      "tongan": "uma",
+      "english": "shoulder",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-body-064",
+      "theme": "parts-of-body",
+      "tongan": "uoua",
+      "english": "muscle, sinew",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-colour-001",
+      "theme": "colours",
+      "tongan": "lanu",
+      "english": "colour",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-colour-002",
+      "theme": "colours",
+      "tongan": "melomelo",
+      "english": "brown",
+      "part_of_speech": "adjective",
+      "register": ""
+    },
+    {
+      "id": "wl-colour-003",
+      "theme": "colours",
+      "tongan": "pulū",
+      "english": "blue",
+      "part_of_speech": "adjective",
+      "register": ""
+    },
+    {
+      "id": "wl-colour-004",
+      "theme": "colours",
+      "tongan": "'uli'uli",
+      "english": "black",
+      "part_of_speech": "adjective (color)",
+      "register": "",
+      "course_id": "book-v0447"
+    },
+    {
+      "id": "wl-colour-005",
+      "theme": "colours",
+      "tongan": "engeenga",
+      "english": "yellow",
+      "part_of_speech": "adjective (color)",
+      "register": "",
+      "course_id": "book-v0450"
+    },
+    {
+      "id": "wl-colour-006",
+      "theme": "colours",
+      "tongan": "hinehina",
+      "english": "white",
+      "part_of_speech": "adjective (color)",
+      "register": "",
+      "course_id": "book-v0453"
+    },
+    {
+      "id": "wl-colour-007",
+      "theme": "colours",
+      "tongan": "kulokula",
+      "english": "red",
+      "part_of_speech": "adjective (color)",
+      "register": "",
+      "course_id": "book-v0455"
+    },
+    {
+      "id": "wl-colour-008",
+      "theme": "colours",
+      "tongan": "lanumata",
+      "english": "green",
+      "part_of_speech": "adjective (color)",
+      "register": "",
+      "course_id": "book-v0456"
+    },
+    {
+      "id": "wl-colour-009",
+      "theme": "colours",
+      "tongan": "lanumoana",
+      "english": "blue",
+      "part_of_speech": "adjective",
+      "register": "",
+      "course_id": "book-v0023"
+    },
+    {
+      "id": "wl-animal-001",
+      "theme": "land-animals",
+      "tongan": "manupuna",
+      "english": "bird",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-003",
+      "theme": "land-animals",
+      "tongan": "motuku",
+      "english": "stork, heron",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-004",
+      "theme": "land-animals",
+      "tongan": "kumā",
+      "english": "rat, mouse",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-005",
+      "theme": "land-animals",
+      "tongan": "pato",
+      "english": "duck",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-006",
+      "theme": "land-animals",
+      "tongan": "lō",
+      "english": "ant",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-007",
+      "theme": "land-animals",
+      "tongan": "ngata",
+      "english": "snake",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-008",
+      "theme": "land-animals",
+      "tongan": "hina",
+      "english": "spider",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-009",
+      "theme": "land-animals",
+      "tongan": "namu",
+      "english": "mosquito",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-010",
+      "theme": "land-animals",
+      "tongan": "pusi",
+      "english": "cat",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-011",
+      "theme": "land-animals",
+      "tongan": "hoosi",
+      "english": "horse",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-012",
+      "theme": "land-animals",
+      "tongan": "pīpī",
+      "english": "turkey",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-013",
+      "theme": "land-animals",
+      "tongan": "sipi",
+      "english": "sheep",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-014",
+      "theme": "land-animals",
+      "tongan": "kosi",
+      "english": "goat",
+      "part_of_speech": "noun",
+      "register": ""
+    },
+    {
+      "id": "wl-animal-015",
+      "theme": "land-animals",
+      "tongan": "poto",
+      "english": "frog, toad",
+      "part_of_speech": "noun",
+      "register": "",
+      "other_sense_course_id": "book-v0224"
+    },
+    {
+      "id": "wl-animal-016",
+      "theme": "land-animals",
+      "tongan": "manu",
+      "english": "animal",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0026"
+    },
+    {
+      "id": "wl-animal-017",
+      "theme": "land-animals",
+      "tongan": "moa",
+      "english": "chicken",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0162"
+    },
+    {
+      "id": "wl-animal-018",
+      "theme": "land-animals",
+      "tongan": "puaka",
+      "english": "pig",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0332"
+    },
+    {
+      "id": "wl-animal-019",
+      "theme": "land-animals",
+      "tongan": "pulu",
+      "english": "cow",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0333"
+    },
+    {
+      "id": "wl-animal-020",
+      "theme": "land-animals",
+      "tongan": "kulī",
+      "english": "dog",
+      "part_of_speech": "noun",
+      "register": "",
+      "course_id": "book-v0254"
+    }
+  ]
+}

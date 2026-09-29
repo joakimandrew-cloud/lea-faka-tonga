@@ -1,0 +1,55 @@
+.answer-feedback {
+  --answer-feedback-tone: var(--success, var(--correct, #176642));
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 14px 0 0;
+  padding: 14px 16px;
+  border: 2px solid var(--answer-feedback-tone);
+  border-radius: 12px;
+  background: var(--success-soft, var(--correct-bg, #e8f4ed));
+  color: var(--answer-feedback-tone);
+  font-family: var(--f-ui, 'Inter', sans-serif);
+  line-height: 1.45;
+}
+
+.answer-feedback.is-wrong {
+  --answer-feedback-tone: var(--error, var(--wrong, #9a2b12));
+  background: var(--error-soft, var(--wrong-bg, #fcebe5));
+}
+
+.answer-feedback-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--answer-feedback-tone);
+  color: #fff;
+  font-size: 23px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.answer-feedback-copy { min-width: 0; }
+.answer-feedback-copy > strong { display: block; font-size: 19px; font-weight: 750; line-height: 30px; }
+.answer-feedback-detail { margin-top: 2px; font-size: 15px; }
+
+.answer-feedback-announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.afl-answer-row > .answer-feedback { flex-basis: 100%; margin: 4px 0 0; }
+
+@media (max-width: 400px) {
+  .answer-feedback { gap: 10px; padding: 12px; }
+}

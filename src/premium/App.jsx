@@ -22,6 +22,7 @@ const Topics = lazy(() => import('./pages/Topics.jsx'))
 const TopicArticle = lazy(() => import('./pages/TopicArticle.jsx'))
 const Help = lazy(() => import('./pages/Help.jsx'))
 const Dictionary = lazy(() => import('./pages/Dictionary.jsx'))
+const WordLists = lazy(() => import('./pages/WordLists.jsx'))
 const ReportIssue = lazy(() => import('./pages/ReportIssue.jsx'))
 const Keepers = lazy(() => import('./pages/Keepers.jsx'))
 const GrandmotherQuiz = lazy(() => import('./pages/GrandmotherQuiz.jsx'))
@@ -106,6 +107,7 @@ export default function App() {
           <Route path="/greetings" element={<Page><TopicArticle /></Page>} />
           <Route path="/grammar/*" element={<Page><TopicArticle /></Page>} />
           <Route path="/dictionary" element={<Page><Dictionary /></Page>} />
+          <Route path="/word-lists" element={<Page><WordLists /></Page>} />
           <Route path="/help" element={<Page><Help /></Page>} />
           <Route path="/report" element={<Page><ReportIssue /></Page>} />
           <Route path="/support" element={<Page><Offer /></Page>} />

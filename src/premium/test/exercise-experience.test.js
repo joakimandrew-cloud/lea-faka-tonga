@@ -65,7 +65,7 @@ test('source-guarded feedback uses the actual solved presentation for before, wr
 
     const wrongTries = ['*ku*']
     const wrongFeedback = activeSourceFeedbackFor(item.id, chapterOneExercise, item, wrongTries)
-    const wrong = renderToStaticMarkup(React.createElement(McqPresentation, { item, n: 2, tries: wrongTries, feedback: wrongFeedback }))
+    const wrong = renderToStaticMarkup(React.createElement(McqPresentation, { item, n: 2, tries: wrongTries, feedback: wrongFeedback, announce: true }))
     assert.match(wrong, /data-source-feedback=""/)
     assert.match(wrong, /role="status"/)
     assert.match(wrong, /aria-live="polite"/)
@@ -73,6 +73,15 @@ test('source-guarded feedback uses the actual solved presentation for before, wr
     assert.match(text(wrong), /ke you \(one person\) ku I/)
     assert.match(wrong, /lang="to"/)
     assert.match(wrong, /<dd[^>]*lang="en"[^>]*>you \(one person\)<\/dd>/)
+    const wrongAnnouncement = wrong.match(/<span[^>]*class="answer-feedback-announcement"[^>]*>([\s\S]*?)<\/span>/)[1]
+    assert.ok(wrongAnnouncement.includes(wrongFeedback.message))
+    assert.match(wrongAnnouncement, /From this lesson\. ke: you \(one person\)\. ku: I\./, 'the lesson-specific mapping is still announced')
+
+    const distinctiveFeedback = { ...wrongFeedback, message: 'Check the English in brackets, then try the other.' }
+    const distinctive = renderToStaticMarkup(React.createElement(McqPresentation, { item, n: 2, tries: wrongTries, feedback: distinctiveFeedback, announce: true }))
+    const distinctiveAnnouncement = distinctive.match(/<span[^>]*class="answer-feedback-announcement"[^>]*>([\s\S]*?)<\/span>/)[1]
+    assert.ok(distinctiveAnnouncement.includes(distinctiveFeedback.message))
+    assert.doesNotMatch(distinctiveAnnouncement, /Not that one\./, 'source feedback takes precedence over the generic hint')
 
     const correctedTries = ['*ku*', '*ke*']
     const correctFeedback = activeSourceFeedbackFor(item.id, chapterOneExercise, item, correctedTries)
@@ -99,6 +108,50 @@ test('source-guarded feedback uses the actual solved presentation for before, wr
     assert.equal(plainFeedback, null)
     assert.doesNotMatch(plain, /data-source-feedback=/)
     assert.match(text(plain), /Not that one\. Try again\./)
+  } finally {
+    await server.close()
+  }
+})
+
+test('visible verdicts are immediate, correction replaces retry, and only fresh interaction is announced', async () => {
+  const server = await createServer({
+    root: cwd(),
+    configFile: path.join(cwd(), 'vite.config.js'),
+    server: { middlewareMode: true },
+    appType: 'custom',
+    logLevel: 'silent',
+  })
+  try {
+    const { McqPresentation } = await server.ssrLoadModule('/src/premium/components/lesson/Exercises.jsx')
+    const item = bookExercises['3'].find(ex => ex.id === 'ch3-ex4').items[1]
+    const wrongOptions = item.options.filter(option => option !== item.correct)
+    const render = (tries, announce = true) => renderToStaticMarkup(React.createElement(McqPresentation, { item, n: 2, tries, announce }))
+    const status = html => html.match(/<span[^>]*class="answer-feedback-announcement"[^>]*>([\s\S]*?)<\/span>/)?.[1]
+    const before = render([])
+    assert.doesNotMatch(before, /data-answer-feedback=/)
+    assert.equal(status(before), '', 'live region exists empty before interaction')
+
+    const wrong = render([wrongOptions[0]])
+    assert.match(wrong, /data-answer-feedback="wrong"/)
+    assert.match(wrong, /<strong>Not quite<\/strong>/)
+    assert.match(status(wrong), /Question 2\. Attempt 1\. Not quite\./)
+    assert.match(text(wrong), /Not that one\. Try again\./)
+
+    const wrongAgain = render(wrongOptions.slice(0, 2))
+    assert.match(status(wrongAgain), /Attempt 2/, 'another wrong answer changes the announcement')
+    assert.notEqual(status(wrongAgain), status(wrong))
+
+    for (const tries of [[item.correct], [wrongOptions[0], item.correct]]) {
+      const correct = render(tries)
+      assert.match(correct, /data-answer-feedback="correct"/)
+      assert.match(correct, /<strong>Correct<\/strong>/)
+      assert.doesNotMatch(correct, /Not quite|Not that one/)
+      assert.doesNotMatch(correct.match(/<div[^>]*data-answer-feedback="correct"[^>]*>/)[0], /style=|opacity/, 'result has no initial fade or delayed animation')
+      const restored = render(tries, false)
+      assert.match(restored, /data-answer-feedback="correct"/, 'restored result is still visible')
+      assert.equal(status(restored), '', 'restored work is not pushed into the live region')
+    }
+    assert.equal(status(render([wrongOptions[0]], false)), '', 'restored wrong attempts are also quiet')
   } finally {
     await server.close()
   }

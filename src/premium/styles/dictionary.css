@@ -19,6 +19,30 @@ a.dictionary-lesson:hover { text-decoration: underline; text-underline-offset: 4
 .dictionary-alphabet button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .dictionary-browse .dictionary-browse-help { margin: 12px 0 0; color: var(--muted); font: 13px/1.5 var(--f-ui); }
 
+/* The link to /word-lists at the top of /dictionary, and word-list rows in search. */
+.dictionary-wordlists { margin: 0 0 26px; color: var(--muted); font: 15px/1.5 var(--f-ui); }
+.dictionary-wordlists a { color: var(--red); font-weight: 750; text-decoration: none; }
+.dictionary-wordlists a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.dictionary-lesson.is-word-list { max-width: 24ch; white-space: normal; text-align: right; }
+
+/* /word-lists. Built from the dictionary rows and catalog groups above. */
+.word-list-index { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; }
+.word-list-index .catalog-count { margin: 0; }
+.word-list-index ul { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; padding: 0; list-style: none; }
+.word-list-index a { color: var(--red); font: 750 14px var(--f-ui); text-decoration: none; }
+.word-list-index a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.word-list-group { scroll-margin-top: calc(var(--hdr-h) + 16px); }
+.word-list-group > header { align-items: center; }
+.word-list-tile { color: var(--red); --kp-ground: var(--paper); }
+.word-list-group .dictionary-list { margin-top: 0; border-top: 0; }
+/* Rows here may have no label, so the label column keeps one width and the
+   meanings line up. The phone rules below restack it as the dictionary does. */
+@media (min-width: 621px) {
+  .word-list-group .dictionary-entry { grid-template-columns: minmax(150px, .42fr) minmax(0, 1fr) 11rem; }
+}
+.word-list-other { display: block; margin-top: 4px; color: var(--muted); font: 14px/1.5 var(--f-ui); }
+.word-list-other a { color: var(--red); font-weight: 700; }
+
 @media (max-width: 640px) {
   .dictionary-alphabet { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
   .dictionary-alphabet button { min-width: 0; padding-inline: 4px; }
@@ -28,4 +52,9 @@ a.dictionary-lesson:hover { text-decoration: underline; text-underline-offset: 4
   .dictionary-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 14px 0; }
   .dictionary-english { grid-column: 1; }
   .dictionary-meta { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; align-items: flex-end; gap: 4px; }
+}
+
+@media (max-width: 620px) {
+  .dictionary-lesson.is-word-list { max-width: none; text-align: left; }
+  .word-list-group > header { align-items: flex-start; }
 }

@@ -17,6 +17,7 @@
 
 import { useState, useEffect } from 'react'
 import DeckComplete from './DeckComplete'
+import AnswerFeedback from '../components/AnswerFeedback.jsx'
 
 const PHRASES = [
   {
@@ -249,6 +250,9 @@ export default function ModifierOrderCore() {
         {selected.length > 0 && answered === null && (
           <button onClick={handleClear} className="afl-clear">clear</button>
         )}
+        <AnswerFeedback outcome={answered} announcement={answered === 'correct' ? 'Correct.' : 'Not quite. Review the correct order below.'}>
+          {answered === 'wrong' ? 'Review the correct order below.' : null}
+        </AnswerFeedback>
       </div>
 
       <div className="afl-pool-label">
@@ -277,8 +281,8 @@ export default function ModifierOrderCore() {
         <div className="afl-reveal">
           <div className="afl-verdict">
             {answered === 'correct'
-              ? <><span className="afl-right">Yes.</span> <em>{renderedSentence}</em>.</>
-              : <><span className="afl-wrong">Not quite.</span> You built <em>{renderedSentence}</em>. The correct order is <em>{correctSentence}</em>.</>
+              ? <><em>{renderedSentence}</em>.</>
+              : <>You built <em>{renderedSentence}</em>. The correct order is <em>{correctSentence}</em>.</>
             }
           </div>
           <div className="afl-pattern">

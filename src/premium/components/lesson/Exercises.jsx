@@ -5,6 +5,7 @@
  */
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion as Motion } from 'motion/react'
+import AnswerFeedback from '@app/components/AnswerFeedback.jsx'
 import { Md } from './Blocks.jsx'
 import { plainInline } from '../../lib/lesson-content.js'
 import {
@@ -52,8 +53,6 @@ export function SourceFeedback({ feedback }) {
     <Motion.div
       className="exercise-source-feedback"
       data-source-feedback=""
-      role="status"
-      aria-live="polite"
       initial={{ opacity: 0, y: -4 }}
       animate={{ opacity: 1, y: 0 }}
     >
@@ -73,9 +72,16 @@ export function SourceFeedback({ feedback }) {
   )
 }
 
-export function McqPresentation({ item, n, tries = [], onPick = () => {}, feedback = null }) {
+export function McqPresentation({ item, n, tries = [], onPick = () => {}, feedback = null, announce = false }) {
   const solved = tries.includes(item.correct)
   const showAnswer = solved && item.answer && plainInline(item.answer) !== plainInline(item.correct)
+  const wrongDetail = feedback?.message || genericMcqHint(item)
+  const verdictAnnouncement = solved
+    ? (feedback?.correct ? `Correct: ${plainInline(feedback.correct)}.` : 'Correct.')
+    : `Not quite. ${wrongDetail}`
+  const sourceAnnouncement = feedback
+    ? ` From this lesson. ${feedback.mapping.map(row => `${plainInline(row.tongan)}: ${row.english}.`).join(' ')}`
+    : ''
   return (
     <li className={`xi ${solved ? (tries.length === 1 ? 'is-right' : 'is-late') : ''}`}>
       <span className="xi-n">{n}</span>
@@ -88,17 +94,18 @@ export function McqPresentation({ item, n, tries = [], onPick = () => {}, feedba
             return (
               <button key={o} className={`opt ${wrong ? 'is-wrong' : ''} ${right ? 'is-right' : ''}`} onClick={() => onPick(o)} disabled={solved && !right} aria-pressed={right || wrong}>
                 <Md text={o} />
+                <span className="opt-verdict" aria-hidden="true">{right ? '✓' : wrong ? '×' : ''}</span>
               </button>
             )
           })}
         </div>
-        <AnimatePresence>
-          {tries.length > 0 && !solved && !feedback && (
-            <Motion.p className="xi-hint" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
-              {genericMcqHint(item)}
-            </Motion.p>
-          )}
-        </AnimatePresence>
+        <AnswerFeedback
+          outcome={tries.length ? (solved ? 'correct' : 'wrong') : null}
+          announce={announce}
+          announcement={`Question ${n}. Attempt ${tries.length}. ${verdictAnnouncement}${sourceAnnouncement}`}
+        >
+          {!solved && !feedback ? genericMcqHint(item) : null}
+        </AnswerFeedback>
         <AnimatePresence>{feedback && <SourceFeedback feedback={feedback} />}</AnimatePresence>
         <AnimatePresence>
           {showAnswer && (
@@ -123,7 +130,7 @@ function McqItem({ ex, item, n, tries, activeItemId, onInteract, onTriesChange }
     onTriesChange(next)
   }
   const feedback = activeSourceFeedbackFor(activeItemId, ex, item, tries)
-  return <McqPresentation item={item} n={n} tries={tries} onPick={pick} feedback={feedback} />
+  return <McqPresentation item={item} n={n} tries={tries} onPick={pick} feedback={feedback} announce={activeItemId === item.id} />
 }
 
 function RevealItem({ item, n, record, onChange }) {
