@@ -153,13 +153,16 @@ export function Header({ progress = false }) {
 }
 
 export function Footer() {
+  const compact = useLocation().pathname === '/'
   return (
-    <footer className="ftr band grain">
+    <footer className={`ftr band grain${compact ? ' ftr--compact' : ''}`}>
       <HomePatternBand className="ftr-band" />
       <div className="wrap ftr-grid">
         <div className="ftr-brand">
-          <div className="ftr-mark"><LogoMark /></div>
-          <p className="ftr-big display">Learn Tongan.<br />One sentence<br />at a time.</p>
+          {compact ? <Wordmark /> : <>
+            <div className="ftr-mark"><LogoMark /></div>
+            <p className="ftr-big display">Learn Tongan.<br />One sentence<br />at a time.</p>
+          </>}
         </div>
         <div className="ftr-col">
           <h2>Learn</h2>

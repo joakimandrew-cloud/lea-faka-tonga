@@ -118,3 +118,20 @@
   .ftr-grid { grid-template-columns: 1fr 1fr; }
   .ftr-brand { grid-column: 1 / -1; }
 }
+
+/* Homepage: useful destinations without repeating the hero's large pitch. */
+.ftr--compact .ftr-band { margin-bottom: 32px; }
+.ftr.ftr--compact .wm { min-height: 44px; color: #fff; }
+.ftr--compact .ftr-grid { gap: 28px; }
+.ftr--compact .ftr-col { gap: 0; padding-top: 0; }
+.ftr--compact .ftr-col a { display: inline-flex; align-items: center; min-height: 40px; line-height: 1.4; }
+.ftr--compact .ftr-col h2 { margin-bottom: 10px; }
+.ftr--compact .ftr-colophon { margin-top: 32px; }
+@media (max-width: 880px) {
+  .ftr--compact .ftr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .ftr--compact .ftr-brand { grid-column: 1 / -1; grid-row: 1; }
+  .ftr--compact .ftr-col:nth-child(2) { grid-column: 1; grid-row: 2 / 4; }
+  .ftr--compact .ftr-col:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .ftr--compact .ftr-col:nth-child(4) { grid-column: 2; grid-row: 3; }
+  .ftr--compact .ftr-col a { min-height: 44px; font-size: 14px; }
+}

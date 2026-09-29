@@ -28,9 +28,7 @@
 .wr-sentence-cycle__tenses button[aria-pressed="true"] { background: var(--wr-red); border-color: var(--wr-red); color: white; }
 .wr-sentence-cycle__timer { position: absolute; bottom: 0; left: 0; height: 3px; width: 100%; transform-origin: left; background: #ffffff8c; animation: wr-cycle-timer linear both; }
 .wr-sentence-cycle :focus-visible { outline: 3px solid var(--wr-red-deep); outline-offset: 4px; }
-.wr-sentence-cycle .wr-sentence-cycle__note { margin: 20px 0 0; color: #69645c; text-align: center; font-size: 14px; line-height: 1.75; }
-.wr-sentence-cycle__note a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; font-weight: 650; color: #7f2c17; text-decoration: underline; text-underline-offset: 4px; }
-.wr-sentence-cycle__note-separator { margin: 0 12px; color: #9b958b; }
+.wr-sentence-cycle .wr-sentence-cycle__note { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid #dedbd5; color: #69645c; text-align: left; font-size: 13px; line-height: 1.5; }
 .wr-sentence-cycle__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @keyframes wr-cycle-timer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @media (max-width: 760px) {
@@ -41,8 +39,6 @@
   .wr-sentence-cycle .wr-sentence-cycle__english { margin-top: 26px; font-size: 18px; }
   .wr-sentence-cycle__tenses { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .wr-sentence-cycle__tenses button { min-height: 81px; padding: 12px 14px; }
-  .wr-sentence-cycle__note-separator { display: none; }
-  .wr-sentence-cycle__note a { display: flex; justify-content: center; }
 }
 @media (max-width: 420px) {
   .wr-sentence-cycle__card { padding: 20px 17px; }

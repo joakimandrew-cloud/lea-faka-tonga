@@ -12,7 +12,7 @@
 .practice-tabs button[aria-selected='true']::after { content: ''; position: absolute; height: 4px; bottom: -1px; left: 0; right: 0; background: #b92e0e; }
 .practice-tabs__number { font: 600 11px var(--f-ui); opacity: .8; }
 .practice-showcase :focus-visible { outline: 3px solid #8a220a; outline-offset: -4px; }
-.practice-film__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 28px 36px 24px; border-bottom: 1px solid #eeeae4; }
+.practice-film__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; min-height: 78px; padding: 20px 28px; border-bottom: 1px solid #eeeae4; }
 .practice-film__source { margin: 0 0 7px; color: #b92e0e; font: 750 11px var(--f-ui); letter-spacing: .09em; text-transform: uppercase; }
 .practice-film__heading h3 { margin: 0; color: #171717; font: 650 22px/1.3 var(--f-ui); letter-spacing: -.035em; }
 .practice-film__badge { flex: none; padding: 7px 10px; border: 1px solid #e3dfd8; border-radius: 4px; color: #70695f; font-size: 10px; }
@@ -59,7 +59,7 @@
 .practice-film__footer .wr-home__button { min-height: 48px; padding: 14px 22px; font-size: 13px; }
 .practice-loading { display: grid; place-content: center; min-height: 450px; padding: 24px; color: #686158; text-align: center; }
 @media (max-width: 760px) {
-  .practice-film__heading { padding: 24px; }
+  .practice-film__heading { min-height: 88px; padding: 16px 24px; }
   .practice-film__badge { display: none; }
   .practice-film__heading h3 { font-size: 19px; }
   .practice-film__stage { padding: 24px; min-height: 530px; }
@@ -77,7 +77,7 @@
   .practice-film__stage .ca { padding-inline: 16px; }
 }
 @media (max-width: 400px) {
-  .practice-film__heading, .practice-film__stage { padding: 20px 16px; }
+  .practice-film__heading, .practice-film__stage { padding: 16px; }
   .practice-film__footer { padding: 16px; gap: 10px; }
   .practice-film__footer .wr-home__button { padding-inline: 16px; font-size: 12px; }
   .practice-film__stage .dr-opt { font-size: 20px; }
@@ -102,9 +102,11 @@
 .wr-home__practice .wr-home__section-intro h2 { font-size: clamp(38px, 5.6vw, 74px); }
 
 /* Keep the footer still while the three short previews cycle. */
-.practice-film__stage { min-height: 550px; }
-@media (max-width: 760px) { .practice-film__stage { min-height: 640px; } }
+.practice-film__stage { min-height: 510px; }
+@media (max-width: 760px) { .practice-film__stage { min-height: 570px; } }
 @media (max-width: 400px) {
-  .practice-film__heading { min-height: 130px; }
-  .practice-film__stage { min-height: 680px; }
+  .practice-film__heading { min-height: 88px; }
+  .practice-film__stage { min-height: 610px; }
 }
+
+.practice-film__count { flex: none; align-self: center; color: var(--wr-muted); font: 600 12px var(--f-ui); }
