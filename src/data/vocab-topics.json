@@ -1,5 +1,5 @@
 {
-  "source_tsv_sha256": "e71fdaee103fda9d61635e5996ca2207e49c630f9451f6400c882ff80c1a8ac7",
+  "source_tsv_sha256": "a024ebf5b40e44b3e13c17ec2bad3e252f41dfb2a63b6611e2c6c1e365e8919b",
   "topics": [
     {
       "id": "family",
@@ -86,6 +86,7 @@
         "book-v0543",
         "book-v0571",
         "book-v0573",
+        "book-v0589",
         "book-v0610"
       ]
     },
