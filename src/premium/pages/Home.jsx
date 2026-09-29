@@ -24,7 +24,13 @@ export default function Home() {
               <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
               <p className="wr-home__access-note">All 52 lessons are open during the free preview.</p>
             </div>
-            <p className="wr-home__book-route">Prefer the book? <a href={PDF_URL}>Download the free PDF</a> or <a href={EPUB_URL}>EPUB</a>. Free forever, with lifetime updates.</p>
+            <div className="wr-home__book-route">
+              <span className="wr-home__book-prompt">Prefer the book? </span>
+              <a href={PDF_URL}>Download the free PDF</a>
+              <span className="wr-home__book-or"> or </span>
+              <a href={EPUB_URL}>EPUB</a>
+              <span className="wr-home__book-note"><span className="wr-home__book-stop">. </span>Free forever, with lifetime updates.</span>
+            </div>
           </div>
           <figure className="wr-home__hero-book">
             <div className="wr-home__book-halo" aria-hidden="true" />

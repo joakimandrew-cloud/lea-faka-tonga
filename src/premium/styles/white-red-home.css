@@ -192,14 +192,31 @@
 
 @media (max-width: 760px) {
   .wr-home__hero { min-height: 0; }
-  .wr-home__hero-inner { width: calc(100% - 36px); display: block; padding: 38px 0 48px; }
-  .wr-home__hero h1 { margin-bottom: 12px; font-size: clamp(49px, 15.5vw, 65px); line-height: .9; }
-  .wr-home__hero-lede { margin-bottom: 18px; font-size: 15px; line-height: 1.42; }
-  .wr-home__hero-action { display: block; }
+  .wr-home__hero-inner {
+    width: min(540px, calc(100% - 36px));
+    padding: 28px 0 34px;
+    grid-template-columns: minmax(0, 1fr) minmax(110px, 40%);
+    column-gap: 18px;
+    row-gap: 0;
+  }
+  .wr-home__hero-copy { display: contents; }
+  .wr-home__hero .wr-home__eyebrow { grid-column: 1 / -1; grid-row: 1; }
+  .wr-home__hero h1 { grid-column: 1 / -1; grid-row: 2; margin-bottom: 22px; font-size: clamp(40px, 11.5vw, 60px); line-height: .98; }
+  .wr-home__hero-lede { grid-column: 1; grid-row: 3; margin: 0; font-size: 15px; line-height: 1.5; }
+  .wr-home__hero-action { grid-column: 1 / -1; grid-row: 4; display: block; margin-top: 24px; }
   .wr-home__hero .wr-home__button { width: 100%; }
-  .wr-home__hero .wr-home__access-note { margin: 10px 1px 0; }
-  .wr-home__book-route { margin-top: 12px; font-size: 11px; line-height: 1.4; }
-  .wr-home__hero-book { display: none; }
+  .wr-home__hero .wr-home__access-note { max-width: none; margin: 10px 0 0; font-size: 13px; line-height: 1.45; }
+  .wr-home__book-route { grid-column: 1 / -1; grid-row: 5; display: grid; grid-template-columns: 2fr 1fr; gap: 8px; margin-top: 22px; font-size: 14px; line-height: 1.45; }
+  .wr-home__book-prompt,
+  .wr-home__book-note { grid-column: 1 / -1; }
+  .wr-home__book-route a { min-height: 44px; display: flex; align-items: center; justify-content: center; padding: 8px 10px; border: 1px solid #cfcfcf; border-radius: 2px; text-decoration: none; text-align: center; }
+  .wr-home__book-route a:hover { color: var(--wr-red); border-color: var(--wr-red); }
+  .wr-home__book-or,
+  .wr-home__book-stop { display: none; }
+  .wr-home__hero-book { display: block; grid-column: 2; grid-row: 3; min-width: 0; }
+  .wr-home__hero-book img { display: block; width: 100%; max-width: 190px; filter: drop-shadow(0 14px 12px rgba(0, 0, 0, .18)); }
+  .wr-home__hero-book figcaption,
+  .wr-home__book-halo { display: none; }
   .wr-home__eyebrow { margin-bottom: 12px; font-size: 10px; }
   .wr-home__sentence,
   .wr-home__practice,
@@ -226,8 +243,5 @@
 }
 
 @media (max-width: 350px) {
-  .wr-home__hero-inner { width: calc(100% - 30px); padding-top: 30px; padding-bottom: 42px; }
-  .wr-home__hero h1 { font-size: 47px; }
-  .wr-home__hero-lede { font-size: 14px; }
-  .wr-home__book-route { font-size: 10px; }
+  .wr-home__hero-inner { width: calc(100% - 30px); column-gap: 12px; padding-top: 24px; }
 }
