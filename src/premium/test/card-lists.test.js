@@ -38,18 +38,30 @@ test('Days + Months is 19 cards Monday first; Months + Days is 19 cards January 
   for (const card of daysMonths) assert.ok(card.to && card.en && card.type, `card ${card.id} has to/en/type`)
 })
 
-test('the Category menu offers eight word lists; Days and months is 7 days under Essential', () => {
+test('the Category menu offers eight word lists, each whole and in order', () => {
   assert.deepEqual(menu.map(entry => entry.label), [
     'Numbers', 'Days of the week', 'Months', 'Days and months',
     'Time words', 'Colours', 'Greetings and courtesy', 'Question words',
   ])
   const daysMonths = globalCards(deckForLists(menu.find(entry => entry.id === 'days-months').lists))
   assert.equal(daysMonths.length, 19)
-  const essential = filterGlobalCards(daysMonths, 'essential', 'all')
-  assert.equal(essential.length, 7)
-  assert.equal(essential[0].en, 'Monday')
+  assert.equal(daysMonths[0].en, 'Monday')
+  assert.equal(globalCards(deckForLists(menu.find(entry => entry.id === 'months').lists)).length, 12)
   const numbers = globalCards(deckForLists(['numbers']))
+  assert.equal(numbers.length, 17)
   assert.equal(numbers[0].en, 'zero')
+})
+
+test('no tier on /cards: every word type and word list is a non-empty deck of every word', () => {
+  const cards = globalCards(vocabulary)
+  assert.equal(filterGlobalCards(cards, 'all', 'all').length, 649)
+  const types = [...new Set(vocabulary.map(item => item.category))].filter(value => value !== 'numbers')
+  for (const category of types) {
+    const deck = filterGlobalCards(cards, 'all', category)
+    assert.ok(deck.length > 0, `${category} is empty`)
+    assert.equal(deck.length, vocabulary.filter(item => item.category === category).length)
+  }
+  for (const entry of menu) assert.ok(deckForLists(entry.lists).length > 0, `${entry.id} is empty`)
 })
 
 test('list progress keys: one per list and tier, never colliding with word-type or lesson decks', () => {

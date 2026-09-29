@@ -27,7 +27,10 @@ const ALL_GLOBAL_CARDS = globalCards(vocabulary)
 const CATEGORIES = [...new Set(vocabulary.map(item => item.category))].filter(value => value !== 'numbers').sort()
 const LIST_PREFIX = 'list:'
 const LIST_CARDS = new Map(listMenu.map(entry => [entry.id, globalCards(deckForLists(entry.lists))]))
-const TIER_LABELS = { essential: 'Essential', useful: 'Useful', all: 'All' }
+// Every deck holds every word of its category or list (Andrew, 2026-09-29: no
+// tier buttons). Progress stays under the old "all" keys so learners who
+// practised with All keep their place; essential/useful progress is left alone.
+const BOOK_TIER = 'all'
 
 // Same Tongan word, another card in the course (hiva: nine, and sing).
 function meaningOf(card) {
@@ -85,7 +88,7 @@ function Deck({ deckKey, words, mode, lessonNumber, meaningFor }) {
     return (
       <div className="deck-empty" role="status">
         <strong>No words in this deck.</strong>
-        <span>Choose another category or tier.</span>
+        <span>{mode === 'lesson' ? 'Choose another lesson.' : 'Choose another category.'}</span>
       </div>
     )
   }
@@ -159,21 +162,15 @@ export default function Cards() {
   const lessonParam = params.get('lesson')
   const mode = lessonParam ? 'lesson' : 'global'
   const lessonNumber = Math.min(52, Math.max(1, Number(lessonParam) || 1))
-  const [tier, setTier] = useState('essential')
-  // One Category menu: a word type (tier and category filter the whole
-  // vocabulary) or a word list (its own natural order, which the tier filters).
+  // One Category menu: a word type (every word of that type) or a word list
+  // (every word of the list, in its natural order).
   const [category, setCategory] = useState('all')
   const listId = category.startsWith(LIST_PREFIX) ? category.slice(LIST_PREFIX.length) : null
   const globalWords = useMemo(
-    () => listId ? filterGlobalCards(LIST_CARDS.get(listId) || [], tier, 'all') : filterGlobalCards(ALL_GLOBAL_CARDS, tier, category),
-    [listId, tier, category],
+    () => listId ? LIST_CARDS.get(listId) || [] : filterGlobalCards(ALL_GLOBAL_CARDS, BOOK_TIER, category),
+    [listId, category],
   )
-  const globalKey = listId ? listDeckKey(listId, tier) : globalDeckKey(tier, category)
-  const chooseCategory = value => {
-    setCategory(value)
-    // A word list opens whole, in order; the tier buttons still narrow it.
-    if (value.startsWith(LIST_PREFIX)) setTier('all')
-  }
+  const globalKey = listId ? listDeckKey(listId, BOOK_TIER) : globalDeckKey(BOOK_TIER, category)
   const lesson = chapters.find(chapter => chapter.chapter === lessonNumber)
   useTitle(mode === 'global' ? 'Vocabulary flip cards' : `Flip cards: Lesson ${lessonNumber}`)
 
@@ -184,7 +181,7 @@ export default function Cards() {
           <div>
             <p className="eyebrow">Flip cards · {mode === 'global' ? `${vocabulary.length} book words` : 'Lesson deck'}</p>
             <h1 className="cards-h1 display">{mode === 'global' ? <>Build a useful<br />Tongan vocabulary.</> : `Words from Lesson ${lessonNumber}`}</h1>
-            <p className="cards-sub">{mode === 'global' ? 'Choose a useful slice of the course, then work through it in either direction.' : `${lesson?.title} · words from the lesson reading`}</p>
+            <p className="cards-sub">{mode === 'global' ? 'Choose a word type or a word list, then work through it in either direction.' : `${lesson?.title} · words from the lesson reading`}</p>
           </div>
           <div className="cards-mode" role="tablist" aria-label="Card collection">
             <button type="button" role="tab" aria-selected={mode === 'global'} onClick={() => setParams({})}>Book vocabulary</button>
@@ -195,14 +192,9 @@ export default function Cards() {
         {mode === 'global' ? (
           <>
             <div className="cards-controls global-controls">
-              <div className="cards-dir" role="group" aria-label="Vocabulary tier">
-                {Object.entries(TIER_LABELS).map(([value, label]) => (
-                  <button key={value} type="button" aria-pressed={tier === value} className={tier === value ? 'is-on' : ''} onClick={() => setTier(value)}>{label}</button>
-                ))}
-              </div>
               <label className="cards-select">
                 <span>Category</span>
-                <select value={category} onChange={event => chooseCategory(event.target.value)}>
+                <select value={category} onChange={event => setCategory(event.target.value)}>
                   <optgroup label="Word types">
                     <option value="all">All categories</option>
                     {CATEGORIES.map(value => <option key={value} value={value}>{value[0].toUpperCase() + value.slice(1)}</option>)}

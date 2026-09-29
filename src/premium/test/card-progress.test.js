@@ -49,7 +49,7 @@ test('global vocabulary retains all source IDs and exact tier/category membershi
 test('a deck persists direction, order, position, piles, finish and affected-deck restart', () => {
   const storage = new MemoryStorage()
   const sample = cards.slice(0, 3)
-  const key = globalDeckKey('essential', 'all')
+  const key = globalDeckKey('all', 'all')
   let state = freshDeck(sample)
   state = { ...state, direction: 'en' }
   state = advanceDeck(state, 'known')
