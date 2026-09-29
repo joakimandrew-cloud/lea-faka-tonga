@@ -13,6 +13,7 @@ import './styles/base.css'
 import './styles/chrome.css'
 import './styles/white-red.css'
 import './styles/white-red-inner.css'
+import '../styles/answer-feedback.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(

@@ -1,3 +1,16 @@
+.xi-opts .opt { position: relative; }
+.xi-opts .opt-verdict {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 13px;
+  font: 750 14px/1 var(--f-ui);
+  color: var(--error);
+}
+.xi-opts .opt.is-right .opt-verdict { color: #fff; }
+.xi-opts .opt.is-wrong:not(:disabled) { opacity: 1; }
+
 .exercise-source-feedback {
   margin-top: 12px;
   padding: 15px 16px 16px;
