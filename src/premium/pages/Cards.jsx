@@ -22,7 +22,7 @@ import Card from '../components/practice/PracticeCard.jsx'
 import '../styles/cards.css'
 
 const ALL_GLOBAL_CARDS = globalCards(vocabulary)
-// Word types for the Category menu. The Numbers word list takes the place of
+// Word types for the Category menu. The Numbers course list takes the place of
 // the old "numbers" word type (whose two other cards stay under All categories).
 const CATEGORIES = [...new Set(vocabulary.map(item => item.category))].filter(value => value !== 'numbers').sort()
 const LIST_PREFIX = 'list:'
@@ -73,6 +73,9 @@ function Deck({ deckKey, words, mode, lessonNumber, meaningFor }) {
         ? event.target.closest('a, button, input, select, textarea, summary, [role="button"]')
         : null
       if (interactive || event.metaKey || event.ctrlKey || event.altKey) return
+      // Enter on the focused card is the card's own tap (PracticeCard onTap),
+      // so it is not toggled a second time here.
+      if (event.key === 'Enter' && event.target instanceof Element && event.target.closest('.fc')) return
       if (event.key === 'ArrowLeft') swipe('again')
       else if (event.key === 'ArrowRight') swipe('known')
       else if (event.key === ' ' || event.key === 'Enter') {
@@ -162,7 +165,7 @@ export default function Cards() {
   const lessonParam = params.get('lesson')
   const mode = lessonParam ? 'lesson' : 'global'
   const lessonNumber = Math.min(52, Math.max(1, Number(lessonParam) || 1))
-  // One Category menu: a word type (every word of that type) or a word list
+  // One Category menu: a word type (every word of that type) or a course list
   // (every word of the list, in its natural order).
   const [category, setCategory] = useState('all')
   const listId = category.startsWith(LIST_PREFIX) ? category.slice(LIST_PREFIX.length) : null
@@ -181,7 +184,7 @@ export default function Cards() {
           <div>
             <p className="eyebrow">Flip cards · {mode === 'global' ? `${vocabulary.length} book words` : 'Lesson deck'}</p>
             <h1 className="cards-h1 display">{mode === 'global' ? <>Build a useful<br />Tongan vocabulary.</> : `Words from Lesson ${lessonNumber}`}</h1>
-            <p className="cards-sub">{mode === 'global' ? 'Choose a word type or a word list, then work through it in either direction.' : `${lesson?.title} · words from the lesson reading`}</p>
+            <p className="cards-sub">{mode === 'global' ? 'Choose a word type or a course list, then work through it in either direction.' : `${lesson?.title} · words from the lesson reading`}</p>
           </div>
           <div className="cards-mode" role="tablist" aria-label="Card collection">
             <button type="button" role="tab" aria-selected={mode === 'global'} onClick={() => setParams({})}>Book vocabulary</button>
@@ -199,7 +202,7 @@ export default function Cards() {
                     <option value="all">All categories</option>
                     {CATEGORIES.map(value => <option key={value} value={value}>{value[0].toUpperCase() + value.slice(1)}</option>)}
                   </optgroup>
-                  <optgroup label="Word lists">
+                  <optgroup label="Course lists">
                     {listMenu.map(entry => <option key={entry.id} value={LIST_PREFIX + entry.id}>{entry.label}</option>)}
                   </optgroup>
                 </select>

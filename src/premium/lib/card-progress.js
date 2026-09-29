@@ -77,7 +77,7 @@ export function globalDeckKey(tier, category) {
   return `global:${tier}:${category}`
 }
 
-// Word lists (vocab-lists.js menu) keep their own progress for each tier,
+// Course lists (vocab-lists.js menu) keep their own progress for each tier,
 // apart from the word-type decks (global:) and the lesson decks (lesson:).
 export function listDeckKey(menuId, tier) {
   return `list:${menuId}:${tier}`
@@ -118,8 +118,39 @@ function validStoredDeck(stored, cards) {
   }
 }
 
+// Decks retired in favour of a list keep their learner's progress: the first
+// time the list is opened with no record of its own, it starts from the old
+// deck's record, card by card (membership and order changed, so the old
+// position is not reused). The old record is never changed or deleted.
+export const RETIRED_DECKS = Object.freeze({
+  [listDeckKey('numbers', 'all')]: globalDeckKey('all', 'numbers'),
+})
+
+// Builds a deck for `cards` from a record saved for another deck: known and
+// again piles are kept for ids still in `cards` and dropped otherwise; the
+// order is the new deck's own; the place is the first card not yet known.
+export function carryDeck(stored, cards) {
+  if (!stored || typeof stored !== 'object') return null
+  const ids = new Set(cards.map(card => card.id))
+  const keep = list => Array.isArray(list) ? [...new Set(list.filter(id => ids.has(id)))] : []
+  const known = keep(stored.known)
+  const knownSet = new Set(known)
+  const again = keep(stored.again).filter(id => !knownSet.has(id))
+  if (!known.length && !again.length) return null
+  const deck = freshDeck(cards, stored.direction)
+  const next = deck.order.findIndex(id => !knownSet.has(id))
+  const position = next === -1 ? deck.order.length : next
+  return { ...deck, position, known, again, finished: position >= deck.order.length }
+}
+
 export function loadDeck(deckKey, cards, storage = browserStorage()) {
-  return validStoredDeck(readRoot(storage).decks[deckKey], cards) || freshDeck(cards)
+  const decks = readRoot(storage).decks
+  const own = decks[deckKey]
+  if (own === undefined && RETIRED_DECKS[deckKey]) {
+    const carried = carryDeck(decks[RETIRED_DECKS[deckKey]], cards)
+    if (carried) return carried
+  }
+  return validStoredDeck(own, cards) || freshDeck(cards)
 }
 
 export function saveDeck(deckKey, state, storage = browserStorage()) {
@@ -135,8 +166,10 @@ export function advanceDeck(state, pile) {
   return {
     ...state,
     position,
-    known: pile === 'known' ? [...state.known, id] : state.known,
-    again: pile === 'again' ? [...state.again, id] : state.again,
+    // A card is in one pile at most (a carried-over deck can hold a known or
+    // again card that comes round again).
+    known: pile === 'known' ? [...state.known.filter(other => other !== id), id] : state.known.filter(other => other !== id),
+    again: pile === 'again' ? [...state.again.filter(other => other !== id), id] : state.again.filter(other => other !== id),
     finished: position >= state.order.length,
   }
 }
