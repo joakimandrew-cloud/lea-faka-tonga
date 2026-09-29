@@ -7,6 +7,7 @@ import vocabulary from '@app/data/book-vocabulary.json'
 import { loadLesson } from '../lib/book.js'
 import {
   advanceDeck,
+  cardsLeft,
   filterGlobalCards,
   globalCards,
   globalDeckKey,
@@ -58,6 +59,7 @@ function Deck({ deckKey, words, mode, lessonNumber, meaningFor }) {
   const queue = state.order.slice(state.position).map(id => byId.get(id)).filter(Boolean)
   const currentId = state.order[state.position]
   const progress = state.order.length ? state.position / state.order.length * 100 : 0
+  const left = cardsLeft(state)
 
   const swipe = useCallback((pile) => {
     if (!currentId) return
@@ -98,6 +100,9 @@ function Deck({ deckKey, words, mode, lessonNumber, meaningFor }) {
 
   return (
     <>
+      {!state.finished && (
+        <p className="cards-left" aria-live="polite">{left} of {state.order.length} {state.order.length === 1 ? 'card' : 'cards'} left</p>
+      )}
       <div className="cards-progress" aria-hidden="true"><Motion.i animate={{ width: `${progress}%` }} transition={{ type: 'spring', stiffness: 200, damping: 30 }} /></div>
       <div className="cards-main">
         <div className="pile pile-again"><span className="pile-n display">{state.again.length}</span><span className="pile-l">Again</span></div>

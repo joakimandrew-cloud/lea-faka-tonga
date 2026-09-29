@@ -159,6 +159,12 @@ export function saveDeck(deckKey, state, storage = browserStorage()) {
   return state
 }
 
+// Cards still to come in this pass of the deck, the current card included.
+export function cardsLeft(state) {
+  if (!state || state.finished) return 0
+  return Math.max(0, state.order.length - state.position)
+}
+
 export function advanceDeck(state, pile) {
   if (state.finished || state.position >= state.order.length) return state
   const id = state.order[state.position]
