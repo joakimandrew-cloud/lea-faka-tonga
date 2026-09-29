@@ -154,5 +154,18 @@ export function buildVocabLists(vocabulary, okinafy) {
     return deck
   }
 
-  return { meaningGroups, otherMeanings, lists, deckForLists }
+  // 4. The word lists as the card page's Category menu offers them: each entry
+  // is one or more lists joined in order (Days and months = the days, then the months).
+  const menu = [
+    { id: 'numbers', label: 'Numbers', lists: ['numbers'] },
+    { id: 'days', label: 'Days of the week', lists: ['days'] },
+    { id: 'months', label: 'Months', lists: ['months'] },
+    { id: 'days-months', label: 'Days and months', lists: ['days', 'months'] },
+    { id: 'time', label: 'Time words', lists: ['time'] },
+    { id: 'colours', label: 'Colours', lists: ['colours'] },
+    { id: 'greetings', label: 'Greetings and courtesy', lists: ['greetings'] },
+    { id: 'questions', label: 'Question words', lists: ['questions'] },
+  ]
+
+  return { meaningGroups, otherMeanings, lists, deckForLists, menu }
 }

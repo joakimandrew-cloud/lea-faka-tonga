@@ -77,11 +77,10 @@ export function globalDeckKey(tier, category) {
   return `global:${tier}:${category}`
 }
 
-// Themed lists (vocab-lists.js) keep their own progress, apart from the tier
-// and category decks. The chosen order is part of the key, because it sets the
-// order of the cards (Days + Months starts on Monday, Months + Days on January).
-export function listDeckKey(listIds) {
-  return `lists:${listIds.join('+')}`
+// Word lists (vocab-lists.js menu) keep their own progress for each tier,
+// apart from the word-type decks (global:) and the lesson decks (lesson:).
+export function listDeckKey(menuId, tier) {
+  return `list:${menuId}:${tier}`
 }
 
 export function sourceFingerprint(cards) {

@@ -8,3 +8,4 @@ export const meaningGroups = built.meaningGroups
 export const otherMeanings = built.otherMeanings
 export const lists = built.lists
 export const deckForLists = built.deckForLists
+export const listMenu = built.menu

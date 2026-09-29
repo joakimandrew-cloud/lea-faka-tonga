@@ -5,11 +5,11 @@ import path from 'node:path'
 import { cwd } from 'node:process'
 import { buildVocabLists } from '../../lib/vocab-lists.js'
 import { okinafy } from '../../lib/okinafy.js'
-import { globalCards, globalDeckKey, lessonDeckKey, listDeckKey } from '../lib/card-progress.js'
+import { filterGlobalCards, globalCards, globalDeckKey, lessonDeckKey, listDeckKey } from '../lib/card-progress.js'
 
 const root = cwd()
 const vocabulary = JSON.parse(fs.readFileSync(path.join(root, 'src/data/book-vocabulary.json'), 'utf8'))
-const { meaningGroups, otherMeanings, lists, deckForLists } = buildVocabLists(vocabulary, okinafy)
+const { meaningGroups, otherMeanings, deckForLists, menu } = buildVocabLists(vocabulary, okinafy)
 
 test('exactly four meaning groups: hiva, nima, taha, lava', () => {
   assert.deepEqual([...meaningGroups.keys()].sort(), ['hiva', 'lava', 'nima', 'taha'])
@@ -38,19 +38,30 @@ test('Days + Months is 19 cards Monday first; Months + Days is 19 cards January 
   for (const card of daysMonths) assert.ok(card.to && card.en && card.type, `card ${card.id} has to/en/type`)
 })
 
-test('list progress keys never collide with tier, category or lesson decks', () => {
+test('the Category menu offers eight word lists; Days and months is 7 days under Essential', () => {
+  assert.deepEqual(menu.map(entry => entry.label), [
+    'Numbers', 'Days of the week', 'Months', 'Days and months',
+    'Time words', 'Colours', 'Greetings and courtesy', 'Question words',
+  ])
+  const daysMonths = globalCards(deckForLists(menu.find(entry => entry.id === 'days-months').lists))
+  assert.equal(daysMonths.length, 19)
+  const essential = filterGlobalCards(daysMonths, 'essential', 'all')
+  assert.equal(essential.length, 7)
+  assert.equal(essential[0].en, 'Monday')
+  const numbers = globalCards(deckForLists(['numbers']))
+  assert.equal(numbers[0].en, 'zero')
+})
+
+test('list progress keys: one per list and tier, never colliding with word-type or lesson decks', () => {
   const categories = [...new Set(vocabulary.map(item => item.category)), 'all']
+  const tiers = ['essential', 'useful', 'all']
   const others = new Set()
-  for (const tier of ['essential', 'useful', 'all']) for (const category of categories) others.add(globalDeckKey(tier, category))
+  for (const tier of tiers) for (const category of categories) others.add(globalDeckKey(tier, category))
   for (let lesson = 1; lesson <= 52; lesson += 1) others.add(lessonDeckKey(lesson))
-  const ids = lists.map(list => list.id)
   const listKeys = new Set()
-  for (const a of ids) {
-    listKeys.add(listDeckKey([a]))
-    for (const b of ids) if (a !== b) listKeys.add(listDeckKey([a, b]))
-  }
-  listKeys.add(listDeckKey(ids))
+  for (const entry of menu) for (const tier of tiers) listKeys.add(listDeckKey(entry.id, tier))
+  assert.equal(listKeys.size, menu.length * tiers.length)
   for (const key of listKeys) assert.ok(!others.has(key), `${key} collides`)
-  assert.equal(listDeckKey(['days', 'months']), 'lists:days+months')
-  assert.notEqual(listDeckKey(['days', 'months']), listDeckKey(['months', 'days']))
+  assert.equal(listDeckKey('days-months', 'all'), 'list:days-months:all')
+  assert.notEqual(listDeckKey('numbers', 'all'), globalDeckKey('all', 'numbers'))
 })
