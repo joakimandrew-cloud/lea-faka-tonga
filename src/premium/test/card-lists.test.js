@@ -1,5 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { cwd } from 'node:process'
@@ -76,4 +77,61 @@ test('list progress keys: one per list and tier, never colliding with word-type 
   for (const key of listKeys) assert.ok(!others.has(key), `${key} collides`)
   assert.equal(listDeckKey('days-months', 'all'), 'list:days-months:all')
   assert.notEqual(listDeckKey('numbers', 'all'), globalDeckKey('all', 'numbers'))
+})
+
+// Topics: vocab-topics.json must be exactly the judged topic-tags.tsv, which
+// lives in the private project next to this app (reviews/flip-cards-lists-2026-09-29/).
+const TSV = path.join(root, '..', 'reviews/flip-cards-lists-2026-09-29/topic-tags.tsv')
+const topicData = JSON.parse(fs.readFileSync(path.join(root, 'src/data/vocab-topics.json'), 'utf8'))
+
+function readTsv() {
+  const text = fs.readFileSync(TSV, 'utf8')
+  const [head, ...lines] = text.split('\n').filter(line => line.length > 0)
+  const cols = head.split('\t')
+  return lines.map(line => Object.fromEntries(line.split('\t').map((value, i) => [cols[i], value])))
+}
+
+test('vocab-topics.json equals topic-tags.tsv: ids, labels, order, members and hash', () => {
+  assert.ok(fs.existsSync(TSV), `topic-tags.tsv not found at ${TSV}`)
+  const sha = crypto.createHash('sha256').update(fs.readFileSync(TSV)).digest('hex')
+  assert.equal(topicData.source_tsv_sha256, sha)
+  const rows = readTsv()
+  assert.ok(rows.length > 0)
+  const order = []
+  const labels = new Map()
+  const members = new Map()
+  for (const row of rows) {
+    if (!members.has(row.topic_id)) { order.push(row.topic_id); members.set(row.topic_id, new Set()) }
+    labels.set(row.topic_id, row.topic_label)
+    members.get(row.topic_id).add(row.id)
+  }
+  assert.deepEqual(topicData.topics.map(topic => topic.id), order)
+  assert.deepEqual(topicData.topics.map(topic => topic.label), order.map(id => labels.get(id)))
+  for (const topic of topicData.topics) {
+    assert.equal(new Set(topic.ids).size, topic.ids.length, `${topic.id} repeats an id`)
+    assert.deepEqual([...topic.ids].sort(), [...members.get(topic.id)].sort(), `${topic.id} members differ`)
+    assert.deepEqual(Object.keys(topic).sort(), ['id', 'ids', 'label'], `${topic.id} carries only ids`)
+  }
+})
+
+test('topic decks: every id is a book word, ordered by chapter then id, never clashing with a course list', () => {
+  const byId = new Map(vocabulary.map(row => [row.id, row]))
+  for (const topic of topicData.topics) {
+    assert.ok(topic.ids.length > 0, `${topic.id} is empty`)
+    for (const id of topic.ids) assert.ok(byId.has(id), `${id} is not in book-vocabulary.json`)
+    const sorted = [...topic.ids].sort((a, b) => (byId.get(a).chapter - byId.get(b).chapter) || (a < b ? -1 : a > b ? 1 : 0))
+    assert.deepEqual(topic.ids, sorted, `${topic.id} is not in chapter-then-id order`)
+    for (const card of globalCards(topic.ids.map(id => byId.get(id)))) assert.ok(card.to && card.en && card.type, `card ${card.id} has to/en/type`)
+  }
+  const menuIds = new Set(menu.map(entry => entry.id))
+  for (const topic of topicData.topics) assert.ok(!menuIds.has(topic.id), `topic ${topic.id} clashes with a course list`)
+  const tiers = ['essential', 'useful', 'all']
+  const others = new Set(menu.map(entry => listDeckKey(entry.id, 'all')))
+  for (const tier of tiers) for (const category of [...new Set(vocabulary.map(item => item.category)), 'all']) others.add(globalDeckKey(tier, category))
+  for (let lesson = 1; lesson <= 52; lesson += 1) others.add(lessonDeckKey(lesson))
+  for (const topic of topicData.topics) {
+    const key = listDeckKey(topic.id, 'all')
+    assert.equal(key, `list:${topic.id}:all`)
+    assert.ok(!others.has(key), `${key} collides`)
+  }
 })
