@@ -2,7 +2,9 @@ import { okinafy } from '@app/lib/okinafy.js'
 import { useDeferredValue, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import vocabulary from '@app/data/book-vocabulary.json'
+import wordListData from '../data/word-lists.json'
 import { DICTIONARY_GROUPS, browseDictionary, buildDictionary, searchDictionary } from '../lib/course-dictionary.js'
+import { buildWordListSearchEntries } from '../lib/word-lists.js'
 import { useTitle } from '../lib/title.js'
 import '../styles/catalog.css'
 import '../styles/dictionary.css'
@@ -12,6 +14,10 @@ import '../styles/dictionary.css'
 // the 2026-09-27 ruling "B reached through A": course list only, glosses as the
 // list has them, no EALD or Churchward text.
 const ENTRIES = buildDictionary(vocabulary)
+// Word-list words (DECISIONS.md 2026-09-29) join the search only, after the
+// course words and with their own label; browsing and the full list stay the
+// course's own 649 words.
+const SEARCH_ENTRIES = [...ENTRIES, ...buildWordListSearchEntries(wordListData)]
 const letterLabel = letter => letter === 'ng' ? 'Ng' : letter.toUpperCase()
 
 export default function Dictionary() {
@@ -20,7 +26,7 @@ export default function Dictionary() {
   const [query, setQuery] = useState('')
   const [letter, setLetter] = useState('')
   const deferredQuery = useDeferredValue(query)
-  const results = useMemo(() => letter ? browseDictionary(ENTRIES, letter) : searchDictionary(ENTRIES, deferredQuery), [deferredQuery, letter])
+  const results = useMemo(() => letter ? browseDictionary(ENTRIES, letter) : searchDictionary(deferredQuery.trim() ? SEARCH_ENTRIES : ENTRIES, deferredQuery), [deferredQuery, letter])
   const searching = !letter && deferredQuery.trim().length > 0
   const chooseLetter = next => { setLetter(next); setQuery('') }
 
@@ -34,6 +40,7 @@ export default function Dictionary() {
         </div>
       </header>
       <div className="wrap catalog-body">
+        <p className="dictionary-wordlists">Looking for everyday words the lessons do not teach, such as parts of the body? <Link to="/word-lists">See the word lists</Link>.</p>
         <div className="catalog-tools">
           <label className="catalog-search">
             <span>Search the dictionary</span>
@@ -81,7 +88,7 @@ export default function Dictionary() {
                 <span className="dictionary-meta">
                   {entry.partOfSpeech && <span className="dictionary-pos">{entry.partOfSpeech}</span>}
                   {entry.href
-                    ? <Link className="dictionary-lesson" to={entry.href}>{entry.label}</Link>
+                    ? <Link className={entry.wordList ? 'dictionary-lesson is-word-list' : 'dictionary-lesson'} to={entry.href}>{entry.label}</Link>
                     : <span className="dictionary-lesson is-supplemental">{entry.label}</span>}
                 </span>
               </li>
@@ -89,7 +96,7 @@ export default function Dictionary() {
           </ul>
         )}
         </div>
-        <p className="dictionary-note">Supplemental words are in the course word list but not tied to one lesson.</p>
+        <p className="dictionary-note">Supplemental words are in the course word list but not tied to one lesson. Word-list words come from the <Link to="/word-lists">word lists</Link> and are not taught in the lessons.</p>
       </div>
     </div>
   )

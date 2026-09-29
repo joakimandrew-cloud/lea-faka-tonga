@@ -54,6 +54,10 @@ export const STATIC_META = {
     title: `Tongan Dictionary, Browse and Search | ${SITE_NAME}`,
     description: 'Browse the course vocabulary by letter, including vowels beginning with fakauʻa, or search in Tongan and English.',
   },
+  '/word-lists': {
+    title: `Tongan Word Lists: Parts of the Body | ${SITE_NAME}`,
+    description: 'Everyday Tongan words the lessons do not teach, grouped by theme, starting with the parts of the body. Each word is checked against two published sources.',
+  },
   '/help': {
     title: `Help and Free Downloads | ${SITE_NAME}`,
     description: 'Download the free Tongan course, report a mistake or find help with lessons and practice.',
