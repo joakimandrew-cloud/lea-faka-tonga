@@ -33,7 +33,7 @@ export default function Home() {
           </div>
           <figure className="wr-home__hero-book">
             <div className="wr-home__book-halo" aria-hidden="true" />
-            <img src="/covers/2026-09-30/cover-red-3d.webp" alt="The red Lea Faka-Tonga book, shown standing upright" width="900" height="1248" />
+            <img src="/covers/2026-09-30-three-row/cover-red-3d.webp" alt="The red Lea Faka-Tonga book, shown standing upright" width="900" height="1248" />
             <figcaption>The whole course is also available as a free book.</figcaption>
           </figure>
         </div>
