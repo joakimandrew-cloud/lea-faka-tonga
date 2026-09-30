@@ -47,6 +47,7 @@ import BenefactiveSorterCore from './BenefactiveSorterCore'
 import DoerReceiverPickerCore from './DoerReceiverPickerCore'
 import ClassifierExtendedPickerCore from './ClassifierExtendedPickerCore'
 import RelativeAiPickerCore from './RelativeAiPickerCore'
+import PointingSceneCore from './PointingSceneCore'
 import SuffixPickerCore from './SuffixPickerCore'
 import ReduplicationEffectSorterCore from './ReduplicationEffectSorterCore'
 import SubjectMarkerPickerCore from './SubjectMarkerPickerCore'
@@ -252,6 +253,10 @@ export const drillRegistry = {
   'relative-ai-picker': {
     Core: RelativeAiPickerCore,
     meta: { title: `the place he works IN / came FROM`, blurb: `Pick ai, ki ai, or mei ai by the preposition the plain sentence would use.` },
+  },
+  'pointing-scene': {
+    Core: PointingSceneCore,
+    meta: { title: `Follow the pointing word`, blurb: `Choose the reference cue in each printed Lesson 39 example.` },
   },
   'suffix-picker': {
     Core: SuffixPickerCore,

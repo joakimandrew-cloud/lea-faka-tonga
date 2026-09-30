@@ -304,6 +304,10 @@
   ],
   "39": [
     {
+      "drillId": "pointing-scene",
+      "after": "all-the-pointing-words-in-one-place"
+    },
+    {
       "drillId": "relative-ai-picker",
       "after": "ai-in-relative-clauses"
     }

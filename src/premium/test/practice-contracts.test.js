@@ -32,15 +32,15 @@ async function withVite(run) {
   try { return await run(server) } finally { await server.close() }
 }
 
-test('all 75 registered cores load through the compatibility bridge and produce nonempty SSR', async () => {
+test('all 76 registered cores load through the compatibility bridge and produce nonempty SSR', async () => {
   await withVite(async server => {
     const [{ drillRegistry }, { default: SourceDrill }] = await Promise.all([
       server.ssrLoadModule(sourceUrl('src/drills/registry.js')),
       server.ssrLoadModule('/src/premium/pages/SourceDrill.jsx'),
     ])
     const ids = Object.keys(drillRegistry)
-    assert.equal(ids.length, 75)
-    assert.equal(new Set(ids).size, 75)
+    assert.equal(ids.length, 76)
+    assert.equal(new Set(ids).size, 76)
 
     for (const id of ids) {
       const entry = drillRegistry[id]

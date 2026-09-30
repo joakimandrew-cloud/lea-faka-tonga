@@ -53,11 +53,20 @@ test('all Quick Practice ranges and registered drill anchors are consumed once i
       chapterAnchors.map(anchor => [anchor.drillId, anchor.after]).sort(([a], [b]) => a.localeCompare(b)),
     )
     assert.ok(chapterAnchors.every(anchor => registryIds.has(anchor.drillId)))
+    if (chapter === 39) {
+      const pointing = parsed.blocks.findIndex(block => block.type === 'drill' && block.drillId === 'pointing-scene')
+      const mentioned = parsed.blocks.findIndex(block => block.type === 'h3' && block.id === 'mentioned-ia')
+      const nextSection = parsed.blocks.findIndex(block => block.type === 'h2' && block.id === 'koeni-with-days-of-the-week')
+      assert.equal(parsed.blocks.filter(block => block.drillId === 'pointing-scene').length, 1)
+      assert.ok(pointing > mentioned, 'pointing practice follows all four reference explanations')
+      assert.equal(pointing + 1, nextSection, 'pointing practice ends the section before the next topic')
+      assert.equal(parsed.blocks.filter(block => block.drillId === 'relative-ai-picker').length, 1)
+    }
     quickSets += chapterQuick.length
     quickItems += chapterQuick.reduce((sum, set) => sum + set.items.length, 0)
     anchors += chapterAnchors.length
   }
-  assert.deepEqual({ quickSets, quickItems, anchors }, { quickSets: 15, quickItems: 76, anchors: 73 })
+  assert.deepEqual({ quickSets, quickItems, anchors }, { quickSets: 15, quickItems: 76, anchors: 74 })
 })
 
 test('Quick Practice instructions, item IDs, prompts, answers, and supplied options match the independent oracle', () => {

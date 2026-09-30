@@ -14,6 +14,7 @@ import './styles/chrome.css'
 import './styles/white-red.css'
 import './styles/white-red-inner.css'
 import '../styles/answer-feedback.css'
+import '../styles/pointing-scene.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
