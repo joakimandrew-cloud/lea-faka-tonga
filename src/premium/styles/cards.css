@@ -114,3 +114,10 @@
   .fc-en.is-extra-long { font-size: 18px; }
 }
 .fc-mini { position: absolute; top: 26px; font-size: 22px !important; color: var(--orange) !important; }
+
+/* Both lesson and full decks expose the active card to keyboard users. */
+.fc:focus-visible { outline: 3px solid var(--focus); outline-offset: 5px; border-radius: 28px; }
+.fc.is-reduced-motion .fc-inner { transform: none !important; }
+.fc.is-reduced-motion .fc-back { transform: none; }
+.fc.is-reduced-motion:not(.is-flipped) .fc-back,
+.fc.is-reduced-motion.is-flipped .fc-front { visibility: hidden; }

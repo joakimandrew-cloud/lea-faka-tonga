@@ -1,6 +1,7 @@
-import { motion as Motion, useMotionValue, useTransform, animate } from 'motion/react'
+import { motion as Motion, useMotionValue, useTransform, animate, useReducedMotion } from 'motion/react'
 import T from '../T.jsx'
-import { Md } from '../lesson/Blocks.jsx'
+import { okinafy } from '@app/lib/okinafy.js'
+import { Md } from '../lesson/InlineMarkdown.jsx'
 import { KupesiTile } from '../Kupesi.jsx'
 
 function cardTextSize(text) {
@@ -16,11 +17,14 @@ function cardTextSize(text) {
 // Tongan word is another card in the course. Lesson decks and the homepage
 // film never pass it, so they render exactly as before.
 export default function PracticeCard({ word, flipped, onFlip, onSwipe, front, depth, demo = false, meaning }) {
+  const reduceMotion = useReducedMotion()
   const x = useMotionValue(0)
   const rotation = useTransform(x, [-240, 240], [-14, 14])
   const knownOpacity = useTransform(x, [30, 140], [0, 1])
   const againOpacity = useTransform(x, [-140, -30], [1, 0])
   const top = depth === 0
+  const visibleIsTongan = (front === 'to') !== Boolean(flipped)
+  const spokenFace = visibleIsTongan ? okinafy(word.to) : [word.en, word.type].filter(Boolean).join('. ')
 
   const end = (_, info) => {
     if (info.offset.x > 120 || info.velocity.x > 600) onSwipe('known')
@@ -35,20 +39,24 @@ export default function PracticeCard({ word, flipped, onFlip, onSwipe, front, de
 
   return (
     <Motion.div
-      className={`fc ${top ? 'is-top' : ''}`}
+      className={`fc ${top ? 'is-top' : ''}${reduceMotion ? ' is-reduced-motion' : ''}${flipped ? ' is-flipped' : ''}`}
+      role={top && !demo ? 'button' : undefined}
+      tabIndex={top && !demo ? 0 : undefined}
+      aria-label={top && !demo ? `Turn card: ${spokenFace}` : undefined}
+      onKeyDown={top && !demo ? event => { if (event.key === ' ') { event.preventDefault(); event.stopPropagation(); onFlip() } else if (event.key === 'Enter') { event.stopPropagation() } } : undefined}
       aria-hidden={!top}
       style={top ? { x, rotate: rotation, zIndex: 10 } : { zIndex: 10 - depth }}
-      initial={demo ? false : { scale: .9, y: 30, opacity: 0 }}
+      initial={demo || reduceMotion ? false : { scale: .9, y: 30, opacity: 0 }}
       animate={{ scale: 1 - depth * .05, y: depth * -16, opacity: depth > 2 ? 0 : 1 }}
       variants={{ gone: direction => ({ x: direction * 520, rotate: direction * 18, opacity: 0, transition: { duration: .45, ease: [.4, 0, .2, 1] } }) }}
-      exit="gone"
+      exit={reduceMotion ? undefined : 'gone'}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       drag={top && !demo ? 'x' : false}
       dragSnapToOrigin={false}
       onDragEnd={demo ? undefined : end}
       onTap={top && !demo ? onFlip : undefined}
     >
-      <Motion.div className="fc-inner" initial={demo ? false : undefined} animate={{ rotateY: flipped ? 180 : 0 }} transition={{ duration: .6, ease: [.16, 1, .3, 1] }}>
+      <Motion.div className="fc-inner" initial={demo ? false : undefined} animate={{ rotateY: reduceMotion ? 0 : flipped ? 180 : 0 }} transition={{ duration: .6, ease: [.16, 1, .3, 1] }}>
         <div className="fc-face fc-front" aria-hidden={flipped}>
           <span className="fc-corner" aria-hidden="true"><KupesiTile kind="leaf" framed /></span>
           {front === 'to' ? tongan : english}

@@ -1,59 +1,17 @@
 import { okinafy } from '@app/lib/okinafy.js'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { motion as Motion } from 'motion/react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
+import { AnimatePresence, motion as Motion } from 'motion/react'
 import { Link } from 'react-router-dom'
-import { tokenizeInline } from '../../lib/book.js'
 import { plainInline } from '../../lib/lesson-content.js'
 import { advanceDeck, lessonCards, lessonDeckKey, restartDeck, useDeckProgress } from '../../lib/card-progress.js'
 import T from '../T.jsx'
-import { looksTongan } from '@app/lib/okinafy.js'
 import chapters from '@app/data/chapters.json'
 import '../../styles/example-formatting.css'
+import '../../styles/cards.css'
+import PracticeCard from '../practice/PracticeCard.jsx'
+import { Md } from './InlineMarkdown.jsx'
+export { Md } from './InlineMarkdown.jsx'
 
-// The only raw HTML the book uses: a <br> and an English line under the Tongan
-// inside table cells (105 cells across 13 lessons).
-const HTML_BITS = /<br\s*\/?>|<span class="translation">([\s\S]*?)<\/span>/g
-
-export function Md({ text, renderSlot }) {
-  text = String(text ?? '')
-  if (text.includes('<')) {
-    const out = []
-    let last = 0
-    for (const m of text.matchAll(HTML_BITS)) {
-      if (m.index > last) out.push(<Md key={out.length} text={text.slice(last, m.index)} renderSlot={renderSlot} />)
-      out.push(m[0].startsWith('<br') ? <br key={out.length} /> : <span key={out.length} className="md-tr"><Md text={okinafy(m[1])} renderSlot={renderSlot} /></span>)
-      last = m.index + m[0].length
-    }
-    if (out.length) {
-      if (last < text.length) out.push(<Md key={out.length} text={text.slice(last)} renderSlot={renderSlot} />)
-      return out
-    }
-  }
-  const tokenText = token => token.v ?? (token.children || []).map(tokenText).join('')
-  const renderText = (value, key, tongan) => {
-    const normalized = tongan ? okinafy(value) : value
-    if (!renderSlot || !/\uE000\d+\uE001/.test(normalized)) return <span key={key}>{normalized}</span>
-    const parts = normalized.split(/\uE000(\d+)\uE001/g)
-    return (
-      <span key={key}>
-        {parts.map((part, index) => index % 2
-          ? renderSlot(Number(part), `${key}-${index}`)
-          : part)}
-      </span>
-    )
-  }
-  const render = (tok, i, tongan = false) => {
-    const isTongan = tok.t === 'em' && looksTongan(tokenText(tok).replace(/[()]/g, ''))
-    const children = tok.children?.map((child, index) => render(child, index, tongan || isTongan))
-    if (tok.t === 'bold') return <strong key={i} className="md-b">{children}</strong>
-    if (tok.t === 'em') return isTongan ? <T key={i}>{children}</T> : <em key={i}>{children}</em>
-    if (tok.t === 'link') return <a key={i} href={tok.href} className="xref">{children}</a>
-    if (tok.t === 'del') return <del key={i}>{children}</del>
-    if (tok.t === 'code') return <code key={i}>{tongan ? okinafy(tok.v) : tok.v}</code>
-    return renderText(tok.v, i, tongan)
-  }
-  return tokenizeInline(text).map(render)
-}
 
 const reveal = {
   initial: { opacity: 0, y: 18 },
@@ -179,15 +137,17 @@ export function WordCards({ groups, lesson }) {
   const tables = useMemo(() => groups.map(group => group.table), [groups])
   const words = useMemo(() => lessonCards(tables, lesson), [tables, lesson])
   const [view, setView] = useState('table')
+  const helpId = useId()
   return (
     <div className="words">
       <div className="words-toolbar">
         <p>{words.length} words from this lesson</p>
-        <div role="tablist" aria-label="Vocabulary view">
-          <button type="button" role="tab" aria-selected={view === 'table'} onClick={() => setView('table')}>Table</button>
-          <button type="button" role="tab" aria-selected={view === 'cards'} onClick={() => setView('cards')}>Cards</button>
+        <div className="words-view-options" role="group" aria-label="Vocabulary view" aria-describedby={helpId}>
+          <button type="button" aria-pressed={view === 'table'} onClick={() => setView('table')}>Read the table</button>
+          <button type="button" aria-pressed={view === 'cards'} onClick={() => setView('cards')}>Practise with flip cards</button>
         </div>
       </div>
+      <p className="words-view-help" id={helpId}>Scan every word in the table, or use flip cards to test yourself one word at a time.</p>
       {view === 'table' ? (
         <div className="tbl-wrap words-table">
           <div className="tbl-scroll">
@@ -223,12 +183,14 @@ function EmbeddedWordDeck({ words, lesson }) {
   const deckRef = useRef(null)
   const byId = useMemo(() => new Map(words.map(word => [word.id, word])), [words])
   const word = byId.get(state.order[state.position])
-  const front = state.direction === 'to' ? word?.to : word?.en
-  const back = state.direction === 'to' ? word?.en : word?.to
+  const [exitDirection, setExitDirection] = useState(1)
+  const queue = state.order.slice(state.position).map(id => byId.get(id)).filter(Boolean)
 
   const grade = (pile) => {
+    setExitDirection(pile === 'known' ? 1 : -1)
     setState(previous => advanceDeck(previous, pile))
     setFlipped(false)
+    deckRef.current?.focus()
   }
 
   useEffect(() => {
@@ -236,7 +198,7 @@ function EmbeddedWordDeck({ words, lesson }) {
   }, [])
 
   const onKeyDown = (event) => {
-    if (event.target !== event.currentTarget) return
+    if (event.target !== event.currentTarget && !event.target.closest('.fc')) return
     if (event.key === ' ' || event.key === 'Enter') {
       event.preventDefault()
       setFlipped(value => !value)
@@ -255,8 +217,8 @@ function EmbeddedWordDeck({ words, lesson }) {
         <strong>Lesson deck complete.</strong>
         <span>{state.known.length} known · {state.again.length} to revisit</span>
         <div>
-          {state.again.length > 0 && <button type="button" onClick={() => setState(previous => restartDeck(previous, words, previous.again))}>Practise missed words</button>}
-          <button type="button" onClick={() => setState(previous => restartDeck(previous, words))}>Restart lesson deck</button>
+          {state.again.length > 0 && <button type="button" onClick={() => { setFlipped(false); setState(previous => restartDeck(previous, words, previous.again)) }}>Practise missed words</button>}
+          <button type="button" onClick={() => { setFlipped(false); setState(previous => restartDeck(previous, words)) }}>Restart lesson deck</button>
         </div>
       </div>
     )
@@ -264,15 +226,19 @@ function EmbeddedWordDeck({ words, lesson }) {
 
   return (
     <div className="vp-deck" ref={deckRef} tabIndex="0" onKeyDown={onKeyDown} aria-label="Lesson vocabulary cards. Space flips; left marks again; right marks known.">
-      <div className="vp-status">{state.position + 1} / {state.order.length}</div>
-      <button type="button" className={`vp-card ${flipped ? 'is-flipped' : ''}`} onClick={() => setFlipped(value => !value)}>
-        <span>{flipped ? (state.direction === 'to' ? 'English' : 'Tongan') : (state.direction === 'to' ? 'Tongan' : 'English')}</span>
-        <strong>{state.direction === 'to' && !flipped || state.direction === 'en' && flipped ? <T>{flipped ? back : front}</T> : <Md text={flipped ? back : front} />}</strong>
-        {!flipped && <small>Tap to turn</small>}
-      </button>
+      <div className="vp-status" role="status">{state.position + 1} / {state.order.length}<span>{state.again.length} again · {state.known.length} known</span></div>
+      <div className="deck">
+        <AnimatePresence custom={exitDirection}>
+          {queue.slice(0, 3).map((card, depth) => (
+            <PracticeCard key={card.id} word={card} depth={depth}
+              flipped={depth === 0 && flipped} onFlip={() => setFlipped(value => !value)}
+              onSwipe={grade} front={state.direction} />
+          ))}
+        </AnimatePresence>
+      </div>
       <div className="vp-actions">
         <button type="button" onClick={() => grade('again')}>← Again</button>
-        <button type="button" onClick={() => setState(previous => ({ ...previous, direction: previous.direction === 'to' ? 'en' : 'to' }))}>
+        <button type="button" onClick={() => { setFlipped(false); setState(previous => ({ ...previous, direction: previous.direction === 'to' ? 'en' : 'to' })) }}>
           {state.direction === 'to' ? 'Tongan first' : 'English first'}
         </button>
         <button type="button" onClick={() => grade('known')}>Got it →</button>

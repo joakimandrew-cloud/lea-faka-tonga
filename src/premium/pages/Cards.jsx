@@ -75,7 +75,7 @@ function Deck({ deckKey, words, mode, lessonNumber, meaningFor }) {
       const interactive = event.target instanceof Element
         ? event.target.closest('a, button, input, select, textarea, summary, [role="button"]')
         : null
-      if (interactive || event.metaKey || event.ctrlKey || event.altKey) return
+      if ((interactive && !interactive.classList.contains('fc')) || event.metaKey || event.ctrlKey || event.altKey) return
       // Enter on the focused card is the card's own tap (PracticeCard onTap),
       // so it is not toggled a second time here.
       if (event.key === 'Enter' && event.target instanceof Element && event.target.closest('.fc')) return

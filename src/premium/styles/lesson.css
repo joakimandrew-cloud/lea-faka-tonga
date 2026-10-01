@@ -182,9 +182,9 @@
 /* ───────── Words ───────── */
 .words-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 10px; font-family: var(--f-ui); }
 .words-toolbar p { margin: 0; color: var(--muted); font-size: 14px; }
-.words-toolbar [role='tablist'] { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper-soft); }
+.words-toolbar .words-view-options { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper-soft); }
 .words-toolbar button { min-height: 38px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font-weight: 650; }
-.words-toolbar button[aria-selected='true'] { background: var(--ink); color: #fff; }
+.words-toolbar button[aria-pressed='true'] { background: var(--ink); color: #fff; }
 .words-table { margin-top: 14px; }
 .words-group + .words-group .words-group-label th { border-top: 12px solid var(--paper); }
 .words-group-label th { padding: 16px 18px 9px; background: var(--paper-soft); color: var(--red); font: 700 13px/1.35 var(--f-ui); letter-spacing: .035em; text-align: left; }
@@ -336,8 +336,35 @@
   .xs-head { flex-direction: column; gap: 10px; }
   .xi-answer { grid-template-columns: minmax(0, 1fr); gap: 5px; padding: 10px; }
   .words-toolbar { align-items: stretch; flex-direction: column; }
-  .words-toolbar [role='tablist'] { width: 100%; }
+  .words-toolbar .words-view-options { width: 100%; }
   .words-toolbar button { flex: 1; }
   .vp-actions { flex-direction: column; }
   .match-grid { grid-template-columns: 1fr; }
 }
+
+/* Embedded lesson practice shares the full deck card faces and motion. */
+.vp-deck .deck { margin-top: 36px; height: clamp(320px, 42vh, 420px); }
+.vp-status { display: flex; justify-content: space-between; gap: 12px; }
+.vp-status span { color: var(--muted); }
+.vp-actions { position: relative; z-index: 11; margin-top: 24px; }
+.vp-actions button, .vp-complete button { min-height: 44px; }
+@media (max-width: 480px) {
+  .vp-deck { padding: 14px; }
+  .vp-actions { flex-wrap: wrap; }
+  .vp-actions button { flex: 1; }
+  .vp-status { font-size: 12px; }
+}
+
+.words-toolbar button { min-height: 48px; white-space: normal; line-height: 1.3; }
+.words-toolbar button[aria-pressed='true'] { background: var(--red); color: white; }
+.words-view-help { margin: 10px 0 16px; color: var(--muted); font: 14px/1.5 var(--f-ui); }
+@media (max-width: 480px) {
+  .words-toolbar .words-view-options { display: grid; grid-template-columns: 1fr 1fr; }
+  .words-toolbar button { min-height: 58px; padding: 7px 10px; }
+}
+
+/* Reading-page Tongan accents must not override the shared card faces. */
+.vp-deck .fc-front .fc-to { color: var(--ink); }
+.vp-deck .fc-back .fc-to { color: var(--orange); }
+.vp-deck .fc-en .to { font-size: 1em; }
+.vp-deck .fc-type .to { color: inherit; }
