@@ -27,7 +27,7 @@ export default function Keepers() {
           <p className="eyebrow"><span lang="to">Tauhi ʻa e lea</span> · Keepers of the language</p>
           <h1 className="display">The Roll of<br /><span>Keepers.</span></h1>
           <p className="service-lead">
-            Every name here paid so that a Tongan family, somewhere, learns their language for free.
+            Every name here helped so that a Tongan family, somewhere, learns their language for free.
             Each one is a reason it still exists.
           </p>
         </div>
@@ -40,12 +40,16 @@ export default function Keepers() {
               <span className="keepers-empty-mark" aria-hidden="true">ʻ</span>
               <h2 id="keepers-title">This wall is being carved.</h2>
               <p>
-                The first names go here. Be among the first 250 Founding Keepers, your name cast into
-                the work, in your own community.
+                The first names go here. People who send in a correction can be thanked on this roll.
+                To support the course, Lifetime membership is US$35 now, or you can give an optional
+                donation of any amount.
               </p>
-              <a href={supportHref} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Become a Founding Keeper →
-              </a>
+              <div className="service-actions">
+                <Link to="/support" className="btn btn-primary">About Lifetime membership →</Link>
+                <a href={supportHref} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                  Optional donation <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
           ) : (
             <>
@@ -72,7 +76,8 @@ export default function Keepers() {
                 ))}
               </div>
               <div className="service-actions keepers-actions">
-                <a href={supportHref} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Add your name →</a>
+                <Link to="/support" className="btn btn-primary">About Lifetime membership →</Link>
+                <a href={supportHref} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Optional donation <span aria-hidden="true">↗</span></a>
                 <Link to="/lessons" className="btn btn-ghost">Explore all 52 lessons</Link>
               </div>
             </>

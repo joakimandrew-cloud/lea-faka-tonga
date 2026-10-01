@@ -4,7 +4,7 @@
 .cards-h1 { font-size: clamp(44px, 5.4vw, 76px); margin: 14px 0 0; }
 .cards-sub { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
 .cards-mode { display: inline-flex; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); }
-.cards-mode button { min-height: 40px; padding: 0 17px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font-weight: 650; }
+.cards-mode button { min-height: 44px; padding: 0 17px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font-weight: 650; }
 .cards-mode button[aria-selected='true'] { background: var(--ink); color: #fff; }
 .cards-controls { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
 .cards-controls.global-controls { flex-direction: row; align-items: center; justify-content: flex-end; flex-wrap: wrap; margin-top: 28px; }

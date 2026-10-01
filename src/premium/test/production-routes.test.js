@@ -145,7 +145,9 @@ test('the actual premium App renders every generated route without the NotBuilt 
         assert.equal((html.match(/id="membership-notice-title"/g) || []).length, 1, `${pathname} shows one preview notice`)
         assert.match(html, /audio is added to every Tongan example, including sentences and exercises/)
         assert.match(html, /https:\/\/buymeacoffee\.com\/leafakatonga\/e\/549116/)
-        assert.match(html, /before the price increases/)
+        assert.match(html, /Lifetime membership is US\$35 now, paid once, and it includes the audio\./)
+        assert.match(html, /From then on, Lifetime membership will cost US\$99\./)
+        assert.doesNotMatch(html, /before the price increases|US\$35 or more/)
         assert.ok(html.indexOf('membership-notice-title') < html.indexOf('class="ls-hero"'), 'notice appears before lesson content')
       }
     }

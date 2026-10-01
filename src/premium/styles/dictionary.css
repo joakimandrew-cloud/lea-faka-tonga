@@ -48,6 +48,10 @@ a.dictionary-lesson:hover { text-decoration: underline; text-underline-offset: 4
   .dictionary-alphabet button { min-width: 0; padding-inline: 4px; }
 }
 
+@media (max-width: 340px) {
+  .dictionary-alphabet { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
 @media (max-width: 620px) {
   .dictionary-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 14px 0; }
   .dictionary-english { grid-column: 1; }

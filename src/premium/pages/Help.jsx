@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import HomePatternBand from '../components/HomePatternBand.jsx'
 import { EPUB_URL, PDF_URL } from '../components/Chrome.jsx'
+import { supportUrl } from '@app/lib/partner-link.js'
 import { useTitle } from '../lib/title.js'
 import '../styles/reference.css'
 
@@ -50,7 +51,11 @@ export default function Help() {
         <section className="premium-reference-help-card premium-reference-help-support" aria-labelledby="help-support-title">
           <p className="premium-reference-card-kicker">Support</p>
           <h2 id="help-support-title">Support the work.</h2>
-          <Link className="premium-reference-text-link" to="/support">Support the work <span aria-hidden="true">→</span></Link>
+          <p>A gift of any amount on our general support page is an optional donation and does not include membership.</p>
+          <ul className="premium-reference-help-links">
+            <li><Link to="/support">Lifetime membership, US$35 <span aria-hidden="true">→</span></Link></li>
+            <li><a href={supportUrl()} target="_blank" rel="noopener noreferrer">Optional donation <span aria-hidden="true">↗</span></a></li>
+          </ul>
         </section>
       </div>
     </div>

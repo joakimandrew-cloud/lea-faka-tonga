@@ -10,7 +10,7 @@
 .practice-tabs button:last-child { border-right: 0; }
 .practice-tabs button[aria-selected='true'] { color: #b92e0e; background: white; }
 .practice-tabs button[aria-selected='true']::after { content: ''; position: absolute; height: 4px; bottom: -1px; left: 0; right: 0; background: #b92e0e; }
-.practice-tabs__number { font: 600 11px var(--f-ui); opacity: .8; }
+.practice-tabs__number { font: 600 11px var(--f-ui); }
 .practice-showcase :focus-visible { outline: 3px solid #8a220a; outline-offset: -4px; }
 .practice-film__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; min-height: 78px; padding: 20px 28px; border-bottom: 1px solid #eeeae4; }
 .practice-film__source { margin: 0 0 7px; color: #b92e0e; font: 750 11px var(--f-ui); letter-spacing: .09em; text-transform: uppercase; }

@@ -2,7 +2,7 @@
 .navigation-shell { position: sticky; top: 0; z-index: 50; pointer-events: none; }
 .navigation-shell > .hdr, .navigation-shell > .sheet { pointer-events: auto; }
 
-.wm { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--on-band); }
+.wm { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; color: var(--on-band); }
 .wm-mark { width: 30px; height: 30px; color: var(--red-emblem); transition: transform .8s var(--ease-out); }
 .wm:hover .wm-mark { transform: rotate(90deg); }
 .wm-text {
@@ -69,6 +69,24 @@
   .hdr-link { font-size: 13px; padding: 10px 9px; white-space: nowrap; }
 }
 
+/* Seven links (Membership added, Strategy change 5): tighten the link padding,
+   never the labels, where the row would otherwise wrap or run past the edge.
+   Measured with "Continue Lesson 52", the longest header button. */
+.hdr-link { white-space: nowrap; }
+@media (min-width: 1101px) and (max-width: 1260px) {
+  .hdr-in { gap: 20px; }
+  .hdr-nav { gap: 2px; }
+  .hdr-link { padding: 10px 6px; }
+  .hdr-link.is-active::after { left: 6px; right: 6px; }
+}
+@media (min-width: 881px) and (max-width: 980px) {
+  .hdr-in { gap: 12px; }
+  .hdr .wm-text { font-size: 18px; }
+  .hdr-nav { gap: 0; }
+  .hdr-link { padding: 10px 5px; }
+  .hdr-link.is-active::after { left: 5px; right: 5px; }
+}
+
 @media (max-width: 880px) {
   .hdr-nav { display: none; }
   .hdr-burger { display: block; }
@@ -133,5 +151,5 @@
   .ftr--compact .ftr-col:nth-child(2) { grid-column: 1; grid-row: 2 / 4; }
   .ftr--compact .ftr-col:nth-child(3) { grid-column: 2; grid-row: 2; }
   .ftr--compact .ftr-col:nth-child(4) { grid-column: 2; grid-row: 3; }
-  .ftr--compact .ftr-col a { min-height: 44px; font-size: 14px; }
+  .ftr--compact .ftr-col a { min-height: 44px; min-width: 44px; font-size: 14px; }
 }

@@ -39,7 +39,8 @@
 .seg-t { position: relative; }
 .lx-count { font-size: 14px; color: var(--muted); min-width: 84px; text-align: right; font-variant-numeric: tabular-nums; }
 
-.lx-list { padding-top: 0; padding-bottom: clamp(80px, 10vw, 140px); min-height: 50vh; }
+/* The membership band follows the list now (Strategy change 8), so less air before it. */
+.lx-list { padding-top: 0; padding-bottom: clamp(56px, 7vw, 96px); min-height: 50vh; }
 .tier-block { margin-top: clamp(56px, 7vw, 96px); }
 .tier-block:first-child { margin-top: clamp(36px, 4vw, 56px); }
 .tier-head { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 20px; border-bottom: 3px solid var(--ink); padding-bottom: 14px; }

@@ -39,6 +39,11 @@ import {
   drillTitle,
   drillDescription,
 } from '../src/seo/meta.js'
+import {
+  AUDIO_MEMBERSHIP_NOTICE,
+  LIFETIME_MEMBERSHIP_NOTICE,
+  LIFETIME_MEMBERSHIP_URL,
+} from '../src/premium/lib/membership-offer.js'
 import { okinafy } from '../src/lib/okinafy.js'
 import { BESPOKE } from '../src/lib/drill-routes.js'
 import { tokenizeInline } from '../src/seo/inline.js'
@@ -182,8 +187,10 @@ function graph(nodes) {
 }
 
 // Routes that get a real page and a real social card but stay out of the index.
-// /support exists only to hand the visitor to Buy Me a Coffee, so a searcher who
-// landed on it from Google would be bounced straight off the site.
+// /support is the membership page: where a visitor who has already met the
+// course decides whether to join. It is reached from the site's own links, so
+// it keeps a real page and social card but stays out of search results and the
+// sitemap, as it did when it was a redirect.
 const NO_INDEX = new Set(['/support'])
 
 function headFor({ title, description, urlPath, ogType, jsonLd, canonicalPath }) {
@@ -316,6 +323,20 @@ function lessonRootHtml({ num, title, intro, total }) {
     `<p style="${P_STYLE}">${link(`/quizzes/${num}`, `Take the lesson ${num} quiz`)}</p>` +
     `<p style="${P_STYLE}">${nav}</p>` +
     topicLinks() +
+    `</article>`
+  )
+}
+
+/* The static block on /support: the membership offer in its approved words,
+   for link previews and readers without JavaScript. React replaces it on mount. */
+function supportRootHtml() {
+  return (
+    `<article style="${BLOCK_STYLE}">` +
+    `<p style="${P_STYLE}">${link('/', esc(SITE_NAME))}</p>` +
+    `<h1 style="${H1_STYLE}">Free now. Yours for life for US$35.</h1>` +
+    `<p style="${P_STYLE}">All 52 lessons are open during the free preview. ` +
+    `${esc(LIFETIME_MEMBERSHIP_NOTICE)} ${esc(AUDIO_MEMBERSHIP_NOTICE)}</p>` +
+    `<p style="${P_STYLE}">${link(esc(LIFETIME_MEMBERSHIP_URL), 'Secure Lifetime membership, US$35')}</p>` +
     `</article>`
   )
 }
@@ -727,14 +748,14 @@ async function main() {
       ])
     }
     const docRoot = DOCS[urlPath] ? docRootHtml(DOCS[urlPath]) : undefined
+    const rootHtml = docRoot || (urlPath === '/support' ? supportRootHtml() : undefined)
     await writeRoute(
       urlPath,
-      renderPage(template, { ...meta, urlPath, jsonLd, rootHtml: docRoot, ogType: docRoot ? 'article' : undefined })
+      renderPage(template, { ...meta, urlPath, jsonLd, rootHtml, ogType: docRoot ? 'article' : undefined })
     )
-    // /support renders for a moment and then sends the visitor to Buy Me a
-    // Coffee, so there is no page for a search result to land on. It keeps its
-    // title and card (shared links still preview correctly) and stays out of
-    // the sitemap and the index.
+    // /support is the membership page. Its short static body (above) lets link
+    // previews and readers without JavaScript see the offer; it keeps its title
+    // and card and stays out of the sitemap and the index (NO_INDEX).
     if (!NO_INDEX.has(urlPath)) sitemapPaths.push(urlPath)
     pages += 1
   }

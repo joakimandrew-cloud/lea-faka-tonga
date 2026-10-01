@@ -1,0 +1,240 @@
+/* The membership page at /support (Strategy changes 13 to 15). It uses the
+   white/red tokens, the inner pages' type and the homepage's offer language:
+   the red membership panel, the uppercase text links, one loud button per
+   section. One approved motif tile, drawn through Kupesi.jsx, sits on the card. */
+.mb { color: var(--ink); background: var(--paper); }
+/* Zero-specificity reset, so every section rule below sets its own spacing. */
+.mb :where(h1, h2, h3, p) { margin-top: 0; }
+
+/* Shared pieces */
+.mb-section { padding: clamp(64px, 7vw, 104px) 0; }
+.mb-intro { max-width: 780px; }
+.mb-h2 { margin: 16px 0 0; font-size: clamp(42px, 4.8vw, 68px); line-height: .92; }
+.mb-intro > p:not(.eyebrow) { max-width: 52ch; margin: 22px 0 0; color: var(--muted); font: 17px/1.65 var(--f-ui); }
+
+.mb-button {
+  width: 100%;
+  max-width: 460px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 22px;
+  color: var(--on-band);
+  background: var(--red);
+  border: 2px solid var(--red);
+  border-radius: 2px;
+  font: 800 15px/1.3 var(--f-ui);
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: background-color .2s, border-color .2s, color .2s, transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+.mb-button__price { align-self: stretch; display: inline-flex; align-items: center; gap: 8px; padding-left: 18px; border-left: 1px solid color-mix(in srgb, var(--on-band) 40%, transparent); white-space: nowrap; }
+.mb-button:hover { background: var(--red-deep); border-color: var(--red-deep); transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgba(80, 10, 5, .55); }
+.mb-button:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.mb-button--light { color: var(--red); background: var(--paper); border-color: var(--paper); }
+.mb-button--light .mb-button__price { border-left-color: color-mix(in srgb, var(--red) 30%, transparent); }
+.mb-button--light:hover { color: var(--red-deep); background: var(--paper); border-color: var(--paper); }
+.mb-button--light:focus-visible { outline-color: var(--on-band); }
+
+.mb-text-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--red);
+  font: 800 13px/1.2 var(--f-ui);
+  letter-spacing: .06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.mb-text-link span { transition: transform .35s var(--ease-out); }
+.mb-text-link:hover { color: var(--red-deep); text-decoration: underline; text-underline-offset: 4px; }
+.mb-text-link:hover span { transform: translateX(4px); }
+.mb-text-link--light, .mb-text-link--light:hover { color: var(--on-band); }
+.mb-text-link--light:focus-visible { outline-color: var(--on-band); }
+
+/* 1 · Terms and the button */
+.mb-hero { padding: clamp(40px, 5vw, 72px) 0 clamp(60px, 6.5vw, 96px); overflow: hidden; }
+.mb-hero__grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.mb-h1 { margin: 20px 0 0; font-size: clamp(52px, 6.2vw, 90px); }
+.mb-line { display: block; overflow: hidden; padding-bottom: .04em; }
+.mb-line > span { display: inline-block; }
+.mb-lede { max-width: 37em; margin: 28px 0 0; color: var(--ink-2); font: 18px/1.62 var(--f-ui); text-wrap: pretty; }
+.mb-hero__action { margin-top: 32px; }
+.mb-handoff { margin: 12px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+/* The card: the offer as an object, the way the homepage shows the book. */
+.mb-card-stage { position: relative; min-height: 380px; display: grid; place-items: center; }
+.mb-card-halo { position: absolute; inset: 6% 0; border: 1px solid rgba(23, 23, 23, .18); border-radius: 50%; }
+.mb-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 460px);
+  aspect-ratio: 1.586;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 30px 24px;
+  color: var(--on-band);
+  background: var(--red);
+  border-radius: 10px;
+  filter: drop-shadow(0 30px 26px rgba(0, 0, 0, .2));
+  rotate: -3deg;
+}
+.mb-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.mb-card__brand { display: inline-flex; align-items: center; gap: 10px; font: 800 17px/1 var(--f-display); letter-spacing: .06em; text-transform: uppercase; }
+.mb-card__mark { width: 28px; height: 28px; color: var(--on-band); }
+/* Outranks the inner pages' white tile ground, so the motif reads white on red. */
+.mb-card .kp-tile.mb-card__tile { width: 48px; height: 48px; color: var(--on-band); --kp-ground: var(--red); }
+.mb-card__title { max-width: 6em; margin: auto 0 16px; font: 800 clamp(42px, 3.9vw, 56px)/.88 var(--f-display); letter-spacing: -.005em; text-transform: uppercase; }
+.mb-card__lines {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, auto));
+  justify-content: start;
+  margin: 0;
+  padding: 13px 0 0;
+  list-style: none;
+  color: #ffe6e5;
+  border-top: 1px solid color-mix(in srgb, var(--on-band) 40%, transparent);
+  font: 750 10.5px/1.3 var(--f-ui);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.mb-card__lines li + li { margin-left: 10px; padding-left: 10px; border-left: 1px solid color-mix(in srgb, var(--on-band) 40%, transparent); }
+
+/* 2 · What is open now. The course figures sit here as secondary evidence
+   (DECISIONS 2026-09-30): a compact list in body-sized type, not a band. */
+.mb-open { border-top: 1px solid var(--line); }
+.mb-figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 clamp(24px, 3vw, 40px);
+  max-width: 980px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.mb-figures li { min-width: 0; border-bottom: 1px solid var(--line); }
+.mb-figures__item {
+  min-height: 52px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 13px 0;
+  color: var(--muted);
+  font: 15px/1.4 var(--f-ui);
+  text-decoration: none;
+}
+.mb-figures__value { flex: none; min-width: 2.3em; color: var(--ink); font: 800 22px/1 var(--f-display); letter-spacing: .01em; transition: color .2s; }
+.mb-figures__label { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
+.mb-figures__item:hover .mb-figures__value { color: var(--red); }
+.mb-figures__item:hover .mb-figures__label { color: var(--ink); text-decoration-color: currentColor; }
+.mb-figures__item:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.mb-source { max-width: 980px; margin-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.mb-source p { margin: 0; }
+.mb-source em { color: var(--ink); }
+.mb-source a { display: inline-flex; align-items: center; min-height: 44px; margin: 0 -4px; padding: 0 4px; color: var(--red); font-weight: 750; text-underline-offset: 3px; }
+.mb-source a:hover { color: var(--red-deep); }
+
+/* 3 · What you keep for life */
+.mb-keep { background: var(--paper-soft); }
+.mb-keep__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); margin-top: 44px; }
+.mb-keep__col { padding: clamp(28px, 3.4vw, 48px); }
+.mb-keep__col h3 { margin: 0 0 20px; font: 800 clamp(26px, 2.4vw, 34px)/1 var(--f-display); text-transform: uppercase; }
+.mb-keep__col--member { color: var(--on-band); background: var(--red); }
+.mb-keep__col--free { background: var(--paper); border: 1px solid var(--line-strong); border-left: 0; }
+.mb-list { margin: 0; padding: 0; list-style: none; }
+.mb-list li { position: relative; padding: 15px 0 15px 34px; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 16px; line-height: 1.55; }
+.mb-list li::before {
+  content: '✓';
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  color: var(--on-band);
+  background: var(--red);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+.mb-keep__col--member .mb-list li { color: var(--on-band); border-top-color: color-mix(in srgb, var(--on-band) 35%, transparent); }
+.mb-keep__col--member .mb-list li::before { color: var(--red); background: var(--paper); }
+.mb-list a { display: inline-block; margin: -11px -10px; padding: 11px 10px; color: var(--red); font-weight: 750; text-underline-offset: 3px; }
+.mb-list a:hover { color: var(--red-deep); }
+.mb-note { margin: 20px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+/* 4 · Questions, all visible */
+.mb-faq__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(32px, 5vw, 72px); margin-top: 44px; border-bottom: 1px solid var(--line-strong); }
+.mb-faq__item { padding: 24px 0 28px; border-top: 1px solid var(--line-strong); }
+.mb-faq__item h3 { margin: 0 0 10px; font: 700 19px/1.3 var(--f-ui); letter-spacing: -.01em; }
+.mb-faq__item p { max-width: 52ch; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+.mb-faq__general { margin-top: 6px; }
+.mb-faq__item p a { display: inline-block; margin: -11px -4px; padding: 11px 4px; color: var(--red); font-weight: 700; text-underline-offset: 3px; }
+.mb-faq__item p a:hover { color: var(--red-deep); }
+
+/* 5 · Close */
+.mb-close { padding: clamp(76px, 9vw, 128px) 0; color: var(--on-band); background: var(--red); text-align: center; }
+.mb-close .mb-h2 { max-width: 14ch; margin: 0 auto; font-size: clamp(50px, 6.6vw, 98px); }
+.mb-close p { max-width: 44ch; margin: 22px auto 0; color: #ffe6e5; font: 18px/1.6 var(--f-ui); }
+.mb-close__actions { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 34px; }
+.mb-close .mb-button { max-width: 440px; }
+
+@media (max-width: 980px) {
+  .mb-hero__grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .mb-card-stage { min-height: 0; justify-items: start; padding: 6px 0 8px; }
+  .mb-card-halo { display: none; }
+  .mb-card { rotate: -1.5deg; }
+}
+
+@media (max-width: 760px) {
+  .mb-section { padding: 52px 0; }
+  .mb-h2 { margin-top: 12px; font-size: 40px; }
+  .mb-intro > p:not(.eyebrow) { margin-top: 16px; font-size: 16px; }
+  .mb-hero { padding: 30px 0 46px; }
+  .mb-hero__grid { gap: 26px; }
+  .mb-h1 { margin-top: 14px; font-size: 46px; }
+  .mb-lede { margin-top: 18px; font-size: 16px; line-height: 1.6; }
+  .mb-hero__action { margin-top: 22px; }
+  .mb-button { max-width: none; min-height: 54px; padding: 8px 16px; font-size: 14px; }
+  .mb-button__price { padding-left: 14px; }
+  .mb-handoff { margin-top: 10px; }
+  .mb-card-stage { padding: 0; }
+  .mb-card { width: 100%; max-height: 180px; aspect-ratio: auto; padding: 16px 18px 15px; border-radius: 8px; rotate: 0deg; filter: drop-shadow(0 14px 12px rgba(0, 0, 0, .18)); }
+  .mb-card__brand { gap: 8px; font-size: 14px; }
+  .mb-card__mark { width: 22px; height: 22px; }
+  .mb-card .kp-tile.mb-card__tile { width: 32px; height: 32px; }
+  .mb-card__title { max-width: none; margin: 16px 0 12px; font-size: 32px; }
+  .mb-card__lines { padding-top: 10px; font-size: 10px; letter-spacing: .06em; }
+  .mb-card__lines li + li { margin-left: 9px; padding-left: 9px; }
+  .mb-figures { grid-template-columns: minmax(0, 1fr); margin-top: 26px; }
+  .mb-figures__item { min-height: 48px; padding: 11px 0; font-size: 14px; }
+  .mb-figures__value { font-size: 20px; }
+  .mb-source { font-size: 13px; line-height: 1.5; }
+  .mb-keep__grid { grid-template-columns: minmax(0, 1fr); margin-top: 30px; }
+  .mb-keep__col { padding: 26px 22px 24px; }
+  .mb-keep__col--free { border: 1px solid var(--line-strong); border-top: 0; }
+  .mb-list li { padding-block: 13px; font-size: 15px; }
+  .mb-list li::before { top: 14px; }
+  .mb-faq__grid { grid-template-columns: minmax(0, 1fr); margin-top: 28px; }
+  .mb-faq__item { padding: 20px 0 22px; }
+  .mb-faq__item h3 { font-size: 17px; }
+  .mb-faq__item p { font-size: 15px; }
+  .mb-close { padding: 64px 0 60px; }
+  .mb-close .mb-h2 { font-size: 46px; }
+  .mb-close p { font-size: 16px; }
+  .mb-close__actions { gap: 8px; margin-top: 28px; }
+}
+
+@media (max-width: 360px) {
+  .mb-h1 { font-size: 40px; }
+  .mb-button { gap: 10px; padding-inline: 12px; font-size: 13px; }
+  .mb-button__price { padding-left: 10px; }
+  .mb-card__lines { font-size: 9px; }
+  .mb-card__lines li + li { margin-left: 7px; padding-left: 7px; }
+}

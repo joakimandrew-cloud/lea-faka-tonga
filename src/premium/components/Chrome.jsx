@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion as Motion, useScroll, useSpring } from 'motion/react'
 import LogoMark from '@app/components/LogoMark.jsx'
+import { supportUrl } from '@app/lib/partner-link.js'
 import HomePatternBand from './HomePatternBand.jsx'
 import { useProgress } from '../lib/progress.js'
 
@@ -12,6 +13,7 @@ const NAV = [
   { to: '/cards', label: 'Flip cards' },
   { to: '/dictionary', label: 'Dictionary' },
   { to: '/topics', label: 'Reference' },
+  { to: '/support', label: 'Membership' },
 ]
 
 export const PDF_URL = '/downloads/Lea-Faka-Tonga.pdf'
@@ -183,9 +185,10 @@ export function Footer() {
         </div>
         <div className="ftr-col">
           <h2>Help it grow</h2>
-          <Link to="/help">Help and downloads</Link>
+          <Link to="/support">Lifetime membership, US$35</Link>
+          <a href={supportUrl()}>Optional donation</a>
           <Link to="/report">Spot a mistake? Tell us</Link>
-          <Link to="/support">Support the work</Link>
+          <Link to="/help">Help and downloads</Link>
         </div>
       </div>
       <div className="wrap ftr-colophon">

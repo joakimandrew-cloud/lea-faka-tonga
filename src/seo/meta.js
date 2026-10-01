@@ -200,10 +200,12 @@ export const STATIC_META = {
     description:
       'The people whose support keeps the Tongan course free to read. The book is free and stays free.',
   },
+  // The membership page (conversion redesign, 29 September 2026). It stays
+  // noindex and out of the sitemap; see NO_INDEX in scripts/prerender.mjs.
   '/support': {
-    title: `Support the Work | ${SITE_NAME}`,
+    title: `Lifetime membership, US$35 | ${SITE_NAME}`,
     description:
-      'All 52 lessons and the book are free. Optional contributions support the work.',
+      'All 52 Tongan lessons are open during the free preview. Lifetime membership is US$35 now and US$99 once the website has audio on every Tongan example, including sentences and exercises.',
   },
 }
 

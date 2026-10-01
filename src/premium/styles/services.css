@@ -240,6 +240,11 @@
   margin-top: 30px;
 }
 
+/* Two links in the empty state: the row carries the top margin, not each button. */
+.wr-inner .keepers-empty .service-actions .btn {
+  margin-top: 0;
+}
+
 .wr-inner .keepers-groups {
   padding: 0 clamp(24px, 5vw, 48px);
 }

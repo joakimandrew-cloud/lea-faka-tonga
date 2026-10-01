@@ -22,7 +22,7 @@
 .wr-inner .seg-pill { background: var(--red); }
 .wr-inner .seg-b { font-size: 13px; padding-inline: 15px; }
 .wr-inner .grp-head { top: calc(var(--hdr-top) + 92px); }
-.wr-inner .resume-n { color: #ffffff36; }
+.wr-inner .resume-n { color: #ffffff60; }
 .wr-inner .resume-k { color: #ff967d; }
 .wr-inner .resume { box-shadow: none; }
 .wr-inner .resume-bars i.on { background: #f57658; }

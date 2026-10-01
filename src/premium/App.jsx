@@ -26,7 +26,8 @@ const WordLists = lazy(() => import('./pages/WordLists.jsx'))
 const ReportIssue = lazy(() => import('./pages/ReportIssue.jsx'))
 const Keepers = lazy(() => import('./pages/Keepers.jsx'))
 const GrandmotherQuiz = lazy(() => import('./pages/GrandmotherQuiz.jsx'))
-const Offer = lazy(() => import('@app/pages/Offer.jsx'))
+// /support is the premium membership page; the old app's Offer.jsx redirect is no longer routed here.
+const Membership = lazy(() => import('./pages/Membership.jsx'))
 const PartnerRedirect = lazy(() => import('@app/pages/PartnerRedirect.jsx'))
 
 const BESPOKE_DRILL_ROUTES = Object.entries(BESPOKE).filter(([id]) => id !== 'terminal-builder')
@@ -110,7 +111,7 @@ export default function App() {
           <Route path="/word-lists" element={<Page><WordLists /></Page>} />
           <Route path="/help" element={<Page><Help /></Page>} />
           <Route path="/report" element={<Page><ReportIssue /></Page>} />
-          <Route path="/support" element={<Page><Offer /></Page>} />
+          <Route path="/support" element={<Page><Membership /></Page>} />
           <Route path="/keepers" element={<Page><Keepers /></Page>} />
           <Route path="/quiz" element={<Page><GrandmotherQuiz /></Page>} />
           <Route path="/r/:slug" element={<Page><PartnerRedirect /></Page>} />
