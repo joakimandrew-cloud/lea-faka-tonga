@@ -51,7 +51,7 @@ Future time words work the same way: they go at the end of the sentence.
 | Word | Meaning |
 |---|---|
 | *'apongipongi* | tomorrow |
-| *'apō* | tonight |
+| *'apō* | tonight (said during the day) |
 | *'anai* | in a little while, later today |
 
 ::: {.examples}
@@ -70,7 +70,7 @@ The past and future words come in pairs. Past time words begin with *'ane-*. Fut
 
 | Past (*'ane-*) | | Future (*'a-*) | |
 |---|---|---|---|
-| *'anepō* | last night | *'apō* | tonight |
+| *'anepō* | last night | *'apō* | tonight (said during the day) |
 | *'anenai* | a short time ago | *'anai* | in a little while |
 | *'aneafi* | yesterday | *'apongipongi* | tomorrow |
 
@@ -112,7 +112,7 @@ The word *fiekaia* *(hungry)* is a predicate adjective, like *fiefia* and *hela'
 
 #### Tonight
 
-Tongan has three ways to say "tonight," and the choice depends on when you are speaking.
+Tongan has two ways to say "tonight," and the choice depends on when you are speaking.
 
 The time adverb *'apō* works like the other future time words: it carries the forward-looking *'a-* prefix, so it is used during the day, when night has not yet arrived.
 
@@ -120,13 +120,7 @@ The time adverb *'apō* works like the other future time words: it carries the f
 *Té ta 'alu 'apō.* We will go tonight. (Said while the sun is still up.)
 :::
 
-Adding *ni* gives *'apōni* *(this coming night)*, which is more definite: *this* coming night, not some other.
-
-::: {.examples}
-*Té ta 'alu 'apōni?* Will we go tonight? (Still during the day, but narrowing it: tonight is the night.)
-:::
-
-Both *'apō* and *'apōni* look ahead to a night that has not started. Once night has arrived, neither form fits. You are no longer looking forward to it; you are in it. At that point, Tongan uses *he poó ni*, built the same way as *he 'ahó ni*: the article *he* + *pō* *(night)* + the demonstrative *ni*.
+*'Apō* looks ahead to a night that has not started. Once night has arrived, it no longer fits. You are no longer looking forward to it; you are in it. At that point, Tongan uses *he poó ni*, built the same way as *he 'ahó ni*: the article *he* + *pō* *(night)* + the demonstrative *ni*.
 
 ::: {.examples}
 *Té ta 'alu he poó ni.* We are going tonight. (Said after dark.)
@@ -134,7 +128,7 @@ Both *'apō* and *'apōni* look ahead to a night that has not started. Once nigh
 
 The stress shifts the same way: *pō* becomes *poó* before *ni*.
 
-At this stage, *'apō* is the form you will use most. Treat *'apōni* and *he poó ni* as alternatives you should recognise when you hear them.
+At this stage, *'apō* is the form you will use most. Treat *he poó ni* as the alternative you should recognise when you hear it.
 
 #### Days of the week
 
@@ -197,7 +191,7 @@ Adding the preposed modifier *fa'a* from the previous lesson gives the most comp
 | *'anepō* | time word | last night |
 | *'anenai* | time word | a short time ago, earlier today, or earlier in the present speech |
 | *'apongipongi* | time word | tomorrow |
-| *'apō* | time word | tonight |
+| *'apō* | time word | tonight (said during the day) |
 | *'anai* | time word | in a little while |
 | *'aho* | noun | day |
 | *pō* | noun | night |

@@ -17,6 +17,35 @@ import { parseLessonContent, plainInline } from '../lib/lesson-content.js'
 
 const app = cwd()
 const inventory = JSON.parse(fs.readFileSync(path.join(app, 'src/premium/test/fixtures/Source-Inventory.json')))
+// Andrew approved this exact Lesson 4 correction and test update on 2026-10-02.
+// Keep the original oracle frozen; amend only the rejected form and its glosses.
+const lesson4 = inventory.lessons.find(lesson => lesson.chapter === 4)
+const approvedText = [
+  ['Tongan has three ways to say "tonight," and the choice depends on when you are speaking.', 'Tongan has two ways to say "tonight," and the choice depends on when you are speaking.'],
+  ["Both 'apō and 'apōni look ahead to a night that has not started. Once night has arrived, neither form fits.", "'Apō looks ahead to a night that has not started. Once night has arrived, it no longer fits."],
+  ["Treat 'apōni and he poó ni as alternatives you should recognise when you hear them.", "Treat he poó ni as the alternative you should recognise when you hear it."],
+]
+for (const [before, after] of approvedText) {
+  const matches = lesson4.semanticBlocks.filter(block => block.text.includes(before))
+  assert.equal(matches.length, 1, `one frozen Lesson 4 passage matches ${before}`)
+  matches[0].text = matches[0].text.replace(before, after)
+}
+const removedBlocks = lesson4.semanticBlocks.filter(block => /^(Adding ni gives 'apōni|::: \{\.examples\}\nTé ta 'alu 'apōni\?)/.test(block.text))
+assert.equal(removedBlocks.length, 2, 'only the rejected explanation and example are removed')
+lesson4.semanticBlocks = lesson4.semanticBlocks.filter(block => !removedBlocks.includes(block))
+let clarifiedGlosses = 0
+for (const block of lesson4.semanticBlocks.filter(block => block.kind === 'table')) {
+  for (const row of block.rows) {
+    if (row.includes("'apō") && row.at(-1) === 'tonight') {
+      row[row.length - 1] = 'tonight (said during the day)'
+      clarifiedGlosses += 1
+    }
+  }
+}
+assert.equal(clarifiedGlosses, 3, 'all three Lesson 4 glosses retain the speaking-time condition')
+assert.equal(createHash('sha256').update(fs.readFileSync(path.join(app, 'book/Chapter-04.md'))).digest('hex'),
+  'e48c19fdd7e0b97da413e21677699779a1e026032bd54b5b7a6e41716677417f', 'Lesson 4 matches the exact approved correction')
+
 const quickPractice = JSON.parse(fs.readFileSync(path.join(app, 'src/data/quick-practice.json')))
 const drillMap = JSON.parse(fs.readFileSync(path.join(app, 'src/data/drill-map.json')))
 // The September 26 teaching oracle stays frozen. These two exact source hashes
@@ -208,7 +237,7 @@ test('all 52 lessons preserve production paragraph and example-pair structure', 
   assert.ok(lesson17.blocks.some(block => block.type === 'examples' && block.pairs.some(pair => pair.tongan?.includes("Ko ho'o huo?")) && block.pairs.some(pair => pair.tongan?.includes("Ko ho'o ako?"))), 'Lesson 17 adjacent examples stay distinct')
   assert.ok(lesson46.blocks.some(block => block.type === 'examples' && block.pairs.some(pair => !pair.english && pair.line?.includes('ki tahi') && pair.line.includes('ki he tahí'))), 'Lesson 46 lowercase annotation remains a Tongan-only line')
   assert.equal(fallbackLines, 148, 'all 148 fallback example lines retain source Markdown')
-  assert.deepEqual(totals, { paragraphs: 1489, pairBlocks: 3, exampleBlocks: 704, translatedLines: 1102, tonganOnlyLines: 148 })
+  assert.deepEqual(totals, { paragraphs: 1488, pairBlocks: 3, exampleBlocks: 703, translatedLines: 1101, tonganOnlyLines: 148 })
 })
 
 test('all 52 lessons retain the ordered reading text and structural data from the frozen oracle', () => {
