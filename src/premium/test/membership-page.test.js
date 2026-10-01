@@ -88,23 +88,21 @@ test('the membership page carries the approved offer and routes money only to th
   }
 })
 
-test('the notice above every lesson keeps its sentences, adds the membership link, and counts nothing by default', async () => {
+test('the shared notice uses approved lifetime copy and preserves the end offer and finish link', async () => {
   const server = await createServer(viteOptions)
   try {
-    const { default: MembershipNotice, MembershipFinishLine } = await server.ssrLoadModule('/src/premium/components/MembershipNotice.jsx')
+    const { default: MembershipNotice, MembershipEndOffer, MembershipFinishLine } = await server.ssrLoadModule('/src/premium/components/MembershipNotice.jsx')
     const html = renderToStaticMarkup(wrap(React.createElement(MembershipNotice)))
     const body = text(html)
-    assert.match(html, /<aside class="membership-notice membership-notice--lesson" aria-labelledby="membership-notice-title">/)
-    assert.ok(body.includes('You’re exploring the free preview.'), 'default heading without progress')
-    assert.ok(body.includes(`All 52 lessons are open. ${AUDIO_MEMBERSHIP_NOTICE}`))
-    assert.ok(body.includes('Lifetime membership is US$35 now, paid once, and it includes the audio.'))
-    assert.match(body, /Secure Lifetime membership US\$35/)
-    assert.ok(body.includes('What Lifetime membership includes'))
-    assert.doesNotMatch(body, /or more|before the price increases/)
+    assert.match(html, /<aside class="membership-notice" aria-labelledby="membership-notice-title">/)
+    assert.ok(body.includes('Free preview'))
+    assert.ok(body.includes('We’re working on adding audio to every Tongan example. Once it’s complete, lifetime website membership will cost US$99.'))
+    assert.ok(body.includes('US$35'))
+    assert.doesNotMatch(body, /or more|before the price increases|per year/)
     assert.ok(body.includes(EXISTING_SUPPORTER_NOTICE))
-    assert.deepEqual(hrefs(html), [LIFETIME_MEMBERSHIP_URL, '/support'], 'button to the item, then the page that explains it')
+    assert.deepEqual(hrefs(html), [LIFETIME_MEMBERSHIP_URL])
 
-    const end = renderToStaticMarkup(wrap(React.createElement(MembershipNotice, {
+    const end = renderToStaticMarkup(wrap(React.createElement(MembershipEndOffer, {
       id: 'lessons-membership-title', placement: 'end', title: 'All 52 lessons are open during the free preview.', lead: AUDIO_MEMBERSHIP_NOTICE,
     })))
     assert.match(end, /id="lessons-membership-title"/)

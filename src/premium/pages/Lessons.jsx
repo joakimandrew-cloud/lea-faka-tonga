@@ -8,7 +8,7 @@ import { LESSON_TIERS, LESSON_GROUPS, filterLessons, lessonLevel, splitMixedTong
 import { lessonColours, lessonTile } from '../lib/lesson-colour.js'
 import T from '../components/T.jsx'
 import { KupesiTile } from '../components/Kupesi.jsx'
-import MembershipNotice from '../components/MembershipNotice.jsx'
+import { MembershipEndOffer } from '../components/MembershipNotice.jsx'
 import { AUDIO_MEMBERSHIP_NOTICE } from '../lib/membership-offer.js'
 import { useProgress } from '../lib/progress.js'
 import '../styles/lessons.css'
@@ -181,7 +181,7 @@ export default function Lessons() {
       </div>
 
       {/* After the whole course has been seen, the offer makes sense (Strategy change 8). */}
-      <MembershipNotice
+      <MembershipEndOffer
         id="lessons-membership-title"
         placement="end"
         title="All 52 lessons are open during the free preview."

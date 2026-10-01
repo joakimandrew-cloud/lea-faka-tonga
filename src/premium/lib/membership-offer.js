@@ -18,3 +18,17 @@ export const MEMBERSHIP_RECOVERY_EMAIL = 'joakimandrew@gmail.com'
 export const MEMBERSHIP_RECOVERY_BEFORE = 'If the email you used at checkout changes, write to '
 export const MEMBERSHIP_RECOVERY_AFTER = ' from the address you use now. Include the email you used at checkout, even if you can no longer open it, the name you gave, roughly when you paid, the amount, and the Buy Me a Coffee receipt or its transaction ID if you still have it. We look for your payment with those details and reply to your new address.'
 export const MEMBERSHIP_RECOVERY_NOTICE = MEMBERSHIP_RECOVERY_BEFORE + MEMBERSHIP_RECOVERY_EMAIL + MEMBERSHIP_RECOVERY_AFTER
+
+export const FREE_PREVIEW_AUDIO_NOTICE = 'We’re working on adding audio to every Tongan example. Once it’s complete, lifetime website membership will cost US$99.'
+
+const PREVIEW_SECTIONS = new Set(['/lessons', '/quizzes', '/drills', '/cards', '/sentence-builder', '/terminal-build', '/topics', '/charts', '/alphabet', '/greetings'])
+
+export function previewNoticeMode(pathname, bespokePaths = []) {
+  const path = pathname.replace(/\/$/, '') || '/'
+  if (path === '/dictionary' || path === '/word-lists') return 'dictionary'
+  if (PREVIEW_SECTIONS.has(path) || bespokePaths.includes(path)) return 'course'
+  const lesson = path.match(/^\/(?:lessons|quizzes)\/(\d+)$/)
+  if (lesson && Number(lesson[1]) >= 1 && Number(lesson[1]) <= 52) return 'course'
+  if (/^\/drill\/[^/]+$/.test(path) || /^\/grammar\/[^/]+$/.test(path)) return 'course'
+  return null
+}

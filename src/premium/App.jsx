@@ -6,6 +6,7 @@ import RouteChrome from '@app/components/RouteChrome.jsx'
 import Home from './pages/Home.jsx'
 import NotBuilt from './pages/NotBuilt.jsx'
 import { BESPOKE } from '@app/lib/drill-routes.js'
+import { previewNoticeMode } from './lib/membership-offer.js'
 
 // Each inner page loads with its own data, so the homepage stays light.
 const Lessons = lazy(() => import('./pages/Lessons.jsx'))
@@ -82,7 +83,7 @@ export default function App() {
 
   return (
     <>
-      <Header progress={reading} />
+      <Header progress={reading} noticeMode={previewNoticeMode(loc.pathname, Object.values(BESPOKE))} />
       <RouteChrome />
       <AnimatePresence mode="wait">
         <Routes location={loc} key={loc.pathname}>

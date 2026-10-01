@@ -10,6 +10,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { createServer } from 'vite'
 import { BESPOKE } from '../../lib/drill-routes.js'
 import { STATIC_META } from '../../seo/meta.js'
+import { FREE_PREVIEW_AUDIO_NOTICE, previewNoticeMode } from '../lib/membership-offer.js'
 
 const root = cwd()
 const documentDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'document')
@@ -141,19 +142,28 @@ test('the actual premium App renders every generated route without the NotBuilt 
       assert.ok(html.length > 200, `${pathname} produces a nonempty application shell`)
       assert.doesNotMatch(html, /class="wr-missing|Page not found/, `${pathname} does not fall through to NotBuilt`)
       assert.doesNotMatch(html, /premium-reference-missing|Topic not found/, `${pathname} does not lose a resource article`)
-      if (/^\/lessons\/\d+\/?$/.test(pathname)) {
+      const noticeMode = previewNoticeMode(pathname, Object.values(BESPOKE))
+      if (noticeMode) {
         assert.equal((html.match(/id="membership-notice-title"/g) || []).length, 1, `${pathname} shows one preview notice`)
-        assert.match(html, /audio is added to every Tongan example, including sentences and exercises/)
+        assert.ok(html.includes(FREE_PREVIEW_AUDIO_NOTICE), `${pathname} retains the exact approved audio/lifetime message`)
+        assert.match(html, /including sentences and exercises/)
         assert.match(html, /https:\/\/buymeacoffee\.com\/leafakatonga\/e\/549116/)
-        assert.match(html, /Lifetime membership is US\$35 now, paid once, and it includes the audio\./)
-        assert.match(html, /From then on, Lifetime membership will cost US\$99\./)
-        assert.doesNotMatch(html, /before the price increases|US\$35 or more/)
-        assert.ok(html.indexOf('membership-notice-title') < html.indexOf('class="ls-hero"'), 'notice appears before lesson content')
+        assert.match(html, /US\$35/)
+        assert.match(html, /Already promised lifetime access/)
+        const notice = html.match(/<aside class="membership-notice"[\s\S]*?<\/aside>/)?.[0]
+        assert.ok(notice, `${pathname} renders accessible notice`)
+        assert.doesNotMatch(notice, /per year|annual|\/yr/i, 'lifetime access never becomes annual pricing')
+        if (noticeMode === 'dictionary') assert.match(notice, /Free dictionary[\s\S]*Dictionary search and definitions stay free/)
+        else assert.match(notice, /Free preview[\s\S]*All 52 lessons open/)
+        if (/^\/lessons\/\d+\/?$/.test(pathname)) assert.ok(html.indexOf('membership-notice-title') < html.indexOf('class="ls-hero"'), 'notice appears before lesson content')
+      } else {
+        assert.equal((html.match(/id="membership-notice-title"/g) || []).length, 0, `${pathname} stays outside notice scope`)
       }
     }
 
     const control = await renderRoute(App, '/route-parity-negative-control')
     assert.match(control, /class="wr-missing|Page not found/, 'negative control proves the fallback assertion can fail')
+    assert.doesNotMatch(control, /membership-notice-title/)
   } finally {
     await server.close()
   }

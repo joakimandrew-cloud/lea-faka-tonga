@@ -4,6 +4,7 @@ import { AnimatePresence, motion as Motion, useScroll, useSpring } from 'motion/
 import LogoMark from '@app/components/LogoMark.jsx'
 import { supportUrl } from '@app/lib/partner-link.js'
 import HomePatternBand from './HomePatternBand.jsx'
+import MembershipNotice from './MembershipNotice.jsx'
 import { useProgress } from '../lib/progress.js'
 
 const NAV = [
@@ -28,13 +29,14 @@ export function Wordmark({ compact = false }) {
   )
 }
 
-export function Header({ progress = false }) {
+export function Header({ progress = false, noticeMode = null }) {
   const [menuPath, setMenuPath] = useState(null)
   const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const loc = useLocation()
   const open = menuPath === loc.pathname
   const menuRef = useRef(null)
+  const headerRef = useRef(null)
   const toggleRef = useRef(null)
   const { scrollYProgress } = useScroll()
   const bar = useSpring(scrollYProgress, { stiffness: 140, damping: 28, mass: .3 })
@@ -44,7 +46,7 @@ export function Header({ progress = false }) {
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 8)
-      if (!open) setHidden(y > 240 && y > last + 2 ? true : y < last - 2 ? false : hidden)
+      if (!open && !headerRef.current?.contains(document.activeElement)) setHidden(y > 240 && y > last + 2 ? true : y < last - 2 ? false : hidden)
       last = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -64,8 +66,8 @@ export function Header({ progress = false }) {
         toggleRef.current?.focus()
       }
       if (e.key !== 'Tab') return
-      const controls = [...menuRef.current.querySelectorAll('a[href], button:not(:disabled), [tabindex="0"]')]
-        .filter(node => node.getClientRects().length > 0)
+      const controls = [...menuRef.current.querySelectorAll('a[href], button:not(:disabled), summary, [tabindex="0"]')]
+        .filter(node => node.getClientRects().length > 0 && !node.closest('[inert]'))
       const first = controls[0]
       const last = controls.at(-1)
       const outside = !menuRef.current.contains(document.activeElement)
@@ -90,6 +92,41 @@ export function Header({ progress = false }) {
     document.documentElement.dataset.hdr = hidden ? 'hidden' : 'shown'
   }, [hidden])
 
+  useEffect(() => {
+    const root = document.documentElement
+    if (!noticeMode) {
+      delete root.dataset.previewNotice
+      for (const name of ['--hdr-h', '--hdr-top', '--notice-h', '--notice-viewport-h']) root.style.removeProperty(name)
+      return
+    }
+    root.dataset.previewNotice = noticeMode
+    const header = headerRef.current
+    const notice = menuRef.current.querySelector('.membership-notice')
+    const measure = () => {
+      const compact = getComputedStyle(header).position === 'absolute'
+      const headerHeight = header.offsetHeight
+      const noticeHeight = notice.offsetHeight
+      const zoom = (Number.parseFloat(getComputedStyle(root).zoom) || 1) * (Number.parseFloat(getComputedStyle(document.body).zoom) || 1)
+      root.style.setProperty('--hdr-h', `${headerHeight}px`)
+      root.style.setProperty('--notice-h', `${noticeHeight}px`)
+      root.style.setProperty('--hdr-top', `${noticeHeight + (!hidden && !compact ? headerHeight : 0)}px`)
+      root.style.setProperty('--notice-viewport-h', `${(window.visualViewport?.height ?? innerHeight) / zoom}px`)
+    }
+    const observer = new ResizeObserver(measure)
+    observer.observe(header)
+    observer.observe(notice)
+    window.addEventListener('resize', measure)
+    window.visualViewport?.addEventListener('resize', measure)
+    measure()
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', measure)
+      window.visualViewport?.removeEventListener('resize', measure)
+      delete root.dataset.previewNotice
+      for (const name of ['--hdr-h', '--hdr-top', '--notice-h', '--notice-viewport-h']) root.style.removeProperty(name)
+    }
+  }, [hidden, noticeMode, loc.pathname])
+
   const { done, last } = useProgress()
   const next = last ? (done.has(last) ? Math.min(52, last + 1) : last) : 1
   const ctaLabel = !last ? 'Start Lesson 1' : done.has(last) ? `Start Lesson ${next}` : `Continue Lesson ${next}`
@@ -102,10 +139,12 @@ export function Header({ progress = false }) {
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-      <div className="navigation-shell" ref={menuRef} role={open ? 'dialog' : undefined} aria-modal={open ? true : undefined} aria-label={open ? 'Site menu' : undefined} onClick={event => {
+      <div className={`navigation-shell${noticeMode ? ' has-notice' : ''}${hidden ? ' is-hidden' : ''}`} ref={menuRef} role={open ? 'dialog' : undefined} aria-modal={open ? true : undefined} aria-label={open ? 'Site menu' : undefined} onFocusCapture={event => {
+        if (headerRef.current?.contains(event.target)) setHidden(false)
+      }} onClick={event => {
         if (open && event.target.closest('a')) setMenuPath(null)
       }}>
-      <header className={`hdr ${hidden ? 'is-hidden' : ''} ${scrolled ? 'is-scrolled' : ''}`}>
+      <header ref={headerRef} className={`hdr ${hidden ? 'is-hidden' : ''} ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="hdr-in">
           <Wordmark />
           <nav className="hdr-nav" aria-label="Main">
@@ -124,6 +163,7 @@ export function Header({ progress = false }) {
         </div>
         {progress && <Motion.div className="hdr-progress" style={{ scaleX: bar }} />}
       </header>
+      {noticeMode && <MembershipNotice key={loc.pathname} mode={noticeMode} menuOpen={open} />}
 
       <AnimatePresence>
         {open && (
