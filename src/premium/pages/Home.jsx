@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { Link } from 'react-router-dom'
 import { PDF_URL, EPUB_URL } from '../components/Chrome.jsx'
 import { useTitle } from '../lib/title.js'
@@ -20,7 +21,7 @@ export default function Home() {
             <h1>Build your first<br />Tongan sentence.</h1>
             <p className="wr-home__hero-lede">See how the words fit together, change one part, and understand what changed. Begin with the real pattern from Lesson 1.</p>
             <div className="wr-home__hero-action">
-              <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
+              <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <EntryMotif size={20} index={0} /></Link>
               <p className="wr-home__access-note">All 52 lessons are open during the free preview.</p>
             </div>
             <div className="wr-home__book-route">
@@ -50,7 +51,7 @@ export default function Home() {
         <HomeSentenceDemo />
         <div className="wr-home__next">
           <p>Lesson 1 introduces this three-part pattern: tense marker, pronoun, verb. Lessons 2 and 3 add the other tenses and descriptive words.</p>
-          <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
+          <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <EntryMotif size={20} index={1} /></Link>
         </div>
       </section>
 
@@ -63,7 +64,7 @@ export default function Home() {
         <HomePracticePreview />
         <div className="wr-home__next">
           <p>Every lesson has worked examples, exercises and a 10-question quiz.</p>
-          <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <span aria-hidden="true">→</span></Link>
+          <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <EntryMotif size={20} index={2} /></Link>
         </div>
       </section>
 
@@ -80,14 +81,14 @@ export default function Home() {
             <p className="wr-home__offer-terms">A one-time donation for Lifetime membership, including the audio.</p>
             <div className="wr-home__offer-actions">
               <a className="wr-home__button wr-home__button--primary" href={LIFETIME_MEMBERSHIP_URL}>Secure Lifetime membership <span aria-hidden="true">↗</span></a>
-              <Link className="wr-home__offer-link" to="/support">What Lifetime membership includes <span aria-hidden="true">→</span></Link>
+              <Link className="wr-home__offer-link" to="/support">What Lifetime membership includes <EntryMotif size={18} index={3} /></Link>
             </div>
           </article>
           <div className="wr-home__offer-free">
             <div className="wr-home__offer-group">
               <h3>Open to everyone now</h3>
               <p>All 52 lessons, with the drills, quizzes and flip cards.</p>
-              <Link className="wr-home__offer-link" to="/lessons/1">Start Lesson 1 <span aria-hidden="true">→</span></Link>
+              <Link className="wr-home__offer-link" to="/lessons/1">Start Lesson 1 <EntryMotif size={18} index={0} /></Link>
             </div>
             <div className="wr-home__offer-group">
               <h3>Stays free, member or not</h3>

@@ -1,3 +1,4 @@
+import EntryMotif from '../EntryMotif.jsx'
 import { okinafy } from '@app/lib/okinafy.js'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion as Motion } from 'motion/react'
@@ -171,7 +172,7 @@ export function WordCards({ groups, lesson }) {
       )}
       <Link to={`/cards?lesson=${lesson}`} className="words-cta">
           <span>Open the full Lesson {lesson} deck</span>
-          <span className="arr" aria-hidden="true">→</span>
+          <EntryMotif size={20} index={lesson - 1} />
       </Link>
     </div>
   )

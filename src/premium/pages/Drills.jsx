@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import T from '../components/T.jsx'
@@ -20,7 +21,7 @@ function DrillCard({ drill }) {
       </span>
       <strong>{drill.title}</strong>
       <span className="catalog-card-copy">{drill.blurb}</span>
-      <span className="catalog-card-action">{drill.action} <span aria-hidden="true">→</span></span>
+      <span className="catalog-card-action">{drill.action} <EntryMotif size={20} index={drill.ch - 1} /></span>
     </Link>
   )
 }
@@ -51,7 +52,7 @@ function DrillGroup({ section, filtering, open, onToggle }) {
                 <li key={row.id}>
                   <Link to={premiumRouteFor(row.id)}>
                     <span>{row.label}</span>
-                    <span>Lesson {row.ch} <span aria-hidden="true">→</span></span>
+                    <span>Lesson {row.ch} <EntryMotif size={18} index={row.ch - 1} /></span>
                   </Link>
                 </li>
               ))}
@@ -124,7 +125,7 @@ export default function Drills() {
                 <header><div><p className="catalog-kicker">Keep practising</p><h2 id="registry-practice">More practice</h2></div></header>
                 <ul>
                   {UNCATALOGUED_DRILLS.map(drill => (
-                    <li key={drill.id}><Link to={premiumRouteFor(drill.id)}><strong>{drill.title}</strong><span>{drill.blurb}</span><span aria-hidden="true">→</span></Link></li>
+                    <li key={drill.id}><Link to={premiumRouteFor(drill.id)}><strong>{drill.title}</strong><span>{drill.blurb}</span><EntryMotif size={22} index={drill.id.length} /></Link></li>
                   ))}
                 </ul>
               </section>

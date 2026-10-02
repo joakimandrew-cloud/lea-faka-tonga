@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { Link } from 'react-router-dom'
 import founders from '@app/data/founders.json'
 import { supportUrl } from '@app/lib/partner-link.js'
@@ -45,7 +46,7 @@ export default function Keepers() {
                 donation of any amount.
               </p>
               <div className="service-actions">
-                <Link to="/support" className="btn btn-primary">About Lifetime membership →</Link>
+                <Link to="/support" className="btn btn-primary">About Lifetime membership <EntryMotif size={20} index={1} /></Link>
                 <a href={supportHref} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
                   Optional donation <span aria-hidden="true">↗</span>
                 </a>
@@ -76,7 +77,7 @@ export default function Keepers() {
                 ))}
               </div>
               <div className="service-actions keepers-actions">
-                <Link to="/support" className="btn btn-primary">About Lifetime membership →</Link>
+                <Link to="/support" className="btn btn-primary">About Lifetime membership <EntryMotif size={20} index={1} /></Link>
                 <a href={supportHref} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Optional donation <span aria-hidden="true">↗</span></a>
                 <Link to="/lessons" className="btn btn-ghost">Explore all 52 lessons</Link>
               </div>

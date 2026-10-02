@@ -112,7 +112,12 @@ test('the rendered topic hub keeps all seven exact labels, descriptions and dest
       .filter(([, attributes]) => attributes.includes('class="topic-card"'))
     assert.equal(cards.length, 7)
     assert.deepEqual(cards.map(([, attributes, content]) => [attributes.match(/href="([^"]+)"/)[1], plain(content)]),
-      TOPIC_PAGES.map(topic => [topic.to, `${topic.label}${topic.blurb}→`]))
+      TOPIC_PAGES.map(topic => [topic.to, `${topic.label}${topic.blurb}`]))
+    assert.equal((html.match(/class="entry-motif"/g) || []).length, 8)
+    for (const kind of ['pinwheel', 'nest', 'leaf', 'lens']) {
+      assert.equal((html.match(new RegExp(`kp-${kind} `, 'g')) || []).length, 2)
+    }
+    assert.doesNotMatch(html, /topic-entry-bird|→/)
     assert.match(html, /href="\/charts"/)
     assert.deepEqual([...html.matchAll(/<span[^>]*lang="to"[^>]*>([^<]+)<\/span>/g)].map(match => plain(match[1])),
       ['Mālō e lelei', 'ʻikai', 'te', 'ke', 'Ko', 'Ko e hele ʻeni'])

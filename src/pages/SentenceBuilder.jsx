@@ -58,7 +58,8 @@ function withArticle(label) {
   return (/^[aeiou]/.test(l) ? 'an ' : 'a ') + l
 }
 
-export default function SentenceBuilder() {
+export default function SentenceBuilder({ entryMark = '→' }) {
+  const mark = index => typeof entryMark === 'function' ? entryMark(index) : entryMark
   const [mwState, setMwState] = useState(() => createGuidedMultiWalker(CHAPTER))
   const [error, setError] = useState(null)
   const isTouch = useIsTouchPrimary()
@@ -335,10 +336,10 @@ export default function SentenceBuilder() {
             onClick={() => chooseEntryPoint(null)}
             className="tb-chooser-skip"
           >
-            Just start building {'→'}
+            Just start building {mark(0)}
           </button>
           <Link to="/terminal-build" className="tb-chooser-skip">
-            Bare terminal canvas, advanced {'→'}
+            Bare terminal canvas, advanced {mark(1)}
           </Link>
         </div>
 

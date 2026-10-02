@@ -1,3 +1,4 @@
+import EntryMotif from './EntryMotif.jsx'
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useProgress } from '../lib/progress.js'
@@ -69,7 +70,7 @@ export function MembershipEndOffer({ id = 'membership-end-offer-title', title, l
           <p>Lifetime membership is US$35 now, paid once, and it includes the audio.</p>
           <a href={LIFETIME_MEMBERSHIP_URL} className="membership-end-offer__button">Secure Lifetime membership <span>US$35 <span aria-hidden="true">↗</span></span></a>
           <div className="membership-end-offer__foot">
-            <Link className="membership-end-offer__more" to="/support">What Lifetime membership includes <span aria-hidden="true">→</span></Link>
+            <Link className="membership-end-offer__more" to="/support">What Lifetime membership includes <EntryMotif size={18} index={3} /></Link>
             <p className="membership-end-offer__supporters">{EXISTING_SUPPORTER_NOTICE}</p>
           </div>
         </div>
@@ -84,7 +85,7 @@ export function MembershipFinishLine() {
   return (
     <div className="membership-finish">
       <p>If the course is helping you, a one-time donation of US$35 now secures Lifetime membership, including the audio.</p>
-      <Link className="membership-finish__link" to="/support">About Lifetime membership <span aria-hidden="true">→</span></Link>
+      <Link className="membership-finish__link" to="/support">About Lifetime membership <EntryMotif size={18} index={1} /></Link>
     </div>
   )
 }

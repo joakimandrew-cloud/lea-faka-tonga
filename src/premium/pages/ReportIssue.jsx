@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTitle } from '../lib/title.js'
@@ -222,7 +223,7 @@ export default function ReportIssue() {
                 >
                   Report another →
                 </button>
-                <Link to="/" className="btn btn-primary">Back to the course →</Link>
+                <Link to="/" className="btn btn-primary">Back to the course <EntryMotif size={20} /></Link>
               </div>
             </div>
           )}

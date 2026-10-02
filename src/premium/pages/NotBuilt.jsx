@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { Link } from 'react-router-dom'
 import HomePatternBand from '../components/HomePatternBand.jsx'
 import { useTitle } from '../lib/title.js'
@@ -14,7 +15,7 @@ export default function NotBuilt() {
           This address does not match a page. Return home or choose a lesson to continue.
         </p>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <Link to="/" className="btn btn-primary">Home <span className="arr">→</span></Link>
+          <Link to="/" className="btn btn-primary">Home <EntryMotif size={20} /></Link>
           <Link to="/lessons" className="btn btn-ghost">All lessons</Link>
         </div>
       </div>

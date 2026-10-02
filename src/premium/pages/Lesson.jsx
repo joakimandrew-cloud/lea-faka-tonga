@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTitle } from '../lib/title.js'
 import { Link, useParams } from 'react-router-dom'
@@ -156,28 +157,28 @@ export function FinishActions({ n, next, hasQuiz, vocabCount, exStats, firstUnfi
         <Link to={`/lessons/${next.chapter}`} className={`nx ${continueExercises ? '' : 'nx-main'}`}>
           <span className="nx-k">{continueExercises ? 'Continue the course' : `Up next · Lesson ${next.chapter}`}</span>
           <span className={`nx-t ${continueExercises ? '' : 'display'}`}>{continueExercises ? `Lesson ${next.chapter} · ${next.title}` : next.title}</span>
-          {!continueExercises && <span className="nx-arr">→</span>}
+          {!continueExercises && <EntryMotif className="nx-entry" index={next.chapter - 1} />}
         </Link>
       )}
       {hasQuiz && (
         <Link to={`/quizzes/${n}`} className={`nx ${quizIsPrimary ? 'nx-main' : ''}`}>
           <span className="nx-k">Check yourself</span>
           <span className={`nx-t ${quizIsPrimary ? 'display' : ''}`}>Lesson {n} quiz · 10 questions</span>
-          {quizIsPrimary && <span className="nx-arr">→</span>}
+          {quizIsPrimary && <EntryMotif className="nx-entry" index={n - 1} />}
         </Link>
       )}
       {vocabCount > 0 && (
         <Link to={`/cards?lesson=${n}`} className={`nx ${cardsArePrimary ? 'nx-main' : ''}`}>
           <span className="nx-k">Keep the words</span>
           <span className={`nx-t ${cardsArePrimary ? 'display' : ''}`}>Flip cards for Lesson {n}</span>
-          {cardsArePrimary && <span className="nx-arr">→</span>}
+          {cardsArePrimary && <EntryMotif className="nx-entry" index={n} />}
         </Link>
       )}
       {!continueExercises && !next && !hasQuiz && vocabCount === 0 && (
         <Link to="/lessons" className="nx nx-main">
           <span className="nx-k">Keep learning</span>
           <span className="nx-t display">All lessons</span>
-          <span className="nx-arr">→</span>
+          <EntryMotif className="nx-entry" index={0} />
         </Link>
       )}
     </div>

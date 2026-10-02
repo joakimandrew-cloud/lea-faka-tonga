@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import SentenceBuilder from '@app/pages/SentenceBuilder.jsx'
 import TerminalBuilder from '@app/pages/TerminalBuilder.jsx'
 import { useTitle } from '../lib/title.js'
@@ -21,7 +22,7 @@ export default function SourceBuilder({ mode = 'sentence' }) {
   return (
     <section className="source-builder-shell" data-builder-mode={mode}>
       <div className="premium-core premium-core-builder" onKeyDownCapture={keepControlKeysLocal}>
-        <Builder />
+        <Builder entryMark={index => <EntryMotif size={18} index={index} />} />
       </div>
     </section>
   )

@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { supportUrl } from '@app/lib/partner-link.js'
@@ -111,7 +112,7 @@ export default function GrandmotherQuiz() {
             </div>
 
             <Link to="/lessons/1" state={{ fromStart: true }} className="grandmother-skip">
-              Skip the test, just start learning →
+              Skip the test, just start learning <EntryMotif size={18} index={1} />
             </Link>
           </section>
         ) : (
@@ -120,7 +121,7 @@ export default function GrandmotherQuiz() {
             <h2 id="grandmother-result-title" className="display">{result.band}</h2>
             <p className="grandmother-result-body">{result.body}</p>
             <div className="service-actions">
-              <Link to="/lessons/1" state={{ fromStart: true }} className="btn btn-primary">Start the free course →</Link>
+              <Link to="/lessons/1" state={{ fromStart: true }} className="btn btn-primary">Start the free course <EntryMotif size={20} /></Link>
               <a href={supportHref} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Support the work</a>
             </div>
             <p className="grandmother-share">

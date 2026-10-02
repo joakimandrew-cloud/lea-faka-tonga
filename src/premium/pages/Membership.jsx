@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { Link } from 'react-router-dom'
 import { motion as Motion } from 'motion/react'
 import LogoMark from '@app/components/LogoMark.jsx'
@@ -43,7 +44,7 @@ function LearnLink({ className = '' }) {
   const { done, last } = useProgress()
   const next = last ? (done.has(last) ? Math.min(52, last + 1) : last) : 1
   const label = !last ? 'Start Lesson 1, free' : done.has(last) ? `Start Lesson ${next}` : `Continue Lesson ${next}`
-  return <Link className={`mb-text-link ${className}`} to={`/lessons/${next}`}>{label} <span aria-hidden="true">→</span></Link>
+  return <Link className={`mb-text-link ${className}`} to={`/lessons/${next}`}>{label} <EntryMotif size={18} index={next - 1} /></Link>
 }
 
 // A decorative membership card: the offer as an object, carrying the four

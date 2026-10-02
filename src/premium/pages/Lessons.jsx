@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { okinafy } from '@app/lib/okinafy.js'
 import { useMemo, useRef, useState } from 'react'
 import { useTitle } from '../lib/title.js'
@@ -40,7 +41,7 @@ function ResumeCard() {
         <p className="resume-ex"><T>{lesson.teaching.key_rules[0].example_tongan}</T> <span>{lesson.teaching.key_rules[0].example_english}</span></p>
       )}
       <Link to={`/lessons/${lesson.chapter}`} className="btn btn-primary">
-        {upNext ? `Start Lesson ${lesson.chapter}` : resuming ? `Continue Lesson ${lesson.chapter}` : "Start Lesson 1, it's free"} <span className="arr">→</span>
+        {upNext ? `Start Lesson ${lesson.chapter}` : resuming ? `Continue Lesson ${lesson.chapter}` : "Start Lesson 1, it's free"} <EntryMotif size={20} index={lesson.chapter - 1} />
       </Link>
       <div className="resume-meter" aria-label={`${done.size} of 52 lessons complete`}>
         <div className="resume-bars">
@@ -77,7 +78,7 @@ function Row({ c, i, done }) {
           </span>
         )}
         <span className="row-end" aria-hidden="true">
-          {done ? <span className="row-check">✓</span> : <span className="row-arr">→</span>}
+          {done ? <span className="row-check">✓</span> : <EntryMotif className="entry-row" index={c.chapter - 1} />}
         </span>
       </Link>
     </Motion.li>

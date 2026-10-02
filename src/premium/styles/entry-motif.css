@@ -1,0 +1,75 @@
+.entry-motif {
+  display: inline-flex;
+  flex: none;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+.entry-motif > .kp-tile {
+  display: block;
+  color: inherit;
+  --kp-ground: transparent;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Page tile grounds must not turn a small white entry mark into a square. */
+.entry-motif > .kp-tile > .kp-bg { fill: transparent; }
+
+/* Keep entry marks distinct from the older hidden or sliding arrow styles. */
+.entry-motif.entry-row { color: var(--red); }
+
+.entry-motif.nx-entry {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.nx:has(> .nx-entry) { padding-right: 68px; }
+
+:is(.wr-home__offer-link, .mb-text-link, .membership-end-offer__more, .membership-finish__link):hover .entry-motif {
+  transform: none;
+  transition: none;
+}
+
+:is(.catalog-card-action, .catalog-more li a > span:last-child):has(.entry-motif) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wr-inner .grandmother-skip:has(.entry-motif) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+}
+
+.premium-core .tb-chooser-skip:has(.entry-motif) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@keyframes entry-motif-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+:where(a:focus-visible, button:focus-visible) .entry-motif > .kp-tile {
+  animation: entry-motif-clockwise 550ms ease-out 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(a:hover, button:hover) .entry-motif > .kp-tile {
+    animation: entry-motif-clockwise 550ms ease-out 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-motif > .kp-tile {
+    animation: none;
+  }
+}

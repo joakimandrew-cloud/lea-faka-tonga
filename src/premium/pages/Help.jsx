@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { Link } from 'react-router-dom'
 import HomePatternBand from '../components/HomePatternBand.jsx'
 import { EPUB_URL, PDF_URL } from '../components/Chrome.jsx'
@@ -24,7 +25,7 @@ export default function Help() {
           <p className="premium-reference-card-kicker">Corrections</p>
           <h2 id="help-report-title">Spot a mistake? Tell us.</h2>
           <p>A typo, a wrong example, a rule that reads strangely, anything that seems off: tell us where it is and what you would change. It comes straight to us.</p>
-          <Link className="btn btn-primary" to="/report">Report a mistake <span aria-hidden="true">→</span></Link>
+          <Link className="btn btn-primary" to="/report">Report a mistake <EntryMotif size={20} /></Link>
         </section>
 
         <section className="premium-reference-help-card" aria-labelledby="help-book-title">
@@ -41,10 +42,10 @@ export default function Help() {
           <p className="premium-reference-card-kicker">Course</p>
           <h2 id="help-course-title">Choose where to continue.</h2>
           <ul className="premium-reference-help-links">
-            <li><Link to="/lessons">All 52 lessons <span aria-hidden="true">→</span></Link></li>
-            <li><Link to="/topics">Topic guides <span aria-hidden="true">→</span></Link></li>
-            <li><Link to="/charts">Grammar charts <span aria-hidden="true">→</span></Link></li>
-            <li><Link to="/drills">Practice drills <span aria-hidden="true">→</span></Link></li>
+            <li><Link to="/lessons">All 52 lessons <EntryMotif size={20} index={1} /></Link></li>
+            <li><Link to="/topics">Topic guides <EntryMotif size={20} index={2} /></Link></li>
+            <li><Link to="/charts">Grammar charts <EntryMotif size={20} index={3} /></Link></li>
+            <li><Link to="/drills">Practice drills <EntryMotif size={20} index={0} /></Link></li>
           </ul>
         </section>
 
@@ -53,7 +54,7 @@ export default function Help() {
           <h2 id="help-support-title">Support the work.</h2>
           <p>A gift of any amount on our general support page is an optional donation and does not include membership.</p>
           <ul className="premium-reference-help-links">
-            <li><Link to="/support">Lifetime membership, US$35 <span aria-hidden="true">→</span></Link></li>
+            <li><Link to="/support">Lifetime membership, US$35 <EntryMotif size={20} index={1} /></Link></li>
             <li><a href={supportUrl()} target="_blank" rel="noopener noreferrer">Optional donation <span aria-hidden="true">↗</span></a></li>
           </ul>
         </section>

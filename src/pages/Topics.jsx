@@ -51,7 +51,8 @@ function TopicText({ text, terms = [] }) {
     : part)
 }
 
-export default function Topics() {
+export default function Topics({ entryMark = '→' }) {
+  const mark = index => typeof entryMark === 'function' ? entryMark(index) : entryMark
   const byGroup = Object.fromEntries(
     GROUPS.map(group => [group.key, TOPIC_PAGES.filter(topic => topic.group === group.key)]),
   )
@@ -68,7 +69,7 @@ export default function Topics() {
           </p>
         </div>
         <Link to="/charts" className="topic-charts-link">
-          Grammar charts <span aria-hidden="true">→</span>
+          Grammar charts <span aria-hidden="true">{mark(TOPIC_PAGES.length)}</span>
         </Link>
       </header>
 
@@ -89,7 +90,7 @@ export default function Topics() {
                     <Link to={topic.to} className="topic-card">
                       <strong><TopicText text={topic.label} terms={TOPIC_TERMS[topic.to]} /></strong>
                       <span className="topic-card-description"><TopicText text={topic.blurb} terms={TOPIC_TERMS[topic.to]} /></span>
-                      <span className="topic-card-arrow" aria-hidden="true">→</span>
+                      <span className="topic-card-arrow" aria-hidden="true">{mark(TOPIC_PAGES.indexOf(topic))}</span>
                     </Link>
                   </li>
                 ))}

@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { Link, useParams } from 'react-router-dom'
 import { drillRegistry } from '@app/drills/registry.js'
 import DrillFrame from '@app/drills/DrillFrame.jsx'
@@ -50,7 +51,7 @@ export default function SourceDrill({ bespokeId }) {
           <p className="eyebrow">Drill not found</p>
           <h1 className="display">That practice<br />isn’t here.</h1>
           <p>The drill address may have changed. The complete practice catalogue is one step back.</p>
-          <Link className="btn btn-primary" to="/drills">All drills <span aria-hidden="true">→</span></Link>
+          <Link className="btn btn-primary" to="/drills">All drills <EntryMotif size={20} /></Link>
         </div>
       </section>
     )

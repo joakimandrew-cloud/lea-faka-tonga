@@ -1,3 +1,4 @@
+import EntryMotif from './EntryMotif.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion as Motion, useScroll, useSpring } from 'motion/react'
@@ -183,7 +184,7 @@ export function Header({ progress = false, noticeMode = null }) {
               ))}
             </nav>
             <div className="sheet-foot">
-              <Link to="/lessons/1" className="btn btn-primary">Start Lesson 1, it's free <span className="arr">→</span></Link>
+              <Link to="/lessons/1" className="btn btn-primary">Start Lesson 1, it's free <EntryMotif size={20} /></Link>
               <a href={PDF_URL} className="btn btn-ghost">Download the book (PDF)</a>
             </div>
           </Motion.div>

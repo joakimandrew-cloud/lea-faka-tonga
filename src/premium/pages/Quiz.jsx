@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTitle } from '../lib/title.js'
 import { Link, useParams } from 'react-router-dom'
@@ -49,13 +50,13 @@ function Results({ quiz, n, answers, onRetry }) {
       <div className="qz-res-actions">
         {right >= total * .6 ? (
           <>
-            {nextQuiz && <Link to={`/quizzes/${nextQuiz}`} className="btn btn-primary">Lesson {nextQuiz} quiz <span className="arr">→</span></Link>}
+            {nextQuiz && <Link to={`/quizzes/${nextQuiz}`} className="btn btn-primary">Lesson {nextQuiz} quiz <EntryMotif size={20} index={nextQuiz - 1} /></Link>}
             <button className="btn btn-ghost" onClick={onRetry}>Try this quiz again</button>
             <Link to={`/lessons/${n}`} className="btn btn-ghost">Study Lesson {n}</Link>
           </>
         ) : (
           <>
-            <Link to={`/lessons/${n}`} className="btn btn-primary">Study Lesson {n} <span className="arr">→</span></Link>
+            <Link to={`/lessons/${n}`} className="btn btn-primary">Study Lesson {n} <EntryMotif size={20} index={n - 1} /></Link>
             <button className="btn btn-ghost" onClick={onRetry}>Try this quiz again</button>
             {nextQuiz && <Link to={`/quizzes/${nextQuiz}`} className="btn btn-ghost">Lesson {nextQuiz} quiz</Link>}
           </>

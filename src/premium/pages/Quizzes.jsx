@@ -1,3 +1,4 @@
+import EntryMotif from '../components/EntryMotif.jsx'
 import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import chapters from '@app/data/chapters.json'
@@ -71,7 +72,7 @@ export default function Quizzes() {
                         <span className="quiz-num">{String(quiz.chapter).padStart(2, '0')}</span>
                         <span className="quiz-copy"><strong>{lesson.title}</strong><span>{lesson.preview || `${quiz.questions.length} questions`}</span></span>
                         {score && <span className="quiz-score" aria-label={`Best score ${score.right} of ${score.total}`}>{score.right}/{score.total}</span>}
-                        <span aria-hidden="true">→</span>
+                        <EntryMotif size={20} index={quiz.chapter - 1} />
                       </Link>
                     </li>
                   )
