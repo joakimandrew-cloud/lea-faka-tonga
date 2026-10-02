@@ -46,11 +46,11 @@ export default function Home() {
         <div className="wr-home__section-intro">
           <p className="wr-home__eyebrow">A preview of what you’ll learn</p>
           <h2 id="wr-sentence-heading">One pattern. So many possibilities.</h2>
-          <p>Watch the opening words change the tense. Try another sentence to change who, the action, or how someone feels.</p>
+          <p>Change the time, person and words. Add detail, then explore negatives and questions.</p>
         </div>
         <HomeSentenceDemo />
         <div className="wr-home__next">
-          <p>Lesson 1 introduces this three-part pattern: tense marker, pronoun, verb. Lessons 2 and 3 add the other tenses and descriptive words.</p>
+          <p>Lessons 1–3 build the basic pattern and descriptions. Later lessons add negatives and question words.</p>
           <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <EntryMotif size={20} index={1} /></Link>
         </div>
       </section>
