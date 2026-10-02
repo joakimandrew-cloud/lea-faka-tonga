@@ -97,6 +97,32 @@ test('topic hub imports the live metadata rather than a copied topic list', () =
   assert.doesNotMatch(adapter, /TOPIC_PAGES|Mālō e lelei|tense-markers/)
 })
 
+test('the rendered topic hub keeps all seven exact labels, descriptions and destinations, with charts and language spans', async () => {
+  const { createServer } = await import('vite')
+  const { default: React } = await import('react')
+  const { renderToStaticMarkup } = await import('react-dom/server')
+  const { MemoryRouter } = await import('react-router-dom')
+  const server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom', logLevel: 'silent' })
+  try {
+    const { default: Topics } = await server.ssrLoadModule('/src/premium/pages/Topics.jsx')
+    const { TOPIC_PAGES } = await import(pathToFileURL(path.join(appRoot, 'src/lib/topic-pages.js')))
+    const html = renderToStaticMarkup(React.createElement(MemoryRouter, null, React.createElement(Topics)))
+    const plain = value => value.replace(/<[^>]*>/g, '').replaceAll('&amp;', '&').replaceAll('&#x27;', "'")
+    const cards = [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+      .filter(([, attributes]) => attributes.includes('class="topic-card"'))
+    assert.equal(cards.length, 7)
+    assert.deepEqual(cards.map(([, attributes, content]) => [attributes.match(/href="([^"]+)"/)[1], plain(content)]),
+      TOPIC_PAGES.map(topic => [topic.to, `${topic.label}${topic.blurb}→`]))
+    assert.match(html, /href="\/charts"/)
+    assert.deepEqual([...html.matchAll(/<span[^>]*lang="to"[^>]*>([^<]+)<\/span>/g)].map(match => plain(match[1])),
+      ['Mālō e lelei', 'ʻikai', 'te', 'ke', 'Ko', 'Ko e hele ʻeni'])
+    assert.match(html, /aria-labelledby="topic-group-sounds"/)
+    assert.match(html, /aria-labelledby="topic-group-grammar"/)
+  } finally {
+    await server.close()
+  }
+})
+
 test('help uses live internal report and support destinations', () => {
   const help = own('src/premium/pages/Help.jsx')
   assert.match(help, /to="\/report"/)

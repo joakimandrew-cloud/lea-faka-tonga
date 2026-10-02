@@ -1,0 +1,210 @@
+.premium-reference.premium-reference-topics {
+  min-height: 0;
+}
+
+.premium-reference-topics .topics-index {
+  width: min(calc(100% - 2 * var(--gutter)), 1200px);
+  margin: 0 auto;
+  padding: 48px 0 80px;
+}
+
+.premium-reference-topics .topic-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.premium-reference-topics .topic-intro {
+  max-width: 650px;
+}
+
+.premium-reference-topics .topic-eyebrow {
+  margin: 0;
+  color: var(--red);
+  font: 700 12px/1.4 var(--f-ui);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.premium-reference-topics .topic-hero h1 {
+  margin: 12px 0 18px;
+  font: 800 clamp(52px, 6vw, 76px)/.94 var(--f-display);
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+
+.premium-reference-topics .topic-lead {
+  margin: 0;
+  color: var(--muted);
+  font: 16px/1.65 var(--f-ui);
+}
+
+.premium-reference-topics .topic-charts-link {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 18px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--red);
+  font: 650 14px/1.4 var(--f-ui);
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.premium-reference-topics .topic-charts-link:hover {
+  border-color: var(--red);
+  background: var(--red-soft);
+}
+
+.premium-reference-topics .topic-section {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+  padding: 36px 0;
+}
+
+.premium-reference-topics .topic-section + .topic-section {
+  border-top: 1px solid var(--line);
+}
+
+.premium-reference-topics .topic-section-heading h2 {
+  margin: 12px 0 14px;
+  font: 750 clamp(32px, 3vw, 40px)/1 var(--f-display);
+  letter-spacing: -.015em;
+  text-transform: uppercase;
+}
+
+.premium-reference-topics .topic-section-lead {
+  margin: 0;
+  color: var(--muted);
+  font: 15px/1.6 var(--f-ui);
+}
+
+.premium-reference-topics .topic-count {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font: 600 12px/1.4 var(--f-ui);
+}
+
+.premium-reference-topics .topic-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.premium-reference-topics .topic-card-grid > li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.premium-reference-topics .topic-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  min-height: 162px;
+  padding: 24px 48px 24px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--ink);
+  background: var(--paper);
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.premium-reference-topics .topic-card strong {
+  font: 750 27px/1.1 var(--f-display);
+  text-transform: uppercase;
+}
+
+.premium-reference-topics .topic-card-description {
+  max-width: 62ch;
+  color: var(--muted);
+  font: 15px/1.6 var(--f-ui);
+}
+
+.premium-reference-topics .topic-card [lang='to'] {
+  font-weight: 450;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.premium-reference-topics .topic-card-arrow {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  color: var(--red);
+  font: 20px/1.4 var(--f-ui);
+}
+
+.premium-reference-topics .topic-card:hover {
+  border-color: var(--red);
+  background: var(--red-soft);
+}
+
+.premium-reference-topics .topics-index a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+@media (max-width: 960px) {
+  .premium-reference-topics .topic-section {
+    grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .premium-reference-topics .topic-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  .premium-reference-topics .topics-index {
+    padding: 32px 0 48px;
+  }
+
+  .premium-reference-topics .topic-section {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 28px 0;
+  }
+
+  .premium-reference-topics .topic-section-heading {
+    max-width: 520px;
+  }
+
+  .premium-reference-topics .topic-count {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 540px) {
+  .premium-reference-topics .topic-card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .premium-reference-topics .topic-card {
+    min-height: 0;
+    padding: 22px 46px 22px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-reference-topics .topic-card,
+  .premium-reference-topics .topic-charts-link {
+    transition: none;
+  }
+}

@@ -1,6 +1,7 @@
 import SourceTopics from '@app/pages/Topics.jsx'
 import { useTitle } from '../lib/title.js'
 import '../styles/reference.css'
+import '../styles/topics.css'
 
 export default function Topics() {
   useTitle('Topics')

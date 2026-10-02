@@ -15,8 +15,8 @@ import '../styles/v11-components.css'
  *
  * Every line on a card is shortened from that page's own meta description in
  * src/seo/meta.js. Nothing here makes a claim about Tongan that the
- * descriptions do not already make. Use the browse/section class contract
- * styled by the premium reference adapter; legacy CSS is suppressed there.
+ * descriptions do not already make. The premium adapter owns the scoped
+ * styling; shared topic metadata remains the source for every card.
  */
 
 const GROUPS = [
@@ -34,46 +34,62 @@ const GROUPS = [
   },
 ]
 
+// Presentation annotations only: these terms already appear in the source copy.
+const TOPIC_TERMS = {
+  '/greetings': ['Mālō e lelei'],
+  '/grammar/negation': ['ʻikai', 'te', 'ke'],
+  '/grammar/ko-sentences': ['Ko e hele ʻeni', 'Ko'],
+}
+
+function TopicText({ text, terms = [] }) {
+  if (!terms.length) return text
+  const alternatives = [...terms].sort((a, b) => b.length - a.length)
+    .map(term => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  const pattern = new RegExp(`(?<![\\p{L}\\p{M}])(${alternatives})(?![\\p{L}\\p{M}])`, 'gu')
+  return text.split(pattern).map((part, index) => terms.includes(part)
+    ? <span key={index} lang="to" className="to">{part}</span>
+    : part)
+}
+
 export default function Topics() {
   const byGroup = Object.fromEntries(
-    GROUPS.map(g => [g.key, TOPIC_PAGES.filter(t => t.group === g.key)]),
+    GROUPS.map(group => [group.key, TOPIC_PAGES.filter(topic => topic.group === group.key)]),
   )
 
   return (
-    <div className="topics-page">
-      <header className="section-heading">
-        <h1>Topics <span className="dot">·</span> One question each</h1>
-        <p className="section-lead">
-          Seven pages that answer one common question each, outside the lesson order.
-          Read one on its own, and it ends by pointing into the lessons that cover it.
-        </p>
+    <div className="topics-page topics-index">
+      <header className="topic-hero">
+        <div className="topic-intro">
+          <p className="topic-eyebrow">Reference · Read in any order</p>
+          <h1>Topics</h1>
+          <p className="topic-lead">
+            Seven pages that answer one common question each, outside the lesson order.
+            Read one on its own, and it ends by pointing into the lessons that cover it.
+          </p>
+        </div>
+        <Link to="/charts" className="topic-charts-link">
+          Grammar charts <span aria-hidden="true">→</span>
+        </Link>
       </header>
 
-      <div className="browse-topic-grid">
+      <div className="topic-sections">
         {GROUPS.map(group => {
-          const entries = byGroup[group.key] || []
+          const entries = byGroup[group.key]
           return (
-            <section key={group.key} className="browse-panel" aria-labelledby={`topic-group-${group.key}`}>
-              <header className="browse-panel-head">
-                <div>
-                  <p className="browse-kicker">{group.name}</p>
-                  <h2 id={`topic-group-${group.key}`}>{group.verbPhrase}</h2>
-                  <p>{group.lead}</p>
-                </div>
-                <span>
-                  {entries.length} page{entries.length === 1 ? '' : 's'}
-                </span>
+            <section key={group.key} className="topic-section" aria-labelledby={`topic-group-${group.key}`}>
+              <header className="topic-section-heading">
+                <p className="topic-eyebrow">{group.name}</p>
+                <h2 id={`topic-group-${group.key}`}>{group.verbPhrase}</h2>
+                <p className="topic-section-lead">{group.lead}</p>
+                <p className="topic-count">{entries.length} pages</p>
               </header>
-
-              <ul className="browse-topic-list">
+              <ul className="topic-card-grid">
                 {entries.map(topic => (
                   <li key={topic.to}>
-                    <Link to={topic.to} className="browse-topic-link">
-                      <span>
-                        <strong>{topic.label}</strong>
-                        <span>{topic.blurb}</span>
-                      </span>
-                      <span className="browse-next" aria-hidden="true">›</span>
+                    <Link to={topic.to} className="topic-card">
+                      <strong><TopicText text={topic.label} terms={TOPIC_TERMS[topic.to]} /></strong>
+                      <span className="topic-card-description"><TopicText text={topic.blurb} terms={TOPIC_TERMS[topic.to]} /></span>
+                      <span className="topic-card-arrow" aria-hidden="true">→</span>
                     </Link>
                   </li>
                 ))}
