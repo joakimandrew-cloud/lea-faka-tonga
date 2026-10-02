@@ -45,6 +45,8 @@ export function renderHomeHub() {
     `<h1 style="${H1_STYLE}">${escapeHtml(HOME_HUB.heading.join(' '))}</h1>` +
     `<p style="${P_STYLE}">${escapeHtml(HOME_HUB.lead)}</p>` +
     `<p style="${P_STYLE}">${link('/lessons/1', 'Start Lesson 1, free')} All 52 lessons are open during the free preview.</p>` +
+    `<p style="${P_STYLE}">${link('/downloads/Lea-Faka-Tonga.pdf', 'Download the free PDF')} &middot; ` +
+    `${link('/downloads/Lea-Faka-Tonga.epub', 'Download the free EPUB')}</p>` +
     `<section aria-labelledby="static-learning-paths">` +
     `<p style="${P_STYLE}">${escapeHtml(BEGINNER_PATH.eyebrow)}</p>` +
     `<h2 id="static-learning-paths" style="${H2_STYLE}">${escapeHtml(BEGINNER_PATH.heading)}</h2>` +
@@ -52,8 +54,6 @@ export function renderHomeHub() {
     `<ol style="${LIST_STYLE}">${steps}</ol>` +
     `<p style="${P_STYLE}">${escapeHtml(AUDIO_PROGRESS)}</p>` +
     `</section>` +
-    `<p style="${P_STYLE}">${link('/downloads/Lea-Faka-Tonga.pdf', 'Download the free PDF')} &middot; ` +
-    `${link('/downloads/Lea-Faka-Tonga.epub', 'Download the free EPUB')}</p>` +
     `</article>`
   )
 }

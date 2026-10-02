@@ -44,8 +44,6 @@ export default function Home() {
 
       <HomePatternBand />
 
-      <LearningPaths />
-
       <section className="wr-home__sentence" aria-labelledby="wr-sentence-heading">
         <div className="wr-home__section-intro">
           <p className="wr-home__eyebrow">A preview of what you’ll learn</p>
@@ -119,6 +117,8 @@ export default function Home() {
         </div>
         <p className="wr-home__lifetime-note">The book includes lifetime updates. {EXISTING_SUPPORTER_NOTICE}</p>
       </section>
+
+      <LearningPaths />
 
     </div>
   )
