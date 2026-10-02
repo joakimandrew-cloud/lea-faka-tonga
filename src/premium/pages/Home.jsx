@@ -5,7 +5,7 @@ import { useTitle } from '../lib/title.js'
 import HomePatternBand from '../components/HomePatternBand.jsx'
 import HomeSentenceDemo from '../components/HomeSentenceDemo.jsx'
 import HomePracticePreview from '../components/HomePracticePreview.jsx'
-import { AUDIO_MEMBERSHIP_NOTICE, EXISTING_SUPPORTER_NOTICE, LIFETIME_MEMBERSHIP_URL } from '../lib/membership-offer.js'
+import { EXISTING_SUPPORTER_NOTICE, LIFETIME_MEMBERSHIP_URL } from '../lib/membership-offer.js'
 import '../styles/white-red-home.css'
 import '../styles/home-practice-film.css'
 
@@ -70,35 +70,50 @@ export default function Home() {
 
       <section className="wr-home__access" aria-labelledby="wr-access-heading">
         <div className="wr-home__section-intro">
-          <p className="wr-home__eyebrow">Membership</p>
-          <h2 id="wr-access-heading">Free preview now.<br />Lifetime membership for US$35.</h2>
-          <p>Explore all 52 lessons for free today. {AUDIO_MEMBERSHIP_NOTICE}</p>
+          <p className="wr-home__eyebrow">Lifetime membership</p>
+          <h2 id="wr-access-heading">Lock in US$35.<br />Keep learning for life.</h2>
+          <p>One payment for Lifetime membership to the website, including the forthcoming audio.</p>
         </div>
         <div className="wr-home__offer">
           <article className="wr-home__offer-member" aria-labelledby="wr-offer-member">
-            <h3 className="wr-home__access-kicker" id="wr-offer-member">Lifetime membership</h3>
-            <p className="wr-home__offer-price"><span className="wr-home__offer-amount">$35</span>{' '}<span className="wr-home__offer-unit"><span>USD</span>{' '}<span>Paid once</span></span></p>
-            <p className="wr-home__offer-terms">A one-time donation for Lifetime membership, including the audio.</p>
-            <div className="wr-home__offer-actions">
-              <a className="wr-home__button wr-home__button--primary" href={LIFETIME_MEMBERSHIP_URL}>Secure Lifetime membership <span aria-hidden="true">↗</span></a>
-              <Link className="wr-home__offer-link" to="/support">What Lifetime membership includes <EntryMotif size={18} index={3} /></Link>
+            <h3 className="wr-home__access-kicker" id="wr-offer-member">Reduced preview price</h3>
+            <div className="wr-home__price-pair" role="group" aria-label="Lifetime membership prices in US dollars">
+              <div>
+                <p className="wr-home__price-caption">Future price</p>
+                <span className="wr-home__offer-amount wr-home__offer-amount--future">$99</span>
+              </div>
+              <div>
+                <p className="wr-home__price-caption">Now</p>
+                <span className="wr-home__offer-amount">$35</span>
+              </div>
             </div>
+            <p className="wr-home__offer-once">US dollars. One-time donation. No renewals.</p>
+            <p className="wr-home__offer-saving">US$64 less than the future price.</p>
+            <p className="wr-home__offer-work"><strong>Reduced price while we finish the website.</strong>All that’s left is to add the audio.</p>
+            <a className="wr-home__button wr-home__button--primary" href={LIFETIME_MEMBERSHIP_URL}>Lock in Lifetime membership <span aria-hidden="true">↗</span></a>
+            <p className="wr-home__offer-handoff">Continue to Buy Me a Coffee to pay.</p>
+            <p className="wr-home__offer-condition"><strong>Why join now?</strong> The price rises to US$99 once every Tongan example has audio, including sentences and exercises.</p>
           </article>
-          <div className="wr-home__offer-free">
-            <div className="wr-home__offer-group">
-              <h3>Open to everyone now</h3>
-              <p>All 52 lessons, with the drills, quizzes and flip cards.</p>
-              <Link className="wr-home__offer-link" to="/lessons/1">Start Lesson 1 <EntryMotif size={18} index={0} /></Link>
-            </div>
-            <div className="wr-home__offer-group">
-              <h3>Stays free, member or not</h3>
-              <p>The complete book as a PDF or EPUB: free forever, with lifetime updates.</p>
-              <div className="wr-home__downloads"><a href={PDF_URL}>PDF</a><a href={EPUB_URL}>EPUB</a></div>
-              <p><Link to="/dictionary">Dictionary search and definitions</Link> stay free.</p>
-            </div>
+          <div className="wr-home__offer-benefits">
+            <h3>What you keep</h3>
+            <ul>
+              <li><span aria-hidden="true">✓</span><div><h4>The complete website</h4><p>52 lessons, drills, quizzes and flip cards.</p></div></li>
+              <li><span aria-hidden="true">✓</span><div><h4>Future audio included</h4><p>Every Tongan example, sentence and exercise.</p></div></li>
+              <li><span aria-hidden="true">✓</span><div><h4>Your membership for life</h4><p>Keep access after the free preview ends.</p></div></li>
+            </ul>
+            <Link className="wr-home__offer-link" to="/support">What membership includes <EntryMotif size={18} index={3} /></Link>
           </div>
         </div>
-        <p className="wr-home__lifetime-note">{EXISTING_SUPPORTER_NOTICE}</p>
+        <div className="wr-home__preview-route">
+          <p>Explore all 52 lessons free during the preview.</p>
+          <Link to="/lessons/1">Try lesson 1 <EntryMotif size={18} index={0} /></Link>
+        </div>
+        <div className="wr-home__free-resources">
+          <span>Always free:</span>
+          <span>The book</span><a href={PDF_URL}>PDF</a><a href={EPUB_URL}>EPUB</a>
+          <Link to="/dictionary">Dictionary</Link>
+        </div>
+        <p className="wr-home__lifetime-note">The book includes lifetime updates. {EXISTING_SUPPORTER_NOTICE}</p>
       </section>
 
     </div>

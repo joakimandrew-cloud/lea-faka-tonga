@@ -156,17 +156,22 @@ test('the Roll of Keepers keeps its acknowledgements and drops the first-250 inv
   }
 })
 
-test('the homepage "Stays free" group keeps the outlined PDF and EPUB buttons (Codex Step 17, finding 4)', async () => {
+test('the homepage keeps free downloads and truthful future pricing beneath the membership offer', async () => {
   const server = await createServer(viteOptions)
   try {
     const { default: Home } = await server.ssrLoadModule('/src/premium/pages/Home.jsx')
     const { PDF_URL, EPUB_URL } = await server.ssrLoadModule('/src/premium/components/Chrome.jsx')
     const html = renderToStaticMarkup(wrap(React.createElement(Home)))
-    const start = html.indexOf('Stays free, member or not')
-    assert.ok(start > 0, 'the group is on the page')
-    const group = html.slice(start, html.indexOf('</div></div>', start))
-    assert.match(group, /class="wr-home__downloads"/)
-    assert.deepEqual(hrefs(group.slice(group.indexOf('wr-home__downloads'))).slice(0, 2), [PDF_URL, EPUB_URL], 'PDF then EPUB, as buttons')
+    const start = html.indexOf('class="wr-home__free-resources"')
+    assert.ok(start > 0, 'free resources remain on the page')
+    const group = html.slice(start, html.indexOf('</div>', start))
+    assert.deepEqual(hrefs(group), [PDF_URL, EPUB_URL, '/dictionary'], 'both direct book downloads and dictionary remain available')
+    const body = text(html)
+    assert.ok(body.includes('Future price $99 Now $35'), 'the crossed-out price is explicitly future, not a previous sale price')
+    assert.ok(body.includes('The price rises to US$99 once every Tongan example has audio, including sentences and exercises.'))
+    assert.ok(body.includes(EXISTING_SUPPORTER_NOTICE))
+    assert.match(html, /href="\/support"[^>]*>What membership includes/, 'full membership details remain accessible')
+    assert.match(html, /href="https:\/\/buymeacoffee.com\/leafakatonga\/e\/549116"[^>]*>Lock in Lifetime membership/, 'purchase leads directly to the existing item')
     assert.match(html, /href="\/lessons\/1"[^>]*>Start Lesson 1, free/, 'the hero still leads to Lesson 1')
   } finally {
     await server.close()

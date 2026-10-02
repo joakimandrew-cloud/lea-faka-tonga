@@ -150,37 +150,43 @@
 .wr-home__access-kicker { margin-bottom: 14px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .wr-home__lifetime-note { font-size: 14px; color: #555; }
 
-/* Membership as keeping, in one panel (Strategy change 4): the offer is the
-   section's one loud action; what stays open and free sits beside it. */
-.wr-home__offer { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); background: #fff; }
-.wr-home__offer-member { display: flex; flex-direction: column; padding: clamp(30px, 3.6vw, 52px); color: #fff; background: var(--wr-red); }
-.wr-home__offer-member .wr-home__access-kicker { margin: 0 0 20px; font: 800 11px/1.3 var(--f-ui); letter-spacing: .1em; }
-.wr-home__offer-price { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin: 0 0 24px; }
-.wr-home__offer-amount { font: 800 clamp(84px, 8.6vw, 124px)/.8 var(--f-display); letter-spacing: -.02em; }
-.wr-home__offer-unit { display: flex; flex-direction: column; gap: 8px; color: #ffe6e5; font: 700 14px/1.3 var(--f-ui); }
-.wr-home__offer-unit span:first-child { letter-spacing: .08em; }
-.wr-home__offer-terms { max-width: 34em; margin: 0 0 32px; color: #ffe6e5; font-size: 17px; line-height: 1.55; }
-.wr-home__offer-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; margin-top: auto; }
+/* The paid offer leads; free routes remain directly available below it. */
+.wr-home__offer { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); background: #fff; }
+.wr-home__offer-member { padding: clamp(28px, 3.2vw, 44px); color: #fff; background: var(--wr-red); }
+.wr-home__offer-member .wr-home__access-kicker { margin: 0 0 22px; font: 800 12px/1.3 var(--f-ui); letter-spacing: .12em; }
+.wr-home__price-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; container-type: inline-size; }
+.wr-home__price-caption { margin: 0 0 9px; font-size: 12px; line-height: 1.45; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.wr-home__offer-amount { display: block; width: fit-content; font: 800 clamp(72px, 34cqw, 124px)/1 var(--f-display); letter-spacing: -.025em; }
+.wr-home__offer-amount--future { color: #f0b6a7; text-decoration: line-through; text-decoration-thickness: 2.5px; text-decoration-color: #621a0b; }
+.wr-home__offer-member .wr-home__offer-once { margin: 14px 0 12px; font-size: 14px; line-height: 1.55; }
+.wr-home__offer-saving { margin: 0 0 24px; font-size: 14px; font-weight: 700; }
+.wr-home__offer-work { margin: 0 0 22px; padding-top: 20px; border-top: 1px solid #ffffff55; font-size: 16px; line-height: 1.6; }
+.wr-home__offer-work strong { display: block; margin-bottom: 4px; }
 .wr-home__offer-member .wr-home__button--primary,
-.wr-home__offer-member .wr-home__button--primary:hover { color: var(--wr-red); background: #fff; border-color: #fff; }
+.wr-home__offer-member .wr-home__button--primary:hover { width: 100%; padding: 14px 18px; color: var(--wr-red); background: #fff; border-color: #fff; text-align: center; }
 .wr-home__offer-member .wr-home__button--primary:hover { color: var(--wr-red-deep); }
-.wr-home__offer-member :focus-visible { outline-color: #fff; }
-.wr-home__offer-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--wr-red); font-size: 13px; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
-.wr-home__offer-link span { transition: transform .35s var(--ease-out); }
-.wr-home__offer-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-.wr-home__offer-link:hover span { transform: translateX(4px); }
-.wr-home__offer-member .wr-home__offer-link { color: #fff; }
-.wr-home__offer-free { display: flex; flex-direction: column; padding: clamp(28px, 3.2vw, 44px); border: 1px solid #cfcfcf; border-left: 0; }
-.wr-home__offer-group + .wr-home__offer-group { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
-.wr-home__offer-free h3 { margin: 0 0 12px; font-size: clamp(26px, 2.3vw, 32px); line-height: 1; text-transform: uppercase; }
-.wr-home__offer-free p { margin: 0; color: var(--wr-muted); font-size: 15px; line-height: 1.55; }
-.wr-home__offer-free p + p { margin-top: 8px; }
-.wr-home__offer-free p a { display: inline-block; margin: -11px -9px; padding: 11px 9px; color: var(--wr-red); font-weight: 750; text-underline-offset: 3px; }
-.wr-home__offer-free p a:hover { color: var(--wr-red-deep); }
-.wr-home__offer-group .wr-home__offer-link { margin: 6px 0 -10px; }
-/* The outlined book buttons, as on the live homepage (f87dff5, white-red-home.css:159-160). */
-.wr-home__downloads { display: flex; gap: 8px; margin: 14px 0 16px; }
-.wr-home__downloads a { min-width: 74px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; color: var(--wr-red); border: 1px solid var(--wr-red); font-weight: 800; text-decoration: none; }
+.wr-home__offer-member :focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+.wr-home__offer-member .wr-home__offer-handoff { margin: 10px 0 0; color: #ffe6e0; font-size: 12px; line-height: 1.6; text-align: center; }
+.wr-home__offer-member .wr-home__offer-condition { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid #ffffff55; color: #ffe6e0; font-size: 14px; line-height: 1.65; }
+.wr-home__offer-condition strong { color: #fff; }
+.wr-home__offer-benefits { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 3.2vw, 44px); border: 1px solid #cfcfcf; border-left: 0; }
+.wr-home__offer-benefits h3 { margin: 0 0 32px; font-size: 36px; line-height: 1; text-transform: uppercase; }
+.wr-home__offer-benefits ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+.wr-home__offer-benefits li { display: grid; grid-template-columns: 16px 1fr; gap: 12px; }
+.wr-home__offer-benefits li > span { color: var(--wr-red); font-weight: 700; }
+.wr-home__offer-benefits h4 { margin: 0 0 8px; font: 800 28px/1.05 var(--f-display); text-transform: uppercase; }
+.wr-home__offer-benefits p { margin: 0; color: var(--wr-muted); font-size: 16px; line-height: 1.65; }
+.wr-home__offer-link { display: inline-flex; align-items: center; align-self: flex-start; gap: 10px; min-height: 44px; margin-top: 28px; color: var(--wr-red); font-size: 14px; font-weight: 700; text-underline-offset: 4px; }
+.wr-home__preview-route { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; margin-top: 26px; padding-top: 18px; border-top: 1px solid #cfcfcf; font-size: 15px; }
+.wr-home__preview-route p { margin: 0; color: var(--wr-muted); }
+.wr-home__preview-route a,
+.wr-home__free-resources a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--wr-red); font-weight: 700; text-underline-offset: 4px; }
+.wr-home__free-resources { display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px; color: var(--wr-muted); font-size: 14px; }
+.wr-home__access a:hover { color: var(--wr-red-deep); }
+.wr-home__access > :focus-visible,
+.wr-home__offer-benefits :focus-visible,
+.wr-home__preview-route :focus-visible,
+.wr-home__free-resources :focus-visible { outline: 3px solid var(--wr-red); outline-offset: 4px; }
 
 .wr-home__closing { position: relative; padding: clamp(90px, 11vw, 160px) 28px; overflow: hidden; color: #fff; background: var(--wr-red); text-align: center; }
 .wr-home__closing .wr-home__eyebrow { color: #fff; }
@@ -236,12 +242,11 @@
   .wr-home__practice-card { min-height: 250px; }
   .wr-home__offer { grid-template-columns: minmax(0, 1fr); }
   .wr-home__offer-member { padding: 28px 24px 30px; }
-  .wr-home__offer-amount { font-size: 88px; }
-  .wr-home__offer-terms { margin-bottom: 26px; font-size: 16px; }
-  .wr-home__offer-actions { display: grid; gap: 4px; }
-  .wr-home__offer-actions .wr-home__button { width: 100%; }
-  .wr-home__offer-actions .wr-home__offer-link { justify-self: center; }
-  .wr-home__offer-free { padding: 26px 24px 30px; border-top: 0; border-left: 1px solid #cfcfcf; }
+  .wr-home__offer-benefits { padding: 28px 24px; border-top: 0; border-left: 1px solid #cfcfcf; }
+  .wr-home__offer-benefits h3 { margin-bottom: 26px; font-size: 32px; }
+  .wr-home__offer-benefits ul { gap: 24px; }
+  .wr-home__offer-benefits h4 { font-size: 26px; }
+  .wr-home__offer-benefits p { font-size: 15px; }
   .wr-home__closing { padding-left: 20px; padding-right: 20px; }
   .wr-home__closing .wr-home__button { width: min(100%, 330px); }
 }
@@ -250,8 +255,13 @@
   .wr-home__hero-inner { width: calc(100% - 30px); column-gap: 12px; padding-top: 24px; }
   .wr-home__offer-member { padding-inline: 18px; }
   .wr-home__offer-member .wr-home__button { gap: 12px; padding-inline: 14px; font-size: 13px; }
-  .wr-home__offer-free { padding-inline: 18px; }
+  .wr-home__offer-benefits { padding-inline: 18px; }
 }
 
 .wr-home__access .wr-home__section-intro h2 { font-size: clamp(44px, 5.4vw, 76px); }
 .wr-home__access .wr-home__lifetime-note { margin: 20px 0 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wr-home__offer-member .wr-home__button { transition: none; }
+  .wr-home__offer-member .wr-home__button:hover { transform: none; }
+}
