@@ -15,8 +15,8 @@ import '../styles/v11-components.css'
  *
  * Every line on a card is shortened from that page's own meta description in
  * src/seo/meta.js. Nothing here makes a claim about Tongan that the
- * descriptions do not already make. The layout is the QuizIndex layout, class
- * for class.
+ * descriptions do not already make. Use the browse/section class contract
+ * styled by the premium reference adapter; legacy CSS is suppressed there.
  */
 
 const GROUPS = [
@@ -34,15 +34,6 @@ const GROUPS = [
   },
 ]
 
-function ChipIcon() {
-  return (
-    <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none">
-      <rect x="1" y="1" width="10" height="10" stroke="currentColor" strokeWidth="1" />
-      <rect x="3.5" y="3.5" width="5" height="5" fill="currentColor" />
-    </svg>
-  )
-}
-
 export default function Topics() {
   const byGroup = Object.fromEntries(
     GROUPS.map(g => [g.key, TOPIC_PAGES.filter(t => t.group === g.key)]),
@@ -50,42 +41,43 @@ export default function Topics() {
 
   return (
     <div className="topics-page">
-      <header className="panel-heading">
+      <header className="section-heading">
         <h1>Topics <span className="dot">·</span> One question each</h1>
-        <p className="lead">
+        <p className="section-lead">
           Seven pages that answer one common question each, outside the lesson order.
           Read one on its own, and it ends by pointing into the lessons that cover it.
         </p>
       </header>
 
-      <div className="chapters-groups">
+      <div className="browse-topic-grid">
         {GROUPS.map(group => {
           const entries = byGroup[group.key] || []
           return (
-            <section key={group.key} className="chapters-group">
-              <span className="chapters-group-chip">
-                <ChipIcon />
-                {group.name}
-              </span>
-              <div className="chapters-group-headrow">
-                <h2 className="chapters-group-name">{group.verbPhrase}</h2>
-                <span className="chapters-group-count">
+            <section key={group.key} className="browse-panel" aria-labelledby={`topic-group-${group.key}`}>
+              <header className="browse-panel-head">
+                <div>
+                  <p className="browse-kicker">{group.name}</p>
+                  <h2 id={`topic-group-${group.key}`}>{group.verbPhrase}</h2>
+                  <p>{group.lead}</p>
+                </div>
+                <span>
                   {entries.length} page{entries.length === 1 ? '' : 's'}
                 </span>
-              </div>
-              <p className="chapters-group-lead">{group.lead}</p>
+              </header>
 
-              <div className="chapters-group-grid">
+              <ul className="browse-topic-list">
                 {entries.map(topic => (
-                  <Link key={topic.to} to={topic.to} className="chapter-row">
-                    <span className="chapter-row-marker" aria-hidden="true" />
-                    <span className="chapter-row-body">
-                      <span className="chapter-row-title">{topic.label}</span>
-                      <span className="chapter-row-preview">{topic.blurb}</span>
-                    </span>
-                  </Link>
+                  <li key={topic.to}>
+                    <Link to={topic.to} className="browse-topic-link">
+                      <span>
+                        <strong>{topic.label}</strong>
+                        <span>{topic.blurb}</span>
+                      </span>
+                      <span className="browse-next" aria-hidden="true">›</span>
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </section>
           )
         })}
