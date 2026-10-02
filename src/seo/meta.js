@@ -16,7 +16,7 @@ export const OG_IMAGE = `${SITE_URL}/og-image.png`
 export const SUPPORT_URL = 'https://buymeacoffee.com/leafakatonga'
 
 export const DEFAULT_DESCRIPTION =
-  'Learn Tongan free: 52 lessons from the basic sentence to advanced grammar, with 30 practice drills, a quiz for every lesson, vocabulary cards, and the whole book as a free PDF or EPUB.'
+  'Learn Tongan with 52 structured lessons, practice drills, quizzes and vocabulary cards. All lessons are open during the free preview, and the book remains free as a PDF or EPUB.'
 
 // Trim to a word boundary so a description never ends mid-word.
 export function clamp(text, max) {
@@ -32,13 +32,13 @@ export function clamp(text, max) {
 // the sitemap, and robots.txt disallows them.
 export const STATIC_META = {
   '/': {
-    title: `Learn Tongan Free | ${SITE_NAME}: 52 Lessons, Drills and Quizzes`,
+    title: `Learn Tongan | ${SITE_NAME}: 52 Lessons, Drills and Quizzes`,
     description: DEFAULT_DESCRIPTION,
   },
   '/lessons': {
-    title: `All 52 Tongan Lessons | Learn Tongan Free`,
+    title: `All 52 Tongan Lessons | Learn Tongan`,
     description:
-      'The complete free Tongan course in order: 52 lessons from the basic sentence to advanced grammar, each with worked examples, vocabulary, and practice built into the page.',
+      'The complete Tongan course in order: 52 lessons from the basic sentence to advanced grammar, each with worked examples, vocabulary and practice. Open during the free preview.',
   },
   '/quizzes': {
     title: `Tongan Quizzes, One for Every Lesson | ${SITE_NAME}`,
@@ -74,7 +74,7 @@ export const STATIC_META = {
   '/charts': {
     title: `Tongan Grammar Charts | ${SITE_NAME}`,
     description:
-      'Tongan grammar at a glance: tense markers, the full pronoun table, a-class and o-class possessives, articles, prepositions, and the particles that hold a sentence together.',
+      'Tongan pronoun and possessive charts: preposed and postposed pronouns, definite, indefinite, beneficiary, emotional and impersonal forms.',
   },
   // The hub for the standalone topic pages below. /topics rather than /grammar,
   // because the alphabet and the greetings are not grammar.

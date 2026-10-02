@@ -2,22 +2,12 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
-import vm from 'node:vm'
 import { cwd } from 'node:process'
 import { pathToFileURL } from 'node:url'
 
 const siteRoot = cwd()
 const appRoot = siteRoot
 const own = relative => fs.readFileSync(path.join(siteRoot, relative), 'utf8')
-const source = relative => fs.readFileSync(path.join(appRoot, relative), 'utf8')
-
-function sourceCharts() {
-  const text = source('src/pages/ReferenceCharts.jsx')
-  const start = text.indexOf('const charts = ') + 'const charts = '.length
-  const end = text.indexOf('\n\nexport default function ReferenceCharts')
-  assert.ok(start > 'const charts = '.length && end > start, 'chart source literal remains available')
-  return vm.runInNewContext(`(${text.slice(start, end)})`)
-}
 
 const DOC_FILES = {
   '/alphabet': 'alphabet.js',
@@ -39,12 +29,18 @@ const REPRESENTATIVE_SOURCE_TEXT = {
   '/grammar/ko-sentences': ["Ko e hele 'eni", 'No verb'],
 }
 
-test('the chart adapter renders the live eight-group source with intact representative tables and words', () => {
+test('the chart adapter renders the live eight-group source with intact representative tables and words', async () => {
   const adapter = own('src/premium/pages/Reference.jsx')
   assert.match(adapter, /@app\/pages\/ReferenceCharts\.jsx/)
   assert.doesNotMatch(adapter, /const\s+charts\s*=/, 'adapter does not copy teaching data')
 
-  const charts = sourceCharts()
+  const sourceComponent = own('src/pages/ReferenceCharts.jsx')
+  assert.match(sourceComponent, /\.\.\/data\/reference-charts\.js/)
+  assert.doesNotMatch(sourceComponent, /const\s+charts\s*=/, 'source component does not copy teaching data')
+
+  const { default: charts } = await import(pathToFileURL(path.join(appRoot, 'src/data/reference-charts.js')))
+  const before = JSON.parse(own('src/premium/test/fixtures/reference-charts-before.json'))
+  assert.deepEqual(charts, before, 'every chart label, description, note, header and cell matches the base snapshot')
   assert.deepEqual(Array.from(charts, chart => chart.id), [
     'preposed', 'postposed', 'definite', 'indefinite',
     'postposed-poss', 'beneficiary', 'emotional', 'impersonal',

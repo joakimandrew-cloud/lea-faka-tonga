@@ -5,7 +5,9 @@ import { useTitle } from '../lib/title.js'
 import HomePatternBand from '../components/HomePatternBand.jsx'
 import HomeSentenceDemo from '../components/HomeSentenceDemo.jsx'
 import HomePracticePreview from '../components/HomePracticePreview.jsx'
+import LearningPaths from '../components/LearningPaths.jsx'
 import { EXISTING_SUPPORTER_NOTICE, LIFETIME_MEMBERSHIP_URL } from '../lib/membership-offer.js'
+import { HOME_HUB } from '@app/seo/learning-paths.js'
 import '../styles/white-red-home.css'
 import '../styles/home-practice-film.css'
 
@@ -17,9 +19,9 @@ export default function Home() {
       <section className="wr-home__hero">
         <div className="wr-home__hero-inner">
           <div className="wr-home__hero-copy">
-            <p className="wr-home__eyebrow">A complete 52-lesson Tongan course</p>
-            <h1>Build your first<br />Tongan sentence.</h1>
-            <p className="wr-home__hero-lede">See how the words fit together, change one part, and understand what changed. Begin with the real pattern from Lesson 1.</p>
+            <p className="wr-home__eyebrow">{HOME_HUB.eyebrow}</p>
+            <h1>{HOME_HUB.heading[0]}<br />{HOME_HUB.heading[1]}</h1>
+            <p className="wr-home__hero-lede">{HOME_HUB.lead}</p>
             <div className="wr-home__hero-action">
               <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <EntryMotif size={20} index={0} /></Link>
               <p className="wr-home__access-note">All 52 lessons are open during the free preview.</p>
@@ -41,6 +43,8 @@ export default function Home() {
       </section>
 
       <HomePatternBand />
+
+      <LearningPaths />
 
       <section className="wr-home__sentence" aria-labelledby="wr-sentence-heading">
         <div className="wr-home__section-intro">

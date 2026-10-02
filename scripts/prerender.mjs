@@ -55,6 +55,12 @@ import wordOrderDoc from '../src/seo/pages/word-order.js'
 import negationDoc from '../src/seo/pages/negation.js'
 import possessivesDoc from '../src/seo/pages/possessives.js'
 import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
+import {
+  renderChartsHub,
+  renderHomeHub,
+  renderLessonsHub,
+  renderTopicsHub,
+} from './lib/seo-hubs.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = path.join(ROOT, 'dist')
@@ -748,7 +754,12 @@ async function main() {
       ])
     }
     const docRoot = DOCS[urlPath] ? docRootHtml(DOCS[urlPath]) : undefined
-    const rootHtml = docRoot || (urlPath === '/support' ? supportRootHtml() : undefined)
+    const hubRoot = urlPath === '/' ? renderHomeHub()
+      : urlPath === '/lessons' ? renderLessonsHub(chapters)
+        : urlPath === '/charts' ? renderChartsHub()
+          : urlPath === '/topics' ? renderTopicsHub()
+            : undefined
+    const rootHtml = docRoot || hubRoot || (urlPath === '/support' ? supportRootHtml() : undefined)
     await writeRoute(
       urlPath,
       renderPage(template, { ...meta, urlPath, jsonLd, rootHtml, ogType: docRoot ? 'article' : undefined })
