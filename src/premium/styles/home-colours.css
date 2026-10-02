@@ -1,0 +1,297 @@
+/* Homepage-only cover palettes. Teaching and feedback surfaces keep their own colours. */
+.wr-home[data-home-theme] {
+  --home-accent: #b92e0e;
+  --home-accent-deep: #8a220a;
+  --home-accent-soft: #ffe2e0;
+  --home-eyebrow: var(--home-accent);
+  --home-ink: #171717;
+  --home-muted: #5c5c5c;
+  --home-hero: #fff;
+  --home-sentence: #fff;
+  --home-practice: #f5f4f1;
+  --home-practice-ink: #171717;
+  --home-practice-muted: #5c5c5c;
+  --home-practice-accent: var(--home-accent);
+  --home-practice-focus: var(--home-accent-deep);
+  --home-access: #f2f2f0;
+  --home-offer: var(--home-accent);
+  --home-offer-muted: #ffe6e0;
+  --home-offer-struck: #f0b6a7;
+  --home-offer-strike: #621a0b;
+  --home-pattern: #fff;
+  --home-pattern-ink: var(--home-accent);
+  --home-rule: #cfcfcf;
+  --home-focus: var(--home-accent-deep);
+
+  --wr-red: var(--home-accent);
+  --wr-red-deep: var(--home-accent-deep);
+  --wr-red-pale: var(--home-accent-soft);
+  --wr-charcoal: var(--home-practice);
+  --wr-ink: var(--home-ink);
+  --wr-muted: var(--home-muted);
+  --wr-wash: var(--home-access);
+  color: var(--home-ink);
+  background: var(--home-hero);
+}
+
+.wr-home[data-home-theme='black'] {
+  --home-accent: #91411f;
+  --home-accent-deep: #6f2f15;
+  --home-accent-soft: #f0d5c3;
+  --home-eyebrow: #873817;
+  --home-ink: #211b18;
+  --home-muted: #665950;
+  --home-hero: #f7f0e8;
+  --home-sentence: #fffaf5;
+  --home-practice: #28221e;
+  --home-practice-ink: #fffaf4;
+  --home-practice-muted: #d8c8bc;
+  --home-practice-accent: #efad82;
+  --home-practice-focus: #efad82;
+  --home-access: #eee4d8;
+  --home-offer: #25201d;
+  --home-offer-muted: #ead2c1;
+  --home-offer-struck: #efad82;
+  --home-offer-strike: #d17645;
+  --home-pattern: #211b18;
+  --home-pattern-ink: #d78b5e;
+  --home-rule: #c6b5a6;
+  --home-focus: #6f2f15;
+}
+
+.wr-home[data-home-theme='blue'] {
+  --home-accent: #1746ae;
+  --home-accent-deep: #102f78;
+  --home-accent-soft: #dce8ff;
+  --home-eyebrow: #1746ae;
+  --home-ink: #101a30;
+  --home-muted: #4d5b75;
+  --home-hero: #f2f7ff;
+  --home-sentence: #fff;
+  --home-practice: #e7f1ff;
+  --home-practice-ink: #101a30;
+  --home-practice-muted: #4d5b75;
+  --home-practice-accent: #1746ae;
+  --home-practice-focus: #102f78;
+  --home-access: #dce9ff;
+  --home-offer: #1746ae;
+  --home-offer-muted: #dfe8ff;
+  --home-offer-struck: #dbe6ff;
+  --home-offer-strike: #8fb5ff;
+  --home-pattern: #102f78;
+  --home-pattern-ink: #42c7ff;
+  --home-rule: #b5c8e9;
+  --home-focus: #102f78;
+}
+
+.wr-home[data-home-theme='white'] {
+  --home-accent: #171717;
+  --home-accent-deep: #000;
+  --home-accent-soft: #ededeb;
+  --home-eyebrow: #a7290d;
+  --home-ink: #171717;
+  --home-muted: #5c5c5c;
+  --home-hero: #fff;
+  --home-sentence: #fbfbfa;
+  --home-practice: #f4f4f1;
+  --home-practice-ink: #171717;
+  --home-practice-muted: #5c5c5c;
+  --home-practice-accent: #a7290d;
+  --home-practice-focus: #a7290d;
+  --home-access: #fff;
+  --home-offer: #171717;
+  --home-offer-muted: #deded9;
+  --home-offer-struck: #d7d7d2;
+  --home-offer-strike: #d43a18;
+  --home-pattern: #171717;
+  --home-pattern-ink: #d43a18;
+  --home-rule: #cfcfcf;
+  --home-focus: #a7290d;
+}
+
+.wr-home[data-home-theme] .wr-home__hero { background: var(--home-hero); }
+.wr-home[data-home-theme] .wr-home__sentence { background: var(--home-sentence); }
+.wr-home[data-home-theme] .wr-home__practice { background: var(--home-practice); }
+.wr-home[data-home-theme] .wr-home__access { background: var(--home-access); }
+.wr-home[data-home-theme] .wr-home__eyebrow { color: var(--home-eyebrow); }
+.wr-home[data-home-theme] .wr-home__hero-lede { color: var(--home-muted); }
+.wr-home[data-home-theme] .wr-home__offer-member { background: var(--home-offer); }
+.wr-home[data-home-theme] .wr-home__offer-member .wr-home__offer-handoff,
+.wr-home[data-home-theme] .wr-home__offer-member .wr-home__offer-condition { color: var(--home-offer-muted); }
+.wr-home[data-home-theme] .wr-home__offer-amount--future {
+  color: var(--home-offer-struck);
+  text-decoration-color: var(--home-offer-strike);
+}
+.wr-home[data-home-theme] .wr-home__offer-benefits,
+.wr-home[data-home-theme] .wr-home__book-route a,
+.wr-home[data-home-theme] .wr-home__preview-route { border-color: var(--home-rule); }
+.wr-home[data-home-theme] .wr-home__practice .wr-home__section-intro h2 { color: var(--home-practice-ink); }
+.wr-home[data-home-theme] .wr-home__practice .wr-home__section-intro > p:last-child,
+.wr-home[data-home-theme] .wr-home__practice .wr-home__next p { color: var(--home-practice-muted); }
+.wr-home[data-home-theme] .wr-home__practice .wr-home__eyebrow { color: var(--home-practice-accent); }
+.wr-home[data-home-theme] .wr-home__practice .wr-home__next :focus-visible { outline-color: var(--home-practice-focus); }
+
+.wr-home[data-home-theme] .home-pattern-band { background: var(--home-pattern); }
+.wr-home[data-home-theme] .home-pattern-band .kp-tile {
+  color: var(--home-pattern-ink);
+  --kp-ground: var(--home-pattern);
+}
+
+.wr-home[data-home-theme] .practice-tabs button[aria-selected='true'],
+.wr-home[data-home-theme] .practice-film__source { color: var(--home-accent); }
+.wr-home[data-home-theme] .practice-tabs button[aria-selected='true']::after,
+.wr-home[data-home-theme] .practice-film__stage .ca.is-demo-active {
+  background: var(--home-accent);
+  border-color: var(--home-accent);
+}
+.wr-home[data-home-theme] .practice-film__stage .ca.known.is-demo-active {
+  background: var(--success);
+  border-color: var(--success);
+}
+.wr-home[data-home-theme] .practice-showcase :focus-visible { outline-color: var(--home-focus); }
+
+/* The sentence workshop keeps its established teaching and pattern colours. */
+.wr-home[data-home-theme] .wr-sentence-cycle {
+  --wr-red: #b92e0e;
+  --wr-red-deep: #8a220a;
+  --wr-red-pale: #ffe2e0;
+  --wr-ink: #171717;
+  --wr-wash: #f2f2f0;
+}
+
+.wr-home .wr-home__hero-visual { min-width: 0; }
+.wr-home .wr-home__hero-book { margin-bottom: 8px; }
+
+.wr-home .wr-home-colour {
+  width: min(100%, 400px);
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+}
+.wr-home .wr-home-colour legend {
+  width: 100%;
+  margin: 0 0 8px;
+  padding: 0;
+  color: var(--home-muted);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.wr-home .wr-home-colour__options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+}
+.wr-home .wr-home-colour__option { position: relative; min-width: 0; }
+.wr-home .wr-home-colour__option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.wr-home .wr-home-colour__choice {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 6px 8px;
+  color: var(--home-muted);
+  background: color-mix(in srgb, var(--home-hero) 88%, white);
+  border: 1px solid color-mix(in srgb, var(--home-ink) 22%, transparent);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: color .18s, background-color .18s, border-color .18s, box-shadow .18s;
+}
+.wr-home .wr-home-colour__swatch {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border: 1px solid #17171740;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px #ffffff52;
+}
+.wr-home .wr-home-colour__swatch[data-colour='red'] { background: #b92e0e; }
+.wr-home .wr-home-colour__swatch[data-colour='black'] { background: #211b18; }
+.wr-home .wr-home-colour__swatch[data-colour='blue'] { background: #1746ae; }
+.wr-home .wr-home-colour__swatch[data-colour='white'] { background: #fff; border-color: #707070; }
+.wr-home .wr-home-colour__check {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0;
+}
+.wr-home .wr-home-colour__swatch[data-colour='white'] .wr-home-colour__check { color: #171717; }
+.wr-home .wr-home-colour__option input:checked + .wr-home-colour__choice {
+  color: var(--home-ink);
+  background: var(--home-hero);
+  border-color: var(--home-ink);
+  box-shadow: 0 0 0 1px var(--home-ink);
+  font-weight: 800;
+}
+.wr-home .wr-home-colour__option input:checked + .wr-home-colour__choice .wr-home-colour__check { opacity: 1; }
+.wr-home .wr-home-colour__option input:focus-visible + .wr-home-colour__choice {
+  outline: 3px solid var(--home-focus);
+  outline-offset: 3px;
+}
+.wr-home .wr-home-colour__option:hover .wr-home-colour__choice { border-color: var(--home-ink); }
+
+.wr-home[data-home-theme] .wr-home__hero,
+.wr-home[data-home-theme] .wr-home__sentence,
+.wr-home[data-home-theme] .wr-home__practice,
+.wr-home[data-home-theme] .wr-home__access,
+.wr-home[data-home-theme] .wr-home__offer-member,
+.wr-home[data-home-theme] .home-pattern-band,
+.wr-home[data-home-theme] .home-pattern-band .kp-tile {
+  transition-property: color, background-color, border-color;
+  transition-duration: .22s;
+  transition-timing-function: ease;
+}
+.wr-home[data-home-theme] .wr-home__button {
+  transition: background-color .22s, color .22s, border-color .22s, transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+
+@media (max-width: 760px) {
+  .wr-home .wr-home__hero-visual { display: contents; }
+  .wr-home .wr-home__hero-book { grid-column: 2; grid-row: 3; margin-bottom: 0; }
+  .wr-home .wr-home-colour {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    width: 100%;
+    margin-top: 22px;
+  }
+  .wr-home .wr-home__hero-action { grid-row: 5; }
+  .wr-home .wr-home__book-route { grid-row: 6; }
+  .wr-home .wr-home-colour legend { text-align: left; }
+  .wr-home .wr-home-colour__choice { padding-inline: 6px; }
+}
+
+@media (max-width: 350px) {
+  .wr-home .wr-home-colour__options { gap: 5px; }
+  .wr-home .wr-home-colour__choice { gap: 4px; padding-inline: 4px; font-size: 10px; }
+  .wr-home .wr-home-colour__swatch { width: 20px; height: 20px; flex-basis: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wr-home[data-home-theme] .wr-home__hero,
+  .wr-home[data-home-theme] .wr-home__sentence,
+  .wr-home[data-home-theme] .wr-home__practice,
+  .wr-home[data-home-theme] .wr-home__access,
+  .wr-home[data-home-theme] .wr-home__offer-member,
+  .wr-home[data-home-theme] .home-pattern-band,
+  .wr-home[data-home-theme] .home-pattern-band .kp-tile,
+  .wr-home[data-home-theme] .wr-home__button,
+  .wr-home .wr-home-colour__choice { transition: none; }
+}

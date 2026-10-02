@@ -1,21 +1,32 @@
+import { useState } from 'react'
 import EntryMotif from '../components/EntryMotif.jsx'
 import { Link } from 'react-router-dom'
 import { PDF_URL, EPUB_URL } from '../components/Chrome.jsx'
 import { useTitle } from '../lib/title.js'
+import HomeColourPicker from '../components/HomeColourPicker.jsx'
 import HomePatternBand from '../components/HomePatternBand.jsx'
 import HomeSentenceDemo from '../components/HomeSentenceDemo.jsx'
 import HomePracticePreview from '../components/HomePracticePreview.jsx'
 import LearningPaths from '../components/LearningPaths.jsx'
+import { getHomeColour, readHomeColour, saveHomeColour } from '../lib/home-colours.js'
 import { EXISTING_SUPPORTER_NOTICE, LIFETIME_MEMBERSHIP_URL } from '../lib/membership-offer.js'
 import { HOME_HUB } from '@app/seo/learning-paths.js'
 import '../styles/white-red-home.css'
 import '../styles/home-practice-film.css'
+import '../styles/home-colours.css'
 
 export default function Home() {
   useTitle('Build your first Tongan sentence')
+  const [homeColour, setHomeColour] = useState(readHomeColour)
+  const colour = getHomeColour(homeColour)
+
+  const chooseHomeColour = nextColour => {
+    setHomeColour(nextColour)
+    saveHomeColour(nextColour)
+  }
 
   return (
-    <div className="wr-home">
+    <div className="wr-home" data-home-theme={colour.id}>
       <section className="wr-home__hero">
         <div className="wr-home__hero-inner">
           <div className="wr-home__hero-copy">
@@ -34,11 +45,14 @@ export default function Home() {
               <span className="wr-home__book-note"><span className="wr-home__book-stop">. </span>Free forever, with lifetime updates.</span>
             </div>
           </div>
-          <figure className="wr-home__hero-book">
-            <div className="wr-home__book-halo" aria-hidden="true" />
-            <img src="/covers/2026-09-30-three-row/cover-red-3d.webp" alt="The red Lea Faka-Tonga book, shown standing upright" width="900" height="1248" />
-            <figcaption>The whole course is also available as a free book.</figcaption>
-          </figure>
+          <div className="wr-home__hero-visual">
+            <figure className="wr-home__hero-book">
+              <div className="wr-home__book-halo" aria-hidden="true" />
+              <img src={colour.cover} alt={colour.alt} width="900" height="1248" />
+              <figcaption>The whole course is also available as a free book.</figcaption>
+            </figure>
+            <HomeColourPicker value={colour.id} onChange={chooseHomeColour} />
+          </div>
         </div>
       </section>
 
