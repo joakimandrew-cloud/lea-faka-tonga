@@ -12,7 +12,8 @@
 
 export const SITE_NAME = 'Lea Faka-Tonga'
 export const SITE_URL = 'https://leafakatonga.org'
-export const OG_IMAGE = `${SITE_URL}/og-image.png`
+export const OG_IMAGE = `${SITE_URL}/social/lea-faka-tonga-2026-10-04.png`
+export const OG_IMAGE_ALT = 'Learn Tongan with Lea Faka-Tonga, beside the red course book, at leafakatonga.org.'
 export const SUPPORT_URL = 'https://buymeacoffee.com/leafakatonga'
 
 export const DEFAULT_DESCRIPTION =

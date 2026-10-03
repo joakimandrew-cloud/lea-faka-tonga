@@ -29,6 +29,7 @@ import {
   SITE_NAME,
   SITE_URL,
   OG_IMAGE,
+  OG_IMAGE_ALT,
   SUPPORT_URL,
   STATIC_META,
   DEFAULT_DESCRIPTION,
@@ -214,13 +215,15 @@ function headFor({ title, description, urlPath, ogType, jsonLd, canonicalPath })
     `<meta property="og:description" content="${esc(description)}" />`,
     `<meta property="og:url" content="${esc(url)}" />`,
     `<meta property="og:image" content="${esc(OG_IMAGE)}" />`,
+    `<meta property="og:image:type" content="image/png" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
-    `<meta property="og:image:alt" content="${esc(`${SITE_NAME}: learn Tongan, free`)}" />`,
+    `<meta property="og:image:alt" content="${esc(OG_IMAGE_ALT)}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(title)}" />`,
     `<meta name="twitter:description" content="${esc(description)}" />`,
     `<meta name="twitter:image" content="${esc(OG_IMAGE)}" />`,
+    `<meta name="twitter:image:alt" content="${esc(OG_IMAGE_ALT)}" />`,
   ]
   if (jsonLd) {
     // A literal </script> inside the JSON would close the tag early.
