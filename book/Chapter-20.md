@@ -172,7 +172,7 @@ For "at" a specific time, use *he* (which is *'i he* with *'i* dropped, a patter
 ::: {.examples}
 *Tau kamata he fitū.* We begin at seven.
 
-*He tolu.* At three.
+*He tolú.* At three.
 :::
 
 For minutes before the hour, Tongan uses the word *toe* *(remaining, still to go)* before the time phrase. This word has other uses covered in Lesson 22: Aspect Markers and Frequency, but in time-telling it simply means "remaining":

@@ -278,7 +278,7 @@ d. *Té ke kamata he fiha?*
 e. *Na'á ke mohe 'i fē?*
 
 1. *Na'á ku ha'u mei Tonga.*
-2. *He fitu.*
+2. *He fitú.*
 3. *Ki kolo.*
 4. *Na'á ku foki 'aneafi.*
 5. *'I fale mohe.*

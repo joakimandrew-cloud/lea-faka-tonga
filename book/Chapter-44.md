@@ -6,7 +6,7 @@ Lesson 18: Definiteness and the Definitive Accent introduced the basic stress sh
 
 ### Three levels of definiteness, revisited
 
-Lesson 18: Definiteness and the Definitive Accent showed three levels of specificity. Here is the system in full.
+Lesson 18: Definiteness and the Definitive Accent showed three levels of specificity.
 
 Consider these three sentences:
 
@@ -32,8 +32,6 @@ The indefinite form with *ha* is vague: it refers not to one particular thing bu
 
 ### Semi-definiteness explained
 
-The difference between indefinite and semi-definite is subtle but real. Two patterns make it visible.
-
 #### Possessive pronouns show the same three levels
 
 The three-level system extends to possessive pronouns. Compare:
@@ -46,7 +44,7 @@ The three-level system extends to possessive pronouns. Compare:
 *'Oku fu'u si'i 'enau me'akaí.* Their food is insufficient. (Definite: *'enau* with accent on the last vowel of the group.)
 :::
 
-The indefinite form *ha'anau* signals "any provisions of theirs" or "no provisions of theirs." The semi-definite form *'enau* (without accent) signals "their particular provisions." The definite form *'enau ... me'akaí* (with accent) signals "those specific provisions we are talking about."
+The indefinite form *ha'anau* signals "any food of theirs" or "no food of theirs." The semi-definite form *'enau* (without accent) signals "their particular food." The definite form *'enau ... me'akaí* (with accent) signals "that specific food we are talking about."
 
 #### When English shows no difference, Tongan does
 
@@ -98,7 +96,7 @@ Three more examples show the accent on different nouns:
 *'Oku lahi 'a e kavengá* *(responsibility).* The responsibility is great.
 
 ::: {.examples}
-*Na'e 'alu e tangata mo 'ene me'angāue fo'oú.* The man went with his new tool.
+*Na'e 'alu 'a e tangata mo 'ene me'angāue fo'oú.* The man went with his new tool.
 :::
 
 This holds even when a relative clause extends the group:
@@ -141,7 +139,7 @@ Now *na'e fai 'aneafi* is an adjectival clause qualifying *fakataha*, and the ac
 
 Two accents appear. The smaller group inside is *e faiako* (the teacher), and its accent falls on *faiakó*. The larger group runs all the way from *e 'uhinga* to *au* (it's the whole "the reason why the teacher was angry with me"), and its accent lands on the final *aú*. Each accent marks the end of its own group.
 
-A noun group can contain another noun group inside it. Each one is definite on its own, and each gets its own definitive accent.
+In this example, both groups are definite and each has its own definitive accent. An inner group can instead be indefinite or semi-definite; its final accent may then be used or omitted.
 
 When the smaller group falls at the very end of the larger one, a single accent does the job for both:
 
@@ -257,13 +255,14 @@ This emphatic use is limited to directional adverbs. It does not occur with verb
 
 ### Double vowels under the definitive accent
 
-Lesson 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel. Here is how that works.
+Lesson 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel.
 
-Tongan does not stress long vowels under the definitive accent. When the accent would force stress onto a long vowel, the vowel splits into two short vowels, and the stress lands on the second.
+Tongan does not stress a long vowel. When stress is pushed onto one, by the definitive accent, by a suffix, or by the enclitic *ni*, the vowel splits into two short vowels, and the stress lands on the second. The first three examples show a suffix or *ni* doing it:
 
 *hū* (to go in) → the verb stem *huufi* (to open officially, with suffix *-fi*)
-*fakahā* (to show) → *fakahaa'i* (to show, with suffix *-'i*)
+*fakahā* (to show) → *fakahaá'i* (to show, with suffix *-'i*)
 *pō* (night) → *poó ni* (this night)
+With the definitive accent itself: *hū* → *huú*, *fakahā* → *fakahaá*, *pō* → *poó*.
 
 When stress moves further along, the double vowel contracts back to a normal long vowel:
 
@@ -272,7 +271,7 @@ When stress moves further along, the double vowel contracts back to a normal lon
 
 #### Two kinds of double vowels
 
-> *Note:* Not all double vowels in Tongan arise from long vowels splitting under stress. Some occur because two normal vowels from different parts of a compound word come together: *faka-* + *ava* produces *fakaava* (to open), where *aa* is simply two normal *a* vowels side by side. These "compound" double vowels do not contract into long vowels when stress shifts: *fakaavá'i* (not *fakāva'i*). The double vowels described above, which arise from long vowels splitting under stress, do contract back when stress moves away. This distinction is useful to know but rarely causes confusion in practice.
+> *Note:* Not all double vowels in Tongan arise from long vowels splitting under stress. Some occur because two normal vowels from different parts of a compound word come together: *faka-* + *ava* produces *fakaava* (to open), where *aa* is simply two normal *a* vowels side by side. These "compound" double vowels do not contract into long vowels when stress shifts: *fakaavá'i* (not *fakāva'i*). The double vowels described above, which arise from long vowels splitting under stress, do contract back when stress moves away.
 
 ---
 
@@ -282,9 +281,9 @@ When stress moves further along, the double vowel contracts back to a normal lon
 
 | Tongan | Type | English |
 |--------|------|---------|
-| *puhá* | noun | box (accent example) |
-| *tēpilé* | noun | table (accent example) |
-| *falé* | noun | house (accent example) |
+| *puhá* | noun | box (accent example; word from Lesson 40) |
+| *tēpilé* | noun | table (accent example; word from Lesson 40) |
+| *falé* | noun | house (accent example; word from Lesson 6) |
 | *me'angāue* | noun | tool |
 | *kavenga* | noun | burden (also: load, responsibility) |
 | *nifo* | noun | tooth |
@@ -296,10 +295,10 @@ When stress moves further along, the double vowel contracts back to a normal lon
 
 #### Exercise 1: Identify the level of definiteness
 
-For each sentence, state whether the underlined noun phrase is indefinite, semi-definite, or definite.
+Judge the phrase containing ha, e/he, or a possessive.
 
 1. *Na'á ne kumi ha tohi.*
-2. *Na'á ne lau e tohi.*
+2. *Na'á ne lau 'a e tohi.*
 3. *Na'á ne lau 'a e tohí.*
 4. *'Oku 'i ai hatau ngāue ke fai.*
 5. *'Oku 'i ai hotau ngāue ke fai.*
@@ -309,22 +308,22 @@ For each sentence, state whether the underlined noun phrase is indefinite, semi-
 
 Rewrite each sentence, adding the definitive accent (acute mark on the final vowel) to the appropriate word. If no accent is needed, write the sentence unchanged.
 
-1. *Kuó ne lau e tohi fo'ou.* (the new book, definite)
-2. *'Oku ou fiema'u ha kato.* (a basket, indefinite)
+1. *Kuó ne lau 'a e tohi fo'ou.* (the new book, definite)
+2. *'Oku ou fiema'u ha kato.* (a basket)
 3. *Na'á ku 'alu ki he fale ako.* (the school, definite)
 4. *'Oku lahi 'a e ngaahi ika 'i he tahi.* (the sea, definite)
-5. *Na'á ne 'omai e me'a lahi.* (the big thing, definite)
+5. *Na'á ne 'omai 'a e me'a lahi.* (the big thing, definite)
 
 #### Exercise 3: Groups within groups
 
 Each sentence contains two noun groups. Identify them and place the definitive accent at the end of each.
 
-1. *Ko e ha e 'uhinga na'e lea ai 'a e faiako kiate au?* (Why did the teacher speak to me?)
+1. *Ko e ha 'a e 'uhinga na'e lea ai 'a e faiako kiate au?* (Why did the teacher speak to me?)
 2. *Ko e hā 'a e me'a na'e 'omai 'e he tangata ki he fale?* (What did the man bring to the house?)
 
-#### Exercise 4: Phrasal accents
+#### Exercise 4: Phrasal and clausal accents
 
-Translate each English sentence into Tongan. The opening phrase should carry a phrasal definitive accent.
+Translate each English sentence into Tongan. The opening phrase or clause should carry a phrasal or clausal definitive accent.
 
 1. It is to Nuku'alofa that I am going.
 2. His love is for the children.
@@ -352,7 +351,7 @@ For each word, write the form that appears when the definitive accent falls on t
 #### Exercise 1
 
 1. Indefinite (*ha tohi*)
-2. Semi-definite (*e tohi*, no accent)
+2. Semi-definite (*'a e tohi*, no accent)
 3. Definite (*e tohí*, with accent)
 4. Indefinite (*hatau ngāue*)
 5. Semi-definite (*hotau ngāue*, no accent)
@@ -360,11 +359,11 @@ For each word, write the form that appears when the definitive accent falls on t
 
 #### Exercise 2
 
-1. *Kuó ne lau e tohi fo'oú.*
+1. *Kuó ne lau 'a e tohi fo'oú.*
 2. *'Oku ou fiema'u ha kato.* (no accent, indefinite)
 3. *Na'á ku 'alu ki he fale akó.*
 4. *'Oku lahi 'a e ngaahi ika 'i he tahí.*
-5. *Na'á ne 'omai e me'a lahí.*
+5. *Na'á ne 'omai 'a e me'a lahí.*
 
 #### Exercise 3
 

@@ -46,6 +46,44 @@ assert.equal(clarifiedGlosses, 3, 'all three Lesson 4 glosses retain the speakin
 assert.equal(createHash('sha256').update(fs.readFileSync(path.join(app, 'book/Chapter-04.md'))).digest('hex'),
   'e48c19fdd7e0b97da413e21677699779a1e026032bd54b5b7a6e41716677417f', 'Lesson 4 matches the exact approved correction')
 
+// Andrew approved the R-4 fixture text edits (Lesson 20 He tolú and Lesson 44
+// fakahaá'i) and Option B on 2026-10-05. Keep those reviewed fixture bytes frozen.
+// Amend Lesson 44 only in memory using the 12 accepted Chapter44-Trace operations.
+const lesson44 = inventory.lessons.find(lesson => lesson.chapter === 44)
+const approvedLesson44Text = [
+  ["N-042", "Lesson 18: Definiteness and the Definitive Accent showed three levels of specificity. Here is the system in full.", "Lesson 18: Definiteness and the Definitive Accent showed three levels of specificity."],
+  ["J-004", "The indefinite form ha'anau signals \"any provisions of theirs\" or \"no provisions of theirs.\" The semi-definite form 'enau (without accent) signals \"their particular provisions.\" The definite form 'enau ... me'akaí (with accent) signals \"those specific provisions we are talking about.\"", "The indefinite form ha'anau signals \"any food of theirs\" or \"no food of theirs.\" The semi-definite form 'enau (without accent) signals \"their particular food.\" The definite form 'enau ... me'akaí (with accent) signals \"that specific food we are talking about.\""],
+  ["D-124b@part-D:234", "Na'e 'alu e tangata mo 'ene me'angāue fo'oú. The man went with his new tool.", "Na'e 'alu 'a e tangata mo 'ene me'angāue fo'oú. The man went with his new tool."],
+  ["P2-C-OTHER-021", "A noun group can contain another noun group inside it. Each one is definite on its own, and each gets its own definitive accent.", "In this example, both groups are definite and each has its own definitive accent. An inner group can instead be indefinite or semi-definite; its final accent may then be used or omitted."],
+  ["N-044", "Lesson 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel. Here is how that works.", "Lesson 18: Definiteness and the Definitive Accent noted that when a long vowel receives the definitive accent, it expands into a double vowel."],
+  ["D-082@part-D:183", "Tongan does not stress long vowels under the definitive accent. When the accent would force stress onto a long vowel, the vowel splits into two short vowels, and the stress lands on the second.", "Tongan does not stress a long vowel. When stress is pushed onto one, by the definitive accent, by a suffix, or by the enclitic ni, the vowel splits into two short vowels, and the stress lands on the second. The first three examples show a suffix or ni doing it:"],
+  ["D-082@part-D:184", "pō (night) → poó ni (this night)", "pō (night) → poó ni (this night)\nWith the definitive accent itself: hū → huú, fakahā → fakahaá, pō → poó."],
+  ["N-045", " This distinction is useful to know but rarely causes confusion in practice.", ""],
+]
+for (const [id, before, after] of approvedLesson44Text) {
+  const matches = lesson44.semanticBlocks.filter(block => block.text.includes(before))
+  assert.equal(matches.length, 1, `${id}: one frozen Lesson 44 passage matches`)
+  assert.equal(matches[0].text.split(before).length - 1, 1, `${id}: one occurrence`)
+  matches[0].text = matches[0].text.replace(before, after)
+}
+const removedLesson44Blocks = lesson44.semanticBlocks.filter(block =>
+  block.kind === 'paragraph' && block.text === "The difference between indefinite and semi-definite is subtle but real. Two patterns make it visible.")
+assert.equal(removedLesson44Blocks.length, 1, 'N-043: only the approved paragraph is removed')
+lesson44.semanticBlocks = lesson44.semanticBlocks.filter(block => !removedLesson44Blocks.includes(block))
+const approvedLesson44Cells = [
+  ["D-124e@part-D:338", "puhá", "box (accent example)", "box (accent example; word from Lesson 40)"],
+  ["D-124e@part-D:339", "tēpilé", "table (accent example)", "table (accent example; word from Lesson 40)"],
+  ["D-124e@part-D:340", "falé", "house (accent example)", "house (accent example; word from Lesson 6)"],
+]
+for (const [id, word, before, after] of approvedLesson44Cells) {
+  const matches = lesson44.semanticBlocks.filter(block => block.kind === 'table')
+    .flatMap(block => block.rows.filter(row => row[0] === word && row[2] === before))
+  assert.equal(matches.length, 1, `${id}: one frozen Lesson 44 table cell matches`)
+  matches[0][2] = after
+}
+assert.equal(createHash('sha256').update(fs.readFileSync(path.join(app, 'book/Chapter-44.md'))).digest('hex'),
+  'c44682cf57a2691d3d11a1da1a44289c2512d7af331e24f409f7907b4dcd1aad', 'Lesson 44 matches the exact approved root copy')
+
 const quickPractice = JSON.parse(fs.readFileSync(path.join(app, 'src/data/quick-practice.json')))
 const drillMap = JSON.parse(fs.readFileSync(path.join(app, 'src/data/drill-map.json')))
 // The September 26 teaching oracle stays frozen. These two exact source hashes
