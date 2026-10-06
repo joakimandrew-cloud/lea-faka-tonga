@@ -81,7 +81,22 @@
 .wr-home__hero-copy { max-width: 660px; }
 .wr-home__hero h1 { margin-bottom: 25px; font-size: clamp(72px, 7.1vw, 94px); text-transform: uppercase; }
 .wr-home__hero-lede { max-width: 630px; margin-bottom: 28px; color: #444; font-size: clamp(17px, 1.55vw, 21px); line-height: 1.55; }
-.wr-home__hero-action { display: flex; align-items: center; gap: 18px; }
+.wr-home__hero-action { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.wr-home__hero-action > .wr-home__button {
+  width: min(100%, 520px);
+  min-height: 76px;
+  padding: 16px 28px;
+  border-radius: 10px;
+  font-size: clamp(1.125rem, 1rem + .6vw, 1.5rem);
+  line-height: 1.2;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--wr-red-deep) 70%, var(--wr-ink)), 0 12px 26px -14px rgba(23, 23, 23, .25);
+}
+.wr-home__hero-action > .wr-home__button:hover {
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--wr-red-deep) 70%, var(--wr-ink)), 0 16px 30px -14px rgba(23, 23, 23, .3);
+}
+.wr-home__hero-action > .wr-home__button:focus-visible { outline-color: var(--home-focus, var(--wr-red-deep)); outline-offset: 5px; }
+.wr-home__hero-action > .wr-home__button .entry-motif > .kp-tile { width: 28px; height: 28px; }
+.wr-home__hero-action > .wr-home__access-note { max-width: none; font-size: 13px; }
 .wr-home__access-note { max-width: 270px; margin: 0; color: var(--wr-muted); font-size: 12px; line-height: 1.45; }
 .wr-home__book-route { max-width: 660px; margin: 18px 0 0; color: var(--wr-muted); font-size: 13px; }
 .wr-home__book-route a { color: var(--wr-ink); font-weight: 750; }
@@ -215,6 +230,7 @@
   .wr-home__hero-lede { grid-column: 1; grid-row: 3; margin: 0; font-size: 15px; line-height: 1.5; }
   .wr-home__hero-action { grid-column: 1 / -1; grid-row: 4; display: block; margin-top: 24px; }
   .wr-home__hero .wr-home__button { width: 100%; }
+  .wr-home__hero-action > .wr-home__button { width: 100%; }
   .wr-home__hero .wr-home__access-note { max-width: none; margin: 10px 0 0; font-size: 13px; line-height: 1.45; }
   .wr-home__book-route { grid-column: 1 / -1; grid-row: 5; display: grid; grid-template-columns: 2fr 1fr; gap: 8px; margin-top: 22px; font-size: 14px; line-height: 1.45; }
   .wr-home__book-prompt,
@@ -252,6 +268,7 @@
 }
 
 @media (max-width: 350px) {
+  .wr-home__hero-action > .wr-home__button { padding-inline: 18px; gap: 12px; }
   .wr-home__hero-inner { width: calc(100% - 30px); column-gap: 12px; padding-top: 24px; }
   .wr-home__offer-member { padding-inline: 18px; }
   .wr-home__offer-member .wr-home__button { gap: 12px; padding-inline: 14px; font-size: 13px; }
@@ -262,6 +279,8 @@
 .wr-home__access .wr-home__lifetime-note { margin: 20px 0 0; }
 
 @media (prefers-reduced-motion: reduce) {
+  .wr-home[data-home-theme] .wr-home__hero-action > .wr-home__button { transition: none; }
+  .wr-home__hero-action > .wr-home__button:hover { transform: none; }
   .wr-home__offer-member .wr-home__button { transition: none; }
   .wr-home__offer-member .wr-home__button:hover { transform: none; }
 }
