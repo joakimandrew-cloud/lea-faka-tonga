@@ -5,7 +5,7 @@ import { PDF_URL, EPUB_URL } from '../components/Chrome.jsx'
 import { useTitle } from '../lib/title.js'
 import HomeColourPicker from '../components/HomeColourPicker.jsx'
 import HomePatternBand from '../components/HomePatternBand.jsx'
-import HomeSentenceDemo from '../components/HomeSentenceDemo.jsx'
+import HomeBlueprint from '../components/HomeBlueprint.jsx'
 import HomePracticePreview from '../components/HomePracticePreview.jsx'
 import LearningPaths from '../components/LearningPaths.jsx'
 import { getHomeColour, readHomeColour, saveHomeColour } from '../lib/home-colours.js'
@@ -61,10 +61,10 @@ export default function Home() {
       <section className="wr-home__sentence" aria-labelledby="wr-sentence-heading">
         <div className="wr-home__section-intro">
           <p className="wr-home__eyebrow">A preview of what you’ll learn</p>
-          <h2 id="wr-sentence-heading">One pattern. So many possibilities.</h2>
+          <h2 id="wr-sentence-heading">Every lesson adds a piece.</h2>
           <p>Change the time, person and words. Add detail, then explore negatives and questions.</p>
         </div>
-        <HomeSentenceDemo />
+        <HomeBlueprint />
         <div className="wr-home__next">
           <p>Lessons 1–3 build the basic pattern and descriptions. Later lessons add negatives and question words.</p>
           <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">Start Lesson 1, free <EntryMotif size={20} index={1} /></Link>
