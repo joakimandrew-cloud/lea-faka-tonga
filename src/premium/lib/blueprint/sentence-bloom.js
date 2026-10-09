@@ -801,6 +801,7 @@ export function mount(el, options = {}) {
   }
   // the middle's own styling on the course view, all of it inline, cleared whenever the course view shows as itself
   function clearWalk() {
+    if (course.inert) course.inert = false
     course.style.transform = ''; course.style.transformOrigin = ''
     for (const b of chips) { const s = b.firstChild.style; s.backgroundColor = s.borderColor = s.color = s.boxShadow = '' }
     for (const e of course.querySelectorAll('.sb-gname')) e.style.color = ''
@@ -811,7 +812,7 @@ export function mount(el, options = {}) {
   // turn exactly the course view of 2026-10-08, its titles, hint and heading fading up in the course beat as they did. Returns the camera.
   function renderCourse(tt, H) {
     const pb = BEAT.pullback, wd = BEAT.widen, nb = BEAT.neighbours, turn = BEAT.turn
-    if (tt < pb.start) { clearWalk(); course.style.visibility = 'hidden'; course.style.opacity = 0; return null }
+    if (tt < pb.start) { clearWalk(); course.inert = true; course.style.visibility = 'hidden'; course.style.opacity = 0; return null }
     course.style.visibility = 'visible'; course.style.opacity = smooth(span(pb.start, pb.start + 0.45, tt)).toFixed(3)
     const rest = smooth(span(BEAT.course.start - 0.15, BEAT.course.end - 0.1, tt))
     for (const b of chips) { const ttl = b.children[1]; if (ttl) { ttl.style.opacity = rest.toFixed(3); ttl.style.visibility = rest > 0.003 ? 'visible' : 'hidden' } }
@@ -824,6 +825,9 @@ export function mount(el, options = {}) {
       return null
     }
     const cam = camAt(tt), Z = cam.Z, zoomed = Z > 1.0005
+    // while the camera is zoomed the lessons are scaled far past the stage and most of them are hidden or faded, so none of them takes a
+    // click or Tab until the camera is back at zoom 1 (the widen's end); from there every lesson is on screen and works as in the course view
+    if (course.inert !== zoomed) course.inert = zoomed
     const tx = cam.x - Z * p9().x - geo.courseOff.x, ty = cam.y - Z * p9().y - geo.courseOff.y
     course.style.transformOrigin = '0 0'
     course.style.transform = zoomed || Math.abs(tx) > 0.05 || Math.abs(ty) > 0.05 ? `translate(${tx.toFixed(2)}px,${ty.toFixed(2)}px) scale(${Z.toFixed(5)})` : ''
@@ -874,6 +878,27 @@ export function mount(el, options = {}) {
       e.style.width = tw + 'px'
       e.style.transform = `translate(${left.toFixed(1)}px,${(p.y + r + (big ? 10 : 5)).toFixed(1)}px)`
       e.style.opacity = op.toFixed(3); e.style.visibility = 'visible'
+    })
+    // where a title shown in the middle would run into the row below (the neighbours' titles on a narrow phone, about 320 px), the chips
+    // it would cover step back while it shows (fully from a 2 px overlap); an overlap up to 1.5 px (an edge contact, inside the line's
+    // own leading) leaves the chip as it is
+    const lines = []
+    tags.forEach(e => {
+      if (e.style.visibility !== 'visible') return
+      const rg = document.createRange(); rg.selectNodeContents(e)
+      for (const r of rg.getClientRects()) lines.push([r, +e.style.opacity])
+    })
+    if (!lines.length) return
+    chips.forEach((b, i) => {
+      const s = b.firstChild.style
+      if (TAGGED.includes(i + 1) || s.visibility !== 'visible') return
+      const c = b.firstChild.getBoundingClientRect()
+      let k = 0
+      for (const [r, o] of lines) {
+        const ov = Math.min(Math.min(r.right, c.right) - Math.max(r.left, c.left), Math.min(r.bottom, c.bottom) - Math.max(r.top, c.top))
+        k = Math.max(k, o * clamp((ov - 1.5) * 2))
+      }
+      if (k > 0) { const op = +s.opacity * (1 - k); s.opacity = op.toFixed(3); s.visibility = op > 0.003 ? 'visible' : 'hidden' }
     })
   }
   function courseAtRest() {
@@ -1046,7 +1071,8 @@ export function mount(el, options = {}) {
   })
   on(course, 'focusin', ev => {
     const b = ev.target.closest('.sb-ls'); if (!b) return
-    if (mode !== 'end') finish()
+    // finishing re-lays the course out at rest, so a lesson focused mid-play is brought back into the window if the change moved it out
+    if (mode !== 'end') { finish(); const r = b.getBoundingClientRect(); if (r.top < 0 || r.bottom > innerHeight) b.scrollIntoView({ block: 'nearest' }) }
     // while the card is open, the focused lesson becomes the open one, so the card docks away from it and never covers it;
     // with the card closed (Escape, ×) focus moves through the course without opening it
     if (pvOpen && +b.dataset.n !== selected) select(+b.dataset.n, { announce: false, reveal: false })
