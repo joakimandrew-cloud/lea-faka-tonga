@@ -349,7 +349,7 @@ export default {
         { to: '/lessons/14', label: 'Lesson 14: greetings and social formulas' },
         { to: '/grammar/possessives', label: 'Lesson 17 and the possessives inside these phrases' },
         { to: '/alphabet', label: 'How to pronounce the words on this page' },
-        { to: '/lessons', label: 'All 52 lessons, free' },
+        { to: '/lessons', label: 'All 52 lessons, open during the free preview' },
       ],
     },
   ],
