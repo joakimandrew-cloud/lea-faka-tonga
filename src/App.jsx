@@ -30,6 +30,7 @@ import Topics from './pages/Topics'
 import Alphabet from './pages/Alphabet'
 import TenseMarkers from './pages/TenseMarkers'
 import Greetings from './pages/Greetings'
+import Questions from './pages/Questions'
 import WordOrder from './pages/WordOrder'
 import Negation from './pages/Negation'
 import Possessives from './pages/Possessives'
@@ -106,6 +107,7 @@ export default function App() {
             <Route path="/topics" element={<Topics />} />
             <Route path="/alphabet" element={<Alphabet />} />
             <Route path="/greetings" element={<Greetings />} />
+            <Route path="/questions" element={<Questions />} />
             <Route path="/grammar/tense-markers" element={<TenseMarkers />} />
             <Route path="/grammar/word-order" element={<WordOrder />} />
             <Route path="/grammar/negation" element={<Negation />} />

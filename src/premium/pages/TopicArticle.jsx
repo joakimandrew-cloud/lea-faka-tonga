@@ -6,7 +6,8 @@ import SourceWordOrder from '@app/pages/WordOrder.jsx'
 import SourceNegation from '@app/pages/Negation.jsx'
 import SourcePossessives from '@app/pages/Possessives.jsx'
 import SourceKoSentences from '@app/pages/KoSentences.jsx'
-import { TOPIC_PAGES } from '@app/lib/topic-pages.js'
+import SourceQuestions from '@app/pages/Questions.jsx'
+import { TOPIC_PAGES, QUESTIONS_PAGE } from '@app/lib/topic-pages.js'
 import { useTitle } from '../lib/title.js'
 import '../styles/reference.css'
 
@@ -18,6 +19,7 @@ const TOPIC_COMPONENTS = {
   '/grammar/negation': SourceNegation,
   '/grammar/possessives': SourcePossessives,
   '/grammar/ko-sentences': SourceKoSentences,
+  '/questions': SourceQuestions,
 }
 
 export default function TopicArticle() {
@@ -25,6 +27,7 @@ export default function TopicArticle() {
   const pathname = location.pathname.replace(/\/+$/, '') || '/'
   const Topic = TOPIC_COMPONENTS[pathname]
   const metadata = TOPIC_PAGES.find(topic => topic.to === pathname)
+    || (pathname === QUESTIONS_PAGE.to ? QUESTIONS_PAGE : undefined)
   useTitle(metadata?.label || 'Topic not found')
 
   if (!Topic || !metadata) {

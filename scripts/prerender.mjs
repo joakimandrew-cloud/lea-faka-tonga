@@ -56,6 +56,7 @@ import wordOrderDoc from '../src/seo/pages/word-order.js'
 import negationDoc from '../src/seo/pages/negation.js'
 import possessivesDoc from '../src/seo/pages/possessives.js'
 import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
+import questionsDoc from '../src/seo/pages/questions.js'
 import {
   renderChartsHub,
   renderHomeHub,
@@ -309,6 +310,7 @@ function topicLinks(exclude) {
     ['/grammar/negation', 'Saying "not" in Tongan'],
     ['/grammar/possessives', 'Tongan possessives'],
     ['/grammar/ko-sentences', 'The Tongan ko pattern'],
+    ['/questions', 'Learning Tongan: questions answered'],
   ].filter(([to]) => to !== exclude)
   if (!all.length) return ''
   return `<p style="${P_STYLE}">${all.map(([to, label]) => link(to, label)).join(' &middot; ')}</p>`
@@ -431,8 +433,15 @@ const DOCS = Object.fromEntries(
     negationDoc,
     possessivesDoc,
     koSentencesDoc,
+    questionsDoc,
   ].map((d) => [d.path, d])
 )
+
+// A DOCS page that answers questions about starting and teaches no single
+// subject. It keeps the static article body and the article card, and takes
+// the plain WebPage shape in its JSON-LD. No FAQ markup: Google no longer
+// shows FAQ rich results.
+const PLAIN_DOCS = new Set(['/questions'])
 
 /* The static block a non-JS crawler reads on a drill page
    ==================================================================
@@ -718,7 +727,7 @@ async function main() {
         },
         breadcrumb([{ name: 'Home', path: '/' }, { name: 'Lessons', path: '/lessons' }]),
       ])
-    } else if (DOCS[urlPath]) {
+    } else if (DOCS[urlPath] && !PLAIN_DOCS.has(urlPath)) {
       // Topic pages teach one subject in full, so they carry the same
       // LearningResource shape a lesson does, plus their own trail.
       jsonLd = graph([

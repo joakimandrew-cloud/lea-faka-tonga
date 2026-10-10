@@ -107,6 +107,7 @@ export default function App() {
           <Route path="/topics" element={<Page><Topics /></Page>} />
           <Route path="/alphabet" element={<Page><TopicArticle /></Page>} />
           <Route path="/greetings" element={<Page><TopicArticle /></Page>} />
+          <Route path="/questions" element={<Page><TopicArticle /></Page>} />
           <Route path="/grammar/*" element={<Page><TopicArticle /></Page>} />
           <Route path="/dictionary" element={<Page><Dictionary /></Page>} />
           <Route path="/word-lists" element={<Page><WordLists /></Page>} />

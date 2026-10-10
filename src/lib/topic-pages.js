@@ -68,4 +68,15 @@ export const TOPIC_PAGES = [
   },
 ]
 
+// The questions page (2026-10-10). It renders through the same article
+// adapter as the seven above and is linked from /topics and the homepage
+// pathway, but it is not a topic page: it answers four questions about
+// starting, not one question about Tongan, so it stays out of TOPIC_PAGES
+// and out of the strips and cards that list reads into.
+export const QUESTIONS_PAGE = {
+  to: '/questions',
+  label: 'Questions',
+  link: 'questions about learning Tongan',
+}
+
 export default TOPIC_PAGES

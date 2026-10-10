@@ -25,6 +25,7 @@ export const BEGINNER_PATH = {
       links: [
         { to: '/lessons/1', label: 'Start Lesson 1' },
         { to: '/lessons', label: 'Browse all lessons' },
+        { to: '/questions', label: 'Questions about learning Tongan' },
       ],
     },
     {

@@ -7,8 +7,8 @@
 //
 // NOT A COPY OF LESSON 14. /lessons/14 publishes the same formulas, so this
 // page has to earn its own URL rather than compete with it. It does that by
-// leading with the searched question (what does Malo e lelei mean), answering
-// it in the first screen, and covering the greeting exchange end to end,
+// leading with the searched question (how do you say hello in Tongan, as its
+// first heading since 2026-10-10), answering it in the first screen, and covering the greeting exchange end to end,
 // including the pieces lesson 14 hands off to other lessons: the imperative
 // forms behind the farewells (lesson 5), the ko identification pattern behind
 // the name and age questions (lessons 12 and 13), and the possessives inside
@@ -37,14 +37,19 @@ export default {
   h1: 'Tongan greetings: Mālō e lelei, and what to say next',
   chips: ['Mālō e lelei', 'Fēfē hake?', 'Mālō e ʻofa', 'Two goodbyes'],
   blocks: [
+    // The searched question as a heading, with the whole answer straight
+    // under it (ruled 2026-10-10). No pronunciation respelling: the course
+    // gives none for this phrase, and /alphabet is linked at the foot.
+    { k: 'h2', text: 'How do you say hello in Tongan?' },
     {
       k: 'p',
       text:
-        'The everyday Tongan hello is *Mālō e lelei*, and the reply is the same words back. ' +
-        'It is warmer than it looks in a phrasebook. *Mālō* means "worthy of praise" or ' +
-        '"congratulations", *e* is the definite article, and *lelei* means "well" or "good", ' +
-        'so the greeting says something closer to "the being-in-good-health is worthy of ' +
-        'praise" than to "hi".',
+        'The everyday Tongan hello is *Mālō e lelei*, and the reply is the same words back, ' +
+        'usually with *\'io* (yes) in front: *\'Io, mālō e lelei*. Word for word it means ' +
+        'something like "the being-in-good-health is worthy of praise": *mālō* means "worthy ' +
+        'of praise" or "congratulations", *e* is the definite article, and *lelei* means ' +
+        '"well" or "good". The usual next question is *Fēfē hake?* (How are you?), and the ' +
+        'stock answer is *Sai pē!* (Just fine).',
     },
     {
       k: 'table',
@@ -72,8 +77,7 @@ export default {
     {
       k: 'p',
       text:
-        'The reply to *Mālō e lelei* is *Mālō e lelei*, usually with *\'io* (yes) in front of ' +
-        'it.',
+        'Said and answered, the pair looks like this.',
     },
     {
       k: 'ex',
@@ -121,7 +125,7 @@ export default {
         'answer, *sai* means "good, well, fine" and *pē* means "just" or "only".',
     },
 
-    { k: 'h2', text: 'Saying thank you' },
+    { k: 'h2', text: 'How do you say thank you in Tongan?' },
     {
       k: 'p',
       text:

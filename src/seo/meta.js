@@ -17,7 +17,7 @@ export const OG_IMAGE_ALT = 'Learn Tongan with Lea Faka-Tonga, beside the red co
 export const SUPPORT_URL = 'https://buymeacoffee.com/leafakatonga'
 
 export const DEFAULT_DESCRIPTION =
-  'Learn Tongan with 52 structured lessons, practice drills, quizzes and vocabulary cards. All lessons are open during the free preview, and the book remains free as a PDF or EPUB.'
+  'Lea Faka-Tonga is a 52-lesson Tongan course in your web browser, with practice drills, quizzes and vocabulary cards. All lessons are open during the free preview, and the book remains free as a PDF or EPUB.'
 
 // Trim to a word boundary so a description never ends mid-word.
 export function clamp(text, max) {
@@ -33,7 +33,10 @@ export function clamp(text, max) {
 // the sitemap, and robots.txt disallows them.
 export const STATIC_META = {
   '/': {
-    title: `Learn Tongan | ${SITE_NAME}: 52 Lessons, Drills and Quizzes`,
+    // The name with the domain beside it, because other products carry the
+    // name and none can carry the domain (ruled 2026-10-10, DECISIONS.md,
+    // Design / site). The fallback <title> in index.html matches this.
+    title: `${SITE_NAME} (leafakatonga.org): Learn Tongan, 52 Lessons`,
     description: DEFAULT_DESCRIPTION,
   },
   '/lessons': {
@@ -92,9 +95,9 @@ export const STATIC_META = {
       'Tongan has 17 letters: five vowels, eleven consonants, and the fakauʻa. How each one sounds, why a macron or a glottal stop changes the word, and where the stress falls.',
   },
   '/greetings': {
-    title: `Mālō e lelei: Tongan Greetings and What They Mean | Learn Tongan`,
+    title: `How to Say Hello in Tongan: Mālō e lelei | Learn Tongan`,
     description:
-      'Mālō e lelei is the everyday Tongan hello, and it says something closer to "the being-in-good-health is worthy of praise". How to answer it, how to ask after someone, how to say thank you, and which of the two goodbyes to use.',
+      'The everyday Tongan hello is Mālō e lelei, and the reply is the same words back. What the greeting means word for word, how to ask how someone is, how to say thank you, and which of the two goodbyes to use.',
   },
   '/grammar/tense-markers': {
     title: `Tongan Tense Markers Explained: naʻa, ʻoku, kuo, te | Learn Tongan`,
@@ -120,6 +123,15 @@ export const STATIC_META = {
     title: `The Tongan ko Pattern: Saying What Something Is | Learn Tongan`,
     description:
       'Ko e hele ʻeni means "this is a knife", a Tongan sentence with no verb and no tense marker. The ko pattern for identifying things and people, its four question words, its negative, and fronting for emphasis.',
+  },
+  // Four questions people ask before they start, answered on one page.
+  // It is a DOCS page like the seven above but is not one of the topic
+  // pages: it is linked from /topics and the homepage pathway instead of
+  // sitting in src/lib/topic-pages.js.
+  '/questions': {
+    title: `Learning Tongan: Questions Answered | Learn Tongan`,
+    description:
+      'Is Tongan a hard language to learn, where can you learn to speak it, and is there a free way to learn it online? Short answers from the 52-lesson Lea Faka-Tonga course, with the way into Lesson 1.',
   },
   '/quiz': {
     title: `How Much Tongan Do You Already Know? | ${SITE_NAME}`,

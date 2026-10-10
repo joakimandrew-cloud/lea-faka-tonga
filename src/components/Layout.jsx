@@ -55,6 +55,7 @@ export default function Layout() {
   // "where is it?" on the report form.
   const TOPIC_CRUMBS = {
     '/greetings': 'Greetings',
+    '/questions': 'Questions',
     '/grammar/word-order': 'Word Order',
     '/grammar/negation': 'The Negative',
     '/grammar/possessives': 'Possessives',

@@ -1,5 +1,5 @@
 import referenceCharts from '../../src/data/reference-charts.js'
-import { TOPIC_PAGES } from '../../src/lib/topic-pages.js'
+import { TOPIC_PAGES, QUESTIONS_PAGE } from '../../src/lib/topic-pages.js'
 import {
   AUDIO_PROGRESS,
   BEGINNER_PATH,
@@ -122,7 +122,7 @@ export function renderTopicsHub(topics = TOPIC_PAGES) {
     `<article>` +
     `<p style="${P_STYLE}">Reference · Read in any order</p>` +
     `<h1 style="${H1_STYLE}">Topics</h1>` +
-    `<p style="${P_STYLE}">Seven pages that answer one common question each, outside the lesson order. Read one on its own, and it ends by pointing into the lessons that cover it.</p>` +
+    `<p style="${P_STYLE}">Seven pages that answer one common question each, outside the lesson order. Read one on its own, and it ends by pointing into the lessons that cover it. Not started yet? Read the ${link(QUESTIONS_PAGE.to, QUESTIONS_PAGE.link)}.</p>` +
     `<p style="${P_STYLE}">${link('/charts', 'Grammar charts')}</p>` +
     `<ul style="${LIST_STYLE}">${cards}</ul>` +
     `</article>`

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { TOPIC_PAGES } from '../lib/topic-pages'
+import { TOPIC_PAGES, QUESTIONS_PAGE } from '../lib/topic-pages'
 import '../styles/v11-components.css'
 
 /**
@@ -66,6 +66,8 @@ export default function Topics({ entryMark = '→' }) {
           <p className="topic-lead">
             Seven pages that answer one common question each, outside the lesson order.
             Read one on its own, and it ends by pointing into the lessons that cover it.
+            {' '}Not started yet? Read the{' '}
+            <Link to={QUESTIONS_PAGE.to} className="link">{QUESTIONS_PAGE.link}</Link>.
           </p>
         </div>
         <Link to="/charts" className="topic-charts-link">
