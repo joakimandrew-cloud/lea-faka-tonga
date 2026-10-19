@@ -48,7 +48,7 @@ export default function Home() {
           <div className="wr-home__hero-visual">
             <figure className="wr-home__hero-book">
               <div className="wr-home__book-halo" aria-hidden="true" />
-              <img src={colour.cover} alt={colour.alt} width="900" height="1248" />
+              <img src={colour.cover} alt={colour.alt} width={colour.width} height={colour.height} />
               <figcaption>The whole course is also available as a free book.</figcaption>
             </figure>
             <HomeColourPicker value={colour.id} onChange={chooseHomeColour} />
