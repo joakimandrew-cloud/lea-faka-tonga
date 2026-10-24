@@ -304,6 +304,9 @@ function primaryMarks(primary, text) {
   return marks.some(Boolean) ? marks : null
 }
 
+/** A switch chip labelled by its K cell: the Tongan, then the cell's own parenthetical gloss when it has one. */
+const keyChip = key => (key.gloss ? { to: key.to, gloss: key.gloss } : { to: key.to })
+
 /** The figure: switch, ladder, rules fallback, or Lesson 1's bespoke figures. */
 export function figureModel({ n, meta, plan }) {
   const variant = figureVariant(n, meta, plan)
@@ -354,7 +357,7 @@ export function figureModel({ n, meta, plan }) {
       const chip = labelCol >= 0 && String(row[labelCol]).trim()
         ? { en: String(row[labelCol]).trim() }
         : keyCol >= 0 && parseCell(row[keyCol])?.to
-          ? { to: parseCell(row[keyCol]).to }
+          ? keyChip(parseCell(row[keyCol]))
           : firstForm?.gloss ? { en: firstForm.gloss } : firstForm?.glossEn ? { en: firstForm.glossEn } : { to: firstForm.to }
       return { r, cells, marks, lines, chip }
     })
@@ -374,7 +377,7 @@ export function figureModel({ n, meta, plan }) {
     const cell = parseCell(row[primary])
     const glossEn = !cell.gloss && oneG >= 0 && String(row[oneG]).trim() && !DASH.test(String(row[oneG]).trim()) ? String(row[oneG]).trim() : null
     const lines = roles.flatMap((role, c) => {
-      if (c === primary || c === labelCol || c === oneG) return []
+      if (c === primary || c === labelCol || (c === oneG && glossEn)) return []
       if (role === 'K' && c === keyCol && labelCol < 0) return []
       const item = line(headers[c], role, row[c])
       if (!item) return []

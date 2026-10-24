@@ -16,7 +16,7 @@ import { register } from 'node:module'
 import { parseLessonContent } from '../../src/premium/lib/lesson-content.js'
 import { FIGURE_PLAN } from '../../src/premium/lib/figure-plan.js'
 import {
-  figureAnchor, figureModel, groupSections, isWordsSection, learnModel, practiceBlocks, stationsModel,
+  figureAnchor, figureModel, groupSections, isWordsSection, learnModel, parseCell, practiceBlocks, stationsModel,
 } from '../../src/premium/lib/lesson-plan.js'
 
 const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
@@ -83,6 +83,22 @@ for (const meta of chapters) {
       checked += 1
       if (!entry.includes(stripFinal(text))) fail(n, `Tongan string not in chapters.json: ${text}`)
     }
+  }
+
+  // Figure cells: every non-empty, non-dash paradigm cell of a switch or ladder
+  // shows in its row (stage, gloss, chip or tagged line), whole or as its
+  // Tongan and gloss, final-vowel accents aside.
+  if (figure.variant === 'switch' || figure.variant === 'ladder') {
+    meta.teaching.paradigm.rows.forEach((row, r) => {
+      const shown = new Set(allStrings(figure.rows[r]).map(text => stripFinal(text.trim())))
+      row.forEach((cell, c) => {
+        const text = String(cell ?? '').trim()
+        if (!text || /^[\u2013\u2014-]$/.test(text) || shown.has(stripFinal(text))) return
+        const parsed = parseCell(text)
+        const missing = [parsed?.to, parsed?.gloss].filter(Boolean).filter(piece => !shown.has(stripFinal(piece)))
+        if (missing.length) fail(n, `figure row ${r + 1} column ${c + 1} "${text}" is not shown (missing ${missing.join(', ')})`)
+      })
+    })
   }
 
   // No empty string anywhere.

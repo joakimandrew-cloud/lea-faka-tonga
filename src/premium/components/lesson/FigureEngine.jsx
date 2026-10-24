@@ -159,7 +159,8 @@ function usePatternMark(n) {
 }
 
 function ChipLabel({ chip }) {
-  return chip.to ? <T>{chip.to}</T> : <span className="fe-chip-en">{chip.en}</span>
+  if (!chip.to) return <span className="fe-chip-en">{chip.en}</span>
+  return chip.gloss ? <><T>{chip.to}</T><span className="fe-chip-gloss">{chip.gloss}</span></> : <T>{chip.to}</T>
 }
 
 function SwitchFigure({ model, n }) {

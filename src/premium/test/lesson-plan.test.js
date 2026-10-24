@@ -6,7 +6,7 @@ import { cwd } from 'node:process'
 import { parseLessonContent } from '../lib/lesson-content.js'
 import { FIGURE_PLAN } from '../lib/figure-plan.js'
 import {
-  figureAnchor, figureModel, figureVariant, groupSections, learnModel, practiceBlocks, stationsModel,
+  figureAnchor, figureModel, figureVariant, groupSections, learnModel, parseCell, practiceBlocks, stationsModel,
 } from '../lib/lesson-plan.js'
 import { LESSON_PATH_KEY, markKnown, markPattern, markRead, markTried, readPath } from '../lib/lesson-path-store.js'
 
@@ -98,6 +98,26 @@ test('every Tongan string in the plan, path and figure models is a substring of 
     }
   }
   assert.ok(checked > 500, `checked ${checked} Tongan strings`)
+})
+
+test('every non-empty, non-dash paradigm cell of a switch or ladder lesson shows in its row of the figure', () => {
+  let checked = 0
+  for (const { n, meta, figure } of lessons) {
+    if (figure.variant !== 'switch' && figure.variant !== 'ladder') continue
+    meta.teaching.paradigm.rows.forEach((row, r) => {
+      const shown = new Set(allStrings(figure.rows[r]).map(text => stripFinal(text.trim())))
+      row.forEach((cell, c) => {
+        const text = String(cell ?? '').trim()
+        if (!text || /^[\u2013\u2014-]$/.test(text)) return
+        checked += 1
+        if (shown.has(stripFinal(text))) return
+        const parsed = parseCell(text)
+        const missing = [parsed?.to, parsed?.gloss].filter(Boolean).filter(piece => !shown.has(stripFinal(piece)))
+        assert.deepEqual(missing, [], `lesson ${n} row ${r + 1} column ${c + 1} "${text}" is not in the figure`)
+      })
+    })
+  }
+  assert.ok(checked > 300, `checked ${checked} paradigm cells`)
 })
 
 test('no model holds an empty string', () => {
