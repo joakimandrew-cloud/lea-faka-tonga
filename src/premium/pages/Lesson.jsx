@@ -18,6 +18,7 @@ import { PatternFigure, CombinatorFigure, IntonationFigure, StressFigure } from 
 import { KupesiTile } from '../components/Kupesi.jsx'
 import { lessonColours, lessonTile } from '../lib/lesson-colour.js'
 import { readExerciseState } from '../lib/exercise-progress.js'
+import { groupSections } from '../lib/lesson-plan.js'
 import '../styles/lesson.css'
 import '../styles/lesson-experience.css'
 import '../styles/source-core.css'
@@ -25,18 +26,6 @@ import '../styles/source-core.css'
 const COLOURS = lessonColours(chapters, lessonLevel)
 
 const LEVEL_NAME = { basic: 'Basic', intermediate: 'Intermediate', advanced: 'Advanced' }
-
-function groupSections(blocks) {
-  const sections = []
-  let cur = null
-  for (const b of blocks) {
-    if (b.type === 'h2') { cur = { id: b.id, title: b.text, blocks: [] }; sections.push(cur); continue }
-    if (b.type === 'exercises-slot') { sections.push({ id: 'exercises', title: 'Exercises', exercises: true, blocks: [] }); continue }
-    if (b.type === 'hr') continue
-    if (cur) cur.blocks.push(b)
-  }
-  return sections
-}
 
 function wordCount(lesson) {
   const txt = JSON.stringify(lesson.blocks) + JSON.stringify(lesson.intro)
