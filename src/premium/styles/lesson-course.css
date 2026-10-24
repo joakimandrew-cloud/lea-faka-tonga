@@ -1,0 +1,170 @@
+/* Lesson course: the plan card, the lesson path, the figure engine, the course
+   strip and the promise check (reviews/lesson-course-2026-10-24/Direction.md).
+   Existing tokens, type scale, radii and the figure frame only. */
+
+/* ───────── Plan card (the .xs exercise card) ───────── */
+.lesson .lp { margin: 4px 0 48px; }
+.lp-resume { width: auto; max-width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 60px; padding: 12px 22px; margin: 0 0 24px; text-align: left; font-family: var(--f-ui); }
+.lp-resume-k { font-size: 15.5px; font-weight: 700; }
+.lp-resume-t { font-size: 14px; font-weight: 500; opacity: .92; }
+.lp-resume-t .to { color: inherit; font-size: 1em; }
+.lp-t { margin-bottom: 0; }
+.lp-rules { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.lp-rule { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px; }
+.lp-n { font-family: var(--f-display); font-weight: 700; font-size: 16px; line-height: 1.55; color: var(--red); }
+.lp-text { margin: 0; font-family: var(--f-ui); font-size: 16.5px; line-height: 1.5; color: var(--ink-2); }
+.lesson .lp-text .to { color: var(--red); font-size: 1em; }
+.lp-ex { border-left: 4px solid var(--orange); padding: 4px 0 4px 18px; margin: 10px 0 6px; display: flex; flex-direction: column; gap: 2px; }
+.lesson .lp-ex-to { font-family: var(--f-serif); font-size: 21px; line-height: 1.35; color: var(--ink); }
+.lp-ex-en { font-family: var(--f-ui); font-size: 15px; line-height: 1.45; color: var(--muted); }
+.lp-link { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--f-ui); font-size: 14.5px; font-weight: 650; color: var(--red); text-decoration: none; }
+.lp-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.lp-fig { margin-top: 10px; }
+.lp-path { margin-top: 20px; padding-top: 22px; border-top: 1px solid var(--line); }
+@media (min-width: 1081px) { .lp-path { display: none; } }
+
+/* ───────── Lesson path ───────── */
+.path-k { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.path-count { font-family: var(--f-ui); font-size: 12.5px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--muted); margin: 0; font-variant-numeric: tabular-nums; }
+.path-list { list-style: none; margin: 0; padding: 0; position: relative; }
+.path-list::before { content: ''; position: absolute; left: 7px; top: 22px; bottom: 22px; width: 2px; background: var(--line); }
+.path-li { position: relative; }
+.path-a { position: relative; display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 6px 0; text-decoration: none; color: var(--ink); font-family: var(--f-ui); line-height: 1.3; }
+.path-a:hover .path-l { color: var(--red); }
+.path-mark { position: relative; z-index: 1; flex: none; width: 16px; height: 16px; display: grid; place-items: center; }
+.path-mark::before { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--line-strong); box-sizing: border-box; }
+.path-mark.is-part::before { border-color: var(--red); }
+.path-mark.is-done::before { width: 16px; height: 16px; border: 0; background: var(--red); }
+.path-mark.is-done > span[aria-hidden] { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 10px; font-weight: 800; line-height: 1; }
+.path-t { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.path-l { font-size: 14.5px; font-weight: 650; color: var(--ink); transition: color .2s; }
+.path-a.is-next .path-l, .path-a.is-on .path-l { color: var(--red); }
+.path-d { font-size: 13px; color: var(--muted); }
+.path-d .to { color: inherit; font-size: 1em; }
+.path-a .rail-c { flex: none; }
+.path-next { color: var(--red); background: var(--orange-soft); }
+.path-sub { list-style: none; margin: 0; padding: 0 0 4px 26px; }
+.path-sec { padding: 8px 0; }
+.path-sec .rail-dot { width: 10px; height: 10px; margin-left: -22px; }
+.path-sec { gap: 12px; }
+.path-sub-a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 6px 0; text-decoration: none; font-family: var(--f-ui); color: var(--muted); }
+.path-sub-a:hover { color: var(--ink); }
+.path-sub-dot { flex: none; width: 8px; height: 8px; margin-left: -22px; border-radius: 50%; background: var(--line-strong); }
+.path-sub-a.is-tried .path-sub-dot { background: var(--red); }
+.path-sub-t { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
+.path-sub-k { font-size: 12px; font-weight: 700; color: var(--muted); }
+.path-sub-n { font-size: 14px; line-height: 1.3; color: var(--ink-2); }
+.path-sub-n .to { color: inherit; font-size: 1em; }
+.path-sub-s { flex: none; font-size: 12px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Desktop rail: the path scrolls inside itself past the window height. */
+.path-rail { max-height: calc(100vh - var(--hdr-top) - 40px); overflow-y: auto; overscroll-behavior: contain; padding-right: 6px; }
+
+/* Phone: the path inside the plan card. */
+.path-plan-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 10px; }
+.path-plan-t { font-size: 19px; margin: 0; }
+.path-plan .path-a { min-height: 52px; }
+.path-plan .path-l { font-size: 15.5px; }
+.path-plan .path-d { font-size: 13.5px; }
+.path-foot { flex-direction: row; margin-top: 16px; }
+.path-foot .rail-pn { flex: 1 1 0; min-width: 0; min-height: 44px; }
+.path-foot .rail-pn em { overflow-wrap: anywhere; }
+.path-foot .rail-pn.is-next { text-align: right; }
+
+/* Finish band: the steps line and the step pills. */
+.path-finish { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.path-finish-p { font-family: var(--f-ui); font-size: 15.5px; }
+.path-pills { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.path-pill { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--paper); color: var(--ink); font: 600 14px/1 var(--f-ui); text-decoration: none; }
+.path-pill:hover { border-color: var(--red); }
+.path-pill.is-done { color: var(--red); border-color: var(--red); }
+.path-pill.is-part { border-color: var(--red); }
+
+/* ───────── Figure engine (the house figure frame, Combinator controls) ───────── */
+.fe-out { padding: 26px 20px 18px; }
+.fe-stage { min-height: 1.3em; font-family: var(--f-serif); font-size: clamp(26px, 7vw, 44px); line-height: 1.2; display: flex; justify-content: center; }
+.fe-stage.is-ladder { font-size: clamp(34px, 8vw, 56px); }
+.fe-words { display: inline-flex; flex-wrap: wrap; justify-content: center; column-gap: .28em; row-gap: .1em; position: relative; }
+.fe-w { display: inline-block; }
+.lesson .fe .fe-w.to { color: var(--ink) !important; font-size: 1em !important; }
+.lesson .fe .fe-mark, .lesson .fe .fe-w.fe-mark.to { color: var(--red) !important; font-weight: 650; background: linear-gradient(transparent 62%, var(--orange-soft) 62%); padding: 0 2px; }
+.fe-dash { color: var(--muted); }
+.fe-gloss { font-family: var(--f-ui); font-size: 17px; color: var(--muted); margin-top: 6px; min-height: 1.5em; }
+.fe-gloss .to { color: inherit !important; font-size: 1em !important; }
+.fe-dropped { margin: 6px 0 0; min-height: 28px; font-family: var(--f-ui); font-size: 14px; color: var(--muted); }
+.fe-dropped.is-empty { visibility: hidden; }
+.fe-dropped-k { font-weight: 650; }
+.lesson .fe .fe-struck { font-family: var(--f-serif); font-size: 17px; color: var(--muted) !important; text-decoration: line-through; margin-left: .3em; }
+.fe-lines { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.fe-line { margin: 0; display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: 4px 12px; align-items: baseline; font-family: var(--f-ui); font-size: 15px; line-height: 1.45; color: var(--ink-2); }
+.fe-tag { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.fe-tag .to { color: inherit !important; font-size: 1em !important; }
+.fe-line-to { font-family: var(--f-serif); font-size: 18px; }
+.lesson .fe .fe-line-to .to { color: var(--ink) !important; }
+.fe-line-g { font-family: var(--f-ui); font-size: 14px; color: var(--muted); }
+.fe-line-en .to { color: var(--red) !important; font-size: 1em !important; }
+.fe-forms button { position: relative; overflow: hidden; }
+.fe-chips .cb-chip { position: relative; overflow: hidden; justify-content: center; }
+.fe-chip-en { font-size: 14px; font-weight: 600; }
+.fe-chip-en .to { font-size: 1em !important; }
+.fe-chip-n { min-width: 44px; align-items: center; }
+.fe-bar { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--red); transform-origin: 0 50%; animation: chipbar linear forwards; }
+.cb-chip.is-on .fe-bar, .cb-toggle button.is-on .fe-bar { background: white; }
+@keyframes chipbar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ───────── Course strip ───────── */
+.cs { margin: 22px 0 0; display: flex; align-items: center; gap: 14px; max-width: 560px; }
+.cs-ticks { flex: 1 1 auto; min-width: 0; display: flex; gap: 6px; }
+.cs-run { display: flex; gap: 2px; flex: var(--run, 1) 1 0; }
+.cs-tick { position: relative; flex: 1 1 0; min-width: 2px; height: 14px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.cs-tick.is-here { box-shadow: inset 0 0 0 1px var(--red); }
+.cs-fill { position: absolute; inset: 0; background: var(--red); transform-origin: 50% 100%; }
+.cs-label { flex: none; margin: 0; font-family: var(--f-ui); font-size: 13.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.finish .cs { width: 100%; max-width: 520px; margin: 22px auto 0; }
+
+/* ───────── Promise check (finish band, ask state) ───────── */
+.pc { width: 100%; margin: 26px 0 8px; text-align: left; font-family: var(--f-ui); }
+.pc-k { margin: 0; text-align: center; font-family: var(--f-display); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; font-size: 12.5px; color: var(--red); }
+.pc-i { margin: 6px 0 0; text-align: center; font-size: 15.5px; color: var(--muted); }
+.pc-list { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.pc-card { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); }
+.pc-card.is-known { border-color: color-mix(in srgb, var(--red) 35%, var(--line)); }
+.pc-n { font-family: var(--f-display); font-weight: 700; font-size: 16px; line-height: 1.7; color: var(--red); }
+.lesson .pc-to { font-family: var(--f-serif); font-size: 21px; line-height: 1.4; color: var(--ink); }
+.pc-en { margin: 4px 0 0; font-size: 15px; color: var(--muted); }
+.pc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.lesson .pc-b { min-height: 44px; padding: 0 16px; font-size: 14px; color: var(--red); border-color: var(--red); }
+.lesson .pc-b:hover { color: white; background: var(--red); border-color: var(--red); }
+.lesson .pc-b[aria-pressed='true'] { color: white; background: var(--red); }
+.pc-known { font-size: 14px; font-weight: 700; color: var(--red); }
+.pc-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px; font-size: 14.5px; font-weight: 650; color: var(--red); text-decoration: none; }
+.pc-done { font-family: var(--f-ui); font-size: 16px; }
+
+/* ───────── The flagged picture (?pictures=1, done state only) ───────── */
+.finish-top { display: flex; align-items: flex-end; justify-content: center; gap: 18px; margin-bottom: 26px; }
+.finish-top .finish-burst { margin-bottom: 0; }
+.lpic { display: block; width: 120px; height: auto; }
+
+/* Anchors land below the sticky header and compass, as .xs does. */
+.lesson :is([data-practice], [data-figure], [data-figure-fallback], #lesson-plan) { scroll-margin-top: 90px; }
+
+@media (max-width: 1080px) {
+  .lesson :is([data-practice], [data-figure], [data-figure-fallback], #lesson-plan) { scroll-margin-top: 158px; }
+  .cs { flex-direction: column; align-items: stretch; gap: 8px; max-width: none; }
+}
+@media (max-width: 880px) {
+  .lesson :is([data-practice], [data-figure], [data-figure-fallback], #lesson-plan) { scroll-margin-top: 150px; }
+}
+@media (max-width: 640px) {
+  .fe-forms { display: grid; grid-template-columns: 1fr 1fr; border-radius: 22px; width: 100%; }
+  .fe-forms button { padding: 0 10px; }
+  .fe-out { padding: 22px 14px 16px; }
+  .lp-resume { width: 100%; padding: 12px 18px; }
+  .pc-card { padding: 14px; }
+  .lpic { width: 88px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fe-bar { display: none; }
+  .path-l, .path-pill { transition: none; }
+}
