@@ -22,7 +22,6 @@ import { figureAnchor, figureModel, groupSections, learnModel, stationsModel, te
 import { FIGURE_PLAN } from '../lib/figure-plan.js'
 import { markPattern, markRead, markTried } from '../lib/lesson-path-store.js'
 import { lessonCards } from '../lib/card-progress.js'
-import { FINISH_PICTURE, picturesOn } from '../lib/lesson-pictures.js'
 import { LessonFigure } from '../components/lesson/FigureEngine.jsx'
 import LessonPath, { useLessonDeck, useLessonPath } from '../components/lesson/LessonPath.jsx'
 import LessonPlan from '../components/lesson/LessonPlan.jsx'
@@ -185,11 +184,6 @@ export function FinishActions({ n, next, hasQuiz, vocabCount, exStats, firstUnfi
 function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn, stations, path }) {
   const { done } = useProgress()
   const [celebrate, setCelebrate] = useState(false)
-  const [pictures, setPictures] = useState(false)
-  useEffect(() => {
-    const id = setTimeout(() => setPictures(picturesOn()), 0)
-    return () => clearTimeout(id)
-  }, [])
   const known = (path.known || []).filter(i => learn.items.some(item => item.i === i && item.to))
   const points = learn.items.filter(item => item.to).length
   const isDone = done.has(n)
@@ -212,7 +206,6 @@ function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn
           </Motion.div>
         ) : (
           <Motion.div key="done" className="finish-done" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <div className={`finish-top ${pictures ? 'has-picture' : ''}`}>
             <div className="finish-burst" aria-hidden="true">
               {[...Array(12)].map((_, i) => (
                 <Motion.span
@@ -226,8 +219,6 @@ function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn
                 </Motion.span>
               ))}
               <Motion.span className="finish-check" initial={celebrate ? { scale: 0 } : false} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 400, damping: 16, delay: .2 }}>✓</Motion.span>
-            </div>
-            {pictures && <img className="lpic" src={FINISH_PICTURE.src} width={FINISH_PICTURE.width} height={FINISH_PICTURE.height} alt="" aria-hidden="true" loading="lazy" />}
             </div>
             <p className="finish-k">Lesson {n} complete</p>
             <h2 className="finish-h display">{meta.title}. Done.</h2>
