@@ -36,11 +36,11 @@ try {
   await server.close()
 }
 
-const stripFinal = s => String(s).normalize('NFD').replace(/[́̄](?=[^\p{L}\p{M}]|$)/gu, '').normalize('NFC')
+const stripFinal = s => String(s).normalize('NFD').replace(/[\u0301\u0304](?=[^\p{L}\p{M}]|$)/gu, '').normalize('NFC')
 const allStrings = value => typeof value === 'string' ? [value]
   : Array.isArray(value) ? value.flatMap(allStrings)
     : value && typeof value === 'object' ? Object.values(value).flatMap(allStrings) : []
-const TONGAN_GLYPH = /[ʻāēīōūĀĒĪŌŪ]/
+const TONGAN_GLYPH = /[\u02bb\u0101\u0113\u012b\u014d\u016b\u0100\u0112\u012a\u014c\u016a]/
 function tonganStrings(value, out = []) {
   if (Array.isArray(value)) value.forEach(item => tonganStrings(item, out))
   else if (value && typeof value === 'object') {

@@ -34,8 +34,8 @@ const sectionNumber = (sections, id) => sections.findIndex(section => section.id
 // Finding only; strips markup, acute and macron, case and punctuation.
 // Display text is never changed.
 export const norm = s => okinafy(plainInline(String(s ?? ''))).replace(/<[^>]+>|\*/g, ' ')
-  .normalize('NFD').replace(/[́̄]/g, '').normalize('NFC')
-  .toLowerCase().replace(/[.,!?…:;"“”()]/g, ' ').split(/\s+/).filter(Boolean)
+  .normalize('NFD').replace(/[\u0301\u0304]/g, '').normalize('NFC')
+  .toLowerCase().replace(/[.,!?\u2026:;"\u201c\u201d()]/g, ' ').split(/\s+/).filter(Boolean)
 
 /** True when norm(needle) is a contiguous run of norm(haystack). */
 export function contains(haystack, needle) {
@@ -49,7 +49,7 @@ export function contains(haystack, needle) {
   return false
 }
 
-const DASH = /^[–—-]$/
+const DASH = /^[\u2013\u2014-]$/
 
 /** Splits a K, F, E or t cell into Tongan and gloss: a trailing " (...)", else " = ", else ": ". */
 export function parseCell(cell) {
@@ -154,7 +154,7 @@ export function learnModel({ n, meta, sections, plan }) {
   })
   const figure = {
     href: `#fig-${n}-1`,
-    label: variant === 'rules' ? `See the examples: Figure ${n}.1 ↓` : `See the pattern: Figure ${n}.1 ↓`,
+    label: variant === 'rules' ? `See the examples: Figure ${n}.1 \u2193` : `See the pattern: Figure ${n}.1 \u2193`,
   }
   return { n, items, figure }
 }
@@ -217,7 +217,7 @@ export function stationsModel({
     const state = answered >= total ? 'done' : answered > 0 ? 'part' : 'todo'
     steps.push({
       key: 'exercises', label: 'Exercises', href: firstUnfinishedHref || '#exercises', state,
-      detail: state === 'done' ? 'All answered' : state === 'part' ? `${answered} of ${total} answered` : `${plural(exercises.length, 'set', 'sets')} · ${plural(total, 'item', 'items')}`,
+      detail: state === 'done' ? 'All answered' : state === 'part' ? `${answered} of ${total} answered` : `${plural(exercises.length, 'set', 'sets')} \u00b7 ${plural(total, 'item', 'items')}`,
       count: { x: answered, of: total },
       reads: 'lft-premium-exercises-v1',
     })

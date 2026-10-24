@@ -18,8 +18,8 @@ const drillMap = readJson('src/data/drill-map.json')
 const bookExercises = readJson('src/data/book-exercises.json')
 const quizzes = readJson('src/data/quizzes.json')
 // The app's slugify, copied as lesson-fidelity.test.js and lesson-practice.test.js copy it.
-const slugify = text => text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-  .replace(/[‘’ʻ'`]/g, '').replace(/[/. :,;—–]/g, ' ')
+const slugify = text => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .replace(/[\u2018\u2019\u02bb'`]/g, '').replace(/[/. :,;\u2014\u2013]/g, ' ')
   .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
 
 const lessons = chapters.map(meta => {
@@ -38,11 +38,11 @@ const lessons = chapters.map(meta => {
 })
 
 // Strip an acute accent or macron from the last vowel of each word: the data carries definitive accents.
-const stripFinal = s => String(s).normalize('NFD').replace(/[́̄](?=[^\p{L}\p{M}]|$)/gu, '').normalize('NFC')
+const stripFinal = s => String(s).normalize('NFD').replace(/[\u0301\u0304](?=[^\p{L}\p{M}]|$)/gu, '').normalize('NFC')
 const allStrings = value => typeof value === 'string' ? [value]
   : Array.isArray(value) ? value.flatMap(allStrings)
     : value && typeof value === 'object' ? Object.values(value).flatMap(allStrings) : []
-const TONGAN_GLYPH = /[ʻāēīōūĀĒĪŌŪ]/
+const TONGAN_GLYPH = /[\u02bb\u0101\u0113\u012b\u014d\u016b\u0100\u0112\u012a\u014c\u016a]/
 function tonganStrings(value, out = []) {
   if (Array.isArray(value)) value.forEach(item => tonganStrings(item, out))
   else if (value && typeof value === 'object') {
@@ -151,7 +151,7 @@ test('station states read from storage fixtures: empty, partial and all done', (
   assert.equal(empty.steps.filter(step => step.next).length, 1)
   assert.equal(empty.steps.find(step => step.next).key, 'learn')
   assert.equal(empty.steps[0].detail, '9 sections to read')
-  assert.equal(empty.steps.find(step => step.key === 'exercises').detail, '6 sets · 34 items')
+  assert.equal(empty.steps.find(step => step.key === 'exercises').detail, '6 sets \u00b7 34 items')
   assert.equal(empty.steps.find(step => step.key === 'words').detail, '1 word to keep')
 
   const store = new Map()
