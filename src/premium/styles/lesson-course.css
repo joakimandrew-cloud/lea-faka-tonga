@@ -6,7 +6,8 @@
 .lesson .lp { margin: 4px 0 48px; }
 .lp-resume { width: auto; max-width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 60px; padding: 12px 22px; margin: 0 0 24px; text-align: left; font-family: var(--f-ui); }
 .lp-resume-k { font-size: 15.5px; font-weight: 700; }
-.lp-resume-t { font-size: 14px; font-weight: 500; opacity: .92; }
+/* base.css's .btn is nowrap; the section title wraps inside the pill (Step 10 fix, 2026-10-25) */
+.lp-resume-t { font-size: 14px; font-weight: 500; opacity: .92; white-space: normal; }
 .lp-resume-t .to { color: inherit; font-size: 1em; }
 .lp-t { margin-bottom: 0; }
 .lp-rules { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
