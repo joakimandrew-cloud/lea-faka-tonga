@@ -418,7 +418,9 @@ export function figureAnchor({ n, sections, meta, plan }) {
   }
   if (!best && teaching.length) {
     const first = teaching[0]
-    best = { sectionId: first.id, index: Math.max(0, first.blocks.length - 1), score: 0, blockType: first.blocks.at(-1)?.type || 'none' }
+    let at = Math.max(0, first.blocks.length - 1)
+    while (at > 0 && ['drill', 'quick-practice'].includes(first.blocks[at]?.type)) at -= 1
+    best = { sectionId: first.id, index: at, score: 0, blockType: first.blocks[at]?.type || 'none' }
   }
   if (!best) return null
   return { ...best, sectionNumber: sectionNumber(sections, best.sectionId) }
