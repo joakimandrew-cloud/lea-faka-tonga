@@ -4,13 +4,15 @@
 //   node scripts/premium/check-lesson-plan.mjs
 //
 // Prints one row per lesson and exits 1 on any failure. The lessons are parsed
-// with parseLessonContent and the app's own slugify, loaded through Vite's
-// ssrLoadModule because src/lib/remark-drill-anchors.js imports JSON without an
-// import attribute (plain node refuses it; book.js gets it through Vite).
+// with parseLessonContent and the app's own slugify from
+// src/lib/remark-drill-anchors.js, as book.js does. That module imports JSON
+// without an import attribute, which plain node refuses, so a small loader hook
+// supplies the attribute; no Vite server is started (a Vite server here
+// crashed node on close now and then).
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createServer } from 'vite'
+import { register } from 'node:module'
 import { parseLessonContent } from '../../src/premium/lib/lesson-content.js'
 import { FIGURE_PLAN } from '../../src/premium/lib/figure-plan.js'
 import {
@@ -25,16 +27,12 @@ const drillMap = readJson('src/data/drill-map.json')
 const bookExercises = readJson('src/data/book-exercises.json')
 const quizzes = readJson('src/data/quizzes.json')
 
-const server = await createServer({
-  root: app, configFile: path.join(app, 'vite.config.js'),
-  server: { middlewareMode: true, hmr: false, watch: null }, appType: 'custom', logLevel: 'silent',
-})
-let slugify
-try {
-  ({ slugify } = await server.ssrLoadModule('/src/lib/remark-drill-anchors.js'))
-} finally {
-  await server.close()
-}
+register('data:text/javascript,' + encodeURIComponent(
+  'export async function load(url, context, next) {' +
+  ' if (url.endsWith(".json")) return next(url, { ...context, importAttributes: { ...context.importAttributes, type: "json" } });' +
+  ' return next(url, context) }',
+))
+const { slugify } = await import('../../src/lib/remark-drill-anchors.js')
 
 const stripFinal = s => String(s).normalize('NFD').replace(/[\u0301\u0304](?=[^\p{L}\p{M}]|$)/gu, '').normalize('NFC')
 const allStrings = value => typeof value === 'string' ? [value]
