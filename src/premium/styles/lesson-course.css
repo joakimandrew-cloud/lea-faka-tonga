@@ -105,6 +105,11 @@
 .fe-line-en .to { color: var(--red) !important; font-size: 1em !important; }
 .fe-forms button { position: relative; overflow: hidden; }
 .fe-chips .cb-chip { position: relative; overflow: hidden; justify-content: center; }
+/* A lone label is the chip's last span, so lesson.css's hint-line rule (.cb-chip span:last-child, 11.5 px) shrank it
+   whenever the bar was absent: the running chip's label jumped from 18 px to 11.5 px on the first touch and the row
+   reflowed under the tap. The label sizes are pinned here (Step 8, 2026-10-24). */
+.fe-chips .cb-chip .to { font-size: 18px; opacity: 1; }
+.fe-chips .cb-chip .fe-chip-en { font-size: 14px; opacity: 1; }
 .fe-chip-en { font-size: 14px; font-weight: 600; }
 .fe-chip-en .to { font-size: 1em !important; }
 .fe-chip-gloss { font-family: var(--f-ui); font-size: 11.5px; font-weight: 500; opacity: .85; }
