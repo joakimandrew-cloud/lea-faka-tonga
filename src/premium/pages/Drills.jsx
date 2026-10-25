@@ -4,7 +4,46 @@ import { Link } from 'react-router-dom'
 import T from '../components/T.jsx'
 import { filteredDrillGroups, GROUPS, LEVELS, premiumRouteFor, UNCATALOGUED_DRILLS } from '../lib/source-routes.js'
 import { useTitle } from '../lib/title.js'
+import vocabulary from '@app/data/book-vocabulary.json'
+import { buildDeck, makeRng, makeRound } from '@app/games/word-rain/index.js'
 import '../styles/catalog.css'
+
+// Word Rain (plan 2026-10-26-word-rain-game) is a game over the course words,
+// not a one-pattern drill, so it stays out of the drill catalogue and its
+// count. Its card is a catalogue card like the rest; the word on it is a real
+// round from the game's own deck (fixed seed), so no Tongan is typed here.
+const GAME_WORDS = buildDeck(vocabulary, 'all').length
+const GAME_SAMPLE = makeRound(buildDeck(vocabulary, 'essential'), makeRng(2026))
+const GAMES = [{
+  key: 'word-rain',
+  to: '/games/word-rain',
+  title: 'Word Rain',
+  blurb: 'Tap the meaning before the word gets away.',
+  action: 'Play',
+  sample: { q: 'Tap the meaning', ton: GAME_SAMPLE.mover },
+}]
+const gameMatches = (game, query) => {
+  const q = query.trim().toLowerCase()
+  return !q || `${game.title} ${game.blurb} game vocabulary words`.toLowerCase().includes(q)
+}
+
+function GameCard({ game }) {
+  return (
+    <Link className="catalog-card" to={game.to}>
+      <span className="catalog-card-top">
+        <span>Game</span>
+        <span>{GAME_WORDS} words</span>
+      </span>
+      <span className="catalog-sample" aria-hidden="true">
+        <span>{game.sample.q}</span>
+        <T>{game.sample.ton}</T>
+      </span>
+      <strong>{game.title}</strong>
+      <span className="catalog-card-copy">{game.blurb}</span>
+      <span className="catalog-card-action">{game.action} <EntryMotif size={20} /></span>
+    </Link>
+  )
+}
 
 const LEVEL_FILTERS = [['all', 'All'], ...Object.entries(LEVELS)]
 
@@ -74,6 +113,7 @@ export default function Drills() {
   const total = GROUPS.reduce((sum, group) => sum + group.drills.length, 0)
   const shown = sections.reduce((sum, group) => sum + group.visible.length, 0)
   const filtering = query.trim() !== '' || level !== 'all'
+  const games = level === 'all' ? GAMES.filter(game => gameMatches(game, query)) : []
 
   const clear = () => {
     setQuery('')
@@ -103,7 +143,21 @@ export default function Drills() {
           </div>
         </div>
         <p className="catalog-count" role="status" aria-live="polite">{shown} of {total} featured drills{filtering ? ' match your filters' : ''}</p>
-        {shown === 0 ? (
+        {games.length > 0 && (
+          <section className="catalog-group" aria-labelledby="drill-group-games">
+            <header>
+              <div>
+                <p className="catalog-kicker">{games.length} {games.length === 1 ? 'game' : 'games'}</p>
+                <h2 id="drill-group-games">Games</h2>
+                <p>Quick play with the course vocabulary.</p>
+              </div>
+            </header>
+            <div className="catalog-grid">
+              {games.map(game => <GameCard key={game.key} game={game} />)}
+            </div>
+          </section>
+        )}
+        {shown === 0 && games.length === 0 ? (
           <div className="catalog-empty">
             <h2>No drills match.</h2>
             <p>Try a different word or clear the level filter.</p>

@@ -1,0 +1,322 @@
+/* ==========================================================================
+   Word Rain (/games/word-rain, plan 2026-10-26-word-rain-game).
+
+   The cards, buttons, chips and end row are the drill chrome as it is
+   (.pcs-card, .pcs-btn, .pcs-next, .x-chip).
+   On the live site the page sits in .premium-core (source-core.css), which
+   maps those legacy tokens onto the site's own (--bg to --paper, --accent to
+   --red, --correct to --success and so on), exactly as on every drill page.
+   This file holds only what is new to the game: the settings rows, the sky
+   and the two shapes. Every colour is one of those tokens and every font one
+   of the site's three families (--f-display, --f-serif, --f-ui); no new hex
+   values, no new typeface.
+   ========================================================================== */
+
+.word-rain { color: var(--text-strong); }
+.premium-core.word-rain .pcs-header { margin-bottom: 1.5rem; }
+/* While a game runs the title steps back so the sky and the answers fit one
+   phone screen; the start and end cards keep the full drill heading. */
+.premium-core.word-rain.is-playing .rain-title { font-size: clamp(30px, 4vw, 40px); margin-bottom: 0; }
+.rain-stage { scroll-margin-top: calc(var(--hdr-h, 70px) + 12px); }
+.premium-core.word-rain .pcs-card { margin-bottom: 0; }
+
+/* ── start card ───────────────────────────────────────────────────────── */
+.rain-start-frame { padding: 0.5rem 0 1.5rem; }
+.rain-lead {
+  font-family: var(--f-serif);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 34em;
+  margin: 0 auto;
+}
+.rain-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.rain-setting {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rain-setting-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.rain-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.rain-chip-count { opacity: 0.6; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.rain-start-row { margin-top: 1.75rem; }
+.rain-play { min-height: 44px; padding: 12px 28px; }
+
+/* ── the game card ────────────────────────────────────────────────────── */
+.rain-hud { margin-bottom: 1rem; }
+.rain-hud .pcs-stat-value { font-variant-numeric: tabular-nums; }
+.rain-life-dots { display: inline-flex; gap: 5px; vertical-align: middle; margin-right: 6px; }
+.rain-life {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+  transition: background-color 0.2s;
+}
+.rain-life.is-on { background: var(--accent); }
+.rain-lives-count {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.rain-pause { min-width: 92px; justify-content: center; }
+.rain-pause:disabled { opacity: 0.5; cursor: default; }
+
+/* The sky: where the word moves. White like every page; a hairline frame
+   and a dashed far edge, the line the word must not reach. */
+.rain-sky {
+  position: relative;
+  height: clamp(260px, 42vh, 380px);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  touch-action: manipulation;
+}
+.rain-edge {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 0;
+  border-top: 1px dashed var(--border);
+}
+.rain-shape-raindrop .rain-edge { bottom: 8px; }
+.rain-shape-balloon .rain-edge { top: 8px; }
+
+.rain-mover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+.rain-sway { display: flex; flex-direction: column; align-items: center; }
+
+.rain-shape {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 96px;
+  max-width: min(260px, 70vw);
+  border: 1.5px solid var(--accent);
+  background: linear-gradient(var(--accent-faint), var(--accent-faint)), var(--bg);
+  color: var(--text-strong);
+  box-shadow: var(--shadow-2);
+}
+
+.rain-word { display: block; line-height: 1.15; overflow-wrap: anywhere; }
+.rain-word.font-tongan {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 26px;
+}
+.rain-word-en {
+  font-family: var(--f-ui);
+  font-weight: 600;
+  font-size: 19px;
+}
+
+/* Raindrop: a rounded body with a point at the top. The point is a small
+   square turned 45°, bordered on its two upper sides only and filled like
+   the body, so the outline runs unbroken into the apex. */
+.rain-shape-raindrop .rain-shape {
+  padding: 22px 24px 18px;
+  border-radius: 46% 46% 50% 50% / 40% 40% 60% 60%;
+}
+.rain-shape-raindrop .rain-shape::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  transform: rotate(45deg);
+  border-top: 1.5px solid var(--accent);
+  border-left: 1.5px solid var(--accent);
+  background: linear-gradient(var(--accent-faint), var(--accent-faint)), var(--bg);
+  border-top-left-radius: 3px;
+}
+
+/* Balloon: an oval with a knot and a string, swaying gently on the string. */
+.rain-shape-balloon .rain-shape {
+  padding: 26px 26px;
+  border-radius: 50% / 54% 54% 46% 46%;
+  min-height: 84px;
+}
+.rain-shape-balloon .rain-shape::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  margin-left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 8px solid var(--accent);
+}
+.rain-string {
+  display: block;
+  width: 1px;
+  height: 34px;
+  margin-top: 6px;
+  background: var(--border);
+}
+.rain-shape-balloon .rain-sway {
+  transform-origin: 50% 100%;
+  animation: rain-sway 2.6s ease-in-out infinite alternate;
+}
+@keyframes rain-sway {
+  from { transform: rotate(-4deg) translateX(-4px); }
+  to   { transform: rotate(4deg) translateX(4px); }
+}
+
+/* The pop on a right answer: the shape swells and goes, with a ring. */
+.rain-mover.is-popped .rain-sway { animation: none; }
+.rain-mover.is-popped .rain-shape {
+  animation: rain-pop 0.38s ease-out forwards;
+  border-color: var(--correct);
+}
+.rain-mover.is-popped .rain-string { animation: rain-fade 0.2s ease-out forwards; }
+.rain-mover.is-popped .rain-shape::after { border-bottom-color: var(--correct); }
+.rain-mover.is-popped .rain-shape::before { border-color: var(--correct); }
+.rain-mover.is-lost .rain-shape::before { border-color: var(--wrong); }
+.rain-mover.is-popped .rain-sway::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border: 2px solid var(--correct);
+  border-radius: 50%;
+  animation: rain-ring 0.38s ease-out forwards;
+}
+.rain-mover.is-popped .rain-sway { position: relative; }
+@keyframes rain-pop {
+  0%   { transform: scale(1);    opacity: 1; }
+  45%  { transform: scale(1.18); opacity: 1; }
+  100% { transform: scale(1.4);  opacity: 0; }
+}
+@keyframes rain-ring {
+  from { transform: scale(0.8); opacity: 0.9; }
+  to   { transform: scale(1.35); opacity: 0; }
+}
+@keyframes rain-fade { to { opacity: 0; } }
+
+/* A wrong answer or a miss: the word stops and dims while the right pair
+   shows. */
+.rain-mover.is-lost .rain-sway { animation: none; }
+.rain-mover.is-lost .rain-shape {
+  border-color: var(--wrong);
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+
+.rain-reveal,
+.rain-paused {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(88%, 420px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  box-shadow: var(--shadow-2);
+  text-align: center;
+  animation: pcs-fade-up 0.25s ease;
+}
+.rain-reveal-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--wrong);
+}
+.rain-reveal-pair {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.rain-reveal-pair .font-tongan,
+.rain-missed-to {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15em;
+}
+.rain-eq { color: var(--text-muted); padding: 0 0.15em; }
+.rain-paused { gap: 12px; }
+.rain-paused .pcs-prompt-label { margin-bottom: 0; }
+.rain-quit { min-height: 44px; }
+
+/* Answer buttons: the drill's .pcs-btn grid. Its label is the serif, the
+   Tongan voice; an English answer reads in the UI face instead. The grid
+   stays two by two on a phone (the drill pages stack it in one column) so
+   the four answers sit under the sky without scrolling. */
+.premium-core.word-rain .rain-options { margin-bottom: 0; align-items: stretch; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.premium-core.word-rain .rain-opt { min-height: 60px; align-content: center; }
+.premium-core.word-rain .rain-opt .rain-opt-en {
+  font-family: var(--f-ui);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+}
+.premium-core.word-rain .rain-opt .pcs-btn-label { padding-right: 10px; overflow-wrap: anywhere; }
+
+/* ── end card ─────────────────────────────────────────────────────────── */
+.rain-final { font-variant-numeric: tabular-nums; }
+.rain-missed { margin: 0 auto 0.5rem; max-width: 30rem; }
+.rain-missed-list { list-style: none; margin: 10px 0 0; padding: 0; }
+.rain-missed-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--border);
+  font-size: 16px;
+}
+.rain-missed-en { color: var(--text-strong); }
+
+/* ── phones ───────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .premium-core.word-rain .pcs-card { padding: 1rem 1rem 1.25rem; }
+  .rain-sky { height: clamp(240px, 38vh, 320px); }
+  .rain-word.font-tongan { font-size: 23px; }
+  .rain-word-en { font-size: 17px; }
+  .premium-core.word-rain .rain-opt { padding: 10px 12px; }
+  .premium-core.word-rain .rain-opt .pcs-btn-label { font-size: 17px; }
+  .premium-core.word-rain .rain-opt .rain-opt-en { font-size: 15px; }
+  .rain-shape-raindrop .rain-shape { padding: 18px 18px 14px; }
+  .rain-shape-balloon .rain-shape { padding: 20px 20px; min-height: 72px; }
+}
+
+/* ── reduced motion: no sway, the pop becomes a fade; speed unchanged ── */
+@media (prefers-reduced-motion: reduce) {
+  .rain-shape-balloon .rain-sway { animation: none; }
+  .rain-mover.is-popped .rain-shape { animation: rain-fade 0.38s ease-out forwards; }
+  .rain-mover.is-popped .rain-sway::after { display: none; }
+  .rain-reveal, .rain-paused { animation: none; }
+}
