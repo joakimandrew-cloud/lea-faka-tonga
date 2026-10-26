@@ -11,6 +11,7 @@ import { useProgress } from '../lib/progress.js'
 const NAV = [
   { to: '/lessons', label: 'Lessons' },
   { to: '/drills', label: 'Drills' },
+  { to: '/games', label: 'Games' },
   { to: '/quizzes', label: 'Quizzes' },
   { to: '/cards', label: 'Flip cards' },
   { to: '/dictionary', label: 'Dictionary' },
@@ -150,7 +151,7 @@ export function Header({ progress = false, noticeMode = null }) {
           <Wordmark />
           <nav className="hdr-nav" aria-label="Main">
             {NAV.map(n => (
-              <NavLink key={n.to} to={n.to} className={({ isActive }) => `hdr-link ${isActive || (n.to === '/lessons' && loc.pathname.startsWith('/lessons')) || (n.to === '/drills' && loc.pathname.startsWith('/drill/')) || (n.to === '/quizzes' && loc.pathname.startsWith('/quizzes/')) || (n.to === '/topics' && /^\/(charts|alphabet|greetings|questions|grammar\/)/.test(loc.pathname)) ? 'is-active' : ''}`}>
+              <NavLink key={n.to} to={n.to} className={({ isActive }) => `hdr-link ${isActive || (n.to === '/lessons' && loc.pathname.startsWith('/lessons')) || (n.to === '/drills' && loc.pathname.startsWith('/drill/')) || (n.to === '/games' && loc.pathname.startsWith('/games/')) || (n.to === '/quizzes' && loc.pathname.startsWith('/quizzes/')) || (n.to === '/topics' && /^\/(charts|alphabet|greetings|questions|grammar\/)/.test(loc.pathname)) ? 'is-active' : ''}`}>
                 {n.label}
               </NavLink>
             ))}
@@ -212,6 +213,7 @@ export function Footer() {
           <Link to="/lessons">All 52 lessons</Link>
           <Link to="/lessons/1">Lesson 1</Link>
           <Link to="/drills">Drills</Link>
+          <Link to="/games">Games</Link>
           <Link to="/quizzes">Quizzes</Link>
           <Link to="/cards">Flip cards</Link>
           <Link to="/dictionary">Dictionary</Link>

@@ -54,6 +54,10 @@ export const STATIC_META = {
     description:
       'Thirty tap-only Tongan practice drills grouped by skill: tense markers, pronouns, possessives, articles, prepositions, question words, and more. Each one is tied to the lesson that teaches it.',
   },
+  '/games': {
+    title: `Tongan Word Games, Free Online Practice | ${SITE_NAME}`,
+    description: 'Short games over the Tongan course vocabulary. Pick a game and play a round.',
+  },
   '/dictionary': {
     title: `Tongan Dictionary, Browse and Search | ${SITE_NAME}`,
     description: 'Browse the course vocabulary by letter, including vowels beginning with fakauʻa, or search in Tongan and English.',

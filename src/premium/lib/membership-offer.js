@@ -21,7 +21,7 @@ export const MEMBERSHIP_RECOVERY_NOTICE = MEMBERSHIP_RECOVERY_BEFORE + MEMBERSHI
 
 export const FREE_PREVIEW_AUDIO_NOTICE = 'We’re working on adding audio to every Tongan example. Once it’s complete, lifetime website membership will cost US$99.'
 
-const PREVIEW_SECTIONS = new Set(['/lessons', '/quizzes', '/drills', '/cards', '/sentence-builder', '/terminal-build', '/topics', '/charts', '/alphabet', '/greetings'])
+const PREVIEW_SECTIONS = new Set(['/lessons', '/quizzes', '/drills', '/games', '/cards', '/sentence-builder', '/terminal-build', '/topics', '/charts', '/alphabet', '/greetings'])
 
 export function previewNoticeMode(pathname, bespokePaths = []) {
   const path = pathname.replace(/\/$/, '') || '/'

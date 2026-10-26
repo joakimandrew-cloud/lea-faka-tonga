@@ -16,6 +16,7 @@ const Quizzes = lazy(() => import('./pages/Quizzes.jsx'))
 const TenseSwap = lazy(() => import('./pages/TenseSwap.jsx'))
 const Cards = lazy(() => import('./pages/Cards.jsx'))
 const Drills = lazy(() => import('./pages/Drills.jsx'))
+const Games = lazy(() => import('./pages/Games.jsx'))
 const SourceDrill = lazy(() => import('./pages/SourceDrill.jsx'))
 const SourceBuilder = lazy(() => import('./pages/SourceBuilder.jsx'))
 const Reference = lazy(() => import('./pages/Reference.jsx'))
@@ -105,6 +106,7 @@ export default function App() {
           <Route path="/sentence-builder" element={<Page><SourceBuilder mode="sentence" /></Page>} />
           <Route path="/terminal-build" element={<Page><SourceBuilder mode="terminal" /></Page>} />
           <Route path="/cards" element={<Page><Cards /></Page>} />
+          <Route path="/games" element={<Page><Games /></Page>} />
           <Route path="/games/word-balloons" element={<Page><WordRain /></Page>} />
           <Route path="/charts" element={<Page><Reference /></Page>} />
           <Route path="/topics" element={<Page><Topics /></Page>} />

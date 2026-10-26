@@ -4,42 +4,28 @@ import { Link } from 'react-router-dom'
 import T from '../components/T.jsx'
 import { filteredDrillGroups, GROUPS, LEVELS, premiumRouteFor, UNCATALOGUED_DRILLS } from '../lib/source-routes.js'
 import { useTitle } from '../lib/title.js'
-import vocabulary from '@app/data/book-vocabulary.json'
-import { buildDeck, makeRng, makeRound } from '@app/games/word-rain/index.js'
-import { ALL_WORDS } from '@app/games/shared/lists.js'
+import { GAMES } from '@app/games/registry.js'
 import '../styles/catalog.css'
 
-// Word Balloons (plan 2026-10-26-word-rain-game) is a game over the course words,
-// not a one-pattern drill, so it stays out of the drill catalogue and its
-// count. Its card is a catalogue card like the rest; the word on it is a real
-// round from the game's own deck (fixed seed), so no Tongan is typed here.
-// The count is the game's own All words (course words plus the site's word
-// lists, less the words it leaves out), so the card and the game agree.
-const GAME_WORDS = ALL_WORDS.length
-const GAME_SAMPLE = makeRound(buildDeck(vocabulary, 'essential'), makeRng(2026))
-const GAMES = [{
-  key: 'word-balloons',
-  to: '/games/word-balloons',
-  title: 'Word Balloons',
-  blurb: 'Tap the meaning before the word gets away.',
-  action: 'Play',
-  sample: { q: 'Tap the meaning', ton: GAME_SAMPLE.mover },
-}]
+// Games come from the registry (src/games/registry.js); a game is not a
+// one-pattern drill, so it stays out of the drill catalogue and its count.
+// Each card's sample is built from the game's own deck, so no Tongan is typed here.
+const GAME_SAMPLES = GAMES.map(game => game.sample())
 const gameMatches = (game, query) => {
   const q = query.trim().toLowerCase()
   return !q || `${game.title} ${game.blurb} game vocabulary words`.toLowerCase().includes(q)
 }
 
-function GameCard({ game }) {
+function GameCard({ game, sample }) {
   return (
-    <Link className="catalog-card" to={game.to}>
+    <Link className="catalog-card" to={game.route}>
       <span className="catalog-card-top">
         <span>Game</span>
-        <span>{GAME_WORDS} words</span>
+        <span>{game.words} words</span>
       </span>
       <span className="catalog-sample" aria-hidden="true">
-        <span>{game.sample.q}</span>
-        <T>{game.sample.ton}</T>
+        <span>{sample.q}</span>
+        <T>{sample.ton}</T>
       </span>
       <strong>{game.title}</strong>
       <span className="catalog-card-copy">{game.blurb}</span>
@@ -156,7 +142,7 @@ export default function Drills() {
               </div>
             </header>
             <div className="catalog-grid">
-              {games.map(game => <GameCard key={game.key} game={game} />)}
+              {games.map(game => <GameCard key={game.key} game={game} sample={GAME_SAMPLES[GAMES.indexOf(game)]} />)}
             </div>
           </section>
         )}
