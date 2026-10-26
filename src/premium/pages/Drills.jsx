@@ -6,13 +6,16 @@ import { filteredDrillGroups, GROUPS, LEVELS, premiumRouteFor, UNCATALOGUED_DRIL
 import { useTitle } from '../lib/title.js'
 import vocabulary from '@app/data/book-vocabulary.json'
 import { buildDeck, makeRng, makeRound } from '@app/games/word-rain/index.js'
+import { ALL_WORDS } from '@app/games/word-rain/lists.js'
 import '../styles/catalog.css'
 
 // Word Balloons (plan 2026-10-26-word-rain-game) is a game over the course words,
 // not a one-pattern drill, so it stays out of the drill catalogue and its
 // count. Its card is a catalogue card like the rest; the word on it is a real
 // round from the game's own deck (fixed seed), so no Tongan is typed here.
-const GAME_WORDS = buildDeck(vocabulary, 'all').length
+// The count is the game's own All words (course words plus the site's word
+// lists, less the words it leaves out), so the card and the game agree.
+const GAME_WORDS = ALL_WORDS.length
 const GAME_SAMPLE = makeRound(buildDeck(vocabulary, 'essential'), makeRng(2026))
 const GAMES = [{
   key: 'word-balloons',
