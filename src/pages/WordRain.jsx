@@ -9,8 +9,10 @@ import {
   multiplierFor, toNextLevel, WORDS_PER_LEVEL, TWO_AT_ONCE_FROM,
   drawFromBag, missedInBag, resumeBag, bagToSave,
 } from '../games/word-rain'
-import { MENU, ALL_WORDS, ALL_WORDS_ID, listById, homeList, bestKey, oldBestKeys } from '../games/word-rain/lists.js'
-import { unlock, play } from '../games/word-rain/sound.js'
+import { MENU, ALL_WORDS, ALL_WORDS_ID, listById, homeList, bestKey, oldBestKeys } from '../games/shared/lists.js'
+import { readStore, writeStore } from '../games/shared/store.js'
+import { readBests as readSavedBests, bestOf as bestOfSaved, recordBest } from '../games/shared/best-scores.js'
+import { unlock, play } from '../games/shared/sound.js'
 import {
   Sky, Ground, Balloon, Burst, Confetti, Hearts, Flame, PauseIcon, SoundIcon, GearIcon, ChevronIcon,
 } from '../games/word-rain/scene.jsx'
@@ -64,28 +66,11 @@ const DIRECTION_LABELS = {
 }
 
 // ── storage (every read and write survives a browser that refuses it) ──
-function readStore(key) {
-  try { return window.localStorage.getItem(key) } catch { return null }
-}
-function writeStore(key, value) {
-  try { window.localStorage.setItem(key, value) } catch { /* private mode: lasts this visit */ }
-}
 function readMuted() { return readStore(MUTE_KEY) === '1' }
-function readBests() {
-  try {
-    const v = JSON.parse(readStore(BEST_KEY) || '{}')
-    return v && typeof v === 'object' ? v : {}
-  } catch {
-    return {}
-  }
-}
+function readBests() { return readSavedBests(BEST_KEY) }
 // A best score belongs to a list (key "topic:family"). A list with nothing
 // kept yet reads the score Steps 1 to 3 kept for its nearest old list.
-function bestOf(bests, key) {
-  let b = bests?.[key]
-  if (!b) for (const old of oldBestKeys(key)) { if (bests?.[old]) { b = bests[old]; break } }
-  return { score: Math.max(0, Number(b?.score) || 0), level: Math.max(0, Number(b?.level) || 0) }
-}
+function bestOf(bests, key) { return bestOfSaved(bests, key, oldBestKeys) }
 
 // ── reduced motion (read live, no state copied in an effect) ───────────
 const REDUCED = '(prefers-reduced-motion: reduce)'
@@ -387,12 +372,9 @@ export default function WordRain() {
       dispatch({ type: 'revealDone' })
       if (s.lives > 0) return
       const { bestId: set, bests: all } = settingsRef.current
-      const prev = bestOf(all, set)
-      const newBest = s.score > prev.score
-      const next = { ...all, [set]: { score: Math.max(prev.score, s.score), level: Math.max(prev.level, s.level) } }
-      writeStore(BEST_KEY, JSON.stringify(next))
+      const { next, newBest, prev } = recordBest(BEST_KEY, all, set, { score: s.score, level: s.level }, oldBestKeys)
       setBests(next)
-      setResult({ newBest, best: prev.score })
+      setResult({ newBest, best: prev })
     }, REVEAL_MS)
     return () => window.clearTimeout(t)
   }, [reveal, paused, dispatch])

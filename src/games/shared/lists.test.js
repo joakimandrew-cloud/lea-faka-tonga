@@ -3,9 +3,8 @@ import vocabulary from '../../data/book-vocabulary.json'
 import wordLists from '../../premium/data/word-lists.json'
 import confusable from './confusable-pairs.json'
 import { listMenu, topicMenu } from '../../lib/vocab-decks.js'
-import {
-  makeRng, makeRound, shareWord, derivedPair, clashes, DIRECTIONS,
-} from './index.js'
+import { makeRng, shareWord, derivedPair, clashes } from './index.js'
+import { makeRound, DIRECTIONS } from '../word-rain/index.js'
 import {
   ALL_MENU, MENU, MENU_LISTS, ALL_WORDS, ALL_WORDS_ID, MIN_LIST_WORDS, listById, homeList, bestKey, oldBestKeys,
 } from './lists.js'

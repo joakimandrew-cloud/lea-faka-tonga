@@ -12,7 +12,7 @@
  */
 import { useEffect, useRef } from 'react'
 import { KupesiBand } from '../../premium/components/Kupesi.jsx'
-import { makeRng } from './rounds.js'
+import { makeRng } from '../shared/fair.js'
 
 // ── clouds ──────────────────────────────────────────────────────────────
 

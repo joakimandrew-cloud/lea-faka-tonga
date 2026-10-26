@@ -4,8 +4,9 @@ import wordLists from '../../premium/data/word-lists.json'
 import confusable from './confusable-pairs.json'
 import {
   buildDeck, contentWords, stemWord, derivedFrom, clashes, shareWord, derivedPair,
-  makeRng, makeRound, makeFollowerRound, DIRECTIONS,
+  makeRng,
 } from './index.js'
+import { makeRound, makeFollowerRound, DIRECTIONS } from '../word-rain/index.js'
 
 const ids = { nofo: 'book-v0062', tangutu: 'book-v0133', mouiLive: 'book-v0029', nonofo: 'book-v0331' }
 const all = buildDeck(vocabulary, 'all')

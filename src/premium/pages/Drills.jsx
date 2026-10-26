@@ -6,7 +6,7 @@ import { filteredDrillGroups, GROUPS, LEVELS, premiumRouteFor, UNCATALOGUED_DRIL
 import { useTitle } from '../lib/title.js'
 import vocabulary from '@app/data/book-vocabulary.json'
 import { buildDeck, makeRng, makeRound } from '@app/games/word-rain/index.js'
-import { ALL_WORDS } from '@app/games/word-rain/lists.js'
+import { ALL_WORDS } from '@app/games/shared/lists.js'
 import '../styles/catalog.css'
 
 // Word Balloons (plan 2026-10-26-word-rain-game) is a game over the course words,

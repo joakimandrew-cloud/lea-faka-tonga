@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import vocabulary from '../../data/book-vocabulary.json'
 import wordLists from '../../premium/data/word-lists.json'
-import confusable from './confusable-pairs.json'
+import confusable from '../shared/confusable-pairs.json'
 import {
   allWordsDeck, buildDeck, makeRng, makeRound, clashes, posClass, tonganKey,
   gameReducer, initialGame, frontWord, ANSWER_LOCKOUT_MS,

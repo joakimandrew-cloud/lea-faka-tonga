@@ -17,7 +17,8 @@
  * in that order never cross, so the front word stays the front word.
  */
 import { flightMs, FLOOR_MS } from './speed.js'
-import { clashes, makeRound } from './rounds.js'
+import { clashes } from '../shared/fair.js'
+import { makeRound } from './rounds.js'
 
 export const WORDS_PER_LEVEL = 8
 export const SKY_LEVELS = 7

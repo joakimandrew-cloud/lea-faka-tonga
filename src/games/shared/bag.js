@@ -18,7 +18,7 @@
  *            the turn at which it is next in line
  *   round    how many times the bag has been filled
  */
-import { shuffle } from './rounds.js'
+import { shuffle } from './fair.js'
 
 export const RETURN_MIN = 5
 export const RETURN_MAX = 8

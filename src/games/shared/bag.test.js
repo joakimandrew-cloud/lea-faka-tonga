@@ -1,9 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import {
   makeBag, drawFromBag, missedInBag, resumeBag, bagToSave, RETURN_MIN, RETURN_MAX,
-  makeRng, makeRound, makeFollowerRound, followerBlocked, clashes,
-  gameReducer, initialGame, frontWord, levelFlightMs,
+  makeRng, clashes,
 } from './index.js'
+import {
+  makeRound, makeFollowerRound, followerBlocked,
+  gameReducer, initialGame, frontWord, levelFlightMs,
+} from '../word-rain/index.js'
 import { listById, MENU_LISTS } from './lists.js'
 
 const ids = n => Array.from({ length: n }, (_, i) => `w${i + 1}`)

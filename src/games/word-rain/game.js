@@ -15,7 +15,7 @@
  * While a wrong answer or a miss is being shown (`reveal`), or while the game
  * is paused, every word is frozen and answers are ignored.
  */
-import { pointsFor, multiplierFor } from './scoring.js'
+import { pointsFor, multiplierFor } from '../shared/scoring.js'
 import { levelFor, MAX_IN_AIR } from './levels.js'
 
 export const LIVES = 3
