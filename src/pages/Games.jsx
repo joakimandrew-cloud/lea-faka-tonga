@@ -10,7 +10,7 @@ export function GameCard({ game, sample }) {
     <Link className="catalog-card" to={game.route}>
       <span className="catalog-card-top">
         <span>Game</span>
-        <span>{game.words} words</span>
+        <span>{game.words} {game.unit ?? 'words'}</span>
       </span>
       <span className="catalog-sample" aria-hidden="true">
         <span>{sample.q}</span>
@@ -32,7 +32,7 @@ export default function Games() {
         <div className="wrap">
           <p className="eyebrow">Games · Practice by play</p>
           <h1 className="display">Play with<br />the words.</h1>
-          <p>Short games over the course vocabulary. Pick one and play a round.</p>
+          <p>Short games over the course words and the book’s own sentences. Pick one and play a round.</p>
         </div>
       </header>
       <div className="wrap catalog-body">

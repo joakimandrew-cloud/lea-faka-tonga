@@ -19,8 +19,10 @@
 import { flightMs, FLOOR_MS } from './speed.js'
 import { clashes } from '../shared/fair.js'
 import { makeRound } from './rounds.js'
+import { WORDS_PER_LEVEL, levelFor, isLevelUp, toNextLevel } from '../shared/levels.js'
 
-export const WORDS_PER_LEVEL = 8
+// The level count is shared by every game (src/games/shared/levels.js).
+export { WORDS_PER_LEVEL, levelFor, isLevelUp, toNextLevel }
 export const SKY_LEVELS = 7
 export const TWO_AT_ONCE_FROM = 3
 export const MAX_IN_AIR = 2
@@ -29,22 +31,6 @@ export const GAP_MS = 900
 function count(n) {
   const v = Math.floor(Number(n))
   return Number.isFinite(v) && v > 0 ? v : 0
-}
-
-/** The level after `correct` right answers: 0-7 is level 1, 8-15 level 2. */
-export function levelFor(correct) {
-  return 1 + Math.floor(count(correct) / WORDS_PER_LEVEL)
-}
-
-/** True when the answer that took `before` to `after` started a new level. */
-export function isLevelUp(before, after) {
-  return levelFor(after) > levelFor(before)
-}
-
-/** Right answers still needed for the next level. */
-export function toNextLevel(correct) {
-  const c = count(correct)
-  return WORDS_PER_LEVEL - (c % WORDS_PER_LEVEL)
 }
 
 /** How long one word takes to cross the sky at a level (never under 3 s). */

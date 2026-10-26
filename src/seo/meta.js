@@ -56,7 +56,7 @@ export const STATIC_META = {
   },
   '/games': {
     title: `Tongan Word Games, Free Online Practice | ${SITE_NAME}`,
-    description: 'Short games over the Tongan course vocabulary. Pick a game and play a round.',
+    description: 'Short games over the Tongan course words and the book’s own sentences. Pick a game and play a round.',
   },
   '/dictionary': {
     title: `Tongan Dictionary, Browse and Search | ${SITE_NAME}`,

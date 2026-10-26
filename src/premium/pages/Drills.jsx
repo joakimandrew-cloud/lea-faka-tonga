@@ -13,7 +13,7 @@ import '../styles/catalog.css'
 const GAME_SAMPLES = GAMES.map(game => game.sample())
 const gameMatches = (game, query) => {
   const q = query.trim().toLowerCase()
-  return !q || `${game.title} ${game.blurb} game vocabulary words`.toLowerCase().includes(q)
+  return !q || `${game.title} ${game.blurb} game vocabulary ${game.unit ?? 'words'}`.toLowerCase().includes(q)
 }
 
 function GameCard({ game, sample }) {
@@ -21,7 +21,7 @@ function GameCard({ game, sample }) {
     <Link className="catalog-card" to={game.route}>
       <span className="catalog-card-top">
         <span>Game</span>
-        <span>{game.words} words</span>
+        <span>{game.words} {game.unit ?? 'words'}</span>
       </span>
       <span className="catalog-sample" aria-hidden="true">
         <span>{sample.q}</span>

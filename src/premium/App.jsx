@@ -33,6 +33,8 @@ const Membership = lazy(() => import('./pages/Membership.jsx'))
 const PartnerRedirect = lazy(() => import('@app/pages/PartnerRedirect.jsx'))
 // Word Balloons, the first word game (plan 2026-10-26-word-rain-game; code folders keep the name word-rain).
 const WordRain = lazy(() => import('./pages/WordRain.jsx'))
+// Sentence Tiles, the second game (plan 2026-10-26-games-section).
+const SentenceTiles = lazy(() => import('./pages/SentenceTiles.jsx'))
 
 const BESPOKE_DRILL_ROUTES = Object.entries(BESPOKE).filter(([id]) => id !== 'terminal-builder')
 
@@ -82,7 +84,7 @@ export default function App() {
   const loc = useLocation()
   useEffect(() => { if (!loc.hash) window.scrollTo({ top: 0, behavior: 'instant' }) }, [loc.pathname, loc.hash])
   const reading = /^\/lessons\/\d+/.test(loc.pathname)
-  const focus = /^\/(quizzes|drill)\//.test(loc.pathname) || ['/cards', '/games/word-balloons', '/sentence-builder', '/terminal-build', ...BESPOKE_DRILL_ROUTES.map(([, path]) => path)].includes(loc.pathname)
+  const focus = /^\/(quizzes|drill)\//.test(loc.pathname) || ['/cards', '/games/word-balloons', '/games/sentence-tiles', '/sentence-builder', '/terminal-build', ...BESPOKE_DRILL_ROUTES.map(([, path]) => path)].includes(loc.pathname)
 
   return (
     <>
@@ -108,6 +110,7 @@ export default function App() {
           <Route path="/cards" element={<Page><Cards /></Page>} />
           <Route path="/games" element={<Page><Games /></Page>} />
           <Route path="/games/word-balloons" element={<Page><WordRain /></Page>} />
+          <Route path="/games/sentence-tiles" element={<Page><SentenceTiles /></Page>} />
           <Route path="/charts" element={<Page><Reference /></Page>} />
           <Route path="/topics" element={<Page><Topics /></Page>} />
           <Route path="/alphabet" element={<Page><TopicArticle /></Page>} />
