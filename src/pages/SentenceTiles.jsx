@@ -4,27 +4,32 @@ import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
 import { okinafy } from '../lib/okinafy.js'
 import T, { Inline } from '../premium/components/T.jsx'
 import {
-  LESSON_MENU, ALL_LESSONS_ID, lessonChoice,
+  LESSONS, lessonEntry, nextLesson,
   makeRound, makeTiles, capitalFirst, sentenceText, cluesFor,
-  gameReducer, initialGame, isFrozen, timeLeftMs, LIVES, WRONG_TAP_MS,
+  gameReducer, initialGame, isFrozen, finishedCount,
+  loadProgress, saveProgress, progressAfter, startingLesson, lessonBag, dealFromLesson,
 } from '../games/sentence-tiles'
 import { makeRng } from '../games/shared/fair.js'
 import { multiplierFor } from '../games/shared/scoring.js'
-import { WORDS_PER_LEVEL, toNextLevel } from '../games/shared/levels.js'
-import { drawFromBag, missedInBag, resumeBag, bagToSave } from '../games/shared/bag.js'
 import { readStore, writeStore } from '../games/shared/store.js'
 import { readBests, bestOf, recordBest } from '../games/shared/best-scores.js'
 import { unlock, play } from '../games/shared/sound.js'
-import { Sky, Ground, Confetti, Hearts, Flame, PauseIcon, SoundIcon, ChevronIcon } from '../games/word-rain/scene.jsx'
+import { Sky, Ground, Confetti, Flame, PauseIcon, SoundIcon, ChevronIcon } from '../games/word-rain/scene.jsx'
 
 /**
- * Sentence Tiles (plan 2026-10-26-games-section, Step 3). An English sentence
- * from the book's exercises shows; below it, the Tongan words of the book's
- * own answer as shuffled tiles. Tap the tiles into the answer line in order
- * before the clock runs out. A right tap moves the tile into the line; a
- * wrong tap shakes it and takes 1.5 s off the clock (and the streak starts
- * again); running out of time costs a life and shows the right order. Every
- * 8 sentences is a new level and the clock is shorter. Three lives.
+ * Sentence Tiles (plan 2026-10-26-games-section, Step 3; untimed and in
+ * lesson order since Step 11). An English sentence from the book's exercises
+ * shows; below it, the Tongan words of the book's own answer as shuffled
+ * tiles. Tap the tiles into the answer line in order. There is no clock: a
+ * sentence stays until it is built (Andrew, 2026-10-26: "this game should not
+ * be timed"). A right tap moves the tile into the line; a wrong tap shakes it
+ * and the streak starts again. There are no lives.
+ *
+ * One game is one lesson (Andrew, 2026-10-26: "have it in order of lessons").
+ * A new player starts at Lesson 1; the lesson's sentences come once each, in
+ * a shuffled order, and the finish card offers the next lesson. The furthest
+ * lesson reached is kept on this device (lessons.js), so a return visit opens
+ * there; the Lessons sheet starts any lesson that has sentences.
  *
  * Two helps (Step 7, Andrew's ruling at the Step 6 look): Fill in (or H)
  * places the next word for the player, the same way a right tap would; a
@@ -43,20 +48,15 @@ import { Sky, Ground, Confetti, Hearts, Flame, PauseIcon, SoundIcon, ChevronIcon
  * src/premium).
  */
 
-const COUNT_MS = 650
 const DONE_MS = 1300
-const REVEAL_MS = 3200
-const BANNER_MS = 1800
 const NEXT_MS = 260
-const AFTER_LEVEL_UP_MS = 1150
+// The "Lesson N" banner shows this long before the lesson's first sentence (its ribbon animation's length).
+const START_MS = 1800
 
 const MUTE_KEY = 'lft-sentence-tiles-muted'
-// One shuffle bag per lesson choice, kept between games, so a new game goes
-// on through the sentences not yet played.
-const BAG_KEY_PREFIX = 'lft-sentence-tiles-bag:'
+// Best scores by lesson ({ "lesson:N": { score, level } }, level holding the lesson number).
 const BEST_KEY = 'lft-sentence-tiles-best'
 const CLUES_KEY = 'lft-sentence-tiles-clues'
-const COST_LABEL = `−${WRONG_TAP_MS / 1000} s`
 
 function readMuted() { return readStore(MUTE_KEY) === '1' }
 function readClues() { return readStore(CLUES_KEY) === '1' }
@@ -120,7 +120,9 @@ const SHAKE = [
 ]
 
 export default function SentenceTiles() {
-  const [choiceId, setChoiceId] = useState(ALL_LESSONS_ID)
+  const [progress, setProgress] = useState(loadProgress)
+  // The lesson the title screen offers: the furthest reached (Lesson 1 for a new player), or one picked from the sheet.
+  const [lessonNo, setLessonNo] = useState(() => startingLesson(progress))
   const [panel, setPanel] = useState(null) // null | 'lessons'
   const [muted, setMutedState] = useState(readMuted)
   const [clues, setClues] = useState(readClues)
@@ -132,12 +134,10 @@ export default function SentenceTiles() {
   const isTouch = useIsTouchPrimary()
   const reduced = useReducedMotion()
 
-  const choice = useMemo(() => lessonChoice(choiceId), [choiceId])
-  const listId = choice.id
-  const byId = useMemo(() => new Map(choice.cards.map(s => [s.id, s])), [choice])
-  const best = bestOf(bests, listId)
+  const choice = useMemo(() => lessonEntry(lessonNo), [lessonNo])
+  const best = bestOf(bests, choice.id)
 
-  // The title screen's tiles: a real sentence of the chosen lessons, new on each visit.
+  // The title screen's tiles: a real sentence of the chosen lesson, new on each visit.
   const [titleSeed] = useState(() => Date.now())
   const titleSample = useMemo(() => {
     const rng = makeRng(titleSeed)
@@ -145,17 +145,24 @@ export default function SentenceTiles() {
     return s ? { sentence: s, tiles: makeTiles(s, rng) } : null
   }, [choice, titleSeed])
 
-  const { phase, paused, round, score, lives, level, streak, levelUp, hits, correct } = state
+  const { phase, paused, round, score, streak, correct } = state
   const frozen = isFrozen(state)
   const mult = multiplierFor(streak)
-  const inGame = phase === 'countdown' || phase === 'playing'
+  const inGame = phase === 'playing'
+  // The lesson being played (in a game or on its finish card), else the one the title offers.
+  const shownLesson = state.lesson ?? choice.lesson
+  const played = lessonEntry(shownLesson)
+  const after = nextLesson(shownLesson)
+  const finished = finishedCount(state)
 
   const stateRef = useRef(state)
-  const settingsRef = useRef({ choice, byId, listId, bests, muted })
+  const settingsRef = useRef({ choice, bests, muted })
   useEffect(() => { stateRef.current = state })
-  useEffect(() => { settingsRef.current = { choice, byId, listId, bests, muted, bagKey: BAG_KEY_PREFIX + listId } })
+  useEffect(() => { settingsRef.current = { choice, bests, muted } })
 
   const bagRef = useRef(null)
+  // The sentence the last game ended on, so playing the lesson again does not open with it.
+  const lastRef = useRef(null)
 
   const sound = useCallback((name, ...args) => {
     if (!settingsRef.current.muted) play(name, ...args)
@@ -176,140 +183,72 @@ export default function SentenceTiles() {
     })
   }, [])
 
-  const start = useCallback((instant = false) => {
+  // Starts a game of one lesson (no countdown: nothing in this game is timed).
+  const start = useCallback((lesson) => {
     if (!settingsRef.current.muted) unlock()
+    const entry = lessonEntry(lesson ?? settingsRef.current.choice.lesson)
     setResult(null)
     setPanel(null)
-    let saved = null
-    try { saved = JSON.parse(readStore(settingsRef.current.bagKey) || 'null') } catch { saved = null }
-    bagRef.current = resumeBag(saved, settingsRef.current.choice.cards.map(s => s.id), Math.random)
-    dispatch({ type: 'start', instant })
+    setLessonNo(entry.lesson)
+    bagRef.current = lessonBag(entry.lesson, Math.random, { last: lastRef.current })
+    dispatch({ type: 'start', lesson: entry.lesson, total: entry.count })
   }, [dispatch])
 
-  // ── the clock: how long this sentence has run, stopped while frozen ───
-  const clock = useRef({ key: null, base: 0, from: null })
-  const elapsedNow = useCallback(() => {
-    const c = clock.current
-    return c.base + (c.from != null ? performance.now() - c.from : 0)
-  }, [])
-  const roundKey = round?.key ?? null
-  useLayoutEffect(() => {
-    const c = clock.current
-    if (c.key !== roundKey) clock.current = { key: roundKey, base: 0, from: null }
-    const k = clock.current
-    if (frozen) {
-      if (k.from != null) { k.base += performance.now() - k.from; k.from = null }
-    } else if (k.from == null) {
-      k.from = performance.now()
-    }
-  }, [roundKey, frozen])
-
-  // The timer bar is drawn every frame without a re-render; it calls time.
-  const barRef = useRef(null)
-  const timedOut = useRef(null)
-  useEffect(() => {
-    if (phase !== 'playing') return
-    let raf = 0
-    const step = () => {
-      const s = stateRef.current
-      const r = s.round
-      const bar = barRef.current
-      if (r) {
-        const left = timeLeftMs(r, elapsedNow())
-        if (bar) {
-          const frac = r.status === 'building' ? left / r.durationMs : (r.status === 'done' ? left / r.durationMs : 0)
-          bar.style.transform = `scaleX(${Math.max(0, Math.min(1, frac)).toFixed(4)})`
-          bar.dataset.low = frac < 0.3 ? '1' : '0'
-        }
-        const id = `${s.gameId}-${r.key}`
-        if (left <= 0 && !isFrozen(s) && timedOut.current !== id) {
-          timedOut.current = id
-          dispatch({ type: 'timeout', key: r.key })
-        }
-      } else if (bar) {
-        bar.style.transform = 'scaleX(1)'
-        bar.dataset.low = '0'
-      }
-      raf = requestAnimationFrame(step)
-    }
-    raf = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(raf)
-  }, [phase, elapsedNow, dispatch])
-
-  // ── the next sentence: from the bag, a beat after the last one ────────
+  // ── the next sentence: the lesson's bag, a beat after the last one ────
   const deal = useCallback(() => {
     const s = stateRef.current
     if (s.phase !== 'playing' || s.paused || s.round || !bagRef.current) return
-    const { byId: cards } = settingsRef.current
-    const { id, bag } = drawFromBag(bagRef.current, Math.random)
-    const sentence = id && cards.get(id)
+    const { sentence, bag } = dealFromLesson(bagRef.current, Math.random)
     if (!sentence) return
     bagRef.current = bag
-    writeStore(settingsRef.current.bagKey, JSON.stringify(bagToSave(bag)))
-    dispatch({ type: 'deal', round: makeRound(sentence, Math.random, { level: s.level }) })
+    lastRef.current = sentence.id
+    dispatch({ type: 'deal', round: makeRound(sentence, Math.random) })
   }, [dispatch])
 
   useEffect(() => {
     if (phase !== 'playing' || paused || round) return
-    const t = window.setTimeout(deal, levelUp ? AFTER_LEVEL_UP_MS : NEXT_MS)
+    const t = window.setTimeout(deal, state.nextKey === 1 ? START_MS : NEXT_MS)
     return () => window.clearTimeout(t)
-  }, [phase, paused, round, levelUp, deal])
+  }, [phase, paused, round, state.nextKey, deal])
 
-  // A finished sentence holds a moment; a timed-out one shows the right order longer.
+  // A finished sentence holds a moment, then the next comes (or the finish card).
   const status = round?.status ?? null
+  const roundKey = round?.key ?? null
   useEffect(() => {
-    if (paused || (status !== 'done' && status !== 'timeout')) return
-    const t = window.setTimeout(() => dispatch({ type: 'next' }), status === 'done' ? DONE_MS : REVEAL_MS)
+    if (paused || status !== 'done') return
+    const t = window.setTimeout(() => dispatch({ type: 'next' }), DONE_MS)
     return () => window.clearTimeout(t)
   }, [status, roundKey, paused, dispatch])
 
-  // Every timed-out sentence goes back in the bag, to come round once more 5 to 8 later.
-  const missSeen = useRef({ gameId: 0, n: 0 })
-  useEffect(() => {
-    if (missSeen.current.gameId !== state.gameId) missSeen.current = { gameId: state.gameId, n: 0 }
-    const { misses } = state
-    for (let i = missSeen.current.n; i < misses.length; i++) {
-      if (bagRef.current) bagRef.current = missedInBag(bagRef.current, misses[i], Math.random)
-    }
-    missSeen.current.n = misses.length
-  }, [state])
-
-  // Game over: keep the best score for this lesson choice.
+  // The lesson is finished: keep its best score, mark it done, and move the title screen on to the next lesson.
   const recorded = useRef(0)
   useEffect(() => {
-    if (phase !== 'over' || recorded.current === state.gameId) return
+    if (phase !== 'over' || recorded.current === state.gameId || state.lesson == null) return
     recorded.current = state.gameId
-    const { listId: key, bests: all } = settingsRef.current
-    const { next, newBest, prev } = recordBest(BEST_KEY, all, key, { score: state.score, level: state.level })
+    const { bests: all } = settingsRef.current
+    const { next, newBest, prev } = recordBest(BEST_KEY, all, lessonEntry(state.lesson).id, { score: state.score, level: state.lesson })
     setBests(next)
     setResult({ newBest, best: prev })
-  }, [phase, state.gameId, state.score, state.level])
-
-  useEffect(() => {
-    if (!levelUp) return
-    const t = window.setTimeout(() => dispatch({ type: 'levelUpDone', at: levelUp.at }), BANNER_MS)
-    return () => window.clearTimeout(t)
-  }, [levelUp, dispatch])
-
-  useEffect(() => {
-    if (phase !== 'countdown' || paused) return
-    const t = window.setTimeout(() => dispatch({ type: 'tick' }), COUNT_MS)
-    return () => window.clearTimeout(t)
-  }, [phase, paused, state.count, dispatch])
+    setProgress(p => {
+      const np = progressAfter(p, state.lesson)
+      saveProgress(np)
+      return np
+    })
+    setLessonNo(nextLesson(state.lesson) ?? state.lesson)
+  }, [phase, state.gameId, state.score, state.lesson])
 
   // ── sound, shake and buzz follow the state ───────────────────────────
   const sceneRef = useRef(null)
   const tileEls = useRef(new Map())
   const placedCount = round?.placed.length ?? 0
-  const seen = useRef({ gameId: 0, correct: 0, helped: 0, hits: 0, wrongTaps: 0, levelUp: null, count: null, phase: 'title', placed: 0, key: null })
+  const seen = useRef({ gameId: 0, correct: 0, helped: 0, wrongTaps: 0, phase: 'title', placed: 0, key: null })
   useEffect(() => {
     let s = seen.current
-    if (state.gameId !== s.gameId) s = { gameId: state.gameId, correct: 0, helped: 0, hits: 0, wrongTaps: 0, levelUp: null, count: null, phase: 'title', placed: 0, key: null }
+    if (state.gameId !== s.gameId) s = { gameId: state.gameId, correct: 0, helped: 0, wrongTaps: 0, phase: 'title', placed: 0, key: null }
     const sameRound = s.key === roundKey
-    if (phase === 'countdown' && state.count !== s.count) sound('tick', false)
     if (phase === 'playing' && s.phase !== 'playing') sound('tick', true)
-    // A finished sentence (or a new level) chimes once; each right tile pops.
-    if (correct > s.correct || state.helped > s.helped || (levelUp && levelUp.at !== s.levelUp)) sound('chime')
+    // A finished sentence chimes once; each right tile pops.
+    if (correct > s.correct || state.helped > s.helped) sound('chime')
     else if (sameRound && placedCount > s.placed) sound('pop', 1)
     if (state.wrongTaps > s.wrongTaps) {
       sound('thud')
@@ -329,25 +268,10 @@ export default function SentenceTiles() {
         if (!reduced) el.animate(SHAKE, { duration: 340, easing: 'ease-out', composite: 'add' })
       }
     }
-    if (hits > s.hits) {
-      if (state.wrongTaps === s.wrongTaps) sound('thud')
-      if (isTouch) buzz()
-      const el = sceneRef.current
-      if (el && !reduced && typeof el.animate === 'function') {
-        el.animate(
-          [
-            { transform: 'translateX(0)' }, { transform: 'translateX(-9px)' }, { transform: 'translateX(8px)' },
-            { transform: 'translateX(-5px)' }, { transform: 'translateX(3px)' }, { transform: 'translateX(0)' },
-          ],
-          { duration: 380, easing: 'ease-out' },
-        )
-      }
-    }
     seen.current = {
-      gameId: state.gameId, correct, helped: state.helped, hits, wrongTaps: state.wrongTaps, levelUp: levelUp?.at ?? s.levelUp,
-      count: state.count, phase, placed: placedCount, key: roundKey,
+      gameId: state.gameId, correct, helped: state.helped, wrongTaps: state.wrongTaps, phase, placed: placedCount, key: roundKey,
     }
-  }, [phase, state.count, state.gameId, state.wrongTaps, state.helped, correct, hits, levelUp, placedCount, roundKey, round, isTouch, reduced, sound])
+  }, [phase, state.gameId, state.wrongTaps, state.helped, correct, placedCount, roundKey, round, isTouch, reduced, sound])
 
   // ── input ────────────────────────────────────────────────────────────
   const pick = useCallback((slot) => {
@@ -355,8 +279,8 @@ export default function SentenceTiles() {
     const r = s.round
     if (!r || r.status !== 'building') return
     if (!settingsRef.current.muted) unlock()
-    dispatch({ type: 'pick', key: r.key, slot, elapsedMs: elapsedNow() })
-  }, [dispatch, elapsedNow])
+    dispatch({ type: 'pick', key: r.key, slot })
+  }, [dispatch])
 
   // Fill in: the next word goes into the line for the player (scores nothing).
   const fill = useCallback(() => {
@@ -364,8 +288,8 @@ export default function SentenceTiles() {
     const r = s.round
     if (!r || r.status !== 'building') return
     if (!settingsRef.current.muted) unlock()
-    dispatch({ type: 'fill', key: r.key, elapsedMs: elapsedNow() })
-  }, [dispatch, elapsedNow])
+    dispatch({ type: 'fill', key: r.key })
+  }, [dispatch])
 
   // A tile picked from the keyboard leaves the tray; the focus moves on to the nearest tile left.
   const trayRef = useRef(null)
@@ -404,12 +328,6 @@ export default function SentenceTiles() {
     dispatch({ type: s.paused ? 'resume' : 'pause' })
   }, [dispatch])
 
-  useEffect(() => {
-    const onHide = () => { if (document.hidden) dispatch({ type: 'pause' }) }
-    document.addEventListener('visibilitychange', onHide)
-    return () => document.removeEventListener('visibilitychange', onHide)
-  }, [dispatch])
-
   // ── the Lessons sheet ────────────────────────────────────────────────
   const panelRef = useRef(panel)
   useEffect(() => { panelRef.current = panel })
@@ -430,21 +348,21 @@ export default function SentenceTiles() {
     const target = el?.querySelector('[aria-checked="true"]') ?? el?.querySelector('button')
     target?.focus({ preventScroll: true })
   }, [panel])
-  const chooseLessons = useCallback((id) => {
-    setChoiceId(id)
+  const chooseLesson = useCallback((n) => {
+    setLessonNo(n)
     closePanel()
   }, [closePanel])
 
   // Keys: 1-8 pick a tile, arrows move between tiles and Enter picks the one
-  // in focus; Space or P (Escape too) pauses; Enter plays on the title.
+  // in focus; Space or P (Escape too) pauses; Enter plays on the title, and
+  // on the finish card plays the next lesson (or the last one again).
   useEffect(() => {
     const onKey = (e) => {
       const tag = e.target?.tagName
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target?.isContentEditable) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
       const s = stateRef.current
-      const live = s.phase === 'playing' || s.phase === 'countdown'
-      if (live) {
+      if (s.phase === 'playing') {
         if (e.key === ' ' || e.key === 'p' || e.key === 'P' || e.key === 'Escape') {
           e.preventDefault()
           if (!e.repeat) togglePause()
@@ -486,12 +404,12 @@ export default function SentenceTiles() {
         }
       } else if (e.key === 'Enter' && tag !== 'BUTTON' && tag !== 'A') {
         e.preventDefault()
-        start(s.phase === 'over')
+        start(s.phase === 'over' && s.lesson != null ? (nextLesson(s.lesson) ?? s.lesson) : undefined)
       }
     }
     const onKeyUp = (e) => {
       const s = stateRef.current
-      if (e.key === ' ' && (s.phase === 'playing' || s.phase === 'countdown') && e.target?.tagName === 'BUTTON') e.preventDefault()
+      if (e.key === ' ' && s.phase === 'playing' && e.target?.tagName === 'BUTTON') e.preventDefault()
     }
     window.addEventListener('keydown', onKey)
     window.addEventListener('keyup', onKeyUp)
@@ -502,8 +420,8 @@ export default function SentenceTiles() {
   }, [pickByKey, focusTile, fill, start, togglePause, closePanel])
 
   // ── render ───────────────────────────────────────────────────────────
-  const sky = Math.min(7, Math.max(1, level))
-  const toNext = toNextLevel(correct)
+  // The sky deepens as the lessons go on (one step every 8 lessons).
+  const sky = Math.min(7, Math.max(1, 1 + Math.floor(((shownLesson ?? 1) - 1) / 8)))
   const sentence = round?.sentence ?? null
   const byText = round ? new Map(round.tiles.map(t => [t.slot, t])) : null
   const placedWords = round ? round.placed.map(slot => byText.get(slot).text) : []
@@ -513,7 +431,7 @@ export default function SentenceTiles() {
     ? sentence.words.map((w, i) => ({
       ...(i < placedWords.length
         ? { text: i === 0 && sentence.capital ? capitalFirst(placedWords[i]) : placedWords[i], kind: filledAt.has(i) ? 'placed is-filled' : 'placed' }
-        : status === 'timeout' ? { text: i === 0 && sentence.capital ? capitalFirst(w) : w, kind: 'revealed' } : { text: '', kind: 'empty' }),
+        : { text: '', kind: 'empty' }),
       clue: clueList?.[i] ?? null,
     }))
     : []
@@ -531,7 +449,8 @@ export default function SentenceTiles() {
           ref={sceneRef}
           className={`rain-scene rain-sky-${sky}${paused && inGame ? ' is-paused is-frozen' : ''}`}
           data-phase={phase}
-          data-level={level}
+          data-lesson={shownLesson ?? ''}
+          data-chapter={sentence?.chapter ?? ''}
           data-status={status ?? ''}
           data-item={sentence?.id ?? ''}
           data-key={roundKey ?? ''}
@@ -540,24 +459,20 @@ export default function SentenceTiles() {
 
           <div className="rain-top">
             {inGame ? (
-              <div className="rain-hud" data-score={score} data-lives={lives} data-streak={streak} data-mult={mult} data-level={level}>
+              <div className="rain-hud" data-score={score} data-streak={streak} data-mult={mult} data-lesson={state.lesson ?? ''} data-done={finished} data-total={state.total} data-wrong={state.wrongTaps}>
                 <div className="rain-hud-left">
                   <span className="rain-pill rain-score-pill">
                     <span className="rain-pill-label">Score</span>
                     <TickNumber value={score} className="rain-score" instant={reduced} />
                   </span>
-                  <span className="rain-pill rain-lives" role="img" aria-label={`${lives} of ${LIVES} lives left`}>
-                    <Hearts key={state.gameId} lives={lives} total={LIVES} />
-                    <span className="rain-lives-count">{lives}</span>
-                  </span>
                 </div>
                 <div className="rain-hud-mid">
-                  <span className="rain-pill rain-level-pill" aria-label={`Level ${level}, ${toNext} to the next level`}>
-                    <span className="rain-pill-label">Level</span>
-                    <span className="rain-level">{level}</span>
+                  <span className="rain-pill rain-level-pill tiles-lesson-pill" aria-label={`Lesson ${state.lesson}, ${finished} of ${state.total} sentences done`}>
+                    <span className="rain-pill-label">Lesson</span>
+                    <span className="rain-level">{state.lesson}</span>
                     <span className="rain-level-track" aria-hidden="true">
-                      {Array.from({ length: WORDS_PER_LEVEL }, (_, i) => (
-                        <i key={i} className={i < WORDS_PER_LEVEL - toNext ? 'is-on' : ''} />
+                      {Array.from({ length: state.total }, (_, i) => (
+                        <i key={i} className={i < finished ? 'is-on' : ''} />
                       ))}
                     </span>
                   </span>
@@ -604,18 +519,12 @@ export default function SentenceTiles() {
                 )}
                 <div className="rain-eyebrow">A sentence game</div>
                 <h1 className="rain-title">Sentence Tiles</h1>
-                <p className="rain-tagline">Put the words in the book’s order before time runs out.</p>
+                <p className="rain-tagline">Put the words in the book’s order, one lesson at a time.</p>
               </div>
             )}
 
             {phase === 'playing' && (
               <div className="tiles-board">
-                <div className="tiles-clock" data-penalty={round?.penaltyMs ?? 0}>
-                  <span className="tiles-clock-track"><span className="tiles-clock-bar" ref={barRef} /></span>
-                  {round?.wrong && status === 'building' && (
-                    <span className="tiles-cost" key={round.wrong.n} role="status">{COST_LABEL}</span>
-                  )}
-                </div>
                 {sentence && (
                   <div className={`tiles-card is-${status}`} key={roundKey}>
                     <p className="tiles-prompt"><Inline text={sentence.prompt} tClass="font-tongan" /></p>
@@ -638,26 +547,16 @@ export default function SentenceTiles() {
                           : round.mult > 1 && <small> ×{round.mult}</small>}
                       </span>
                     )}
-                    {status === 'timeout' && (
-                      <span className="rain-reveal-label tiles-reveal-label" role="status">Out of time: the book’s order</span>
-                    )}
                   </div>
                 )}
               </div>
             )}
 
-            {phase === 'countdown' && (
-              <div className="rain-count" key={state.count} aria-live="assertive">{state.count}</div>
-            )}
-            {phase === 'playing' && state.nextKey <= 2 && !paused && (
-              <div className="rain-count rain-go" key={`go-${state.gameId}`} aria-hidden="true">Go!</div>
-            )}
-
-            {levelUp && phase === 'playing' && (
-              <div className="rain-banner" key={levelUp.at} role="status">
+            {inGame && !round && state.nextKey === 1 && !paused && (
+              <div className="rain-banner tiles-start-banner" key={`start-${state.gameId}`} role="status">
                 <span className="rain-banner-ribbon">
-                  <span className="rain-banner-title">Level {levelUp.level}</span>
-                  <span className="rain-banner-sub">Less time</span>
+                  <span className="rain-banner-title">Lesson {state.lesson}</span>
+                  <span className="rain-banner-sub">{state.total === 1 ? '1 sentence' : `${state.total} sentences`}</span>
                 </span>
               </div>
             )}
@@ -681,20 +580,20 @@ export default function SentenceTiles() {
                 onClick={e => openPanel('lessons', e)}
                 aria-haspopup="dialog"
                 aria-expanded={panel === 'lessons'}
-                data-list={listId}
+                data-lesson={choice.lesson}
                 data-count={choice.count}
               >
-                <span className="rain-words-label">Lessons</span>
+                <span className="rain-words-label">Lesson</span>
                 <span className="rain-words-name">{choice.label}</span>
                 <span className="rain-words-count">{choice.count} sentences</span>
                 <ChevronIcon />
               </button>
               <div className="rain-go-col">
-                <button type="button" className="rain-btn rain-btn-primary rain-play" onClick={() => start(false)}>Play</button>
+                <button type="button" className="rain-btn rain-btn-primary rain-play" onClick={() => start(choice.lesson)}>Play</button>
                 <div className="rain-best" data-best={best.score}>
                   {best.score > 0
-                    ? <>Best <b>{best.score}</b> · level {best.level}</>
-                    : <>No best score yet for these lessons</>}
+                    ? <>Best <b>{best.score}</b> for this lesson</>
+                    : <>No best score yet for this lesson</>}
                 </div>
                 {!isTouch && (
                   <span className="rain-keys">
@@ -712,45 +611,31 @@ export default function SentenceTiles() {
                   <h2 className="rain-sheet-title" id="tiles-lessons-title">Lessons</h2>
                   <button type="button" className="rain-btn rain-btn-quiet rain-sheet-close" onClick={closePanel}>Done</button>
                 </div>
-                <div className="rain-sheet-body" role="radiogroup" aria-label="Sentences from">
-                  <ul className="rain-menu-list tiles-lessons-all">
-                    <li>
-                      <button
-                        type="button"
-                        role="radio"
-                        aria-checked={listId === ALL_LESSONS_ID}
-                        className={`rain-menu-item${listId === ALL_LESSONS_ID ? ' is-active' : ''}`}
-                        data-list={ALL_LESSONS_ID}
-                        data-count={LESSON_MENU[0].count}
-                        onClick={() => chooseLessons(ALL_LESSONS_ID)}
-                      >
-                        <span className="rain-menu-name">All lessons</span>
-                        <span className="rain-menu-count">{LESSON_MENU[0].count}</span>
-                      </button>
-                    </li>
-                  </ul>
-                  <div className="rain-menu-group">
-                    <div className="rain-setting-label">Up to</div>
-                    <ul className="rain-menu-list tiles-lessons-grid">
-                      {LESSON_MENU.slice(1).map(c => (
-                        <li key={c.id}>
+                <div className="rain-sheet-body" role="radiogroup" aria-label="Start from a lesson">
+                  <p className="tiles-lessons-note">Start from any lesson. Finished lessons are ticked.</p>
+                  <ul className="rain-menu-list tiles-lessons-grid">
+                    {LESSONS.map(l => {
+                      const isDone = progress.done.includes(l.lesson)
+                      const on = choice.lesson === l.lesson
+                      return (
+                        <li key={l.id}>
                           <button
                             type="button"
                             role="radio"
-                            aria-checked={listId === c.id}
-                            aria-label={`${c.label}, ${c.count} sentences`}
-                            className={`rain-menu-item${listId === c.id ? ' is-active' : ''}`}
-                            data-list={c.id}
-                            data-count={c.count}
-                            onClick={() => chooseLessons(c.id)}
+                            aria-checked={on}
+                            aria-label={`${l.label}, ${l.count} sentences${isDone ? ', finished' : ''}`}
+                            className={`rain-menu-item${on ? ' is-active' : ''}${isDone ? ' is-done' : ''}`}
+                            data-lesson={l.lesson}
+                            data-count={l.count}
+                            onClick={() => chooseLesson(l.lesson)}
                           >
-                            <span className="rain-menu-name">{c.short}</span>
-                            <span className="rain-menu-count">{c.count}</span>
+                            <span className="rain-menu-name">{l.label}{isDone && <span className="tiles-lesson-done" aria-hidden="true">✓</span>}</span>
+                            <span className="rain-menu-count">{l.count}</span>
                           </button>
                         </li>
-                      ))}
-                    </ul>
-                  </div>
+                      )
+                    })}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -781,9 +666,9 @@ export default function SentenceTiles() {
               {round
                 ? round.tiles.map(t => {
                   const used = round.placed.includes(t.slot)
-                  if (used || status === 'timeout') {
+                  if (used) {
                     return (
-                      <span key={`${roundKey}-${t.slot}`} className={`tiles-tile is-used${!used ? ' is-left' : ''}`} aria-hidden="true">
+                      <span key={`${roundKey}-${t.slot}`} className="tiles-tile is-used" aria-hidden="true">
                         <T className="font-tongan">{t.text}</T>
                       </span>
                     )
@@ -813,23 +698,24 @@ export default function SentenceTiles() {
             <div className="rain-over-wrap">
               <section className={`rain-over${result?.newBest ? ' is-new-best' : ''}`} aria-labelledby="tiles-over-title">
                 {result?.newBest && !reduced && <Confetti seed={state.gameId} />}
-                <div className="rain-over-label" id="tiles-over-title">Game over</div>
+                <div className="rain-over-label" id="tiles-over-title">Lesson {state.lesson} done</div>
                 {result?.newBest && <div className="rain-new-best">New best!</div>}
                 <div className="rain-final" data-score={score}>
                   <span className="rain-final-num">{score}</span>
                   <span className="rain-final-unit">points</span>
                 </div>
                 <dl className="rain-stats">
-                  <div><dt>Level</dt><dd>{level}</dd></div>
-                  <div><dt>Longest streak</dt><dd>{state.bestStreak}</dd></div>
                   <div><dt>Sentences</dt><dd>{correct}</dd></div>
+                  <div><dt>Longest streak</dt><dd>{state.bestStreak}</dd></div>
+                  <div><dt>Wrong taps</dt><dd>{state.wrongTaps}</dd></div>
                 </dl>
                 {state.helped > 0 && (
                   <div className="rain-over-best tiles-over-helped">
                     {state.helped === 1 ? '1 more sentence' : `${state.helped} more sentences`} finished with filled-in words ({state.filledWords} filled)
                   </div>
                 )}
-                {!result?.newBest && <div className="rain-over-best">Your best for {choice.label}: {best.score}</div>}
+                {!result?.newBest && <div className="rain-over-best">Your best for {played.label}: {bestOf(bests, played.id).score}</div>}
+                {after == null && <div className="rain-over-best tiles-over-last">That was the last lesson with sentences.</div>}
                 {state.missed.length > 0 && (
                   <div className="rain-missed">
                     <div className="rain-setting-label">Sentences to look at again</div>
@@ -844,9 +730,12 @@ export default function SentenceTiles() {
                   </div>
                 )}
                 <div className="rain-over-actions">
-                  <button type="button" className="rain-btn rain-btn-primary rain-again" onClick={() => start(true)}>Play again</button>
+                  {after != null
+                    ? <button type="button" className="rain-btn rain-btn-primary rain-again tiles-next" data-lesson={after} onClick={() => start(after)}>Next: Lesson {after}</button>
+                    : <button type="button" className="rain-btn rain-btn-primary rain-again" data-lesson={shownLesson} onClick={() => start(shownLesson)}>Play again</button>}
                   <div className="rain-over-links">
-                    <button type="button" className="rain-btn rain-btn-quiet" onClick={() => dispatch({ type: 'quit' })}>Change lessons</button>
+                    {after != null && <button type="button" className="rain-btn rain-btn-quiet tiles-replay" data-lesson={shownLesson} onClick={() => start(shownLesson)}>Play Lesson {shownLesson} again</button>}
+                    <button type="button" className="rain-btn rain-btn-quiet tiles-pick" onClick={() => dispatch({ type: 'quit' })}>Pick a lesson</button>
                     <Link to="/games" className="rain-btn rain-btn-quiet">All games</Link>
                   </div>
                 </div>

@@ -1,26 +1,13 @@
 /**
  * Sentence Tiles: one round (pure, no React, randomness passed in).
  *
- * A round is one sentence: its words as tiles in a shuffled order, and the
- * time the player has to put them in the book's order. Two tiles that are the
- * same word (the same text) are interchangeable, so the right next tile is
- * any tile whose text is the next word of the sentence.
+ * A round is one sentence: its words as tiles in a shuffled order, to put in
+ * the book's order. There is no clock (Andrew, 2026-10-26: "this game should
+ * not be timed"): a round lasts until the sentence is built. Two tiles that
+ * are the same word (the same text) are interchangeable, so the right next
+ * tile is any tile whose text is the next word of the sentence.
  */
 import { shuffle } from '../shared/fair.js'
-import { levelTimeMs } from '../shared/levels.js'
-
-/** Time for a sentence at level 1: a base to read the English, plus a share per tile. */
-export const ROUND_BASE_MS = 4000
-export const ROUND_PER_TILE_MS = 2000
-/** The quickest a sentence ever gets: half the level-1 time. */
-export const FLOOR_BASE_MS = 2000
-export const FLOOR_PER_TILE_MS = 1000
-
-/** The time to build a sentence of `tiles` tiles at a level (shared speed-up, with a floor). */
-export function roundMs(tiles, level = 1) {
-  const n = Math.max(1, Number(tiles) || 1)
-  return levelTimeMs(level, ROUND_BASE_MS + ROUND_PER_TILE_MS * n, FLOOR_BASE_MS + FLOOR_PER_TILE_MS * n)
-}
 
 /** True when the tiles, read in this order, spell the sentence. */
 function inOrder(tiles, sentence) {
@@ -40,9 +27,9 @@ export function makeTiles(sentence, rng = Math.random) {
   return order.map((t, slot) => ({ slot, text: t.text }))
 }
 
-/** A round for a sentence: { sentence, tiles, durationMs }. */
-export function makeRound(sentence, rng = Math.random, { level = 1 } = {}) {
-  return { sentence, tiles: makeTiles(sentence, rng), durationMs: roundMs(sentence.words.length, level) }
+/** A round for a sentence: { sentence, tiles }. No time is set: a round has no clock. */
+export function makeRound(sentence, rng = Math.random) {
+  return { sentence, tiles: makeTiles(sentence, rng) }
 }
 
 /** A sentence's accepted word orders (the book's first), or just its words. */

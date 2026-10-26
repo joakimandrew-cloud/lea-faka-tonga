@@ -3,18 +3,20 @@ import { makeRng } from '../shared/fair.js'
 import { pointsFor } from '../shared/scoring.js'
 import { SENTENCES } from './deck.js'
 import { makeRound } from './rounds.js'
-import { gameReducer, initialGame, timeLeftMs, LIVES, WRONG_TAP_MS, TAP_LOCKOUT_MS } from './game.js'
+import * as G from './game.js'
+
+const { gameReducer, initialGame, finishedCount, TAP_LOCKOUT_MS } = G
 
 // Sentences come from the book's data; no Tongan is typed here.
 const plain = SENTENCES.find(s => new Set(s.words).size === s.words.length && s.words.length === 4)
 const withDup = SENTENCES.find(s => new Set(s.words).size < s.words.length)
 
 const run = (state, ...actions) => actions.reduce(gameReducer, state)
-function playing() {
-  return run(initialGame(), { type: 'start', instant: true })
+function playing(total = 99, lesson = plain.chapter) {
+  return run(initialGame(), { type: 'start', lesson, total })
 }
 function dealt(sentence, state = playing(), now = 0) {
-  return run(state, { type: 'deal', round: makeRound(sentence, makeRng(5), { level: state.level }), now })
+  return run(state, { type: 'deal', round: makeRound(sentence, makeRng(5)), now })
 }
 /** The slots that build the sentence, in order (the first matching unused tile each time). */
 function rightSlots(round) {
@@ -26,18 +28,19 @@ function rightSlots(round) {
   })
 }
 const wrongSlot = round => round.tiles.find(t => t.text !== round.sentence.words[round.placed.length]).slot
-const pick = (round, slot, now, elapsedMs = 1000) => ({ type: 'pick', key: round.key, slot, now, elapsedMs })
+const pick = (round, slot, now) => ({ type: 'pick', key: round.key, slot, now })
 
 describe('Sentence Tiles game', () => {
-  it('builds a sentence with right taps and scores it with the shared scoring', () => {
+  it('builds a sentence with right taps and scores it with the shared scoring, with no time term', () => {
     let s = dealt(plain)
     const slots = rightSlots(s.round)
-    slots.forEach((slot, i) => { s = gameReducer(s, pick(s.round, slot, 1000 + i * 300, 2000)) })
+    slots.forEach((slot, i) => { s = gameReducer(s, pick(s.round, slot, 1000 + i * 30000)) })
     expect(s.round.status).toBe('done')
     expect(s.round.placed).toEqual(slots)
     expect(s.correct).toBe(1)
     expect(s.streak).toBe(1)
-    const want = pointsFor({ elapsedMs: 2000, durationMs: s.round.durationMs, streak: 1, level: 1 })
+    const want = pointsFor({ streak: 1 })
+    expect(want).toBe(10)
     expect(s.score).toBe(want)
     expect(s.round.gain).toBe(want)
   })
@@ -58,18 +61,22 @@ describe('Sentence Tiles game', () => {
     }
   })
 
-  it('makes a wrong tap cost time and the streak, never a life', () => {
+  it('makes a wrong tap cost the streak and nothing else (there are no lives)', () => {
     let s = dealt(plain)
     s = { ...s, streak: 4 }
-    const before = timeLeftMs(s.round, 1000)
     s = gameReducer(s, pick(s.round, wrongSlot(s.round), 1000))
     expect(s.wrongTaps).toBe(1)
-    expect(s.round.penaltyMs).toBe(WRONG_TAP_MS)
-    expect(timeLeftMs(s.round, 1000)).toBe(before - WRONG_TAP_MS)
+    expect(s.round.wrongs).toBe(1)
     expect(s.streak).toBe(0)
-    expect(s.lives).toBe(LIVES)
+    expect('lives' in s).toBe(false)
     expect(s.round.placed).toEqual([])
     expect(s.round.status).toBe('building')
+    // the sentence is still built and scored; it goes on the list to look at again
+    for (const slot of rightSlots(s.round)) s = gameReducer(s, pick(s.round, slot, 5000 + s.round.placed.length * 300))
+    expect(s.round.status).toBe('done')
+    expect(s.correct).toBe(1)
+    expect(s.streak).toBe(1)
+    expect(s.missed.map(x => x.id)).toEqual([plain.id])
   })
 
   it('counts a double tap on the same wrong tile once, and a later tap again', () => {
@@ -95,51 +102,45 @@ describe('Sentence Tiles game', () => {
     expect(gameReducer(s, pick(s.round, slot, 3000))).toBe(s)
   })
 
-  it('costs a life when time runs out, and ends the game after three', () => {
-    let s = playing()
-    for (let i = 0; i < LIVES; i++) {
-      s = dealt(plain, s)
-      s = gameReducer(s, { type: 'timeout', key: s.round.key })
-      expect(s.round.status).toBe('timeout')
-      expect(s.lives).toBe(LIVES - 1 - i)
+  it('has no timer: no time-out action, no clock in the state, a sentence waits however long', () => {
+    // TAP_LOCKOUT_MS is the double-tap guard, not a clock: it never ends or shortens a sentence.
+    for (const name of Object.keys(G).filter(n => n !== 'TAP_LOCKOUT_MS')) expect(name).not.toMatch(/ms$|time|duration|clock|lives/i)
+    let s = dealt(plain)
+    expect(gameReducer(s, { type: 'timeout', key: s.round.key })).toBe(s)
+    expect(gameReducer(s, { type: 'tick' })).toBe(s)
+    for (const k of ['lives', 'level', 'levelUp', 'count', 'hits', 'misses']) expect(k in s).toBe(false)
+    for (const k of ['durationMs', 'penaltyMs']) expect(k in s.round).toBe(false)
+    // an hour later the first right tap still lands
+    s = gameReducer(s, pick(s.round, rightSlots(s.round)[0], 3600000))
+    expect(s.round.placed).toHaveLength(1)
+    expect(s.round.status).toBe('building')
+  })
+
+  it('ends the game when the lesson\'s last sentence is built, and deals no more than the lesson holds', () => {
+    let s = playing(2)
+    expect(s.phase).toBe('playing')
+    expect(s.lesson).toBe(plain.chapter)
+    expect(s.total).toBe(2)
+    for (let i = 0; i < 2; i++) {
+      s = dealt(plain, s, i * 10000)
+      for (const slot of rightSlots(s.round)) s = gameReducer(s, pick(s.round, slot, i * 10000 + 1000 + s.round.placed.length * 300))
+      expect(finishedCount(s)).toBe(i + 1)
       s = gameReducer(s, { type: 'next' })
     }
     expect(s.phase).toBe('over')
-    expect(s.missed.map(x => x.id)).toEqual([plain.id])
-    expect(s.misses).toEqual([plain.id, plain.id, plain.id])
-  })
-
-  it('times out when a wrong tap uses up the last of the time', () => {
-    let s = dealt(plain)
-    const late = s.round.durationMs - WRONG_TAP_MS + 1
-    s = gameReducer(s, pick(s.round, wrongSlot(s.round), 9000, late))
-    expect(s.round.status).toBe('timeout')
-    expect(s.lives).toBe(LIVES - 1)
+    expect(s.round).toBe(null)
+    expect(s.correct).toBe(2)
+    expect(gameReducer(s, { type: 'deal', round: makeRound(plain, makeRng(1)), now: 0 })).toBe(s)
   })
 
   it('holds every tap while paused or while a finished sentence shows', () => {
     let s = dealt(plain)
     const paused = gameReducer(s, { type: 'pause' })
     expect(gameReducer(paused, pick(s.round, rightSlots(s.round)[0], 2000))).toBe(paused)
-    s = gameReducer(s, { type: 'timeout', key: s.round.key })
-    expect(gameReducer(s, pick(s.round, rightSlots(s.round)[0], 2000))).toBe(s)
+    for (const slot of rightSlots(s.round)) s = gameReducer(s, pick(s.round, slot, 1000 + s.round.placed.length * 300))
+    expect(s.round.status).toBe('done')
+    expect(gameReducer(s, pick(s.round, rightSlots(s.round)[0], 9000))).toBe(s)
     expect(gameReducer(s, { type: 'deal', round: makeRound(plain, makeRng(1)), now: 0 })).toBe(s)
-  })
-
-  it('levels up after 8 sentences and the next sentence is quicker', () => {
-    let s = playing()
-    let t = 0
-    for (let i = 0; i < 8; i++) {
-      s = dealt(plain, s, t)
-      for (const slot of rightSlots(s.round)) { t += 300; s = gameReducer(s, pick(s.round, slot, t)) }
-      if (i < 7) s = gameReducer(s, { type: 'next' })
-    }
-    expect(s.level).toBe(2)
-    expect(s.levelUp).toEqual({ level: 2, at: 8 })
-    const level1 = s.round.durationMs
-    s = gameReducer(s, { type: 'next' })
-    s = dealt(plain, s, t)
-    expect(s.round.durationMs).toBeLessThan(level1)
   })
 
   it('takes the second order the book allows, and marks a mix of the two wrong', () => {
@@ -151,7 +152,7 @@ describe('Sentence Tiles game', () => {
       second.forEach((w, i) => {
         const t = s.round.tiles.find(x => x.text === w && !used.has(x.slot))
         used.add(t.slot)
-        s = gameReducer(s, pick(s.round, t.slot, 1000 + i * 300, 2000))
+        s = gameReducer(s, pick(s.round, t.slot, 1000 + i * 300))
       })
       expect(s.round.status, id).toBe('done')
       expect(s.wrongTaps, id).toBe(0)
@@ -172,7 +173,7 @@ describe('Sentence Tiles game', () => {
 })
 
 describe('Sentence Tiles fill-in', () => {
-  const fill = (round, now, elapsedMs = 1000) => ({ type: 'fill', key: round.key, now, elapsedMs })
+  const fill = (round, now) => ({ type: 'fill', key: round.key, now })
 
   it('places the next word of the book order, as a right tap would', () => {
     let s = dealt(plain)
@@ -180,12 +181,11 @@ describe('Sentence Tiles fill-in', () => {
     expect(s.round.placed).toHaveLength(1)
     expect(s.round.tiles.find(t => t.slot === s.round.placed[0]).text).toBe(plain.words[0])
     expect(s.round.filled).toEqual([0])
-    expect(s.round.penaltyMs).toBe(0)
     expect(s.wrongTaps).toBe(0)
     expect(s.filledWords).toBe(1)
   })
 
-  it('fills the whole sentence: no time, no life, a score of 0, the streak as it was', () => {
+  it('fills the whole sentence: a score of 0, the streak as it was, on the list to look at again', () => {
     let s = dealt(plain)
     s = { ...s, streak: 3 }
     for (let i = 0; i < plain.words.length; i++) s = gameReducer(s, fill(s.round, 1000 + i * 100))
@@ -195,7 +195,7 @@ describe('Sentence Tiles fill-in', () => {
     expect(s.streak).toBe(3)
     expect(s.correct).toBe(0)
     expect(s.helped).toBe(1)
-    expect(s.lives).toBe(LIVES)
+    expect(s.missed.map(x => x.id)).toEqual([plain.id])
     expect(s.round.placed.map(sl => s.round.tiles.find(t => t.slot === sl).text)).toEqual(plain.words)
     // nothing more to fill
     expect(gameReducer(s, fill(s.round, 5000))).toBe(s)
@@ -205,10 +205,10 @@ describe('Sentence Tiles fill-in', () => {
     let s = dealt(plain)
     s = { ...s, streak: 2 }
     const slots = rightSlots(s.round)
-    s = gameReducer(s, pick(s.round, slots[0], 1000, 2000))
-    s = gameReducer(s, pick(s.round, slots[1], 1200, 2000))
-    while (s.round.status === 'building') s = gameReducer(s, fill(s.round, 1500, 2000))
-    const full = pointsFor({ elapsedMs: 2000, durationMs: s.round.durationMs, streak: 2, level: 1 })
+    s = gameReducer(s, pick(s.round, slots[0], 1000))
+    s = gameReducer(s, pick(s.round, slots[1], 1200))
+    while (s.round.status === 'building') s = gameReducer(s, fill(s.round, 1500))
+    const full = pointsFor({ streak: 2 })
     expect(s.round.gain).toBe(Math.round((full * 2) / plain.words.length))
     expect(s.score).toBe(s.round.gain)
     expect(s.streak).toBe(2)

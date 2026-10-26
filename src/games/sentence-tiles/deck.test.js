@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import exercises from '../../data/book-exercises.json'
 import {
-  SENTENCES, LESSON_COUNTS, LESSON_MENU, ALL_LESSONS_ID, LEFT_OUT_KEYS, lessonChoice,
+  SENTENCES, LESSON_COUNTS, LESSONS, FIRST_LESSON, LEFT_OUT_KEYS, lessonEntry, nextLesson,
   allItems, whyLeftOut, answerText, splitAnswer, tileKey, holdsLeftOut, MIN_WORDS, MAX_WORDS,
   isStale, capitalFirst, sentenceText, buildSentences,
 } from './deck.js'
@@ -173,23 +173,22 @@ describe('Sentence Tiles deck', () => {
     expect(splitAnswer('alpha, beta gamma')).toEqual({ words: ['alpha,', 'beta', 'gamma'], end: '' })
   })
 
-  it('offers All lessons and Up to Lesson N for every lesson with a sentence', () => {
+  it('offers one entry per lesson with a sentence, in lesson order, from Lesson 1', () => {
     const lessons = LESSON_COUNTS.map(([n]) => n)
     expect(lessons.length).toBe(52)
     for (const [, c] of LESSON_COUNTS) expect(c).toBeGreaterThan(0)
-    expect(LESSON_MENU[0].id).toBe(ALL_LESSONS_ID)
-    expect(LESSON_MENU[0].count).toBe(SENTENCES.length)
-    const last = lessons[lessons.length - 1]
-    const upTo = LESSON_MENU.slice(1)
-    expect(upTo.map(c => c.upTo)).toEqual(lessons.filter(n => n !== last))
-    for (const c of upTo) {
-      expect(c.label).toBe(`Up to Lesson ${c.upTo}`)
-      expect(c.label).not.toMatch(/chapter/i)
-      const want = LESSON_COUNTS.filter(([n]) => n <= c.upTo).reduce((a, [, k]) => a + k, 0)
-      expect(c.count).toBe(want)
-      expect(c.cards.every(s => s.chapter <= c.upTo)).toBe(true)
+    expect(FIRST_LESSON).toBe(1)
+    expect(LESSONS.map(l => l.lesson)).toEqual(lessons)
+    for (const l of LESSONS) {
+      expect(l.label).toBe(`Lesson ${l.lesson}`)
+      expect(l.label).not.toMatch(/chapter/i)
+      expect(l.count).toBe(LESSON_COUNTS.find(([n]) => n === l.lesson)[1])
+      expect(l.cards.every(s => s.chapter === l.lesson)).toBe(true)
     }
-    expect(lessonChoice('upto:999').id).toBe(ALL_LESSONS_ID)
-    expect(lessonChoice('upto:3').upTo).toBe(3)
+    expect(LESSONS.reduce((a, l) => a + l.count, 0)).toBe(SENTENCES.length)
+    expect(lessonEntry(999).lesson).toBe(1)
+    expect(lessonEntry(3).lesson).toBe(3)
+    expect(nextLesson(1)).toBe(2)
+    expect(nextLesson(lessons[lessons.length - 1])).toBe(null)
   })
 })

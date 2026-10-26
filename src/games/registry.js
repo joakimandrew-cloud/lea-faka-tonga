@@ -35,7 +35,7 @@ export const GAMES = [
     key: 'sentence-tiles',
     route: '/games/sentence-tiles',
     title: 'Sentence Tiles',
-    blurb: 'Put the words of a book sentence in order before time runs out.',
+    blurb: 'Put the words of a book sentence in order, lesson by lesson from Lesson 1.',
     action: 'Play',
     words: SENTENCES.length,
     unit: 'sentences',

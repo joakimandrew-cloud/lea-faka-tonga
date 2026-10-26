@@ -4,12 +4,13 @@
 
    The page wears Word Balloons' own look (word-rain.css, loaded first): the
    sky, the HUD, the mute button, the sheets and the game-over card. This file
-   adds only what the sentence game needs: the clock, the English prompt card,
-   the answer line and the word tiles. Site tokens only (base.css); no new
+   adds only what the sentence game needs: the English prompt card, the
+   answer line, the word tiles and the lesson menu. Untimed since Step 11:
+   there is no clock. Site tokens only (base.css); no new
    colours and no new typefaces.
    ========================================================================== */
 
-/* ── the board: clock, prompt and answer line ─────────────────────────── */
+/* ── the board: prompt and answer line ────────────────────────────────── */
 .sentence-tiles .tiles-field { display: flex; flex-direction: column; }
 .tiles-board {
   position: relative;
@@ -22,44 +23,6 @@
   gap: 16px;
   min-height: 0;
   padding: 6px clamp(14px, 4vw, 40px) 22px;
-}
-
-.tiles-clock { position: relative; width: min(100%, 620px); }
-.tiles-clock-track {
-  display: block;
-  height: 10px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--paper) 70%, transparent);
-  box-shadow: inset 0 0 0 1px var(--line-strong);
-  overflow: hidden;
-}
-.tiles-clock-bar {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--ink);
-  transform-origin: 0 50%;
-  transition: background-color 0.25s;
-}
-.tiles-clock-bar[data-low='1'] { background: var(--red); }
-.tiles-cost {
-  position: absolute;
-  right: 0;
-  top: 16px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--error-soft);
-  color: var(--error);
-  font: 800 15px/1 var(--f-ui);
-  font-variant-numeric: tabular-nums;
-  pointer-events: none;
-  animation: tiles-cost 1.1s ease-out forwards;
-}
-@keyframes tiles-cost {
-  0% { transform: translateY(-6px); opacity: 0; }
-  15% { transform: none; opacity: 1; }
-  70% { opacity: 1; }
-  100% { transform: translateY(8px); opacity: 0; }
 }
 
 .tiles-card {
@@ -111,20 +74,17 @@
 .tiles-slot .font-tongan { font: italic 500 26px/1.15 var(--f-serif); }
 .tiles-slot.is-placed { border-bottom: 2px solid var(--ink); animation: tiles-land 0.22s var(--ease-out) both; }
 .tiles-slot.is-filled { border-bottom-style: dotted; border-bottom-color: var(--line-strong); color: var(--muted); }
-.tiles-slot.is-revealed { border-bottom: 2px solid var(--success); color: var(--success); animation: rain-pop-in 0.3s var(--ease-out) both; }
 .tiles-slot-gap { display: block; width: 30px; height: 26px; }
 /* The end mark sits in a box the height of a place, so it lines up with the words whether or not clues show. */
 .tiles-end { display: inline-flex; align-items: flex-end; min-height: 40px; margin-left: -6px; padding-bottom: 4px; border-bottom: 2px solid transparent; color: var(--ink); font: italic 500 26px/1.15 var(--f-serif); }
 .tiles-card.is-done { box-shadow: 0 0 0 3px var(--success), var(--shadow-2); }
 .tiles-card.is-done .tiles-slot:not(.is-filled) { border-bottom-color: var(--success); }
-.tiles-card.is-timeout { box-shadow: 0 0 0 3px var(--error), var(--shadow-2); }
 @keyframes tiles-land {
   from { transform: translateY(10px); opacity: 0; }
   to { transform: none; opacity: 1; }
 }
 .tiles-gain { left: 86%; top: 6px; }
 .tiles-gain small { white-space: nowrap; }
-.tiles-reveal-label { display: block; margin-top: 14px; }
 
 /* ── the tray: the two helps, then the tiles ──────────────────────────── */
 .tiles-tray {
@@ -207,9 +167,15 @@
   animation-delay: calc(var(--i) * -0.6s);
 }
 
-/* ── the Lessons sheet: All lessons, then a grid of Up to Lesson N ────── */
-.tiles-lessons-sheet .rain-sheet-body { display: flex; flex-direction: column; gap: 14px; }
+/* ── the Lessons sheet: every lesson with sentences, finished ones ticked ── */
+.tiles-lessons-sheet .rain-sheet-body { display: flex; flex-direction: column; gap: 10px; }
+.tiles-lessons-note { margin: 0; color: var(--muted); font: 500 14px/1.4 var(--f-ui); }
 .tiles-lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); column-gap: 14px; }
+.tiles-lesson-done { margin-left: 8px; color: var(--success); font-weight: 800; }
+.rain-menu-item.is-active .tiles-lesson-done { color: var(--paper); }
+
+/* ── the finish card: next lesson first, then the quieter ways on ──────── */
+.sentence-tiles .rain-over-links { flex-wrap: wrap; }
 
 .tiles-missed-row { flex-direction: column; align-items: flex-start; gap: 2px; }
 .tiles-missed-row .rain-missed-en { color: var(--muted); font-size: 14px; }
@@ -237,9 +203,7 @@
   .tiles-idle-tile,
   .tiles-tray.is-live .tiles-tile,
   .tiles-slot.is-placed,
-  .tiles-slot.is-revealed,
   .tiles-clue,
   .tiles-card { animation: none; }
-  .tiles-cost { animation: rain-fade-in-out 1.1s ease-out forwards; }
   .tiles-tile:active:not(:disabled) { transform: none; }
 }

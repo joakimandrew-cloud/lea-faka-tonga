@@ -45,7 +45,6 @@ import { LEFT_OUT_OF_GAME, tonganKey } from '../shared/deck.js'
 
 export const MIN_WORDS = 3
 export const MAX_WORDS = 8
-export const ALL_LESSONS_ID = 'all'
 
 const END = /[.?!]+$/
 
@@ -194,26 +193,28 @@ export const LESSON_COUNTS = (() => {
 })()
 
 /**
- * The lesson menu: All lessons, then Up to Lesson N for every lesson that has
- * a sentence of its own (sentences from lessons 1 to N). The last lesson's
- * entry would hold every sentence, the same as All lessons, so it is not
- * offered twice.
+ * The lessons, in the book's order, each with its own sentences (Andrew,
+ * 2026-10-26: "have it in order of lessons"). Every game is one lesson; a
+ * lesson with no kept sentence is not offered. `label` says Lesson, never
+ * Chapter.
  */
-export const LESSON_MENU = (() => {
-  const all = { id: ALL_LESSONS_ID, label: 'All lessons', upTo: null, cards: SENTENCES, count: SENTENCES.length }
-  const last = LESSON_COUNTS.length ? LESSON_COUNTS[LESSON_COUNTS.length - 1][0] : 0
-  const upTo = LESSON_COUNTS
-    .filter(([n]) => n !== last)
-    .map(([n]) => {
-      const cards = SENTENCES.filter(s => s.chapter <= n)
-      return { id: `upto:${n}`, label: `Up to Lesson ${n}`, short: `Lesson ${n}`, upTo: n, cards, count: cards.length }
-    })
-  return [all, ...upTo]
-})()
+export const LESSONS = LESSON_COUNTS.map(([n]) => {
+  const cards = SENTENCES.filter(s => s.chapter === n)
+  return { lesson: n, id: `lesson:${n}`, label: `Lesson ${n}`, cards, count: cards.length }
+})
 
-const menuById = new Map(LESSON_MENU.map(c => [c.id, c]))
+/** The first lesson with sentences (Lesson 1): where a new player starts. */
+export const FIRST_LESSON = LESSONS.length ? LESSONS[0].lesson : null
 
-/** The lesson choice an id names, or All lessons for an id the menu does not offer. */
-export function lessonChoice(id) {
-  return menuById.get(id) ?? menuById.get(ALL_LESSONS_ID)
+const byLesson = new Map(LESSONS.map(l => [l.lesson, l]))
+
+/** The lesson entry for a lesson number, or the first lesson for a number the game does not offer. */
+export function lessonEntry(n) {
+  return byLesson.get(Number(n)) ?? LESSONS[0]
+}
+
+/** The next lesson after `n` that has sentences, or null after the last. */
+export function nextLesson(n) {
+  const at = LESSONS.find(l => l.lesson > Number(n))
+  return at ? at.lesson : null
 }

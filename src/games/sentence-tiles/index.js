@@ -3,3 +3,4 @@
 export * from './deck.js'
 export * from './rounds.js'
 export * from './game.js'
+export * from './lessons.js'

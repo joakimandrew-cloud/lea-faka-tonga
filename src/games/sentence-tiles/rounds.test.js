@@ -1,7 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import { makeRng } from '../shared/fair.js'
 import { SENTENCES } from './deck.js'
-import { makeTiles, makeRound, roundMs, isNextWord, acceptedOrders, ROUND_BASE_MS, ROUND_PER_TILE_MS, FLOOR_BASE_MS, FLOOR_PER_TILE_MS } from './rounds.js'
+import * as R from './rounds.js'
+
+const { makeTiles, makeRound, isNextWord, acceptedOrders } = R
 
 const fact = n => (n <= 1 ? 1 : n * fact(n - 1))
 
@@ -38,18 +40,9 @@ describe('Sentence Tiles rounds', () => {
     }
   })
 
-  it('gives more time for more tiles, less at each level, never under the floor', () => {
-    expect(roundMs(3, 1)).toBe(ROUND_BASE_MS + 3 * ROUND_PER_TILE_MS)
-    expect(roundMs(8, 1)).toBeGreaterThan(roundMs(3, 1))
-    for (const n of [3, 5, 8]) {
-      let prev = Infinity
-      for (let l = 1; l <= 30; l++) {
-        const ms = roundMs(n, l)
-        expect(ms).toBeLessThanOrEqual(prev)
-        expect(ms).toBeGreaterThanOrEqual(FLOOR_BASE_MS + n * FLOOR_PER_TILE_MS)
-        prev = ms
-      }
-    }
-    expect(makeRound(SENTENCES[0], makeRng(1), { level: 2 }).durationMs).toBe(roundMs(SENTENCES[0].words.length, 2))
+  it('sets no time on a round: no clock in the round, none in the module', () => {
+    const r = makeRound(SENTENCES[0], makeRng(1))
+    expect(Object.keys(r).sort()).toEqual(['sentence', 'tiles'])
+    for (const name of Object.keys(R)) expect(name).not.toMatch(/ms$|time|duration|clock/i)
   })
 })
