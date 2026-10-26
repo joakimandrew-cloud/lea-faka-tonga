@@ -1,5 +1,5 @@
 {
- "header": "Entry pairs never put in one Word Rain round. The key-word rule in deck.js and rounds.js blocks entries that share an English content word; these pairs are true synonyms or near-synonyms that share none (big and large). Seeded 2026-10-26 (plan 2026-10-26-word-rain-game, Step 3) by scanning every pair of non-grammar entries against the synonym groups below and keeping only pairs that exist in the data and were read by hand. Step 4's judge sweeps the whole deck for more. pair_notes[i] spells out pairs[i].",
+ "header": "Entry pairs never put in one Word Rain round. The key-word rule in deck.js and rounds.js blocks entries that share an English content word; these pairs are true synonyms or near-synonyms that share none (big and large). Seeded 2026-10-26 (plan 2026-10-26-word-rain-game, Step 3) by scanning every pair of non-grammar entries against the synonym groups below and keeping only pairs that exist in the data and were read by hand. Step 4 added the site word lists (src/premium/data/word-lists.json) and with them the pairs from \"hypernyms\" below: a general word and the words it covers (manu = animal and each animal, manupuna = bird and each bird, lanu = colour and each colour, to'oto'onga = the organs inside the body and each organ), and three near-synonyms in Parts of body. Step 5's judge sweeps the whole deck for more. pair_notes[i] spells out pairs[i].",
  "groups": [
   [
    "big",
@@ -370,6 +370,166 @@
   [
    "book-v0230",
    "book-v0642"
+  ],
+  [
+   "book-v0026",
+   "book-v0076"
+  ],
+  [
+   "book-v0026",
+   "book-v0162"
+  ],
+  [
+   "book-v0026",
+   "book-v0254"
+  ],
+  [
+   "book-v0026",
+   "book-v0332"
+  ],
+  [
+   "book-v0026",
+   "book-v0333"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-001"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-003"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-004"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-005"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-006"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-007"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-008"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-009"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-010"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-011"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-012"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-013"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-014"
+  ],
+  [
+   "book-v0026",
+   "wl-animal-015"
+  ],
+  [
+   "wl-animal-001",
+   "book-v0162"
+  ],
+  [
+   "wl-animal-001",
+   "wl-animal-005"
+  ],
+  [
+   "wl-animal-001",
+   "wl-animal-012"
+  ],
+  [
+   "wl-animal-001",
+   "wl-animal-003"
+  ],
+  [
+   "wl-colour-001",
+   "wl-colour-002"
+  ],
+  [
+   "wl-colour-001",
+   "wl-colour-003"
+  ],
+  [
+   "wl-colour-001",
+   "book-v0447"
+  ],
+  [
+   "wl-colour-001",
+   "book-v0450"
+  ],
+  [
+   "wl-colour-001",
+   "book-v0453"
+  ],
+  [
+   "wl-colour-001",
+   "book-v0455"
+  ],
+  [
+   "wl-colour-001",
+   "book-v0456"
+  ],
+  [
+   "wl-colour-001",
+   "book-v0023"
+  ],
+  [
+   "wl-body-055",
+   "wl-body-017"
+  ],
+  [
+   "wl-body-055",
+   "wl-body-019"
+  ],
+  [
+   "wl-body-055",
+   "wl-body-021"
+  ],
+  [
+   "wl-body-055",
+   "wl-body-046"
+  ],
+  [
+   "wl-body-055",
+   "wl-body-047"
+  ],
+  [
+   "wl-body-055",
+   "wl-body-049"
+  ],
+  [
+   "wl-body-031",
+   "wl-body-026"
+  ],
+  [
+   "wl-body-027",
+   "wl-body-013"
+  ],
+  [
+   "wl-body-027",
+   "wl-body-040"
   ]
  ],
  "pair_notes": [
@@ -417,6 +577,105 @@
   "fāmili = family | kāinga = relative, kin",
   "kelekele = earth, ground, soil | fonua = country, land",
   "kelekele = earth, ground, soil | māmani = world",
-  "fonua = country, land | māmani = world"
+  "fonua = country, land | māmani = world",
+  "manu = animal | ika = fish",
+  "manu = animal | moa = chicken",
+  "manu = animal | kulī = dog",
+  "manu = animal | puaka = pig",
+  "manu = animal | pulu = cow",
+  "manu = animal | manupuna = bird",
+  "manu = animal | motuku = stork, heron",
+  "manu = animal | kumā = rat, mouse",
+  "manu = animal | pato = duck",
+  "manu = animal | lō = ant",
+  "manu = animal | ngata = snake",
+  "manu = animal | hina = spider",
+  "manu = animal | namu = mosquito",
+  "manu = animal | pusi = cat",
+  "manu = animal | hoosi = horse",
+  "manu = animal | pīpī = turkey",
+  "manu = animal | sipi = sheep",
+  "manu = animal | kosi = goat",
+  "manu = animal | poto = frog, toad",
+  "manupuna = bird | moa = chicken",
+  "manupuna = bird | pato = duck",
+  "manupuna = bird | pīpī = turkey",
+  "manupuna = bird | motuku = stork, heron",
+  "lanu = colour | melomelo = brown",
+  "lanu = colour | pulū = blue",
+  "lanu = colour | 'uli'uli = black",
+  "lanu = colour | engeenga = yellow",
+  "lanu = colour | hinehina = white",
+  "lanu = colour | kulokula = red",
+  "lanu = colour | lanumata = green",
+  "lanu = colour | lanumoana = blue",
+  "to'oto'onga = the organs inside the body | 'ate = liver",
+  "to'oto'onga = the organs inside the body | 'atepili = spleen",
+  "to'oto'onga = the organs inside the body | 'uto = brain",
+  "to'oto'onga = the organs inside the body | ma'ama'a = lungs",
+  "to'oto'onga = the organs inside the body | mafu = heart",
+  "to'oto'onga = the organs inside the body | ngākau = intestines, bowels",
+  "huhu = a woman's breast | fatafata = chest",
+  "fatu = stomach (said of a chief) | pule = upper belly, just below the chest",
+  "fatu = stomach (said of a chief) | kona = lower belly"
+ ],
+ "hypernyms": [
+  [
+   "animal",
+   "fish",
+   "chicken",
+   "dog",
+   "pig",
+   "cow",
+   "bird",
+   "stork",
+   "rat",
+   "duck",
+   "ant",
+   "snake",
+   "spider",
+   "mosquito",
+   "cat",
+   "horse",
+   "turkey",
+   "sheep",
+   "goat",
+   "frog"
+  ],
+  [
+   "bird",
+   "chicken",
+   "duck",
+   "turkey",
+   "stork"
+  ],
+  [
+   "colour",
+   "brown",
+   "blue",
+   "black",
+   "yellow",
+   "white",
+   "red",
+   "green"
+  ],
+  [
+   "the organs inside the body",
+   "liver",
+   "spleen",
+   "brain",
+   "lungs",
+   "heart",
+   "intestines"
+  ],
+  [
+   "a woman's breast",
+   "chest"
+  ],
+  [
+   "stomach (said of a chief)",
+   "upper belly",
+   "lower belly"
+  ]
  ]
 }

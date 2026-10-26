@@ -8,6 +8,13 @@
  * filter as the /cards deck (FlipCards.jsx): Essential = tier 1, Useful =
  * tiers 1-2, All = every tier.
  *
+ * Since Step 4 the game plays every word it has: the course words, plus the
+ * site's word lists (src/premium/data/word-lists.json: Parts of body, Colours,
+ * Land animals). A word-list row that is also a course word (course_id) is the
+ * course card itself, so no word is counted twice. There is no Essential /
+ * Useful / All choice on the page any more (DECISIONS.md 2026-09-29, flip
+ * cards); buildDeck keeps its tier argument for the tests only.
+ *
  * Tongan stays as stored (ASCII apostrophe) inside the deck; it goes through
  * okinafy only where it is shown, the site-wide display rule.
  */
@@ -150,9 +157,78 @@ export function toCard(v) {
 }
 
 /** The vocabulary rows a word set plays with, as game cards. */
-export function buildDeck(vocabulary, wordSet = 'essential') {
+export function buildDeck(vocabulary, wordSet = 'all') {
   let rows = vocabulary.filter(v => v.category !== 'grammar')
   if (wordSet === 'essential') rows = rows.filter(v => v.tier === 1)
   else if (wordSet === 'useful') rows = rows.filter(v => v.tier <= 2)
   return rows.map(toCard).filter(c => c.meaning && c.tongan)
+}
+
+/** A word-list row's part of speech, as the course's word-type category. */
+export function categoryForPos(pos) {
+  const p = String(pos ?? '').toLowerCase()
+  if (p.startsWith('noun')) return 'nouns'
+  if (p.startsWith('adjective')) return 'adjectives'
+  if (p.startsWith('verb')) return 'verbs'
+  if (p.startsWith('adverb')) return 'adverbs'
+  return ''
+}
+
+/**
+ * A word-list row that is not a course word, as a game card. A register
+ * ("polite", "noble word") stays on the word wherever it is shown, as the
+ * site's dictionary shows it, so a learner never takes the polite word for
+ * the everyday one.
+ */
+export function wordListCard(row) {
+  const card = toCard({
+    id: row.id,
+    tongan: row.tongan,
+    english: row.english,
+    part_of_speech: row.part_of_speech,
+    category: categoryForPos(row.part_of_speech),
+    tier: null,
+  })
+  card.list = row.theme
+  if (row.register) {
+    card.register = row.register
+    card.meaning = `${card.meaning} (${row.register})`
+    card.full = `${row.english} (${row.register})`
+  }
+  return card
+}
+
+/**
+ * The cards of the site's word lists, by theme id, in the data file's order.
+ * A row with a course_id is the course card (from `courseCards`, by id); a
+ * course card the game leaves out (grammar) is left out here too.
+ */
+export function wordListDecks(wordLists, courseCards) {
+  const byId = new Map(courseCards.map(c => [c.id, c]))
+  const out = new Map()
+  for (const theme of wordLists?.themes ?? []) out.set(theme.id, [])
+  for (const row of wordLists?.entries ?? []) {
+    if (!out.has(row.theme)) continue
+    const card = row.course_id ? byId.get(row.course_id) : wordListCard(row)
+    if (card && card.meaning && card.tongan) out.get(row.theme).push(card)
+  }
+  return out
+}
+
+/**
+ * Every word the game can play: the course words (no grammar), then the
+ * word-list words that are not course words. Distinct by id.
+ */
+export function allWordsDeck(vocabulary, wordLists) {
+  const course = buildDeck(vocabulary, 'all')
+  const seen = new Set(course.map(c => c.id))
+  const extra = []
+  for (const cards of wordListDecks(wordLists, course).values()) {
+    for (const c of cards) {
+      if (seen.has(c.id)) continue
+      seen.add(c.id)
+      extra.push(c)
+    }
+  }
+  return [...course, ...extra]
 }

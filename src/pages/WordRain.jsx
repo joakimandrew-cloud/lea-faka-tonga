@@ -1,18 +1,18 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState, useSyncExternalStore } from 'react'
 import { Link } from 'react-router-dom'
-import vocabulary from '../data/book-vocabulary.json'
 import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
 import T from '../premium/components/T.jsx'
 import {
-  WORD_SETS, WORD_SET_LABELS, buildDeck, makeRng, makeRound, moverText,
-  gameReducer, initialGame, frontWord, flyingCount, isFrozen, LIVES,
-  levelFlightMs, skyStep, cloudRate, canLaunchSecond, secondFlightMs, followerX, makeFollowerRound,
+  makeRng, makeRound, moverText,
+  gameReducer, initialGame, frontWord, flyingCount, isFrozen, LIVES, MAX_IN_AIR,
+  levelFlightMs, skyStep, cloudRate, canLaunchSecond, secondFlightMs, followerX, makeFollowerRound, followerBlocked,
   multiplierFor, toNextLevel, WORDS_PER_LEVEL, TWO_AT_ONCE_FROM,
+  makeBag, drawFromBag, missedInBag,
 } from '../games/word-rain'
-import { LIST_GROUPS, LIST_LABELS, EVERYTHING, listDeck, bestKey } from '../games/word-rain/lists.js'
+import { MENU, ALL_WORDS, ALL_WORDS_ID, listById, homeList, bestKey, oldBestKeys } from '../games/word-rain/lists.js'
 import { unlock, play } from '../games/word-rain/sound.js'
 import {
-  Sky, Ground, ShapeBody, Burst, Splash, Confetti, Hearts, Flame, PauseIcon, SoundIcon,
+  Sky, Ground, ShapeBody, Burst, Splash, Confetti, Hearts, Flame, PauseIcon, SoundIcon, GearIcon, ChevronIcon,
 } from '../games/word-rain/scene.jsx'
 
 /**
@@ -21,8 +21,14 @@ import {
  * the meaning before a word gets away. Right answers pop the word and score
  * more for a quick tap and a long streak; every 8 right is a new level, the
  * sky shifts and the words speed up, and from level 3 two words can be in the
- * air at once. Three lives. The best score and level for each word set stay
+ * air at once. Three lives. The best score and level for each word list stay
  * on this device.
+ *
+ * Words (Step 4): one menu, the Cards page's own (word types, course lists,
+ * topics) plus the site's word lists; every list holds every word it has.
+ * A shuffle bag plays every word of the list once before any repeats; a
+ * missed word comes back once, 5 to 8 words later. The title screen shows the
+ * Words control and Play; direction and shape sit in a small Options panel.
  *
  * Pure rules live in src/games/word-rain/ (rounds, scoring, levels and the
  * game reducer, all tested); this page owns the screen, the timing (Web
@@ -72,11 +78,11 @@ function readBests() {
     return {}
   }
 }
-// A best score belongs to a list and a level (key "numbers|all"). Scores kept
-// by the first build, one per level, are read as the Everything list's.
+// A best score belongs to a list (key "topic:family"). A list with nothing
+// kept yet reads the score Steps 1 to 3 kept for its nearest old list.
 function bestOf(bests, key) {
-  const [list, level] = key.split('|')
-  const b = bests?.[key] ?? (list === EVERYTHING ? bests?.[level] : undefined)
+  let b = bests?.[key]
+  if (!b) for (const old of oldBestKeys(key)) { if (bests?.[old]) { b = bests[old]; break } }
   return { score: Math.max(0, Number(b?.score) || 0), level: Math.max(0, Number(b?.level) || 0) }
 }
 
@@ -203,8 +209,8 @@ function Mover({ word, shape, tonganMoves, role, fieldRef, register, onEscape, r
 }
 
 export default function WordRain() {
-  const [wordSet, setWordSet] = useState('essential')
-  const [listChoice, setListChoice] = useState(EVERYTHING)
+  const [listChoice, setListChoice] = useState(ALL_WORDS_ID)
+  const [panel, setPanel] = useState(null) // null | 'words' | 'options'
   const [direction, setDirection] = useState('to-english')
   const [shape, setShapeState] = useState(readShape)
   const [muted, setMutedState] = useState(readMuted)
@@ -214,30 +220,18 @@ export default function WordRain() {
   const isTouch = useIsTouchPrimary()
   const reduced = useReducedMotion()
 
-  // Every list at the chosen level: how many words it plays, whether the level
-  // had to be set aside to reach 8, and whether it can be played at all.
-  const lists = useMemo(() => {
-    const out = {}
-    for (const g of LIST_GROUPS) for (const l of g.lists) out[l.id] = listDeck(vocabulary, l.id, wordSet)
-    return out
-  }, [wordSet])
-  const listId = lists[listChoice]?.playable ? listChoice : EVERYTHING
-  const playing = lists[listId]
+  // The chosen list: every word it has. A short list borrows distractors
+  // from all the words (same part of speech first).
+  const playing = useMemo(() => listById(listChoice), [listChoice])
+  const listId = playing.id
   const deck = playing.cards
-  // The wider deck a short list borrows distractors from (same level).
-  const fallback = useMemo(
-    () => (listId === EVERYTHING ? null : buildDeck(vocabulary, playing.level)),
-    [listId, playing.level],
-  )
-  const bestId = bestKey(listId, playing.level)
-  const listLabel = `${LIST_LABELS[listId]} · ${WORD_SET_LABELS[playing.level]}`
-  const counts = useMemo(
-    () => Object.fromEntries(WORD_SETS.map(s => [s, listDeck(vocabulary, listId, s).cards.length])),
-    [listId],
-  )
+  const fallback = listId === ALL_WORDS_ID ? null : ALL_WORDS
+  const byId = useMemo(() => new Map(playing.cards.map(c => [c.id, c])), [playing])
+  const bestId = bestKey(listId)
+  const listLabel = playing.label
   // The word the title screen's shape carries: a real card from the chosen
   // set (fixed seed, so it does not flicker), shown in the chosen direction.
-  const titleWord = useMemo(() => moverText(makeRound(deck, makeRng(2026), { direction }).target, direction), [deck, direction])
+  const titleWord = useMemo(() => moverText(makeRound(playing.cards, makeRng(2026), { direction }).target, direction), [playing, direction])
 
   const { phase, paused, words, reveal, last, score, lives, level, streak, levelUp, hits, correct } = state
   const front = frontWord(state)
@@ -249,9 +243,19 @@ export default function WordRain() {
 
   // Latest state for timers and the launch loop, which run outside render.
   const stateRef = useRef(state)
-  const settingsRef = useRef({ deck, fallback, direction, bestId, bests, muted })
+  const settingsRef = useRef({ deck, byId, fallback, direction, bestId, bests, muted })
   useEffect(() => { stateRef.current = state })
-  useEffect(() => { settingsRef.current = { deck, fallback, direction, bestId, bests, muted } })
+  useEffect(() => { settingsRef.current = { deck, byId, fallback, direction, bestId, bests, muted } })
+
+  // The shuffle bag for this game: every word once before any repeats.
+  const bagRef = useRef(null)
+  // Where a target's distractors come from: a word-list word playing in All
+  // words draws them from its own list first, then from all the words.
+  const sourcesFor = useCallback((target) => {
+    const { deck: d, fallback: fb } = settingsRef.current
+    const home = fb ? null : homeList(target)
+    return home ? { pool: home, wider: ALL_WORDS } : { pool: d, wider: fb }
+  }, [])
 
   const sound = useCallback((name, ...args) => {
     if (!settingsRef.current.muted) play(name, ...args)
@@ -269,6 +273,8 @@ export default function WordRain() {
   const start = useCallback((instant = false) => {
     if (!settingsRef.current.muted) unlock()
     setResult(null)
+    setPanel(null)
+    bagRef.current = makeBag(settingsRef.current.deck.map(c => c.id), Math.random)
     dispatch({ type: 'start', instant })
   }, [])
 
@@ -296,13 +302,17 @@ export default function WordRain() {
 
   const launchFront = useCallback(() => {
     const s = stateRef.current
-    const { deck: d, fallback: fb, direction: dir } = settingsRef.current
-    // A short list cannot keep ten words out of play; it rests the last few.
-    const rest = s.recent.slice(0, Math.min(s.recent.length, Math.floor(d.length / 2)))
-    const avoid = new Set([...rest, ...s.words.map(w => w.round.target.id)])
-    const round = makeRound(d, Math.random, { direction: dir, optionCount: 4, avoid, fallback: fb })
+    if (s.phase !== 'playing' || s.paused || s.reveal || flyingCount(s) >= MAX_IN_AIR || !bagRef.current) return
+    const { byId: cards, direction: dir } = settingsRef.current
+    // The bag gives the next word; a word still on screen is never drawn.
+    const { id, bag } = drawFromBag(bagRef.current, Math.random, new Set(s.words.map(w => w.round.target.id)))
+    const target = id && cards.get(id)
+    if (!target) return
+    const { pool, wider } = sourcesFor(target)
+    const round = makeRound(pool, Math.random, { direction: dir, optionCount: 4, target, fallback: wider })
+    bagRef.current = bag
     dispatch({ type: 'launch', round, duration: levelFlightMs(s.level), x: Math.random() })
-  }, [])
+  }, [sourcesFor])
 
   // The next word comes when the sky is clear of answerable words: a beat
   // after a pop, longer after a level-up so the banner can be read.
@@ -311,6 +321,17 @@ export default function WordRain() {
     const t = window.setTimeout(launchFront, levelUp ? AFTER_LEVEL_UP_MS : NEXT_MS)
     return () => window.clearTimeout(t)
   }, [phase, paused, reveal, inAir, levelUp, launchFront])
+
+  // Every miss goes back in the bag, to come round once more 5 to 8 words on.
+  const missSeen = useRef({ gameId: 0, n: 0 })
+  useEffect(() => {
+    if (missSeen.current.gameId !== state.gameId) missSeen.current = { gameId: state.gameId, n: 0 }
+    const { misses } = state
+    for (let i = missSeen.current.n; i < misses.length; i++) {
+      if (bagRef.current) bagRef.current = missedInBag(bagRef.current, misses[i], Math.random)
+    }
+    missSeen.current.n = misses.length
+  }, [state])
 
   // From level 3 a second word enters once the front word is far enough on.
   useEffect(() => {
@@ -324,10 +345,17 @@ export default function WordRain() {
       if (!f || !a || n !== 1) return
       const t = Number(a.currentTime) || 0
       if (!canLaunchSecond({ level: s.level, inAir: n, frontProgress: t / f.duration })) return
-      const { deck: d, fallback: fb, direction: dir } = settingsRef.current
-      const rest = s.recent.slice(0, Math.min(s.recent.length, Math.floor(d.length / 2)))
-      const round = makeFollowerRound(d, Math.random, f.round, { direction: dir, optionCount: 4, recent: rest, fallback: fb })
+      if (!bagRef.current) return
+      const { deck: d, byId: cards, direction: dir } = settingsRef.current
+      // The bag's next word that cannot pass for the front word or its answers.
+      const blocked = followerBlocked(d, f.round, s.words.map(w => w.round.target.id))
+      const next = drawFromBag(bagRef.current, Math.random, blocked)
+      const target = next.id && cards.get(next.id)
+      if (!target) return
+      const { pool, wider } = sourcesFor(target)
+      const round = makeFollowerRound(pool, Math.random, f.round, { direction: dir, optionCount: 4, fallback: wider, target })
       if (!round) return
+      bagRef.current = next.bag
       dispatch({
         type: 'launch',
         round,
@@ -336,7 +364,7 @@ export default function WordRain() {
       })
     }, 100)
     return () => window.clearInterval(id)
-  }, [phase])
+  }, [phase, sourcesFor])
 
   // A popped word leaves once its burst has played.
   useEffect(() => {
@@ -427,7 +455,34 @@ export default function WordRain() {
     return () => document.removeEventListener('visibilitychange', onHide)
   }, [])
 
-  // Keys: 1-4 answer, Space or P pauses (Escape too), Enter plays.
+  // ── the title screen's two panels (Words, Options) ───────────────────
+  const panelRef = useRef(panel)
+  useEffect(() => { panelRef.current = panel })
+  const triggerRef = useRef(null)
+  const sheetRef = useRef(null)
+  const openPanel = useCallback((name, e) => {
+    triggerRef.current = e?.currentTarget ?? null
+    setPanel(name)
+  }, [])
+  const closePanel = useCallback(() => {
+    setPanel(null)
+    const t = triggerRef.current
+    if (t && typeof t.focus === 'function') window.requestAnimationFrame(() => t.focus())
+  }, [])
+  // An open panel takes the focus: the chosen entry, else its first button.
+  useEffect(() => {
+    if (!panel) return
+    const el = sheetRef.current
+    const target = el?.querySelector('[aria-checked="true"], [aria-pressed="true"]') ?? el?.querySelector('button')
+    target?.focus({ preventScroll: true })
+  }, [panel])
+  const chooseList = useCallback((id) => {
+    setListChoice(id)
+    closePanel()
+  }, [closePanel])
+
+  // Keys: 1-4 answer, Space or P pauses (Escape too), Enter plays; Escape
+  // closes an open panel.
   useEffect(() => {
     const onKey = (e) => {
       const tag = e.target?.tagName
@@ -447,6 +502,11 @@ export default function WordRain() {
           e.preventDefault()
           answer(n - 1, f.key)
         }
+      } else if (panelRef.current) {
+        if (e.key === 'Escape') {
+          e.preventDefault()
+          closePanel()
+        }
       } else if (e.key === 'Enter' && tag !== 'BUTTON' && tag !== 'A') {
         e.preventDefault()
         start(s.phase === 'over')
@@ -464,7 +524,7 @@ export default function WordRain() {
       window.removeEventListener('keydown', onKey)
       window.removeEventListener('keyup', onKeyUp)
     }
-  }, [answer, start, togglePause])
+  }, [answer, start, togglePause, closePanel])
 
   // ── render ───────────────────────────────────────────────────────────
   const sky = skyStep(level)
@@ -554,6 +614,18 @@ export default function WordRain() {
               </div>
             ) : (
               <div className="rain-top-title">
+                {phase === 'title' && (
+                  <button
+                    type="button"
+                    className="rain-icon-btn rain-options-btn"
+                    onClick={e => (panel === 'options' ? closePanel() : openPanel('options', e))}
+                    aria-haspopup="dialog"
+                    aria-expanded={panel === 'options'}
+                    aria-label="Options"
+                  >
+                    <GearIcon />
+                  </button>
+                )}
                 <button type="button" className="rain-icon-btn rain-mute" onClick={toggleMute} aria-pressed={muted} aria-label={muted ? 'Sound off' : 'Sound on'}>
                   <SoundIcon muted={muted} />
                 </button>
@@ -641,98 +713,122 @@ export default function WordRain() {
 
           <Ground />
 
-          {/* ── bottom row: settings on the title, answers in a game ── */}
+          {/* ── bottom row: the Words control and Play on the title, answers in a game ── */}
           {phase === 'title' && (
             <div className="rain-tray rain-setup">
-              <div className="rain-settings">
-                {LIST_GROUPS.map(g => (
-                  <div key={g.id} className="rain-setting rain-setting-lists" role="group" aria-labelledby={`rain-set-${g.id}`}>
-                    <span className="rain-setting-label" id={`rain-set-${g.id}`}>{g.label}</span>
-                    <div className="rain-chips">
-                      {g.lists.filter(l => lists[l.id].playable).map(l => (
-                        <button
-                          key={l.id}
-                          type="button"
-                          className={`rain-chip${listId === l.id ? ' is-active' : ''}`}
-                          aria-pressed={listId === l.id}
-                          data-list={l.id}
-                          data-count={lists[l.id].cards.length}
-                          title={lists[l.id].levelIgnored ? `Plays all ${lists[l.id].cards.length} words at every level` : undefined}
-                          onClick={() => setListChoice(l.id)}
-                        >
-                          {l.label} <span className="rain-chip-count">{lists[l.id].cards.length}</span>
-                          {lists[l.id].levelIgnored && <span className="rain-chip-note">all levels</span>}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-                <div className="rain-setting" role="group" aria-labelledby="rain-set-words">
-                  <span className="rain-setting-label" id="rain-set-words">Level</span>
-                  <div className="rain-chips">
-                    {WORD_SETS.map(s => (
-                      <button
-                        key={s}
-                        type="button"
-                        className={`rain-chip${wordSet === s ? ' is-active' : ''}`}
-                        aria-pressed={wordSet === s}
-                        data-wordset={s}
-                        onClick={() => setWordSet(s)}
-                      >
-                        {WORD_SET_LABELS[s]} <span className="rain-chip-count">{counts[s]}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="rain-setting" role="group" aria-labelledby="rain-set-direction">
-                  <span className="rain-setting-label" id="rain-set-direction">Direction</span>
-                  <div className="rain-chips">
-                    {Object.entries(DIRECTION_LABELS).map(([key, label]) => (
-                      <button
-                        key={key}
-                        type="button"
-                        className={`rain-chip${direction === key ? ' is-active' : ''}`}
-                        aria-pressed={direction === key}
-                        data-direction={key}
-                        onClick={() => setDirection(key)}
-                      >
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="rain-setting" role="group" aria-labelledby="rain-set-shape">
-                  <span className="rain-setting-label" id="rain-set-shape">Shape</span>
-                  <div className="rain-chips">
-                    {Object.entries(SHAPES).map(([key, label]) => (
-                      <button
-                        key={key}
-                        type="button"
-                        className={`rain-chip${shape === key ? ' is-active' : ''}`}
-                        aria-pressed={shape === key}
-                        data-shape={key}
-                        onClick={() => setShape(key)}
-                      >
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <button
+                type="button"
+                className="rain-words"
+                onClick={e => openPanel('words', e)}
+                aria-haspopup="dialog"
+                aria-expanded={panel === 'words'}
+                data-list={listId}
+                data-count={playing.count}
+              >
+                <span className="rain-words-label">Words</span>
+                <span className="rain-words-name">{listLabel}</span>
+                <span className="rain-words-count">{playing.count} words</span>
+                <ChevronIcon />
+              </button>
               <div className="rain-go-col">
-                <div className="rain-best" data-best={best.score}>
-                  {best.score > 0
-                    ? <>Best <b>{best.score}</b> · level {best.level} · {listLabel}</>
-                    : <>No best score yet for {listLabel}</>}
-                </div>
                 <button type="button" className="rain-btn rain-btn-primary rain-play" onClick={() => start(false)}>
                   Play
                 </button>
+                <div className="rain-best" data-best={best.score}>
+                  {best.score > 0
+                    ? <>Best <b>{best.score}</b> · level {best.level}</>
+                    : <>No best score yet for this list</>}
+                </div>
                 {!isTouch && (
                   <span className="rain-keys">
                     Answer with <kbd>1</kbd>–<kbd>4</kbd> · <kbd>Space</kbd> pauses
                   </span>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* ── the Words menu: the Cards page's lists, each with its count ── */}
+          {phase === 'title' && panel === 'words' && (
+            <div className="rain-sheet-wrap" onClick={e => { if (e.target === e.currentTarget) closePanel() }}>
+              <div className="rain-sheet rain-words-sheet" role="dialog" aria-modal="true" aria-labelledby="rain-words-title" ref={sheetRef}>
+                <div className="rain-sheet-head">
+                  <h2 className="rain-sheet-title" id="rain-words-title">Words</h2>
+                  <button type="button" className="rain-btn rain-btn-quiet rain-sheet-close" onClick={closePanel}>Done</button>
+                </div>
+                <div className="rain-sheet-body">
+                  {MENU.map(g => (
+                    <div key={g.id} className="rain-menu-group" role="radiogroup" aria-labelledby={`rain-menu-${g.id}`}>
+                      <div className="rain-setting-label" id={`rain-menu-${g.id}`}>{g.label}</div>
+                      <ul className="rain-menu-list">
+                        {g.lists.map(l => (
+                          <li key={l.id}>
+                            <button
+                              type="button"
+                              role="radio"
+                              aria-checked={listId === l.id}
+                              className={`rain-menu-item${listId === l.id ? ' is-active' : ''}`}
+                              data-list={l.id}
+                              data-count={l.count}
+                              onClick={() => chooseList(l.id)}
+                            >
+                              <span className="rain-menu-name">{l.label}</span>
+                              <span className="rain-menu-count">{l.count}</span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── Options: direction and shape ── */}
+          {phase === 'title' && panel === 'options' && (
+            <div className="rain-sheet-wrap rain-options-wrap" onClick={e => { if (e.target === e.currentTarget) closePanel() }}>
+              <div className="rain-sheet rain-options-sheet" role="dialog" aria-modal="true" aria-labelledby="rain-options-title" ref={sheetRef}>
+                <div className="rain-sheet-head">
+                  <h2 className="rain-sheet-title" id="rain-options-title">Options</h2>
+                  <button type="button" className="rain-btn rain-btn-quiet rain-sheet-close" onClick={closePanel}>Done</button>
+                </div>
+                <div className="rain-sheet-body">
+                  <div className="rain-setting" role="group" aria-labelledby="rain-set-direction">
+                    <span className="rain-setting-label" id="rain-set-direction">Direction</span>
+                    <div className="rain-chips">
+                      {Object.entries(DIRECTION_LABELS).map(([key, label]) => (
+                        <button
+                          key={key}
+                          type="button"
+                          className={`rain-chip${direction === key ? ' is-active' : ''}`}
+                          aria-pressed={direction === key}
+                          data-direction={key}
+                          onClick={() => setDirection(key)}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="rain-setting" role="group" aria-labelledby="rain-set-shape">
+                    <span className="rain-setting-label" id="rain-set-shape">Shape</span>
+                    <div className="rain-chips">
+                      {Object.entries(SHAPES).map(([key, label]) => (
+                        <button
+                          key={key}
+                          type="button"
+                          className={`rain-chip${shape === key ? ' is-active' : ''}`}
+                          aria-pressed={shape === key}
+                          data-shape={key}
+                          onClick={() => setShape(key)}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}

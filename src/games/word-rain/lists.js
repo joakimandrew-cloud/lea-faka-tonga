@@ -1,89 +1,117 @@
 /**
- * Word Rain: word lists (pure, no React).
+ * Word Rain: the word menu (pure, no React).
  *
- * A list is a slice of the course vocabulary the player chooses on the title
- * screen: a kind (things, actions, describing words, numbers) or a topic (the
- * eight topics of the Cards page). A level (Essential / Useful / All) then
- * filters inside the list. Every list is made of vocabulary rows as they are;
- * no word is added. The "grammar" category never plays.
+ * Since Step 4 (plan 2026-10-26-word-rain-game) the game offers the same menu
+ * the Cards page does, in the same order and with the same labels: the word
+ * types, the course lists and the topics (src/lib/vocab-decks.js, read only),
+ * then the site's word lists (src/premium/data/word-lists.json: Parts of body,
+ * Colours, Land animals). Every list holds every word it has: there is no
+ * Essential / Useful / All choice (DECISIONS.md 2026-09-29, flip cards).
  *
- * The topics and the numbers list come from src/lib/vocab-decks.js, the same
- * lists the Cards page uses. This file reads them and changes nothing there.
+ * "All words" is every course word outside the grammar category plus every
+ * word-list word that is not already a course word (a row with a course_id is
+ * the course card itself). The word types count word-list words too, by their
+ * part of speech. A list with fewer than 8 playable words is not offered.
+ * No word is added or changed here; the lists only select cards.
  */
-import { lists as taggedLists, topics } from '../../lib/vocab-decks.js'
-import { toCard } from './deck.js'
+import vocabulary from '../../data/book-vocabulary.json'
+import wordLists from '../../premium/data/word-lists.json'
+import { deckForPickerLists, listMenu, topicMenu } from '../../lib/vocab-decks.js'
+import { allWordsDeck, buildDeck, wordListDecks } from './deck.js'
 
-/** A list needs this many playable words, or its chip is hidden. */
+/** A list needs this many playable words, or it is not offered. */
 export const MIN_LIST_WORDS = 8
 
-export const EVERYTHING = 'everything'
+export const ALL_WORDS_ID = 'all'
 
-const CATEGORY_KINDS = [
-  { id: 'things', label: 'Things', hint: 'nouns', category: 'nouns' },
-  { id: 'actions', label: 'Actions', hint: 'verbs', category: 'verbs' },
-  { id: 'describing', label: 'Describing words', hint: 'adjectives', category: 'adjectives' },
-]
-const numbersIds = new Set(taggedLists.find(l => l.id === 'numbers')?.ids ?? [])
+// The Cards page's word types, in its order (sorted), without "numbers" (the
+// Numbers course list stands in for it there) and without "grammar" (never
+// played here).
+const TYPE_IDS = ['adjectives', 'adverbs', 'nouns', 'verbs']
+const capital = s => s[0].toUpperCase() + s.slice(1)
 
-/** The title screen's two rows of chips, in order. */
-export const LIST_GROUPS = [
+const courseCards = buildDeck(vocabulary, 'all')
+const courseById = new Map(courseCards.map(c => [c.id, c]))
+/** Every word the game can play (course words, then word-list words). */
+export const ALL_WORDS = allWordsDeck(vocabulary, wordLists)
+const listDecks = wordListDecks(wordLists, courseCards)
+
+/** Cards for a Cards-page menu entry: its rows, grammar left out. */
+function pickerCards(entry) {
+  return deckForPickerLists(entry.lists).map(row => courseById.get(row.id)).filter(Boolean)
+}
+
+const RAW_GROUPS = [
   {
-    id: 'kind',
-    label: 'By kind',
+    id: 'types',
+    label: 'Word types',
     lists: [
-      { id: EVERYTHING, label: 'Everything' },
-      ...CATEGORY_KINDS.map(({ id, label, hint }) => ({ id, label, hint })),
-      { id: 'numbers', label: 'Numbers' },
+      { id: ALL_WORDS_ID, label: 'All words', cards: ALL_WORDS },
+      ...TYPE_IDS.map(t => ({ id: `type:${t}`, label: capital(t), cards: ALL_WORDS.filter(c => c.category === t) })),
     ],
   },
   {
-    id: 'topic',
-    label: 'By topic',
-    lists: topics.map(t => ({ id: t.id, label: t.label })),
+    id: 'course',
+    label: 'Course lists',
+    lists: listMenu.map(e => ({ id: `list:${e.id}`, label: e.label, cards: pickerCards(e) })),
+  },
+  {
+    id: 'topics',
+    label: 'Topics',
+    lists: topicMenu.map(e => ({ id: `topic:${e.id}`, label: e.label, cards: pickerCards(e) })),
+  },
+  {
+    id: 'word-lists',
+    label: 'Word lists',
+    lists: (wordLists.themes ?? []).map(t => ({ id: `wl:${t.id}`, label: t.label, cards: listDecks.get(t.id) ?? [] })),
   },
 ]
 
-export const ALL_LISTS = LIST_GROUPS.flatMap(g => g.lists)
-export const LIST_LABELS = Object.fromEntries(ALL_LISTS.map(l => [l.id, l.label]))
-
-/** Does a vocabulary row belong to the list? */
-function inList(listId, row, topicIds) {
-  if (listId === EVERYTHING) return true
-  const kind = CATEGORY_KINDS.find(k => k.id === listId)
-  if (kind) return row.category === kind.category
-  if (listId === 'numbers') return numbersIds.has(row.id)
-  return topicIds ? topicIds.has(row.id) : false
-}
-
-const TIER_FOR_LEVEL = { essential: 1, useful: 2, all: 3 }
-
 /**
- * The playable words of a list at a level.
- *   cards         the words the game plays with
- *   level         the level actually used ('all' when `levelIgnored`)
- *   levelIgnored  the level left fewer than 8 words, so the whole list plays
- *   playable      the list has at least 8 words at all (else hide its chip)
- * Cards come back in the order of the vocabulary file.
+ * Every list the Cards page has, each with its cards, its count and whether
+ * it is offered (8 words or more). The menu shows only the offered ones.
  */
-export function listDeck(vocabulary, listId = EVERYTHING, level = 'essential') {
-  const topic = topics.find(t => t.id === listId)
-  const topicIds = topic ? new Set(topic.ids) : null
-  const whole = vocabulary
-    .filter(v => v.category !== 'grammar' && inList(listId, v, topicIds))
-    .map(toCard)
-    .filter(c => c.meaning && c.tongan)
-  const cap = TIER_FOR_LEVEL[level] ?? 3
-  const atLevel = whole.filter(c => c.tier <= cap)
-  if (atLevel.length >= MIN_LIST_WORDS) return { cards: atLevel, level, levelIgnored: false, playable: true }
-  return {
-    cards: whole,
-    level: 'all',
-    levelIgnored: whole.length > atLevel.length || level !== 'all',
-    playable: whole.length >= MIN_LIST_WORDS,
-  }
+export const ALL_MENU = RAW_GROUPS.map(g => ({
+  ...g,
+  lists: g.lists.map(l => ({ ...l, count: l.cards.length, playable: l.cards.length >= MIN_LIST_WORDS })),
+}))
+
+/** The menu as the page shows it: offered lists only, empty groups dropped. */
+export const MENU = ALL_MENU
+  .map(g => ({ ...g, lists: g.lists.filter(l => l.playable) }))
+  .filter(g => g.lists.length)
+
+export const MENU_LISTS = MENU.flatMap(g => g.lists)
+const byId = new Map(MENU_LISTS.map(l => [l.id, l]))
+
+/** The list a menu id names, or All words for an id the menu does not offer. */
+export function listById(id) {
+  return byId.get(id) ?? byId.get(ALL_WORDS_ID)
 }
 
-/** The key a best score is kept under: the list and the level actually played. */
-export function bestKey(listId, level) {
-  return `${listId}|${level}`
+/** The cards of the word list a word-list word belongs to (its own list). */
+export function homeList(card) {
+  return card?.list ? listDecks.get(card.list) ?? null : null
+}
+
+/** The key a best score is kept under: the list (no level since Step 4). */
+export function bestKey(listId) {
+  return listId
+}
+
+// Best scores kept by Steps 1 to 3 (key "<old list>|<level>", or the level
+// alone in Step 1). The old "all" level of a list is the nearest to the new
+// list, which holds the same words or more, so it is read when the new key
+// has nothing yet.
+const OLD_LIST_IDS = {
+  [ALL_WORDS_ID]: ['everything|all', 'all'],
+  'type:nouns': ['things|all'],
+  'type:verbs': ['actions|all'],
+  'type:adjectives': ['describing|all'],
+  'list:numbers': ['numbers|all'],
+}
+export function oldBestKeys(listId) {
+  if (OLD_LIST_IDS[listId]) return OLD_LIST_IDS[listId]
+  if (listId.startsWith('topic:')) return [`${listId.slice(6)}|all`]
+  return []
 }

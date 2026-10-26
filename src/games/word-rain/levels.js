@@ -105,11 +105,18 @@ export function followerX(frontX, rng = Math.random) {
  * that could pass for it. Returns null if the deck cannot supply one (the
  * game then waits for the front word to clear).
  */
-export function makeFollowerRound(deck, rng, front, { direction = 'to-english', optionCount = 4, recent = [], fallback = null } = {}) {
+export function makeFollowerRound(deck, rng, front, { direction = 'to-english', optionCount = 4, recent = [], fallback = null, target = null } = {}) {
   if (!front) return null
-  const blocked = new Set(recent)
-  for (const c of deck) {
-    if (clashes(front.target, c) || front.options.some(o => clashes(o, c))) blocked.add(c.id)
+  const blocked = followerBlocked(deck, front, recent)
+  // A target chosen by the page (the shuffle bag): it must itself be free.
+  if (target) {
+    if (clashes(front.target, target) || front.options.some(o => clashes(o, target))) return null
+    for (let tries = 0; tries < 40; tries++) {
+      const r = makeRound(deck, rng, { direction, optionCount, fallback, target })
+      if (r.options.some(o => clashes(front.target, o))) continue
+      return r
+    }
+    return null
   }
   if (blocked.size >= deck.length) return null
   for (let tries = 0; tries < 40; tries++) {
@@ -119,4 +126,19 @@ export function makeFollowerRound(deck, rng, front, { direction = 'to-english', 
     return r
   }
   return null
+}
+
+/**
+ * The ids a second word may not be while `front` is in the air: the front
+ * target, anything that could pass for it or for one of its options, and the
+ * `recent` ids. The page hands this to the shuffle bag.
+ */
+export function followerBlocked(deck, front, recent = []) {
+  const blocked = new Set(recent)
+  if (!front) return blocked
+  blocked.add(front.target.id)
+  for (const c of deck) {
+    if (clashes(front.target, c) || front.options.some(o => clashes(o, c))) blocked.add(c.id)
+  }
+  return blocked
 }

@@ -41,6 +41,7 @@ export function initialGame(extra = {}) {
     levelUp: null, // { level, at } while the banner shows
     hits: 0, // lives lost so far (drives the shake and the heart)
     missed: [],
+    misses: [], // every miss in order, by target id (the page's shuffle bag brings each one back once)
     recent: [],
     ...extra,
   }
@@ -73,6 +74,7 @@ function loseLife(state, word, kind, chosen = null) {
     streak: 0,
     hits: state.hits + 1,
     missed: addMissed(state.missed, word.round.target),
+    misses: [...state.misses, word.round.target.id],
     // A second miss while one is already showing keeps the first on screen.
     reveal: state.reveal ?? { key: word.key, kind, round: word.round },
     last: state.reveal ? state.last : { key: word.key, round: word.round, chosen, right: false },

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import vocabulary from '../../data/book-vocabulary.json'
+import wordLists from '../../premium/data/word-lists.json'
 import confusable from './confusable-pairs.json'
 import {
   buildDeck, contentWords, stemWord, derivedFrom, clashes, shareWord, derivedPair,
@@ -75,7 +76,8 @@ describe('no round shows two answers that could both be right', () => {
   const blocked = new Set(confusable.pairs.map(([a, b]) => pairKey(a, b)))
 
   it('lists only entries that exist, once each', () => {
-    const idsInData = new Set(vocabulary.map(v => v.id))
+    // Course ids, and since Step 4 the site word-list ids too.
+    const idsInData = new Set([...vocabulary.map(v => v.id), ...wordLists.entries.map(e => e.id)])
     expect(confusable.pairs.length).toBe(confusable.pair_notes.length)
     expect(new Set(confusable.pairs.map(([a, b]) => pairKey(a, b))).size).toBe(confusable.pairs.length)
     for (const [a, b] of confusable.pairs) {
