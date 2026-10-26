@@ -7,7 +7,7 @@ import {
   gameReducer, initialGame, frontWord, flyingCount, isFrozen, LIVES, MAX_IN_AIR,
   levelFlightMs, skyStep, cloudRate, canLaunchSecond, secondFlightMs, followerX, makeFollowerRound, followerBlocked,
   multiplierFor, toNextLevel, WORDS_PER_LEVEL, TWO_AT_ONCE_FROM,
-  makeBag, drawFromBag, missedInBag,
+  drawFromBag, missedInBag, resumeBag, bagToSave,
 } from '../games/word-rain'
 import { MENU, ALL_WORDS, ALL_WORDS_ID, listById, homeList, bestKey, oldBestKeys } from '../games/word-rain/lists.js'
 import { unlock, play } from '../games/word-rain/sound.js'
@@ -54,6 +54,9 @@ const AFTER_LEVEL_UP_MS = 1150
 const GAP_PX = 10
 
 const MUTE_KEY = 'lft-word-rain-muted'
+// Where each list's shuffle bag is kept between games, so a new game carries
+// on through the words not yet played instead of reshuffling them all.
+const BAG_KEY_PREFIX = 'lft-word-rain-bag:'
 const BEST_KEY = 'lft-word-rain-best'
 const DIRECTION_LABELS = {
   'to-english': 'Tongan → English',
@@ -225,8 +228,11 @@ export default function WordRain() {
   const bestId = bestKey(listId)
   const listLabel = playing.label
   // The word the title screen's balloon carries: a real card from the chosen
-  // set (fixed seed, so it does not flicker), shown in the chosen direction.
-  const titleWord = useMemo(() => moverText(makeRound(playing.cards, makeRng(2026), { direction }).target, direction), [playing, direction])
+  // set, shown in the chosen direction. The seed is fixed for this visit (so it
+  // does not flicker) and new on the next, so the start screen does not show
+  // the same word every time.
+  const [titleSeed] = useState(() => Date.now())
+  const titleWord = useMemo(() => moverText(makeRound(playing.cards, makeRng(titleSeed), { direction }).target, direction), [playing, direction, titleSeed])
 
   const { phase, paused, words, reveal, last, score, lives, level, streak, levelUp, hits, correct } = state
   const front = frontWord(state)
@@ -240,7 +246,7 @@ export default function WordRain() {
   const stateRef = useRef(state)
   const settingsRef = useRef({ deck, byId, fallback, direction, bestId, bests, muted })
   useEffect(() => { stateRef.current = state })
-  useEffect(() => { settingsRef.current = { deck, byId, fallback, direction, bestId, bests, muted } })
+  useEffect(() => { settingsRef.current = { deck, byId, fallback, direction, bestId, bests, muted, bagKey: BAG_KEY_PREFIX + listId } })
 
   // The shuffle bag for this game: every word once before any repeats.
   const bagRef = useRef(null)
@@ -268,7 +274,9 @@ export default function WordRain() {
     if (!settingsRef.current.muted) unlock()
     setResult(null)
     setPanel(null)
-    bagRef.current = makeBag(settingsRef.current.deck.map(c => c.id), Math.random)
+    let saved = null
+    try { saved = JSON.parse(readStore(settingsRef.current.bagKey) || 'null') } catch { saved = null }
+    bagRef.current = resumeBag(saved, settingsRef.current.deck.map(c => c.id), Math.random)
     dispatch({ type: 'start', instant })
   }, [dispatch])
 
@@ -305,6 +313,7 @@ export default function WordRain() {
     const { pool, wider } = sourcesFor(target)
     const round = makeRound(pool, Math.random, { direction: dir, optionCount: 4, target, fallback: wider })
     bagRef.current = bag
+    writeStore(settingsRef.current.bagKey, JSON.stringify(bagToSave(bag)))
     dispatch({ type: 'launch', round, duration: levelFlightMs(s.level), x: Math.random() })
   }, [sourcesFor, dispatch])
 
@@ -350,6 +359,7 @@ export default function WordRain() {
       const round = makeFollowerRound(pool, Math.random, f.round, { direction: dir, optionCount: 4, fallback: wider, target })
       if (!round) return
       bagRef.current = next.bag
+      writeStore(settingsRef.current.bagKey, JSON.stringify(bagToSave(next.bag)))
       dispatch({
         type: 'launch',
         round,

@@ -208,7 +208,7 @@ export function toCard(v) {
 export function buildDeck(vocabulary, wordSet = 'all') {
   // The three "(accent example)" rows (falé, puhá, tēpilé) are copies of
   // fale, puha and tēpile with the phrase-final accent; they are not words.
-  let rows = vocabulary.filter(v => v.category !== 'grammar' && !/\(accent example\)/i.test(v.english ?? ''))
+  let rows = vocabulary.filter(v => v.category !== 'grammar' && !LEFT_OUT_OF_GAME.has(v.id) && !/\(accent example\)/i.test(v.english ?? ''))
   if (wordSet === 'essential') rows = rows.filter(v => v.tier === 1)
   else if (wordSet === 'useful') rows = rows.filter(v => v.tier <= 2)
   return rows.map(toCard).filter(c => c.meaning && c.tongan)
@@ -257,6 +257,17 @@ export function wordListCard(row) {
 }
 
 /**
+ * Words the game never plays, because a game is played by children too
+ * (Andrew, 2026-10-26, after "male genitals" came up in play). They stay in
+ * the dictionary and on the Cards page; only the game leaves them out.
+ */
+export const LEFT_OUT_OF_GAME = new Set([
+  'wl-body-025', // male genitals
+  'wl-body-031', // a woman's breast
+  'wl-body-057', // buttocks, bottom
+])
+
+/**
  * The cards of the site's word lists, by theme id, in the data file's order.
  * A row with a course_id is the course card (from `courseCards`, by id); a
  * course card the game leaves out (grammar) is left out here too.
@@ -266,7 +277,7 @@ export function wordListDecks(wordLists, courseCards) {
   const out = new Map()
   for (const theme of wordLists?.themes ?? []) out.set(theme.id, [])
   for (const row of wordLists?.entries ?? []) {
-    if (!out.has(row.theme)) continue
+    if (!out.has(row.theme) || LEFT_OUT_OF_GAME.has(row.id)) continue
     const card = row.course_id ? byId.get(row.course_id) : wordListCard(row)
     if (card && card.meaning && card.tongan) out.get(row.theme).push(card)
   }

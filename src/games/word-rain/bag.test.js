@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import {
-  makeBag, drawFromBag, missedInBag, RETURN_MIN, RETURN_MAX,
+  makeBag, drawFromBag, missedInBag, resumeBag, bagToSave, RETURN_MIN, RETURN_MAX,
   makeRng, makeRound, makeFollowerRound, followerBlocked, clashes,
   gameReducer, initialGame, frontWord, levelFlightMs,
 } from './index.js'
@@ -162,3 +162,28 @@ describe('Word Rain shuffle bag in play', () => {
     }
   })
 })
+
+describe('Word Rain shuffle bag: a new game carries on where the last one stopped', () => {
+  it('two short games of 20 on a 40-word list play 40 different words', () => {
+    const rng = makeRng(11)
+    const list = ids(40)
+    let bag = makeBag(list, rng)
+    const seen = []
+    for (let i = 0; i < 20; i++) { const r = drawFromBag(bag, rng); seen.push(r.id); bag = r.bag }
+    // Game over: the page keeps the bag, then reads it back (through JSON, as storage does).
+    bag = resumeBag(JSON.parse(JSON.stringify(bagToSave(bag))), list, rng)
+    for (let i = 0; i < 20; i++) { const r = drawFromBag(bag, rng); seen.push(r.id); bag = r.bag }
+    expect(new Set(seen).size).toBe(40)
+  })
+
+  it('drops words no longer in the list, and starts fresh from nothing or junk', () => {
+    const rng = makeRng(12)
+    const resumed = resumeBag({ order: ['w1', 'gone', 'w2'], last: 'w9', round: 2 }, ids(10), rng)
+    expect(resumed.order).toEqual(['w1', 'w2'])
+    expect(resumed.round).toBe(2)
+    for (const junk of [null, 'x', { order: 'w1' }, { order: [] }]) {
+      expect(resumeBag(junk, ids(10), rng).order.length).toBe(10)
+    }
+  })
+})
+

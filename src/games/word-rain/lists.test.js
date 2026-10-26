@@ -9,12 +9,14 @@ import {
 import {
   ALL_MENU, MENU, MENU_LISTS, ALL_WORDS, ALL_WORDS_ID, MIN_LIST_WORDS, listById, homeList, bestKey, oldBestKeys,
 } from './lists.js'
+import { LEFT_OUT_OF_GAME } from './deck.js'
 
 const byId = new Map(vocabulary.map(v => [v.id, v]))
 const pairKey = (a, b) => (a < b ? `${a}|${b}` : `${b}|${a}`)
 const blocked = new Set(confusable.pairs.map(([a, b]) => pairKey(a, b)))
 const courseNonGrammar = vocabulary.filter(v => v.category !== 'grammar' && !/\(accent example\)/i.test(v.english))
-const wordListOnly = wordLists.entries.filter(e => !e.course_id)
+// The three words the game leaves out for children (deck.js LEFT_OUT_OF_GAME) are word-list words.
+const wordListOnly = wordLists.entries.filter(e => !e.course_id && !LEFT_OUT_OF_GAME.has(e.id))
 
 describe('Word Rain menu: the Cards page lists, every word', () => {
   it('has the Cards page groups in its order, then the word lists', () => {
@@ -41,10 +43,10 @@ describe('Word Rain menu: the Cards page lists, every word', () => {
     }
   })
 
-  it('Land animals holds its 19 words, Colours 9, Parts of body 64', () => {
+  it('Land animals holds its 19 words, Colours 9, Parts of body 61 (64 less the three left out)', () => {
     expect(listById('wl:land-animals').count).toBe(19)
     expect(listById('wl:colours').count).toBe(9)
-    expect(listById('wl:parts-of-body').count).toBe(64)
+    expect(listById('wl:parts-of-body').count).toBe(61)
   })
 
   it('offers a list only with 8 or more playable words, and every offered list has them', () => {
@@ -73,9 +75,15 @@ describe('Word Rain menu: the Cards page lists, every word', () => {
     expect(fatu.full).toBe('stomach (said of a chief, noble word)')
     // Too long for the button with its whole note, so the button keeps the register only.
     expect(fatu.label).toBe('stomach (noble word)')
-    const polite = ALL_WORDS.find(c => c.id === 'wl-body-025')
-    expect(polite.label).toBe('male genitals (polite)')
     for (const c of ALL_WORDS) expect(c.full, c.id).not.toMatch(/\)\s*\(/)
+  })
+
+  it('leaves words unsuited to children out of every list', () => {
+    for (const id of LEFT_OUT_OF_GAME) {
+      expect(ALL_WORDS.some(c => c.id === id), id).toBe(false)
+      for (const group of MENU) for (const list of group.lists) expect(list.cards.some(c => c.id === id), `${list.id} ${id}`).toBe(false)
+    }
+    for (const c of ALL_WORDS) expect(c.full, c.id).not.toMatch(/genital|breast|buttock/i)
   })
 
   it('a word-list word has its own list as home; a course word has none', () => {

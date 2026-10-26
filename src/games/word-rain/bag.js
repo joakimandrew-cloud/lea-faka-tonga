@@ -97,3 +97,27 @@ export function missedInBag(bag, id, rng = Math.random) {
   const k = RETURN_MIN + Math.floor(rng() * (RETURN_MAX - RETURN_MIN + 1))
   return { ...bag, pending: [...bag.pending, { id, due: bag.turn + k - 1 }] }
 }
+
+/**
+ * A bag picked up from where the last game on this list left off, so playing
+ * again does not start a fresh shuffle with words just seen (Andrew,
+ * 2026-10-26: "they would notice the same words always showing up"). `saved`
+ * is a bag read back from storage, or anything else. Words no longer in the
+ * list are dropped, missed words waiting to come back are let go, and an
+ * empty or unreadable bag gives a fresh one.
+ */
+export function resumeBag(saved, ids, rng = Math.random) {
+  const unique = [...new Set(ids)]
+  const known = new Set(unique)
+  const order = Array.isArray(saved?.order) ? [...new Set(saved.order)].filter(id => known.has(id)) : []
+  const last = known.has(saved?.last) ? saved.last : null
+  if (!order.length) return makeBag(unique, rng, { last })
+  const round = Number.isInteger(saved.round) && saved.round > 0 ? saved.round : 1
+  return { ids: unique, order, turn: 0, last, pending: [], round }
+}
+
+/** The part of a bag worth keeping between games. */
+export function bagToSave(bag) {
+  return bag ? { order: bag.order, last: bag.last, round: bag.round } : null
+}
+
