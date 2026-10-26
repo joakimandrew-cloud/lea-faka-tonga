@@ -14,7 +14,7 @@ import { multiplierFor } from '../games/shared/scoring.js'
 import { readStore, writeStore } from '../games/shared/store.js'
 import { readBests, bestOf, recordBest } from '../games/shared/best-scores.js'
 import { unlock, play } from '../games/shared/sound.js'
-import { Sky, Ground, Confetti, Flame, PauseIcon, SoundIcon, ChevronIcon } from '../games/word-rain/scene.jsx'
+import { Sky, Ground, Confetti, Flame, PauseIcon, SoundIcon } from '../games/word-rain/scene.jsx'
 
 /**
  * Sentence Tiles (plan 2026-10-26-games-section, Step 3; untimed and in
@@ -121,9 +121,8 @@ const SHAKE = [
 
 export default function SentenceTiles() {
   const [progress, setProgress] = useState(loadProgress)
-  // The lesson the title screen offers: the furthest reached (Lesson 1 for a new player), or one picked from the sheet.
+  // The lesson the title screen offers: the furthest reached (Lesson 1 for a new player), or the one tapped in the grid.
   const [lessonNo, setLessonNo] = useState(() => startingLesson(progress))
-  const [panel, setPanel] = useState(null) // null | 'lessons'
   const [muted, setMutedState] = useState(readMuted)
   const [clues, setClues] = useState(readClues)
   const [bests, setBests] = useState(() => readBests(BEST_KEY))
@@ -188,7 +187,6 @@ export default function SentenceTiles() {
     if (!settingsRef.current.muted) unlock()
     const entry = lessonEntry(lesson ?? settingsRef.current.choice.lesson)
     setResult(null)
-    setPanel(null)
     setLessonNo(entry.lesson)
     bagRef.current = lessonBag(entry.lesson, Math.random, { last: lastRef.current })
     dispatch({ type: 'start', lesson: entry.lesson, total: entry.count })
@@ -328,30 +326,30 @@ export default function SentenceTiles() {
     dispatch({ type: s.paused ? 'resume' : 'pause' })
   }, [dispatch])
 
-  // ── the Lessons sheet ────────────────────────────────────────────────
-  const panelRef = useRef(panel)
-  useEffect(() => { panelRef.current = panel })
-  const triggerRef = useRef(null)
-  const sheetRef = useRef(null)
-  const openPanel = useCallback((name, e) => {
-    triggerRef.current = e?.currentTarget ?? null
-    setPanel(name)
+  // ── the lesson grid on the title screen ─────────────────────────────
+  // Tapping a lesson only selects it: the saved starting lesson moves when a lesson is finished, never when one is chosen.
+  const gridRef = useRef(null)
+  const chooseLesson = useCallback((n) => { setLessonNo(n) }, [])
+  // Keeps the selected lesson in view inside the grid's own scroll box (the page itself never scrolls).
+  const showSelected = useCallback(() => {
+    const box = gridRef.current
+    const el = box?.querySelector('[aria-checked="true"]')
+    if (!box || !el) return
+    const top = el.offsetTop - box.offsetTop
+    if (top < box.scrollTop) box.scrollTop = top
+    else if (top + el.offsetHeight > box.scrollTop + box.clientHeight) box.scrollTop = top + el.offsetHeight - box.clientHeight
   }, [])
-  const closePanel = useCallback(() => {
-    setPanel(null)
-    const t = triggerRef.current
-    if (t && typeof t.focus === 'function') window.requestAnimationFrame(() => t.focus())
+  useLayoutEffect(() => { if (phase === 'title') showSelected() }, [phase, lessonNo, showSelected])
+  // Arrows move the selection (and the focus with it); Enter plays it.
+  const moveLesson = useCallback((key) => {
+    const box = gridRef.current
+    const cols = box ? (getComputedStyle(box).gridTemplateColumns.split(' ').length || 1) : 1
+    const step = key === 'ArrowLeft' ? -1 : key === 'ArrowRight' ? 1 : key === 'ArrowUp' ? -cols : cols
+    const at = Math.max(0, LESSONS.findIndex(l => l.lesson === settingsRef.current.choice.lesson))
+    const to = LESSONS[Math.min(LESSONS.length - 1, Math.max(0, at + step))]
+    setLessonNo(to.lesson)
+    window.requestAnimationFrame(() => box?.querySelector(`[data-lesson="${to.lesson}"]`)?.focus({ preventScroll: true }))
   }, [])
-  useEffect(() => {
-    if (!panel) return
-    const el = sheetRef.current
-    const target = el?.querySelector('[aria-checked="true"]') ?? el?.querySelector('button')
-    target?.focus({ preventScroll: true })
-  }, [panel])
-  const chooseLesson = useCallback((n) => {
-    setLessonNo(n)
-    closePanel()
-  }, [closePanel])
 
   // Keys: 1-8 pick a tile, arrows move between tiles and Enter picks the one
   // in focus; Space or P (Escape too) pauses; Enter plays on the title, and
@@ -397,12 +395,10 @@ export default function SentenceTiles() {
           if (focused != null) pickByKey(Number(focused))
           else focusTile(null, 1)
         }
-      } else if (panelRef.current) {
-        if (e.key === 'Escape') {
-          e.preventDefault()
-          closePanel()
-        }
-      } else if (e.key === 'Enter' && tag !== 'BUTTON' && tag !== 'A') {
+      } else if (s.phase === 'title' && (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+        e.preventDefault()
+        moveLesson(e.key)
+      } else if (e.key === 'Enter' && (e.target?.closest?.('.tiles-lesson-grid') || (tag !== 'BUTTON' && tag !== 'A'))) {
         e.preventDefault()
         start(s.phase === 'over' && s.lesson != null ? (nextLesson(s.lesson) ?? s.lesson) : undefined)
       }
@@ -417,7 +413,7 @@ export default function SentenceTiles() {
       window.removeEventListener('keydown', onKey)
       window.removeEventListener('keyup', onKeyUp)
     }
-  }, [pickByKey, focusTile, fill, start, togglePause, closePanel])
+  }, [pickByKey, focusTile, fill, start, togglePause, moveLesson])
 
   // ── render ───────────────────────────────────────────────────────────
   // The sky deepens as the lessons go on (one step every 8 lessons).
@@ -519,7 +515,7 @@ export default function SentenceTiles() {
                 )}
                 <div className="rain-eyebrow">A sentence game</div>
                 <h1 className="rain-title">Sentence Tiles</h1>
-                <p className="rain-tagline">Put the words in the book’s order, one lesson at a time.</p>
+                <p className="rain-tagline">Put the words in the book’s order.</p>
               </div>
             )}
 
@@ -573,23 +569,33 @@ export default function SentenceTiles() {
           <Ground />
 
           {phase === 'title' && (
-            <div className="rain-tray rain-setup">
-              <button
-                type="button"
-                className="rain-words"
-                onClick={e => openPanel('lessons', e)}
-                aria-haspopup="dialog"
-                aria-expanded={panel === 'lessons'}
-                data-lesson={choice.lesson}
-                data-count={choice.count}
-              >
-                <span className="rain-words-label">Lesson</span>
-                <span className="rain-words-name">{choice.label}</span>
-                <span className="rain-words-count">{choice.count} sentences</span>
-                <ChevronIcon />
-              </button>
+            <div className="rain-tray rain-setup tiles-setup">
+              <h2 className="tiles-choose" id="tiles-choose">Choose a lesson</h2>
+              <ul className="rain-menu-list tiles-lesson-grid" role="radiogroup" aria-labelledby="tiles-choose" ref={gridRef}>
+                {LESSONS.map(l => {
+                  const isDone = progress.done.includes(l.lesson)
+                  const on = choice.lesson === l.lesson
+                  return (
+                    <li key={l.id}>
+                      <button
+                        type="button"
+                        role="radio"
+                        aria-checked={on}
+                        aria-label={`${l.label}, ${l.count} sentences${isDone ? ', finished' : ''}`}
+                        className={`rain-menu-item${on ? ' is-active' : ''}${isDone ? ' is-done' : ''}`}
+                        data-lesson={l.lesson}
+                        data-count={l.count}
+                        onClick={() => chooseLesson(l.lesson)}
+                      >
+                        <span className="rain-menu-name">{l.label}{isDone && <span className="tiles-lesson-done" aria-hidden="true">✓</span>}</span>
+                        <span className="rain-menu-count">{l.count}</span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
               <div className="rain-go-col">
-                <button type="button" className="rain-btn rain-btn-primary rain-play" onClick={() => start(choice.lesson)}>Play</button>
+                <button type="button" className="rain-btn rain-btn-primary rain-play" data-lesson={choice.lesson} onClick={() => start(choice.lesson)}>Play Lesson {choice.lesson}</button>
                 <div className="rain-best" data-best={best.score}>
                   {best.score > 0
                     ? <>Best <b>{best.score}</b> for this lesson</>
@@ -597,46 +603,9 @@ export default function SentenceTiles() {
                 </div>
                 {!isTouch && (
                   <span className="rain-keys">
-                    Pick with <kbd>1</kbd>–<kbd>8</kbd> or arrows and <kbd>Enter</kbd> · <kbd>H</kbd> fills in a word · <kbd>Space</kbd> pauses
+                    Arrows choose a lesson, <kbd>Enter</kbd> plays · <kbd>1</kbd>–<kbd>8</kbd> pick a tile · <kbd>H</kbd> fills in a word · <kbd>Space</kbd> pauses
                   </span>
                 )}
-              </div>
-            </div>
-          )}
-
-          {phase === 'title' && panel === 'lessons' && (
-            <div className="rain-sheet-wrap" onClick={e => { if (e.target === e.currentTarget) closePanel() }}>
-              <div className="rain-sheet rain-words-sheet tiles-lessons-sheet" role="dialog" aria-modal="true" aria-labelledby="tiles-lessons-title" ref={sheetRef}>
-                <div className="rain-sheet-head">
-                  <h2 className="rain-sheet-title" id="tiles-lessons-title">Lessons</h2>
-                  <button type="button" className="rain-btn rain-btn-quiet rain-sheet-close" onClick={closePanel}>Done</button>
-                </div>
-                <div className="rain-sheet-body" role="radiogroup" aria-label="Start from a lesson">
-                  <p className="tiles-lessons-note">Start from any lesson. Finished lessons are ticked.</p>
-                  <ul className="rain-menu-list tiles-lessons-grid">
-                    {LESSONS.map(l => {
-                      const isDone = progress.done.includes(l.lesson)
-                      const on = choice.lesson === l.lesson
-                      return (
-                        <li key={l.id}>
-                          <button
-                            type="button"
-                            role="radio"
-                            aria-checked={on}
-                            aria-label={`${l.label}, ${l.count} sentences${isDone ? ', finished' : ''}`}
-                            className={`rain-menu-item${on ? ' is-active' : ''}${isDone ? ' is-done' : ''}`}
-                            data-lesson={l.lesson}
-                            data-count={l.count}
-                            onClick={() => chooseLesson(l.lesson)}
-                          >
-                            <span className="rain-menu-name">{l.label}{isDone && <span className="tiles-lesson-done" aria-hidden="true">✓</span>}</span>
-                            <span className="rain-menu-count">{l.count}</span>
-                          </button>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
               </div>
             </div>
           )}
