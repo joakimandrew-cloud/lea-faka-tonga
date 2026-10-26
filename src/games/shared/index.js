@@ -1,4 +1,5 @@
-// The pure shared game code (no React, no data files beyond the deck's own).
+// The pure shared game code (no React, no data files beyond the deck's own
+// and the sentence bank built from it).
 // lists.js (the Words menu, which loads the vocabulary) and sound.js are
 // imported by path, as before.
 export * from './deck.js'
@@ -8,3 +9,4 @@ export * from './bag.js'
 export * from './store.js'
 export * from './best-scores.js'
 export * from './levels.js'
+export * from './sentence-bank.js'
