@@ -30,7 +30,7 @@ const GrandmotherQuiz = lazy(() => import('./pages/GrandmotherQuiz.jsx'))
 // /support is the premium membership page; the old app's Offer.jsx redirect is no longer routed here.
 const Membership = lazy(() => import('./pages/Membership.jsx'))
 const PartnerRedirect = lazy(() => import('@app/pages/PartnerRedirect.jsx'))
-// Word Rain, the first word game (plan 2026-10-26-word-rain-game).
+// Word Balloons, the first word game (plan 2026-10-26-word-rain-game; code folders keep the name word-rain).
 const WordRain = lazy(() => import('./pages/WordRain.jsx'))
 
 const BESPOKE_DRILL_ROUTES = Object.entries(BESPOKE).filter(([id]) => id !== 'terminal-builder')
@@ -81,7 +81,7 @@ export default function App() {
   const loc = useLocation()
   useEffect(() => { if (!loc.hash) window.scrollTo({ top: 0, behavior: 'instant' }) }, [loc.pathname, loc.hash])
   const reading = /^\/lessons\/\d+/.test(loc.pathname)
-  const focus = /^\/(quizzes|drill)\//.test(loc.pathname) || ['/cards', '/games/word-rain', '/sentence-builder', '/terminal-build', ...BESPOKE_DRILL_ROUTES.map(([, path]) => path)].includes(loc.pathname)
+  const focus = /^\/(quizzes|drill)\//.test(loc.pathname) || ['/cards', '/games/word-balloons', '/sentence-builder', '/terminal-build', ...BESPOKE_DRILL_ROUTES.map(([, path]) => path)].includes(loc.pathname)
 
   return (
     <>
@@ -105,7 +105,7 @@ export default function App() {
           <Route path="/sentence-builder" element={<Page><SourceBuilder mode="sentence" /></Page>} />
           <Route path="/terminal-build" element={<Page><SourceBuilder mode="terminal" /></Page>} />
           <Route path="/cards" element={<Page><Cards /></Page>} />
-          <Route path="/games/word-rain" element={<Page><WordRain /></Page>} />
+          <Route path="/games/word-balloons" element={<Page><WordRain /></Page>} />
           <Route path="/charts" element={<Page><Reference /></Page>} />
           <Route path="/topics" element={<Page><Topics /></Page>} />
           <Route path="/alphabet" element={<Page><TopicArticle /></Page>} />

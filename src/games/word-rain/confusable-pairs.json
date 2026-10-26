@@ -530,6 +530,122 @@
   [
    "wl-body-027",
    "wl-body-040"
+  ],
+  [
+   "book-v0195",
+   "book-v0187"
+  ],
+  [
+   "book-v0438",
+   "book-v0608"
+  ],
+  [
+   "book-v0297",
+   "book-v0075"
+  ],
+  [
+   "book-v0297",
+   "book-v0645"
+  ],
+  [
+   "book-v0165",
+   "book-v0097"
+  ],
+  [
+   "book-v0350",
+   "book-v0486"
+  ],
+  [
+   "book-v0401",
+   "book-v0408"
+  ],
+  [
+   "book-v0425",
+   "book-v0614"
+  ],
+  [
+   "book-v0658",
+   "book-v0217"
+  ],
+  [
+   "book-v0100",
+   "book-v0280"
+  ],
+  [
+   "book-v0348",
+   "book-v0352"
+  ],
+  [
+   "book-v0118",
+   "book-v0194"
+  ],
+  [
+   "book-v0369",
+   "book-v0441"
+  ],
+  [
+   "book-v0591",
+   "book-v0059"
+  ],
+  [
+   "book-v0591",
+   "book-v0369"
+  ],
+  [
+   "book-v0573",
+   "book-v0461"
+  ],
+  [
+   "book-v0427",
+   "book-v0515"
+  ],
+  [
+   "book-v0427",
+   "book-v0615"
+  ],
+  [
+   "book-v0494",
+   "book-v0605"
+  ],
+  [
+   "book-v0569",
+   "book-v0127"
+  ],
+  [
+   "book-v0594",
+   "book-v0441"
+  ],
+  [
+   "book-v0543",
+   "book-v0573"
+  ],
+  [
+   "book-v0224",
+   "book-v0607"
+  ],
+  [
+   "book-v0272",
+   "book-v0209"
+  ],
+  [
+   "book-v0492",
+   "book-v0643"
+  ],
+  [
+   "book-v0055",
+   "book-v0194"
+  ],
+  [
+   "book-v0055",
+   "book-v0480"
+  ],
+  [
+   "book-v0055",
+   "book-v0216"
+  ],
+  [
+   "book-v0451",
+   "book-v0079"
   ]
  ],
  "pair_notes": [
@@ -617,7 +733,36 @@
   "to'oto'onga = the organs inside the body | ngākau = intestines, bowels",
   "huhu = a woman's breast | fatafata = chest",
   "fatu = stomach (said of a chief) | pule = upper belly, just below the chest",
-  "fatu = stomach (said of a chief) | kona = lower belly"
+  "fatu = stomach (said of a chief) | kona = lower belly",
+  "vahe = divide | fahi = split: split is a standard synonym of divide",
+  "fakahā = reveal, make known | fanongōnongo = announce, publish: to announce is to make known",
+  "fiemohea = sleepy | helaʻia = tired: everyday overlap",
+  "fiemohea = sleepy | hela = be tired: same overlap, adjective and verb",
+  "ʻafua = fine, clear (weather) | lāʻā = sunny: clear weather is sunny",
+  "matuʻaki = extremely, absolutely | tokaange = undoubtedly: absolutely = without doubt",
+  "fakalelei = to fix, to make good | fakatotonu = to correct: fixing a mistake is correcting it",
+  "maumau = be broken | pakipaki = break into many pieces",
+  "mālie = superb, well done | mālō = congratulations, worthy of praise",
+  "pō = night | poʻuli = nighttime: same meaning",
+  "lahi pē = mostly, mainly | tautefito ki = especially, particularly: forced pairing",
+  "ō mai = come | tau mai = arrive: forced pairing",
+  "tala = tell, say | talanoa = chat, converse: one speak/talk/say/tell group",
+  "fetalanoaʻaki = converse with one another | lea = speak: same group",
+  "fetalanoaʻaki = converse with one another | tala = tell, say: same group",
+  "mamahiʻia = in pain, aggrieved | loto mamahi = sad, upset: aggrieved = upset",
+  "pule = be in charge, govern | taki = lead",
+  "pule = be in charge, govern | tataki = lead, guide",
+  "tokanga = pay attention | fakaalaala = be alert",
+  "founga = method, way | hala = road, path: way = path",
+  "fetuʻutaki = communicate | talanoa = converse",
+  "taʻefiemālie = uncomfortable, dissatisfied | mamahiʻia = in pain, aggrieved",
+  "poto = clever | fakapotopoto = be wise: clever/wise group",
+  "foʻi = piece, individual item | meʻa = thing",
+  "kau mātuʻa = elders | mātuʻa = parents: same Tongan head word",
+  "haʻu = come | tau mai = arrive",
+  "haʻu = come | aʻu = arrive",
+  "haʻu = come | lava = arrive",
+  "faingataʻa = difficult | mālohi = strong; hard"
  ],
  "hypernyms": [
   [

@@ -13,7 +13,7 @@ import {
 const byId = new Map(vocabulary.map(v => [v.id, v]))
 const pairKey = (a, b) => (a < b ? `${a}|${b}` : `${b}|${a}`)
 const blocked = new Set(confusable.pairs.map(([a, b]) => pairKey(a, b)))
-const courseNonGrammar = vocabulary.filter(v => v.category !== 'grammar')
+const courseNonGrammar = vocabulary.filter(v => v.category !== 'grammar' && !/\(accent example\)/i.test(v.english))
 const wordListOnly = wordLists.entries.filter(e => !e.course_id)
 
 describe('Word Rain menu: the Cards page lists, every word', () => {
@@ -69,7 +69,13 @@ describe('Word Rain menu: the Cards page lists, every word', () => {
   it('a word with a register keeps it on its face', () => {
     const fatu = ALL_WORDS.find(c => c.id === 'wl-body-027')
     expect(fatu.meaning).toBe('stomach (noble word)')
-    expect(fatu.full).toBe('stomach (said of a chief) (noble word)')
+    // One pair of brackets: the register joins the word's own note.
+    expect(fatu.full).toBe('stomach (said of a chief, noble word)')
+    // Too long for the button with its whole note, so the button keeps the register only.
+    expect(fatu.label).toBe('stomach (noble word)')
+    const polite = ALL_WORDS.find(c => c.id === 'wl-body-025')
+    expect(polite.label).toBe('male genitals (polite)')
+    for (const c of ALL_WORDS) expect(c.full, c.id).not.toMatch(/\)\s*\(/)
   })
 
   it('a word-list word has its own list as home; a course word has none', () => {

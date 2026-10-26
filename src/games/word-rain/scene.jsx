@@ -60,8 +60,8 @@ const LAYERS = [
 
 /**
  * The sky behind the game: gradient (set by the level class on the scene),
- * the sun or the stars, three cloud layers drifting at different speeds, and
- * light rain for the raindrop's stormy levels. `rate` speeds the clouds up
+ * the sun or the stars, and three cloud layers drifting at different speeds.
+ * `rate` speeds the clouds up
  * (1 = level 1) without restarting their drift.
  */
 export function Sky({ rate = 1 }) {
@@ -89,12 +89,11 @@ export function Sky({ rate = 1 }) {
           ))}
         </div>
       ))}
-      <div className="rain-streaks" />
     </div>
   )
 }
 
-/** The ground: a low hill line, then the woven band the drops land beside. */
+/** The ground: a low hill line, then the woven band the balloons rise from. */
 export function Ground() {
   return (
     <div className="rain-ground" aria-hidden="true">
@@ -107,26 +106,15 @@ export function Ground() {
   )
 }
 
-// ── the two shapes ─────────────────────────────────────────────────────
+// ── the balloon ────────────────────────────────────────────────────────
 
-/**
- * The shape that carries a word: a raindrop (a round body with a point on
- * top) or a balloon (an egg-shaped body with a knot and a string).
- */
-export function ShapeBody({ shape, children }) {
-  if (shape === 'balloon') {
-    return (
-      <div className="rain-shape">
-        <div className="rain-body"><span className="rain-gloss" />{children}</div>
-        <svg className="rain-knot" viewBox="0 0 16 10" aria-hidden="true" focusable="false"><path d="M8 0 L14 10 L2 10 Z" /></svg>
-        <svg className="rain-string" viewBox="0 0 20 64" aria-hidden="true" focusable="false"><path d="M10 0 C 3 14, 17 28, 10 42 S 6 58, 11 64" /></svg>
-      </div>
-    )
-  }
+/** The shape that carries a word: an egg-shaped balloon with a knot and a string. */
+export function Balloon({ children }) {
   return (
     <div className="rain-shape">
-      <svg className="rain-tip" viewBox="0 0 40 32" aria-hidden="true" focusable="false"><path d="M0 32 C 7 19, 17 10, 20 0 C 23 10, 33 19, 40 32" /></svg>
       <div className="rain-body"><span className="rain-gloss" />{children}</div>
+      <svg className="rain-knot" viewBox="0 0 16 10" aria-hidden="true" focusable="false"><path d="M8 0 L14 10 L2 10 Z" /></svg>
+      <svg className="rain-string" viewBox="0 0 20 64" aria-hidden="true" focusable="false"><path d="M10 0 C 3 14, 17 28, 10 42 S 6 58, 11 64" /></svg>
     </div>
   )
 }
@@ -157,19 +145,6 @@ export function Burst({ seed }) {
           className={`rain-bit rain-bit-${b.tone}${b.round ? ' is-round' : ''}`}
           style={{ '--dx': `${b.dx}px`, '--dy': `${b.dy}px`, '--s': `${b.size}px`, '--r': `${b.rot}deg` }}
         />
-      ))}
-    </div>
-  )
-}
-
-/** A missed raindrop hitting the ground: droplets thrown up and a ripple. */
-export function Splash() {
-  const drops = [-62, -38, -16, 16, 38, 62]
-  return (
-    <div className="rain-splash" aria-hidden="true">
-      <span className="rain-ripple" />
-      {drops.map((dx, i) => (
-        <i key={i} className="rain-droplet" style={{ '--dx': `${dx}px`, '--dy': `${-22 - (3 - Math.abs(i - 2.5)) * 9}px` }} />
       ))}
     </div>
   )

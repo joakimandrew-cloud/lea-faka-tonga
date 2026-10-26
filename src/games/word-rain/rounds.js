@@ -2,7 +2,7 @@
  * Word Rain: round generation (pure, no React).
  *
  * A round is one target card and its answer options: the target's own face
- * plus distractors, drawn from the same part of speech where the deck allows
+ * plus distractors, drawn from the same broad part of speech where the deck allows
  * and from the whole deck otherwise. A distractor is never a second right
  * answer:
  *   - its shown meaning never equals the target's;
@@ -51,10 +51,22 @@ export const DIRECTIONS = ['to-english', 'to-tongan']
 
 /** What a card shows on its face in a direction. */
 export function moverText(card, direction) {
-  return direction === 'to-tongan' ? card.meaning : card.tonganShown
+  return direction === 'to-tongan' ? (card.label ?? card.meaning) : card.tonganShown
 }
 export function optionText(card, direction) {
-  return direction === 'to-tongan' ? card.tonganShown : card.meaning
+  return direction === 'to-tongan' ? card.tonganShown : (card.label ?? card.meaning)
+}
+
+/**
+ * A part of speech reduced to its broad class (noun, verb, adjective,
+ * adverb), so "verb phrase" and "postposed adverb" draw from the same group
+ * as "verb" and "adverb" and a two-entry group is not forced into every
+ * round. Anything else keeps its own string.
+ */
+export function posClass(pos) {
+  const p = String(pos ?? '').toLowerCase()
+  const m = p.match(/\b(noun|verb|adjective|adverb)\b/)
+  return m ? m[1] : p
 }
 
 /** True when the two cards share a content word in any of their meanings. */
@@ -110,10 +122,10 @@ export function makeRound(deck, rng, { direction = 'to-english', optionCount = 4
       seenLabels.add(l)
     }
   }
-  tryAdd(deck.filter(c => c.pos === target.pos))
+  tryAdd(deck.filter(c => posClass(c.pos) === posClass(target.pos)))
   if (chosen.length < optionCount - 1) tryAdd(deck)
   if (fallback) {
-    if (chosen.length < optionCount - 1) tryAdd(fallback.filter(c => c.pos === target.pos))
+    if (chosen.length < optionCount - 1) tryAdd(fallback.filter(c => posClass(c.pos) === posClass(target.pos)))
     if (chosen.length < optionCount - 1) tryAdd(fallback)
   }
 

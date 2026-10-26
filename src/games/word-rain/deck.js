@@ -18,7 +18,7 @@
  * Tongan stays as stored (ASCII apostrophe) inside the deck; it goes through
  * okinafy only where it is shown, the site-wide display rule.
  */
-import { okinafy } from '../../lib/okinafy.js'
+import { okinafy, looksTongan } from '../../lib/okinafy.js'
 
 export const WORD_SETS = ['essential', 'useful', 'all']
 export const WORD_SET_LABELS = { essential: 'Essential', useful: 'Useful', all: 'All' }
@@ -28,20 +28,67 @@ export const MAX_SHOWN_CHARS = 28
 
 const SEPARATOR = /[,;]/
 
-/** The English before the first "(", trimmed. */
-function beforeParen(english) {
-  return String(english ?? '').split('(')[0].trim()
+/** Splits at a separator that sits outside any brackets. */
+function splitTop(text, sep) {
+  const out = []
+  let depth = 0
+  let cur = ''
+  for (const ch of String(text ?? '')) {
+    if (ch === '(') depth++
+    else if (ch === ')') depth = Math.max(0, depth - 1)
+    if (ch === sep && depth === 0) { out.push(cur); cur = '' } else cur += ch
+  }
+  out.push(cur)
+  return out.map(x => x.trim()).filter(Boolean)
+}
+
+/** The bracketed notes of one piece of English. */
+function notesOf(part) {
+  return [...part.matchAll(/\(([^)]*)\)/g)].map(m => m[1].trim())
 }
 
 /**
- * The meaning a player sees: the `english` field cut before the first "(" and
- * trimmed. A list (commas, or the book's semicolons) is shown whole unless it
- * runs past 28 characters, then only its first item.
+ * The semicolon-separated pieces of a meaning that belong to this word. A
+ * piece whose note names a different Tongan phrase ("nevertheless (kae
+ * kehe)" under kehe) is another word's meaning and is dropped, unless it is
+ * all there is.
+ */
+function keptParts(english) {
+  const parts = splitTop(english, ';')
+  if (parts.length < 2) return parts
+  const own = parts.filter(p => !notesOf(p).some(n => looksTongan(n)))
+  return own.length ? own : [parts[0]]
+}
+
+/** The meaning with its notes, whitespace tidied (the pieces that belong to this word). */
+function withNotes(english) {
+  return keptParts(english).join('; ').replace(/\s+/g, ' ').trim()
+}
+
+/** The English without any note: each kept piece cut before its first "(", trimmed. */
+function beforeParen(english) {
+  return keptParts(english).map(p => p.split('(')[0].trim()).filter(Boolean).join('; ')
+}
+
+/**
+ * The meaning a player sees when the note does not fit: each kept piece cut
+ * before "(" and trimmed. A list (commas, or the book's semicolons) is shown
+ * whole unless it runs past 28 characters, then only its first item.
  */
 export function shownMeaning(english) {
   const base = beforeParen(english).replace(/\s+/g, ' ')
   if (base.length <= MAX_SHOWN_CHARS || !SEPARATOR.test(base)) return base
   return base.split(SEPARATOR)[0].trim()
+}
+
+/**
+ * The text on an answer button (and on a word that moves in English): the
+ * whole meaning with its note when that fits 28 characters, else the
+ * note-free text above. Tongan inside a note gets its fakauʻa.
+ */
+export function labelMeaning(english) {
+  const full = withNotes(english)
+  return full.length <= MAX_SHOWN_CHARS ? okinafy(full) : shownMeaning(english)
 }
 
 /** One meaning item, normalised for comparison ("To Preach" = "preach"). */
@@ -100,7 +147,7 @@ export function stemWord(word) {
  */
 export function contentWords(english) {
   const out = new Set()
-  for (const item of String(english ?? '').split('(')[0].split(SEPARATOR)) {
+  for (const item of beforeParen(english).split(SEPARATOR)) {
     const tokens = item
       .toLowerCase()
       .replace(/['\u2019\u02bc]s\b/g, '')
@@ -132,9 +179,9 @@ export function derivedFrom(english) {
   return refs
 }
 
-/** Every meaning, in full: the field before any "(", whitespace tidied. */
+/** Every meaning, in full, with its notes (the reveal and the missed list). */
 export function fullMeaning(english) {
-  return beforeParen(english).replace(/\s+/g, ' ')
+  return okinafy(withNotes(english))
 }
 
 /** One vocabulary row as a game card. */
@@ -145,6 +192,7 @@ export function toCard(v) {
     tonganShown: okinafy(v.tongan),
     english: v.english,
     meaning: shownMeaning(v.english),
+    label: labelMeaning(v.english),
     full: fullMeaning(v.english),
     items: meaningItems(v.english),
     words: contentWords(v.english),
@@ -158,7 +206,9 @@ export function toCard(v) {
 
 /** The vocabulary rows a word set plays with, as game cards. */
 export function buildDeck(vocabulary, wordSet = 'all') {
-  let rows = vocabulary.filter(v => v.category !== 'grammar')
+  // The three "(accent example)" rows (falé, puhá, tēpilé) are copies of
+  // fale, puha and tēpile with the phrase-final accent; they are not words.
+  let rows = vocabulary.filter(v => v.category !== 'grammar' && !/\(accent example\)/i.test(v.english ?? ''))
   if (wordSet === 'essential') rows = rows.filter(v => v.tier === 1)
   else if (wordSet === 'useful') rows = rows.filter(v => v.tier <= 2)
   return rows.map(toCard).filter(c => c.meaning && c.tongan)
@@ -181,10 +231,17 @@ export function categoryForPos(pos) {
  * the everyday one.
  */
 export function wordListCard(row) {
+  // A register joins the word's own note ("stomach (said of a chief, noble
+  // word)"), never a second pair of brackets.
+  const english = !row.register
+    ? row.english
+    : /\)\s*$/.test(row.english)
+      ? row.english.replace(/\)\s*$/, `, ${row.register})`)
+      : `${row.english} (${row.register})`
   const card = toCard({
     id: row.id,
     tongan: row.tongan,
-    english: row.english,
+    english,
     part_of_speech: row.part_of_speech,
     category: categoryForPos(row.part_of_speech),
     tier: null,
@@ -193,7 +250,8 @@ export function wordListCard(row) {
   if (row.register) {
     card.register = row.register
     card.meaning = `${card.meaning} (${row.register})`
-    card.full = `${row.english} (${row.register})`
+    // The register always stays on the button, even when the whole note is too long for it.
+    if (withNotes(english).length > MAX_SHOWN_CHARS) card.label = `${shownMeaning(english)} (${row.register})`
   }
   return card
 }

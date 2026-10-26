@@ -12,12 +12,13 @@ import {
 import { MENU, ALL_WORDS, ALL_WORDS_ID, listById, homeList, bestKey, oldBestKeys } from '../games/word-rain/lists.js'
 import { unlock, play } from '../games/word-rain/sound.js'
 import {
-  Sky, Ground, ShapeBody, Burst, Splash, Confetti, Hearts, Flame, PauseIcon, SoundIcon, GearIcon, ChevronIcon,
+  Sky, Ground, Balloon, Burst, Confetti, Hearts, Flame, PauseIcon, SoundIcon, GearIcon, ChevronIcon,
 } from '../games/word-rain/scene.jsx'
 
 /**
- * Word Rain (plan 2026-10-26-word-rain-game). Words from the course
- * vocabulary fall as raindrops or rise as balloons through a living sky; tap
+ * Word Balloons (plan 2026-10-26-word-rain-game; the code keeps the name
+ * word-rain). Words from the course vocabulary rise as balloons through a
+ * living sky; tap
  * the meaning before a word gets away. Right answers pop the word and score
  * more for a quick tap and a long streak; every 8 right is a new level, the
  * sky shifts and the words speed up, and from level 3 two words can be in the
@@ -28,7 +29,7 @@ import {
  * topics) plus the site's word lists; every list holds every word it has.
  * A shuffle bag plays every word of the list once before any repeats; a
  * missed word comes back once, 5 to 8 words later. The title screen shows the
- * Words control and Play; direction and shape sit in a small Options panel.
+ * Words control and Play; direction sits in a small Options panel.
  *
  * Pure rules live in src/games/word-rain/ (rounds, scoring, levels and the
  * game reducer, all tested); this page owns the screen, the timing (Web
@@ -52,10 +53,8 @@ const NEXT_MS = 260
 const AFTER_LEVEL_UP_MS = 1150
 const GAP_PX = 10
 
-const SHAPE_KEY = 'lft-word-rain-shape'
 const MUTE_KEY = 'lft-word-rain-muted'
 const BEST_KEY = 'lft-word-rain-best'
-const SHAPES = { raindrop: 'Raindrop', balloon: 'Balloon' }
 const DIRECTION_LABELS = {
   'to-english': 'Tongan → English',
   'to-tongan': 'English → Tongan',
@@ -68,7 +67,6 @@ function readStore(key) {
 function writeStore(key, value) {
   try { window.localStorage.setItem(key, value) } catch { /* private mode: lasts this visit */ }
 }
-function readShape() { return readStore(SHAPE_KEY) === 'balloon' ? 'balloon' : 'raindrop' }
 function readMuted() { return readStore(MUTE_KEY) === '1' }
 function readBests() {
   try {
@@ -146,7 +144,7 @@ function TickNumber({ value, className, instant }) {
  * hands the animation to the page (for pause, freeze and timing); when the
  * flight ends unanswered it reports the escape.
  */
-function Mover({ word, shape, tonganMoves, role, fieldRef, register, onEscape, reduced }) {
+function Mover({ word, tonganMoves, role, fieldRef, register, onEscape, reduced }) {
   const ref = useRef(null)
   useLayoutEffect(() => {
     const field = fieldRef.current
@@ -158,15 +156,11 @@ function Mover({ word, shape, tonganMoves, role, fieldRef, register, onEscape, r
     const w = el.offsetWidth
     const span = Math.max(0, W - w - GAP_PX * 2)
     el.style.left = `${Math.round(GAP_PX + word.x * span)}px`
-    // The raindrop appears at the top of the sky (just under the score, so
-    // it can be read at once) and falls until it meets the ground; the
-    // balloon starts on the ground and rises until its top reaches the top
-    // of the sky (then it gets away, off the top).
+    // The balloon starts on the ground and rises until its top reaches the
+    // top of the sky (then it gets away, off the top).
     const ground = Math.max(0, H - h)
-    const from = shape === 'balloon' ? ground : 0
-    const to = shape === 'balloon' ? 0 : ground
     const anim = el.animate(
-      [{ transform: `translateY(${from}px)` }, { transform: `translateY(${to}px)` }],
+      [{ transform: `translateY(${ground}px)` }, { transform: 'translateY(0px)' }],
       { duration: word.duration, easing: 'linear', fill: 'forwards' },
     )
     anim.onfinish = () => onEscape(word.key)
@@ -189,11 +183,11 @@ function Mover({ word, shape, tonganMoves, role, fieldRef, register, onEscape, r
       data-ms={word.duration}
     >
       <div className="rain-sway">
-        <ShapeBody shape={shape}>
+        <Balloon>
           {tonganMoves
             ? <Tongan className="rain-word font-tongan">{word.round.mover}</Tongan>
             : <span className="rain-word rain-word-en">{word.round.mover}</span>}
-        </ShapeBody>
+        </Balloon>
       </div>
       {fate === 'popped' && (
         <>
@@ -203,7 +197,6 @@ function Mover({ word, shape, tonganMoves, role, fieldRef, register, onEscape, r
           </span>
         </>
       )}
-      {fate === 'escaped' && shape === 'raindrop' && !reduced && <Splash />}
     </div>
   )
 }
@@ -212,11 +205,13 @@ export default function WordRain() {
   const [listChoice, setListChoice] = useState(ALL_WORDS_ID)
   const [panel, setPanel] = useState(null) // null | 'words' | 'options'
   const [direction, setDirection] = useState('to-english')
-  const [shape, setShapeState] = useState(readShape)
   const [muted, setMutedState] = useState(readMuted)
   const [bests, setBests] = useState(readBests)
   const [result, setResult] = useState(null) // { newBest, best }
-  const [state, dispatch] = useReducer(gameReducer, undefined, () => initialGame())
+  const [state, rawDispatch] = useReducer(gameReducer, undefined, () => initialGame())
+  // Every action carries the time it was sent; the reducer uses it for the
+  // answer lockout after a word becomes the front word.
+  const dispatch = useCallback((action) => rawDispatch({ ...action, now: performance.now() }), [])
   const isTouch = useIsTouchPrimary()
   const reduced = useReducedMotion()
 
@@ -229,7 +224,7 @@ export default function WordRain() {
   const byId = useMemo(() => new Map(playing.cards.map(c => [c.id, c])), [playing])
   const bestId = bestKey(listId)
   const listLabel = playing.label
-  // The word the title screen's shape carries: a real card from the chosen
+  // The word the title screen's balloon carries: a real card from the chosen
   // set (fixed seed, so it does not flicker), shown in the chosen direction.
   const titleWord = useMemo(() => moverText(makeRound(playing.cards, makeRng(2026), { direction }).target, direction), [playing, direction])
 
@@ -261,7 +256,6 @@ export default function WordRain() {
     if (!settingsRef.current.muted) play(name, ...args)
   }, [])
 
-  const setShape = useCallback((v) => { setShapeState(v); writeStore(SHAPE_KEY, v) }, [])
   const toggleMute = useCallback(() => {
     const next = !settingsRef.current.muted
     writeStore(MUTE_KEY, next ? '1' : '0')
@@ -276,7 +270,7 @@ export default function WordRain() {
     setPanel(null)
     bagRef.current = makeBag(settingsRef.current.deck.map(c => c.id), Math.random)
     dispatch({ type: 'start', instant })
-  }, [])
+  }, [dispatch])
 
   // ── flights: every word's animation, by key ──────────────────────────
   const fieldRef = useRef(null)
@@ -286,7 +280,7 @@ export default function WordRain() {
     if (anim) anims.current.set(key, anim)
     else anims.current.delete(key)
   }, [])
-  const onEscape = useCallback((key) => dispatch({ type: 'escape', key }), [])
+  const onEscape = useCallback((key) => dispatch({ type: 'escape', key }), [dispatch])
 
   // Freeze every word while paused or while a miss is showing; a word that
   // has been answered or has escaped stays where it is.
@@ -312,7 +306,7 @@ export default function WordRain() {
     const round = makeRound(pool, Math.random, { direction: dir, optionCount: 4, target, fallback: wider })
     bagRef.current = bag
     dispatch({ type: 'launch', round, duration: levelFlightMs(s.level), x: Math.random() })
-  }, [sourcesFor])
+  }, [sourcesFor, dispatch])
 
   // The next word comes when the sky is clear of answerable words: a beat
   // after a pop, longer after a level-up so the banner can be read.
@@ -364,7 +358,7 @@ export default function WordRain() {
       })
     }, 100)
     return () => window.clearInterval(id)
-  }, [phase, sourcesFor])
+  }, [phase, sourcesFor, dispatch])
 
   // A popped word leaves once its burst has played.
   useEffect(() => {
@@ -372,7 +366,7 @@ export default function WordRain() {
     if (!popped.length) return
     const timers = popped.map(w => window.setTimeout(() => dispatch({ type: 'popDone', key: w.key }), POP_MS))
     return () => timers.forEach(t => window.clearTimeout(t))
-  }, [words])
+  }, [words, dispatch])
 
   // A miss holds the right pair up, then play goes on (or the game ends,
   // and the best score for this word set is kept).
@@ -391,21 +385,21 @@ export default function WordRain() {
       setResult({ newBest, best: prev.score })
     }, REVEAL_MS)
     return () => window.clearTimeout(t)
-  }, [reveal, paused])
+  }, [reveal, paused, dispatch])
 
   // The level banner shows for a moment.
   useEffect(() => {
     if (!levelUp) return
     const t = window.setTimeout(() => dispatch({ type: 'levelUpDone', at: levelUp.at }), BANNER_MS)
     return () => window.clearTimeout(t)
-  }, [levelUp])
+  }, [levelUp, dispatch])
 
   // The countdown.
   useEffect(() => {
     if (phase !== 'countdown' || paused) return
     const t = window.setTimeout(() => dispatch({ type: 'tick' }), COUNT_MS)
     return () => window.clearTimeout(t)
-  }, [phase, paused, state.count])
+  }, [phase, paused, state.count, dispatch])
 
   // ── sound, shake and buzz follow the state ───────────────────────────
   const seen = useRef({ gameId: 0, correct: 0, hits: 0, levelUp: null, count: null, phase: 'title' })
@@ -441,19 +435,19 @@ export default function WordRain() {
     if (!settingsRef.current.muted) unlock()
     const a = anims.current.get(f.key)
     dispatch({ type: 'answer', key, index, elapsedMs: a ? Number(a.currentTime) || 0 : f.duration })
-  }, [])
+  }, [dispatch])
 
   const togglePause = useCallback(() => {
     const s = stateRef.current
     dispatch({ type: s.paused ? 'resume' : 'pause' })
-  }, [])
+  }, [dispatch])
 
   // Leaving the tab pauses the game rather than costing a life.
   useEffect(() => {
     const onHide = () => { if (document.hidden) dispatch({ type: 'pause' }) }
     document.addEventListener('visibilitychange', onHide)
     return () => document.removeEventListener('visibilitychange', onHide)
-  }, [])
+  }, [dispatch])
 
   // ── the title screen's two panels (Words, Options) ───────────────────
   const panelRef = useRef(panel)
@@ -500,7 +494,8 @@ export default function WordRain() {
         const f = frontWord(s)
         if (f && Number.isInteger(n) && n >= 1 && n <= f.round.options.length) {
           e.preventDefault()
-          answer(n - 1, f.key)
+          // A held key repeats; only the first press is an answer.
+          if (!e.repeat) answer(n - 1, f.key)
         }
       } else if (panelRef.current) {
         if (e.key === 'Escape') {
@@ -541,7 +536,7 @@ export default function WordRain() {
 
   return (
     <section className={`source-drill-shell rain-shell is-${phase}`} data-game="word-rain">
-      <div className={`premium-core word-rain rain-shape-${shape}`}>
+      <div className={`premium-core word-rain`}>
         <div className="rain-bar">
           <Link to="/drills" className="x-frame-back">{'←'} All drills</Link>
           <span className="rain-bar-tag">Game · Course vocabulary</span>
@@ -638,21 +633,19 @@ export default function WordRain() {
             {phase === 'title' && (
               <div className="rain-title-block">
                 <div className="rain-idle" aria-hidden="true">
-                  {shape === 'raindrop'
-                    ? <div className="rain-drizzle">{[0, 1, 2, 3, 4].map(i => <i key={i} />)}</div>
-                    : <div className="rain-idle-far"><ShapeBody shape={shape}><span className="rain-word" /></ShapeBody></div>}
+                  <div className="rain-idle-far"><Balloon><span className="rain-word" /></Balloon></div>
                   <div className="rain-idle-main">
                     <div className="rain-sway">
-                      <ShapeBody shape={shape}>
+                      <Balloon>
                         {tonganMoves
                           ? <Tongan className="rain-word font-tongan">{titleWord}</Tongan>
                           : <span className="rain-word rain-word-en">{titleWord}</span>}
-                      </ShapeBody>
+                      </Balloon>
                     </div>
                   </div>
                 </div>
                 <div className="rain-eyebrow">A word game</div>
-                <h1 className="rain-title">Word Rain</h1>
+                <h1 className="rain-title">Word Balloons</h1>
                 <p className="rain-tagline">Tap the meaning before the word gets away.</p>
               </div>
             )}
@@ -661,7 +654,6 @@ export default function WordRain() {
               <Mover
                 key={`${state.gameId}-${w.key}`}
                 word={w}
-                shape={shape}
                 tonganMoves={tonganMoves}
                 role={w.fate === 'flying' ? (front && w.key === front.key ? 'active' : 'queued') : null}
                 fieldRef={fieldRef}
@@ -785,7 +777,7 @@ export default function WordRain() {
             </div>
           )}
 
-          {/* ── Options: direction and shape ── */}
+          {/* ── Options: direction ── */}
           {phase === 'title' && panel === 'options' && (
             <div className="rain-sheet-wrap rain-options-wrap" onClick={e => { if (e.target === e.currentTarget) closePanel() }}>
               <div className="rain-sheet rain-options-sheet" role="dialog" aria-modal="true" aria-labelledby="rain-options-title" ref={sheetRef}>
@@ -805,23 +797,6 @@ export default function WordRain() {
                           aria-pressed={direction === key}
                           data-direction={key}
                           onClick={() => setDirection(key)}
-                        >
-                          {label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="rain-setting" role="group" aria-labelledby="rain-set-shape">
-                    <span className="rain-setting-label" id="rain-set-shape">Shape</span>
-                    <div className="rain-chips">
-                      {Object.entries(SHAPES).map(([key, label]) => (
-                        <button
-                          key={key}
-                          type="button"
-                          className={`rain-chip${shape === key ? ' is-active' : ''}`}
-                          aria-pressed={shape === key}
-                          data-shape={key}
-                          onClick={() => setShape(key)}
                         >
                           {label}
                         </button>

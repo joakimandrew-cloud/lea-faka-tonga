@@ -21,6 +21,8 @@ import { levelFor, MAX_IN_AIR } from './levels.js'
 export const LIVES = 3
 export const COUNTDOWN_FROM = 3
 export const RECENT = 10
+/** A word that has just become the front word ignores answers for this long (ms). */
+export const ANSWER_LOCKOUT_MS = 250
 
 export function initialGame(extra = {}) {
   return {
@@ -30,6 +32,7 @@ export function initialGame(extra = {}) {
     paused: false,
     words: [],
     nextKey: 1,
+    since: null, // { key, at }: when the current front word became the front word
     reveal: null, // { key, kind: 'wrong' | 'missed', round }
     last: null, // the round the buttons showed last: { key, round, chosen, right }
     score: 0,
@@ -81,7 +84,7 @@ function loseLife(state, word, kind, chosen = null) {
   }
 }
 
-export function gameReducer(state, action) {
+function reduce(state, action) {
   switch (action.type) {
     case 'start': {
       const base = initialGame({ gameId: state.gameId + 1 })
@@ -114,6 +117,11 @@ export function gameReducer(state, action) {
       if (action.key != null && action.key !== front.key) return state
       const { index } = action
       if (!Number.isInteger(index) || index < 0 || index >= front.round.options.length) return state
+      // A quick double tap (or a held key) aimed at the word that has just
+      // moved to the front is the second tap of the first answer, not an
+      // answer to it. The page stamps every action with `now`.
+      if (state.since && state.since.key === front.key && state.since.at != null && action.now != null
+        && action.now - state.since.at < ANSWER_LOCKOUT_MS) return state
       if (index !== front.round.correctIndex) return loseLife(state, front, 'wrong', index)
       const streak = state.streak + 1
       const correct = state.correct + 1
@@ -157,4 +165,17 @@ export function gameReducer(state, action) {
     default:
       return state
   }
+}
+
+/**
+ * The reducer: the rules above, plus a stamp of when the front word changed
+ * (from the action's `now`), which the answer lockout reads.
+ */
+export function gameReducer(state, action) {
+  const next = reduce(state, action)
+  if (next === state) return state
+  const was = frontWord(state)?.key ?? null
+  const now = frontWord(next)
+  if ((now?.key ?? null) === was) return next
+  return { ...next, since: now ? { key: now.key, at: action.now ?? null } : null }
 }

@@ -26,10 +26,11 @@ describe('Word Rain deck', () => {
         if (set === 'essential') expect(c.tier).toBe(1)
         if (set === 'useful') expect(c.tier).toBeLessThanOrEqual(2)
         expect(c.meaning).not.toContain('(')
+        expect(c.label.length).toBeGreaterThan(0)
         expect(c.meaning.length).toBeGreaterThan(0)
       }
     }
-    expect(buildDeck(vocabulary, 'all').length).toBe(vocabulary.filter(v => v.category !== 'grammar').length)
+    expect(buildDeck(vocabulary, 'all').length).toBe(vocabulary.filter(v => v.category !== 'grammar' && !/\(accent example\)/i.test(v.english)).length)
   })
 })
 
@@ -49,7 +50,7 @@ for (const set of WORD_SETS) {
 
         it('has exactly one option that matches the target', () => {
           for (const r of rounds) {
-            const right = direction === 'to-tongan' ? r.target.tonganShown : r.target.meaning
+            const right = direction === 'to-tongan' ? r.target.tonganShown : r.target.label
             expect(r.labels.filter(l => l === right).length).toBe(1)
             expect(r.labels[r.correctIndex]).toBe(right)
             expect(r.options[r.correctIndex].id).toBe(r.target.id)
@@ -79,7 +80,8 @@ for (const set of WORD_SETS) {
         it('never uses a grammar entry and never shows a "("', () => {
           for (const r of rounds) {
             for (const o of r.options) expect(byId.get(o.id).category).not.toBe('grammar')
-            for (const l of [...r.labels, r.mover]) expect(l).not.toContain('(')
+            // A button shows a note only when the whole text, note included, fits 28 characters.
+            for (const l of [...r.labels, r.mover]) if (l.includes('(')) expect(l.length).toBeLessThanOrEqual(28)
           }
         })
       })

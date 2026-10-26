@@ -8,16 +8,16 @@ import vocabulary from '@app/data/book-vocabulary.json'
 import { buildDeck, makeRng, makeRound } from '@app/games/word-rain/index.js'
 import '../styles/catalog.css'
 
-// Word Rain (plan 2026-10-26-word-rain-game) is a game over the course words,
+// Word Balloons (plan 2026-10-26-word-rain-game) is a game over the course words,
 // not a one-pattern drill, so it stays out of the drill catalogue and its
 // count. Its card is a catalogue card like the rest; the word on it is a real
 // round from the game's own deck (fixed seed), so no Tongan is typed here.
 const GAME_WORDS = buildDeck(vocabulary, 'all').length
 const GAME_SAMPLE = makeRound(buildDeck(vocabulary, 'essential'), makeRng(2026))
 const GAMES = [{
-  key: 'word-rain',
-  to: '/games/word-rain',
-  title: 'Word Rain',
+  key: 'word-balloons',
+  to: '/games/word-balloons',
+  title: 'Word Balloons',
   blurb: 'Tap the meaning before the word gets away.',
   action: 'Play',
   sample: { q: 'Tap the meaning', ton: GAME_SAMPLE.mover },
