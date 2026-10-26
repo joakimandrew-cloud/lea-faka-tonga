@@ -35,6 +35,7 @@ export const LABELS = [
   ['pronoun', 'Lesson 2 "Tense Markers and Pronouns"; Grammar-Concepts A4 "What a pronoun is"'],
   ['verb', 'Grammar-Concepts A2 "What a verb is"; Words to Learn type "verb"'],
   ['noun', 'Grammar-Concepts A1 "What a noun is"; Words to Learn type "noun"; Lesson 40 "Spatial Nouns"'],
+  ['verbal noun', 'Lesson 45 "Verbal Nouns"'],
   ['name', 'Grammar-Concepts A1 ("proper names like Sione or place names like Vava\'u"); Words to Learn "month name"'],
   ['adjective', 'Lesson 3 "Adjectives in the Verb Slot"; Lesson 35 "Adjectives and Compound Adjectives"; Lesson 41 "Verbs used as adjectives"; Grammar-Concepts A3'],
   ['modifier', 'Lesson 3 "Modifiers"; Grammar-Concepts A8 "What an adverb / modifier is"'],
@@ -42,6 +43,7 @@ export const LABELS = [
   ['preposition', 'Lesson 7 "Prepositions"; Lesson 17 "The possessive prepositions \'a and \'o"; Grammar-Concepts A5'],
   ['article', 'Lesson 8 "Articles"; Lesson 52 "Emotional Articles and Possessives"; Grammar-Concepts A7'],
   ['negative', 'Lesson 9 "The Negative"; Grammar-Concepts B7 and B10 "prohibition (negative command)"; Lesson 43 Words to Learn "negation prefix"'],
+  ['prohibition marker', 'Lesson 5 Words to Learn (\'oua)'],
   ['question word', 'Lesson 11 "Question Words"; Grammar-Concepts B8'],
   ['identification marker', 'Lesson 12 Words to Learn "ko: identification marker"'],
   ['vocative particle', 'Lesson 14 "The Vocative Particle \'e"'],
@@ -54,6 +56,7 @@ export const LABELS = [
   ['subordinator', 'Lesson 23 Words to Learn "ke: subordinator"; Lesson 26 "ke: to, in order to, so that"'],
   ['conjunction', 'Lesson 24 "Conjunctions"; Grammar-Concepts A6'],
   ['plural marker', 'Lesson 25 "Plural Markers"'],
+  ['dual marker', 'Lesson 25 "ongo: the dual marker"'],
   ['directional particle', 'Lesson 28 "Directional Particles"; Grammar-Concepts F10'],
   ['demonstrative', 'Grammar-Concepts A9 "What a demonstrative is"; Lesson 4 ("ni is a demonstrative"); Words to Learn "demonstrative (place)"'],
 ]

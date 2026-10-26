@@ -93,3 +93,24 @@ describe('Sentence Tiles clue labels (roles.json)', () => {
     expect(fillSlot(s, round.tiles, placed)).toBe(null)
   })
 })
+
+describe('Sentence Tiles clue labels: the judge\'s findings (Step 9)', () => {
+  const at = ref => { const [id, pos] = ref.split('#'); return roleData.items[id][Number(pos) - 1] }
+  const all = (refs, want) => { for (const r of refs.split(' ')) expect(at(r), r).toBe(want) }
+
+  it('has 28 terms, including dual marker, verbal noun and prohibition marker', () => {
+    expect(roleData.labels).toHaveLength(28)
+    for (const l of ['dual marker', 'verbal noun', 'prohibition marker']) expect(LABEL_SET.has(l), l).toBe(true)
+  })
+  it('labels ongo as dual marker', () => all('ch25-ex5-3#2', 'dual marker'))
+  it('labels the adjectives', () => all('ch41-ex3-3#3 ch41-ex3-6#3 ch50-ex4-4#2', 'adjective'))
+  it('labels the noun used as an adverb a modifier', () => all('ch41-ex3-5#4', 'modifier'))
+  it('labels e in mālō e and ko e an article', () => all('ch14-ex2-1#2 ch14-ex2-2#3 ch14-ex2-7#2 ch12-ex2-2#2 ch13-ex2-4#2 ch20-ex4-1#2 ch20-ex4-2#2', 'article'))
+  it('labels the verbal nouns', () => {
+    all('ch17-ex4-3#3 ch30-ex2-4#3 ch30-ex2-4#5 ch42-ex2-3#3 ch42-ex2-3#6 ch43-ex2-2#5 ch44-ex4-1#3 ch44-ex4-2#3 ch45-ex3-2#3 ch45-ex3-4#6', 'verbal noun')
+  })
+  it('labels the prohibition markers', () => all('ch5-ex2-3#1 ch5-ex2-5#1 ch21-ex2-6#1 ch23-ex2-5#4 ch26-ex4-4#1 ch34-ex2-4#1 ch35-ex6-3#1', 'prohibition marker'))
+  it('shows no label where the book does not settle the word', () => {
+    all('ch42-ex2-3#4 ch39-ex5-4#3 ch35-ex6-3#4 ch35-ex6-4#2 ch35-ex6-3#5 ch29-ex3-2#4 ch29-ex3-3#2 ch29-ex3-5#4 ch29-ex5-4#4 ch31-ex2-1#2 ch31-ex2-3#2', null)
+  })
+})
