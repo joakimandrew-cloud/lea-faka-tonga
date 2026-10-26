@@ -23,8 +23,8 @@ export function roundMs(tiles, level = 1) {
 }
 
 /** True when the tiles, read in this order, spell the sentence. */
-function inOrder(tiles, words) {
-  return tiles.every((t, i) => t.text === words[i])
+function inOrder(tiles, sentence) {
+  return ordersOf(sentence).some(words => tiles.every((t, i) => t.text === words[i]))
 }
 
 /**
@@ -35,8 +35,8 @@ function inOrder(tiles, words) {
 export function makeTiles(sentence, rng = Math.random) {
   const base = sentence.words.map(text => ({ text }))
   let order = shuffle(base, rng)
-  for (let tries = 0; tries < 20 && inOrder(order, sentence.words); tries++) order = shuffle(base, rng)
-  if (inOrder(order, sentence.words) && new Set(sentence.words).size > 1) order = [...order.slice(1), order[0]]
+  for (let tries = 0; tries < 20 && inOrder(order, sentence); tries++) order = shuffle(base, rng)
+  if (inOrder(order, sentence) && new Set(sentence.words).size > 1) order = [...order.slice(1), order[0]]
   return order.map((t, slot) => ({ slot, text: t.text }))
 }
 
@@ -45,31 +45,47 @@ export function makeRound(sentence, rng = Math.random, { level = 1 } = {}) {
   return { sentence, tiles: makeTiles(sentence, rng), durationMs: roundMs(sentence.words.length, level) }
 }
 
-/** True when tile text `text` is a right next pick after `placed` words. */
-export function isNextWord(sentence, placed, text) {
-  return placed < sentence.words.length && sentence.words[placed] === text
+/** A sentence's accepted word orders (the book's first), or just its words. */
+function ordersOf(sentence) {
+  return sentence.orders?.length ? sentence.orders : [sentence.words]
 }
 
 /**
- * Every order of tile slots that builds the sentence (identical tiles swap
- * freely), as arrays of slots. Capped at `max` orders.
+ * True when tile text `text` is a right next pick after `placed`. `placed` is
+ * the list of words already placed, in order (a right next pick continues one
+ * of the accepted orders), or a count (any accepted order has `text` there).
+ */
+export function isNextWord(sentence, placed, text) {
+  const orders = ordersOf(sentence)
+  if (Array.isArray(placed)) {
+    const n = placed.length
+    return orders.some(o => n < o.length && o[n] === text && placed.every((w, i) => o[i] === w))
+  }
+  return orders.some(o => placed < o.length && o[placed] === text)
+}
+
+/**
+ * Every order of tile slots that builds the sentence in an accepted word order
+ * (identical tiles swap freely), as arrays of slots. Capped at `max` orders.
  */
 export function acceptedOrders(sentence, tiles, max = 50) {
   const out = []
-  const used = new Array(tiles.length).fill(false)
-  const path = []
-  const walk = (i) => {
-    if (out.length >= max) return
-    if (i === sentence.words.length) { out.push([...path]); return }
-    for (const t of tiles) {
-      if (used[t.slot] || t.text !== sentence.words[i]) continue
-      used[t.slot] = true
-      path.push(t.slot)
-      walk(i + 1)
-      path.pop()
-      used[t.slot] = false
+  for (const words of ordersOf(sentence)) {
+    const used = new Array(tiles.length).fill(false)
+    const path = []
+    const walk = (i) => {
+      if (out.length >= max) return
+      if (i === words.length) { out.push([...path]); return }
+      for (const t of tiles) {
+        if (used[t.slot] || t.text !== words[i]) continue
+        used[t.slot] = true
+        path.push(t.slot)
+        walk(i + 1)
+        path.pop()
+        used[t.slot] = false
+      }
     }
+    walk(0)
   }
-  walk(0)
   return out
 }

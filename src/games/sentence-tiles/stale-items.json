@@ -1,0 +1,249 @@
+{
+ "_note": "Items left out of Sentence Tiles because the exercise data predates the October source-review packs (judge report reviews/games-2026-10-26/Judge-Sentence-Tiles.md, finding 1; Andrew's ruling 2026-10-26). An item stays out only while its prompt and answer still equal the text here; when the data is re-synced and the text changes, it returns to the game.",
+ "items": {
+  "ch2-ex2-8": {
+   "prompt": "You all (three or more) drank.",
+   "answer": "*Na'a mou inu.*"
+  },
+  "ch6-ex2-2": {
+   "prompt": "Where do you work?",
+   "answer": "*'Okú ke ngāue 'i fē?*"
+  },
+  "ch6-ex2-5": {
+   "prompt": "Let's sing over there.",
+   "answer": "*Tau hiva hē.*"
+  },
+  "ch7-ex5-1": {
+   "prompt": "I spoke to Ofa.",
+   "answer": "*Na'á ku lea kia 'Ofa.*"
+  },
+  "ch8-ex4-4": {
+   "prompt": "We came from the town.",
+   "answer": "*Na'a mau ha'u mei he kolo.*"
+  },
+  "ch8-ex4-5": {
+   "prompt": "Help the teacher.",
+   "answer": "*Tokoni ki he faiako.*"
+  },
+  "ch9-ex2-3": {
+   "prompt": "We will not go to Vava'u.",
+   "answer": "*'E 'ikai te mau 'alu ki Vava'u.*"
+  },
+  "ch10-ex2-2": {
+   "prompt": "Are you going to town with Ofa?",
+   "answer": "*Té ke 'alu ki kolo mo 'Ofa?*"
+  },
+  "ch10-ex2-3": {
+   "prompt": "We lived in Tonga with Sēmisi.",
+   "answer": "*Na'a mau nofo 'i Tonga mo Sēmisi.*"
+  },
+  "ch10-ex8-4": {
+   "prompt": "She read a book about Tonga.",
+   "answer": "*Na'á ne lau ha tohi kau ki Tongá.*"
+  },
+  "ch14-ex3-1": {
+   "prompt": "What is your name?",
+   "answer": "*Ko hai ho hingoa?*"
+  },
+  "ch15-ex3-4": {
+   "prompt": "It rained yesterday.",
+   "answer": "*Na'e 'uha 'aneafi.*"
+  },
+  "ch15-ex3-5": {
+   "prompt": "It is sunny today.",
+   "answer": "*'Oku lā'ā he 'aho ni.*"
+  },
+  "ch15-ex3-6": {
+   "prompt": "Kepu slept at home.",
+   "answer": "*Na'e mohe 'a Kepu 'i 'api.*"
+  },
+  "ch15-ex6-2": {
+   "prompt": "It is sunny today.",
+   "answer": "*'Oku lā'ā he 'aho ni.*"
+  },
+  "ch16-ex2-1": {
+   "prompt": "I am a farmer.",
+   "answer": "*Ko e tangata fāma au.*"
+  },
+  "ch16-ex2-3": {
+   "prompt": "Lātū is a happy boy.",
+   "answer": "*Ko e tamasi'i fiefia 'a Lātū.*"
+  },
+  "ch16-ex2-4": {
+   "prompt": "It is a small basket.",
+   "answer": "*Ko e ki'i kato.*"
+  },
+  "ch16-ex2-8": {
+   "prompt": "Sione is the teacher. (subject emphasis)",
+   "answer": "*Ko Sione ko e faiako.*"
+  },
+  "ch17-ex4-4": {
+   "prompt": "Her house is big.",
+   "answer": "*'Oku lahi hono fale.*"
+  },
+  "ch19-ex4-2": {
+   "prompt": "The fish was cooked.",
+   "answer": "*Kuo kuki 'a e iká.*"
+  },
+  "ch20-ex4-3": {
+   "prompt": "We begin at eight.",
+   "answer": "*Tau kamata he valu.*"
+  },
+  "ch20-ex5-2": {
+   "prompt": "How many teachers are there?",
+   "answer": "*'Oku toko fiha e kau faiakó?*"
+  },
+  "ch20-ex6-1": {
+   "prompt": "I ate the fish at seven.",
+   "answer": "*Na'á ku kai e iká he fitu.*"
+  },
+  "ch21-ex2-5": {
+   "prompt": "We want to go to the sea tomorrow.",
+   "answer": "*'Oku mau fie 'alu ki tahi 'apongipongi.*"
+  },
+  "ch22-ex2-8": {
+   "prompt": "Siale is still sleeping.",
+   "answer": "*'Okú ne kei mohe 'a Siale.*"
+  },
+  "ch25-ex5-1": {
+   "prompt": "some houses",
+   "answer": "*ha ngaahi fale*"
+  },
+  "ch25-ex5-5": {
+   "prompt": "The children went to town.",
+   "answer": "*Na'e ō 'a e kau tamaikí ki kolo.*"
+  },
+  "ch26-ex4-2": {
+   "prompt": "They collected money for Mele.",
+   "answer": "*Na'a nau tānaki 'a e pa'angá ma'a Mele.*"
+  },
+  "ch26-ex4-3": {
+   "prompt": "Is the boat being built for you?",
+   "answer": "*'Oku langa e vaká mo'ou?*"
+  },
+  "ch26-ex4-6": {
+   "prompt": "This basket of fish is for them.",
+   "answer": "*Ko e kato ika eni ma'anau.*"
+  },
+  "ch27-ex2-4": {
+   "prompt": "The children are almost the same.",
+   "answer": "*'Oku meinei tatau 'a e kau tamaikí.*"
+  },
+  "ch28-ex2-5": {
+   "prompt": "We went up and worked.",
+   "answer": "*Na'a mau ō hake 'o ngāue.*"
+  },
+  "ch29-ex3-1": {
+   "prompt": "Do you have a knife? ('e-class)",
+   "answer": "*'Oku 'i ai ha'o hele?*"
+  },
+  "ch29-ex3-4": {
+   "prompt": "Do you have a house? (ho-class)",
+   "answer": "*'Oku 'i ai hao fale?*"
+  },
+  "ch29-ex3-6": {
+   "prompt": "She has a lot of money. (affirmative, use definite form)",
+   "answer": "*'Oku 'i ai 'ene pa'anga lahi.*"
+  },
+  "ch29-ex5-3": {
+   "prompt": "Do you have a mat? ('e-class)",
+   "answer": "*'Oku 'i ai ha'o fala?*"
+  },
+  "ch29-ex5-6": {
+   "prompt": "Their choosing of Siale was correct.",
+   "answer": "*Na'e tonu 'enau fili 'a Siale.*"
+  },
+  "ch30-ex2-6": {
+   "prompt": "He will stay there until he is well.",
+   "answer": "*'E nofo ai kae'oua kuo mo'ui.*"
+  },
+  "ch32-ex3-4": {
+   "prompt": "Are you good at Tongan dance?",
+   "answer": "*'Okú ke poto he haka faka-Tonga?*"
+  },
+  "ch33-ex2-3": {
+   "prompt": "We are using his mats. (use *ngāue'aki*)",
+   "answer": "*'Oku mau ngāue'aki 'ene 'u falá.*"
+  },
+  "ch33-ex2-6": {
+   "prompt": "They closed the basket. (use *tāpuni*)",
+   "answer": "*Na'a nau tāpuni e katō.*"
+  },
+  "ch34-ex2-6": {
+   "prompt": "So he is strong after all.",
+   "answer": "*Tā 'okú ne mālohi.*"
+  },
+  "ch35-ex2-1": {
+   "prompt": "I want the red basket.",
+   "answer": "*'Oku ou fiema'u e kato kulokulá.*"
+  },
+  "ch35-ex2-2": {
+   "prompt": "Where is the black book?",
+   "answer": "*Ko fē e tohi 'uli'ulí?*"
+  },
+  "ch36-ex3-1": {
+   "prompt": "It was 'Ana who drank the tea.",
+   "answer": "*Ko 'Ana na'á ne inu e tī.*"
+  },
+  "ch37-ex2-1": {
+   "prompt": "That mat is mine. ('e-class)",
+   "answer": "*Ko e fala ia 'a'aku.*"
+  },
+  "ch37-ex2-5": {
+   "prompt": "The money is yours. (predicative)",
+   "answer": "*'Oku 'a'au e pa'angá.*"
+  },
+  "ch38-ex2-1": {
+   "prompt": "Let the children play.",
+   "answer": "*Tuku ke vaʻinga e fānau.*"
+  },
+  "ch38-ex2-3": {
+   "prompt": "Hurry lest you be late.",
+   "answer": "*Vave mai na'á ke tōmui.*"
+  },
+  "ch39-ex2-1": {
+   "prompt": "This is the village they live in.",
+   "answer": "*Ko e koló eni 'oku nau nofo ai.*"
+  },
+  "ch40-ex2-2": {
+   "prompt": "The children are playing outside the house.",
+   "answer": "*'Oku va'inga e fānaú he tu'a falé.*"
+  },
+  "ch40-ex2-3": {
+   "prompt": "Put the book on top of the table.",
+   "answer": "*Tuku e tohí he funga tēpilé!*"
+  },
+  "ch41-ex3-4": {
+   "prompt": "We prayed. (use *fai* + *lotu*)",
+   "answer": "*Na'a mau fai lotu.*"
+  },
+  "ch42-ex2-5": {
+   "prompt": "We have great hope for the future.",
+   "answer": "*'Oku tau 'amanaki lelei ki he kaha'ú.*"
+  },
+  "ch43-ex2-6": {
+   "prompt": "I returned, not because I am sick.",
+   "answer": "*Na'á ku foki, he tala'ehai 'oku ou puke.*"
+  },
+  "ch48-ex3-5": {
+   "prompt": "The knife-blade is sharp.",
+   "answer": "*'Oku mālohi 'a e mata'i helé.*"
+  },
+  "ch51-ex2-1": {
+   "prompt": "One should not eat too much.",
+   "answer": "*'Oku 'ikai totonu ke te kai lahi 'aupito.*"
+  },
+  "ch51-ex2-4": {
+   "prompt": "One's work is important.",
+   "answer": "*'Oku mahu'inga 'a hoto ngāué.*"
+  },
+  "ch52-ex2-2": {
+   "prompt": "His dear mother is ill.",
+   "answer": "*'Oku puke si'ono fa'ē.*"
+  },
+  "ch52-ex2-6": {
+   "prompt": "What a tremendous storm!",
+   "answer": "*Ko e afā ka ko ha afā!*"
+  }
+ }
+}

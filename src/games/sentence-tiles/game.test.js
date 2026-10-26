@@ -141,4 +141,32 @@ describe('Sentence Tiles game', () => {
     s = dealt(plain, s, t)
     expect(s.round.durationMs).toBeLessThan(level1)
   })
+
+  it('takes the second order the book allows, and marks a mix of the two wrong', () => {
+    for (const id of ['ch19-ex4-1', 'ch33-ex2-4', 'ch34-ex2-3', 'ch42-ex2-4']) {
+      const sentence = SENTENCES.find(x => x.id === id)
+      const second = sentence.orders[1]
+      let s = dealt(sentence)
+      const used = new Set()
+      second.forEach((w, i) => {
+        const t = s.round.tiles.find(x => x.text === w && !used.has(x.slot))
+        used.add(t.slot)
+        s = gameReducer(s, pick(s.round, t.slot, 1000 + i * 300, 2000))
+      })
+      expect(s.round.status, id).toBe('done')
+      expect(s.wrongTaps, id).toBe(0)
+      expect(s.correct, id).toBe(1)
+    }
+    // After the first tile of the second order, a tile only the book order wants is wrong.
+    const sentence = SENTENCES.find(x => x.id === 'ch34-ex2-3')
+    let s = dealt(sentence)
+    const first = s.round.tiles.find(t => t.text === sentence.orders[1][0])
+    s = gameReducer(s, pick(s.round, first.slot, 1000))
+    expect(s.wrongTaps).toBe(0)
+    // the book's first word does not fit after the second order's first tile
+    const bookFirst = s.round.tiles.find(t => !s.round.placed.includes(t.slot) && t.text === sentence.words[0])
+    s = gameReducer(s, pick(s.round, bookFirst.slot, 1400))
+    expect(s.wrongTaps).toBe(1)
+    expect(s.round.placed).toEqual([first.slot])
+  })
 })

@@ -113,7 +113,7 @@ function reduce(state, action) {
       const now = action.now
       if (now != null && state.since?.key === round.key && state.since.at != null && now - state.since.at < TAP_LOCKOUT_MS) return state
       if (now != null && round.wrong && round.wrong.slot === tile.slot && now - round.wrong.at < TAP_LOCKOUT_MS) return state
-      if (!isNextWord(round.sentence, round.placed.length, tile.text)) {
+      if (!isNextWord(round.sentence, round.placed.map(sl => round.tiles.find(t => t.slot === sl)?.text), tile.text)) {
         const wrongTaps = state.wrongTaps + 1
         const next = {
           ...state,

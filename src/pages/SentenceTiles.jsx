@@ -5,7 +5,7 @@ import { okinafy } from '../lib/okinafy.js'
 import T, { Inline } from '../premium/components/T.jsx'
 import {
   LESSON_MENU, ALL_LESSONS_ID, lessonChoice,
-  makeRound, makeTiles,
+  makeRound, makeTiles, capitalFirst, sentenceText,
   gameReducer, initialGame, isFrozen, timeLeftMs, LIVES, WRONG_TAP_MS,
 } from '../games/sentence-tiles'
 import { makeRng } from '../games/shared/fair.js'
@@ -478,8 +478,8 @@ export default function SentenceTiles() {
   const placedWords = round ? round.placed.map(slot => byText.get(slot).text) : []
   const lineWords = sentence
     ? sentence.words.map((w, i) => (i < placedWords.length
-      ? { text: placedWords[i], kind: 'placed' }
-      : status === 'timeout' ? { text: w, kind: 'revealed' } : { text: '', kind: 'empty' }))
+      ? { text: i === 0 && sentence.capital ? capitalFirst(placedWords[i]) : placedWords[i], kind: 'placed' }
+      : status === 'timeout' ? { text: i === 0 && sentence.capital ? capitalFirst(w) : w, kind: 'revealed' } : { text: '', kind: 'empty' }))
     : []
 
   return (
@@ -766,7 +766,7 @@ export default function SentenceTiles() {
                       {state.missed.map(s => (
                         <li key={s.id} className="rain-missed-row tiles-missed-row">
                           <span className="rain-missed-en"><Inline text={s.prompt} tClass="font-tongan" /></span>
-                          <T className="font-tongan rain-missed-to">{`${s.words.join(' ')}${s.end}`}</T>
+                          <T className="font-tongan rain-missed-to">{sentenceText(s)}</T>
                         </li>
                       ))}
                     </ul>

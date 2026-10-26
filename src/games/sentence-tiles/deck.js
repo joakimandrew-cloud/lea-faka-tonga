@@ -16,17 +16,25 @@
  *     second right answer);
  *   - its prompt carries a note joined on from the book page ("> *Preview:*");
  *   - any tile is a word the games leave out (LEFT_OUT_OF_GAME in
- *     ../shared/deck.js), matched whole after the deck's own normalising.
+ *     ../shared/deck.js), matched whole after the deck's own normalising;
+ *   - it is listed in stale-items.json and its prompt and answer still read
+ *     exactly as listed (the data is older than the book; a re-sync that
+ *     changes the text lets the item back in).
+ * A sentence whose answer text an earlier lesson already has is not played twice.
  *
  * Tiles are the answer split at spaces. A comma stays on its word, as the book
  * prints it. The full stop, question mark or exclamation mark at the end is
- * not a tile: it is shown fixed after the answer line. Accents and capitals
- * are kept exactly as printed; the fakauʻa is shown through okinafy, the
+ * not a tile: it is shown fixed after the answer line. Accents are kept as
+ * printed. The first word is lower-cased on its tile and in the comparison, so
+ * the capital does not point at the first tile; capitalFirst puts it back in
+ * the answer line. Names keep their capitals; the fakauʻa is shown through okinafy, the
  * site-wide display rule, and stays an ASCII apostrophe in the deck.
  */
 import exercises from '../../data/book-exercises.json'
 import vocabulary from '../../data/book-vocabulary.json'
 import wordLists from '../../premium/data/word-lists.json'
+import staleItems from './stale-items.json'
+import secondOrders from './second-orders.json'
 import { LEFT_OUT_OF_GAME, tonganKey } from '../shared/deck.js'
 
 export const MIN_WORDS = 3
@@ -74,11 +82,33 @@ function sameAnswerKey(text) {
 /** The answer split into tiles and its end mark: { words, end }. */
 export function splitAnswer(text) {
   const words = String(text).trim().split(/\s+/)
+  if (words[0]) words[0] = words[0].toLowerCase()
   const last = words[words.length - 1]
   const m = last.match(END)
   const end = m ? m[0] : ''
   if (end) words[words.length - 1] = last.slice(0, -end.length)
   return { words: words.filter(Boolean), end }
+}
+
+/** A word with its first letter in capitals (the sentence's capital, shown in the answer line). */
+export function capitalFirst(word) {
+  const w = String(word ?? '')
+  const i = [...w].findIndex(c => /\p{L}/u.test(c))
+  if (i < 0) return w
+  const cs = [...w]
+  cs[i] = cs[i].toUpperCase()
+  return cs.join('')
+}
+
+/** The sentence as the answer line prints it: capital, tiles, end mark. */
+export function sentenceText(s, words = s.words) {
+  return `${[s.capital ? capitalFirst(words[0]) : words[0], ...words.slice(1)].join(' ')}${s.end}`
+}
+
+/** True when the item is listed as stale and its text is still the listed text. */
+export function isStale(item, list = staleItems.items) {
+  const f = list?.[item.id]
+  return !!f && f.prompt === item.prompt && f.answer === item.answer
 }
 
 /** Why an item is left out of the game, or null when it is kept. */
@@ -94,6 +124,7 @@ export function whyLeftOut(item) {
   if (Array.isArray(item.accept) && item.accept.some(a => sameAnswerKey(a) !== sameAnswerKey(text))) return 'second answer'
   if (/(^|\s)>\s/.test(String(item.prompt ?? ''))) return 'prompt note'
   if (holdsLeftOut(words)) return 'left-out word'
+  if (isStale(item)) return 'stale'
   return null
 }
 
@@ -101,7 +132,15 @@ export function whyLeftOut(item) {
 function toSentence(item, chapter) {
   const answer = answerText(item.answer)
   const { words, end } = splitAnswer(answer)
-  return { id: item.id, chapter, prompt: item.prompt, answer, words, end }
+  // orders[0] is the book's; the rest are the second orders listed for this id.
+  const orders = [words]
+  for (const perm of secondOrders.orders?.[item.id] ?? []) {
+    const w = perm.map(i => words[i])
+    if (!orders.some(o => o.join(' ') === w.join(' '))) orders.push(w)
+  }
+  // `capital`: the book prints the first word with a capital (a few noun-phrase answers do not).
+  const first = answer.trim().split(/\s+/)[0]
+  return { id: item.id, chapter, prompt: item.prompt, answer, words, orders, end, capital: first !== first.toLowerCase() }
 }
 
 /** Every translate_to_tongan item of the book, with its lesson number. */
@@ -118,7 +157,16 @@ export function allItems(data = exercises) {
 
 /** The sentences the game plays, lesson by lesson in the book's order. */
 export function buildSentences(data = exercises) {
-  return allItems(data).filter(({ item }) => !whyLeftOut(item)).map(({ item, chapter }) => toSentence(item, chapter))
+  const seen = new Set()
+  return allItems(data)
+    .filter(({ item }) => !whyLeftOut(item))
+    .filter(({ item }) => {
+      const k = sameAnswerKey(item.answer)
+      if (seen.has(k)) return false
+      seen.add(k)
+      return true
+    })
+    .map(({ item, chapter }) => toSentence(item, chapter))
 }
 
 export const SENTENCES = buildSentences()
