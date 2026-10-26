@@ -1,0 +1,422 @@
+{
+ "header": "Entry pairs never put in one Word Rain round. The key-word rule in deck.js and rounds.js blocks entries that share an English content word; these pairs are true synonyms or near-synonyms that share none (big and large). Seeded 2026-10-26 (plan 2026-10-26-word-rain-game, Step 3) by scanning every pair of non-grammar entries against the synonym groups below and keeping only pairs that exist in the data and were read by hand. Step 4's judge sweeps the whole deck for more. pair_notes[i] spells out pairs[i].",
+ "groups": [
+  [
+   "big",
+   "large",
+   "great",
+   "huge"
+  ],
+  [
+   "small",
+   "little",
+   "tiny"
+  ],
+  [
+   "quick",
+   "fast",
+   "swift"
+  ],
+  [
+   "happy",
+   "glad",
+   "pleased",
+   "joyful"
+  ],
+  [
+   "speak",
+   "talk",
+   "say",
+   "tell",
+   "converse",
+   "chat"
+  ],
+  [
+   "look",
+   "see",
+   "watch",
+   "observe",
+   "view"
+  ],
+  [
+   "begin",
+   "start"
+  ],
+  [
+   "end",
+   "finish",
+   "complete"
+  ],
+  [
+   "house",
+   "home",
+   "dwelling"
+  ],
+  [
+   "child",
+   "children",
+   "kid"
+  ],
+  [
+   "store",
+   "shop",
+   "market"
+  ],
+  [
+   "afraid",
+   "frightened",
+   "scared",
+   "cowardly"
+  ],
+  [
+   "sad",
+   "upset",
+   "miserable",
+   "wretched",
+   "unhappy"
+  ],
+  [
+   "clever",
+   "smart",
+   "intelligent",
+   "skilled",
+   "wise"
+  ],
+  [
+   "want",
+   "need",
+   "desire",
+   "wish",
+   "hope",
+   "expect"
+  ],
+  [
+   "old",
+   "elderly",
+   "elder",
+   "aged"
+  ],
+  [
+   "rich",
+   "wealthy",
+   "prosperous",
+   "wealth",
+   "money",
+   "goods"
+  ],
+  [
+   "clean",
+   "tidy",
+   "neat",
+   "wash"
+  ],
+  [
+   "hot",
+   "warm"
+  ],
+  [
+   "farm",
+   "plantation",
+   "garden"
+  ],
+  [
+   "bush",
+   "wilderness",
+   "outback",
+   "inland",
+   "interior"
+  ],
+  [
+   "example",
+   "pattern",
+   "model",
+   "illustration"
+  ],
+  [
+   "king",
+   "chief",
+   "lord",
+   "ruler"
+  ],
+  [
+   "bad",
+   "malicious",
+   "wicked",
+   "evil"
+  ],
+  [
+   "brave",
+   "courageous",
+   "bold"
+  ],
+  [
+   "alert",
+   "cautious",
+   "careful",
+   "wary"
+  ],
+  [
+   "search",
+   "investigate",
+   "seek"
+  ],
+  [
+   "listen",
+   "hear",
+   "attention"
+  ],
+  [
+   "cook",
+   "bake",
+   "roast",
+   "grill"
+  ],
+  [
+   "pardon",
+   "excuse",
+   "sorry",
+   "forgive"
+  ],
+  [
+   "relative",
+   "kin",
+   "family"
+  ],
+  [
+   "earth",
+   "ground",
+   "soil",
+   "land",
+   "world"
+  ]
+ ],
+ "pairs": [
+  [
+   "book-v0059",
+   "book-v0369"
+  ],
+  [
+   "book-v0059",
+   "book-v0441"
+  ],
+  [
+   "book-v0153",
+   "book-v0424"
+  ],
+  [
+   "book-v0125",
+   "book-v0126"
+  ],
+  [
+   "book-v0125",
+   "book-v0545"
+  ],
+  [
+   "book-v0125",
+   "book-v0576"
+  ],
+  [
+   "book-v0126",
+   "book-v0576"
+  ],
+  [
+   "book-v0545",
+   "book-v0576"
+  ],
+  [
+   "book-v0208",
+   "book-v0334"
+  ],
+  [
+   "book-v0286",
+   "book-v0334"
+  ],
+  [
+   "book-v0493",
+   "book-v0503"
+  ],
+  [
+   "book-v0493",
+   "book-v0644"
+  ],
+  [
+   "book-v0458",
+   "book-v0571"
+  ],
+  [
+   "book-v0461",
+   "book-v0623"
+  ],
+  [
+   "book-v0159",
+   "book-v0470"
+  ],
+  [
+   "book-v0437",
+   "book-v0470"
+  ],
+  [
+   "book-v0113",
+   "book-v0470"
+  ],
+  [
+   "book-v0031",
+   "book-v0492"
+  ],
+  [
+   "book-v0240",
+   "book-v0249"
+  ],
+  [
+   "book-v0249",
+   "book-v0572"
+  ],
+  [
+   "book-v0466",
+   "book-v0572"
+  ],
+  [
+   "book-v0249",
+   "book-v0466"
+  ],
+  [
+   "book-v0114",
+   "book-v0651"
+  ],
+  [
+   "book-v0420",
+   "book-v0651"
+  ],
+  [
+   "book-v0418",
+   "book-v0651"
+  ],
+  [
+   "book-v0169",
+   "book-v0650"
+  ],
+  [
+   "book-v0130",
+   "book-v0223"
+  ],
+  [
+   "book-v0552",
+   "book-v0553"
+  ],
+  [
+   "book-v0552",
+   "book-v0663"
+  ],
+  [
+   "book-v0419",
+   "book-v0428"
+  ],
+  [
+   "book-v0324",
+   "book-v0516"
+  ],
+  [
+   "book-v0327",
+   "book-v0516"
+  ],
+  [
+   "book-v0454",
+   "book-v0459"
+  ],
+  [
+   "book-v0460",
+   "book-v0462"
+  ],
+  [
+   "book-v0605",
+   "book-v0607"
+  ],
+  [
+   "book-v0255",
+   "book-v0617"
+  ],
+  [
+   "book-v0590",
+   "book-v0617"
+  ],
+  [
+   "book-v0146",
+   "book-v0494"
+  ],
+  [
+   "book-v0040",
+   "book-v0655"
+  ],
+  [
+   "book-v0636",
+   "book-v0655"
+  ],
+  [
+   "book-v0213",
+   "book-v0215"
+  ],
+  [
+   "book-v0008",
+   "book-v0373"
+  ],
+  [
+   "book-v0018",
+   "book-v0230"
+  ],
+  [
+   "book-v0018",
+   "book-v0642"
+  ],
+  [
+   "book-v0230",
+   "book-v0642"
+  ]
+ ],
+ "pair_notes": [
+  "lea = speak | tala = tell, say",
+  "lea = speak | talanoa = chat, converse",
+  "sio = see, look at | matā = watch, observe",
+  "'api = home | fale = house, building",
+  "'api = home | falé = house (accent example)",
+  "'api = home | nofo'anga = dwelling place",
+  "fale = house, building | nofo'anga = dwelling place",
+  "falé = house (accent example) | nofo'anga = dwelling place",
+  "fānau = children | tamasi'i = boy, child",
+  "tamaiki = children | tamasi'i = boy, child",
+  "maketi = market | fale koloa = store, shop",
+  "maketi = market | falekoloa = shop, store",
+  "loto fo'i = cowardly | ilifia = afraid",
+  "loto mamahi = sad, upset | faka'ofa = miserable, wretched",
+  "fiema'u = want, need | faka'amu = desire, wish for",
+  "'amanaki = hope, expect | faka'amu = desire, wish for",
+  "fie = want to | faka'amu = desire, wish for",
+  "motu'a = old, elderly | kau mātu'a = elders",
+  "pa'anga = dollar, money | koloa = wealth, goods",
+  "koloa = wealth, goods | koloa'ia = wealthy",
+  "tu'umālie = prosperous | koloa'ia = wealthy",
+  "koloa = wealth, goods | tu'umālie = prosperous",
+  "fufulu = wash | fakama'a = clean, make clean",
+  "fufulu'i = wash (transitive) | fakama'a = clean, make clean",
+  "fakamā'opo'opo = tidy up | fakama'a = clean, make clean",
+  "vela = hot | māfana = warm",
+  "ngoue = plantation, garden | fāma = farm",
+  "'uta = inland, interior | toafa = wilderness, bush",
+  "'uta = inland, interior | vao = bush, outback",
+  "fakatātā = example, illustration | sipinga = pattern, model",
+  "'eiki = chief, lord | tu'i = king; to be king",
+  "hou'eiki = chiefs (plural of 'eiki) | tu'i = king; to be king",
+  "kovi = bad | loto kovi = malicious",
+  "loto lahi = brave, eager | loto to'a = courageous",
+  "fakaalaala = be alert, be cautious | fakapotopoto = be careful, be wise",
+  "kumi = search for | vakavakai = investigate",
+  "fekumi = search together | vakavakai = investigate",
+  "fanongo = listen, hear | tokanga = pay attention",
+  "tā'o = cook, bake | tunu = to roast, to grill",
+  "kuki = cook | tunu = to roast, to grill",
+  "fakamolemole = pardon, excuse me | kātaki = please; sorry",
+  "fāmili = family | kāinga = relative, kin",
+  "kelekele = earth, ground, soil | fonua = country, land",
+  "kelekele = earth, ground, soil | māmani = world",
+  "fonua = country, land | māmani = world"
+ ]
+}

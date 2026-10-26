@@ -9,6 +9,7 @@ import {
   levelFlightMs, skyStep, cloudRate, canLaunchSecond, secondFlightMs, followerX, makeFollowerRound,
   multiplierFor, toNextLevel, WORDS_PER_LEVEL, TWO_AT_ONCE_FROM,
 } from '../games/word-rain'
+import { LIST_GROUPS, LIST_LABELS, EVERYTHING, listDeck, bestKey } from '../games/word-rain/lists.js'
 import { unlock, play } from '../games/word-rain/sound.js'
 import {
   Sky, Ground, ShapeBody, Burst, Splash, Confetti, Hearts, Flame, PauseIcon, SoundIcon,
@@ -71,8 +72,11 @@ function readBests() {
     return {}
   }
 }
-function bestOf(bests, set) {
-  const b = bests?.[set]
+// A best score belongs to a list and a level (key "numbers|all"). Scores kept
+// by the first build, one per level, are read as the Everything list's.
+function bestOf(bests, key) {
+  const [list, level] = key.split('|')
+  const b = bests?.[key] ?? (list === EVERYTHING ? bests?.[level] : undefined)
   return { score: Math.max(0, Number(b?.score) || 0), level: Math.max(0, Number(b?.level) || 0) }
 }
 
@@ -200,6 +204,7 @@ function Mover({ word, shape, tonganMoves, role, fieldRef, register, onEscape, r
 
 export default function WordRain() {
   const [wordSet, setWordSet] = useState('essential')
+  const [listChoice, setListChoice] = useState(EVERYTHING)
   const [direction, setDirection] = useState('to-english')
   const [shape, setShapeState] = useState(readShape)
   const [muted, setMutedState] = useState(readMuted)
@@ -209,10 +214,26 @@ export default function WordRain() {
   const isTouch = useIsTouchPrimary()
   const reduced = useReducedMotion()
 
-  const deck = useMemo(() => buildDeck(vocabulary, wordSet), [wordSet])
+  // Every list at the chosen level: how many words it plays, whether the level
+  // had to be set aside to reach 8, and whether it can be played at all.
+  const lists = useMemo(() => {
+    const out = {}
+    for (const g of LIST_GROUPS) for (const l of g.lists) out[l.id] = listDeck(vocabulary, l.id, wordSet)
+    return out
+  }, [wordSet])
+  const listId = lists[listChoice]?.playable ? listChoice : EVERYTHING
+  const playing = lists[listId]
+  const deck = playing.cards
+  // The wider deck a short list borrows distractors from (same level).
+  const fallback = useMemo(
+    () => (listId === EVERYTHING ? null : buildDeck(vocabulary, playing.level)),
+    [listId, playing.level],
+  )
+  const bestId = bestKey(listId, playing.level)
+  const listLabel = `${LIST_LABELS[listId]} · ${WORD_SET_LABELS[playing.level]}`
   const counts = useMemo(
-    () => Object.fromEntries(WORD_SETS.map(s => [s, buildDeck(vocabulary, s).length])),
-    [],
+    () => Object.fromEntries(WORD_SETS.map(s => [s, listDeck(vocabulary, listId, s).cards.length])),
+    [listId],
   )
   // The word the title screen's shape carries: a real card from the chosen
   // set (fixed seed, so it does not flicker), shown in the chosen direction.
@@ -224,13 +245,13 @@ export default function WordRain() {
   const frozen = isFrozen(state)
   const tonganMoves = direction === 'to-english'
   const mult = multiplierFor(streak)
-  const best = bestOf(bests, wordSet)
+  const best = bestOf(bests, bestId)
 
   // Latest state for timers and the launch loop, which run outside render.
   const stateRef = useRef(state)
-  const settingsRef = useRef({ deck, direction, wordSet, bests, muted })
+  const settingsRef = useRef({ deck, fallback, direction, bestId, bests, muted })
   useEffect(() => { stateRef.current = state })
-  useEffect(() => { settingsRef.current = { deck, direction, wordSet, bests, muted } })
+  useEffect(() => { settingsRef.current = { deck, fallback, direction, bestId, bests, muted } })
 
   const sound = useCallback((name, ...args) => {
     if (!settingsRef.current.muted) play(name, ...args)
@@ -275,9 +296,11 @@ export default function WordRain() {
 
   const launchFront = useCallback(() => {
     const s = stateRef.current
-    const { deck: d, direction: dir } = settingsRef.current
-    const avoid = new Set([...s.recent, ...s.words.map(w => w.round.target.id)])
-    const round = makeRound(d, Math.random, { direction: dir, optionCount: 4, avoid })
+    const { deck: d, fallback: fb, direction: dir } = settingsRef.current
+    // A short list cannot keep ten words out of play; it rests the last few.
+    const rest = s.recent.slice(0, Math.min(s.recent.length, Math.floor(d.length / 2)))
+    const avoid = new Set([...rest, ...s.words.map(w => w.round.target.id)])
+    const round = makeRound(d, Math.random, { direction: dir, optionCount: 4, avoid, fallback: fb })
     dispatch({ type: 'launch', round, duration: levelFlightMs(s.level), x: Math.random() })
   }, [])
 
@@ -301,8 +324,9 @@ export default function WordRain() {
       if (!f || !a || n !== 1) return
       const t = Number(a.currentTime) || 0
       if (!canLaunchSecond({ level: s.level, inAir: n, frontProgress: t / f.duration })) return
-      const { deck: d, direction: dir } = settingsRef.current
-      const round = makeFollowerRound(d, Math.random, f.round, { direction: dir, optionCount: 4, recent: s.recent })
+      const { deck: d, fallback: fb, direction: dir } = settingsRef.current
+      const rest = s.recent.slice(0, Math.min(s.recent.length, Math.floor(d.length / 2)))
+      const round = makeFollowerRound(d, Math.random, f.round, { direction: dir, optionCount: 4, recent: rest, fallback: fb })
       if (!round) return
       dispatch({
         type: 'launch',
@@ -330,7 +354,7 @@ export default function WordRain() {
       const s = stateRef.current
       dispatch({ type: 'revealDone' })
       if (s.lives > 0) return
-      const { wordSet: set, bests: all } = settingsRef.current
+      const { bestId: set, bests: all } = settingsRef.current
       const prev = bestOf(all, set)
       const newBest = s.score > prev.score
       const next = { ...all, [set]: { score: Math.max(prev.score, s.score), level: Math.max(prev.level, s.level) } }
@@ -597,7 +621,7 @@ export default function WordRain() {
                 <span className="rain-reveal-pair">
                   <Tongan className="font-tongan">{reveal.round.target.tonganShown}</Tongan>
                   <span className="rain-eq"> = </span>
-                  <span className="rain-reveal-en">{reveal.round.target.meaning}</span>
+                  <span className="rain-reveal-en">{reveal.round.target.full}</span>
                 </span>
               </div>
             )}
@@ -621,8 +645,30 @@ export default function WordRain() {
           {phase === 'title' && (
             <div className="rain-tray rain-setup">
               <div className="rain-settings">
+                {LIST_GROUPS.map(g => (
+                  <div key={g.id} className="rain-setting rain-setting-lists" role="group" aria-labelledby={`rain-set-${g.id}`}>
+                    <span className="rain-setting-label" id={`rain-set-${g.id}`}>{g.label}</span>
+                    <div className="rain-chips">
+                      {g.lists.filter(l => lists[l.id].playable).map(l => (
+                        <button
+                          key={l.id}
+                          type="button"
+                          className={`rain-chip${listId === l.id ? ' is-active' : ''}`}
+                          aria-pressed={listId === l.id}
+                          data-list={l.id}
+                          data-count={lists[l.id].cards.length}
+                          title={lists[l.id].levelIgnored ? `Plays all ${lists[l.id].cards.length} words at every level` : undefined}
+                          onClick={() => setListChoice(l.id)}
+                        >
+                          {l.label} <span className="rain-chip-count">{lists[l.id].cards.length}</span>
+                          {lists[l.id].levelIgnored && <span className="rain-chip-note">all levels</span>}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
                 <div className="rain-setting" role="group" aria-labelledby="rain-set-words">
-                  <span className="rain-setting-label" id="rain-set-words">Words</span>
+                  <span className="rain-setting-label" id="rain-set-words">Level</span>
                   <div className="rain-chips">
                     {WORD_SETS.map(s => (
                       <button
@@ -676,8 +722,8 @@ export default function WordRain() {
               <div className="rain-go-col">
                 <div className="rain-best" data-best={best.score}>
                   {best.score > 0
-                    ? <>Best <b>{best.score}</b> · level {best.level} · {WORD_SET_LABELS[wordSet]}</>
-                    : <>No best score yet for {WORD_SET_LABELS[wordSet]}</>}
+                    ? <>Best <b>{best.score}</b> · level {best.level} · {listLabel}</>
+                    : <>No best score yet for {listLabel}</>}
                 </div>
                 <button type="button" className="rain-btn rain-btn-primary rain-play" onClick={() => start(false)}>
                   Play
@@ -745,7 +791,7 @@ export default function WordRain() {
                   <div><dt>Words</dt><dd>{correct}</dd></div>
                 </dl>
                 {!result?.newBest && (
-                  <div className="rain-over-best">Your best for {WORD_SET_LABELS[wordSet]}: {best.score}</div>
+                  <div className="rain-over-best">Your best for {listLabel}: {best.score}</div>
                 )}
                 {state.missed.length > 0 && (
                   <div className="rain-missed">
@@ -755,7 +801,7 @@ export default function WordRain() {
                         <li key={c.id} className="rain-missed-row">
                           <Tongan className="font-tongan rain-missed-to">{c.tonganShown}</Tongan>
                           <span className="rain-eq" aria-hidden="true">=</span>
-                          <span className="rain-missed-en">{c.meaning}</span>
+                          <span className="rain-missed-en">{c.full}</span>
                         </li>
                       ))}
                     </ul>

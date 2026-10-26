@@ -9,8 +9,21 @@
  *   - it shares no comma- or semicolon-separated meaning item with the target;
  *   - it never has the target's Tongan spelling (homographs: hiva is both
  *     "nine" and "sing", so neither may sit beside the other);
- *   - no two options read the same.
+ *   - no two options read the same;
+ *   - it shares no content word with the target ("sit down" is a fair
+ *     translation of one meaning of nofo, "stay, sit, live"), and no two
+ *     distractors share one either; applied in both directions;
+ *   - it is not the singular or the source of the target, where the English
+ *     note says so ("live together (plural of nofo)");
+ *   - the pair is not in confusable-pairs.json, the synonyms that share no
+ *     word (big and large).
  */
+import confusable from './confusable-pairs.json' with { type: 'json' }
+
+const pairKey = (a, b) => (a < b ? `${a}|${b}` : `${b}|${a}`)
+/** Entry pairs never put in one round, from confusable-pairs.json. */
+export const CONFUSABLE = new Set(confusable.pairs.map(([a, b]) => pairKey(a, b)))
+
 
 /** Seeded PRNG (mulberry32), so tests and the review sample can repeat. */
 export function makeRng(seed = Date.now()) {
@@ -44,23 +57,42 @@ export function optionText(card, direction) {
   return direction === 'to-tongan' ? card.tonganShown : card.meaning
 }
 
+/** True when the two cards share a content word in any of their meanings. */
+export function shareWord(a, b) {
+  const words = new Set(a.words)
+  return b.words.some(w => words.has(w))
+}
+
+/** True when one card is named as the source of the other in its English note. */
+export function derivedPair(a, b) {
+  return a.refs.includes(b.key) || b.refs.includes(a.key)
+}
+
 /** True when `other` could pass for a right answer to `target`. */
 export function clashes(target, other) {
   if (other.id === target.id) return true
   if (other.tongan === target.tongan) return true
   if (other.meaning.toLowerCase() === target.meaning.toLowerCase()) return true
   const items = new Set(target.items)
-  return other.items.some(i => items.has(i))
+  if (other.items.some(i => items.has(i))) return true
+  if (shareWord(target, other)) return true
+  if (derivedPair(target, other)) return true
+  return CONFUSABLE.has(pairKey(target.id, other.id))
 }
 
 /**
  * One round. `avoid` is a set of card ids not to use as the target (the last
- * few words, so the same word does not come straight back).
+ * few words, so the same word does not come straight back). `target` fixes
+ * the target (tests and the review sample). `fallback` is the wider deck a
+ * word list draws its distractors from once the list itself has no more words
+ * that could not pass for the target: the list first, then the wider deck
+ * within the target's part of speech, then the wider deck at large.
  * Returns { target, options: [card], labels: [string], correctIndex, mover }.
  */
-export function makeRound(deck, rng, { direction = 'to-english', optionCount = 4, avoid = null } = {}) {
-  const pool = avoid && avoid.size < deck.length ? deck.filter(c => !avoid.has(c.id)) : deck
-  const target = pool[Math.floor(rng() * pool.length)]
+export function makeRound(deck, rng, { direction = 'to-english', optionCount = 4, avoid = null, fallback = null, target: fixed = null } = {}) {
+  const free = avoid && avoid.size ? deck.filter(c => !avoid.has(c.id)) : deck
+  const pool = free.length ? free : deck
+  const target = fixed ?? pool[Math.floor(rng() * pool.length)]
   const label = c => optionText(c, direction)
   const chosen = []
   const seenLabels = new Set([label(target).toLowerCase()])
@@ -80,6 +112,10 @@ export function makeRound(deck, rng, { direction = 'to-english', optionCount = 4
   }
   tryAdd(deck.filter(c => c.pos === target.pos))
   if (chosen.length < optionCount - 1) tryAdd(deck)
+  if (fallback) {
+    if (chosen.length < optionCount - 1) tryAdd(fallback.filter(c => c.pos === target.pos))
+    if (chosen.length < optionCount - 1) tryAdd(fallback)
+  }
 
   const options = shuffle([target, ...chosen], rng)
   return {

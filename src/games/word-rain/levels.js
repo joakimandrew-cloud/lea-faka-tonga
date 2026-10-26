@@ -105,7 +105,7 @@ export function followerX(frontX, rng = Math.random) {
  * that could pass for it. Returns null if the deck cannot supply one (the
  * game then waits for the front word to clear).
  */
-export function makeFollowerRound(deck, rng, front, { direction = 'to-english', optionCount = 4, recent = [] } = {}) {
+export function makeFollowerRound(deck, rng, front, { direction = 'to-english', optionCount = 4, recent = [], fallback = null } = {}) {
   if (!front) return null
   const blocked = new Set(recent)
   for (const c of deck) {
@@ -113,7 +113,7 @@ export function makeFollowerRound(deck, rng, front, { direction = 'to-english', 
   }
   if (blocked.size >= deck.length) return null
   for (let tries = 0; tries < 40; tries++) {
-    const r = makeRound(deck, rng, { direction, optionCount, avoid: blocked })
+    const r = makeRound(deck, rng, { direction, optionCount, avoid: blocked, fallback })
     if (blocked.has(r.target.id)) continue
     if (r.options.some(o => clashes(front.target, o))) continue
     return r

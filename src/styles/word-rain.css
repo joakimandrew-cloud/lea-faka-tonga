@@ -812,6 +812,7 @@
 .rain-chip:active { transform: scale(0.96); }
 .rain-chip.is-active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
 .rain-chip-count { margin-left: 4px; opacity: 0.6; font-variant-numeric: tabular-nums; }
+.rain-chip-note { margin-left: 6px; opacity: 0.6; font: 600 11px/1 var(--f-ui); letter-spacing: 0.02em; }
 
 /* ── title screen ─────────────────────────────────────────────────────── */
 .rain-title-block {
@@ -1020,6 +1021,23 @@
   .rain-setting { flex-direction: column; align-items: flex-start; gap: 5px; }
   .rain-go-col { gap: 6px; }
   .rain-play { width: 100%; }
+  /* The two word-list rows stay one line each and scroll sideways, so the
+     title screen keeps its sky on a phone. The right edge fades to hint it. */
+  .rain-settings { min-width: 0; }
+  .rain-setting-lists { width: 100%; min-width: 0; }
+  .rain-setting-lists .rain-chips {
+    width: calc(100% + 14px);
+    margin-right: -14px;
+    padding-right: 28px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+  }
+  .rain-setting-lists .rain-chips::-webkit-scrollbar { display: none; }
+  .rain-setting-lists .rain-chip { flex: none; white-space: nowrap; }
 }
 @media (max-width: 560px) {
   .source-drill-shell.rain-shell { padding: 6px 8px 10px; }
@@ -1046,10 +1064,15 @@
   .rain-opt { min-height: 56px; padding: 8px 10px; }
   .rain-opt-en { font-size: 15px; }
   .rain-opt .font-tongan { font-size: 19px; }
-  .rain-idle-main { top: 13%; right: 22px; }
+  /* The tray is taller now (word lists), so the sky is short: the title sits
+     low and the idle word hangs above it. */
+  .rain-title-block { justify-content: flex-end; padding: 16px 20px 14px; }
+  .rain-title { margin: 6px 0 6px; font-size: 54px; }
+  .rain-tagline { font-size: 15px; }
+  .rain-idle-main { top: 9%; right: 74px; }
   .rain-idle-main .rain-word.font-tongan { font-size: 24px; }
   .rain-idle-far { right: 46%; top: 60%; }
-  .rain-tagline { font-size: 16px; max-width: 15em; }
+  .rain-tagline { max-width: 17em; }
   .rain-banner-title { font-size: 52px; }
   .rain-final-num { font-size: 64px; }
   .rain-over { padding: 20px 16px 12px; }
