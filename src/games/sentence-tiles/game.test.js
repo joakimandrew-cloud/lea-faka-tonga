@@ -170,3 +170,68 @@ describe('Sentence Tiles game', () => {
     expect(s.round.placed).toEqual([first.slot])
   })
 })
+
+describe('Sentence Tiles fill-in', () => {
+  const fill = (round, now, elapsedMs = 1000) => ({ type: 'fill', key: round.key, now, elapsedMs })
+
+  it('places the next word of the book order, as a right tap would', () => {
+    let s = dealt(plain)
+    s = gameReducer(s, fill(s.round, 1000))
+    expect(s.round.placed).toHaveLength(1)
+    expect(s.round.tiles.find(t => t.slot === s.round.placed[0]).text).toBe(plain.words[0])
+    expect(s.round.filled).toEqual([0])
+    expect(s.round.penaltyMs).toBe(0)
+    expect(s.wrongTaps).toBe(0)
+    expect(s.filledWords).toBe(1)
+  })
+
+  it('fills the whole sentence: no time, no life, a score of 0, the streak as it was', () => {
+    let s = dealt(plain)
+    s = { ...s, streak: 3 }
+    for (let i = 0; i < plain.words.length; i++) s = gameReducer(s, fill(s.round, 1000 + i * 100))
+    expect(s.round.status).toBe('done')
+    expect(s.round.gain).toBe(0)
+    expect(s.score).toBe(0)
+    expect(s.streak).toBe(3)
+    expect(s.correct).toBe(0)
+    expect(s.helped).toBe(1)
+    expect(s.lives).toBe(LIVES)
+    expect(s.round.placed.map(sl => s.round.tiles.find(t => t.slot === sl).text)).toEqual(plain.words)
+    // nothing more to fill
+    expect(gameReducer(s, fill(s.round, 5000))).toBe(s)
+  })
+
+  it('scores only the share of words the player placed, and does not grow the streak', () => {
+    let s = dealt(plain)
+    s = { ...s, streak: 2 }
+    const slots = rightSlots(s.round)
+    s = gameReducer(s, pick(s.round, slots[0], 1000, 2000))
+    s = gameReducer(s, pick(s.round, slots[1], 1200, 2000))
+    while (s.round.status === 'building') s = gameReducer(s, fill(s.round, 1500, 2000))
+    const full = pointsFor({ elapsedMs: 2000, durationMs: s.round.durationMs, streak: 2, level: 1 })
+    expect(s.round.gain).toBe(Math.round((full * 2) / plain.words.length))
+    expect(s.score).toBe(s.round.gain)
+    expect(s.streak).toBe(2)
+    expect(s.round.filled).toEqual([2, 3])
+  })
+
+  it('keeps the new-sentence lockout and ignores a fill meant for another sentence', () => {
+    let s = dealt(plain, playing(), 500)
+    expect(gameReducer(s, fill(s.round, 500 + TAP_LOCKOUT_MS - 1))).toBe(s)
+    expect(gameReducer(s, { ...fill(s.round, 3000), key: s.round.key - 1 })).toBe(s)
+    const paused = gameReducer(s, { type: 'pause' })
+    expect(gameReducer(paused, fill(s.round, 3000))).toBe(paused)
+    s = gameReducer(s, fill(s.round, 500 + TAP_LOCKOUT_MS))
+    expect(s.round.placed).toHaveLength(1)
+  })
+
+  it('fills from the second order when the line already follows it', () => {
+    const sentence = SENTENCES.find(x => x.id === 'ch34-ex2-3')
+    let s = dealt(sentence)
+    const first = s.round.tiles.find(t => t.text === sentence.orders[1][0])
+    s = gameReducer(s, pick(s.round, first.slot, 1000))
+    while (s.round.status === 'building') s = gameReducer(s, fill(s.round, 1500))
+    expect(s.round.placed.map(sl => s.round.tiles.find(t => t.slot === sl).text)).toEqual(sentence.orders[1])
+    expect(s.wrongTaps).toBe(0)
+  })
+})

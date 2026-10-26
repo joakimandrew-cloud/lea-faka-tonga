@@ -82,10 +82,22 @@
 .tiles-line {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   gap: 8px 10px;
   min-height: 48px;
+}
+.tiles-line.has-clues { row-gap: 12px; }
+/* One place in the line: the word (or its blank), and under it the clue when clues are on. */
+.tiles-cell { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
+.tiles-cell > .tiles-slot { align-self: stretch; justify-content: center; }
+.tiles-clue {
+  max-width: 96px;
+  min-height: 12px;
+  color: var(--muted);
+  font: 600 11px/1.1 var(--f-ui);
+  text-align: center;
+  animation: rain-fade-in 0.2s ease-out both;
 }
 .tiles-slot {
   display: inline-flex;
@@ -98,28 +110,51 @@
 }
 .tiles-slot .font-tongan { font: italic 500 26px/1.15 var(--f-serif); }
 .tiles-slot.is-placed { border-bottom: 2px solid var(--ink); animation: tiles-land 0.22s var(--ease-out) both; }
+.tiles-slot.is-filled { border-bottom-style: dotted; border-bottom-color: var(--line-strong); color: var(--muted); }
 .tiles-slot.is-revealed { border-bottom: 2px solid var(--success); color: var(--success); animation: rain-pop-in 0.3s var(--ease-out) both; }
 .tiles-slot-gap { display: block; width: 30px; height: 26px; }
-.tiles-end { margin-left: -6px; padding-bottom: 4px; color: var(--ink); font: italic 500 26px/1.15 var(--f-serif); }
+/* The end mark sits in a box the height of a place, so it lines up with the words whether or not clues show. */
+.tiles-end { display: inline-flex; align-items: flex-end; min-height: 40px; margin-left: -6px; padding-bottom: 4px; border-bottom: 2px solid transparent; color: var(--ink); font: italic 500 26px/1.15 var(--f-serif); }
 .tiles-card.is-done { box-shadow: 0 0 0 3px var(--success), var(--shadow-2); }
-.tiles-card.is-done .tiles-slot { border-bottom-color: var(--success); }
+.tiles-card.is-done .tiles-slot:not(.is-filled) { border-bottom-color: var(--success); }
 .tiles-card.is-timeout { box-shadow: 0 0 0 3px var(--error), var(--shadow-2); }
 @keyframes tiles-land {
   from { transform: translateY(10px); opacity: 0; }
   to { transform: none; opacity: 1; }
 }
 .tiles-gain { left: 86%; top: 6px; }
+.tiles-gain small { white-space: nowrap; }
 .tiles-reveal-label { display: block; margin-top: 14px; }
 
-/* ── the tray: the tiles ──────────────────────────────────────────────── */
+/* ── the tray: the two helps, then the tiles ──────────────────────────── */
 .tiles-tray {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 150px;
+  padding: 10px 14px 16px;
+}
+.tiles-helps { display: flex; justify-content: center; gap: 8px; }
+.tiles-helps .rain-chip { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.tiles-helps .rain-chip.is-active { color: var(--paper); }
+.tiles-helps .rain-chip:disabled { cursor: default; opacity: 0.5; }
+.tiles-helps kbd {
+  min-width: 18px;
+  padding: 1px 5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--muted);
+  font: 600 11px/1.4 var(--f-ui);
+  text-align: center;
+}
+.tiles-set {
+  display: flex;
+  flex: 1;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
   gap: 10px;
-  min-height: 150px;
-  padding: 14px 14px 16px;
 }
 .tiles-tile {
   position: relative;
@@ -186,8 +221,12 @@
   .tiles-prompt { margin-bottom: 12px; font-size: 19px; }
   .tiles-slot .font-tongan,
   .tiles-end { font-size: 22px; }
-  .tiles-slot { min-width: 36px; min-height: 34px; }
-  .tiles-tray { gap: 8px; min-height: 136px; padding: 10px 10px 12px; }
+  .tiles-slot,
+  .tiles-end { min-height: 34px; }
+  .tiles-slot { min-width: 36px; }
+  .tiles-tray { gap: 8px; min-height: 136px; padding: 8px 10px 12px; }
+  .tiles-set { gap: 8px; }
+  .tiles-clue { max-width: 76px; font-size: 10px; }
   .tiles-tile { min-width: 56px; min-height: 52px; padding: 6px 14px; }
   .tiles-tile .font-tongan { font-size: 21px; }
   .tiles-idle { top: 6%; right: 12px; left: 12px; width: auto; justify-content: center; }
@@ -199,6 +238,7 @@
   .tiles-tray.is-live .tiles-tile,
   .tiles-slot.is-placed,
   .tiles-slot.is-revealed,
+  .tiles-clue,
   .tiles-card { animation: none; }
   .tiles-cost { animation: rain-fade-in-out 1.1s ease-out forwards; }
   .tiles-tile:active:not(:disabled) { transform: none; }

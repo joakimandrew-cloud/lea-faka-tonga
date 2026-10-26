@@ -89,3 +89,35 @@ export function acceptedOrders(sentence, tiles, max = 50) {
   }
   return out
 }
+
+/**
+ * The accepted order the placed words follow (its index in `orders`): the
+ * book's order while it still fits, else the first second order that does.
+ * `placed` is the list of words already placed, in order.
+ */
+export function orderIndexFor(sentence, placed = []) {
+  const orders = ordersOf(sentence)
+  const i = orders.findIndex(o => placed.length <= o.length && placed.every((w, j) => o[j] === w))
+  return i < 0 ? 0 : i
+}
+
+/** The clue label for each place in the line, for the order the placed words follow. */
+export function cluesFor(sentence, placed = []) {
+  const k = orderIndexFor(sentence, placed)
+  const list = sentence.roles?.[k] ?? sentence.roles?.[0]
+  return sentence.words.map((_, i) => list?.[i] ?? null)
+}
+
+/**
+ * The tile a fill-in places: the next word of the order the placed words
+ * follow, as the first tile not yet used that shows it. Null when the
+ * sentence is complete. `placedSlots` are the slots already in the line.
+ */
+export function fillSlot(sentence, tiles, placedSlots = []) {
+  const placedWords = placedSlots.map(sl => tiles.find(t => t.slot === sl)?.text)
+  const order = ordersOf(sentence)[orderIndexFor(sentence, placedWords)]
+  const word = order[placedSlots.length]
+  if (word == null) return null
+  const tile = tiles.find(t => t.text === word && !placedSlots.includes(t.slot))
+  return tile ? tile.slot : null
+}

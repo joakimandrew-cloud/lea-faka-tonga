@@ -29,12 +29,18 @@
  * the capital does not point at the first tile; capitalFirst puts it back in
  * the answer line. Names keep their capitals; the fakauʻa is shown through okinafy, the
  * site-wide display rule, and stays an ASCII apostrophe in the deck.
+ *
+ * Clues: roles.json (built by build-roles.mjs, settled in role-overrides.json)
+ * gives the role of each word in the book's order, or null where the book does
+ * not settle it. `roles[k]` is the list for `orders[k]` (a second order's words
+ * carry their own roles with them).
  */
 import exercises from '../../data/book-exercises.json'
 import vocabulary from '../../data/book-vocabulary.json'
 import wordLists from '../../premium/data/word-lists.json'
 import staleItems from './stale-items.json'
 import secondOrders from './second-orders.json'
+import roleData from './roles.json'
 import { LEFT_OUT_OF_GAME, tonganKey } from '../shared/deck.js'
 
 export const MIN_WORDS = 3
@@ -134,13 +140,19 @@ function toSentence(item, chapter) {
   const { words, end } = splitAnswer(answer)
   // orders[0] is the book's; the rest are the second orders listed for this id.
   const orders = [words]
+  const base = roleData.items?.[item.id]
+  const bookRoles = Array.isArray(base) && base.length === words.length ? base : words.map(() => null)
+  const roles = [bookRoles]
   for (const perm of secondOrders.orders?.[item.id] ?? []) {
     const w = perm.map(i => words[i])
-    if (!orders.some(o => o.join(' ') === w.join(' '))) orders.push(w)
+    if (!orders.some(o => o.join(' ') === w.join(' '))) {
+      orders.push(w)
+      roles.push(perm.map(i => bookRoles[i] ?? null))
+    }
   }
   // `capital`: the book prints the first word with a capital (a few noun-phrase answers do not).
   const first = answer.trim().split(/\s+/)[0]
-  return { id: item.id, chapter, prompt: item.prompt, answer, words, orders, end, capital: first !== first.toLowerCase() }
+  return { id: item.id, chapter, prompt: item.prompt, answer, words, orders, roles, end, capital: first !== first.toLowerCase() }
 }
 
 /** Every translate_to_tongan item of the book, with its lesson number. */
@@ -170,6 +182,9 @@ export function buildSentences(data = exercises) {
 }
 
 export const SENTENCES = buildSentences()
+
+/** The clue labels the game can show, each with where its term comes from (roles.json). */
+export const ROLE_LABELS = (roleData.labels ?? []).map(l => l.label)
 
 /** Kept sentences by lesson: [[lesson, count], ...], lessons with none left out. */
 export const LESSON_COUNTS = (() => {

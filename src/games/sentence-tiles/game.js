@@ -14,10 +14,18 @@
  * A right tap moves the tile into the line. A wrong tap shakes the tile and
  * costs WRONG_TAP_MS off the clock, and the streak starts again; it never
  * costs a life. Running out of time costs a life. Three lives.
+ *
+ * Fill-in (Andrew's ruling at the Step 6 look): `fill` places the next word
+ * of the order the line follows, exactly as a right tap would. A filled word
+ * costs no time and no life, but it scores nothing: the sentence scores its
+ * points times the share of words the player placed (a fully filled sentence
+ * scores 0). A sentence with any filled word leaves the streak as it was (it
+ * does not grow it, and does not break it) and counts in `helped`, not in
+ * `correct`, so levels and the Sentences total are the player's own work.
  */
 import { pointsFor, multiplierFor } from '../shared/scoring.js'
 import { levelFor } from '../shared/levels.js'
-import { isNextWord } from './rounds.js'
+import { isNextWord, fillSlot } from './rounds.js'
 
 export const LIVES = 3
 export const COUNTDOWN_FROM = 3
@@ -40,7 +48,9 @@ export function initialGame(extra = {}) {
     nextKey: 1,
     since: null, // { key, at }: when the current sentence was dealt
     score: 0,
-    correct: 0,
+    correct: 0, // sentences finished with no filled word
+    helped: 0, // sentences finished with at least one filled word
+    filledWords: 0, // words placed by the fill-in, this game
     streak: 0,
     bestStreak: 0,
     lives: LIVES,
@@ -82,6 +92,50 @@ function timeOut(state) {
   }
 }
 
+/** True when a tap or fill-in for this round arrives inside the new-sentence lockout. */
+function lockedOut(state, round, now) {
+  return now != null && state.since?.key === round.key && state.since.at != null && now - state.since.at < TAP_LOCKOUT_MS
+}
+
+/** Puts a tile in the line (a right tap, or a fill-in when `filled`); finishes the sentence when it is complete. */
+function place(state, slot, elapsedMs, filled) {
+  const { round } = state
+  const placed = [...round.placed, slot]
+  const filledAt = filled ? [...(round.filled ?? []), round.placed.length] : (round.filled ?? [])
+  const filledWords = state.filledWords + (filled ? 1 : 0)
+  if (placed.length < round.sentence.words.length) return { ...state, filledWords, round: { ...round, placed, filled: filledAt } }
+  const total = round.sentence.words.length
+  const own = total - filledAt.length
+  const used = Math.max(0, Number(elapsedMs) || 0) + round.penaltyMs
+  if (filledAt.length > 0) {
+    // Helped: points for the player's own share only, at the streak as it stands; the streak stays.
+    const full = pointsFor({ elapsedMs: used, durationMs: round.durationMs, streak: state.streak, level: state.level })
+    const gain = Math.round((full * own) / total)
+    return {
+      ...state,
+      filledWords,
+      round: { ...round, placed, filled: filledAt, status: 'done', gain, mult: multiplierFor(state.streak) },
+      score: state.score + gain,
+      helped: state.helped + 1,
+    }
+  }
+  const streak = state.streak + 1
+  const correct = state.correct + 1
+  const gain = pointsFor({ elapsedMs: used, durationMs: round.durationMs, streak, level: state.level })
+  const level = levelFor(correct)
+  return {
+    ...state,
+    filledWords,
+    round: { ...round, placed, filled: filledAt, status: 'done', gain, mult: multiplierFor(streak) },
+    score: state.score + gain,
+    correct,
+    streak,
+    bestStreak: Math.max(state.bestStreak, streak),
+    level,
+    levelUp: level > state.level ? { level, at: correct } : state.levelUp,
+  }
+}
+
 function reduce(state, action) {
   switch (action.type) {
     case 'start': {
@@ -99,7 +153,7 @@ function reduce(state, action) {
       return {
         ...state,
         nextKey: key + 1,
-        round: { ...action.round, key, placed: [], penaltyMs: 0, status: 'building', gain: 0, mult: 1, wrong: null },
+        round: { ...action.round, key, placed: [], filled: [], penaltyMs: 0, status: 'building', gain: 0, mult: 1, wrong: null },
         since: { key, at: action.now ?? null },
       }
     }
@@ -111,7 +165,7 @@ function reduce(state, action) {
       const tile = round.tiles.find(t => t.slot === action.slot)
       if (!tile || round.placed.includes(tile.slot)) return state
       const now = action.now
-      if (now != null && state.since?.key === round.key && state.since.at != null && now - state.since.at < TAP_LOCKOUT_MS) return state
+      if (lockedOut(state, round, now)) return state
       if (now != null && round.wrong && round.wrong.slot === tile.slot && now - round.wrong.at < TAP_LOCKOUT_MS) return state
       if (!isNextWord(round.sentence, round.placed.map(sl => round.tiles.find(t => t.slot === sl)?.text), tile.text)) {
         const wrongTaps = state.wrongTaps + 1
@@ -124,23 +178,17 @@ function reduce(state, action) {
         // The cost can use up the last of the time.
         return timeLeftMs(next.round, action.elapsedMs) <= 0 ? timeOut(next) : next
       }
-      const placed = [...round.placed, tile.slot]
-      if (placed.length < round.sentence.words.length) return { ...state, round: { ...round, placed } }
-      const streak = state.streak + 1
-      const correct = state.correct + 1
-      const used = Math.max(0, Number(action.elapsedMs) || 0) + round.penaltyMs
-      const gain = pointsFor({ elapsedMs: used, durationMs: round.durationMs, streak, level: state.level })
-      const level = levelFor(correct)
-      return {
-        ...state,
-        round: { ...round, placed, status: 'done', gain, mult: multiplierFor(streak) },
-        score: state.score + gain,
-        correct,
-        streak,
-        bestStreak: Math.max(state.bestStreak, streak),
-        level,
-        levelUp: level > state.level ? { level, at: correct } : state.levelUp,
-      }
+      return place(state, tile.slot, action.elapsedMs, false)
+    }
+    case 'fill': {
+      // The fill-in: the next word of the order the line follows, as a right tap would place it.
+      if (isFrozen(state)) return state
+      const { round } = state
+      if (action.key != null && action.key !== round.key) return state
+      if (lockedOut(state, round, action.now)) return state
+      const slot = fillSlot(round.sentence, round.tiles, round.placed)
+      if (slot == null) return state
+      return place(state, slot, action.elapsedMs, true)
     }
     case 'timeout': {
       if (state.phase !== 'playing' || !state.round || state.round.status !== 'building') return state

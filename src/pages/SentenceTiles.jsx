@@ -5,7 +5,7 @@ import { okinafy } from '../lib/okinafy.js'
 import T, { Inline } from '../premium/components/T.jsx'
 import {
   LESSON_MENU, ALL_LESSONS_ID, lessonChoice,
-  makeRound, makeTiles, capitalFirst, sentenceText,
+  makeRound, makeTiles, capitalFirst, sentenceText, cluesFor,
   gameReducer, initialGame, isFrozen, timeLeftMs, LIVES, WRONG_TAP_MS,
 } from '../games/sentence-tiles'
 import { makeRng } from '../games/shared/fair.js'
@@ -25,6 +25,12 @@ import { Sky, Ground, Confetti, Hearts, Flame, PauseIcon, SoundIcon, ChevronIcon
  * wrong tap shakes it and takes 1.5 s off the clock (and the streak starts
  * again); running out of time costs a life and shows the right order. Every
  * 8 sentences is a new level and the clock is shorter. Three lives.
+ *
+ * Two helps (Step 7, Andrew's ruling at the Step 6 look): Fill in (or H)
+ * places the next word for the player, the same way a right tap would; a
+ * filled word shows lighter and scores nothing. Clues (off until turned on,
+ * remembered) label each place in the answer line with the kind of word that
+ * belongs there, from roles.json; a place the book does not settle has none.
  *
  * The look is Word Balloons' own (word-rain.css): the sky, the HUD, the mute
  * button, the sheets and the game-over card; sentence-tiles.css adds the
@@ -49,9 +55,11 @@ const MUTE_KEY = 'lft-sentence-tiles-muted'
 // on through the sentences not yet played.
 const BAG_KEY_PREFIX = 'lft-sentence-tiles-bag:'
 const BEST_KEY = 'lft-sentence-tiles-best'
+const CLUES_KEY = 'lft-sentence-tiles-clues'
 const COST_LABEL = `−${WRONG_TAP_MS / 1000} s`
 
 function readMuted() { return readStore(MUTE_KEY) === '1' }
+function readClues() { return readStore(CLUES_KEY) === '1' }
 
 // ── reduced motion (read live) ─────────────────────────────────────────
 const REDUCED = '(prefers-reduced-motion: reduce)'
@@ -115,6 +123,7 @@ export default function SentenceTiles() {
   const [choiceId, setChoiceId] = useState(ALL_LESSONS_ID)
   const [panel, setPanel] = useState(null) // null | 'lessons'
   const [muted, setMutedState] = useState(readMuted)
+  const [clues, setClues] = useState(readClues)
   const [bests, setBests] = useState(() => readBests(BEST_KEY))
   const [result, setResult] = useState(null) // { newBest, best }
   const [state, rawDispatch] = useReducer(gameReducer, undefined, () => initialGame())
@@ -158,6 +167,13 @@ export default function SentenceTiles() {
     if (!next) unlock()
     settingsRef.current = { ...settingsRef.current, muted: next }
     setMutedState(next)
+  }, [])
+
+  const toggleClues = useCallback(() => {
+    setClues(on => {
+      writeStore(CLUES_KEY, on ? '0' : '1')
+      return !on
+    })
   }, [])
 
   const start = useCallback((instant = false) => {
@@ -285,15 +301,15 @@ export default function SentenceTiles() {
   const sceneRef = useRef(null)
   const tileEls = useRef(new Map())
   const placedCount = round?.placed.length ?? 0
-  const seen = useRef({ gameId: 0, correct: 0, hits: 0, wrongTaps: 0, levelUp: null, count: null, phase: 'title', placed: 0, key: null })
+  const seen = useRef({ gameId: 0, correct: 0, helped: 0, hits: 0, wrongTaps: 0, levelUp: null, count: null, phase: 'title', placed: 0, key: null })
   useEffect(() => {
     let s = seen.current
-    if (state.gameId !== s.gameId) s = { gameId: state.gameId, correct: 0, hits: 0, wrongTaps: 0, levelUp: null, count: null, phase: 'title', placed: 0, key: null }
+    if (state.gameId !== s.gameId) s = { gameId: state.gameId, correct: 0, helped: 0, hits: 0, wrongTaps: 0, levelUp: null, count: null, phase: 'title', placed: 0, key: null }
     const sameRound = s.key === roundKey
     if (phase === 'countdown' && state.count !== s.count) sound('tick', false)
     if (phase === 'playing' && s.phase !== 'playing') sound('tick', true)
     // A finished sentence (or a new level) chimes once; each right tile pops.
-    if (correct > s.correct || (levelUp && levelUp.at !== s.levelUp)) sound('chime')
+    if (correct > s.correct || state.helped > s.helped || (levelUp && levelUp.at !== s.levelUp)) sound('chime')
     else if (sameRound && placedCount > s.placed) sound('pop', 1)
     if (state.wrongTaps > s.wrongTaps) {
       sound('thud')
@@ -328,10 +344,10 @@ export default function SentenceTiles() {
       }
     }
     seen.current = {
-      gameId: state.gameId, correct, hits, wrongTaps: state.wrongTaps, levelUp: levelUp?.at ?? s.levelUp,
+      gameId: state.gameId, correct, helped: state.helped, hits, wrongTaps: state.wrongTaps, levelUp: levelUp?.at ?? s.levelUp,
       count: state.count, phase, placed: placedCount, key: roundKey,
     }
-  }, [phase, state.count, state.gameId, state.wrongTaps, correct, hits, levelUp, placedCount, roundKey, round, isTouch, reduced, sound])
+  }, [phase, state.count, state.gameId, state.wrongTaps, state.helped, correct, hits, levelUp, placedCount, roundKey, round, isTouch, reduced, sound])
 
   // ── input ────────────────────────────────────────────────────────────
   const pick = useCallback((slot) => {
@@ -340,6 +356,15 @@ export default function SentenceTiles() {
     if (!r || r.status !== 'building') return
     if (!settingsRef.current.muted) unlock()
     dispatch({ type: 'pick', key: r.key, slot, elapsedMs: elapsedNow() })
+  }, [dispatch, elapsedNow])
+
+  // Fill in: the next word goes into the line for the player (scores nothing).
+  const fill = useCallback(() => {
+    const s = stateRef.current
+    const r = s.round
+    if (!r || r.status !== 'building') return
+    if (!settingsRef.current.muted) unlock()
+    dispatch({ type: 'fill', key: r.key, elapsedMs: elapsedNow() })
   }, [dispatch, elapsedNow])
 
   // A tile picked from the keyboard leaves the tray; the focus moves on to the nearest tile left.
@@ -426,6 +451,12 @@ export default function SentenceTiles() {
           return
         }
         const r = s.round
+        if (e.key === 'h' || e.key === 'H') {
+          e.preventDefault()
+          // A held key repeats; only the first press fills.
+          if (!e.repeat) fill()
+          return
+        }
         const n = Number(e.key)
         if (r && Number.isInteger(n) && n >= 1 && n <= r.tiles.length) {
           e.preventDefault()
@@ -468,7 +499,7 @@ export default function SentenceTiles() {
       window.removeEventListener('keydown', onKey)
       window.removeEventListener('keyup', onKeyUp)
     }
-  }, [pickByKey, focusTile, start, togglePause, closePanel])
+  }, [pickByKey, focusTile, fill, start, togglePause, closePanel])
 
   // ── render ───────────────────────────────────────────────────────────
   const sky = Math.min(7, Math.max(1, level))
@@ -476,11 +507,17 @@ export default function SentenceTiles() {
   const sentence = round?.sentence ?? null
   const byText = round ? new Map(round.tiles.map(t => [t.slot, t])) : null
   const placedWords = round ? round.placed.map(slot => byText.get(slot).text) : []
+  const filledAt = new Set(round?.filled ?? [])
+  const clueList = sentence && clues ? cluesFor(sentence, placedWords) : null
   const lineWords = sentence
-    ? sentence.words.map((w, i) => (i < placedWords.length
-      ? { text: i === 0 && sentence.capital ? capitalFirst(placedWords[i]) : placedWords[i], kind: 'placed' }
-      : status === 'timeout' ? { text: i === 0 && sentence.capital ? capitalFirst(w) : w, kind: 'revealed' } : { text: '', kind: 'empty' }))
+    ? sentence.words.map((w, i) => ({
+      ...(i < placedWords.length
+        ? { text: i === 0 && sentence.capital ? capitalFirst(placedWords[i]) : placedWords[i], kind: filledAt.has(i) ? 'placed is-filled' : 'placed' }
+        : status === 'timeout' ? { text: i === 0 && sentence.capital ? capitalFirst(w) : w, kind: 'revealed' } : { text: '', kind: 'empty' }),
+      clue: clueList?.[i] ?? null,
+    }))
     : []
+  const filledCount = filledAt.size
 
   return (
     <section className={`source-drill-shell rain-shell is-${phase}`} data-game="sentence-tiles">
@@ -582,16 +619,24 @@ export default function SentenceTiles() {
                 {sentence && (
                   <div className={`tiles-card is-${status}`} key={roundKey}>
                     <p className="tiles-prompt"><Inline text={sentence.prompt} tClass="font-tongan" /></p>
-                    <div className="tiles-line" aria-label="Your answer" data-placed={placedWords.length}>
+                    <div className={`tiles-line${clueList ? ' has-clues' : ''}`} aria-label="Your answer" data-placed={placedWords.length} data-filled={filledCount}>
                       {lineWords.map((w, i) => (
-                        <span key={i} className={`tiles-slot is-${w.kind}`}>
-                          {w.text ? <T className="font-tongan" data-text={okinafy(w.text)}>{w.text}</T> : <span className="tiles-slot-gap" />}
+                        <span key={i} className="tiles-cell">
+                          <span className={`tiles-slot is-${w.kind}`}>
+                            {w.text ? <T className="font-tongan" data-text={okinafy(w.text)}>{w.text}</T> : <span className="tiles-slot-gap" />}
+                          </span>
+                          {clueList && <span className="tiles-clue" data-clue={w.clue ?? ''}>{w.clue ?? ''}</span>}
                         </span>
                       ))}
                       {sentence.end && <span className="tiles-end" aria-hidden="true">{sentence.end}</span>}
                     </div>
                     {status === 'done' && (
-                      <span className="rain-gain tiles-gain">+{round.gain}{round.mult > 1 && <small> ×{round.mult}</small>}</span>
+                      <span className="rain-gain tiles-gain" data-gain={round.gain}>
+                        +{round.gain}
+                        {filledCount > 0
+                          ? <small> {filledCount} filled</small>
+                          : round.mult > 1 && <small> ×{round.mult}</small>}
+                      </span>
                     )}
                     {status === 'timeout' && (
                       <span className="rain-reveal-label tiles-reveal-label" role="status">Out of time: the book’s order</span>
@@ -653,7 +698,7 @@ export default function SentenceTiles() {
                 </div>
                 {!isTouch && (
                   <span className="rain-keys">
-                    Pick with <kbd>1</kbd>–<kbd>8</kbd> or arrows and <kbd>Enter</kbd> · <kbd>Space</kbd> pauses
+                    Pick with <kbd>1</kbd>–<kbd>8</kbd> or arrows and <kbd>Enter</kbd> · <kbd>H</kbd> fills in a word · <kbd>Space</kbd> pauses
                   </span>
                 )}
               </div>
@@ -712,7 +757,27 @@ export default function SentenceTiles() {
           )}
 
           {inGame && (
-            <div className={`rain-tray tiles-tray${status === 'building' ? ' is-live' : ''}`} role="group" aria-label="Tiles" ref={trayRef}>
+            <div className={`rain-tray tiles-tray${status === 'building' ? ' is-live' : ''}`} ref={trayRef}>
+              <div className="tiles-helps">
+                <button
+                  type="button"
+                  className="rain-chip tiles-fill"
+                  onClick={fill}
+                  disabled={status !== 'building' || frozen}
+                  aria-label="Fill in the next word (it scores nothing)"
+                >
+                  Fill in{!isTouch && <kbd>H</kbd>}
+                </button>
+                <button
+                  type="button"
+                  className={`rain-chip tiles-clues-toggle${clues ? ' is-active' : ''}`}
+                  onClick={toggleClues}
+                  aria-pressed={clues}
+                >
+                  Clues
+                </button>
+              </div>
+              <div className="tiles-set" role="group" aria-label="Tiles">
               {round
                 ? round.tiles.map(t => {
                   const used = round.placed.includes(t.slot)
@@ -740,6 +805,7 @@ export default function SentenceTiles() {
                   )
                 })
                 : <span className="tiles-tile is-waiting" aria-hidden="true">&nbsp;</span>}
+              </div>
             </div>
           )}
 
@@ -758,6 +824,11 @@ export default function SentenceTiles() {
                   <div><dt>Longest streak</dt><dd>{state.bestStreak}</dd></div>
                   <div><dt>Sentences</dt><dd>{correct}</dd></div>
                 </dl>
+                {state.helped > 0 && (
+                  <div className="rain-over-best tiles-over-helped">
+                    {state.helped === 1 ? '1 more sentence' : `${state.helped} more sentences`} finished with filled-in words ({state.filledWords} filled)
+                  </div>
+                )}
                 {!result?.newBest && <div className="rain-over-best">Your best for {choice.label}: {best.score}</div>}
                 {state.missed.length > 0 && (
                   <div className="rain-missed">
