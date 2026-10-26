@@ -1,3 +1,6 @@
 export * from './deck.js'
 export * from './rounds.js'
 export * from './speed.js'
+export * from './scoring.js'
+export * from './levels.js'
+export * from './game.js'

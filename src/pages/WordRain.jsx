@@ -1,32 +1,35 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState, useSyncExternalStore } from 'react'
 import { Link } from 'react-router-dom'
 import vocabulary from '../data/book-vocabulary.json'
 import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
 import T from '../premium/components/T.jsx'
 import {
-  WORD_SETS, WORD_SET_LABELS, buildDeck, makeRound, flightMs,
+  WORD_SETS, WORD_SET_LABELS, buildDeck, makeRng, makeRound, moverText,
+  gameReducer, initialGame, frontWord, flyingCount, isFrozen, LIVES,
+  levelFlightMs, skyStep, cloudRate, canLaunchSecond, secondFlightMs, followerX, makeFollowerRound,
+  multiplierFor, toNextLevel, WORDS_PER_LEVEL, TWO_AT_ONCE_FROM,
 } from '../games/word-rain'
+import { unlock, play } from '../games/word-rain/sound.js'
+import {
+  Sky, Ground, ShapeBody, Burst, Splash, Confetti, Hearts, Flame, PauseIcon, SoundIcon,
+} from '../games/word-rain/scene.jsx'
 
 /**
- * Word Rain (plan 2026-10-26-word-rain-game). One word from the course
- * vocabulary moves across the sky, as a raindrop falling or a balloon rising;
- * the learner taps its meaning before it reaches the far edge. Three lives.
+ * Word Rain (plan 2026-10-26-word-rain-game). Words from the course
+ * vocabulary fall as raindrops or rise as balloons through a living sky; tap
+ * the meaning before a word gets away. Right answers pop the word and score
+ * more for a quick tap and a long streak; every 8 right is a new level, the
+ * sky shifts and the words speed up, and from level 3 two words can be in the
+ * air at once. Three lives. The best score and level for each word set stay
+ * on this device.
  *
- * The round logic is pure and tested in src/games/word-rain/. This page owns
- * the screen: the start card, the flight (Web Animations API, so pause and the
- * "reached the edge" moment come from one animation object), the answer
- * buttons and the end card.
+ * Pure rules live in src/games/word-rain/ (rounds, scoring, levels and the
+ * game reducer, all tested); this page owns the screen, the timing (Web
+ * Animations API, so a pause freezes every word exactly), sound and storage.
  *
- * It is mounted by the live app (src/premium/App.jsx) in the same shell as
- * every drill page (.source-drill-shell > .premium-core, SourceDrill.jsx), so
- * the drill chrome it reuses (.pcs-card, .pcs-btn, .pcs-next, .x-chip, the
- * DrillFrame header classes) takes the site's own look from source-core.css.
- * word-rain.css holds only the sky and the two shapes.
- *
- * No stylesheet is imported here: the build drops CSS imported from src/
- * outside src/premium (vite.config.js, course-style-bridge), so the premium
- * page src/premium/pages/WordRain.jsx loads source-core.css and word-rain.css
- * and renders this component.
+ * It is mounted by the live app through src/premium/pages/WordRain.jsx, which
+ * loads source-core.css and word-rain.css (the build drops CSS imported from
+ * src/ outside src/premium).
  */
 
 // Tongan goes through the site's one Tongan component (premium T: lang="to",
@@ -34,220 +37,364 @@ import {
 // already okinafied; no Tongan is ever typed by hand here.
 const Tongan = T
 
-const LIVES = 3
-const POP_MS = 450
-const REVEAL_MS = 1200
-const RECENT = 8
+const COUNT_MS = 650
+const POP_MS = 850
+const REVEAL_MS = 1300
+const BANNER_MS = 1800
+const NEXT_MS = 260
+const AFTER_LEVEL_UP_MS = 1150
+const GAP_PX = 10
+
 const SHAPE_KEY = 'lft-word-rain-shape'
+const MUTE_KEY = 'lft-word-rain-muted'
+const BEST_KEY = 'lft-word-rain-best'
 const SHAPES = { raindrop: 'Raindrop', balloon: 'Balloon' }
 const DIRECTION_LABELS = {
   'to-english': 'Tongan → English',
   'to-tongan': 'English → Tongan',
 }
 
-// Best score for this visit to the site. Kept outside the component so it
-// survives Play again and a trip to another page; nothing is stored.
-let sessionBest = 0
-function recordBest(n) { sessionBest = Math.max(sessionBest, n) }
-
-function readShape() {
+// ── storage (every read and write survives a browser that refuses it) ──
+function readStore(key) {
+  try { return window.localStorage.getItem(key) } catch { return null }
+}
+function writeStore(key, value) {
+  try { window.localStorage.setItem(key, value) } catch { /* private mode: lasts this visit */ }
+}
+function readShape() { return readStore(SHAPE_KEY) === 'balloon' ? 'balloon' : 'raindrop' }
+function readMuted() { return readStore(MUTE_KEY) === '1' }
+function readBests() {
   try {
-    const v = window.localStorage.getItem(SHAPE_KEY)
-    return v === 'balloon' ? 'balloon' : 'raindrop'
+    const v = JSON.parse(readStore(BEST_KEY) || '{}')
+    return v && typeof v === 'object' ? v : {}
   } catch {
-    return 'raindrop'
+    return {}
   }
 }
-function writeShape(v) {
-  try { window.localStorage.setItem(SHAPE_KEY, v) } catch { /* private mode: the pick lasts this visit */ }
+function bestOf(bests, set) {
+  const b = bests?.[set]
+  return { score: Math.max(0, Number(b?.score) || 0), level: Math.max(0, Number(b?.level) || 0) }
 }
 
-const initial = {
-  phase: 'start', // start | playing | over
-  status: 'idle', // flying | right | wrong | missed
-  paused: false,
-  round: null,
-  seq: 0,
-  chosen: null,
-  score: 0,
-  lives: LIVES,
-  missed: [],
-  recent: [],
-  best: 0,
+// ── reduced motion (read live, no state copied in an effect) ───────────
+const REDUCED = '(prefers-reduced-motion: reduce)'
+function subscribeReduced(cb) {
+  if (typeof window === 'undefined' || !window.matchMedia) return () => {}
+  const mq = window.matchMedia(REDUCED)
+  mq.addEventListener?.('change', cb)
+  return () => mq.removeEventListener?.('change', cb)
+}
+function getReduced() {
+  return typeof window !== 'undefined' && !!window.matchMedia && window.matchMedia(REDUCED).matches
+}
+function useReducedMotion() {
+  return useSyncExternalStore(subscribeReduced, getReduced, () => false)
 }
 
-function reducer(state, action) {
-  switch (action.type) {
-    case 'start':
-      return {
-        ...initial,
-        phase: 'playing',
-        status: 'flying',
-        round: action.round,
-        seq: state.seq + 1,
-        recent: [action.round.target.id],
-        best: Math.max(state.best, sessionBest),
-      }
-    case 'answer': {
-      if (state.status !== 'flying' || state.paused) return state
-      if (action.index === state.round.correctIndex) {
-        const score = state.score + 1
-        return { ...state, status: 'right', chosen: action.index, score, best: Math.max(state.best, score) }
-      }
-      return {
-        ...state,
-        status: 'wrong',
-        chosen: action.index,
-        lives: state.lives - 1,
-        missed: addMissed(state.missed, state.round.target),
-      }
+function buzz() {
+  try {
+    if (typeof navigator === 'undefined' || typeof navigator.vibrate !== 'function') return
+    if (navigator.userActivation && !navigator.userActivation.hasBeenActive) return
+    navigator.vibrate(60)
+  } catch { /* no vibration: nothing to do */ }
+}
+
+/** A number that counts up to its value instead of jumping. */
+function TickNumber({ value, className, instant }) {
+  const ref = useRef(null)
+  const shown = useRef(value)
+  // React renders the first value only; after that the effect writes the
+  // text, so the count-up never flashes the final number first.
+  const [first] = useState(value)
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const from = shown.current
+    const to = value
+    if (instant || from === to || to < from) {
+      shown.current = to
+      el.textContent = String(to)
+      return
     }
-    case 'miss':
-      if (state.status !== 'flying') return state
-      return {
-        ...state,
-        status: 'missed',
-        chosen: null,
-        lives: state.lives - 1,
-        missed: addMissed(state.missed, state.round.target),
-      }
-    case 'next':
-      if (state.lives <= 0) return { ...state, phase: 'over', status: 'idle', paused: false }
-      return {
-        ...state,
-        status: 'flying',
-        chosen: null,
-        round: action.round,
-        seq: state.seq + 1,
-        recent: [action.round.target.id, ...state.recent].slice(0, RECENT),
-      }
-    case 'pause':
-      if (state.phase !== 'playing' || state.status !== 'flying') return state
-      return { ...state, paused: true }
-    case 'resume':
-      return { ...state, paused: false }
-    case 'quit':
-      return { ...initial, seq: state.seq, best: state.best }
-    default:
-      return state
-  }
+    const start = performance.now()
+    let raf = 0
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / 420)
+      const v = Math.round(from + (to - from) * (1 - Math.pow(1 - t, 3)))
+      shown.current = v
+      el.textContent = String(v)
+      if (t < 1) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [value, instant])
+  return <span ref={ref} className={className}>{first}</span>
 }
 
-function addMissed(list, card) {
-  return list.some(c => c.id === card.id) ? list : [...list, card]
+/**
+ * One word in the air. It measures the field, starts its own flight and
+ * hands the animation to the page (for pause, freeze and timing); when the
+ * flight ends unanswered it reports the escape.
+ */
+function Mover({ word, shape, tonganMoves, role, fieldRef, register, onEscape, reduced }) {
+  const ref = useRef(null)
+  useLayoutEffect(() => {
+    const field = fieldRef.current
+    const el = ref.current
+    if (!field || !el) return
+    const H = field.clientHeight
+    const W = field.clientWidth
+    const h = el.offsetHeight
+    const w = el.offsetWidth
+    const span = Math.max(0, W - w - GAP_PX * 2)
+    el.style.left = `${Math.round(GAP_PX + word.x * span)}px`
+    // The raindrop appears at the top of the sky (just under the score, so
+    // it can be read at once) and falls until it meets the ground; the
+    // balloon starts on the ground and rises until its top reaches the top
+    // of the sky (then it gets away, off the top).
+    const ground = Math.max(0, H - h)
+    const from = shape === 'balloon' ? ground : 0
+    const to = shape === 'balloon' ? 0 : ground
+    const anim = el.animate(
+      [{ transform: `translateY(${from}px)` }, { transform: `translateY(${to}px)` }],
+      { duration: word.duration, easing: 'linear', fill: 'forwards' },
+    )
+    anim.onfinish = () => onEscape(word.key)
+    register(word.key, anim)
+    return () => {
+      anim.onfinish = null
+      anim.cancel()
+      register(word.key, null)
+    }
+    // A flight is started once, when the word appears.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [word.key])
+
+  const { fate } = word
+  return (
+    <div
+      ref={ref}
+      className={`rain-mover is-${fate}${role ? ` is-${role}` : ''}`}
+      data-key={word.key}
+      data-ms={word.duration}
+    >
+      <div className="rain-sway">
+        <ShapeBody shape={shape}>
+          {tonganMoves
+            ? <Tongan className="rain-word font-tongan">{word.round.mover}</Tongan>
+            : <span className="rain-word rain-word-en">{word.round.mover}</span>}
+        </ShapeBody>
+      </div>
+      {fate === 'popped' && (
+        <>
+          {!reduced && <Burst seed={word.key} />}
+          <span className="rain-gain">
+            +{word.gain}{word.mult > 1 && <small> ×{word.mult}</small>}
+          </span>
+        </>
+      )}
+      {fate === 'escaped' && shape === 'raindrop' && !reduced && <Splash />}
+    </div>
+  )
 }
 
 export default function WordRain() {
   const [wordSet, setWordSet] = useState('essential')
   const [direction, setDirection] = useState('to-english')
   const [shape, setShapeState] = useState(readShape)
-  const [state, dispatch] = useReducer(reducer, initial, s => ({ ...s, best: sessionBest }))
+  const [muted, setMutedState] = useState(readMuted)
+  const [bests, setBests] = useState(readBests)
+  const [result, setResult] = useState(null) // { newBest, best }
+  const [state, dispatch] = useReducer(gameReducer, undefined, () => initialGame())
   const isTouch = useIsTouchPrimary()
+  const reduced = useReducedMotion()
 
   const deck = useMemo(() => buildDeck(vocabulary, wordSet), [wordSet])
   const counts = useMemo(
     () => Object.fromEntries(WORD_SETS.map(s => [s, buildDeck(vocabulary, s).length])),
     [],
   )
+  // The word the title screen's shape carries: a real card from the chosen
+  // set (fixed seed, so it does not flicker), shown in the chosen direction.
+  const titleWord = useMemo(() => moverText(makeRound(deck, makeRng(2026), { direction }).target, direction), [deck, direction])
 
-  const setShape = useCallback((v) => {
-    setShapeState(v)
-    writeShape(v)
+  const { phase, paused, words, reveal, last, score, lives, level, streak, levelUp, hits, correct } = state
+  const front = frontWord(state)
+  const inAir = flyingCount(state)
+  const frozen = isFrozen(state)
+  const tonganMoves = direction === 'to-english'
+  const mult = multiplierFor(streak)
+  const best = bestOf(bests, wordSet)
+
+  // Latest state for timers and the launch loop, which run outside render.
+  const stateRef = useRef(state)
+  const settingsRef = useRef({ deck, direction, wordSet, bests, muted })
+  useEffect(() => { stateRef.current = state })
+  useEffect(() => { settingsRef.current = { deck, direction, wordSet, bests, muted } })
+
+  const sound = useCallback((name, ...args) => {
+    if (!settingsRef.current.muted) play(name, ...args)
   }, [])
 
-  // A word's flight time is set when it appears, from the score so far.
-  const newRound = useCallback((recent = [], score = 0) => ({
-    ...makeRound(deck, Math.random, { direction, optionCount: 4, avoid: new Set(recent) }),
-    duration: flightMs(score),
-  }), [deck, direction])
+  const setShape = useCallback((v) => { setShapeState(v); writeStore(SHAPE_KEY, v) }, [])
+  const toggleMute = useCallback(() => {
+    const next = !settingsRef.current.muted
+    writeStore(MUTE_KEY, next ? '1' : '0')
+    if (!next) unlock()
+    settingsRef.current = { ...settingsRef.current, muted: next }
+    setMutedState(next)
+  }, [])
 
-  const start = useCallback(() => {
-    dispatch({ type: 'start', round: newRound() })
-  }, [newRound])
+  const start = useCallback((instant = false) => {
+    if (!settingsRef.current.muted) unlock()
+    setResult(null)
+    dispatch({ type: 'start', instant })
+  }, [])
 
-  const { phase, status, paused, round, seq, score, lives, chosen } = state
+  // ── flights: every word's animation, by key ──────────────────────────
+  const fieldRef = useRef(null)
+  const sceneRef = useRef(null)
+  const anims = useRef(new Map())
+  const register = useCallback((key, anim) => {
+    if (anim) anims.current.set(key, anim)
+    else anims.current.delete(key)
+  }, [])
+  const onEscape = useCallback((key) => dispatch({ type: 'escape', key }), [])
 
-  // After an answer: a short pop on a right one, the right pair held up for a
-  // moment on a wrong one or a miss, then the next word (or the end card).
+  // Freeze every word while paused or while a miss is showing; a word that
+  // has been answered or has escaped stays where it is.
   useEffect(() => {
-    if (phase !== 'playing' || status === 'flying' || status === 'idle') return
-    const wait = status === 'right' ? POP_MS : REVEAL_MS
-    const t = window.setTimeout(() => {
-      dispatch({ type: 'next', round: newRound(state.recent, state.score) })
-    }, wait)
+    for (const w of words) {
+      const a = anims.current.get(w.key)
+      if (!a || a.playState === 'finished') continue
+      const hold = frozen || w.fate !== 'flying'
+      if (hold && a.playState === 'running') a.pause()
+      else if (!hold && a.playState === 'paused') a.play()
+    }
+  }, [words, frozen])
+
+  const launchFront = useCallback(() => {
+    const s = stateRef.current
+    const { deck: d, direction: dir } = settingsRef.current
+    const avoid = new Set([...s.recent, ...s.words.map(w => w.round.target.id)])
+    const round = makeRound(d, Math.random, { direction: dir, optionCount: 4, avoid })
+    dispatch({ type: 'launch', round, duration: levelFlightMs(s.level), x: Math.random() })
+  }, [])
+
+  // The next word comes when the sky is clear of answerable words: a beat
+  // after a pop, longer after a level-up so the banner can be read.
+  useEffect(() => {
+    if (phase !== 'playing' || paused || reveal || inAir > 0) return
+    const t = window.setTimeout(launchFront, levelUp ? AFTER_LEVEL_UP_MS : NEXT_MS)
     return () => window.clearTimeout(t)
-  }, [phase, status, seq, newRound, state.recent, state.score])
+  }, [phase, paused, reveal, inAir, levelUp, launchFront])
 
-  // Keep the best score for the rest of this visit.
-  useEffect(() => { recordBest(state.best) }, [state.best])
-
-  // A new game or the end card brings the game card to the top of the screen
-  // (on a phone the header would otherwise push the answers below the fold).
-  const stageRef = useRef(null)
+  // From level 3 a second word enters once the front word is far enough on.
   useEffect(() => {
-    if (phase === 'start') return
-    const el = stageRef.current
-    if (!el) return
-    // Scroll only as far as the whole card needs, never past its top edge
-    // (the sticky site header is about 70 px tall).
-    const rect = el.getBoundingClientRect()
-    const header = 82
-    if (rect.top < header) window.scrollBy(0, rect.top - header)
-    else if (rect.bottom > window.innerHeight) window.scrollBy(0, Math.min(rect.bottom - window.innerHeight + 16, rect.top - header))
+    if (phase !== 'playing') return
+    const id = window.setInterval(() => {
+      const s = stateRef.current
+      if (s.paused || s.reveal || s.level < TWO_AT_ONCE_FROM) return
+      const f = frontWord(s)
+      const n = flyingCount(s)
+      const a = f && anims.current.get(f.key)
+      if (!f || !a || n !== 1) return
+      const t = Number(a.currentTime) || 0
+      if (!canLaunchSecond({ level: s.level, inAir: n, frontProgress: t / f.duration })) return
+      const { deck: d, direction: dir } = settingsRef.current
+      const round = makeFollowerRound(d, Math.random, f.round, { direction: dir, optionCount: 4, recent: s.recent })
+      if (!round) return
+      dispatch({
+        type: 'launch',
+        round,
+        duration: secondFlightMs(levelFlightMs(s.level), f.duration - t),
+        x: followerX(f.x, Math.random),
+      })
+    }, 100)
+    return () => window.clearInterval(id)
   }, [phase])
 
-  // ── the flight ────────────────────────────────────────────────────────
-  const skyRef = useRef(null)
-  const moverRef = useRef(null)
-  const flightRef = useRef(null)
-  const durationMs = round ? round.duration : 0
-
-  useLayoutEffect(() => {
-    if (phase !== 'playing' || !round) return
-    const sky = skyRef.current
-    const mover = moverRef.current
-    if (!sky || !mover) return
-    const H = sky.clientHeight
-    const W = sky.clientWidth
-    const h = mover.offsetHeight
-    const w = mover.offsetWidth
-    const gutter = 8
-    const span = Math.max(0, W - w - gutter * 2)
-    mover.style.left = `${Math.round(gutter + Math.random() * span)}px`
-    // The raindrop enters from the top edge and falls until it touches the
-    // bottom; the balloon starts on the bottom edge and rises to the top. The
-    // balloon's string hangs below its body, so its travel keeps the string
-    // inside the sky too (the mover's box includes it).
-    const top = gutter
-    const bottom = Math.max(top, H - h - gutter)
-    const from = shape === 'balloon' ? bottom : top
-    const to = shape === 'balloon' ? top : bottom
-    const anim = mover.animate(
-      [{ transform: `translateY(${from}px)` }, { transform: `translateY(${to}px)` }],
-      { duration: round.duration, easing: 'linear', fill: 'forwards' },
-    )
-    anim.onfinish = () => dispatch({ type: 'miss' })
-    flightRef.current = anim
-    return () => {
-      anim.onfinish = null
-      anim.cancel()
-      if (flightRef.current === anim) flightRef.current = null
-    }
-    // A new flight starts only when a new word does (seq).
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seq, phase])
-
-  // Freeze the word once it is answered (the pop plays where it was hit) and
-  // while the game is paused.
+  // A popped word leaves once its burst has played.
   useEffect(() => {
-    const anim = flightRef.current
-    if (!anim) return
-    if (paused || status !== 'flying') {
-      if (anim.playState === 'running') anim.pause()
-    } else if (anim.playState === 'paused') {
-      anim.play()
+    const popped = words.filter(w => w.fate === 'popped')
+    if (!popped.length) return
+    const timers = popped.map(w => window.setTimeout(() => dispatch({ type: 'popDone', key: w.key }), POP_MS))
+    return () => timers.forEach(t => window.clearTimeout(t))
+  }, [words])
+
+  // A miss holds the right pair up, then play goes on (or the game ends,
+  // and the best score for this word set is kept).
+  useEffect(() => {
+    if (!reveal || paused) return
+    const t = window.setTimeout(() => {
+      const s = stateRef.current
+      dispatch({ type: 'revealDone' })
+      if (s.lives > 0) return
+      const { wordSet: set, bests: all } = settingsRef.current
+      const prev = bestOf(all, set)
+      const newBest = s.score > prev.score
+      const next = { ...all, [set]: { score: Math.max(prev.score, s.score), level: Math.max(prev.level, s.level) } }
+      writeStore(BEST_KEY, JSON.stringify(next))
+      setBests(next)
+      setResult({ newBest, best: prev.score })
+    }, REVEAL_MS)
+    return () => window.clearTimeout(t)
+  }, [reveal, paused])
+
+  // The level banner shows for a moment.
+  useEffect(() => {
+    if (!levelUp) return
+    const t = window.setTimeout(() => dispatch({ type: 'levelUpDone', at: levelUp.at }), BANNER_MS)
+    return () => window.clearTimeout(t)
+  }, [levelUp])
+
+  // The countdown.
+  useEffect(() => {
+    if (phase !== 'countdown' || paused) return
+    const t = window.setTimeout(() => dispatch({ type: 'tick' }), COUNT_MS)
+    return () => window.clearTimeout(t)
+  }, [phase, paused, state.count])
+
+  // ── sound, shake and buzz follow the state ───────────────────────────
+  const seen = useRef({ gameId: 0, correct: 0, hits: 0, levelUp: null, count: null, phase: 'title' })
+  useEffect(() => {
+    let s = seen.current
+    if (state.gameId !== s.gameId) s = { gameId: state.gameId, correct: 0, hits: 0, levelUp: null, count: null, phase: 'title' }
+    if (phase === 'countdown' && state.count !== s.count) sound('tick', false)
+    if (phase === 'playing' && s.phase !== 'playing') sound('tick', true)
+    if (correct > s.correct) sound('pop', multiplierFor(streak))
+    if (hits > s.hits) {
+      sound('thud')
+      if (isTouch) buzz()
+      const el = sceneRef.current
+      if (el && !reduced && typeof el.animate === 'function') {
+        el.animate(
+          [
+            { transform: 'translateX(0)' }, { transform: 'translateX(-9px)' }, { transform: 'translateX(8px)' },
+            { transform: 'translateX(-5px)' }, { transform: 'translateX(3px)' }, { transform: 'translateX(0)' },
+          ],
+          { duration: 380, easing: 'ease-out' },
+        )
+      }
     }
-  }, [paused, status])
+    if (levelUp && levelUp.at !== s.levelUp) sound('chime')
+    seen.current = { gameId: state.gameId, correct, hits, levelUp: levelUp?.at ?? s.levelUp, count: state.count, phase }
+  }, [phase, state.count, state.gameId, correct, hits, streak, levelUp, isTouch, reduced, sound])
+
+  // ── input ────────────────────────────────────────────────────────────
+  const answer = useCallback((index, key) => {
+    const s = stateRef.current
+    const f = frontWord(s)
+    if (!f || f.key !== key) return
+    if (!settingsRef.current.muted) unlock()
+    const a = anims.current.get(f.key)
+    dispatch({ type: 'answer', key, index, elapsedMs: a ? Number(a.currentTime) || 0 : f.duration })
+  }, [])
+
+  const togglePause = useCallback(() => {
+    const s = stateRef.current
+    dispatch({ type: s.paused ? 'resume' : 'pause' })
+  }, [])
 
   // Leaving the tab pauses the game rather than costing a life.
   useEffect(() => {
@@ -256,258 +403,378 @@ export default function WordRain() {
     return () => document.removeEventListener('visibilitychange', onHide)
   }, [])
 
-  // ── keyboard: 1-4 answer, P or Escape pauses, Enter starts ────────────
+  // Keys: 1-4 answer, Space or P pauses (Escape too), Enter plays.
   useEffect(() => {
     const onKey = (e) => {
       const tag = e.target?.tagName
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target?.isContentEditable) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
-      if (phase === 'playing') {
-        if (e.key === 'p' || e.key === 'P' || e.key === 'Escape') {
+      const s = stateRef.current
+      const inGame = s.phase === 'playing' || s.phase === 'countdown'
+      if (inGame) {
+        if (e.key === ' ' || e.key === 'p' || e.key === 'P' || e.key === 'Escape') {
           e.preventDefault()
-          dispatch({ type: paused ? 'resume' : 'pause' })
+          if (!e.repeat) togglePause()
           return
         }
         const n = Number(e.key)
-        if (Number.isInteger(n) && n >= 1 && round && n <= round.options.length) {
+        const f = frontWord(s)
+        if (f && Number.isInteger(n) && n >= 1 && n <= f.round.options.length) {
           e.preventDefault()
-          dispatch({ type: 'answer', index: n - 1 })
+          answer(n - 1, f.key)
         }
       } else if (e.key === 'Enter' && tag !== 'BUTTON' && tag !== 'A') {
         e.preventDefault()
-        start()
+        start(s.phase === 'over')
       }
     }
+    // Space on a focused answer button would also click it; in a game Space
+    // means pause only.
+    const onKeyUp = (e) => {
+      const s = stateRef.current
+      if (e.key === ' ' && (s.phase === 'playing' || s.phase === 'countdown') && e.target?.tagName === 'BUTTON') e.preventDefault()
+    }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [phase, paused, round, start])
+    window.addEventListener('keyup', onKeyUp)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('keyup', onKeyUp)
+    }
+  }, [answer, start, togglePause])
 
-  const tonganMoves = direction === 'to-english'
+  // ── render ───────────────────────────────────────────────────────────
+  const sky = skyStep(level)
+  // The buttons answer the front word. While a miss is showing they hold the
+  // missed word's answers (right one marked) even if another word waits.
+  const shown = reveal && last
+    ? { ...last, live: false }
+    : front
+      ? { key: front.key, round: front.round, chosen: null, right: null, live: true }
+      : last ? { ...last, live: false } : null
+  const twoUp = inAir > 1
+  const toNext = toNextLevel(correct)
+  const inGame = phase === 'countdown' || phase === 'playing'
 
   return (
-    <section className="source-drill-shell rain-shell" data-game="word-rain">
-      <div className={`premium-core word-rain rain-shape-${shape}${phase === 'playing' ? ' is-playing' : ''}`}>
-        <div className="pcs-page">
-          <header className="pcs-header rain-header">
-            <Link to="/drills" className="x-frame-back">{'\u2190'} All drills</Link>
-            <div className="pcs-eyebrow">Game · Course vocabulary</div>
-            <h1 className="pcs-title rain-title">Word Rain</h1>
-            {phase !== 'playing' && <p className="pcs-sub">Tap the meaning before the word gets away.</p>}
-          </header>
-          <div ref={stageRef} className="rain-stage">
+    <section className={`source-drill-shell rain-shell is-${phase}`} data-game="word-rain">
+      <div className={`premium-core word-rain rain-shape-${shape}`}>
+        <div className="rain-bar">
+          <Link to="/drills" className="x-frame-back">{'←'} All drills</Link>
+          <span className="rain-bar-tag">Game · Course vocabulary</span>
+        </div>
 
-      {phase === 'start' && (
-        <section className="pcs-card rain-start" aria-labelledby="rain-start-title">
-          <div className="pcs-noun-frame rain-start-frame">
-            <div className="pcs-prompt-label" id="rain-start-title">How to play</div>
-            <p className="rain-lead">
-              A word {shape === 'balloon' ? 'floats up' : 'falls'} across the screen. Tap its meaning before it reaches the {shape === 'balloon' ? 'top' : 'bottom'}. Three misses and the game ends.
-            </p>
-          </div>
+        <div
+          ref={sceneRef}
+          className={`rain-scene rain-sky-${sky}${frozen && inGame ? ' is-frozen' : ''}${paused && inGame ? ' is-paused' : ''}${twoUp ? ' is-two-up' : ''}`}
+          data-phase={phase}
+          data-level={level}
+        >
+          <Sky rate={cloudRate(level)} />
 
-          <div className="rain-settings">
-            <div className="rain-setting" role="group" aria-labelledby="rain-set-words">
-              <span className="rain-setting-label" id="rain-set-words">Words</span>
-              <div className="rain-chips">
-                {WORD_SETS.map(s => (
-                  <button
-                    key={s}
-                    type="button"
-                    className={`x-chip${wordSet === s ? ' is-active' : ''}`}
-                    aria-pressed={wordSet === s}
-                    data-wordset={s}
-                    onClick={() => setWordSet(s)}
-                  >
-                    {WORD_SET_LABELS[s]} <span className="rain-chip-count">{counts[s]}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="rain-setting" role="group" aria-labelledby="rain-set-direction">
-              <span className="rain-setting-label" id="rain-set-direction">Direction</span>
-              <div className="rain-chips">
-                {Object.entries(DIRECTION_LABELS).map(([key, label]) => (
-                  <button
-                    key={key}
-                    type="button"
-                    className={`x-chip${direction === key ? ' is-active' : ''}`}
-                    aria-pressed={direction === key}
-                    data-direction={key}
-                    onClick={() => setDirection(key)}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="rain-setting" role="group" aria-labelledby="rain-set-shape">
-              <span className="rain-setting-label" id="rain-set-shape">Shape</span>
-              <div className="rain-chips">
-                {Object.entries(SHAPES).map(([key, label]) => (
-                  <button
-                    key={key}
-                    type="button"
-                    className={`x-chip${shape === key ? ' is-active' : ''}`}
-                    aria-pressed={shape === key}
-                    data-shape={key}
-                    onClick={() => setShape(key)}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="pcs-next-container rain-start-row">
-            {!isTouch && (
-              <span className="pcs-keyboard-hint">
-                Answer with <kbd>1</kbd>–<kbd>4</kbd> · <kbd>P</kbd> pauses
-              </span>
-            )}
-            <button type="button" className="pcs-next rain-play" onClick={start}>
-              Play →
-            </button>
-          </div>
-        </section>
-      )}
-
-      {phase === 'playing' && round && (
-        <section className={`pcs-card rain-game is-${status}${paused ? ' is-paused' : ''}`} aria-label="Word Rain game">
-          <div className="pcs-card-row rain-hud" data-score={score} data-lives={lives}>
-            <div className="pcs-stats">
-              <span className="pcs-stat">
-                <span className="pcs-stat-label">Score</span>{' '}
-                <span className="pcs-stat-value rain-score">{score}</span>
-              </span>
-              <span className="pcs-stat rain-lives" aria-label={`${lives} of ${LIVES} lives left`}>
-                <span className="pcs-stat-label">Lives</span>{' '}
-                <span className="rain-life-dots" aria-hidden="true">
-                  {Array.from({ length: LIVES }, (_, i) => (
-                    <span key={i} className={`rain-life${i < lives ? ' is-on' : ''}`} />
-                  ))}
-                </span>
-                <span className="pcs-stat-value rain-lives-count">{lives}</span>
-              </span>
-            </div>
-            <button
-              type="button"
-              className="x-chip rain-pause"
-              onClick={() => dispatch({ type: paused ? 'resume' : 'pause' })}
-              disabled={!paused && status !== 'flying'}
-              aria-pressed={paused}
-            >
-              {paused ? 'Resume' : 'Pause'}
-            </button>
-          </div>
-
-          <div className="rain-sky" ref={skyRef}>
-            <div className="rain-edge" aria-hidden="true" />
-            <div
-              key={seq}
-              ref={moverRef}
-              className={`rain-mover${status === 'right' ? ' is-popped' : ''}${status === 'wrong' || status === 'missed' ? ' is-lost' : ''}`}
-              data-ms={durationMs}
-            >
-              <div className="rain-sway">
-                <div className="rain-shape">
-                  {tonganMoves
-                    ? <Tongan className="rain-word font-tongan">{round.mover}</Tongan>
-                    : <span className="rain-word rain-word-en">{round.mover}</span>}
+          {/* ── top row: the HUD in a game, the sound switch on the title ── */}
+          <div className="rain-top">
+            {inGame ? (
+              <div
+                className="rain-hud"
+                data-score={score}
+                data-lives={lives}
+                data-streak={streak}
+                data-mult={mult}
+                data-level={level}
+              >
+                <div className="rain-hud-left">
+                  <span className="rain-pill rain-score-pill">
+                    <span className="rain-pill-label">Score</span>
+                    <TickNumber value={score} className="rain-score" instant={reduced} />
+                  </span>
+                  <span className="rain-pill rain-lives" role="img" aria-label={`${lives} of ${LIVES} lives left`}>
+                    <Hearts key={state.gameId} lives={lives} total={LIVES} />
+                    <span className="rain-lives-count">{lives}</span>
+                  </span>
                 </div>
-                {shape === 'balloon' && <span className="rain-string" aria-hidden="true" />}
+                <div className="rain-hud-mid">
+                  <span className="rain-pill rain-level-pill" aria-label={`Level ${level}, ${toNext} to the next level`}>
+                    <span className="rain-pill-label">Level</span>
+                    <span className="rain-level">{level}</span>
+                    <span className="rain-level-track" aria-hidden="true">
+                      {Array.from({ length: WORDS_PER_LEVEL }, (_, i) => (
+                        <i key={i} className={i < WORDS_PER_LEVEL - toNext ? 'is-on' : ''} />
+                      ))}
+                    </span>
+                  </span>
+                </div>
+                <span
+                  key={mult}
+                  className={`rain-streak${streak >= 2 ? ' is-on' : ''} mult-${mult}`}
+                  role="img"
+                  aria-label={streak >= 2 ? `${streak} in a row${mult > 1 ? `, points times ${mult}` : ''}` : 'No streak'}
+                >
+                  <Flame />
+                  <b className="rain-mult">{mult > 1 ? `×${mult}` : streak}</b>
+                  <span className="rain-streak-label">{streak} in a row</span>
+                </span>
+                <div className="rain-hud-right">
+                  <button
+                    type="button"
+                    className="rain-icon-btn rain-pause"
+                    onClick={togglePause}
+                    aria-pressed={paused}
+                    aria-label={paused ? 'Resume' : 'Pause'}
+                  >
+                    <PauseIcon paused={paused} />
+                  </button>
+                  <button type="button" className="rain-icon-btn rain-mute" onClick={toggleMute} aria-pressed={muted} aria-label={muted ? 'Sound off' : 'Sound on'}>
+                    <SoundIcon muted={muted} />
+                  </button>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="rain-top-title">
+                <button type="button" className="rain-icon-btn rain-mute" onClick={toggleMute} aria-pressed={muted} aria-label={muted ? 'Sound off' : 'Sound on'}>
+                  <SoundIcon muted={muted} />
+                </button>
+              </div>
+            )}
+          </div>
 
-            {(status === 'wrong' || status === 'missed') && (
-              <div className="rain-reveal" role="status">
-                <span className="rain-reveal-label">{status === 'missed' ? 'Got away' : 'Not quite'}</span>
-                <span className="rain-reveal-pair">
-                  <Tongan className="font-tongan">{round.target.tonganShown}</Tongan>
-                  <span className="rain-eq"> = </span>
-                  <span>{round.target.meaning}</span>
+          {/* ── the field: where words fly ── */}
+          <div className="rain-field" ref={fieldRef}>
+            {phase === 'title' && (
+              <div className="rain-title-block">
+                <div className="rain-idle" aria-hidden="true">
+                  {shape === 'raindrop'
+                    ? <div className="rain-drizzle">{[0, 1, 2, 3, 4].map(i => <i key={i} />)}</div>
+                    : <div className="rain-idle-far"><ShapeBody shape={shape}><span className="rain-word" /></ShapeBody></div>}
+                  <div className="rain-idle-main">
+                    <div className="rain-sway">
+                      <ShapeBody shape={shape}>
+                        {tonganMoves
+                          ? <Tongan className="rain-word font-tongan">{titleWord}</Tongan>
+                          : <span className="rain-word rain-word-en">{titleWord}</span>}
+                      </ShapeBody>
+                    </div>
+                  </div>
+                </div>
+                <div className="rain-eyebrow">A word game</div>
+                <h1 className="rain-title">Word Rain</h1>
+                <p className="rain-tagline">Tap the meaning before the word gets away.</p>
+              </div>
+            )}
+
+            {inGame && words.map(w => (
+              <Mover
+                key={`${state.gameId}-${w.key}`}
+                word={w}
+                shape={shape}
+                tonganMoves={tonganMoves}
+                role={w.fate === 'flying' ? (front && w.key === front.key ? 'active' : 'queued') : null}
+                fieldRef={fieldRef}
+                register={register}
+                onEscape={onEscape}
+                reduced={reduced}
+              />
+            ))}
+
+            {phase === 'countdown' && (
+              <div className="rain-count" key={state.count} aria-live="assertive">{state.count}</div>
+            )}
+            {phase === 'playing' && state.nextKey <= 2 && !paused && (
+              <div className="rain-count rain-go" key={`go-${state.gameId}`} aria-hidden="true">Go!</div>
+            )}
+
+            {levelUp && phase === 'playing' && (
+              <div className="rain-banner" key={levelUp.at} role="status">
+                <span className="rain-banner-ribbon">
+                  <span className="rain-banner-title">Level {levelUp.level}</span>
+                  <span className="rain-banner-sub">{levelUp.level === TWO_AT_ONCE_FROM ? 'Two words at once' : 'Faster'}</span>
                 </span>
               </div>
             )}
 
-            {paused && (
+            {reveal && phase === 'playing' && (
+              <div className="rain-reveal" role="status" key={reveal.key}>
+                <span className="rain-reveal-label">{reveal.kind === 'missed' ? 'Got away' : 'Not quite'}</span>
+                <span className="rain-reveal-pair">
+                  <Tongan className="font-tongan">{reveal.round.target.tonganShown}</Tongan>
+                  <span className="rain-eq"> = </span>
+                  <span className="rain-reveal-en">{reveal.round.target.meaning}</span>
+                </span>
+              </div>
+            )}
+
+            {paused && inGame && (
               <div className="rain-paused">
-                <div className="pcs-prompt-label">Paused</div>
-                <button type="button" className="pcs-next" onClick={() => dispatch({ type: 'resume' })}>
-                  Resume →
+                <div className="rain-paused-title">Paused</div>
+                <button type="button" className="rain-btn rain-btn-primary" onClick={() => dispatch({ type: 'resume' })}>
+                  Resume
                 </button>
-                <button type="button" className="pcs-reset rain-quit" onClick={() => dispatch({ type: 'quit' })}>
+                <button type="button" className="rain-btn rain-btn-quiet" onClick={() => dispatch({ type: 'quit' })}>
                   End game
                 </button>
               </div>
             )}
           </div>
 
-          <div className="pcs-buttons rain-options" role="group" aria-label="Answers">
-            {round.options.map((opt, i) => {
-              let cls = ''
-              if (status !== 'flying') {
-                if (i === round.correctIndex) cls = status === 'right' ? ' is-answer' : ' is-revealed-answer'
-                else if (i === chosen) cls = ' is-chosen-wrong'
-              }
-              return (
-                <button
-                  key={`${seq}-${opt.id}`}
-                  type="button"
-                  className={`pcs-btn rain-opt${cls}`}
-                  disabled={status !== 'flying' || paused}
-                  onClick={() => dispatch({ type: 'answer', index: i })}
-                >
-                  {!isTouch && <span className="pcs-btn-key" aria-hidden="true">{i + 1}</span>}
-                  {tonganMoves
-                    ? <span className="pcs-btn-label rain-opt-en">{round.labels[i]}</span>
-                    : <Tongan className="pcs-btn-label font-tongan">{round.labels[i]}</Tongan>}
+          <Ground />
+
+          {/* ── bottom row: settings on the title, answers in a game ── */}
+          {phase === 'title' && (
+            <div className="rain-tray rain-setup">
+              <div className="rain-settings">
+                <div className="rain-setting" role="group" aria-labelledby="rain-set-words">
+                  <span className="rain-setting-label" id="rain-set-words">Words</span>
+                  <div className="rain-chips">
+                    {WORD_SETS.map(s => (
+                      <button
+                        key={s}
+                        type="button"
+                        className={`rain-chip${wordSet === s ? ' is-active' : ''}`}
+                        aria-pressed={wordSet === s}
+                        data-wordset={s}
+                        onClick={() => setWordSet(s)}
+                      >
+                        {WORD_SET_LABELS[s]} <span className="rain-chip-count">{counts[s]}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="rain-setting" role="group" aria-labelledby="rain-set-direction">
+                  <span className="rain-setting-label" id="rain-set-direction">Direction</span>
+                  <div className="rain-chips">
+                    {Object.entries(DIRECTION_LABELS).map(([key, label]) => (
+                      <button
+                        key={key}
+                        type="button"
+                        className={`rain-chip${direction === key ? ' is-active' : ''}`}
+                        aria-pressed={direction === key}
+                        data-direction={key}
+                        onClick={() => setDirection(key)}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="rain-setting" role="group" aria-labelledby="rain-set-shape">
+                  <span className="rain-setting-label" id="rain-set-shape">Shape</span>
+                  <div className="rain-chips">
+                    {Object.entries(SHAPES).map(([key, label]) => (
+                      <button
+                        key={key}
+                        type="button"
+                        className={`rain-chip${shape === key ? ' is-active' : ''}`}
+                        aria-pressed={shape === key}
+                        data-shape={key}
+                        onClick={() => setShape(key)}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="rain-go-col">
+                <div className="rain-best" data-best={best.score}>
+                  {best.score > 0
+                    ? <>Best <b>{best.score}</b> · level {best.level} · {WORD_SET_LABELS[wordSet]}</>
+                    : <>No best score yet for {WORD_SET_LABELS[wordSet]}</>}
+                </div>
+                <button type="button" className="rain-btn rain-btn-primary rain-play" onClick={() => start(false)}>
+                  Play
                 </button>
-              )
-            })}
-          </div>
-        </section>
-      )}
-
-      {phase === 'over' && (
-        <section className="pcs-card rain-over" aria-labelledby="rain-over-title">
-          <div className="pcs-noun-frame">
-            <div className="pcs-prompt-label" id="rain-over-title">Game over</div>
-            <div className="pcs-noun rain-final" data-score={score}>{score} {score === 1 ? 'word' : 'words'}</div>
-            <div className="pcs-noun-gloss">
-              {score > 0 && score >= state.best ? 'Your best this visit.' : `Best this visit: ${state.best}`}
-            </div>
-          </div>
-
-          {state.missed.length > 0 && (
-            <div className="rain-missed">
-              <div className="rain-setting-label">Words to look at again</div>
-              <ul className="rain-missed-list">
-                {state.missed.map(c => (
-                  <li key={c.id} className="rain-missed-row">
-                    <Tongan className="font-tongan rain-missed-to">{c.tonganShown}</Tongan>
-                    <span className="rain-eq" aria-hidden="true">=</span>
-                    <span className="rain-missed-en">{c.meaning}</span>
-                  </li>
-                ))}
-              </ul>
+                {!isTouch && (
+                  <span className="rain-keys">
+                    Answer with <kbd>1</kbd>–<kbd>4</kbd> · <kbd>Space</kbd> pauses
+                  </span>
+                )}
+              </div>
             </div>
           )}
 
-          <div className="pcs-next-container pcs-end-row">
-            <Link to="/drills" className="pcs-end-link">All drills</Link>
-            <button type="button" className="pcs-reset" onClick={() => dispatch({ type: 'quit' })}>
-              Change settings
-            </button>
-            <button type="button" className="pcs-next" onClick={start}>
-              Play again →
-            </button>
-          </div>
-        </section>
-      )}
-          </div>
+          {inGame && (
+            <div
+              className={`rain-tray rain-options${shown?.live ? ' is-live' : ''}`}
+              role="group"
+              aria-label="Answers"
+              data-key={shown?.live ? shown.key : ''}
+            >
+              {shown
+                ? shown.round.options.map((opt, i) => {
+                  let cls = ''
+                  if (!shown.live) {
+                    if (i === shown.round.correctIndex) cls = shown.right ? ' is-answer' : ' is-revealed-answer'
+                    else if (i === shown.chosen) cls = ' is-chosen-wrong'
+                  }
+                  return (
+                    <button
+                      key={`${shown.key}-${opt.id}`}
+                      type="button"
+                      className={`rain-opt${cls}`}
+                      disabled={!shown.live || frozen}
+                      onClick={() => answer(i, shown.key)}
+                    >
+                      {!isTouch && <span className="rain-opt-key" aria-hidden="true">{i + 1}</span>}
+                      {tonganMoves
+                        ? <span className="rain-opt-label rain-opt-en">{shown.round.labels[i]}</span>
+                        : <Tongan className="rain-opt-label font-tongan">{shown.round.labels[i]}</Tongan>}
+                    </button>
+                  )
+                })
+                : Array.from({ length: 4 }, (_, i) => (
+                  <button key={`wait-${i}`} type="button" className="rain-opt is-waiting" disabled aria-hidden="true" tabIndex={-1}>
+                    <span className="rain-opt-label">&nbsp;</span>
+                  </button>
+                ))}
+            </div>
+          )}
+
+          {/* ── game over ── */}
+          {phase === 'over' && (
+            <div className="rain-over-wrap">
+              <section className={`rain-over${result?.newBest ? ' is-new-best' : ''}`} aria-labelledby="rain-over-title">
+                {result?.newBest && !reduced && <Confetti seed={state.gameId} />}
+                <div className="rain-over-label" id="rain-over-title">Game over</div>
+                {result?.newBest && <div className="rain-new-best">New best!</div>}
+                <div className="rain-final" data-score={score}>
+                  <span className="rain-final-num">{score}</span>
+                  <span className="rain-final-unit">points</span>
+                </div>
+                <dl className="rain-stats">
+                  <div><dt>Level</dt><dd>{level}</dd></div>
+                  <div><dt>Longest streak</dt><dd>{state.bestStreak}</dd></div>
+                  <div><dt>Words</dt><dd>{correct}</dd></div>
+                </dl>
+                {!result?.newBest && (
+                  <div className="rain-over-best">Your best for {WORD_SET_LABELS[wordSet]}: {best.score}</div>
+                )}
+                {state.missed.length > 0 && (
+                  <div className="rain-missed">
+                    <div className="rain-setting-label">Words to look at again</div>
+                    <ul className="rain-missed-list">
+                      {state.missed.map(c => (
+                        <li key={c.id} className="rain-missed-row">
+                          <Tongan className="font-tongan rain-missed-to">{c.tonganShown}</Tongan>
+                          <span className="rain-eq" aria-hidden="true">=</span>
+                          <span className="rain-missed-en">{c.meaning}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                <div className="rain-over-actions">
+                  <button type="button" className="rain-btn rain-btn-primary rain-again" onClick={() => start(true)}>
+                    Play again
+                  </button>
+                  <div className="rain-over-links">
+                    <button type="button" className="rain-btn rain-btn-quiet" onClick={() => dispatch({ type: 'quit' })}>
+                      Change settings
+                    </button>
+                    <Link to="/drills" className="rain-btn rain-btn-quiet">All drills</Link>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
         </div>
       </div>
     </section>
