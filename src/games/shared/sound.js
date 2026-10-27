@@ -96,6 +96,14 @@ const SOUNDS = {
       tone({ type: 'sine', from: f * 2, at: i * 0.085, dur: 0.25, peak: 0.04, attack: 0.01 })
     })
   },
+  // A latch: a bolt sliding home, two dry clicks (Sentence Lock's lock-in).
+  // `open` plays the reverse, the shackle springing free: a lower click, then a lift.
+  latch: (open = false) => {
+    noise({ dur: 0.03, peak: 0.22, freq: open ? 1800 : 3200 })
+    tone({ type: 'square', from: open ? 520 : 1400, to: open ? 380 : 900, dur: 0.03, peak: 0.05 })
+    noise({ at: 0.055, dur: 0.035, peak: 0.26, freq: open ? 1200 : 2200 })
+    tone({ type: 'triangle', from: open ? 300 : 700, to: open ? 600 : 520, at: 0.055, dur: open ? 0.12 : 0.05, peak: 0.08 })
+  },
   // The countdown: a short tick, and a higher one for "go".
   tick: (high = false) => tone({ type: 'sine', from: high ? 988 : 660, dur: high ? 0.16 : 0.08, peak: 0.16 }),
 }

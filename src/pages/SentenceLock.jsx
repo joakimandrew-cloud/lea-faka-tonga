@@ -7,6 +7,7 @@ import {
   LESSONS, FIRST_LESSON, lessonEntry, nextLesson, lessonSentences,
   makeRound, currentWord, wordAt, isTried, roundPoints, roundMax, sentenceText,
   gameReducer, initialGame, finishedCount, MAX_WRONG,
+  showHowToOnStart, markHowToSeen, howToSteps,
 } from '../games/sentence-lock'
 import { makeRng } from '../games/shared/fair.js'
 import { readStore, writeStore } from '../games/shared/store.js'
@@ -23,10 +24,17 @@ import { Sky, Ground, Confetti, SoundIcon } from '../games/word-rain/scene.jsx'
  * The English of a book sentence sits on top; under it, one dial per Tongan
  * word, in order, each labelled with its kind of word. Only the open dial
  * turns (tap the word above or below it, swipe or drag it, the mouse wheel, or
- * the up and down keys). Lock (or Enter) locks it: the right word turns green
- * and the next dial opens; a wrong word shakes red, is marked tried and fills
- * one of three try marks; the third wrong try shows the answer in its own
- * colour and play moves on. 3, 2, 1 or 0 points a dial. No clock, no lives.
+ * the up and down keys). Check (the button under the open wheel, or Enter)
+ * checks it: the right word locks in (a bolt slides across the wheel, it
+ * settles green with its tick and a latch click) and the next dial opens; a
+ * wrong word shakes red, is marked tried and fills one of three try marks;
+ * the third wrong try shows the answer in its own colour and play moves on.
+ * The last dial springs the lock open (its shackle lifts), then the sentence
+ * and Next sentence show. 3, 2, 1 or 0 points a dial. No clock, no lives.
+ *
+ * Step 6 (Andrew, 2026-10-27): no Lock bar at the bottom of the screen, the
+ * action lives on the lock; a "How to play" card shows after Play the first
+ * time on this device and reopens from the header.
  *
  * The page only renders: the rules live in src/games/sentence-lock/ (lessons,
  * rounds, scoring, reducer, all tested). The look is Word Balloons' own
@@ -44,6 +52,8 @@ const WHEEL_STEP = 40
 const WHEEL_GAP = 90
 
 function readMuted() { return readStore(MUTE_KEY) === '1' }
+// The store the How to play flag uses (readStore / writeStore already survive refused storage).
+const STORE = { read: readStore, write: writeStore }
 
 // ── reduced motion (read live) ─────────────────────────────────────────
 const REDUCED = '(prefers-reduced-motion: reduce)'
@@ -89,12 +99,33 @@ function Tick() {
   )
 }
 
-function Padlock() {
+function HelpIcon() {
   return (
-    <svg className="sl-padlock" viewBox="0 0 20 22" aria-hidden="true" focusable="false">
-      <path d="M5.5 10 V6.5 a4.5 4.5 0 0 1 9 0 V10" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-      <rect x="2.5" y="9.5" width="15" height="11" rx="2.5" fill="currentColor" />
+    <svg className="sl-help-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+      <circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M7.6 7.7 a2.5 2.5 0 1 1 3.4 2.3 c-0.7 0.3 -1 0.8 -1 1.5 v0.6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="10" cy="14.6" r="1.1" fill="currentColor" />
     </svg>
+  )
+}
+
+/** The How to play card: five plain steps and Start. */
+function HowTo({ onClose, isTouch }) {
+  const startRef = useRef(null)
+  useEffect(() => { startRef.current?.focus({ preventScroll: true }) }, [])
+  return (
+    <div className="rain-over-wrap sl-howto-wrap">
+      <section className="rain-over sl-howto" role="dialog" aria-modal="true" aria-labelledby="sl-howto-title">
+        <h2 className="rain-over-label sl-howto-title" id="sl-howto-title">How to play</h2>
+        <ol className="sl-howto-steps">
+          {howToSteps().map((st, i) => (
+            <li key={st.id} data-step={st.id}><span className="sl-howto-num" aria-hidden="true">{i + 1}</span><span>{st.text}</span></li>
+          ))}
+        </ol>
+        <button type="button" ref={startRef} className="rain-btn rain-btn-primary sl-howto-start" onClick={onClose}>Start</button>
+        {!isTouch && <span className="rain-keys sl-howto-keys"><kbd>Enter</kbd> starts · <kbd>Esc</kbd> closes</span>}
+      </section>
+    </div>
   )
 }
 
@@ -107,7 +138,7 @@ function widest(options) {
  * One dial of the lock. The open dial has its turn buttons (each shows the
  * neighbouring word faintly) and takes swipes, drags and the mouse wheel.
  */
-function Dial({ dial, total, onTurn, registerWindow }) {
+function Dial({ dial, total, onTurn, onCheck, registerWindow }) {
   const { status, options } = dial
   const open = status === 'open'
   const word = status === 'waiting' ? null : currentWord(dial)
@@ -212,6 +243,7 @@ function Dial({ dial, total, onTurn, registerWindow }) {
         >
           {word != null && <T className="font-tongan sl-word">{word}</T>}
           {status === 'locked' && <Tick />}
+          {status === 'locked' && <span className="sl-bolt" aria-hidden="true"><i /><i /></span>}
           {status === 'shown' && <span className="sl-shown-mark">shown</span>}
           {tried && <span className="sl-tried-mark">tried</span>}
         </div>
@@ -224,13 +256,28 @@ function Dial({ dial, total, onTurn, registerWindow }) {
             )
           : <span className="sl-turn sl-rest" aria-hidden="true" />}
       </div>
+      {/* Under the wheel: Check on the open dial, the points on a settled one. */}
+      <span className="sl-slot">
+        {open && (
+          <button
+            type="button"
+            className="sl-check"
+            data-enter="check"
+            onClick={onCheck}
+            disabled={tried}
+            aria-label={`Check ${okinafy(word)}`}
+          >
+            <Tick /> Check
+          </button>
+        )}
+        {(status === 'locked' || status === 'shown') && <span className="sl-points">+{dial.points}</span>}
+      </span>
       <span className="sl-foot">
         {open && (
           <span className="sl-tries" role="img" aria-label={`${dial.wrong} of ${MAX_WRONG} tries used`} data-filled={dial.wrong}>
             {Array.from({ length: MAX_WRONG }, (_, i) => <i key={i} className={i < dial.wrong ? 'is-on' : ''} />)}
           </span>
         )}
-        {(status === 'locked' || status === 'shown') && <span className="sl-points">+{dial.points}</span>}
       </span>
     </div>
   )
@@ -260,6 +307,12 @@ export default function SentenceLock() {
   const [muted, setMutedState] = useState(readMuted)
   const [bests, setBests] = useState(() => readBests(BEST_KEY))
   const [result, setResult] = useState(null) // { newBest, best }
+  // The How to play card: shown on the first Play on this device, and from the header button.
+  const [howTo, setHowTo] = useState(false)
+  const howToRef = useRef(false)
+  // The open dial's window (the keyboard's home while a sentence is turning).
+  const windowEl = useRef(null)
+  useEffect(() => { howToRef.current = howTo })
   const [state, rawDispatch] = useReducer(gameReducer, undefined, () => initialGame())
   // Every action carries the time it was sent (the lockouts read it).
   const dispatch = useCallback((action) => rawDispatch({ ...action, now: performance.now() }), [])
@@ -316,7 +369,19 @@ export default function SentenceLock() {
     setResult(null)
     setLessonNo(entry.lesson)
     dispatch({ type: 'start', lesson: entry.lesson, total: entry.count, max: entry.max, round: roundFor(entry.lesson, 0) })
+    const first = showHowToOnStart(STORE)
+    howToRef.current = first
+    setHowTo(first)
   }, [dispatch, roundFor])
+
+  const openHowTo = useCallback(() => { howToRef.current = true; setHowTo(true) }, [])
+  const closeHowTo = useCallback(() => {
+    markHowToSeen(STORE)
+    howToRef.current = false
+    setHowTo(false)
+    // The keyboard goes straight to the open wheel.
+    window.requestAnimationFrame(() => windowEl.current?.focus({ preventScroll: true }))
+  }, [])
 
   const turnOpen = useCallback((delta) => {
     const s = stateRef.current
@@ -326,14 +391,14 @@ export default function SentenceLock() {
 
   const lockOpen = useCallback(() => {
     const s = stateRef.current
-    if (s.phase !== 'playing' || !s.round || s.round.done) return
+    if (howToRef.current || s.phase !== 'playing' || !s.round || s.round.done) return
     if (!settingsRef.current.muted) unlock()
     dispatch({ type: 'lock' })
   }, [dispatch])
 
   const nextSentence = useCallback(() => {
     const s = stateRef.current
-    if (s.phase !== 'playing' || !s.round?.done) return
+    if (howToRef.current || s.phase !== 'playing' || !s.round?.done) return
     dispatch({ type: 'next', round: roundFor(s.lesson, s.index + 1) })
   }, [dispatch, roundFor])
 
@@ -349,7 +414,6 @@ export default function SentenceLock() {
   }, [phase, state.gameId, state.score, state.lesson])
 
   // ── sound, shake and buzz follow the state ───────────────────────────
-  const windowEl = useRef(null)
   const lockRef = useRef(null)
   const registerWindow = useCallback((el) => { windowEl.current = el }, [])
   const openAt = round?.open ?? null
@@ -359,9 +423,12 @@ export default function SentenceLock() {
     let s = seen.current
     if (state.gameId !== s.gameId) s = { gameId: state.gameId, wrongs: 0, results: 0, rights: 0, key: '', at: null }
     const key = `${state.index}:${openAt}`
-    // A finished sentence chimes; a right lock pops; a turn of the same dial clicks.
-    if (state.results.length > s.results) sound('chime')
-    else if (state.rights > s.rights) sound('pop', 1)
+    // A right word latches; the last one also springs the lock open and chimes;
+    // a turn of the same dial ticks.
+    if (state.results.length > s.results) {
+      if (state.rights > s.rights) sound('latch')
+      window.setTimeout(() => { sound('latch', true); sound('chime') }, reduced ? 0 : 260)
+    } else if (state.rights > s.rights) sound('latch')
     else if (key === s.key && openTurn != null && openTurn !== s.at) sound('tick')
     if (state.wrongs > s.wrongs) {
       sound('thud')
@@ -386,7 +453,7 @@ export default function SentenceLock() {
     if (openAt != null) windowEl.current?.closest('.sl-dial')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' })
   }, [round, openAt, state.gameId, state.index])
 
-  // Keys: up and down turn the open dial; Enter locks it, then on a finished
+  // Keys: up and down turn the open dial; Enter checks it, then on a finished
   // sentence moves on. A held Enter acts once (the held-key guard). On the
   // title, arrows choose a lesson and Enter plays; on the lesson screen Enter
   // plays the next lesson (or this one again).
@@ -406,6 +473,11 @@ export default function SentenceLock() {
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target?.isContentEditable) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
       const s = stateRef.current
+      // The How to play card takes no game keys: Esc closes it, Enter presses its Start button.
+      if (howToRef.current) {
+        if (e.key === 'Escape') { e.preventDefault(); closeHowTo() }
+        return
+      }
       if (s.phase === 'playing') {
         if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
           e.preventDefault()
@@ -413,7 +485,7 @@ export default function SentenceLock() {
           return
         }
         if (e.key === 'Enter') {
-          // A link, or a button other than Lock and Next, keeps its own Enter.
+          // A link, or a button other than Check and Next, keeps its own Enter.
           if (tag === 'A' || (tag === 'BUTTON' && !e.target.dataset.enter)) return
           e.preventDefault()
           if (e.repeat) return
@@ -430,7 +502,7 @@ export default function SentenceLock() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [turnOpen, lockOpen, nextSentence, start, moveLesson])
+  }, [turnOpen, lockOpen, nextSentence, start, moveLesson, closeHowTo])
 
   // Keeps the selected lesson in view inside the grid's own scroll box.
   useLayoutEffect(() => {
@@ -457,11 +529,11 @@ export default function SentenceLock() {
       const left = MAX_WRONG - round.dials[last.dial].wrong
       line = `Not that word. ${left === 1 ? '1 try' : `${left} tries`} left.`
       lineKind = 'wrong'
-    } else if (openTried) { line = 'You tried that word. Turn the dial.'; lineKind = 'tried' }
+    } else if (openTried) { line = 'You tried that word. Turn the wheel.'; lineKind = 'tried' }
     else if (last?.outcome === 'shown') { line = 'The answer is shown'; lineKind = 'shown' }
-    else if (last?.outcome === 'wrong') { line = 'Turn the dial to another word, then lock it.' }
+    else if (last?.outcome === 'wrong') { line = 'Turn the wheel to another word, then press Check.' }
     else if (last?.outcome === 'right') { line = `Locked in. +${round.dials[last.dial].points}`; lineKind = 'right' }
-    else line = 'Turn the dial to the right word, then lock it.'
+    else line = 'Turn the wheel to the word that fits, then press Check.'
   } else if (done && last?.outcome === 'shown') { line = 'The answer is shown'; lineKind = 'shown' }
   const points = round ? roundPoints(round) : 0
   const max = round ? roundMax(round) : 0
@@ -508,6 +580,9 @@ export default function SentenceLock() {
                   </span>
                 </div>
                 <div className="rain-hud-right">
+                  <button type="button" className="rain-btn sl-help" onClick={openHowTo} aria-haspopup="dialog" aria-expanded={howTo}>
+                    <HelpIcon /> How to play
+                  </button>
                   <button type="button" className="rain-icon-btn rain-mute" onClick={toggleMute} aria-pressed={muted} aria-label={muted ? 'Sound off' : 'Sound on'}>
                     <SoundIcon muted={muted} />
                   </button>
@@ -536,18 +611,28 @@ export default function SentenceLock() {
               <div className="sl-board">
                 <div className={`sl-card${done ? ' is-done' : ''}`} key={`${state.gameId}-${state.index}`} data-item={round.id}>
                   <p className="sl-english">{round.english}</p>
-                  {done && (
-                    <div className="sl-answer">
-                      <p className="sl-sentence" data-text={okinafy(sentenceText(round))}><T className="font-tongan">{sentenceText(round)}</T></p>
-                      <p className="sl-result" data-points={points} data-max={max}><b>{points}</b> of {max} points</p>
+                  {/* The padlock: a shackle over the casing; the last word springs it open. */}
+                  <div className={`sl-padlock${done ? ' is-open' : ''}`} data-open={done ? 'true' : 'false'}>
+                    <span className="sl-shackle" aria-hidden="true" />
+                    <div className="sl-lock" role="group" aria-label={done ? 'The lock, open' : 'The lock'}>
+                      {round.dials.map(d => (
+                        <Dial key={d.index} dial={d} total={live} onTurn={turnOpen} onCheck={lockOpen} registerWindow={registerWindow} />
+                      ))}
                     </div>
-                  )}
-                  <div className="sl-lock" role="group" aria-label="The lock">
-                    {round.dials.map(d => (
-                      <Dial key={d.index} dial={d} total={live} onTurn={turnOpen} registerWindow={registerWindow} />
-                    ))}
                   </div>
-                  <p className={`sl-line is-${lineKind}`} role="status" data-kind={lineKind}>{line}</p>
+                  {done
+                    ? (
+                      <div className="sl-answer">
+                        <p className="sl-sentence" data-text={okinafy(sentenceText(round))}><T className="font-tongan">{sentenceText(round)}</T></p>
+                        <p className="sl-result" data-points={points} data-max={max}><b>{points}</b> of {max} points</p>
+                        {line && <p className={`sl-line is-${lineKind}`} data-kind={lineKind}>{line}</p>}
+                        <button type="button" ref={lockRef} className="rain-btn rain-btn-primary sl-next" data-enter="next" onClick={nextSentence}>
+                          {isLast ? 'Finish lesson' : 'Next sentence'}
+                        </button>
+                      </div>
+                      )
+                    : <p className={`sl-line is-${lineKind}`} role="status" data-kind={lineKind}>{line}</p>}
+                  {!isTouch && <span className="rain-keys sl-keys"><kbd>↑</kbd> <kbd>↓</kbd> turn · <kbd>Enter</kbd> {done ? 'next' : 'checks'}</span>}
                 </div>
               </div>
             )}
@@ -589,37 +674,14 @@ export default function SentenceLock() {
                 </div>
                 {!isTouch && (
                   <span className="rain-keys">
-                    <kbd>↑</kbd> <kbd>↓</kbd> turn the dial · <kbd>Enter</kbd> locks it
+                    <kbd>↑</kbd> <kbd>↓</kbd> turn · <kbd>Enter</kbd> checks
                   </span>
                 )}
               </div>
             </div>
           )}
 
-          {inGame && (
-            <div className="rain-tray sl-tray">
-              {done
-                ? (
-                  <button type="button" ref={lockRef} className="rain-btn rain-btn-primary sl-next" data-enter="next" onClick={nextSentence}>
-                    {isLast ? 'Finish lesson' : 'Next sentence'}
-                  </button>
-                  )
-                : (
-                  <button
-                    type="button"
-                    ref={lockRef}
-                    className="rain-btn rain-btn-primary sl-lock-btn"
-                    data-enter="lock"
-                    onClick={lockOpen}
-                    disabled={!open || openTried}
-                    aria-label={open ? `Lock ${okinafy(currentWord(open))}` : 'Lock'}
-                  >
-                    <Padlock /> Lock
-                  </button>
-                  )}
-              {!isTouch && <span className="rain-keys sl-keys"><kbd>↑</kbd> <kbd>↓</kbd> turn · <kbd>Enter</kbd> {done ? 'next' : 'locks'}</span>}
-            </div>
-          )}
+          {inGame && howTo && <HowTo onClose={closeHowTo} isTouch={isTouch} />}
 
           {phase === 'over' && (
             <div className="rain-over-wrap">
