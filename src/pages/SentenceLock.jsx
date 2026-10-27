@@ -78,6 +78,23 @@ function buzz() {
   } catch { /* no vibration */ }
 }
 
+/** Scrolls the board (its own scroll box, never the page) the least it takes to show `first`
+    to `last` whole: below a band of `topBand` pixels at its top (the English held there) and
+    above the hills, which overlap the board's foot. */
+function showInBoard(board, first, last, topBand) {
+  if (!board || !first) return
+  const b = board.getBoundingClientRect()
+  const hills = board.closest('.rain-scene')?.querySelector('.rain-ground')?.getBoundingClientRect()
+  const top = b.top + topBand + 4
+  const bottom = Math.min(b.bottom, hills ? hills.top : b.bottom) - 4
+  const fromY = first.getBoundingClientRect().top
+  const toY = (last ?? first).getBoundingClientRect().bottom
+  let d = 0
+  if (toY > bottom) d = toY - bottom
+  if (fromY - d < top) d = fromY - top
+  if (d) board.scrollTop += d
+}
+
 const SHAKE = [
   { transform: 'translateX(0)' }, { transform: 'translateX(-7px)' }, { transform: 'translateX(6px)' },
   { transform: 'translateX(-4px)' }, { transform: 'translateX(2px)' }, { transform: 'translateX(0)' },
@@ -447,10 +464,22 @@ export default function SentenceLock() {
     const key = round ? `${state.gameId}:${state.index}:${openAt}` : null
     if (key === prevOpen.current) return
     const hadFocus = document.activeElement?.closest?.('.sl-lock')
+    const newSentence = key?.split(':').slice(0, 2).join(':') !== prevOpen.current?.split(':').slice(0, 2).join(':')
     prevOpen.current = key
     if (openAt != null && hadFocus) windowEl.current?.focus({ preventScroll: true })
     else if (round?.done && hadFocus) lockRef.current?.focus({ preventScroll: true })
-    if (openAt != null) windowEl.current?.closest('.sl-dial')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' })
+    const board = document.querySelector('.sentence-lock .sl-board')
+    if (!board) return
+    if (newSentence) board.scrollTop = 0
+    if (openAt != null) {
+      // The open wheel and its Check, below the English (which stays at the top of the board).
+      const dial = windowEl.current?.closest('.sl-dial')
+      showInBoard(board, dial, dial, board.querySelector('.sl-english')?.offsetHeight ?? 0)
+      dial?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' })
+    } else if (round?.done) {
+      // The sentence, the points and Next sentence under the opened lock.
+      showInBoard(board, board.querySelector('.sl-answer'), board.querySelector('.sl-keys') ?? board.querySelector('.sl-answer'), 0)
+    }
   }, [round, openAt, state.gameId, state.index])
 
   // Keys: up and down turn the open dial; Enter checks it, then on a finished

@@ -28,7 +28,9 @@
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* The card's auto margins centre it when it fits; a taller card starts at the
+     top and scrolls (centring would push its top out of reach). */
+  justify-content: flex-start;
   min-height: 0;
   padding: 6px clamp(14px, 4vw, 40px) 18px;
   overflow-y: auto;
@@ -47,10 +49,15 @@
 }
 .sl-card.is-done { box-shadow: 0 0 0 3px var(--success), var(--shadow-2); }
 .sl-english {
-  margin: 0 0 6px;
+  margin: -6px 0 0;
+  padding: 6px 0;
+  background: var(--paper);
   color: var(--ink);
   font: 600 clamp(20px, 2.6vw, 26px)/1.3 var(--f-ui);
 }
+/* While a wheel is open the English stays at the top of the board when a long
+   lock scrolls under it, so the player always sees what to say. */
+.sl-card:not(.is-done) .sl-english { position: sticky; top: -6px; z-index: 3; } /* flush with the board's edge, over its top padding */
 .sl-answer {
   display: flex;
   flex-direction: column;
@@ -75,13 +82,13 @@
   width: fit-content;
   max-width: 100%;
   margin: 0 auto;
-  padding-top: 22px; /* room for the shackle to spring up clear of the English */
+  padding-top: 36px; /* room for the shackle to spring up clear of the English */
 }
 .sl-shackle {
   position: relative;
   z-index: 0;
   display: block;
-  width: clamp(96px, 46%, 220px);
+  width: clamp(96px, 46%, 170px); /* capped, so its swing stays under the English on a wide lock */
   height: 34px;
   margin: 0 auto -8px;
   border: 10px solid var(--band-3);
@@ -388,14 +395,16 @@ button.sl-turn:active .sl-chev { transform: scale(0.85); }
 @media (max-width: 560px) {
   .sl-board { padding: 4px 8px 10px; }
   .sl-card { padding: 14px 10px 12px; border-radius: 16px; }
-  .sl-english { margin-bottom: 4px; font-size: 19px; }
+  .sl-english { padding-bottom: 4px; font-size: 19px; }
+  .sl-card:not(.is-done) .sl-english { top: -4px; }
   .sl-lock { gap: 10px 6px; padding: 10px 8px 8px; border-radius: 14px; }
   .sl-dial { min-width: 72px; }
   .sl-wheel { min-width: max(72px, calc(var(--chars) * 0.52em + 20px)); font-size: 20px; }
   .sl-label { font-size: 9px; letter-spacing: 0.08em; }
   .sl-check { font-size: 15px; letter-spacing: 0.03em; gap: 4px; }
   .sl-check .sl-tick { width: 13px; height: 13px; }
-  .sl-shackle { height: 28px; border-width: 8px; }
+  .sl-padlock { padding-top: 30px; }
+  .sl-shackle { width: clamp(96px, 46%, 130px); height: 28px; border-width: 8px; }
   .sl-next { width: 100%; }
   .sl-help { padding: 0 12px 0 9px; }
   .sl-howto-steps li { font-size: 14px; }
