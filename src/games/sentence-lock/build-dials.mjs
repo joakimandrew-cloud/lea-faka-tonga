@@ -444,6 +444,8 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
         if (ok && foldKey(row.word) === rKey) { rule('same spelling'); ok = false }
         if (!ok) continue
         if (row.added && !['verb', 'preposition'].includes(s.roles[index - 1])) { rule('postposed pronoun in a clitic slot'); continue }
+        // A clitic pronoun only ever stands before the verb (Lesson 2 line 251), so it is no option in a postposed slot.
+        if (rRow.added && !row.added) { rule('clitic pronoun in a postposed slot'); continue }
         const rv = row.added ? rngNew() : rng()
         if (stress && vowelCount(row.word) !== vowelCount(bare(right))) { rule('stress accent'); continue }
         if ((rRow.person === 1 || rRow.person === 2) && !isGeneralOne(rRow) && isGeneralOne(row)) { rule('general one'); continue }

@@ -889,8 +889,16 @@ describe('item 7: placed words that can become fair dials', () => {
     expect([row.person, row.number, row.inclusive]).toEqual([3, 'plural', null])
     const d = dialAt('ch19-ex4-3', 3)
     expect(d.role).toBe('pronoun')
-    expect(d.fixed).toBe(false)
     for (const o of wrongOf(d)) { const r = pronounByKey.get(tableKey(o)); expect(r.person, o).not.toBe(3); expect(r.number, o).not.toBe('dual') }
+  })
+
+  it('a postposed pronoun dial never offers a clitic pronoun, so ch19-ex4-3 #3 stays fixed (Step 8 second look)', () => {
+    const word = tablesFile.pronouns[0].word
+    const clitics = new Set(bank.pronounTable.map(r => tableKey(r.word)))
+    for (const { s, d } of liveDials.filter(x => x.d.role === 'pronoun' && tableKey(x.d.right) === tableKey(word))) {
+      for (const o of wrongOf(d)) expect(clitics.has(tableKey(o)), `${s.id} #${d.index} offers ${o}`).toBe(false)
+    }
+    expect(dialAt('ch19-ex4-3', 3).fixed).toBe(true)
   })
 
   it('it is offered only in a slot after a verb or a preposition, never in a subject slot', () => {
