@@ -47,10 +47,10 @@ export const GAMES = [
       return { q: s.prompt, ton: makeTiles(s, rng).map(t => t.text).join(' · ') }
     },
   },
-  // Sentence Lock: the count is the sentences the game plays now (every one
-  // with a dial to turn; the pilot plays Lesson 1 only, so the count follows
-  // PILOT_LESSONS until Step 8 removes it). The card shows one of them, chosen
-  // with a fixed seed: its English and its words as the dials hold them.
+  // Sentence Lock: the count is the sentences the game plays (every one with a
+  // dial to turn, Lessons 1 to 52). The card shows one short one (four words or
+  // fewer, like Sentence Tiles' card), chosen with a fixed seed: its English and
+  // its words as the dials hold them.
   {
     key: 'sentence-lock',
     route: '/games/sentence-lock',
@@ -61,7 +61,8 @@ export const GAMES = [
     unit: 'sentences',
     sample: () => {
       const rng = seeded(2026)
-      const s = LOCK_SENTENCES[Math.floor(rng() * LOCK_SENTENCES.length)]
+      const short = LOCK_SENTENCES.filter(s => s.words.length <= 4)
+      const s = short[Math.floor(rng() * short.length)]
       return { q: s.english, ton: s.words.join(' · ') }
     },
   },

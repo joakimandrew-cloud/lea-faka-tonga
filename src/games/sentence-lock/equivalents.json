@@ -1,5 +1,5 @@
 {
-  "_note": "Pairs that are not wrong for each other on one dial (judge findings 5 and 6). Words are copied from book-vocabulary.json by id. Local to Sentence Lock; the shared confusable-pairs.json is untouched.",
+  "_note": "Pairs that are not wrong for each other on one dial (judge findings 5 and 6, Step 8 finding 6), and one-way rules (Step 8 finding 1). Words are copied from book-vocabulary.json by id. Local to Sentence Lock; the shared confusable-pairs.json is untouched.",
   "sameMeaning": [
     {
       "a": {
@@ -22,6 +22,28 @@
         "source": "book-v0079"
       },
       "why": "the two words can each say \"hard\" after a verb (Lesson 3 line 72; Lesson 23 lines 171 and 212: \"study hard\")"
+    },
+    {
+      "a": {
+        "word": "kei",
+        "source": "book-v0302"
+      },
+      "b": {
+        "word": "lolotonga",
+        "source": "Lesson 22 line 193"
+      },
+      "why": "the table glosses the first \"still, continuing\" and the second \"currently, in progress\" (Lesson 22 lines 190 and 193); the two overlap, so neither is a sure wrong answer for the other (Step 8: both became dials with the table meanings)"
+    },
+    {
+      "a": {
+        "word": "lava",
+        "source": "book-v0216"
+      },
+      "b": {
+        "word": "'osi",
+        "source": "book-v0245"
+      },
+      "why": "the book uses the first for finished work too (Lesson 45 lines 148 and 270: \"When the work is done\"), so it can also say \"finished\" (judge finding 6, Lessons 41-52; native-speaker queue item 46)"
     }
   ],
   "aSome": {
@@ -34,5 +56,22 @@
       "source": "book-v0110"
     },
     "why": "the two articles both translate English \"a\" and \"some\" when the noun has no final accent (Lesson 18 lines 14 and 16; Lesson 8 line 13)"
+  },
+  "oneWay": {
+    "never": {
+      "word": "ē",
+      "source": "book-v0199"
+    },
+    "whenRightIs": [
+      {
+        "word": "'eni",
+        "source": "book-v0198"
+      },
+      {
+        "word": "'ena",
+        "source": "book-v0197"
+      }
+    ],
+    "why": "the book says the first covers the jobs of the other two (\"Ē often covers the jobs of all three\", Lesson 12 line 51; Lesson 16 line 110), so it can also render \"this\" and \"that near you\"; the other direction stays fair (judge finding 1)"
   }
 }

@@ -18,9 +18,11 @@
  *   R1  same kind          R2a-R2j  never a second right answer
  *   R3  no spelling give-away    R4  data only    R5  dials that cannot be fair
  *
- * Two small local data files sit beside this one (made by local-data.mjs):
- * possessives.json (the book's Lesson 17 possessive tables) and equivalents.json
- * (pairs that are not wrong for each other). Their Tongan is copied, not typed.
+ * Three small local data files sit beside this one (made by local-data.mjs):
+ * possessives.json (the book's possessive tables: Lessons 17, 29, 37 and 52),
+ * equivalents.json (pairs that are not wrong for each other, and one-way rules) and
+ * book-tables.json (tense marker forms by position, the words that make a state,
+ * the pronoun and the meanings the shared data lacks). Their Tongan is copied, not typed.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -43,23 +45,26 @@ export const MAX_WRONG = 3
  */
 export const DROPPED_OPTIONS = {
   'ch42-ex2-6#3': [{ sentence: 'ch6-ex2-7', word: 4 }],
+  // Step 8, item 4 of the merged fix list (Lessons 2-14 finding 3): the present marker of ch7-ex5-5 is a second right
+  // answer on "I am certainly not going to town." (teitei); the book allows it for "am going" (Ch 15:347, 26:67).
+  'ch9-ex6-2#0': [{ sentence: 'ch7-ex5-5', word: 0 }],
 }
 
 /** The rules as they stand in dials.json. */
 export const RULES = [
   { id: 'R1', what: 'Same kind: a wrong option has the same role label as the right word. Sources in order: the bank\'s words with that role; for tense marker and pronoun the bank\'s tenseTable and pronounTable; for possessive the book\'s possessive tables (Lesson 17 lines 37 to 80, possessives.json); for verb, noun, adjective, modifier, time word and name also the matching entries of book-vocabulary.json. Words of the sentence\'s own lesson and earlier lessons come first; later lessons fill only when earlier ones run short.' },
-  { id: 'R2a', what: 'No other tense marker of the same tense as the right one, and no two options of one tense, so the past markers never sit together on one dial. Where the English says "is/are/am" with a state and no "-ing" word ("is tired"), the present and perfect markers count as one tense, because the book glosses both as the state. Where the English is "is/are/am" + "-ing" with no future cue (no will, tomorrow, soon, going to ...), no future marker is offered, because the book renders such English with a future marker in places.' },
+  { id: 'R2a', what: 'No other tense marker of the same tense as the right one, and no two options of one tense, so the past markers never sit together on one dial. Where the English says "is/are/am" with a state and no "-ing" word ("is tired"), or the Tongan marker is followed (directly, or after the negative and ke) by the existential pair, a word the book glosses "be ...", an adjective, totonu or pau, the present and perfect markers count as one tense, because the book glosses both as the state (the Tongan side is read only for a present or perfect right marker). Where the English is "is/are/am" + "-ing" with no future cue (no will, tomorrow, soon, going to ...), no future marker is offered, because the book renders such English with a future marker in places.' },
   { id: 'R2b', what: 'A pronoun option never has the same person as the subject the English names, unless the English itself marks the number or inclusiveness that rules it out ("(one person)", "(exclusive, three or more)", "(not including you)", "(two)", "(to a group)"). "You" without such a mark excludes every other second-person pronoun. The general "one" pronoun (the table row glossed "one") is never a wrong option where the English subject is "I" or "you", marked or not, because the book uses it for English "you" and "I" in general statements.' },
   { id: 'R2c', what: 'Another form of the same pronoun (the I forms) is a wrong option only where the pronoun table\'s book lines settle that it does not follow the right tense marker: the right word\'s line says which markers it follows ("after ...") and the option\'s line does not name that marker.' },
   { id: 'R2d', what: 'No option clashes with the right word under fair.js clashes() (shared content word, shared meaning item, same spelling, derived pair, confusable pair), and no two wrong options clash with each other. Pairs the book uses for the same English meaning, kept in equivalents.json beside the builder (the shared confusable-pairs.json is untouched), clash too.' },
   { id: 'R2e', what: 'No option equals the right word or another option after okinafy display and case-folding; an accent-only variant of the same word counts as equal.' },
   { id: 'R2f', what: 'No option whose meaning shares a content word with the sentence\'s English prompt (it could be the book\'s own word for that English word).' },
   { id: 'R2g', what: 'Every word on a dial except tense markers, pronouns and names has a meaning in the course vocabulary, so R2d and R2f could be run on it; a word without one is fixed, and a candidate without one is not offered. The lookup ignores acute accents and macrons, so a word and its vocabulary spelling match. A preposition the vocabulary gives no meaning (the one glossed "with") is still live: its options are checked against the English by R2f, small words such as \"with\" and \"from\" included, and against each other by R2d. A possessive is checked against the book\'s possessive tables instead (R2j).' },
-  { id: 'R2h', what: 'Where the English says "a", "an" or "some" and the noun carries no final-vowel accent, the two articles the vocabulary glosses "a, some" and "the" (equivalents.json) are not wrong options for each other, because the book writes the English "a basket" with either. The article used only before one word class stays fair where its position rules it out.' },
+  { id: 'R2h', what: 'Where the English says "a", "an" or "some", or has a number and no "the", and the noun carries no final-vowel accent, the two articles the vocabulary glosses "a, some" and "the" (equivalents.json) are not wrong options for each other, because the book writes the English "a basket" with either. The article used only before one word class stays fair where its position rules it out. A one-way rule of equivalents.json (the demonstrative that covers the jobs of the other two) is never a wrong option where the right word is one of the other two.' },
   { id: 'R2i', what: 'A direction word (the directional particle role) is a dial only where the English marks the direction (come, toward, around, up, down, away, here). Where the English only names the action ("return"), no direction word is a sure wrong answer, so the word is fixed.' },
-  { id: 'R2j', what: 'A possessive is a dial when the book\'s possessive tables (Lesson 17) have a row for it. Its options are rows of the same class (e-class or ho-class) with another person than the right word, whatever the number, and no option whose table gloss shares a content word with the English.' },
-  { id: 'R3', what: 'No give-away by spelling. A tense marker option shows the form the book prints in that position (the bank\'s accented form before a one-syllable pronoun, the bare form otherwise). For every other word the option shows a form with the same accent state as the right word, taken from the bank or the vocabulary; a word with no such form is not offered. Trailing punctuation of the right word is copied onto the options. A pronoun that follows a word whose stress accent depends on the pronoun (the tense markers, and any word the bank prints accented before a one-syllable pronoun) is offered only with pronouns of the right word\'s number of vowels, so the accent on the word to its left never narrows the dial to one answer.' },
-  { id: 'R4', what: 'Every option string comes from sentence-bank.json, book-vocabulary.json or the book\'s Lesson 17 possessive tables in possessives.json (apart from the trailing punctuation copied from the right word). Words in LEFT_OUT_OF_GAME never appear.' },
+  { id: 'R2j', what: 'A possessive is a dial when the book\'s possessive tables (Lesson 17 plain, Lesson 29 indefinite, Lesson 37 postposed long and short, Lesson 52 emotional) have a row for it. Its options are rows of the same table kind and the same class (e-class or ho-class) with another person than the right word, whatever the number (so the long and short forms of one person, and a dual and a plural of one person, are one word), and no option whose table gloss shares a content word with the English.' },
+  { id: 'R3', what: 'No give-away by spelling. A tense marker option shows the form the book prints in that position: the form that stands before a pronoun (Ch 15:77) only right before a pronoun, the other form everywhere else, and the bank\'s accented form before a one-syllable pronoun, the bare form otherwise. For every other word the option shows a form with the same accent state as the right word, taken from the bank or the vocabulary; a word with no such form is not offered. Trailing punctuation of the right word is copied onto the options. A pronoun that follows a word whose stress accent depends on the pronoun (the tense markers, and any word the bank prints accented before a one-syllable pronoun) is offered only with pronouns of the right word\'s number of vowels, so the accent on the word to its left never narrows the dial to one answer.' },
+  { id: 'R4', what: 'Every option string comes from sentence-bank.json, book-vocabulary.json, the book\'s possessive tables in possessives.json or the pronoun row of book-tables.json (apart from the trailing punctuation copied from the right word). Words in LEFT_OUT_OF_GAME never appear.' },
   { id: 'R5', what: 'A word whose role is null is fixed (shown in place, no dial; why "no label in the book"). A word with no fair wrong option is fixed too, with its reason.' },
 ]
 
@@ -135,6 +140,24 @@ export function clauseEnglish(english, words, roles, index) {
   if (mine < 0 || eng.length !== starts.length) return String(english ?? '')
   return eng[mine]
 }
+/**
+ * The Tongan side of "a state" (Step 8 finding 3): the word after the tense marker, skipping the negative and ke, is
+ * the existential pair, totonu or pau, an adjective, or a word the vocabulary glosses "be ...".
+ * `stateWords` is stateWords of book-tables.json; `meaningsOf(word)` returns the vocabulary English of a word.
+ */
+export function tongueState(words, roles, index, stateWords, meaningsOf = () => []) {
+  const skip = new Set(stateWords.skip.map(x => foldKey(x.word)))
+  const state = new Set(stateWords.state.map(x => foldKey(x.word)))
+  const pair = stateWords.pair.words.map(foldKey)
+  let j = index + 1
+  while (j < words.length && skip.has(foldKey(words[j]))) j++
+  if (j >= words.length) return false
+  const k = foldKey(words[j])
+  if (state.has(k)) return true
+  if (k === pair[0] && j + 1 < words.length && foldKey(words[j + 1]) === pair[1]) return true
+  if (roles[j] === 'adjective') return true
+  return meaningsOf(words[j]).some(m => /^be\b/i.test(String(m).trim()))
+}
 const FUTURE_CUE = /\b(will|shall|tomorrow|later|soon|tonight|next|going to|about to|until|when)\b/i
 /** English "is/are/am (adverb) -ing" with no future cue: ("Who is coming?"). */
 export function progressiveEnglish(english) {
@@ -149,8 +172,12 @@ export function directionCue(english) {
 export const isGeneralOne = row => /"one"|impersonal/i.test(String(row?.source ?? ''))
 /** Every word of three or more letters, small words included (how a right word with no meaning is guarded). */
 export const rawWords = text => String(text ?? '').toLowerCase().split(/[^a-z]+/).filter(w => w.length >= 3)
-/** English "a", "an" or "some". */
-export const aSomeEnglish = english => /\b(a|an|some)\b/i.test(String(english ?? ''))
+const NUMBER_ENGLISH = /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|hundred|thousand)\b/i
+/** English "a", "an" or "some", or a number with no "the" (Step 8 finding 5: "Five children." takes either article). */
+export const aSomeEnglish = english => {
+  const e = String(english ?? '')
+  return /\b(a|an|some)\b/i.test(e) || (NUMBER_ENGLISH.test(e) && !/\bthe\b/i.test(e))
+}
 
 function hashSeed(text) {
   let h = 2166136261
@@ -188,7 +215,10 @@ export function loadSources() {
   const wordLists = readJson(path.join(app, 'src/premium/data/word-lists.json'))
   const possessives = readJson(path.join(here, 'possessives.json'))
   const equivalents = readJson(path.join(here, 'equivalents.json'))
-  return { bank, vocabulary, wordLists, possessives, equivalents }
+  const tables = readJson(path.join(here, 'book-tables.json'))
+  // The pronoun row the bank's table lacks (Lesson 19 line 153) joins it in memory; the shared file is untouched.
+  bank.pronounTable = [...bank.pronounTable, ...tables.pronouns.map(r => ({ ...r, added: true }))]
+  return { bank, vocabulary, wordLists, possessives, equivalents, tables }
 }
 
 /** The words the games leave out, as fold keys (read from the data by id). */
@@ -224,7 +254,7 @@ export function couldBeSubject(row, person, marks) {
 
 // ---------------------------------------------------------------- the builder
 
-export function buildDials({ bank, vocabulary, wordLists, possessives, equivalents }) {
+export function buildDials({ bank, vocabulary, wordLists, possessives, equivalents, tables }) {
   const leftOut = leftOutKeys(vocabulary, wordLists)
   const hasAccent = accentTesterFor(bank, vocabulary)
   const tenseRows = bank.tenseTable.map(r => ({ ...r, key: tableKey(r.word), lesson: firstLesson(r.source) }))
@@ -232,13 +262,21 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
   const pronounRows = bank.pronounTable.map(r => ({ ...r, key: tableKey(r.word), lesson: firstLesson(r.source), after: afterList(r.source) }))
   const pronounByKey = new Map(pronounRows.map(r => [r.key, r]))
 
-  const possRows = (possessives?.rows ?? []).map(r => ({ ...r, key: foldKey(r.word) }))
+  const possRows = (possessives?.rows ?? []).map(r => ({ ...r, kind: r.kind ?? 'plain', key: foldKey(r.word) }))
   const possByKey = new Map(possRows.map(r => [r.key, r]))
   // Pairs that are not wrong for each other (equivalents.json), as sorted lookup-key pairs.
   const pk = (a, b) => { const x = lookupKey(foldKey(a)); const y = lookupKey(foldKey(b)); return x < y ? `${x}|${y}` : `${y}|${x}` }
   const sameMeaning = new Set((equivalents?.sameMeaning ?? []).map(p => pk(p.a.word, p.b.word)))
   const aSome = equivalents?.aSome ? pk(equivalents.aSome.a.word, equivalents.aSome.b.word) : null
   const equal = (aKey, bKey) => sameMeaning.has(pk(aKey, bKey))
+  // A word that is never a wrong option where the right word is one of a list (Step 8 finding 1).
+  const oneWayNever = equivalents?.oneWay ? lookupKey(foldKey(equivalents.oneWay.never.word)) : null
+  const oneWayRight = new Set((equivalents?.oneWay?.whenRightIs ?? []).map(x => lookupKey(foldKey(x.word))))
+  const oneWayBlocked = (rKey, cKey) => oneWayNever !== null && lookupKey(cKey) === oneWayNever && oneWayRight.has(lookupKey(rKey))
+  // The tense marker forms by position (Step 8 finding 2, Ch 15:77).
+  const keysOf = list => new Set((list ?? []).map(w => tableKey(w)))
+  const beforePronounForms = keysOf(tables?.tenseForms?.beforePronoun)
+  const elsewhereForms = keysOf(tables?.tenseForms?.elsewhere)
 
   // Course cards for the clash and English tests: every vocabulary row, grammar words included.
   const cardsByKey = new Map()
@@ -249,6 +287,15 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
     const k = lookupKey(foldKey(v.tongan))
     if (!cardsByKey.has(k)) cardsByKey.set(k, [])
     cardsByKey.get(k).push(c)
+  }
+
+  const localOnly = new Map() // lookup key -> the role of a word whose only card is a table meaning
+  // Meanings the vocabulary lacks, from the book's own tables (Step 8 finding 7); a word the vocabulary has keeps its entry.
+  for (const m of tables?.meanings ?? []) {
+    const k = lookupKey(foldKey(m.word))
+    if (cardsByKey.has(k)) continue
+    const c = toCard({ id: `local ${m.source}`, tongan: m.word, english: m.meaning, part_of_speech: '' })
+    if (c.meaning && c.tongan) { cardsByKey.set(k, [c]); localOnly.set(k, m.role) }
   }
 
   // Candidate pool per role: fold key -> { key, lesson, forms: [{ text, accent, source, bankFirst }] }
@@ -300,10 +347,15 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
     })
   }
 
-  const cardsOf = k => cardsByKey.get(lookupKey(k)) ?? []
-  const anyClash = (aKey, bKey) => {
-    const a = cardsOf(aKey)
-    const b = cardsOf(bKey)
+  // A table meaning belongs to the role it was read for: the same spelling in another role has no meaning.
+  const cardsOf = (k, role = null) => {
+    const lk = lookupKey(k)
+    if (role !== null && localOnly.has(lk) && localOnly.get(lk) !== role) return []
+    return cardsByKey.get(lk) ?? []
+  }
+  const anyClash = (aKey, bKey, role = null) => {
+    const a = cardsOf(aKey, role)
+    const b = cardsOf(bKey, role)
     return a.some(x => b.some(y => clashes(x, y) || clashes(y, x)))
   }
 
@@ -325,6 +377,9 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
     const rKey = foldKey(right)
     const trail = trailOf(right)
     const rng = makeRng(hashSeed(`${s.id}#${index}`))
+    // Candidates that only exist since Step 8 (the added pronoun row, words with a table meaning) draw from a stream of
+    // their own, so a dial that gains no option keeps the order it had.
+    const rngNew = makeRng(hashSeed(`${s.id}#${index}#new`))
     const tally = {}
     const rule = (name, n = 1) => { tally[name] = (tally[name] ?? 0) + n }
 
@@ -337,7 +392,10 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
       if (!rRow) return fixedDial(s, index, right, role, "the book's tense table has no row for this word")
       const next = s.words[index + 1]
       const needAccent = Boolean(next) && s.roles[index + 1] === 'pronoun' && vowelCount(next) === 1
+      const rightPresentOrPerfect = rRow.tense === 'present' || rRow.tense === 'perfect'
+      const nextIsPronoun = Boolean(next) && s.roles[index + 1] === 'pronoun'
       const state = stateEnglish(clauseEnglish(s.english, s.words, s.roles, index))
+        || (rightPresentOrPerfect && tongueState(s.words, s.roles, index, tables.stateWords, w => cardsOf(foldKey(w)).map(c => c.english)))
       const noFuture = progressiveEnglish(s.english) && rRow.tense !== 'future'
       const group = t => (state && (t === 'present' || t === 'perfect') ? 'present' : t)
       const byTense = new Map()
@@ -350,6 +408,8 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
         const form = needAccent ? (accented ?? plain) : plain
         if (!form) { rule('no bank form'); continue }
         const rv = rng()
+        if (dropped.has(foldKey(r.word))) { rule('not settled by the book'); continue }
+        if (nextIsPronoun ? elsewhereForms.has(r.key) : beforePronounForms.has(r.key)) { rule('form of another position'); continue }
         if (noFuture && r.tense === 'future') { rule('future'); continue }
         if (!byTense.has(group(r.tense))) byTense.set(group(r.tense), [])
         byTense.get(group(r.tense)).push({ row: r, form, pref: needAccent && accented ? 0 : 1, r: rv })
@@ -383,7 +443,8 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
         }
         if (ok && foldKey(row.word) === rKey) { rule('same spelling'); ok = false }
         if (!ok) continue
-        const rv = rng()
+        if (row.added && !['verb', 'preposition'].includes(s.roles[index - 1])) { rule('postposed pronoun in a clitic slot'); continue }
+        const rv = row.added ? rngNew() : rng()
         if (stress && vowelCount(row.word) !== vowelCount(bare(right))) { rule('stress accent'); continue }
         if ((rRow.person === 1 || rRow.person === 2) && !isGeneralOne(rRow) && isGeneralOne(row)) { rule('general one'); continue }
         const forms = (bankForms.get(row.key) ?? []).filter(f => f.role === 'pronoun')
@@ -405,10 +466,11 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
       }
     } else if (role === 'possessive') {
       const rRow = possByKey.get(rKey)
-      if (!rRow) return fixedDial(s, index, right, role, "the book's possessive tables (Lesson 17) have no row for this word")
+      if (!rRow) return fixedDial(s, index, right, role, "the book's possessive tables have no row for this word")
       const want = hasAcute(right)
       const cands = []
       for (const row of possRows) {
+        if (row.kind !== rRow.kind) continue
         considered++
         if (row === rRow) continue
         if (row.class !== rRow.class) { rule('other class'); continue }
@@ -431,7 +493,7 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
     } else {
       if (role === 'directional particle' && !directionCue(s.english)) return fixedDial(s, index, right, role, 'the English names no direction, so no direction word is a sure wrong answer')
       const needCards = !NO_CARD_ROLES.has(role)
-      const rCards = cardsOf(rKey)
+      const rCards = cardsOf(rKey, role)
       const rightUnchecked = role === 'preposition' && !rCards.length
       const rawEnglish = new Set(rawWords(s.english))
       const nounAccented = s.words.some((w, j) => j > index && s.roles[j] === 'noun' && hasAcute(w))
@@ -443,16 +505,17 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
         considered++
         if (c.key === rKey) { rule('same word'); continue }
         if (dropped.has(c.key)) { rule('not settled by the book'); continue }
+        if (oneWayBlocked(rKey, c.key)) { rule('one way'); continue }
         if (needCards) {
-          const cc = cardsOf(c.key)
+          const cc = cardsOf(c.key, role)
           if (!cc.length) { rule('no vocabulary meaning'); continue }
-          if (anyClash(rKey, c.key)) { rule('clash'); continue }
+          if (anyClash(rKey, c.key, role)) { rule('clash'); continue }
           if (cc.some(card => card.words.some(w => engWords.has(w)))) { rule('in the English'); continue }
           if (rightUnchecked && cc.some(card => rawWords(card.english).some(w => rawEnglish.has(w)))) { rule('in the English (small words too)'); continue }
         }
         const form = c.forms.find(f => f.accent === want)
         if (!form) { rule('accent'); continue }
-        const rv = rng()
+        const rv = localOnly.get(lookupKey(c.key)) === role ? rngNew() : rng()
         if (lookupKey(c.key) === lookupKey(rKey)) { rule('same word'); continue }
         if (equal(rKey, c.key)) { rule('same meaning'); continue }
         if (role === 'article' && aSome && pk(rKey, c.key) === aSome && aSomeEnglish(s.english) && !nounAccented) { rule('a or some'); continue }
@@ -468,7 +531,7 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
         if (picks.length >= MAX_WRONG) break
         const text = p.form.text
         if (seen.has(shown(text)) || seen.has(p.c.key) || seen.has(lookupKey(p.c.key))) { rule('same spelling'); continue }
-        if (picks.some(q => equal(q.key, p.c.key) || (needCards && anyClash(q.key, p.c.key)))) { rule('clash with another option'); continue }
+        if (picks.some(q => equal(q.key, p.c.key) || (needCards && anyClash(q.key, p.c.key, role)))) { rule('clash with another option'); continue }
         seen.add(shown(text)); seen.add(p.c.key); seen.add(lookupKey(p.c.key))
         picks.push({ text, key: p.c.key, source: `${p.form.source} (Lesson ${p.c.lesson === LATE ? 'none' : p.c.lesson})` })
       }

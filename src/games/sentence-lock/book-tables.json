@@ -1,0 +1,117 @@
+{
+  "_note": "Book tables the builder reads besides the bank and the vocabulary (Step 8). tenseForms: Lesson 15 line 77. stateWords: Tongan words after a tense marker that make a state (ids in book-vocabulary.json or a bank word). pronouns: rows the bank pronoun table lacks, merged in memory by loadSources(). meanings: meanings the vocabulary lacks, used only for a word with no vocabulary meaning.",
+  "tenseForms": {
+    "beforePronoun": [
+      "na'a",
+      "te"
+    ],
+    "elsewhere": [
+      "na'e",
+      "'e"
+    ],
+    "source": "Lesson 15 line 77"
+  },
+  "stateWords": {
+    "skip": [
+      {
+        "word": "'ikai",
+        "source": "book-v0049"
+      },
+      {
+        "word": "ke",
+        "source": "bank ch29-ex3-2 word 2"
+      }
+    ],
+    "state": [
+      {
+        "word": "totonu",
+        "source": "book-v0312"
+      },
+      {
+        "word": "pau",
+        "source": "book-v0311"
+      }
+    ],
+    "pair": {
+      "words": [
+        "'i",
+        "ai"
+      ],
+      "source": "book-v0384"
+    }
+  },
+  "pronouns": [
+    {
+      "word": "kinautolu",
+      "person": 3,
+      "number": "plural",
+      "inclusive": null,
+      "source": "Lesson 19 line 153 (postposed pronoun, third person plural)"
+    }
+  ],
+  "meanings": [
+    {
+      "word": "kei",
+      "role": "aspect marker",
+      "meaning": "still, continuing",
+      "phrase": "kei",
+      "source": "Lesson 22 line 190"
+    },
+    {
+      "word": "'osi",
+      "role": "aspect marker",
+      "meaning": "already, finished",
+      "phrase": "'osi",
+      "source": "Lesson 22 line 191"
+    },
+    {
+      "word": "te'eki",
+      "role": "aspect marker",
+      "meaning": "not yet",
+      "phrase": "te'eki ai",
+      "source": "Lesson 22 line 192"
+    },
+    {
+      "word": "lolotonga",
+      "role": "aspect marker",
+      "meaning": "currently, in progress",
+      "phrase": "lolotonga",
+      "source": "Lesson 22 line 193"
+    },
+    {
+      "word": "toe",
+      "role": "aspect marker",
+      "meaning": "again, more",
+      "phrase": "toe",
+      "source": "Lesson 22 line 194"
+    },
+    {
+      "word": "toki",
+      "role": "aspect marker",
+      "meaning": "just, not until, then",
+      "phrase": "toki",
+      "source": "Lesson 22 line 195"
+    },
+    {
+      "word": "leva",
+      "role": "aspect marker",
+      "meaning": "immediately",
+      "phrase": "leva",
+      "source": "Lesson 22 line 196"
+    },
+    {
+      "word": "toutou",
+      "role": "aspect marker",
+      "meaning": "repeatedly",
+      "phrase": "toutou",
+      "source": "Lesson 22 line 197"
+    },
+    {
+      "word": "fakataha",
+      "role": "noun",
+      "meaning": "meeting",
+      "phrase": "fakataha",
+      "source": "Lesson 22 line 55"
+    }
+  ]
+}

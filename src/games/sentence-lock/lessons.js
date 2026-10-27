@@ -7,16 +7,11 @@
  * lock and is left out.
  *
  * A lesson's sentences play in bank order (the order of dials.json). No lesson
- * is ever locked: any lesson in the grid can be played.
- *
- * PILOT_LESSONS limits the game to the pilot lesson while Andrew looks at it
- * (plan 2026-10-27-sentence-lock-game, Step 5). It limits the lesson grid, the
- * Next lesson button and the count on the /games card. Step 8 removes it.
+ * is ever locked: any lesson in the grid can be played, Lesson 1 to Lesson 52
+ * (every lesson that has a sentence with a dial to turn).
  */
 import data from './dials.json'
 import { maxForSentence } from './scoring.js'
-
-export const PILOT_LESSONS = [1]
 
 /** True when the sentence has a dial to turn. */
 export function isPlayable(sentence) {
@@ -51,8 +46,8 @@ export function buildLessons(sentences) {
   })
 }
 
-/** The sentences the game plays now (the pilot lessons only, until Step 8). */
-export const SENTENCES = sentencesIn(ALL_SENTENCES, PILOT_LESSONS)
+/** The sentences the game plays: every playable sentence of every lesson. */
+export const SENTENCES = ALL_SENTENCES
 export const LESSONS = buildLessons(SENTENCES)
 export const FIRST_LESSON = LESSONS[0]?.lesson ?? 1
 

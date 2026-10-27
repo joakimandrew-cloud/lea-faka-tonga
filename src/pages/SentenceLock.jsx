@@ -2,7 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, u
 import { Link } from 'react-router-dom'
 import { useIsTouchPrimary } from '../lib/terminal-picker-utils'
 import { okinafy } from '../lib/okinafy.js'
-import T from '../premium/components/T.jsx'
+import T, { Inline } from '../premium/components/T.jsx'
 import {
   LESSONS, FIRST_LESSON, lessonEntry, nextLesson, lessonSentences,
   makeRound, currentWord, wordAt, isTried, roundPoints, roundMax, sentenceText,
@@ -610,7 +610,7 @@ export default function SentenceLock() {
             {inGame && round && (
               <div className="sl-board">
                 <div className={`sl-card${done ? ' is-done' : ''}`} key={`${state.gameId}-${state.index}`} data-item={round.id}>
-                  <p className="sl-english">{round.english}</p>
+                  <p className="sl-english"><Inline text={round.english} tClass="font-tongan" /></p>
                   {/* The padlock: a shackle over the casing; the last word springs it open. */}
                   <div className={`sl-padlock${done ? ' is-open' : ''}`} data-open={done ? 'true' : 'false'}>
                     <span className="sl-shackle" aria-hidden="true" />

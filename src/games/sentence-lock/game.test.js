@@ -3,7 +3,7 @@ import data from './dials.json'
 import { makeRng } from '../shared/fair.js'
 import { POINTS_BY_TRY, MAX_WRONG, dialPoints, maxForSentence } from './scoring.js'
 import {
-  PILOT_LESSONS, ALL_SENTENCES, SENTENCES, LESSONS, FIRST_LESSON,
+  ALL_SENTENCES, SENTENCES, LESSONS, FIRST_LESSON,
   isPlayable, sentencesIn, buildLessons, lessonEntry, nextLesson, lessonSentences,
 } from './lessons.js'
 import { makeRound, currentWord, wordAt, isTried, turn, lock, roundPoints, roundMax, sentenceText } from './round.js'
@@ -39,12 +39,25 @@ describe('scoring', () => {
 })
 
 describe('lessons', () => {
-  it('the pilot is Lesson 1 only', () => {
-    expect(PILOT_LESSONS).toEqual([1])
-    expect(LESSONS.map(l => l.lesson)).toEqual([1])
+  it('every lesson that has a sentence with a dial is offered, in number order, none locked, and Next lesson runs on to Lesson 52', () => {
+    const numbers = LESSONS.map(l => l.lesson)
+    expect(numbers).toEqual([...numbers].sort((a, b) => a - b))
+    expect(new Set(numbers).size).toBe(numbers.length)
+    expect(numbers[0]).toBe(1)
+    expect(numbers[numbers.length - 1]).toBe(52)
+    expect(numbers.length).toBe(new Set(ALL_SENTENCES.map(s => s.lesson)).size)
     expect(FIRST_LESSON).toBe(1)
-    expect(SENTENCES.every(s => s.lesson === 1)).toBe(true)
-    expect(nextLesson(1)).toBe(null)
+    expect(SENTENCES).toBe(ALL_SENTENCES)
+    expect(SENTENCES.length).toBe(ALL_SENTENCES.length)
+    // Next lesson walks the whole list and stops after the last
+    let n = numbers[0]
+    let steps = 1
+    while (nextLesson(n) !== null) { n = nextLesson(n); steps++ }
+    expect(n).toBe(52)
+    expect(steps).toBe(numbers.length)
+    expect(nextLesson(52)).toBe(null)
+    expect(lessonSentences(52).length).toBeGreaterThan(0)
+    expect(lessonSentences(15).length).toBeGreaterThan(0)
   })
   it('Lesson 1 has its five sentences in bank order, worth 45 points', () => {
     const l1 = lessonEntry(1)

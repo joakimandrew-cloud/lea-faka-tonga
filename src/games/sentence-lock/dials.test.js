@@ -3,10 +3,11 @@ import { describe, it, expect } from 'vitest'
 import dialsFile from './dials.json'
 import possessivesFile from './possessives.json'
 import equivalentsFile from './equivalents.json'
+import tablesFile from './book-tables.json'
 import {
   buildDials, dialsToJson, loadSources, RULES, VOCAB_TYPES, NO_CARD_ROLES, MAX_WRONG,
   bare, trailOf, hasAcute, foldKey, tableKey, vowelCount, shown, englishMarks, couldBeSubject,
-  lookupKey, stateEnglish, clauseEnglish, accentTesterFor, DROPPED_OPTIONS, progressiveEnglish, directionCue, isGeneralOne, aSomeEnglish, rawWords,
+  lookupKey, stateEnglish, clauseEnglish, accentTesterFor, DROPPED_OPTIONS, progressiveEnglish, directionCue, isGeneralOne, aSomeEnglish, rawWords, tongueState,
 } from './build-dials.mjs'
 import { toCard, contentWords, LEFT_OUT_OF_GAME } from '../shared/deck.js'
 import { clashes } from '../shared/fair.js'
@@ -45,7 +46,19 @@ for (const v of vocabulary) {
   if (!cardsByKey.has(k)) cardsByKey.set(k, [])
   cardsByKey.get(k).push(toCard(v))
 }
-const cardsOf = w => cardsByKey.get(lookupKey(foldKey(w))) ?? []
+// Meanings the book's Lesson 22 tables give a word the vocabulary has none for (book-tables.json), for the role they were read for.
+const tableMeaningRole = new Map()
+for (const m of tablesFile.meanings) {
+  const k = lookupKey(foldKey(m.word))
+  if (cardsByKey.has(k)) continue
+  cardsByKey.set(k, [toCard({ id: `local ${m.source}`, tongan: m.word, english: m.meaning, part_of_speech: '' })])
+  tableMeaningRole.set(k, m.role)
+}
+const cardsOf = (w, role = null) => {
+  const k = lookupKey(foldKey(w))
+  if (role !== null && tableMeaningRole.has(k) && tableMeaningRole.get(k) !== role) return []
+  return cardsByKey.get(k) ?? []
+}
 const anyClash = (a, b) => cardsOf(a).some(x => cardsOf(b).some(y => clashes(x, y) || clashes(y, x)))
 
 describe('dials.json: shape and coverage', () => {
@@ -215,7 +228,7 @@ describe('R2 never a second right answer', () => {
     for (const { s, d } of liveDials.filter(x => !NO_CARD_ROLES.has(x.d.role))) {
       for (const o of d.options) {
         if (o === d.right && d.role === 'preposition') continue
-        expect(cardsOf(o).length, `${s.id} #${d.index} ${o}`).toBeGreaterThan(0)
+        expect(cardsOf(o, d.role).length, `${s.id} #${d.index} ${o}`).toBeGreaterThan(0)
       }
     }
   })
@@ -434,8 +447,10 @@ describe('finding 4: the general "one" pronoun is never a wrong option for an "I
 describe('finding 5: words the book uses for the same English meaning are not wrong for each other', () => {
   it('keeps the pairs in a local file whose words are the vocabulary\'s own', () => {
     expect(equivalentsFile.sameMeaning.length).toBeGreaterThanOrEqual(2)
-    for (const p of [...equivalentsFile.sameMeaning.flatMap(x => [x.a, x.b]), equivalentsFile.aSome.a, equivalentsFile.aSome.b]) {
-      expect(vocabulary.find(v => v.id === p.source)?.tongan, p.source).toBe(p.word)
+    for (const p of [...equivalentsFile.sameMeaning.flatMap(x => [x.a, x.b]), equivalentsFile.aSome.a, equivalentsFile.aSome.b, equivalentsFile.oneWay.never, ...equivalentsFile.oneWay.whenRightIs]) {
+      // a word is the vocabulary's own (by id) or a table meaning of book-tables.json (by source)
+      const word = vocabulary.find(v => v.id === p.source)?.tongan ?? tablesFile.meanings.find(m => m.source === p.source)?.word
+      expect(word, p.source).toBe(p.word)
     }
   })
 
@@ -507,12 +522,13 @@ describe('finding 8: more words get dials', () => {
   })
 
   it('reads the possessive tables of Lesson 17 from the book', () => {
-    expect(possessivesFile.rows.length).toBe(14)
-    expect(new Set(possessivesFile.rows.map(r => r.class))).toEqual(new Set(['e', 'ho']))
+    const plain = possessivesFile.rows.filter(r => r.kind === 'plain')
+    expect(plain.length).toBe(14)
+    expect(new Set(plain.map(r => r.class))).toEqual(new Set(['e', 'ho']))
     const chapter = `${ROOT}/book/Chapter-17.md`
     if (fs.existsSync(chapter)) {
       const text = fs.readFileSync(chapter, 'utf8').split('\n').slice(36, 80).join('\n')
-      for (const r of possessivesFile.rows) expect(text.includes(`*${r.word}*`), r.word).toBe(true)
+      for (const r of plain) expect(text.includes(`*${r.word}*`), r.word).toBe(true)
     }
   })
 
@@ -526,6 +542,7 @@ describe('finding 8: more words get dials', () => {
       for (const o of wrongOf(d)) {
         const row = rowOf(o)
         expect(row, `${s.id} option ${o}`).toBeTruthy()
+        expect(row.kind, `${s.id} option ${o}`).toBe(right.kind)
         expect(row.class, `${s.id} option ${o}`).toBe(right.class)
         expect(row.person, `${s.id} option ${o}`).not.toBe(right.person)
       }
@@ -535,7 +552,7 @@ describe('finding 8: more words get dials', () => {
 
   it('leaves a possessive the tables lack fixed, with that reason', () => {
     const fixedPoss = sentences.flatMap(s => s.dials.filter(d => d.role === 'possessive' && d.fixed))
-    expect(fixedPoss.length).toBeGreaterThan(5)
+    expect(fixedPoss.length).toBeGreaterThan(0)
     for (const d of fixedPoss) expect(possessivesFile.rows.some(r => foldKey(r.word) === foldKey(d.right)), d.right).toBe(false)
   })
 
@@ -610,5 +627,315 @@ describe('second look: findings 2, 4 and 8', () => {
     const lexical = bank.sentences.flatMap(e => e.words.map((w, i) => [e.roles[i], w]))
       .find(([role, w]) => role === 'noun' && /[aeiou]\u0304$/.test(foldKey(w).normalize('NFD')) && !hasAccent(w, role))
     expect(lexical).toBeTruthy()
+  })
+})
+
+// ---------------------------------------------------------------- Lessons 2-52 findings (Step 8)
+// (reviews/sentence-lock-2026-10-27/Judge-Dials-All.md, "The merged fix list for Step 8"). Each test fails on dials.json as it
+// was before this step. Rows are named by sentence id and the 0-based index of the word; no Tongan is typed.
+
+const tenseDial = id => sentenceOf(id).dials.find(d => d.role === 'tense marker')
+const keysOfForms = list => new Set(list.map(w => tableKey(w)))
+const beforePronoun = keysOfForms(tablesFile.tenseForms.beforePronoun)
+const elsewhere = keysOfForms(tablesFile.tenseForms.elsewhere)
+const tenseKinds = d => wrongOf(d).map(o => tenseByKey.get(tableKey(o)).tense)
+
+describe('item 1: ē is never a wrong option where the right word is ʻeni or ʻena', () => {
+  const never = foldKey(equivalentsFile.oneWay.never.word)
+  const rights = new Set(equivalentsFile.oneWay.whenRightIs.map(x => foldKey(x.word)))
+  it('reads the rule from the vocabulary by id (ē against ʻeni and ʻena)', () => {
+    expect(rights.size).toBe(2)
+    expect(vocabulary.find(v => v.id === equivalentsFile.oneWay.never.source).part_of_speech).toBe('demonstrative')
+    for (const x of equivalentsFile.oneWay.whenRightIs) expect(vocabulary.find(v => v.id === x.source).part_of_speech).toBe('demonstrative')
+  })
+  it('ch12-ex2-1, ch12-ex2-4 and ch16-ex2-7 no longer offer it, and keep a fair wrong option', () => {
+    for (const [id, index] of [['ch12-ex2-1', 3], ['ch12-ex2-4', 5], ['ch16-ex2-7', 4]]) {
+      const d = dialAt(id, index)
+      expect(d.role, id).toBe('demonstrative')
+      expect(rights.has(foldKey(d.right)), id).toBe(true)
+      expect(d.fixed, id).toBe(false)
+      expect(d.options.some(o => foldKey(o) === never), id).toBe(false)
+    }
+  })
+  it('on every live dial, ē is not a wrong option beside a right ʻeni or ʻena, and it stays a fair wrong option the other way', () => {
+    let n = 0
+    let reverse = 0
+    for (const { s, d } of liveDials) {
+      if (rights.has(foldKey(d.right))) { n++; expect(wrongOf(d).some(o => foldKey(o) === never), `${s.id} #${d.index}`).toBe(false) }
+      if (foldKey(d.right) === never && wrongOf(d).some(o => rights.has(foldKey(o)))) reverse++
+    }
+    expect(n).toBeGreaterThanOrEqual(3)
+    expect(reverse).toBeGreaterThan(0)
+  })
+})
+
+describe('item 2: a tense marker option takes the form the book prints in that slot', () => {
+  it('reads the forms from Lesson 15 line 77: two stand before a pronoun, two everywhere else', () => {
+    expect(tablesFile.tenseForms.beforePronoun.length).toBe(2)
+    expect(tablesFile.tenseForms.elsewhere.length).toBe(2)
+    for (const w of [...tablesFile.tenseForms.beforePronoun, ...tablesFile.tenseForms.elsewhere]) expect(tenseByKey.has(tableKey(w)), w).toBe(true)
+  })
+  it('ch31-ex2-1 and ch35-ex6-2 (no pronoun follows) no longer offer a before-pronoun form', () => {
+    for (const id of ['ch31-ex2-1', 'ch35-ex6-2']) {
+      const d = tenseDial(id)
+      expect(sentenceOf(id).dials[d.index + 1].role, id).not.toBe('pronoun')
+      for (const o of wrongOf(d)) expect(beforePronoun.has(tableKey(o)), `${id} option ${o}`).toBe(false)
+    }
+  })
+  it('ch29-ex5-5, ch32-ex3-2 and ch32-ex3-3 (a pronoun follows) no longer offer an everywhere-else form', () => {
+    for (const id of ['ch29-ex5-5', 'ch32-ex3-2', 'ch32-ex3-3']) {
+      const d = tenseDial(id)
+      expect(sentenceOf(id).dials[d.index + 1].role, id).toBe('pronoun')
+      for (const o of wrongOf(d)) expect(elsewhere.has(tableKey(o)), `${id} option ${o}`).toBe(false)
+    }
+  })
+  it('on every live tense dial the wrong options use the form of their slot, and the two forms of one tense never meet', () => {
+    let before = 0
+    let other = 0
+    for (const { s, d } of liveDials.filter(x => x.d.role === 'tense marker')) {
+      const nextIsPronoun = s.dials[d.index + 1]?.role === 'pronoun'
+      for (const o of wrongOf(d)) {
+        const k = tableKey(o)
+        if (beforePronoun.has(k)) { expect(nextIsPronoun, `${s.id} #${d.index} option ${o}`).toBe(true); before++ }
+        if (elsewhere.has(k)) { expect(nextIsPronoun, `${s.id} #${d.index} option ${o}`).toBe(false); other++ }
+      }
+      const kinds = tenseKinds(d)
+      expect(new Set(kinds).size, `${s.id} #${d.index}`).toBe(kinds.length)
+    }
+    expect(before).toBeGreaterThan(30)
+    expect(other).toBeGreaterThan(100)
+  })
+})
+
+describe('item 3: R2a reads the Tongan side of a state', () => {
+  const rows = [['ch7-ex5-5', 0], ['ch29-ex3-2', 0], ['ch29-ex3-3', 0], ['ch29-ex3-5', 0], ['ch29-ex5-4', 0], ['ch34-ex2-5', 2], ['ch23-ex2-2', 0], ['ch23-ex2-6', 0],
+    ['ch23-ex2-1', 0], ['ch23-ex2-3', 0], ['ch23-ex2-4', 0], ['ch23-ex2-5', 0], ['ch26-ex4-5', 0]]
+  const meaningsOf = w => cardsOf(w).map(c => c.english)
+  const state = id => {
+    const b = bankOf(id)
+    const i = b.roles.indexOf('tense marker')
+    return tongueState(b.words, b.roles, i, tablesFile.stateWords, meaningsOf)
+  }
+  it('reads the state words from the vocabulary by id', () => {
+    for (const x of [...tablesFile.stateWords.skip, ...tablesFile.stateWords.state]) expect(x.word.length, x.source).toBeGreaterThan(0)
+    expect(tablesFile.stateWords.pair.words.length).toBe(2)
+    expect(vocabulary.find(v => v.id === tablesFile.stateWords.pair.source).tongan.split(' ')).toEqual(tablesFile.stateWords.pair.words)
+  })
+  it('names a tense marker followed by the existential pair, totonu, pau or a "be ..." word a state, also after the negative and ke', () => {
+    for (const [id] of rows) expect(state(id), id).toBe(true)
+    expect(stateEnglish(sentenceOf('ch29-ex3-2').english)).toBe(false)
+    expect(state('ch1-ex2-1')).toBe(false)
+  })
+  it('the nine named rows (and their kin) offer no present or perfect marker beside the right one', () => {
+    for (const [id, index] of rows) {
+      const d = dialAt(id, index)
+      expect(d.role, id).toBe('tense marker')
+      expect(['present', 'perfect'], id).toContain(tenseByKey.get(tableKey(d.right)).tense)
+      expect(tenseKinds(d), id).not.toContain('present')
+      expect(tenseKinds(d), id).not.toContain('perfect')
+    }
+  })
+  it('holds for every tense dial with a present or perfect right marker and a Tongan state', () => {
+    let n = 0
+    for (const { s, d } of liveDials.filter(x => x.d.role === 'tense marker')) {
+      const t = tenseByKey.get(tableKey(d.right)).tense
+      if (t !== 'present' && t !== 'perfect') continue
+      const b = bankOf(s.id)
+      if (!tongueState(b.words, b.roles, d.index, tablesFile.stateWords, meaningsOf)) continue
+      n++
+      expect(tenseKinds(d).some(k => k === 'present' || k === 'perfect'), `${s.id} #${d.index}`).toBe(false)
+    }
+    expect(n).toBeGreaterThan(15)
+  })
+})
+
+describe('item 4: ch9-ex6-2 #1 offers no present marker', () => {
+  it('drops it through DROPPED_OPTIONS, copied from the bank', () => {
+    const entry = DROPPED_OPTIONS['ch9-ex6-2#0']
+    expect(entry.length).toBe(1)
+    const word = bankOf(entry[0].sentence).words[entry[0].word]
+    expect(bankOf(entry[0].sentence).roles[entry[0].word]).toBe('tense marker')
+    expect(tenseByKey.get(tableKey(word)).tense).toBe('present')
+    const d = dialAt('ch9-ex6-2', 0)
+    expect(d.fixed).toBe(false)
+    expect(d.options.length).toBeGreaterThan(1)
+    expect(tenseKinds(d)).not.toContain('present')
+    for (const o of d.options) expect(foldKey(o)).not.toBe(foldKey(word))
+  })
+})
+
+describe('item 5: English with a number and no "the" keeps ha and e off each other', () => {
+  it('reads "Five children." as a/some English and "the five children" as not', () => {
+    expect(aSomeEnglish('Five children.')).toBe(true)
+    expect(aSomeEnglish('The five children.')).toBe(false)
+    expect(aSomeEnglish('Where are the books?')).toBe(false)
+    expect(aSomeEnglish('Bring a basket.')).toBe(true)
+  })
+  it('ch20-ex5-1 #2 does not offer the other article of the pair', () => {
+    const d = dialAt('ch20-ex5-1', 1)
+    expect(d.role).toBe('article')
+    expect(d.fixed).toBe(false)
+    for (const o of wrongOf(d)) {
+      const pair = (a, b) => sameKey(equivalentsFile.aSome.a.word, a) && sameKey(equivalentsFile.aSome.b.word, b) || sameKey(equivalentsFile.aSome.a.word, b) && sameKey(equivalentsFile.aSome.b.word, a)
+      expect(pair(d.right, o), o).toBe(false)
+    }
+  })
+  it('on every article dial with a number and no "the" before an unaccented noun, the pair never meets', () => {
+    const NUMBER = /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|hundred)\b/i
+    let n = 0
+    for (const { s, d } of liveDials.filter(x => x.d.role === 'article')) {
+      if (!NUMBER.test(s.english) || /\bthe\b/i.test(s.english) || /\b(a|an|some)\b/i.test(s.english)) continue
+      if (s.words.some((w, j) => j > d.index && s.dials[j].role === 'noun' && hasAcute(w))) continue
+      n++
+      for (const o of wrongOf(d)) {
+        const pair = sameKey(equivalentsFile.aSome.a.word, d.right) && sameKey(equivalentsFile.aSome.b.word, o) || sameKey(equivalentsFile.aSome.a.word, o) && sameKey(equivalentsFile.aSome.b.word, d.right)
+        expect(pair, `${s.id} #${d.index} option ${o}`).toBe(false)
+      }
+    }
+    expect(n).toBeGreaterThan(0)
+  })
+})
+
+describe('item 6: the verb for "finished" and the one for "arrive, manage" are not wrong for each other', () => {
+  it('ch47-ex3-5 #3 does not offer the paired verb, and the pair is in equivalents.json by vocabulary id', () => {
+    const d = dialAt('ch47-ex3-5', 2)
+    expect(d.role).toBe('verb')
+    expect(d.fixed).toBe(false)
+    const pairs = equivalentsFile.sameMeaning.filter(p => sameKey(p.a.word, d.right) || sameKey(p.b.word, d.right))
+    expect(pairs.length).toBeGreaterThan(0)
+    for (const p of pairs) {
+      const other = sameKey(p.a.word, d.right) ? p.b.word : p.a.word
+      expect(d.options.some(o => sameKey(o, other)), other).toBe(false)
+    }
+    expect(pairs.some(p => vocabulary.find(v => v.id === p.a.source)?.part_of_speech === 'verb' && vocabulary.find(v => v.id === p.b.source)?.part_of_speech === 'verb')).toBe(true)
+  })
+})
+
+describe('item 7: placed words that can become fair dials', () => {
+  const rowOf = w => possessivesFile.rows.find(r => foldKey(r.word) === foldKey(w))
+  const kindRows = kind => possessivesFile.rows.filter(r => r.kind === kind)
+
+  it('reads the five possessive tables from the book, by kind', () => {
+    expect(kindRows('plain').length).toBe(14)
+    expect(kindRows('indefinite').length).toBe(14)
+    expect(kindRows('postposed').length).toBe(22)
+    expect(kindRows('postposed-short').length).toBe(6)
+    expect(kindRows('emotional').length).toBe(10)
+    expect(new Set(possessivesFile.rows.map(r => foldKey(r.word))).size).toBe(possessivesFile.rows.length)
+  })
+
+  it('the file is what the committed book gives now', async () => {
+    const { allPossessives } = await import('./local-data.mjs')
+    let rows = null
+    try { rows = allPossessives() } catch { return } // no git checkout of the book here
+    expect(rows).toEqual(possessivesFile.rows)
+  })
+
+  it('emotional possessives: the pity words are not in the meaning, and the two without a class are left out', () => {
+    for (const r of kindRows('emotional')) expect(r.meaning, r.word).not.toMatch(/poor|dear/i)
+    expect(kindRows('emotional').every(r => r.class === 'e' || r.class === 'ho')).toBe(true)
+    expect(kindRows('emotional').some(r => r.source.endsWith('line 181') || r.source.endsWith('line 188'))).toBe(false)
+  })
+
+  it('ch52-ex2-4 #3 and ch52-ex2-5 #3 are live, with options of their own kind, class and another person; the one not in the table stays fixed', () => {
+    for (const [id, index] of [['ch52-ex2-4', 2], ['ch52-ex2-5', 2]]) {
+      const d = dialAt(id, index)
+      expect(d.role, id).toBe('possessive')
+      expect(d.fixed, id).toBe(false)
+      const right = rowOf(d.right)
+      expect(right.kind, id).toBe('emotional')
+      for (const o of wrongOf(d)) { const r = rowOf(o); expect([r.kind, r.class], o).toEqual([right.kind, right.class]); expect(r.person, o).not.toBe(right.person) }
+    }
+    expect(dialAt('ch52-ex2-3', 2).fixed).toBe(true)
+  })
+
+  it('the nine indefinite and postposed possessives named by the judge are live', () => {
+    for (const [id, index] of [['ch29-ex3-2', 5], ['ch29-ex3-3', 3], ['ch29-ex3-5', 5], ['ch29-ex5-4', 5], ['ch39-ex5-4', 1], ['ch37-ex2-3', 1], ['ch37-ex2-4', 2], ['ch37-ex2-6', 4], ['ch37-ex2-8', 4]]) {
+      const d = dialAt(id, index)
+      expect(d.role, id).toBe('possessive')
+      expect(d.fixed, `${id} #${index}`).toBe(false)
+      const right = rowOf(d.right)
+      expect(['indefinite', 'postposed', 'postposed-short'], id).toContain(right.kind)
+      for (const o of wrongOf(d)) {
+        const r = rowOf(o)
+        expect(r.kind, `${id} option ${o}`).toBe(right.kind)
+        expect(r.class, `${id} option ${o}`).toBe(right.class)
+        expect(r.person, `${id} option ${o}`).not.toBe(right.person)
+      }
+    }
+  })
+
+  it('the long and short forms of one person are one word, and a dual is the same person as its plural', () => {
+    const short = kindRows('postposed-short')
+    for (const r of short) {
+      const long = kindRows('postposed').find(x => x.number === 'singular' && x.class === r.class && x.person === r.person)
+      expect(long, r.word).toBeTruthy()
+      expect(long.word.slice(2), r.word).toBe(r.word)
+    }
+    // ch37-ex2-8 #5: the right word is first person plural exclusive; its dual twin is never offered
+    const d = dialAt('ch37-ex2-8', 4)
+    const right = rowOf(d.right)
+    expect([right.person, right.number, right.inclusive]).toEqual([1, 'plural', false])
+    for (const o of wrongOf(d)) expect(rowOf(o).person).not.toBe(1)
+    // the short-form dial offers short forms only
+    const sd = dialAt('ch37-ex2-4', 2)
+    expect(rowOf(sd.right).kind).toBe('postposed-short')
+    for (const o of sd.options) expect(rowOf(o).kind).toBe('postposed-short')
+  })
+
+  it('kinautolu is a third person plural row of the pronoun table, with no dual option', () => {
+    expect(tablesFile.pronouns.length).toBe(1)
+    const row = bank.pronounTable.find(r => tableKey(r.word) === tableKey(tablesFile.pronouns[0].word))
+    expect([row.person, row.number, row.inclusive]).toEqual([3, 'plural', null])
+    const d = dialAt('ch19-ex4-3', 3)
+    expect(d.role).toBe('pronoun')
+    expect(d.fixed).toBe(false)
+    for (const o of wrongOf(d)) { const r = pronounByKey.get(tableKey(o)); expect(r.person, o).not.toBe(3); expect(r.number, o).not.toBe('dual') }
+  })
+
+  it('it is offered only in a slot after a verb or a preposition, never in a subject slot', () => {
+    const word = tablesFile.pronouns[0].word
+    let n = 0
+    for (const { s, d } of liveDials.filter(x => x.d.role === 'pronoun')) {
+      if (!d.options.some(o => tableKey(o) === tableKey(word)) || tableKey(d.right) === tableKey(word)) continue
+      n++
+      expect(['verb', 'preposition'], `${s.id} #${d.index}`).toContain(s.dials[d.index - 1]?.role)
+    }
+    expect(n).toBeGreaterThanOrEqual(0)
+  })
+
+  it('the table meanings (aspect markers and the noun of Lesson 22 line 55) make their dials live, for their own role only', () => {
+    expect(tablesFile.meanings.length).toBeGreaterThanOrEqual(8)
+    for (const [id, index] of [['ch22-ex2-3', 2], ['ch22-ex2-4', 1], ['ch24-ex2-3', 5], ['ch22-ex2-7', 1], ['ch22-ex2-5', 5]]) {
+      const d = dialAt(id, index)
+      expect(d.fixed, `${id} #${index}`).toBe(false)
+      expect(d.options.length, `${id} #${index}`).toBeGreaterThanOrEqual(2)
+    }
+    // the same spelling in another role gets no meaning: the conjunction and the verb of those spellings stay fixed or unoffered
+    const aspectWords = new Set(tablesFile.meanings.filter(m => m.role === 'aspect marker').map(m => foldKey(m.word)))
+    const nounWords = new Set(tablesFile.meanings.filter(m => m.role === 'noun').map(m => foldKey(m.word)))
+    for (const { s, d } of liveDials) {
+      for (const o of d.options) {
+        const k = foldKey(o)
+        if (cardsOf(o).length && tableMeaningRole.has(lookupKey(k))) expect(tableMeaningRole.get(lookupKey(k)) === d.role, `${s.id} #${d.index} option ${o}`).toBe(true)
+        if (aspectWords.has(k) && !vocabulary.some(v => foldKey(v.tongan) === k)) expect(d.role, `${s.id} #${d.index} option ${o}`).toBe('aspect marker')
+        if (nounWords.has(k) && !vocabulary.some(v => foldKey(v.tongan) === k)) expect(d.role, `${s.id} #${d.index} option ${o}`).toBe('noun')
+      }
+    }
+  })
+
+  it('the aspect markers glossed "still" and "currently" are not wrong for each other', () => {
+    const d = dialAt('ch22-ex2-3', 2)
+    const pair = equivalentsFile.sameMeaning.find(p => sameKey(p.a.word, d.right) || sameKey(p.b.word, d.right))
+    expect(pair).toBeTruthy()
+    const other = sameKey(pair.a.word, d.right) ? pair.b.word : pair.a.word
+    expect(d.options.some(o => sameKey(o, other))).toBe(false)
+  })
+
+  it('the rules in dials.json name the new tables', () => {
+    expect(dialsFile.rules.find(r => r.id === 'R2j').what).toMatch(/Lesson 29/)
+    expect(dialsFile.rules.find(r => r.id === 'R2j').what).toMatch(/Lesson 52/)
+    expect(dialsFile.rules.find(r => r.id === 'R2a').what).toMatch(/Tongan/)
+    expect(dialsFile.rules.find(r => r.id === 'R3').what).toMatch(/Ch 15:77/)
   })
 })
