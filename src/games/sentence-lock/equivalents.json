@@ -1,0 +1,38 @@
+{
+  "_note": "Pairs that are not wrong for each other on one dial (judge findings 5 and 6). Words are copied from book-vocabulary.json by id. Local to Sentence Lock; the shared confusable-pairs.json is untouched.",
+  "sameMeaning": [
+    {
+      "a": {
+        "word": "lahi",
+        "source": "book-v0386"
+      },
+      "b": {
+        "word": "'aupito",
+        "source": "book-v0068"
+      },
+      "why": "the two words can each say \"very\" after an adjective (Lesson 3 line 83: \"He is very angry\")"
+    },
+    {
+      "a": {
+        "word": "lahi",
+        "source": "book-v0386"
+      },
+      "b": {
+        "word": "mālohi",
+        "source": "book-v0079"
+      },
+      "why": "the two words can each say \"hard\" after a verb (Lesson 3 line 72; Lesson 23 lines 171 and 212: \"study hard\")"
+    }
+  ],
+  "aSome": {
+    "a": {
+      "word": "ha",
+      "source": "book-v0156"
+    },
+    "b": {
+      "word": "e",
+      "source": "book-v0110"
+    },
+    "why": "the two articles both translate English \"a\" and \"some\" when the noun has no final accent (Lesson 18 lines 14 and 16; Lesson 8 line 13)"
+  }
+}
