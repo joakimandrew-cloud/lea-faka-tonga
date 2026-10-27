@@ -36,6 +36,15 @@ const readJson = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 
 export const MAX_WRONG = 3
 
+/**
+ * Options the book does not settle, dropped by row. The key is `<sentence id>#<dial index>`; each entry names the
+ * bank sentence and word position the dropped option is copied from, so no Tongan is typed here
+ * (finding 8a, queue item 45: noun + the question word of ch6-ex2-7 may fit "Which day of the month is this?").
+ */
+export const DROPPED_OPTIONS = {
+  'ch42-ex2-6#3': [{ sentence: 'ch6-ex2-7', word: 4 }],
+}
+
 /** The rules as they stand in dials.json. */
 export const RULES = [
   { id: 'R1', what: 'Same kind: a wrong option has the same role label as the right word. Sources in order: the bank\'s words with that role; for tense marker and pronoun the bank\'s tenseTable and pronounTable; for possessive the book\'s possessive tables (Lesson 17 lines 37 to 80, possessives.json); for verb, noun, adjective, modifier, time word and name also the matching entries of book-vocabulary.json. Words of the sentence\'s own lesson and earlier lessons come first; later lessons fill only when earlier ones run short.' },
@@ -73,6 +82,28 @@ export function vowelCount(w) {
 }
 /** The display form the site shows, case-folded. */
 export const shown = w => okinafy(String(w ?? '')).toLowerCase()
+/**
+ * Word-final macrons the book treats as the definitive accent (Ch 40:16): a final-macron form whose bare twin
+ * (same letters, final vowel without its macron) is also a form of the same role in the bank or the vocabulary.
+ * `pairs` is a list of [role, word]. Returns a predicate `hasAccent(text, role)`: an acute accent anywhere, or such a
+ * final macron.
+ */
+export function accentTester(pairs) {
+  const seen = new Set(pairs.map(([role, w]) => `${role}|${foldKey(w)}`))
+  const finalMacronAccent = (w, role) => {
+    const k = foldKey(w).normalize('NFD')
+    if (!/[aeiou]\u0304$/.test(k)) return false
+    return seen.has(`${role}|${k.replace(/\u0304$/, '').normalize('NFC')}`)
+  }
+  return (w, role) => hasAcute(w) || finalMacronAccent(w, role)
+}
+/** The accent predicate over the bank's words and the vocabulary's. */
+export function accentTesterFor(bank, vocabulary) {
+  return accentTester([
+    ...bank.sentences.flatMap(s => s.words.map((w, i) => [s.roles[i], w])),
+    ...Object.entries(VOCAB_TYPES).flatMap(([role, types]) => vocabulary.filter(v => types.includes(v.part_of_speech) && usableVocabWord(v.tongan)).map(v => [role, v.tongan])),
+  ])
+}
 /** A fold key with the macrons taken off too: how a word is matched to its vocabulary entry (finding 8). */
 export const lookupKey = k => String(k ?? '').normalize('NFD').replace(/\u0304/g, '').normalize('NFC')
 
@@ -82,6 +113,27 @@ export const lookupKey = k => String(k ?? '').normalize('NFD').replace(/\u0304/g
 export function stateEnglish(english) {
   const e = String(english ?? '')
   return /\b(is|are|am)\b/i.test(e) && !/\b\w+ing\b/i.test(e)
+}
+const ENGLISH_CLAUSE_BREAK = /,\s*|\s+(?:for|because|but|and|if|when|so|that)\s+/i
+/**
+ * The clause of the sentence a word sits in (finding 2). A Tongan clause ends at a word with end punctuation
+ * and starts after a conjunction; the English splits at commas and conjunctions. When the two counts agree, the
+ * dial's own English clause is returned, otherwise the whole English (the count cannot be trusted).
+ */
+export function clauseEnglish(english, words, roles, index) {
+  const starts = []
+  let cur = -1
+  let o = false
+  words.forEach((w, i) => {
+    if (roles[i] === 'conjunction') { o = false; return }
+    if (!o) { cur++; starts.push([]); o = true }
+    starts[cur].push(i)
+    if (/[,;:]$/.test(String(w))) o = false
+  })
+  const mine = starts.findIndex(g => g.includes(index))
+  const eng = String(english ?? '').split(ENGLISH_CLAUSE_BREAK).map(x => x.trim()).filter(Boolean)
+  if (mine < 0 || eng.length !== starts.length) return String(english ?? '')
+  return eng[mine]
 }
 const FUTURE_CUE = /\b(will|shall|tomorrow|later|soon|tonight|next|going to|about to|until|when)\b/i
 /** English "is/are/am (adverb) -ing" with no future cue: ("Who is coming?"). */
@@ -174,6 +226,7 @@ export function couldBeSubject(row, person, marks) {
 
 export function buildDials({ bank, vocabulary, wordLists, possessives, equivalents }) {
   const leftOut = leftOutKeys(vocabulary, wordLists)
+  const hasAccent = accentTesterFor(bank, vocabulary)
   const tenseRows = bank.tenseTable.map(r => ({ ...r, key: tableKey(r.word), lesson: firstLesson(r.source) }))
   const tenseByKey = new Map(tenseRows.map(r => [r.key, r]))
   const pronounRows = bank.pronounTable.map(r => ({ ...r, key: tableKey(r.word), lesson: firstLesson(r.source), after: afterList(r.source) }))
@@ -209,7 +262,7 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
     const c = m.get(k)
     c.lesson = Math.min(c.lesson, lesson)
     const t = bare(text)
-    if (!c.forms.some(f => f.text === t)) c.forms.push({ text: t, accent: hasAcute(t), source, bank: isBank })
+    if (!c.forms.some(f => f.text === t)) c.forms.push({ text: t, accent: hasAccent(t, role), source, bank: isBank })
   }
   for (const s of bank.sentences) {
     s.words.forEach((w, i) => {
@@ -254,6 +307,7 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
     return a.some(x => b.some(y => clashes(x, y) || clashes(y, x)))
   }
 
+  const bankById = new Map(bank.sentences.map(x => [x.id, x]))
   const sentences = []
   for (const s of bank.sentences) {
     const engWords = new Set(contentWords(s.english))
@@ -274,6 +328,7 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
     const tally = {}
     const rule = (name, n = 1) => { tally[name] = (tally[name] ?? 0) + n }
 
+    const dropped = new Set((DROPPED_OPTIONS[`${s.id}#${index}`] ?? []).map(x => foldKey(bankById.get(x.sentence).words[x.word])))
     let picks // [{ text, source }]
     let considered = 0
 
@@ -282,7 +337,7 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
       if (!rRow) return fixedDial(s, index, right, role, "the book's tense table has no row for this word")
       const next = s.words[index + 1]
       const needAccent = Boolean(next) && s.roles[index + 1] === 'pronoun' && vowelCount(next) === 1
-      const state = stateEnglish(s.english)
+      const state = stateEnglish(clauseEnglish(s.english, s.words, s.roles, index))
       const noFuture = progressiveEnglish(s.english) && rRow.tense !== 'future'
       const group = t => (state && (t === 'present' || t === 'perfect') ? 'present' : t)
       const byTense = new Map()
@@ -330,7 +385,7 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
         if (!ok) continue
         const rv = rng()
         if (stress && vowelCount(row.word) !== vowelCount(bare(right))) { rule('stress accent'); continue }
-        if (isSubject && (person === 1 || person === 2) && isGeneralOne(row)) { rule('general one'); continue }
+        if ((rRow.person === 1 || rRow.person === 2) && !isGeneralOne(rRow) && isGeneralOne(row)) { rule('general one'); continue }
         const forms = (bankForms.get(row.key) ?? []).filter(f => f.role === 'pronoun')
         const form = forms[0] ?? { text: row.word, source: `pronounTable ${row.word}` }
         cands.push({ row, form, source: forms[0] ? `${form.source}; pronounTable ${row.word} (Lesson ${row.lesson})` : `pronounTable ${row.word} (Lesson ${row.lesson})`, r: rv })
@@ -381,12 +436,13 @@ export function buildDials({ bank, vocabulary, wordLists, possessives, equivalen
       const rawEnglish = new Set(rawWords(s.english))
       const nounAccented = s.words.some((w, j) => j > index && s.roles[j] === 'noun' && hasAcute(w))
       if (needCards && !rCards.length && !rightUnchecked) return fixedDial(s, index, right, role, 'the course vocabulary gives this word no meaning to check options against')
-      const want = hasAcute(right)
+      const want = hasAccent(right, role)
       const m = pool.get(role) ?? new Map()
       const cands = []
       for (const c of m.values()) {
         considered++
         if (c.key === rKey) { rule('same word'); continue }
+        if (dropped.has(c.key)) { rule('not settled by the book'); continue }
         if (needCards) {
           const cc = cardsOf(c.key)
           if (!cc.length) { rule('no vocabulary meaning'); continue }

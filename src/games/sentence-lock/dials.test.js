@@ -6,7 +6,7 @@ import equivalentsFile from './equivalents.json'
 import {
   buildDials, dialsToJson, loadSources, RULES, VOCAB_TYPES, NO_CARD_ROLES, MAX_WRONG,
   bare, trailOf, hasAcute, foldKey, tableKey, vowelCount, shown, englishMarks, couldBeSubject,
-  lookupKey, stateEnglish, progressiveEnglish, directionCue, isGeneralOne, aSomeEnglish, rawWords,
+  lookupKey, stateEnglish, clauseEnglish, accentTesterFor, DROPPED_OPTIONS, progressiveEnglish, directionCue, isGeneralOne, aSomeEnglish, rawWords,
 } from './build-dials.mjs'
 import { toCard, contentWords, LEFT_OUT_OF_GAME } from '../shared/deck.js'
 import { clashes } from '../shared/fair.js'
@@ -16,6 +16,7 @@ const { bank, vocabulary, wordLists } = loadSources()
 const ROOT = process.env.LFT_ROOT || '/Users/andrewjoakim/Desktop/Lea-Faka-Tonga'
 const sentences = dialsFile.sentences
 const liveDials = sentences.flatMap(s => s.dials.filter(d => !d.fixed).map(d => ({ s, d })))
+const hasAccent = accentTesterFor(bank, vocabulary)
 const wrongOf = d => d.options.filter(o => o !== d.right)
 
 const tenseByKey = new Map(bank.tenseTable.map(r => [tableKey(r.word), r]))
@@ -255,7 +256,7 @@ describe('R3 no give-away by spelling', () => {
   it('every option has the accent state of the right word, and the right word\'s end punctuation', () => {
     for (const { s, d } of liveDials) {
       for (const o of wrongOf(d)) {
-        expect(hasAcute(o), `${s.id} #${d.index} option ${o}`).toBe(hasAcute(d.right))
+        expect(hasAccent(o, d.role), `${s.id} #${d.index} option ${o}`).toBe(hasAccent(d.right, d.role))
         expect(trailOf(o), `${s.id} #${d.index} option ${o}`).toBe(trailOf(d.right))
       }
     }
@@ -547,5 +548,67 @@ describe('finding 8: more words get dials', () => {
       for (const o of wrongOf(d)) for (const c of cardsOf(o)) expect(rawWords(c.english).some(w => eng.has(w)), `${s.id} option ${o} (${c.english})`).toBe(false)
     }
     expect(noMeaning.filter(x => !x.d.fixed).length).toBeGreaterThanOrEqual(7)
+  })
+})
+
+describe('second look: findings 2, 4 and 8', () => {
+  it('finding 2: the state test reads the clause of the dial, so "She is running, for she is late." is judged on "she is late"', () => {
+    const b = bankOf('ch26-ex4-7')
+    expect(clauseEnglish(b.english, b.words, b.roles, 4)).not.toMatch(/running/)
+    expect(clauseEnglish(b.english, b.words, b.roles, 0)).toMatch(/running/)
+    expect(stateEnglish(clauseEnglish(b.english, b.words, b.roles, 4))).toBe(true)
+    expect(stateEnglish(clauseEnglish(b.english, b.words, b.roles, 0))).toBe(false)
+    const d = dialAt('ch26-ex4-7', 4)
+    expect(d.fixed).toBe(false)
+    expect(tenseByKey.get(tableKey(d.right)).tense).toBe('present')
+    for (const o of wrongOf(d)) expect(tenseByKey.get(tableKey(o)).tense, o).not.toBe('perfect')
+  })
+
+  it('finding 2: a sentence whose clause counts disagree falls back to the whole English', () => {
+    expect(clauseEnglish('Siale is tired and sleeping.', ['a', 'b'], [null, null], 1)).toBe('Siale is tired and sleeping.')
+  })
+
+  it('finding 4: the general "one" pronoun is keyed on the right pronoun\'s person (ch26-ex4-4, ch30-ex2-1, ch34-ex2-7)', () => {
+    for (const [id, index] of [['ch26-ex4-4', 2], ['ch30-ex2-1', 2], ['ch34-ex2-7', 4]]) {
+      const d = dialAt(id, index)
+      expect(d.fixed, id).toBe(false)
+      for (const o of wrongOf(d)) expect(isGeneralOne(pronounByKey.get(tableKey(o))), `${id} option ${o}`).toBe(false)
+    }
+  })
+
+  it('finding 4: no live pronoun dial whose right word is a first or second person pronoun has the general "one" as a wrong option', () => {
+    let n = 0
+    for (const { s, d } of liveDials.filter(x => x.d.role === 'pronoun')) {
+      const row = pronounByKey.get(tableKey(d.right))
+      if (!row || isGeneralOne(row) || (row.person !== 1 && row.person !== 2)) continue
+      n++
+      for (const o of wrongOf(d)) expect(isGeneralOne(pronounByKey.get(tableKey(o))), `${s.id} option ${o}`).toBe(false)
+    }
+    expect(n).toBeGreaterThan(80)
+  })
+
+  it('finding 8a: the question word of ch6-ex2-7 is not offered on ch42-ex2-6 #4, and the drop is read from the bank', () => {
+    const entry = DROPPED_OPTIONS['ch42-ex2-6#3']
+    expect(entry.length).toBe(1)
+    const dropped = foldKey(bankOf(entry[0].sentence).words[entry[0].word])
+    expect(bankOf(entry[0].sentence).roles[entry[0].word]).toBe('question word')
+    const d = dialAt('ch42-ex2-6', 3)
+    expect(d.fixed).toBe(false)
+    expect(d.options.length).toBeGreaterThan(1)
+    for (const o of d.options) expect(foldKey(o), o).not.toBe(dropped)
+  })
+
+  it('finding 8b: a word-final macron the book treats as the definitive accent counts as accented (ch40-ex2-5 #4)', () => {
+    const d = dialAt('ch40-ex2-5', 3)
+    expect(hasAcute(d.right)).toBe(false)
+    expect(hasAccent(d.right, 'noun')).toBe(true)
+    if (d.fixed) return // a fixed dial is also acceptable: no invented form
+    for (const o of wrongOf(d)) expect(hasAccent(o, 'noun'), o).toBe(true)
+  })
+
+  it('finding 8b: a lexical final macron with no bare twin of the same role is not an accent', () => {
+    const lexical = bank.sentences.flatMap(e => e.words.map((w, i) => [e.roles[i], w]))
+      .find(([role, w]) => role === 'noun' && /[aeiou]\u0304$/.test(foldKey(w).normalize('NFD')) && !hasAccent(w, role))
+    expect(lexical).toBeTruthy()
   })
 })
