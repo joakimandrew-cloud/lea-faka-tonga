@@ -3,6 +3,7 @@ import { buildDeck, makeRng, makeRound } from '@app/games/word-rain/index.js'
 import { ALL_WORDS } from '@app/games/shared/lists.js'
 import { SENTENCES, makeTiles } from '@app/games/sentence-tiles/index.js'
 import { makeRng as seeded } from '@app/games/shared/fair.js'
+import { SENTENCES as LOCK_SENTENCES } from '@app/games/sentence-lock/lessons.js'
 
 // Every game on the site, in one array. The /games page, the Games card on the
 // Drills page and the search on both read it, so a game added later is one
@@ -44,6 +45,24 @@ export const GAMES = [
       const short = SENTENCES.filter(s => s.words.length <= 4 && !s.prompt.includes('*'))
       const s = short[Math.floor(rng() * short.length)]
       return { q: s.prompt, ton: makeTiles(s, rng).map(t => t.text).join(' · ') }
+    },
+  },
+  // Sentence Lock: the count is the sentences the game plays now (every one
+  // with a dial to turn; the pilot plays Lesson 1 only, so the count follows
+  // PILOT_LESSONS until Step 8 removes it). The card shows one of them, chosen
+  // with a fixed seed: its English and its words as the dials hold them.
+  {
+    key: 'sentence-lock',
+    route: '/games/sentence-lock',
+    title: 'Sentence Lock',
+    blurb: 'Turn each dial to the right word and lock it in, like a bike lock.',
+    action: 'Play',
+    words: LOCK_SENTENCES.length,
+    unit: 'sentences',
+    sample: () => {
+      const rng = seeded(2026)
+      const s = LOCK_SENTENCES[Math.floor(rng() * LOCK_SENTENCES.length)]
+      return { q: s.english, ton: s.words.join(' · ') }
     },
   },
 ]

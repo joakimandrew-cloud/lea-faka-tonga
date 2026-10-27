@@ -1,0 +1,287 @@
+/* ==========================================================================
+   Sentence Lock (/games/sentence-lock; plan 2026-10-27-sentence-lock-game,
+   Step 5).
+
+   The page wears Word Balloons' own look (word-rain.css, loaded first): the
+   sky, the HUD, the mute button, the lesson menu and the lesson card. This
+   file adds the sentence card and the lock: a dark casing (the site's band
+   colours) holding one wheel per Tongan word, a reading window across the
+   middle of each wheel, the neighbouring words faint above and below.
+   Locked is the site's green, a wrong lock its error red. A shown answer is
+   neither: warm paper behind a dashed ink border, marked "shown" (the
+   orange tokens turn red on inner pages, white-red-inner.css, so they would
+   read as wrong). Site tokens only (base.css); no new colours and no new
+   typefaces.
+   ========================================================================== */
+
+/* ── the board: the card with the English, the answer and the lock ─────── */
+.sentence-lock .sl-field { display: flex; flex-direction: column; }
+.sl-board {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 6px clamp(14px, 4vw, 40px) 18px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.sl-card {
+  position: relative;
+  width: min(100%, 760px);
+  margin: auto 0;
+  padding: 20px clamp(14px, 3vw, 28px) 16px;
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow: var(--shadow-2);
+  text-align: center;
+  animation: rain-card-in 0.3s var(--ease-out) both;
+}
+.sl-card.is-done { box-shadow: 0 0 0 3px var(--success), var(--shadow-2); }
+.sl-english {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font: 600 clamp(20px, 2.6vw, 26px)/1.3 var(--f-ui);
+}
+.sl-answer { margin: -4px 0 14px; animation: rain-fade-in 0.25s ease-out both; }
+.sl-sentence { margin: 0; color: var(--success); }
+.sl-sentence .font-tongan { font: italic 500 clamp(24px, 3vw, 30px)/1.2 var(--f-serif); }
+.sl-result { margin: 4px 0 0; color: var(--muted); font: 600 14px/1.3 var(--f-ui); }
+.sl-result b { color: var(--ink); font: 800 24px/1 var(--f-display); }
+
+/* ── the lock: a dark casing, the wheels in word order (they wrap to a second row on a long sentence) ── */
+.sl-lock {
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 12px 8px;
+  padding: 12px 12px 10px;
+  border-radius: 18px;
+  background: var(--band-2);
+  box-shadow: inset 0 2px 0 var(--band-3), inset 0 -3px 0 var(--band), 0 4px 0 var(--band);
+}
+.sl-dial {
+  --wheel: var(--paper);
+  --wheel-edge: color-mix(in srgb, var(--ink) 30%, var(--paper));
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  min-width: 76px;
+}
+.sl-label {
+  min-height: 12px;
+  color: var(--on-band-muted);
+  font: 700 10px/1.2 var(--f-ui);
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sl-dial.is-open .sl-label { color: var(--on-band); }
+.sl-dial.is-locked .sl-label { color: var(--success-bright); }
+.sl-dial.is-shown .sl-label { color: var(--on-band); }
+
+/* One wheel: the word above, the window, the word below, shaded like a drum. */
+.sl-wheel {
+  display: grid;
+  grid-template-rows: 44px auto 44px;
+  min-width: max(76px, calc(var(--chars) * 0.52em + 26px));
+  border-radius: 12px;
+  background: linear-gradient(to bottom, var(--wheel-edge), var(--wheel) 30%, var(--wheel) 70%, var(--wheel-edge));
+  font-size: 22px;
+  overflow: hidden;
+  touch-action: none;
+}
+.sl-dial:not(.is-open) .sl-wheel { touch-action: manipulation; }
+.sl-dial.is-waiting { --wheel: var(--paper-soft); }
+.sl-dial.is-waiting .sl-wheel { opacity: 0.72; }
+.sl-turn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  min-height: 44px;
+  padding: 0 6px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+}
+button.sl-turn { cursor: pointer; }
+button.sl-turn:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; border-radius: 10px; }
+@media (hover: hover) {
+  button.sl-turn:hover { color: var(--red); }
+  button.sl-turn:hover .sl-near { opacity: 0.85; }
+}
+button.sl-turn:active .sl-chev { transform: scale(0.85); }
+.sl-chev { width: 18px; height: 9px; flex: none; color: var(--red); transition: transform 0.08s; }
+.sl-near {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+  font: italic 500 0.72em/1.1 var(--f-serif);
+  opacity: 0.42;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+.sl-near.is-tried { text-decoration: line-through; text-decoration-color: var(--error); }
+
+/* The window: the reading line of the lock. */
+.sl-window {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 50px;
+  padding: 4px 10px;
+  border-block: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.sl-word { font: italic 500 1em/1.15 var(--f-serif); white-space: nowrap; }
+.sl-dial.is-open .sl-window { border-color: var(--red); box-shadow: inset 0 0 0 1px var(--red); }
+.sl-dial.is-open .sl-window:focus-visible { box-shadow: inset 0 0 0 3px var(--focus); }
+.sl-dial.is-waiting .sl-window { border-color: var(--line-strong); background: var(--paper-soft); }
+.sl-dial.is-fixed .sl-window { border-color: var(--line-strong); }
+.sl-dial.is-locked .sl-window {
+  border-color: var(--success);
+  background: var(--success);
+  color: var(--paper);
+  animation: sl-click 0.3s var(--ease-out);
+}
+.sl-dial.is-shown .sl-window { border: 2px dashed var(--ink); background: var(--paper-warm); color: var(--ink); }
+.sl-shown-mark {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  color: var(--ink);
+  font: 700 9px/1 var(--f-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.sl-dial.is-open.is-wrong .sl-window { border-color: var(--error); background: var(--error-soft); color: var(--error); box-shadow: inset 0 0 0 1px var(--error); }
+.sl-dial.is-tried .sl-word { text-decoration: line-through; text-decoration-color: var(--error); text-decoration-thickness: 2px; }
+.sl-tried-mark {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  color: var(--error);
+  font: 700 9px/1 var(--f-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.sl-tick { width: 16px; height: 16px; flex: none; color: var(--paper); }
+.sl-dial.is-locked .sl-turn,
+.sl-dial.is-shown .sl-turn,
+.sl-dial.is-fixed .sl-turn { opacity: 0.6; }
+@keyframes sl-click {
+  0% { transform: translateY(-6px); }
+  60% { transform: translateY(1px); }
+  100% { transform: none; }
+}
+
+/* Under each wheel: the try marks on the open dial, the points on a settled one. */
+.sl-foot { display: flex; justify-content: center; min-height: 14px; }
+.sl-tries { display: inline-flex; gap: 5px; align-items: center; }
+.sl-tries i { width: 10px; height: 10px; border: 2px solid var(--on-band-muted); border-radius: 50%; transition: background-color 0.2s, border-color 0.2s; }
+.sl-tries i.is-on { border-color: var(--red-emblem); background: var(--red-emblem); }
+.sl-points { color: var(--success-bright); font: 800 15px/1 var(--f-display); letter-spacing: 0.04em; }
+.sl-dial.is-shown .sl-points { color: var(--on-band-muted); }
+
+/* The line under the lock: what the last lock did. */
+.sl-line { min-height: 20px; margin: 10px 0 0; color: var(--muted); font: 600 14px/1.35 var(--f-ui); }
+.sl-line.is-wrong,
+.sl-line.is-tried { color: var(--error); }
+.sl-line.is-shown { color: var(--ink); }
+.sl-line.is-right { color: var(--success); }
+
+/* ── the tray: Lock, or Next sentence once the sentence is done ────────── */
+.sl-tray {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px 14px;
+}
+.sl-tray .rain-btn-primary { gap: 10px; min-width: min(100%, 280px); min-height: 58px; font-size: 26px; }
+.sl-tray .rain-btn-primary:disabled { background: var(--line-strong); box-shadow: 0 4px 0 var(--faint); color: var(--paper); cursor: default; }
+.sl-padlock { width: 18px; height: 20px; fill: currentColor; }
+.sl-next { background: var(--ink); box-shadow: 0 4px 0 var(--band-3); }
+@media (hover: hover) {
+  .sl-next:hover { background: var(--band-3); }
+}
+
+/* ── title screen: a lock on its starting words, for show ──────────────── */
+.sl-idle {
+  position: absolute;
+  right: clamp(14px, 6%, 90px);
+  bottom: 9%;
+  z-index: 1;
+  pointer-events: none;
+  rotate: -3deg;
+  animation: rain-bob 3.6s ease-in-out infinite alternate;
+}
+.sl-lock-idle { gap: 6px; padding: 10px; }
+.sl-dial.is-idle { min-width: 0; }
+.sl-dial.is-idle .sl-wheel { grid-template-rows: 30px auto 30px; min-width: max(70px, calc(var(--chars) * 0.52em + 22px)); font-size: 22px; }
+.sl-dial.is-idle .sl-window { min-height: 46px; }
+.sl-dial.is-idle .sl-turn { min-height: 30px; }
+
+/* ── the lesson grid on the title screen ──────────────────────────────── */
+.sl-setup { display: flex; flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 20px 14px; }
+.sl-choose { margin: 0; color: var(--muted); font: 700 11px/1 var(--f-ui); letter-spacing: 0.18em; text-transform: uppercase; }
+.sl-lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  column-gap: 14px;
+  max-height: 132px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-top: 1px dotted var(--line-strong);
+}
+.sl-setup .rain-go-col { gap: 6px; }
+.sentence-lock .rain-over-links { flex-wrap: wrap; }
+
+/* ── wider screens: bigger wheels ──────────────────────────────────────── */
+@media (min-width: 900px) {
+  .sl-lock { gap: 14px 10px; padding: 14px 16px 12px; }
+  .sl-dial { min-width: 92px; }
+  .sl-wheel { grid-template-rows: 50px auto 50px; min-width: max(92px, calc(var(--chars) * 0.52em + 30px)); font-size: 27px; }
+  .sl-window { min-height: 58px; }
+  .sl-label { font-size: 11px; }
+}
+
+/* ── phones ───────────────────────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .sl-board { padding: 4px 8px 10px; }
+  .sl-card { padding: 14px 10px 12px; border-radius: 16px; }
+  .sl-english { margin-bottom: 10px; font-size: 19px; }
+  .sl-lock { gap: 10px 6px; padding: 10px 8px 8px; border-radius: 14px; }
+  .sl-dial { min-width: 72px; }
+  .sl-wheel { min-width: max(72px, calc(var(--chars) * 0.52em + 20px)); font-size: 20px; }
+  .sl-label { font-size: 9px; letter-spacing: 0.08em; }
+  .sl-tray { padding: 10px 10px 12px; }
+  .sl-tray .rain-btn-primary { width: 100%; }
+  .sl-idle { top: 7%; right: 12px; bottom: auto; left: 12px; display: flex; justify-content: center; }
+  .sl-setup { padding: 10px 14px 12px; }
+  .sl-lesson-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-height: 150px; }
+  .sl-setup .rain-play { min-height: 54px; padding: 12px 24px; font-size: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-idle,
+  .sl-card,
+  .sl-answer,
+  .sl-dial.is-locked .sl-window { animation: none; }
+  button.sl-turn:active .sl-chev { transform: none; }
+}
