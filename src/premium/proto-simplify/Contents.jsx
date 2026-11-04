@@ -28,7 +28,7 @@ function focusTarget(id) {
   if (!node) return
   const heading = node.querySelector('.ls-h2') || node
   heading.focus?.({ preventScroll: true })
-  node.scrollIntoView({ block: 'start', behavior: reduced() ? 'auto' : 'smooth' })
+  heading.scrollIntoView({ block: 'start', behavior: reduced() ? 'auto' : 'smooth' })
 }
 
 function keepFocus(event) {
@@ -235,7 +235,7 @@ export default function Contents({ n, sections, active, learn, path, exStats, ha
 
   return (
     <>
-      <button ref={openerRef} type="button" className="pl-contents" aria-haspopup="dialog" aria-expanded={open} aria-label={`Open lesson contents, section ${k} of ${sections.length}`} onClick={() => openSheet('margin')}>
+      <button ref={openerRef} type="button" className="pl-contents" aria-haspopup="dialog" aria-expanded={open} aria-label="Open lesson contents" aria-description={`${k} of ${sections.length}`} onClick={() => openSheet('margin')}>
         <span className="pl-contents-t">Contents</span>
         <span className="pl-contents-c">{`${k} of ${sections.length}`}</span>
       </button>

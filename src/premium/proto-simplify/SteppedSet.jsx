@@ -180,6 +180,17 @@ export function SteppedExercises({ exercises, onProgress, stored }) {
     return (linked || unfinished || exercises[0])?.id ?? null
   })
 
+  // A link to #ex-3 on this same page opens that set.
+  useEffect(() => {
+    const onHash = () => {
+      const m = window.location.hash.match(/^#ex-(\d+)$/)
+      const hit = m && exercises.find(ex => String(ex.number) === m[1])
+      if (hit) setOpenId(hit.id)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [exercises])
+
   return (
     <div className="px-list">
       {exercises.map((ex, i) => {
