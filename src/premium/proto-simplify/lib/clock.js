@@ -41,12 +41,11 @@ function stillPage() {
   return typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('still')
 }
 
-export function useFigureClock({ id, timelines, external = null, autoplay = true, scenes = 1, onFrame }) {
+export function useFigureClock({ id, rootRef, timelines, external = null, autoplay = true, scenes = 1, onFrame }) {
   const reduced = useMemo(reducedMotion, [])
   const [scene, setScene] = useState(0)
   const [t, setT] = useState(() => (reduced ? timelines[0].duration : 0))
   const [running, setRunning] = useState(false)
-  const rootRef = useRef(null)
   const raf = useRef(0)
   const clock = useRef({ t: reduced ? timelines[0].duration : 0, scene: 0 })
   const flags = useRef({ stopped: false, ran: false })
@@ -140,7 +139,7 @@ export function useFigureClock({ id, timelines, external = null, autoplay = true
       if (runner === entry) entry.halt()
       cancel()
     }
-  }, [autoplay, cancel, external, id, playTo, reduced, timelines, write])
+  }, [autoplay, cancel, external, id, playTo, reduced, rootRef, timelines, write])
 
   // A held clock: Structure C drives t from the scroll position.
   useEffect(() => {
@@ -221,7 +220,7 @@ export function useFigureClock({ id, timelines, external = null, autoplay = true
       setT(ms)
     })
     if (rootRef.current) delete rootRef.current.dataset.running
-  }, [cancel])
+  }, [cancel, rootRef])
 
   const shown = external === null ? t : external
 
@@ -248,8 +247,8 @@ export function useFigureClock({ id, timelines, external = null, autoplay = true
     return () => {
       if (window.__protoFigures?.[id] === api) delete window.__protoFigures[id]
     }
-  }, [id, scenes, seek, timelines])
+  }, [id, rootRef, scenes, seek, timelines])
 
   const atRest = shown >= duration - 0.5
-  return { rootRef, scene, t: shown, running, atRest, duration, timeline, next, another, playSpan, stopAuto, seek, reduced }
+  return { scene, t: shown, running, atRest, duration, timeline, next, another, playSpan, stopAuto, seek, reduced }
 }

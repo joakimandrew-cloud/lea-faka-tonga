@@ -136,7 +136,7 @@ function McqRow({ ex, item, n, current, tries, activeItemId, onInteract, onTries
   )
 }
 
-export function useSetProgress(ex, compact, onProgress) {
+function useSetProgress(ex, compact, onProgress) {
   const [snapshot, setSnapshot] = useState(() => initialExerciseSnapshot(ex, compact))
   const progress = useMemo(() => exerciseProgressFromSnapshot(ex, snapshot), [ex, snapshot])
   useEffect(() => { if (!compact) writeExerciseSnapshot(ex, snapshot) }, [compact, ex, snapshot])
@@ -172,21 +172,13 @@ function ExerciseRow({ ex, total, open, onToggle, onNext, hasNext, onProgress })
 }
 
 export function SteppedExercises({ exercises, onProgress, stored }) {
-  const firstOpen = useMemo(() => {
-    const unfinished = exercises.find(ex => {
-      const answered = Object.keys(stored[ex.id]?.state || {}).length
-      return answered < ex.items.length
-    })
-    return (unfinished || exercises[0])?.id ?? null
-  }, [exercises, stored])
-  const [openId, setOpenId] = useState(firstOpen)
-
-  useEffect(() => {
+  // The set a link points at, or the first unfinished one.
+  const [openId, setOpenId] = useState(() => {
     const m = window.location.hash.match(/^#ex-(\d+)$/)
-    if (!m) return
-    const hit = exercises.find(ex => String(ex.number) === m[1])
-    if (hit) setOpenId(hit.id)
-  }, [exercises])
+    const linked = m && exercises.find(ex => String(ex.number) === m[1])
+    const unfinished = exercises.find(ex => Object.keys(stored[ex.id]?.state || {}).length < ex.items.length)
+    return (linked || unfinished || exercises[0])?.id ?? null
+  })
 
   return (
     <div className="px-list">

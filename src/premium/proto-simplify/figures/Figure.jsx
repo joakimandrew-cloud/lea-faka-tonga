@@ -3,7 +3,7 @@
  * number, title, text alternative and controls; a stage draws one exact frame from
  * (scene, t). Nothing on a stage uses a CSS transition or animation.
  */
-import { useCallback, useId, useMemo, useState } from 'react'
+import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import { useFigureClock } from '../lib/clock.js'
 import { useTileFont, useWidth } from '../lib/metrics.js'
 import { land, ramp, travel } from '../lib/motion.js'
@@ -61,14 +61,16 @@ export function StaticTile({ face, ring = false, showLabel = true, small = false
 
 function RowStage({ scene, timeline, t, width, def }) {
   const layout = useMemo(() => rowLayouts(scene, width), [scene, width])
-  const geometry = useMemo(() => rowGeometry(layout.s, scene), [layout.s, scene])
+  // On a phone a long sentence takes two lines, in every scene, so the stage never changes height.
+  const twoLineBefore = width < 480 && def.scenes.some(item => item.before && item.before.say.length + item.before.en.length > 40)
+  const geometry = useMemo(() => rowGeometry(layout.s, scene, twoLineBefore), [layout.s, scene, twoLineBefore])
   const frame = rowFrame(scene, timeline, t, layout, geometry)
   const { s } = frame
   const vars = { '--fs': `${s.fs}px`, '--h': `${s.h}px`, '--pad': `${s.pad}px`, height: geometry.height }
   return (
     <div className="ft-row" style={vars}>
       {scene.before && (
-        <p className="ft-before" style={{ opacity: frame.beforeOpacity }}>
+        <p className={`ft-before ${twoLineBefore ? 'is-two' : ''}`} style={{ opacity: frame.beforeOpacity }}>
           <span className="ft-before-k">Before</span>
           <span className="fx-to" lang="to" data-tongan={scene.before.say}>{scene.before.say}</span>
           <span className="ft-before-en">{scene.before.en}</span>
@@ -350,13 +352,9 @@ export default function Figure({ def, external = null, autoplay = true, compact 
   const timelines = useMemo(() => def.scenes.map(scene => (
     def.kind === 'row' ? rowTimeline(scene) : def.kind === 'fork' ? forkTimeline(scene) : gridTimeline(def)
   )), [def])
-  const [rootHolder] = useState(() => ({ current: null }))
-  const onFrame = useListLink(def, rootHolder)
-  const clock = useFigureClock({ id: def.id, timelines, external, autoplay, scenes: def.scenes.length, onFrame })
-  const setRoot = useCallback(node => {
-    clock.rootRef.current = node
-    rootHolder.current = node
-  }, [clock.rootRef, rootHolder])
+  const rootRef = useRef(null)
+  const onFrame = useListLink(def, rootRef)
+  const clock = useFigureClock({ id: def.id, rootRef, timelines, external, autoplay, scenes: def.scenes.length, onFrame })
 
   const scene = def.scenes[clock.scene]
   const atEnd = clock.atRest
@@ -380,7 +378,7 @@ export default function Figure({ def, external = null, autoplay = true, compact 
 
   return (
     <figure
-      ref={setRoot}
+      ref={rootRef}
       className={`fx fx-${def.kind} ${compact ? 'is-compact' : ''}`}
       id={`fig-${def.id.replace('.', '-')}`}
       data-figure={def.id}

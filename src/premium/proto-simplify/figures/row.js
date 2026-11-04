@@ -59,8 +59,8 @@ export function rowLayouts(scene, width) {
 }
 
 /** Geometry of the stage's rows, shared with the render. Headroom is only what the scene needs. */
-export function rowGeometry(s, scene) {
-  const beforeH = scene.before ? 26 : 0
+export function rowGeometry(s, scene, twoLineBefore = false) {
+  const beforeH = scene.before ? (twoLineBefore ? 48 : 26) : 0
   const hasArc = scene.beats.some(b => b.kind === 'move' && b.arc)
   const hasLane = scene.beats.some(b => b.mark || b.old)
   const headroom = hasArc ? s.arc + 16 : hasLane ? 34 : 4
