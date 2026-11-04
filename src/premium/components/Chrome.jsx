@@ -48,7 +48,12 @@ export function Header({ progress = false, noticeMode = null }) {
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 8)
-      if (!open && !headerRef.current?.contains(document.activeElement)) setHidden(y > 240 && y > last + 2 ? true : y < last - 2 ? false : hidden)
+      // Prototype lesson page: the header stays away until the top of the page, so a small
+      // scroll back up no longer adds to the chrome (Direction.md, E01). Live routes unchanged.
+      const stays = /^\/__proto\/lesson\//.test(window.location.pathname)
+      if (!open && !headerRef.current?.contains(document.activeElement)) {
+        setHidden(stays ? y > 240 : y > 240 && y > last + 2 ? true : y < last - 2 ? false : hidden)
+      }
       last = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -132,7 +137,7 @@ export function Header({ progress = false, noticeMode = null }) {
   const { done, last } = useProgress()
   const next = last ? (done.has(last) ? Math.min(52, last + 1) : last) : 1
   const ctaLabel = !last ? 'Start Lesson 1' : done.has(last) ? `Start Lesson ${next}` : `Continue Lesson ${next}`
-  const hideCta = /^\/(lessons\/\d+|quizzes|drill)/.test(loc.pathname)
+  const hideCta = /^\/(lessons\/\d+|__proto\/lesson\/\d+|quizzes|drill)/.test(loc.pathname)
   const toggleMenu = () => {
     if (!open) setHidden(false)
     setMenuPath(open ? null : loc.pathname)
@@ -151,7 +156,7 @@ export function Header({ progress = false, noticeMode = null }) {
           <Wordmark />
           <nav className="hdr-nav" aria-label="Main">
             {NAV.map(n => (
-              <NavLink key={n.to} to={n.to} className={({ isActive }) => `hdr-link ${isActive || (n.to === '/lessons' && loc.pathname.startsWith('/lessons')) || (n.to === '/drills' && loc.pathname.startsWith('/drill/')) || (n.to === '/games' && loc.pathname.startsWith('/games/')) || (n.to === '/quizzes' && loc.pathname.startsWith('/quizzes/')) || (n.to === '/topics' && /^\/(charts|alphabet|greetings|questions|grammar\/)/.test(loc.pathname)) ? 'is-active' : ''}`}>
+              <NavLink key={n.to} to={n.to} className={({ isActive }) => `hdr-link ${isActive || (n.to === '/lessons' && (loc.pathname.startsWith('/lessons') || loc.pathname.startsWith('/__proto/lesson'))) || (n.to === '/drills' && loc.pathname.startsWith('/drill/')) || (n.to === '/games' && loc.pathname.startsWith('/games/')) || (n.to === '/quizzes' && loc.pathname.startsWith('/quizzes/')) || (n.to === '/topics' && /^\/(charts|alphabet|greetings|questions|grammar\/)/.test(loc.pathname)) ? 'is-active' : ''}`}>
                 {n.label}
               </NavLink>
             ))}

@@ -37,10 +37,13 @@ const WordRain = lazy(() => import('./pages/WordRain.jsx'))
 const SentenceTiles = lazy(() => import('./pages/SentenceTiles.jsx'))
 // Sentence Lock, the bike-lock sentence game (plan 2026-10-27-sentence-lock-game).
 const SentenceLock = lazy(() => import('./pages/SentenceLock.jsx'))
+// Private prototype, plan 2026-11-05-lesson-page-simplify. Branch proto/lesson-simplify only; never deployed.
+const ProtoLesson = lazy(() => import('./proto-simplify/ProtoLesson.jsx'))
+const ScrubPage = lazy(() => import('./proto-simplify/ScrubPage.jsx'))
 
 const BESPOKE_DRILL_ROUTES = Object.entries(BESPOKE).filter(([id]) => id !== 'terminal-builder')
 
-function Page({ children }) {
+function Page({ children, still = false }) {
   const pageRef = useRef(null)
   const loc = useLocation()
   const mountedPath = useRef(loc.pathname)
@@ -72,9 +75,9 @@ function Page({ children }) {
       id="main"
       className={loc.pathname === '/' ? undefined : 'wr-inner'}
       ref={pageRef}
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
+      initial={still ? false : { opacity: 0, y: 14 }}
+      animate={still ? undefined : { opacity: 1, y: 0 }}
+      exit={still ? undefined : { opacity: 0, y: -8 }}
       transition={{ duration: .45, ease: [.16, 1, .3, 1] }}
     >
       <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>{children}</Suspense>
@@ -85,18 +88,20 @@ function Page({ children }) {
 export default function App() {
   const loc = useLocation()
   useEffect(() => { if (!loc.hash) window.scrollTo({ top: 0, behavior: 'instant' }) }, [loc.pathname, loc.hash])
-  const reading = /^\/lessons\/\d+/.test(loc.pathname)
+  const proto = /^\/__proto\/lesson\/\d+/.test(loc.pathname)
+  const reading = proto || /^\/lessons\/\d+/.test(loc.pathname)
   const focus = /^\/(quizzes|drill)\//.test(loc.pathname) || ['/cards', '/games/word-balloons', '/games/sentence-tiles', '/games/sentence-lock', '/sentence-builder', '/terminal-build', ...BESPOKE_DRILL_ROUTES.map(([, path]) => path)].includes(loc.pathname)
 
   return (
     <>
-      <Header progress={reading} noticeMode={previewNoticeMode(loc.pathname, Object.values(BESPOKE))} />
+      <Header progress={reading} noticeMode={proto ? 'course' : previewNoticeMode(loc.pathname, Object.values(BESPOKE))} />
       <RouteChrome />
       <AnimatePresence mode="wait">
         <Routes location={loc} key={loc.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/lessons" element={<Page><Lessons /></Page>} />
           <Route path="/lessons/:num" element={<Page><Lesson /></Page>} />
+          <Route path="/__proto/lesson/:num" element={<Page still><ProtoLesson /></Page>} />
           <Route path="/chapters" element={<LegacyRedirect to="/lessons" />} />
           <Route path="/chapters/:num" element={<LegacyLessonRedirect />} />
           <Route path="/quizzes" element={<Page><Quizzes /></Page>} />
@@ -131,7 +136,8 @@ export default function App() {
           <Route path="/reciprocity" element={<LegacyRedirect to="/drill/reciprocity-picker" />} />
           <Route path="/emotional-article" element={<LegacyRedirect to="/drill/emotional-article-matrix" />} />
           <Route path="/definiteness-flip" element={<LegacyRedirect to="/drill/definiteness-flip" />} />
-          {['/hero-lab', '/scrub', '/hero-scrub'].map(path => <Route key={path} path={path} element={<Navigate to="/" replace />} />)}
+          <Route path="/scrub" element={<Page still><ScrubPage /></Page>} />
+          {['/hero-lab', '/hero-scrub'].map(path => <Route key={path} path={path} element={<Navigate to="/" replace />} />)}
           <Route path="*" element={<Page><NotBuilt /></Page>} />
         </Routes>
       </AnimatePresence>

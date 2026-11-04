@@ -1,4 +1,5 @@
 import { BASE, cells, messageMsFor, PREVIEW_RATE, PREVIEW_MS, MessageInner } from './hero-cells.jsx'
+import { PROTO_FIGURE_SCENES } from '../premium/proto-simplify/figures/scrub-scenes.jsx'
 
 /* =========================================================================
    scrub-registry — the list of animations the /scrub hub can view + edit, and
@@ -176,5 +177,5 @@ const BASICS_CLIPS = {
   },
 }
 
-export const SCENES = [HERO, BASICS_CLIPS]
+export const SCENES = [...PROTO_FIGURE_SCENES, HERO, BASICS_CLIPS]
 export const getScene = id => SCENES.find(s => s.id === id) || SCENES[0]
