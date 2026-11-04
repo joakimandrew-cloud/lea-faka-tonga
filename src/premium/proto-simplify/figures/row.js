@@ -147,7 +147,7 @@ export function rowFrame(scene, timeline, t, layout, geometry) {
   // Arc from where the tile was to where it landed.
   let arc = null
   const arcBeat = beats.find(b => b.kind === 'move' && b.arc)
-  if (arcBeat && t >= arcBeat.start) {
+  if (arcBeat && t > arcBeat.start) {
     const inTravel = t < arcBeat.travelEnd
     const after = layouts[arcBeat.toState]
     const origin = layouts[arcBeat.from][arcBeat.tile]

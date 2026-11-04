@@ -155,7 +155,7 @@ function RowTile({ tile, frame, geometry, s }) {
     return (
       <span className="ft-tile" style={style}>
         <svg className="ft-slot-line" width={w} height={h} aria-hidden="true">
-          <rect x=".75" y=".75" width={w - 1.5} height={h - 1.5} rx="9.5" pathLength="1" className="ft-slot-rect" strokeDasharray={frame.slot >= 1 ? '0.018 0.012' : `${frame.slot} 1`} />
+          {frame.slot > 0 && <rect x=".75" y=".75" width={w - 1.5} height={h - 1.5} rx="9.5" pathLength="1" className="ft-slot-rect" strokeDasharray={frame.slot >= 1 ? '0.018 0.012' : `${frame.slot} 1`} />}
         </svg>
         <span className="ft-slot-label" style={{ opacity: ramp(frame.slot, 0.6, 1) }}>no subject</span>
       </span>
