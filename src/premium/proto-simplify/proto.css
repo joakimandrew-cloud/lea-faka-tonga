@@ -50,7 +50,7 @@
 .wr-inner .pl .ls-h2 .to { color: inherit; font-size: 1.02em; }
 .pl .lst { isolation: isolate; }
 .pl .lst li { position: relative; }
-.pl .lst li::before { content: ''; position: absolute; inset: 0 -10px; z-index: -1; border-radius: 6px; background: var(--orange-soft); opacity: var(--lit, 0); pointer-events: none; }
+.pl .lst li::before { content: ''; position: absolute; inset: -2px 0 -2px -1.5em; z-index: -1; border-radius: 6px; background: var(--orange-soft); opacity: var(--lit, 0); pointer-events: none; }
 
 /* ───────── The Contents button, wide screens ───────── */
 .pl-contents { position: fixed; z-index: 38; left: max(var(--gutter), calc((100vw - 1280px) / 2 + var(--gutter))); top: calc(var(--hdr-top) + 32px); display: inline-flex; align-items: center; gap: 12px; height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink); background: var(--paper); font: 600 14px/1 var(--f-ui); }
@@ -352,6 +352,8 @@ html[data-band='line'][data-band-line='on'] .membership-notice summary { min-hei
   .fg-t td { padding: 2px; }
   .fg-cell { padding: 6px 8px; font-size: 16px; line-height: 20px; }
   .fg-say .fx-to { font-size: 22px; line-height: 28px; }
+  .fl2-row { gap: 8px 16px; }
+  .fl2-word { font-size: 30px; }
   .px-sum { grid-template-columns: minmax(0, 1fr) 16px; }
   .px-sum-c { grid-column: 1; grid-row: 2; margin-top: -8px; }
   .px-chev { grid-column: 2; grid-row: 1; }
