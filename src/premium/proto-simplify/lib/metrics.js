@@ -72,16 +72,39 @@ export function tileSizes(width) {
     : { fs: 30, h: 56, pad: 15, gap: 8, r: 10, arc: 40, label: 24, ghost: 30, mark: 22 }
 }
 
-/** Shrinks a size set so the widest row fits the stage: never under 20 px type. */
+/** Fits a figure's size set to its stage. A wide stage grows the tiles until the widest row
+ *  nearly fills it, up to 38 px type, and shrinks a long row a little, to no less than 24 px, so
+ *  it stays on one line. A phone shrinks to no less than 20 px type. A row that would still not
+ *  fit stays at full size and wraps to a second line. */
 export function fitSizes(base, widest, width) {
-  if (!widest || !width || widest <= width) return base
-  const k = Math.max(20 / base.fs, width / widest)
-  return {
+  if (!widest || !width) return base
+  const scale = k => ({
     ...base,
     fs: Math.round(base.fs * k * 10) / 10,
     h: Math.round(base.h * k),
     pad: Math.round(base.pad * k),
     gap: Math.max(4, Math.round(base.gap * k)),
     ghost: Math.round(base.ghost * k),
+    arc: Math.round(base.arc * Math.max(k, 1)),
+  })
+  if (width >= 480) {
+    const grow = Math.min(38 / base.fs, (width * 0.92) / widest)
+    if (grow > 1.02) return scale(grow)
+    if (widest <= width) return base
+    const k = width / widest
+    return k < 24 / base.fs ? base : scale(k * 0.985)
   }
+  if (widest <= width) return base
+  const k = width / widest
+  // A touch under the exact fit, since sizes round to whole pixels and must not push a row to wrap.
+  return k < 20 / base.fs ? base : scale(k * 0.985)
+}
+
+/** Width of interface text in a given CSS font, for placing a line of English beside a row. */
+let canvas = null
+export function uiWidth(text, font) {
+  if (typeof document === 'undefined') return 0
+  canvas = canvas || document.createElement('canvas').getContext('2d')
+  canvas.font = font
+  return canvas.measureText(text).width
 }

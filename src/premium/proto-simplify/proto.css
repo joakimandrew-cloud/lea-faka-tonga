@@ -70,6 +70,8 @@
   .pl-bar-b { position: relative; height: 44px; min-width: 44px; padding: 0 8px; border: 0; background: none; color: var(--ink); font: 600 14px/1 var(--f-ui); }
   .pl-bar-b span { position: relative; display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 999px; }
   .pl-bar-b:hover span { border-color: var(--ink); }
+  .pl .pl-bar-b:focus-visible { outline: 0; }
+  .pl .pl-bar-b:focus-visible span { outline: 3px solid var(--focus); outline-offset: 2px; }
 }
 
 /* ───────── The Contents sheet ───────── */
@@ -146,6 +148,9 @@ button.ps-rule:hover { background: var(--paper-soft); }
 .role-place, .role-quiet { color: var(--muted); background: #fff; box-shadow: inset 0 0 0 1.5px var(--line-strong); }
 .role-quiet { color: var(--ink); }
 .role-question { color: var(--red); background: #fff; box-shadow: inset 0 0 0 1.5px var(--red); }
+/* A direction word goes with the verb: the verb's ink, with an inner line that says it is not the verb. */
+.role-particle { color: #fff; background: var(--tile-verb); box-shadow: inset 0 0 0 3px var(--tile-verb), inset 0 0 0 4.5px #fff; }
+.fp-tile.role-particle { box-shadow: inset 0 0 0 2px var(--tile-verb), inset 0 0 0 3.25px #fff; }
 .ft-box.is-outlining .ft-face { background: color-mix(in srgb, transparent calc(var(--outline) * 100%), #fff); }
 .ft-ghost { position: absolute; display: block; border: 1.5px dashed var(--mark-dash); border-radius: var(--tile-r); box-sizing: border-box; }
 .ft-ghost.is-slot { inset: 0; }
@@ -187,6 +192,50 @@ button.ps-rule:hover { background: var(--paper-soft); }
 .ff-ring { position: absolute; left: 0; z-index: 3; border-radius: var(--tile-r); box-shadow: 0 0 0 2px var(--stage), 0 0 0 4px var(--ink); }
 .ff-form { z-index: 4; }
 
+/* Fork: people above the lanes */
+.ff-people { position: relative; }
+.ff-person { position: absolute; top: 4px; display: block; }
+.ff-person .pm { display: block; overflow: visible; }
+.ff-person-ring { position: absolute; inset: -7px; border-radius: 12px; box-shadow: 0 0 0 2px var(--ink); }
+.ff-person-l { top: calc(100% + 5px); }
+
+/* People marks: flat, in the site's own colours */
+.pm { overflow: visible; }
+.pm-speaker .pm-fill { fill: var(--ink); }
+.pm-listener .pm-fill { fill: #fff; stroke: var(--ink); stroke-width: 1.75; }
+.pm-third .pm-fill { fill: var(--faint); }
+.pm-bubble { fill: #fff; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.pm-listen path { fill: none; stroke: var(--ink); stroke-width: 1.75; stroke-linecap: round; }
+.pm-frame { fill: none; stroke: var(--red); stroke-width: 2; }
+
+/* Path */
+.fp-field { position: relative; }
+.fp-mark { position: absolute; left: 0; top: 0; display: block; }
+.fp-mark .pm { display: block; }
+.fp-label { white-space: nowrap; }
+.fp-col { position: absolute; top: 0; }
+.fp-line { fill: none; stroke-linecap: round; stroke-width: 2; }
+.fp-head { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.fp-arrow.is-on .fp-line, .fp-arrow.is-on .fp-head { stroke: var(--ink); }
+.fp-arrow.is-off .fp-line, .fp-arrow.is-off .fp-head { stroke: var(--faint); stroke-width: 1.25; }
+.fp-ground { stroke: var(--line-strong); stroke-width: 1; }
+.fp-dot { fill: var(--stage); stroke: var(--ink); stroke-width: 1.5; }
+.fp-arrow.is-off .fp-dot { stroke: var(--faint); }
+.fp-tile { position: absolute; left: 0; top: 0; z-index: 3; display: inline-flex; align-items: center; border-radius: 8px; white-space: nowrap; }
+.fp-tile.is-off { color: var(--muted); }
+.fp-say { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 2px 12px; min-height: 40px; margin: 12px 0 0; text-align: center; }
+.fp-say .fx-to { font-size: 25px; line-height: 32px; color: var(--ink); }
+.fp-en { color: var(--ink); font: 500 16px/24px var(--f-ui); }
+
+/* Chips: one per form or particle */
+.fx-chips { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.fx-chip { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px; padding: 6px 8px; border: 1.5px solid var(--line-strong); border-radius: 12px; color: var(--ink); background: transparent; text-align: center; }
+.fx-chip:hover { border-color: var(--ink); }
+.fx-chip.is-on { border-color: var(--ink); background: #fff; }
+.fx-chip-to { font: italic 500 19px/22px var(--f-serif); }
+.fx-chip-en { color: var(--muted); font: 500 12.5px/16px var(--f-ui); }
+.fx-chip.is-on .fx-chip-en { color: var(--ink); }
+
 /* Grid */
 .fg-t { width: 100%; border-collapse: separate; border-spacing: 0 4px; table-layout: fixed; }
 .fg-t thead th { padding: 0 8px 4px; color: var(--muted); font: 700 12px/16px var(--f-display); letter-spacing: .13em; text-align: left; text-transform: uppercase; vertical-align: bottom; }
@@ -204,6 +253,14 @@ button.ps-rule:hover { background: var(--paper-soft); }
 .fg-cell.is-noun { color: color-mix(in srgb, #fff calc(var(--fill, 0) * 100%), var(--ink)); background: color-mix(in srgb, var(--tile-name) calc(var(--fill, 0) * 100%), #fff); }
 .fg-cell.is-pron { box-shadow: inset 0 0 0 calc(var(--fill, 0) * 1.5px) var(--ink); }
 .fg-cell:hover { box-shadow: inset 0 0 0 1.5px var(--ink); }
+.fg.is-people .fg-cell.is-form { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.fg.is-people td { background: color-mix(in srgb, var(--ink) calc(var(--col, 0) * 7%), transparent); border-radius: 12px; }
+.fg-mini { display: inline-flex; gap: 3px; min-height: 22px; align-items: flex-end; }
+.fg-form { font-size: 19px; line-height: 22px; font-weight: 500; }
+.fg-cell.is-none { min-height: 48px; display: flex; align-items: center; color: var(--muted); background: transparent; }
+.fg-people { display: inline-flex; gap: 10px; margin-right: 8px; padding: 4px; }
+.fg.is-people .fg-say { align-items: center; }
+.fg.is-people .fg-say .fx-to { line-height: 32px; }
 .fg-out { margin-top: 12px; }
 .fg-say { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; min-height: 36px; margin: 0; }
 .fg-say .fx-to { font-size: 25px; line-height: 32px; }
@@ -352,6 +409,14 @@ html[data-band='line'][data-band-line='on'] .membership-notice summary { min-hei
   .fg-t td { padding: 2px; }
   .fg-cell { padding: 6px 8px; font-size: 16px; line-height: 20px; }
   .fg-say .fx-to { font-size: 22px; line-height: 28px; }
+  .fg-form { font-size: 17px; line-height: 20px; }
+  .fg-people { flex-basis: 100%; }
+  .fp-say { flex-direction: column; align-items: center; min-height: 60px; }
+  .fp-say .fx-to { font-size: 22px; line-height: 28px; }
+  .fp-en { font-size: 15.5px; line-height: 22px; }
+  .fx-chip { padding-inline: 4px; }
+  .fx-chip-to { font-size: 18px; }
+  .fx-chip-en { font-size: 12px; line-height: 15px; }
   .fl2-row { gap: 8px 16px; }
   .fl2-word { font-size: 30px; }
   .px-sum { grid-template-columns: minmax(0, 1fr) 16px; }

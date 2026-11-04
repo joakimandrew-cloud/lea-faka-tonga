@@ -38,13 +38,25 @@ import './proto.css'
 import Contents from './Contents.jsx'
 import { SteppedExercises, SteppedQuick } from './SteppedSet.jsx'
 import Figure, { StaticTile } from './figures/Figure.jsx'
-import { FIGURES_15, F15_1, OPENING_15 } from './figures/lesson15.js'
+import { FIGURES_15, F15_1, OPENING_15, RECALL_15 } from './figures/lesson15.js'
+import { FIGURES_2, OPENING_2, RECALL_2 } from './figures/lesson2.js'
+import { FIGURES_28, OPENING_28, RECALL_28 } from './figures/lesson28.js'
 import { Look2Figure, StructureB, StructureC, TileCompare } from './Alternatives.jsx'
 
 const COLOURS = lessonColours(chapters, lessonLevel)
 
-const FIGURES = { 15: FIGURES_15 }
-const OPENING = { 15: OPENING_15 }
+const FIGURES = { 2: FIGURES_2, 15: FIGURES_15, 28: FIGURES_28 }
+const OPENING = { 2: OPENING_2, 15: OPENING_15, 28: OPENING_28 }
+const RECALL = { 2: RECALL_2, 15: RECALL_15, 28: RECALL_28 }
+
+/** Recall cards read the lesson's own book sentences; the rule text stays as it is. */
+function withRecall(meta, recall) {
+  if (!meta?.teaching?.key_rules || !recall) return meta
+  const key_rules = meta.teaching.key_rules.map((rule, i) => (recall[i]
+    ? { ...rule, example_tongan: recall[i].to, example_english: recall[i].en }
+    : rule))
+  return { ...meta, teaching: { ...meta.teaching, key_rules } }
+}
 
 function wordCount(lesson) {
   return (JSON.stringify(lesson.blocks) + JSON.stringify(lesson.intro)).split(/\s+/).length
@@ -118,7 +130,7 @@ export function OpeningRow({ opening }) {
         {opening.row.map(face => <StaticTile key={face.text} face={face} />)}
       </div>
       <p className="pl-open-side">
-        <span className="pl-open-en">{opening.en}</span>
+        <span className="pl-open-en" data-en={opening.en}>{opening.en}</span>
         <span className="pl-open-cap">The shape this lesson teaches</span>
       </p>
     </div>
@@ -300,7 +312,7 @@ export default function ProtoLesson() {
     return { total, answered: vals.length, right: vals.filter(Boolean).length }
   }, [ex, exercises])
   const firstUnfinishedHref = useMemo(() => firstUnfinishedExerciseHref(exercises, ex), [ex, exercises])
-  const learn = useMemo(() => (meta && currentLesson ? learnModel({ n, meta, sections, plan: FIGURE_PLAN }) : null), [n, meta, sections, currentLesson])
+  const learn = useMemo(() => (meta && currentLesson ? learnModel({ n, meta: withRecall(meta, RECALL[n]), sections, plan: FIGURE_PLAN }) : null), [n, meta, sections, currentLesson])
 
   if (!meta) return <div className="wrap" style={{ padding: '160px 0' }}><h1 className="display">No Lesson {num}</h1><Link to="/lessons" className="link">All lessons</Link></div>
   if (solo) return <Solo id={solo} n={n} />

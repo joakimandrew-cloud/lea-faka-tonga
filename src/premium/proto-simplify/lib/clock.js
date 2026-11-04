@@ -193,10 +193,14 @@ export function useFigureClock({ id, rootRef, timelines, external = null, autopl
   }, [cancel, playTo, reduced, scenes, timelines, write])
 
   /** Jump to a span of the timeline and play it: a lane tap in a Fork. */
-  const playSpan = useCallback((from, to) => {
+  const playSpan = useCallback((from, to, sceneIndex) => {
     flags.current.stopped = true
     flags.current.ran = true
     cancel()
+    if (Number.isInteger(sceneIndex) && sceneIndex !== clock.current.scene) {
+      clock.current.scene = sceneIndex
+      setScene(sceneIndex)
+    }
     if (reduced) {
       write(to)
       return

@@ -314,4 +314,11 @@ export const OPENING_15 = {
   en: 'Sione sang.',
 }
 
+/** Recall cards, by key rule: book sentences only. */
+export const RECALL_15 = [
+  { to: 'Naʻe hiva ʻa Sione.', en: 'Sione sang.' },
+  { to: 'ʻE hiva ʻa Tēvita.', en: 'Tēvita will sing.' },
+  { to: 'Naʻe ʻuha.', en: 'It rained.' },
+]
+
 export const FIGURES_15 = [F15_1, F15_2, F15_3, F15_4, F15_5, F15_6, F15_7]

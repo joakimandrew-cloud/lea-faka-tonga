@@ -31,9 +31,8 @@ export function forkTimeline(scene) {
   }
 }
 
-export function forkLayouts(scene, width) {
-  const base = tileSizes(width)
-  const place = s => scene.cases.map(c => {
+function placeCases(scene, s) {
+  return scene.cases.map(c => {
     const items = c.row.map(item => {
       const face = item.slot ? item.form : item
       return { ...item, w: textWidth(face.text, s.fs) + s.pad * 2 }
@@ -43,10 +42,17 @@ export function forkLayouts(scene, width) {
     const total = x - s.gap
     return { items, total }
   })
-  const first = place(base)
-  const widest = Math.max(...first.map(c => c.total))
-  const s = fitSizes(base, widest, width)
-  const rows = s === base ? first : place(s)
+}
+
+/** One size for the whole figure, so Another example never changes the tile size. */
+export function forkSizes(def, width) {
+  const base = tileSizes(width)
+  const widest = Math.max(...def.scenes.flatMap(scene => placeCases(scene, base).map(c => c.total)))
+  return fitSizes(base, widest, width)
+}
+
+export function forkLayouts(scene, width, s) {
+  const rows = placeCases(scene, s)
   rows.forEach(r => {
     const x0 = Math.max(0, (width - r.total) / 2)
     r.items.forEach(item => { item.x += x0 })
@@ -54,16 +60,20 @@ export function forkLayouts(scene, width) {
   return { rows, s }
 }
 
-export function forkGeometry(s, width) {
+export function forkGeometry(s, width, def) {
   const phone = width < 480
+  const count = def.lanes.length
+  const peopleH = def.people ? (phone ? 92 : 104) : 0
   const laneH = phone ? 76 : 84
   const laneGap = phone ? 8 : 12
   const branchH = phone ? 44 : 56
-  const rowTop = laneH + branchH
+  const laneBottom = peopleH + laneH
+  const rowTop = laneBottom + branchH
   const labelTop = rowTop + s.h + 7
   const enTop = labelTop + s.label + 4
-  const laneW = (width - laneGap) / 2
-  return { laneH, laneGap, laneW, branchH, rowTop, labelTop, enTop, height: enTop + 30 }
+  const laneW = (width - laneGap * (count - 1)) / count
+  const laneX = i => i * (laneW + laneGap) + laneW / 2
+  return { count, peopleH, laneH, laneGap, laneW, laneX, branchH, laneBottom, rowTop, labelTop, enTop, height: enTop + 30 }
 }
 
 export function forkFrame(scene, timeline, t, layout, geometry) {
@@ -108,27 +118,31 @@ export function forkFrame(scene, timeline, t, layout, geometry) {
     opacity: ramp(ringP, 0, 0.12),
   } : null
 
+  // People, where a figure has them: the ring asks about one mark, then a frame lands on each member.
+  const personRing = c.ringPerson != null ? { index: c.ringPerson, opacity: ramp(ringP, 0.1, 0.5) * (1 - ramp(laneP, 0.2, 0.8)) } : null
+  const frames = c.group ? { members: c.group, opacity: travel(laneP) * rowOpacity } : null
+
   const litNow = c.lane
-  const lit = scene.cases.reduce((acc, item) => { acc[item.lane] = 0; return acc }, {})
+  const lit = {}
   lit[litNow] = travel(laneP)
   if (previous) lit[litNow] = 1 - ramp(enter, 0, 0.4)
 
   // The form travels from the foot of its lane to the slot.
-  const laneX = c.lane === 0 ? geometry.laneW / 2 : geometry.laneW + geometry.laneGap + geometry.laneW / 2
+  const laneX = geometry.laneX(c.lane)
   const dropE = travel(ramp(dropP, 0.05, 1))
   const form = slot ? {
     face: slot.form,
     x: lerp(laneX - slot.w / 2, slot.x, dropE),
-    y: lerp(geometry.laneH - s.h * 0.55, geometry.rowTop, dropE),
+    y: lerp(geometry.laneBottom - s.h * 0.55, geometry.rowTop, dropE),
     w: slot.w,
     opacity: ramp(dropP, 0, 0.14),
     scale: lerp(0.86, 1, dropE),
   } : null
 
-  const branches = [0, 1].map(lane => {
-    const x0 = lane === 0 ? geometry.laneW / 2 : geometry.laneW + geometry.laneGap + geometry.laneW / 2
+  const branches = Array.from({ length: geometry.count }, (_, lane) => {
+    const x0 = geometry.laneX(lane)
     const x1 = slot.x + slot.w / 2
-    const y0 = geometry.laneH
+    const y0 = geometry.laneBottom
     const y1 = geometry.rowTop - 2
     const midY = (y0 + y1) / 2
     return {
@@ -153,6 +167,8 @@ export function forkFrame(scene, timeline, t, layout, geometry) {
     en,
     slotOpacity: clamp01(1 - ramp(dropP, 0.8, 1)),
     ringLabel: ramp(ringP, 0.7, 1),
+    personRing,
+    frames,
     s,
   }
 }

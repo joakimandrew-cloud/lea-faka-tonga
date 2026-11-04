@@ -6,7 +6,10 @@ import Figure from './Figure.jsx'
 import { rowTimeline } from './row.js'
 import { forkTimeline } from './fork.js'
 import { gridTimeline } from './grid-timeline.js'
+import { pathTimeline } from './path.js'
 import { FIGURES_15 } from './lesson15.js'
+import { FIGURES_2 } from './lesson2.js'
+import { FIGURES_28 } from './lesson28.js'
 
 const COLOURS = ['#b92e0e', '#121212', '#0f5c63', '#8c867f', '#d98a3a', '#3a7ca5']
 
@@ -14,6 +17,7 @@ function timelineOf(def) {
   const scene = def.scenes[0]
   if (def.kind === 'row') return rowTimeline(scene)
   if (def.kind === 'fork') return forkTimeline(scene)
+  if (def.kind === 'path') return pathTimeline(scene)
   return gridTimeline(def)
 }
 
@@ -46,4 +50,8 @@ function sceneFor(id, label, figures) {
   }
 }
 
-export const PROTO_FIGURE_SCENES = [sceneFor('lesson-15-figures', 'Lesson 15 figures (prototype)', FIGURES_15)]
+export const PROTO_FIGURE_SCENES = [
+  sceneFor('lesson-15-figures', 'Lesson 15 figures (prototype)', FIGURES_15),
+  sceneFor('lesson-2-figures', 'Lesson 2 figures (prototype)', FIGURES_2),
+  sceneFor('lesson-28-figures', 'Lesson 28 figures (prototype)', FIGURES_28),
+]
