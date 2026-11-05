@@ -63,7 +63,7 @@ export const F30_2 = {
         },
         {
           lane: 1, say: 'ʻE nofo ai kaeʻoua kuo mālohi.', en: 'She will stay there until she is strong.',
-          row: [face('ʻE nofo ai', 'quiet'), face('kaeʻoua', 'quiet'), { slot: true, form: face('kuo', 'tense') }, face('mālohi.', 'quiet')],
+          row: [face('ʻE nofo ai', 'quiet'), face('kaeʻoua', 'quiet'), { slot: true, form: face('kuo', 'tense') }, face('mālohi.', 'verb', 'adjective')],
         },
       ],
     },

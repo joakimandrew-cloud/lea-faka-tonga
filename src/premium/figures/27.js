@@ -57,7 +57,7 @@ export const F27_2 = {
   title: '*ʻia* or *ʻi he*? Look at the next word',
   after: { section: 'the-than-phrase-with-i', block: b => b.type === 'p' && b.text.startsWith('The') },
   lanes: [
-    { label: 'Before a proper noun', forms: ['ʻia'] },
+    { label: 'Before a person’s name', forms: ['ʻia'] },
     { label: 'Before a common noun with an article', forms: ['ʻi he', 'ʻi e'] },
   ],
   scenes: [
@@ -76,7 +76,7 @@ export const F27_2 = {
     },
   ],
   alt: [
-    'Before a proper noun: *ʻia*. *ʻOku talavou ange ʻa Peni ʻia Tēvita.* Peni is better-looking than Tēvita.',
+    'Before a person’s name: *ʻia*. *ʻOku talavou ange ʻa Peni ʻia Tēvita.* Peni is better-looking than Tēvita.',
     'Before a common noun with an article: *ʻi he* (or *ʻi e*). *ʻOku vave ange ʻa e lolí ʻi he pasikalá.* The truck is faster than the bicycle.',
   ],
 }

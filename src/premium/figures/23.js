@@ -54,7 +54,7 @@ export const F23_2 = {
   after: { section: 'oku-totonu-ke-should-ought-to', block: b => b.type === 'p' && b.text.startsWith('When a noun subject') },
   lanes: [
     { label: 'A pronoun', forms: ['ke'] },
-    { label: 'A noun subject, at the end with *ʻa*', forms: ['Sione'] },
+    { label: 'A noun subject, after the verb', forms: ['Sione'] },
   ],
   scenes: [
     {
@@ -73,7 +73,7 @@ export const F23_2 = {
   ],
   alt: [
     'With a pronoun, *ke* is followed by the pronoun and then the verb. *ʻOku totonu ke ke lotu.* You should pray.',
-    'When a noun subject appears instead of a pronoun, the *ke* is followed directly by the verb, and the subject comes at the end with *ʻa*. *ʻOku totonu ke tokoni ʻa Sione.* Sione should help.',
+    'When a noun subject appears instead of a pronoun, the *ke* is followed directly by the verb, and the subject comes after it, here with *ʻa*. *ʻOku totonu ke tokoni ʻa Sione.* Sione should help.',
   ],
 }
 
