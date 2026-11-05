@@ -159,7 +159,7 @@ function dropScene(key, a, b, verb, noun, sayA, enA, sayB, enB) {
       [['tense', 1], ['GHOST'], ['verb', 0], ['focus', 0], ['noun', 0]],
     ],
     beats: [
-      { kind: 'drop', tile: 'pron', mark: 1, to: 1 },
+      { kind: 'drop', tile: 'pron', old: true, to: 1 },
       { kind: 'add', tile: ['focus', 'noun'], to: 2, roll: 'tense' },
       { kind: 'en' },
       { kind: 'limit' },
@@ -231,7 +231,7 @@ function questionScene(key, tense, verb, subj, place, ask, sayA, enA, sayB, enB)
     ],
     beats: [
       { kind: 'swap', tile: 'place', to: 1 },
-      { kind: 'move', tile: 'place', mark: 1, arc: 'origin', to: 2 },
+      { kind: 'move', tile: 'place', arc: 'origin', to: 2 },
       { kind: 'en' },
     ],
     alt: [
