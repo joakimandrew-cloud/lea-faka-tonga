@@ -136,6 +136,8 @@ test('the capture flags, the /__proto route and /scrub exist in a test build onl
   assert.match(page, /const flag = name => \(__TEST_BUILD__ \? params\.get\(name\) : null\)/)
   // Every capture flag is read through flag(), and none straight from the address.
   assert.doesNotMatch(page, /params\.get\('(structure|band|look|still|solo|view)'\)/)
+  // The figure clock's ?still check too: a production build ignores it.
+  assert.match(source('src/premium/figure-engine/lib/clock.js'), /function stillPage\(\) \{\s*return __TEST_BUILD__ && /)
 })
 
 test('check:figures passes, and the build never runs it', () => {

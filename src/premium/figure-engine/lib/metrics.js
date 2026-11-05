@@ -54,13 +54,16 @@ export function labelWidth(face) {
     labelProbe.style.cssText = 'left:-9999px;top:-9999px;visibility:hidden;transform:none'
     document.body.appendChild(labelProbe)
   }
-  if (face.role === 'focus') {
-    labelProbe.textContent = 'focus '
-    const to = document.createElement('span')
-    to.className = 'fx-to'
-    to.textContent = 'ʻa'
-    labelProbe.appendChild(to)
-  } else labelProbe.textContent = text
+  // Measured as Label sets it: Tongan written *like this* is a serif italic span, as Rich draws it.
+  labelProbe.textContent = ''
+  const parts = face.role === 'focus' ? ['focus ', '*ʻa*'] : String(text).split(/(\*[^*]+\*)/g).filter(Boolean)
+  for (const part of parts) {
+    const span = document.createElement('span')
+    const tongan = part.length > 2 && part.startsWith('*') && part.endsWith('*')
+    if (tongan) span.className = 'fx-to'
+    span.textContent = tongan ? part.slice(1, -1) : part
+    labelProbe.appendChild(span)
+  }
   const w = labelProbe.getBoundingClientRect().width
   cache.set(key, w)
   return w
@@ -156,7 +159,8 @@ export function uiWidth(text, font) {
 
 /** Width of a figure's English line, in the font .ft-en sets at this stage width. */
 export function enWidth(text, width) {
-  return uiWidth(String(text), `500 ${width < 480 ? 15.5 : 16}px 'Inter Variable', Inter, sans-serif`) + 2
+  // A note may mark Tongan *like this*; the marks are not drawn, so they are not measured.
+  return uiWidth(String(text).replace(/\*([^*]+)\*/g, '$1'), `500 ${width < 480 ? 15.5 : 16}px 'Inter Variable', Inter, sans-serif`) + 2
 }
 
 /** The lines an English sentence takes when it wraps on this stage. */

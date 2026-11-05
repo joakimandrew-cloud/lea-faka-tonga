@@ -442,6 +442,19 @@ html[data-band='line'][data-band-line='on'] .membership-notice summary { min-hei
 
 /* Lesson 1's own figures sit in the calm page: their one small control meets 44 px like the rest. */
 .pl .st-replay { min-height: 44px; min-width: 44px; padding: 0 12px; }
+/* ...and on the phone they keep within the 654 px figure height (Figure 1.2 was 734 px at 390): tighter
+   spacing and a slightly smaller sentence, every target still 44 px, nothing else about the look changed. */
+@media (max-width: 480px) {
+  .pl .fig .fig-head { margin-bottom: 14px; }
+  .pl .fig .cb-out { padding: 14px 14px 12px; }
+  .pl .fig .cb-sentence { font-size: 34px; }
+  .pl .fig .cb-en { margin-top: 2px; }
+  .pl .fig .cb-controls { gap: 10px; margin-top: 14px; }
+  .pl .fig .cb-row { gap: 4px; }
+  .pl .fig .cb-chips { gap: 5px; }
+  .pl .fig .cb-chip { padding: 4px 9px; }
+  .pl .fig figcaption { margin-top: 14px; font-size: 14px; line-height: 1.45; }
+}
 
 /* The matching exercise's Reset, in the calm page, meets 44 px like every control the sweep checks. */
 .pl .match-head button { min-height: 44px; min-width: 44px; }

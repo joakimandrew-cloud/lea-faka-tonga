@@ -36,9 +36,10 @@ export function reducedMotion() {
   return typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 }
 
-/** ?still=1 keeps every figure from auto-playing, for the capture tools only. */
+/** ?still=1 keeps every figure from auto-playing, for the capture tools only: a production build
+ *  folds __TEST_BUILD__ to false, so the flag does nothing there. */
 function stillPage() {
-  return typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('still')
+  return __TEST_BUILD__ && typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('still')
 }
 
 export function useFigureClock({ id, rootRef, timelines, external = null, autoplay = true, scenes = 1, onFrame }) {

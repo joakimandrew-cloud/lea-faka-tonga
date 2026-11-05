@@ -5,30 +5,30 @@ import { okinafy } from '@app/lib/okinafy.js'
  * past-tense glosses are composed here.
  */
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { AnimatePresence, motion as Motion } from 'motion/react'
+import { AnimatePresence, MotionConfig, motion as Motion } from 'motion/react'
 import T from '../T.jsx'
 
 const strip = s => s.replace(/^\*|\*$/g, '').trim()
 const PAST = { eat: 'ate', drink: 'drank', go: 'went', come: 'came', sleep: 'slept', speak: 'spoke', sing: 'sang', stay: 'stayed', run: 'ran', study: 'studied', return: 'returned', cry: 'cried' }
 
+// No entrance: like the engine's figures, a Lesson 1 figure is simply there when the page loads,
+// and with reduced motion its own transitions keep only their fades (MotionConfig "user").
 function Frame({ k, title, children, caption }) {
   return (
-    <Motion.figure
-      className="fig"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-10% 0px' }}
-      transition={{ duration: .8, ease: [.16, 1, .3, 1] }}
-    >
-      <div className="fig-head">
-        <span className="fig-k">{k}</span>
-        <span className="fig-t">{title}</span>
-      </div>
-      {children}
-      {caption && <figcaption>{caption}</figcaption>}
-    </Motion.figure>
+    <MotionConfig reducedMotion="user">
+      <figure className="fig">
+        <div className="fig-head">
+          <span className="fig-k">{k}</span>
+          <span className="fig-t">{title}</span>
+        </div>
+        {children}
+        {caption && <figcaption>{caption}</figcaption>}
+      </figure>
+    </MotionConfig>
   )
 }
+
+const prefersReduced = () => typeof window !== 'undefined' && Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
 
 /* 1 · The three parts. Tap a part to read what it does. */
 export function PatternFigure() {
@@ -38,15 +38,27 @@ export function PatternFigure() {
     { w: 'kai.', role: 'Verb', gloss: 'eat', what: 'Says what was done. It keeps the same form in every tense.' },
   ]
   const [on, setOn] = useState(0)
-  const [auto, setAuto] = useState(true)
+  // One pass once half the figure is in view (each part in turn, then back to the first, where it
+  // rests), and none at all with reduced motion; a tap stops it for good.
+  const [auto, setAuto] = useState(() => !prefersReduced())
+  const [seen, setSeen] = useState(false)
+  const rootRef = useRef(null)
   useEffect(() => {
-    if (!auto) return
-    const id = setInterval(() => setOn(o => (o + 1) % 3), 2400)
-    return () => clearInterval(id)
-  }, [auto])
+    const node = rootRef.current
+    if (!auto || seen || !node || typeof IntersectionObserver === 'undefined') return undefined
+    const io = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) { setSeen(true); io.disconnect() } }, { threshold: 0.5 })
+    io.observe(node)
+    return () => io.disconnect()
+  }, [auto, seen])
+  useEffect(() => {
+    if (!auto || !seen) return undefined
+    const ids = [1, 2, 0].map((part, i) => setTimeout(() => setOn(part), 2400 * (i + 1)))
+    const end = setTimeout(() => setAuto(false), 2400 * 3)
+    return () => { ids.forEach(clearTimeout); clearTimeout(end) }
+  }, [auto, seen])
   return (
     <Frame k="Figure 1.1" title="Three parts, always in this order" caption="Tap a word. The literal reading is “Past I eat”, which English says as “I ate.”">
-      <div className="pf">
+      <div className="pf" ref={rootRef}>
         {parts.map((p, i) => (
           <button key={i} className={`pf-part ${on === i ? 'is-on' : ''}`} onClick={() => { setOn(i); setAuto(false) }} aria-pressed={on === i}>
             <span className="pf-num">{i + 1}</span>

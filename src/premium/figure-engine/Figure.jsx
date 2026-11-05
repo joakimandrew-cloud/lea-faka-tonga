@@ -28,7 +28,9 @@ export function Label({ role, label }) {
   if (role === 'focus') {
     return <>focus <span className="fx-to" lang="to" data-tongan="ʻa">ʻa</span></>
   }
-  return label ?? ROLE_LABEL[role] ?? null
+  const text = label ?? ROLE_LABEL[role] ?? null
+  // A label may mark Tongan *like this*, set in lower-case serif italics as in titles and lanes.
+  return typeof text === 'string' && text.includes('*') ? <Rich text={text} /> : text
 }
 
 function TileFace({ face, style }) {
@@ -121,7 +123,8 @@ function RowStage({ scene, timeline, t, width, def, override, epoch }) {
 function EnglishLine({ text, first }) {
   if (!text) return null
   if (first && text.startsWith(`${first} `)) return <><span className="ft-en-it">{first}</span>{text.slice(first.length)}</>
-  return text
+  // A note in place of English may mark Tongan *like this*.
+  return text.includes('*') ? <Rich text={text} /> : text
 }
 
 function Arrow({ arc }) {
@@ -174,7 +177,7 @@ function RowTile({ tile, frame, geometry, s, slotLabel = 'no subject' }) {
         <svg className="ft-slot-line" width={w} height={h} aria-hidden="true">
           {frame.slot > 0 && <rect x=".75" y=".75" width={w - 1.5} height={h - 1.5} rx="9.5" pathLength="1" className="ft-slot-rect" strokeDasharray={frame.slot >= 1 ? '0.018 0.012' : `${frame.slot} 1`} />}
         </svg>
-        <span className="ft-slot-label" style={{ opacity: ramp(frame.slot, 0.6, 1) }}>{slotLabel}</span>
+        <span className="ft-slot-label" style={{ opacity: ramp(frame.slot, 0.6, 1) }}><Rich text={slotLabel} /></span>
       </span>
     )
   }
@@ -406,7 +409,7 @@ function LimitRow({ limit, p }) {
         {limit.row.map(item => <StaticTile key={item.text} face={item} ring={item.ring} showLabel={false} small />)}
         <span className="ft-limit-en">{limit.en}</span>
       </div>
-      <p className="ft-limit-cap">{limit.caption}</p>
+      <p className="ft-limit-cap"><Rich text={limit.caption} /></p>
     </div>
   )
 }
