@@ -9,6 +9,8 @@
 // R1 (Step 11): no noun here is a subject (each follows Ko e, or stands in a bare noun
 // phrase), so every noun tile is quiet "noun". ʻa e kató / ʻa e falé in 37.4 are the subject
 // but a grouped phrase, so they stay a quiet group.
+// D (Step 11 second look): ia meaning "that" is pronoun in 37.1, 37.2 and the opening,
+// as in 39.2 and 12.4 (Ch 39 line 84, Ch 12 line 107); eni stays quiet (Ch 12's demonstrative).
 // Recall: chapters.json gives "Ko e vaka eni ʻa hai?" for the third key rule, which is not
 // in the book (it prints ʻo hai for vaka), so the card uses the book's hele sentence.
 
@@ -20,7 +22,7 @@ function classCase(lane, noun, dem, form, say, en) {
     row: [
       face('Ko e', 'quiet'),
       { ...face(noun, 'quiet', 'noun'), ring: true, label: 'noun' },
-      face(dem, 'quiet'),
+      face(dem, 'pronoun', 'pronoun'),
       { slot: true, form: face(form, 'pronoun', 'postposed'), label: 'postposed' },
     ],
   }
@@ -66,7 +68,7 @@ function whoseScene(key, cls, noun, question, answer, sayQ, enQ, sayA, enA) {
     tiles: {
       ko: [face('Ko e', 'quiet')],
       noun: [face(noun, 'quiet', 'noun')],
-      dem: [face('eni', 'quiet'), face('ia', 'quiet')],
+      dem: [face('eni', 'quiet'), face('ia', 'pronoun', 'pronoun')],
       poss: [face(question, 'question', cls), face(answer, 'pronoun', cls)],
     },
     before: { say: sayQ, en: enQ },
@@ -179,7 +181,7 @@ export const F37_4 = {
 
 /** The opening row in the hero: a still. */
 export const OPENING = {
-  row: [face('Ko e', 'quiet'), face('kato', 'quiet', 'noun'), face('ia', 'quiet'), face('ʻaʻaku', 'pronoun', 'postposed')],
+  row: [face('Ko e', 'quiet'), face('kato', 'quiet', 'noun'), face('ia', 'pronoun', 'pronoun'), face('ʻaʻaku', 'pronoun', 'postposed')],
   say: 'Ko e kato ia ʻaʻaku.',
   en: 'That basket is mine.',
 }

@@ -17,7 +17,8 @@ function aiScene(key, noun, dem, clauseA, clauseB, phraseA, phraseB, sayA, enA, 
     tiles: {
       ko: [face('Ko e', 'quiet')],
       noun: [face(noun, 'quiet', 'noun')],
-      dem: [face(dem, 'quiet')],
+      // Item D (Step 11): ia meaning "that" is a pronoun, as in 39.2 (Ch 39 lines 48 and 84).
+      dem: [face(dem, dem === 'ia' ? 'pronoun' : 'quiet')],
       clause: [face(clauseA, 'quiet'), face(clauseB, 'quiet')],
       phrase: [face(phraseA, 'quiet'), face(phraseB, 'particle', BACK)],
     },

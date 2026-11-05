@@ -131,7 +131,7 @@ export const F32_4 = {
   id: '32.4',
   kind: 'row',
   types: ['add'],
-  title: 'Where the time word sits',
+  title: 'Where the temporal adverb sits',
   after: { section: 'temporal-adverbs', block: b => b.type === 'p' && b.text.startsWith('These temporal adverbs') },
   scenes: [
     timeScene('daily', {

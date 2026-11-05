@@ -139,8 +139,10 @@ export const F7_3 = {
   ],
 }
 
-/** The answer opens on ʻIo, so the grouped tile is not only a tense marker: it is drawn quiet, as in 21.js. */
-const answer = text => face(text, 'quiet')
+/** The answer opens on ʻIo, drawn as its own quiet tile (as 14.5), so the tense tile stays red through the turnover. */
+const io = () => face('ʻIo,', 'quiet')
+/** R11: where the pronoun changes too, tense and pronoun share one tile, keeping the row within five. */
+const tp = text => face(text, 'tense', 'tense + pronoun')
 
 /** R6: the place or person turns over to *ai* alone, split out of its phrase as a particle, "refers back". */
 const ai = () => face('ai', 'particle', 'refers back')
@@ -169,17 +171,17 @@ export const F7_4 = {
     aiScene(
       'ki-vavau',
       {
-        tense: [face('Té', 'tense'), answer('ʻIo, té')],
-        pron: [face('ke', 'pronoun'), face('u', 'pronoun')],
+        io: [io()],
+        tense: [tp('Té ke'), tp('té u')],
         verb: [face('ʻalu', 'verb')],
         prep: [face('ki', 'quiet', 'preposition')],
         noun: [face('Vavaʻu', 'quiet', 'place'), ai()],
       },
       [
-        [['tense', 0], ['pron', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
-        [['tense', 1], ['pron', 1], ['verb', 0], ['prep', 0], ['noun', 1]],
+        [['tense', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
+        [['io', 0], ['tense', 1], ['verb', 0], ['prep', 0], ['noun', 1]],
       ],
-      ['tense', 'pron', 'noun'],
+      ['tense', 'noun'],
       [
         { say: 'Té ke ʻalu ki Vavaʻu?', en: 'Will you go to Vavaʻu?' },
         { say: 'ʻIo, té u ʻalu ki ai.', en: 'Yes, I will go there.' },
@@ -189,17 +191,17 @@ export const F7_4 = {
     aiScene(
       'kia-sione',
       {
-        tense: [face('Té', 'tense'), answer('ʻIo, té')],
-        pron: [face('ke', 'pronoun'), face('u', 'pronoun')],
+        io: [io()],
+        tense: [tp('Té ke'), tp('té u')],
         verb: [face('lea', 'verb')],
         prep: [face('kia', 'quiet', 'preposition'), face('ki', 'quiet', 'preposition')],
         noun: [face('Sione', 'quiet', 'person'), ai()],
       },
       [
-        [['tense', 0], ['pron', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
-        [['tense', 1], ['pron', 1], ['verb', 0], ['prep', 1], ['noun', 1]],
+        [['tense', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
+        [['io', 0], ['tense', 1], ['verb', 0], ['prep', 1], ['noun', 1]],
       ],
-      ['tense', 'pron', 'prep', 'noun'],
+      ['tense', 'prep', 'noun'],
       [
         { say: 'Té ke lea kia Sione?', en: 'Will you speak to Sione?' },
         { say: 'ʻIo, té u lea ki ai.', en: 'Yes, I will speak to him.' },
@@ -209,14 +211,15 @@ export const F7_4 = {
     aiScene(
       'i-tonga',
       {
-        tense: [face('ʻOkú', 'tense'), answer('ʻIo, ʻokú')],
+        io: [io()],
+        tense: [face('ʻOkú', 'tense'), face('ʻokú', 'tense')],
         pron: [face('ne', 'pronoun')],
         prep: [face('ʻi', 'quiet', 'preposition')],
         noun: [face('Tonga', 'quiet', 'place'), ai()],
       },
       [
         [['tense', 0], ['pron', 0], ['prep', 0], ['noun', 0]],
-        [['tense', 1], ['pron', 0], ['prep', 0], ['noun', 1]],
+        [['io', 0], ['tense', 1], ['pron', 0], ['prep', 0], ['noun', 1]],
       ],
       ['tense', 'noun'],
       [
@@ -228,17 +231,17 @@ export const F7_4 = {
     aiScene(
       'mei-fisi',
       {
-        tense: [face('Naʻá', 'tense'), answer('ʻIo, naʻá')],
-        pron: [face('ke', 'pronoun'), face('ku', 'pronoun')],
+        io: [io()],
+        tense: [tp('Naʻá ke'), tp('naʻá ku')],
         verb: [face('haʻu', 'verb')],
         prep: [face('mei', 'quiet', 'preposition')],
         noun: [face('Fisi', 'quiet', 'place'), ai()],
       },
       [
-        [['tense', 0], ['pron', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
-        [['tense', 1], ['pron', 1], ['verb', 0], ['prep', 0], ['noun', 1]],
+        [['tense', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
+        [['io', 0], ['tense', 1], ['verb', 0], ['prep', 0], ['noun', 1]],
       ],
-      ['tense', 'pron', 'noun'],
+      ['tense', 'noun'],
       [
         { say: 'Naʻá ke haʻu mei Fisi?', en: 'Did you come from Fiji?' },
         { say: 'ʻIo, naʻá ku haʻu mei ai.', en: 'Yes, I came from there.' },

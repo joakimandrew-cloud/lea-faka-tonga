@@ -17,7 +17,7 @@ export const F23_1 = {
       key: 'feinga',
       tiles: {
         tense: [face('ʻOku', 'tense', 'present')],
-        pred: [face('totonu', 'quiet', 'right')],
+        pred: [face('totonu', 'verb', 'right')],
         that: [face('ke', 'quiet', 'that')],
         you: [face('ke', 'pronoun', 'you')],
         verb: [face('feinga', 'verb', 'try')],

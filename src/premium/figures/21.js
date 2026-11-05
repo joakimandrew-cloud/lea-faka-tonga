@@ -200,7 +200,8 @@ function aiScene(key, subjA, subjB, phrase, before, after) {
   return {
     key,
     tiles: {
-      subj: [face(subjA, 'tense', 'tense + pronoun'), face(subjB, 'quiet')],
+      io: [face('ʻIo,', 'quiet')],
+      subj: [face(subjA, 'tense', 'tense + pronoun'), face(subjB, 'tense', 'tense + pronoun')],
       verb: [face('saiʻia', 'verb')],
       lahi: [face('lahi', 'particle', 'modifier')],
       phrase: [face(phrase, 'quiet', '*ʻia* phrase'), face('ai', 'particle', 'refers back')],
@@ -210,11 +211,13 @@ function aiScene(key, subjA, subjB, phrase, before, after) {
     states: [
       [['subj', 0], ['verb', 0], ['phrase', 0]],
       [['subj', 1], ['verb', 0], ['lahi', 0], ['phrase', 0]],
-      [['subj', 1], ['verb', 0], ['lahi', 0], ['phrase', 1]],
+      [['io', 0], ['subj', 1], ['verb', 0], ['lahi', 0], ['phrase', 0]],
+      [['io', 0], ['subj', 1], ['verb', 0], ['lahi', 0], ['phrase', 1]],
     ],
     beats: [
       { kind: 'swap', tile: 'subj', to: 1 },
-      { kind: 'swap', tile: 'phrase', to: 2 },
+      { kind: 'add', tile: 'io', roll: 'subj', to: 2 },
+      { kind: 'swap', tile: 'phrase', to: 3 },
       { kind: 'en' },
     ],
     alt: [`*${before.say}* ${before.en}`, `*${after.say}* ${after.en}`, '*ai* replaces the full *ʻi*/*ʻia* phrase when the object has already been mentioned.'],
@@ -225,14 +228,14 @@ function aiScene(key, subjA, subjB, phrase, before, after) {
 export const F21_6 = {
   id: '21.6',
   kind: 'row',
-  types: ['swap'],
+  types: ['swap', 'add'],
   title: '*ai* replaces the full *ʻi* or *ʻia* phrase',
   after: { section: 'saiia-to-like', block: b => b.type === 'p' && b.text.startsWith('The substitute') },
   scenes: [
-    aiScene('seini', 'ʻOkú ke', 'ʻIo, ʻoku ou', 'ʻia Seini',
+    aiScene('seini', 'ʻOkú ke', 'ʻoku ou', 'ʻia Seini',
       { say: 'ʻOkú ke saiʻia ʻia Seini?', en: 'Do you like Seini?' },
       { say: 'ʻIo, ʻoku ou saiʻia lahi ai.', en: 'Yes, I like her a lot.' }),
-    aiScene('latu', 'Naʻá ke', 'ʻIo, naʻá ku', 'ʻia Lātū',
+    aiScene('latu', 'Naʻá ke', 'naʻá ku', 'ʻia Lātū',
       { say: 'Naʻá ke saiʻia ʻia Lātū?', en: 'Did you like Lātū?' },
       { say: 'ʻIo, naʻá ku saiʻia lahi ai.', en: 'Yes, I liked him a lot.' }),
   ],
