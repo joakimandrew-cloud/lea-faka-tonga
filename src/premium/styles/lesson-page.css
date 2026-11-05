@@ -452,7 +452,7 @@ html[data-band='line'][data-band-line='on'] .membership-notice summary { min-hei
   .pl .fig .cb-controls { gap: 10px; margin-top: 14px; }
   .pl .fig .cb-row { gap: 4px; }
   .pl .fig .cb-chips { gap: 5px; }
-  .pl .fig .cb-chip { padding: 4px 9px; }
+  .pl .fig .cb-chip { padding: 4px 9px; min-width: 44px; }
   .pl .fig figcaption { margin-top: 14px; font-size: 14px; line-height: 1.45; }
 }
 
