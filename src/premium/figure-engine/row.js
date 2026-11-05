@@ -3,7 +3,7 @@
 // same scene, time and layout always give the same frame, with no state and no
 // CSS animation, so any frame can be rendered exactly.
 import { HOLD_MS, OPEN_MS, ROLL_MS, TRAVEL_MS, clamp01, land, leave, lerp, ramp, travel } from './lib/motion.js'
-import { fitSizes, textWidth, tileSizes } from './lib/metrics.js'
+import { EN_WRAP_LINE, fitSizes, lineHeightOfRow, textWidth, tileSizes } from './lib/metrics.js'
 
 const TRAVEL = { move: TRAVEL_MS, add: TRAVEL_MS, drop: TRAVEL_MS, swap: ROLL_MS, en: 420, limit: 620, slot: 620, line: TRAVEL_MS }
 const HOLD = { move: HOLD_MS, add: HOLD_MS, drop: HOLD_MS, swap: HOLD_MS, en: 380, limit: 300, slot: 300, line: 300 }
@@ -50,7 +50,7 @@ function tileWidth(id, face, s, scene, held) {
 /** One scene's rows at one size. Tiles wrap to a new line only when `limit` is passed. */
 function placeStates(scene, s, limit = Infinity) {
   const held = heldIds(scene)
-  const lineH = s.h + 40
+  const lineH = lineHeightOfRow(s)
   return scene.states.map(state => {
     const map = {}
     let x = 0
@@ -91,17 +91,17 @@ export function rowLayouts(scene, width, s) {
 }
 
 /** Geometry of the stage's rows, shared with the render. Headroom is only what the scene needs. */
-export function rowGeometry(s, scene, twoLineBefore = false, lines = 1, reserveBefore = false) {
+export function rowGeometry(s, scene, twoLineBefore = false, lines = 1, reserveBefore = false, enLines = 1) {
   const beforeH = scene.before || reserveBefore ? (twoLineBefore ? 48 : 26) : 0
   const hasArc = scene.beats.some(b => b.kind === 'move' && b.arc)
   const hasLane = scene.beats.some(b => b.mark || b.old)
   const headroom = hasArc ? s.arc + 16 : hasLane ? 34 : 4
   const rowTop = beforeH + headroom
-  const lineH = s.h + 40
+  const lineH = lineHeightOfRow(s)
   const labelTop = rowTop + (lines - 1) * lineH + s.h + 7
   const enTop = labelTop + s.label + (scene.enFirstWord ? 24 : 4)
   const enH = 30
-  return { beforeH, rowTop, labelTop, enTop, lineH, height: enTop + enH }
+  return { beforeH, rowTop, labelTop, enTop, lineH, height: enTop + enH + (enLines - 1) * EN_WRAP_LINE }
 }
 
 /** The state showing at time t; a chip's tap can start its beat from any state. */
@@ -198,29 +198,56 @@ export function rowFrame(scene, timeline, t, layout, geometry, override = null) 
     const inTravel = t < arcBeat.travelEnd
     const after = layouts[arcBeat.toState]
     const origin = layouts[arcBeat.from][arcBeat.tile]
-    const startX = arcBeat.arc === 'GHOST'
-      ? (frames.GHOST ? frames.GHOST.x + frames.GHOST.w / 2 : origin.x + origin.w / 2)
-      : origin.x + origin.w / 2
+    const ghost = arcBeat.arc === 'GHOST' && frames.GHOST
+    const startX = ghost ? ghost.x + ghost.w / 2 : origin.x + origin.w / 2
+    const startLine = ghost ? ghost.lineY : origin.y
     const landed = inTravel ? after[arcBeat.tile] : frames[arcBeat.tile]
     const endX = landed.x + landed.w / 2
-    const y0 = geometry.rowTop - 5
-    const apex = s.arc - 6
-    const ctrlY = y0 - apex * 2
+    const endLine = landed.lineY ?? landed.y
+    const top = line => geometry.rowTop + line - 5
+    const foot = line => geometry.rowTop + line + s.h + 5
+    const q = inTravel ? travel((t - arcBeat.start) / (arcBeat.travelEnd - arcBeat.start)) : 1
     const midX = (startX + endX) / 2
     const dir = endX >= startX ? 1 : -1
-    const q = inTravel ? travel((t - arcBeat.start) / (arcBeat.travelEnd - arcBeat.start)) : 1
-    arc = {
-      d: `M ${startX} ${y0} Q ${midX} ${ctrlY} ${endX} ${y0}`,
-      progress: q,
-      arrow: q > 0.97,
-      endX,
-      y0,
-      dir,
-      midX,
-      apexY: y0 - apex,
-      // Tangent at the end of a quadratic: from the control point to the end.
-      tx: endX - midX,
-      ty: y0 - ctrlY,
+    if (startLine === endLine) {
+      // The arc rises over the row. Below the first line it stays under the labels of the line above.
+      const y0 = top(startLine)
+      const apex = startLine > 0 ? 14 : s.arc - 6
+      const ctrlY = y0 - apex * 2
+      arc = {
+        d: `M ${startX} ${y0} Q ${midX} ${ctrlY} ${endX} ${y0}`,
+        progress: q,
+        arrow: q > 0.97,
+        endX,
+        y0,
+        dir,
+        midX,
+        apexY: y0 - apex,
+        // Tangent at the end of a quadratic: from the control point to the end.
+        tx: endX - midX,
+        ty: y0 - ctrlY,
+      }
+    } else {
+      // Across a wrap the arc leaves one line's edge and reaches the other's, running in the band
+      // of the gap below the labels. Going up, it stops short of the label under the tile it reaches.
+      const down = endLine > startLine
+      const y0 = down ? foot(startLine) : top(startLine)
+      const y1 = down ? top(endLine) : foot(endLine) + 17
+      const c0 = down ? y1 - 3 : y0 - 12
+      const c1 = down ? y1 - 12 : y1 + 3
+      arc = {
+        d: `M ${startX} ${y0} C ${startX} ${c0}, ${endX} ${c1}, ${endX} ${y1}`,
+        progress: q,
+        arrow: q > 0.97,
+        endX,
+        y0: y1,
+        dir,
+        midX,
+        apexY: 0.125 * y0 + 0.375 * c0 + 0.375 * c1 + 0.125 * y1,
+        // Tangent at the end of a cubic: from its last control point to the end.
+        tx: 0,
+        ty: y1 - c1,
+      }
     }
   }
 

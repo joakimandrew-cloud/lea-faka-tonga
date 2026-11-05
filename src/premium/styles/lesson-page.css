@@ -26,7 +26,7 @@
 .wr-inner .pl .ls-intro { max-width: none; margin: 20px 0 0; font-size: clamp(19px, 1.5vw, 21px); line-height: 1.55; text-wrap: pretty; }
 
 .pl-open { display: flex; flex-wrap: wrap; align-items: first baseline; gap: 12px 24px; margin-top: 24px; }
-.pl-open-row { display: flex; gap: 8px; }
+.pl-open-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 100%; }
 .pl-open-side { display: flex; flex-direction: column; gap: 2px; margin: 0; font-family: var(--f-ui); }
 .pl-open-en { font-size: 16px; font-weight: 500; line-height: 24px; color: var(--ink); }
 .pl-open-cap { font-size: 14px; line-height: 20px; color: var(--muted); }
@@ -168,6 +168,7 @@ button.ps-rule:hover { background: var(--paper-soft); }
 .ft-mark { position: absolute; left: 0; top: 0; z-index: 4; width: 22px; height: 22px; border-radius: 50%; color: #fff; background: var(--mark); font: 700 13px/22px var(--f-display); text-align: center; }
 .ft-mark.is-on-arc { box-shadow: 0 0 0 3px var(--stage); }
 .ft-en { position: absolute; left: 0; margin: 0; color: var(--ink); font: 500 16px/30px var(--f-ui); white-space: nowrap; }
+.ft-en.is-wrap { white-space: normal; line-height: 22px; }
 .ft-en-it { font-weight: 650; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .ft-slot-line { position: absolute; inset: 0; overflow: visible; }
 .ft-slot-rect { fill: none; stroke: var(--mark-dash); stroke-width: 1.5; }
@@ -185,10 +186,11 @@ button.ps-rule:hover { background: var(--paper-soft); }
 .ff-lane > * { position: relative; z-index: 1; }
 .ff-lane:hover { border-color: var(--ink); }
 .ff-lane-l { font: 700 12px/16px var(--f-display); letter-spacing: .13em; text-transform: uppercase; }
-.ff-lane-f { display: inline-flex; gap: 16px; --fs: 25px; }
+.ff-lane-f { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 0 16px; margin-inline: -6px; --fs: 25px; }
 .ff-branch { fill: none; stroke: var(--line-strong); stroke-width: 1.25; }
 .ff-branch.is-lit { stroke: var(--ink); stroke-width: 1.75; stroke-linecap: round; }
 .ff-row { position: absolute; inset: 0; pointer-events: none; }
+.ff-row.is-wrapped { z-index: 3; } /* A branch to a slot on the second line passes behind the first. */
 .ff-ring { position: absolute; left: 0; z-index: 3; border-radius: var(--tile-r); box-shadow: 0 0 0 2px var(--stage), 0 0 0 4px var(--ink); }
 .ff-form { z-index: 4; }
 
@@ -394,7 +396,7 @@ html[data-band='line'][data-band-line='on'] .membership-notice summary { min-hei
   .fx-t { font-size: 21px; }
   .ft-en { font-size: 15.5px; }
   .ff-lane-l { font-size: 11px; letter-spacing: .1em; line-height: 14px; text-align: center; }
-  .ff-lane-f { --fs: 21px; gap: 12px; }
+  .ff-lane-f { --fs: 21px; gap: 0 12px; }
   .ft-label { font-size: 10.5px; letter-spacing: .08em; }
   .ft-label .fx-to { font-size: 12.5px; }
   .ft-mark { width: 20px; height: 20px; font-size: 12px; line-height: 20px; }

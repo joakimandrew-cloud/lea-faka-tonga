@@ -100,6 +100,12 @@ export function fitSizes(base, widest, width) {
   return k < 20 / base.fs ? base : scale(k * 0.985)
 }
 
+/** The distance from one wrapped row of tiles to the next: a Row's and a Fork's alike. */
+export const lineHeightOfRow = s => s.h + 40
+
+/** One line of wrapped English. A single line keeps its 30 px; see .ft-en.is-wrap. */
+export const EN_WRAP_LINE = 22
+
 /** Width of interface text in a given CSS font, for placing a line of English beside a row. */
 let canvas = null
 export function uiWidth(text, font) {
@@ -107,4 +113,21 @@ export function uiWidth(text, font) {
   canvas = canvas || document.createElement('canvas').getContext('2d')
   canvas.font = font
   return canvas.measureText(text).width
+}
+
+/** Width of a figure's English line, in the font .ft-en sets at this stage width. */
+export function enWidth(text, width) {
+  return uiWidth(String(text), `500 ${width < 480 ? 15.5 : 16}px 'Inter Variable', Inter, sans-serif`) + 2
+}
+
+/** The lines an English sentence takes when it wraps on this stage. */
+export function enLineCount(text, width) {
+  if (!text || enWidth(text, width) <= width) return 1
+  let lines = 1
+  let current = ''
+  String(text).split(' ').forEach(word => {
+    const next = current ? `${current} ${word}` : word
+    if (current && enWidth(next, width) > width) { lines += 1; current = word } else current = next
+  })
+  return lines
 }

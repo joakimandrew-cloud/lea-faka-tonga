@@ -5,10 +5,10 @@
  */
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import { useFigureClock } from './lib/clock.js'
-import { textWidth, uiWidth, useTileFont, useWidth } from './lib/metrics.js'
+import { enLineCount, enWidth, textWidth, uiWidth, useTileFont, useWidth } from './lib/metrics.js'
 import { land, ramp, travel } from './lib/motion.js'
 import { rowFrame, rowGeometry, rowLayouts, rowSizes, rowStateAt, rowTimeline } from './row.js'
-import { forkFrame, forkGeometry, forkLayouts, forkSizes, forkTimeline } from './fork.js'
+import { forkFrame, forkGeometry, forkLayouts, forkLines, forkSizes, forkTimeline } from './fork.js'
 import { gridTimeline } from './grid-timeline.js'
 import { pathTimeline } from './path.js'
 import { PathChips, PathStage } from './PathStage.jsx'
@@ -67,6 +67,11 @@ function beforeWidth(before) {
   return 52 + 8 + textWidth(before.say, 17) + 8 + uiWidth(before.en, `400 14px 'Inter Variable', Inter, sans-serif`)
 }
 
+/** Every English line a Row scene can show. */
+function rowEnglish(scene) {
+  return [scene.before?.en, scene.after?.en, ...(scene.lines ?? []).map(line => line.en ?? line.note)].filter(Boolean)
+}
+
 function RowStage({ scene, timeline, t, width, def, override }) {
   const sizes = useMemo(() => rowSizes(def, width), [def, width])
   const layout = useMemo(() => rowLayouts(scene, width, sizes), [scene, width, sizes])
@@ -74,12 +79,17 @@ function RowStage({ scene, timeline, t, width, def, override }) {
   const twoLineBefore = width < 480 && def.scenes.some(item => item.before && item.before.say.length + item.before.en.length > 40)
   const lines = useMemo(() => Math.max(...def.scenes.map(item => rowLayouts(item, width, sizes).lines)), [def, width, sizes])
   const reserveBefore = def.scenes.some(item => item.before)
-  const geometry = useMemo(() => rowGeometry(sizes, scene, twoLineBefore, lines, reserveBefore), [sizes, scene, twoLineBefore, lines, reserveBefore])
+  // A long English line wraps; the stage keeps room for it in every scene, so its height holds.
+  const enLines = Math.max(1, ...def.scenes.flatMap(rowEnglish).map(text => enLineCount(text, width)))
+  const geometry = useMemo(() => rowGeometry(sizes, scene, twoLineBefore, lines, reserveBefore, enLines), [sizes, scene, twoLineBefore, lines, reserveBefore, enLines])
   const frame = rowFrame(scene, timeline, t, layout, geometry, override)
   const { s } = frame
   const vars = { '--fs': `${s.fs}px`, '--h': `${s.h}px`, '--pad': `${s.pad}px`, height: geometry.height }
   // The sentence lines start at the row's left edge, unless that would run off the stage.
   const left = layout.x0
+  const fitting = rowEnglish(scene).map(text => enWidth(text, width)).filter(w => w <= width)
+  const enLeft = Math.max(0, Math.min(left, ...fitting.map(w => width - w)))
+  const enWraps = Boolean(frame.en?.text) && enWidth(frame.en.text, width) > width
   const beforeLeft = scene.before && !twoLineBefore ? Math.max(0, Math.min(left, width - beforeWidth(scene.before))) : twoLineBefore ? Math.min(left, 8) : left
   return (
     <div className="ft-row" style={vars}>
@@ -108,7 +118,7 @@ function RowStage({ scene, timeline, t, width, def, override }) {
       {frame.marks.map(mark => (
         <span key={mark.n} className={`ft-mark ${mark.onArc ? 'is-on-arc' : ''}`} style={{ transform: `translate(${mark.x}px, ${mark.y}px) translate(-50%, -50%) scale(${mark.scale})` }}>{mark.n}</span>
       ))}
-      <p className={`ft-en ${frame.isLine ? 'is-line' : ''}`} data-en={frame.en?.text} style={{ left, top: geometry.enTop, opacity: frame.en?.opacity ?? 0, transform: `translateY(${frame.en?.y ?? 0}px)` }}>
+      <p className={`ft-en ${frame.isLine ? 'is-line' : ''} ${enWraps ? 'is-wrap' : ''}`} data-en={frame.en?.text} style={{ left: enWraps ? 0 : enLeft, right: enWraps ? 0 : undefined, top: geometry.enTop, opacity: frame.en?.opacity ?? 0, transform: `translateY(${frame.en?.y ?? 0}px)` }}>
         <EnglishLine text={frame.en?.text} first={scene.enFirstWord} />
       </p>
     </div>
@@ -228,7 +238,9 @@ function ForkPeople({ people, frame, width }) {
 function ForkStage({ def, scene, timeline, t, width, onLane }) {
   const sizes = useMemo(() => forkSizes(def, width), [def, width])
   const layout = useMemo(() => forkLayouts(scene, width, sizes), [scene, width, sizes])
-  const geometry = useMemo(() => forkGeometry(sizes, width, def), [sizes, width, def])
+  const lines = useMemo(() => forkLines(def, width, sizes), [def, width, sizes])
+  const enLines = Math.max(1, ...def.scenes.flatMap(item => item.cases.map(c => enLineCount(c.en, width))))
+  const geometry = useMemo(() => forkGeometry(sizes, width, def, lines, enLines), [sizes, width, def, lines, enLines])
   const frame = forkFrame(scene, timeline, t, layout, geometry)
   const { s } = frame
   const vars = { '--fs': `${s.fs}px`, '--h': `${s.h}px`, '--pad': `${s.pad}px`, height: geometry.height }
@@ -253,9 +265,9 @@ function ForkStage({ def, scene, timeline, t, width, onLane }) {
           </g>
         ))}
       </svg>
-      <div className="ff-row" aria-hidden="true" style={{ opacity: frame.rowOpacity }}>
+      <div className={`ff-row ${lines > 1 ? 'is-wrapped' : ''}`} aria-hidden="true" style={{ opacity: frame.rowOpacity }}>
         {frame.row.items.map((item, i) => {
-          const style = { width: item.w, top: geometry.rowTop, height: s.h, transform: `translate3d(${item.x}px, 0, 0)` }
+          const style = { width: item.w, top: geometry.rowTop, height: s.h, transform: `translate3d(${item.x}px, ${item.y}px, 0)` }
           if (item.slot) {
             return (
               <span key={i} className="ft-tile" style={style}>
@@ -268,13 +280,13 @@ function ForkStage({ def, scene, timeline, t, width, onLane }) {
             <span key={i} className="ft-tile" style={style}>
               <span className="ft-box"><TileFace face={item} /></span>
               {item.ring && (
-                <span className={`ft-label label-${item.role}`} style={{ top: s.h + 7, opacity: frame.ringLabel }}><Label role={item.role} /></span>
+                <span className={`ft-label label-${item.role}`} style={{ top: s.h + 7, opacity: frame.ringLabel }}><Label role={item.role} label={item.label === true ? undefined : item.label} /></span>
               )}
             </span>
           )
         })}
         {frame.ring && (
-          <span className="ff-ring" style={{ top: geometry.rowTop, height: s.h, width: frame.ring.w, transform: `translate3d(${frame.ring.x}px, 0, 0)`, opacity: frame.ring.opacity }} />
+          <span className="ff-ring" style={{ top: geometry.rowTop, height: s.h, width: frame.ring.w, transform: `translate3d(${frame.ring.x}px, ${frame.ring.y}px, 0)`, opacity: frame.ring.opacity }} />
         )}
         {frame.form && frame.form.opacity > 0 && (
           <span className="ft-tile ff-form" style={{ width: frame.form.w, top: 0, height: s.h, opacity: frame.form.opacity, transform: `translate3d(${frame.form.x}px, ${frame.form.y}px, 0) scale(${frame.form.scale})` }}>
@@ -282,7 +294,7 @@ function ForkStage({ def, scene, timeline, t, width, onLane }) {
           </span>
         )}
       </div>
-      <p className="ft-en" data-en={frame.en?.text} style={{ top: geometry.enTop, opacity: frame.en?.opacity ?? 0, transform: `translateY(${frame.en?.y ?? 0}px)`, textAlign: 'center', left: 0, right: 0 }}>
+      <p className={`ft-en ${frame.en?.text && enWidth(frame.en.text, width) > width ? 'is-wrap' : ''}`} data-en={frame.en?.text} style={{ top: geometry.enTop, opacity: frame.en?.opacity ?? 0, transform: `translateY(${frame.en?.y ?? 0}px)`, textAlign: 'center', left: 0, right: 0 }}>
         {frame.en?.text}
       </p>
     </div>

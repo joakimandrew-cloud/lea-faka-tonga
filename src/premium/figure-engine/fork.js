@@ -3,11 +3,14 @@
 // lane lights, the form travels down its branch into the slot, the English
 // arrives. forkFrame is a pure function of time, as rowFrame is.
 import { clamp01, land, lerp, ramp, travel } from './lib/motion.js'
-import { fitSizes, textWidth, tileSizes } from './lib/metrics.js'
+import { EN_WRAP_LINE, fitSizes, lineHeightOfRow, textWidth, tileSizes } from './lib/metrics.js'
 
 const FIRST = { enter: [500, 200], ring: [800, 300], lane: [500, 200], drop: [800, 200], en: [350, 500] }
 const SECOND = { enter: [400, 150], ring: [600, 200], lane: [350, 150], drop: [600, 150], en: [300, 300] }
 const ORDER = ['enter', 'ring', 'lane', 'drop', 'en']
+
+/** A case with nothing to ring has no ring beat worth waiting through: the question is about meaning. */
+const hasRing = c => c.row.some(item => item.ring) || c.ringPerson != null
 
 export function forkTimeline(scene) {
   let at = 150
@@ -17,7 +20,7 @@ export function forkTimeline(scene) {
     const timing = index === 0 ? FIRST : SECOND
     const spanStart = at
     ORDER.forEach(kind => {
-      const [go, hold] = timing[kind]
+      const [go, hold] = kind === 'ring' && !hasRing(c) ? [0, 0] : timing[kind]
       beats.push({ kind, caseIndex: index, start: at, travelEnd: at + go, end: at + go + hold })
       at += go + hold
     })
@@ -27,20 +30,27 @@ export function forkTimeline(scene) {
     beats,
     spans,
     duration: at,
-    rests: beats.filter(b => b.kind !== 'enter').map(b => b.end),
+    rests: beats.filter(b => b.kind !== 'enter' && b.end > b.start).map(b => b.end),
   }
 }
 
-function placeCases(scene, s) {
+/** One scene's rows at one size. Tiles wrap to a new line only when `limit` is passed, as a plain row's do. */
+function placeCases(scene, s, limit = Infinity) {
+  const lineH = lineHeightOfRow(s)
   return scene.cases.map(c => {
+    let x = 0
+    let line = 0
+    let total = 0
     const items = c.row.map(item => {
       const face = item.slot ? item.form : item
-      return { ...item, w: textWidth(face.text, s.fs) + s.pad * 2 }
+      const w = textWidth(face.text, s.fs) + s.pad * 2
+      if (x > 0 && x + w > limit) { line += 1; x = 0 }
+      const placed = { ...item, w, x, y: line * lineH }
+      total = Math.max(total, x + w)
+      x += w + s.gap
+      return placed
     })
-    let x = 0
-    items.forEach(item => { item.x = x; x += item.w + s.gap })
-    const total = x - s.gap
-    return { items, total }
+    return { items, total, lines: line + 1 }
   })
 }
 
@@ -51,8 +61,13 @@ export function forkSizes(def, width) {
   return fitSizes(base, widest, width)
 }
 
+/** The most lines any case in the figure needs, so Another example never changes the stage's height. */
+export function forkLines(def, width, s) {
+  return Math.max(...def.scenes.flatMap(scene => placeCases(scene, s, width).map(c => c.lines)))
+}
+
 export function forkLayouts(scene, width, s) {
-  const rows = placeCases(scene, s)
+  const rows = placeCases(scene, s, width)
   rows.forEach(r => {
     const x0 = Math.max(0, (width - r.total) / 2)
     r.items.forEach(item => { item.x += x0 })
@@ -60,20 +75,35 @@ export function forkLayouts(scene, width, s) {
   return { rows, s }
 }
 
-export function forkGeometry(s, width, def) {
+/** How many lines a lane's forms take once they wrap inside the lane. */
+function laneFormLines(lane, laneW, fs, gap) {
+  const room = laneW - 6 // forms may use the lane's padding, up to 3 px from its border
+  let x = 0
+  let lines = 1
+  lane.forms.forEach(form => {
+    const w = textWidth(form, fs)
+    if (x > 0 && x + w > room) { lines += 1; x = 0 }
+    x += w + gap
+  })
+  return lines
+}
+
+export function forkGeometry(s, width, def, lines = 1, enLines = 1) {
   const phone = width < 480
   const count = def.lanes.length
   const peopleH = def.people ? (phone ? 92 : 104) : 0
-  const laneH = phone ? 76 : 84
   const laneGap = phone ? 8 : 12
+  const laneW = (width - laneGap * (count - 1)) / count
+  const formFs = phone ? 21 : 25
+  const formLines = Math.max(...def.lanes.map(lane => laneFormLines(lane, laneW, formFs, phone ? 12 : 16)))
+  const laneH = (phone ? 76 : 84) + (formLines - 1) * (formFs + 8)
   const branchH = phone ? 44 : 56
   const laneBottom = peopleH + laneH
   const rowTop = laneBottom + branchH
-  const labelTop = rowTop + s.h + 7
+  const labelTop = rowTop + (lines - 1) * lineHeightOfRow(s) + s.h + 7
   const enTop = labelTop + s.label + 4
-  const laneW = (width - laneGap * (count - 1)) / count
   const laneX = i => i * (laneW + laneGap) + laneW / 2
-  return { count, peopleH, laneH, laneGap, laneW, laneX, branchH, laneBottom, rowTop, labelTop, enTop, height: enTop + 30 }
+  return { count, peopleH, laneH, laneGap, laneW, laneX, branchH, laneBottom, rowTop, labelTop, enTop, height: enTop + 30 + (enLines - 1) * EN_WRAP_LINE }
 }
 
 export function forkFrame(scene, timeline, t, layout, geometry) {
@@ -114,6 +144,7 @@ export function forkFrame(scene, timeline, t, layout, geometry) {
   const ringE = travel(ramp(ringP, 0.05, 1))
   const ring = target && slot ? {
     x: lerp(slot.x, target.x, ringE),
+    y: lerp(slot.y, target.y, ringE),
     w: lerp(slot.w, target.w, ringE),
     opacity: ramp(ringP, 0, 0.12),
   } : null
@@ -133,7 +164,7 @@ export function forkFrame(scene, timeline, t, layout, geometry) {
   const form = slot ? {
     face: slot.form,
     x: lerp(laneX - slot.w / 2, slot.x, dropE),
-    y: lerp(geometry.laneBottom - s.h * 0.55, geometry.rowTop, dropE),
+    y: lerp(geometry.laneBottom - s.h * 0.55, geometry.rowTop + slot.y, dropE),
     w: slot.w,
     opacity: ramp(dropP, 0, 0.14),
     scale: lerp(0.86, 1, dropE),
@@ -143,7 +174,7 @@ export function forkFrame(scene, timeline, t, layout, geometry) {
     const x0 = geometry.laneX(lane)
     const x1 = slot.x + slot.w / 2
     const y0 = geometry.laneBottom
-    const y1 = geometry.rowTop - 2
+    const y1 = geometry.rowTop + slot.y - 2
     const midY = (y0 + y1) / 2
     return {
       lane,

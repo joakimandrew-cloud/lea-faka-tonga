@@ -261,7 +261,7 @@ export const F15_6 = {
         },
         {
           lane: 1, say: 'Naʻe ʻikai ke ʻalu ʻa Sione.', en: 'Sione did not go.',
-          row: [face('Naʻe', 'tense'), { slot: true, form: face('ʻikai ke', 'quiet') }, face('ʻalu', 'verb'), face('ʻa', 'focus'), { ...face('Sione', 'noun'), ring: true, label: 'noun' }],
+          row: [face('Naʻe', 'tense'), { slot: true, form: face('ʻikai ke', 'quiet') }, face('ʻalu', 'verb'), face('ʻa', 'focus'), { ...face('Sione', 'noun'), ring: true }],
         },
       ],
     },
@@ -274,7 +274,7 @@ export const F15_6 = {
         },
         {
           lane: 1, say: 'ʻOku ʻikai ke puke ʻa Pita.', en: 'Pita is not sick.',
-          row: [face('ʻOku', 'tense'), { slot: true, form: face('ʻikai ke', 'quiet') }, face('puke', 'verb'), face('ʻa', 'focus'), { ...face('Pita', 'noun'), ring: true, label: 'noun' }],
+          row: [face('ʻOku', 'tense'), { slot: true, form: face('ʻikai ke', 'quiet') }, face('puke', 'verb'), face('ʻa', 'focus'), { ...face('Pita', 'noun'), ring: true }],
         },
       ],
     },
