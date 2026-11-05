@@ -6,14 +6,17 @@
 // has no starting sentence in the book, so 39.1 shows ai and ki ai only.
 
 const face = (text, role, label) => ({ text, role, ...(label ? { label } : {}) })
-const BACK = 'back-reference'
+const BACK = 'refers back'
 
-function aiScene(key, noun, dem, clauseA, clauseB, phraseA, phraseB, sayA, enA, sayB, enB) {
+// R1: the noun after Ko e is the predicate, not the subject, so it is quiet, labelled "noun".
+// R6: ai is its own particle tile in every scene. For lea ki ai the group is split: ki joins the
+// clause tile and he turns over to ai, which shows ki staying while ai stands in for the noun.
+function aiScene(key, noun, dem, clauseA, clauseB, phraseA, phraseB, sayA, enA, sayB, enB, backWord = phraseB) {
   return {
     key,
     tiles: {
       ko: [face('Ko e', 'quiet')],
-      noun: [face(noun, 'noun', 'noun')],
+      noun: [face(noun, 'quiet', 'noun')],
       dem: [face(dem, 'quiet')],
       clause: [face(clauseA, 'quiet'), face(clauseB, 'quiet')],
       phrase: [face(phraseA, 'quiet'), face(phraseB, 'particle', BACK)],
@@ -34,7 +37,7 @@ function aiScene(key, noun, dem, clauseA, clauseB, phraseA, phraseB, sayA, enA, 
     ],
     alt: [
       `*${sayA}* ${enA} becomes *${sayB}* ${enB}`,
-      `A *ko* clause introduces the noun, *${noun}*, and the descriptive clause that follows uses *${phraseB}* to refer back to it.`,
+      `A *ko* clause introduces the noun, *${noun}*, and the descriptive clause that follows uses *${backWord}* to refer back to it.`,
     ],
   }
 }
@@ -52,17 +55,20 @@ export const F39_1 = {
       'ʻOku nau nofo ʻi he koló.', 'They live in the village.', 'Ko e koló eni ʻoku nau nofo ai.', 'This is the village they live in.'),
     aiScene('fale', 'falé', 'eni', 'ʻOkú ne ngāue', 'ʻokú ne ngāue', 'ʻi he', 'ai',
       'ʻOkú ne ngāue ʻi he falé.', 'He works in the house.', 'Ko e falé eni ʻokú ne ngāue ai.', 'This is the house he works in.'),
-    aiScene('tamasii', 'tamasiʻí', 'ia', 'Naʻá ku lea', 'naʻá ku lea', 'ki he', 'ki ai',
-      'Naʻá ku lea ki he tamasiʻí.', 'I spoke to the boy.', 'Ko e tamasiʻí ia naʻá ku lea ki ai.', 'That is the boy I spoke to.'),
+    aiScene('tamasii', 'tamasiʻí', 'ia', 'Naʻá ku lea ki', 'naʻá ku lea ki', 'he', 'ai',
+      'Naʻá ku lea ki he tamasiʻí.', 'I spoke to the boy.', 'Ko e tamasiʻí ia naʻá ku lea ki ai.', 'That is the boy I spoke to.', 'ki ai'),
   ],
 }
 
-function pointCase(lane, first, form, role, label, rest, say, en, who) {
+// R7: near or far is distance, so the ring sits on the person alone and no group frame is drawn.
+// R8: the question word Ko e hā is `question`.
+function pointCase(lane, first, form, role, label, rest, say, en, who, firstRole = 'quiet') {
   return {
     lane, say, en,
-    ...(who == null ? { group: [] } : { ringPerson: who, group: [who] }),
+    ...(who == null ? {} : { ringPerson: who }),
+    group: [],
     row: [
-      face(first, 'quiet'),
+      face(first, firstRole),
       { slot: true, form: face(form, role, label), label },
       ...(rest ? [face(rest, 'quiet')] : []),
     ],
@@ -94,7 +100,7 @@ export const F39_2 = {
     {
       key: 'neither',
       cases: [
-        pointCase(2, 'Ko e hā', 'ē', 'pronoun', 'pronoun', null, 'Ko e hā ē?', 'What is that? (pointing)', null),
+        pointCase(2, 'Ko e hā', 'ē', 'pronoun', 'pronoun', null, 'Ko e hā ē?', 'What is that? (pointing)', null, 'question'),
         pointCase(3, 'Ko', 'ia', 'pronoun', 'pronoun', 'pē', 'Ko ia pē.', 'That is all.', null),
       ],
     },

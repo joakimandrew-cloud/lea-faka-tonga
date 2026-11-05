@@ -10,7 +10,7 @@ function theCase(lane, lead, before, form, noun, say, en) {
   return {
     lane, say, en,
     row: [
-      face(lead, 'quiet'),
+      ...lead,
       { ...before, ring: true },
       { slot: true, form: face(form, 'quiet') },
       face(noun, 'quiet'),
@@ -18,6 +18,8 @@ function theCase(lane, lead, before, form, noun, say, en) {
   }
 }
 
+// R11: a tile grouping a tense marker with its pronoun is `tense`, "tense + pronoun".
+const tp = text => face(text, 'tense', 'tense + pronoun')
 const prep = text => face(text, 'quiet', 'preposition')
 const verb = text => face(text, 'verb')
 
@@ -30,35 +32,35 @@ export const F8_1 = {
   after: { section: 'the-definite-article-e-and-he', block: b => b.type === 'p' && b.text.startsWith('The full rule') },
   lanes: [
     { label: 'After *ʻi*, *ki*, *mei*', forms: ['he'] },
-    { label: 'Elsewhere', forms: ['e', 'ʻa e'] },
+    { label: 'Elsewhere, except after *ʻe* (Lesson 19)', forms: ['e', 'ʻa e'] },
   ],
   scenes: [
     {
       key: 'ki-kai',
       cases: [
-        theCase(0, 'Té u ʻalu', prep('ki'), 'he', 'fale', 'Té u ʻalu ki he fale.', 'I will go to the house.'),
-        theCase(1, 'Naʻá ke', verb('kai'), 'ʻa e', 'mā', 'Naʻá ke kai ʻa e mā?', 'Did you eat the bread?'),
+        theCase(0, [tp('Té u'), verb('ʻalu')], prep('ki'), 'he', 'fale', 'Té u ʻalu ki he fale.', 'I will go to the house.'),
+        theCase(1, [tp('Naʻá ke')], verb('kai'), 'ʻa e', 'mā', 'Naʻá ke kai ʻa e mā?', 'Did you eat the bread?'),
       ],
     },
     {
       key: 'i-fiemau',
       cases: [
-        theCase(0, 'Naʻá ku nofo', prep('ʻi'), 'he', 'fale kai', 'Naʻá ku nofo ʻi he fale kai.', 'I stayed in the cafeteria.'),
-        theCase(1, 'ʻOku ou', verb('fiemaʻu'), 'ʻa e', 'talo', 'ʻOku ou fiemaʻu ʻa e talo.', 'I want the taro.'),
+        theCase(0, [tp('Naʻá ku'), verb('nofo')], prep('ʻi'), 'he', 'fale kai', 'Naʻá ku nofo ʻi he fale kai.', 'I stayed in the cafeteria.'),
+        theCase(1, [tp('ʻOku ou')], verb('fiemaʻu'), 'ʻa e', 'talo', 'ʻOku ou fiemaʻu ʻa e talo.', 'I want the taro.'),
       ],
     },
     {
       key: 'mei-kai',
       cases: [
-        theCase(0, 'Naʻa mau haʻu', prep('mei'), 'he', 'kolo', 'Naʻa mau haʻu mei he kolo.', 'We came from the town.'),
-        theCase(1, 'Naʻá ke', verb('kai'), 'e', 'mā', 'Naʻá ke kai e mā?', 'Did you eat the bread?'),
+        theCase(0, [tp('Naʻa mau'), verb('haʻu')], prep('mei'), 'he', 'kolo', 'Naʻa mau haʻu mei he kolo.', 'We came from the town.'),
+        theCase(1, [tp('Naʻá ke')], verb('kai'), 'e', 'mā', 'Naʻá ke kai e mā?', 'Did you eat the bread?'),
       ],
     },
   ],
   alt: [
     'The form depends on which word comes directly before the article.',
     'After *ʻi*, *ki*, *mei*, use *he*: *Té u ʻalu ki he fale.* I will go to the house. *Naʻá ku nofo ʻi he fale kai.* I stayed in the cafeteria. *Naʻa mau haʻu mei he kolo.* We came from the town.',
-    'Elsewhere, *e* or *ʻa e*: *Naʻá ke kai ʻa e mā?* Did you eat the bread? *ʻOku ou fiemaʻu ʻa e talo.* I want the taro. *Naʻá ke kai e mā?* Did you eat the bread?',
+    'Elsewhere, except after *ʻe* (Lesson 19), *e* or *ʻa e*: *Naʻá ke kai ʻa e mā?* Did you eat the bread? *ʻOku ou fiemaʻu ʻa e talo.* I want the taro. *Naʻá ke kai e mā?* Did you eat the bread?',
   ],
 }
 
@@ -109,7 +111,7 @@ export const F8_2 = {
   ],
 }
 
-/** The book's pairs: ʻi leaves and the English holds, since both forms are correct. */
+/** The book's pairs: ʻi leaves and the English holds, since both forms are correct. The place phrase is `place` (R9); ʻi stays a quiet preposition, as in 6.3. */
 export const F8_3 = {
   id: '8.3',
   kind: 'row',
@@ -124,7 +126,7 @@ export const F8_3 = {
         pron: [face('u', 'pronoun')],
         verb: [face('nofo', 'verb')],
         i: [face('ʻi', 'quiet', 'preposition')],
-        he: [face('he fale', 'quiet')],
+        he: [face('he fale', 'place')],
       },
       before: null,
       after: null,
@@ -149,7 +151,7 @@ export const F8_3 = {
         pron: [face('ke', 'pronoun')],
         verb: [face('ngāue', 'verb')],
         i: [face('ʻi', 'quiet', 'preposition')],
-        he: [face('he kolo', 'quiet')],
+        he: [face('he kolo', 'place')],
       },
       before: null,
       after: null,

@@ -71,7 +71,7 @@ export const F7_2 = {
     {
       key: 'ki-kia',
       cases: [
-        formCase(0, 'Té', 'u', 'ʻalu', 'ki', face('Tonga', 'place'), 'Té u ʻalu ki Tonga.', 'I will go to Tonga.'),
+        formCase(0, 'Té', 'u', 'ʻalu', 'ki', face('Tonga', 'quiet', 'place'), 'Té u ʻalu ki Tonga.', 'I will go to Tonga.'),
         formCase(1, 'Naʻá', 'ku', 'lea', 'kia', face('Tēvita', 'quiet', 'person'), 'Naʻá ku lea kia Tēvita.', 'I spoke to Tēvita.'),
       ],
     },
@@ -85,7 +85,7 @@ export const F7_2 = {
     {
       key: 'mei-meiate',
       cases: [
-        formCase(0, 'Naʻá', 'ku', 'haʻu', 'mei', face('Tonga', 'place'), 'Naʻá ku haʻu mei Tonga.', 'I came from Tonga.'),
+        formCase(0, 'Naʻá', 'ku', 'haʻu', 'mei', face('Tonga', 'quiet', 'place'), 'Naʻá ku haʻu mei Tonga.', 'I came from Tonga.'),
         formCase(2, 'Naʻá', 'ne', 'haʻu', 'meiate', face('kimautolu', 'pronoun'), 'Naʻá ne haʻu meiate kimautolu.', 'He came from us.'),
       ],
     },
@@ -142,6 +142,9 @@ export const F7_3 = {
 /** The answer opens on ʻIo, so the grouped tile is not only a tense marker: it is drawn quiet, as in 21.js. */
 const answer = text => face(text, 'quiet')
 
+/** R6: the place or person turns over to *ai* alone, split out of its phrase as a particle, "refers back". */
+const ai = () => face('ai', 'particle', 'refers back')
+
 function aiScene(key, tiles, states, turning, lines, alt) {
   return {
     key,
@@ -155,7 +158,7 @@ function aiScene(key, tiles, states, turning, lines, alt) {
   }
 }
 
-/** The book's question and answer pairs: the noun phrase turns over to the ai phrase. */
+/** The book's question and answer pairs: the noun after the preposition turns over to ai (R6, split form). */
 export const F7_4 = {
   id: '7.4',
   kind: 'row',
@@ -169,13 +172,14 @@ export const F7_4 = {
         tense: [face('Té', 'tense'), answer('ʻIo, té')],
         pron: [face('ke', 'pronoun'), face('u', 'pronoun')],
         verb: [face('ʻalu', 'verb')],
-        phrase: [face('ki Vavaʻu', 'place'), face('ki ai', 'place')],
+        prep: [face('ki', 'quiet', 'preposition')],
+        noun: [face('Vavaʻu', 'quiet', 'place'), ai()],
       },
       [
-        [['tense', 0], ['pron', 0], ['verb', 0], ['phrase', 0]],
-        [['tense', 1], ['pron', 1], ['verb', 0], ['phrase', 1]],
+        [['tense', 0], ['pron', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
+        [['tense', 1], ['pron', 1], ['verb', 0], ['prep', 0], ['noun', 1]],
       ],
-      ['tense', 'pron', 'phrase'],
+      ['tense', 'pron', 'noun'],
       [
         { say: 'Té ke ʻalu ki Vavaʻu?', en: 'Will you go to Vavaʻu?' },
         { say: 'ʻIo, té u ʻalu ki ai.', en: 'Yes, I will go there.' },
@@ -188,13 +192,14 @@ export const F7_4 = {
         tense: [face('Té', 'tense'), answer('ʻIo, té')],
         pron: [face('ke', 'pronoun'), face('u', 'pronoun')],
         verb: [face('lea', 'verb')],
-        phrase: [face('kia Sione', 'quiet', 'person'), face('ki ai', 'quiet')],
+        prep: [face('kia', 'quiet', 'preposition'), face('ki', 'quiet', 'preposition')],
+        noun: [face('Sione', 'quiet', 'person'), ai()],
       },
       [
-        [['tense', 0], ['pron', 0], ['verb', 0], ['phrase', 0]],
-        [['tense', 1], ['pron', 1], ['verb', 0], ['phrase', 1]],
+        [['tense', 0], ['pron', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
+        [['tense', 1], ['pron', 1], ['verb', 0], ['prep', 1], ['noun', 1]],
       ],
-      ['tense', 'pron', 'phrase'],
+      ['tense', 'pron', 'prep', 'noun'],
       [
         { say: 'Té ke lea kia Sione?', en: 'Will you speak to Sione?' },
         { say: 'ʻIo, té u lea ki ai.', en: 'Yes, I will speak to him.' },
@@ -206,13 +211,14 @@ export const F7_4 = {
       {
         tense: [face('ʻOkú', 'tense'), answer('ʻIo, ʻokú')],
         pron: [face('ne', 'pronoun')],
-        phrase: [face('ʻi Tonga', 'place'), face('ʻi ai', 'place')],
+        prep: [face('ʻi', 'quiet', 'preposition')],
+        noun: [face('Tonga', 'quiet', 'place'), ai()],
       },
       [
-        [['tense', 0], ['pron', 0], ['phrase', 0]],
-        [['tense', 1], ['pron', 0], ['phrase', 1]],
+        [['tense', 0], ['pron', 0], ['prep', 0], ['noun', 0]],
+        [['tense', 1], ['pron', 0], ['prep', 0], ['noun', 1]],
       ],
-      ['tense', 'phrase'],
+      ['tense', 'noun'],
       [
         { say: 'ʻOkú ne ʻi Tonga?', en: 'Is he in Tonga?' },
         { say: 'ʻIo, ʻokú ne ʻi ai.', en: 'Yes, he is there.' },
@@ -225,13 +231,14 @@ export const F7_4 = {
         tense: [face('Naʻá', 'tense'), answer('ʻIo, naʻá')],
         pron: [face('ke', 'pronoun'), face('ku', 'pronoun')],
         verb: [face('haʻu', 'verb')],
-        phrase: [face('mei Fisi', 'place'), face('mei ai', 'place')],
+        prep: [face('mei', 'quiet', 'preposition')],
+        noun: [face('Fisi', 'quiet', 'place'), ai()],
       },
       [
-        [['tense', 0], ['pron', 0], ['verb', 0], ['phrase', 0]],
-        [['tense', 1], ['pron', 1], ['verb', 0], ['phrase', 1]],
+        [['tense', 0], ['pron', 0], ['verb', 0], ['prep', 0], ['noun', 0]],
+        [['tense', 1], ['pron', 1], ['verb', 0], ['prep', 0], ['noun', 1]],
       ],
-      ['tense', 'pron', 'phrase'],
+      ['tense', 'pron', 'noun'],
       [
         { say: 'Naʻá ke haʻu mei Fisi?', en: 'Did you come from Fiji?' },
         { say: 'ʻIo, naʻá ku haʻu mei ai.', en: 'Yes, I came from there.' },

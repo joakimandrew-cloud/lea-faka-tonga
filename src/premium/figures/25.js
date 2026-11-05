@@ -3,19 +3,23 @@
 // with its macrons and stress accents kept. Labels and lane questions use the book's words:
 // article, possessive, noun, the "Used with" column, the Singular and Plural/Dual heads.
 // No figure for ongo, the irregular nouns, kau vs. ngaahi (its table pairs all four words) or Words to Learn.
-// 25.2 labels tohí and fale only "noun": the book separates ʻū and ngaahi by number, not noun kind (line 98).
+// 25.2 labels tohí and fale only "noun" and rings neither: the book separates ʻū and ngaahi by number,
+// not noun kind (line 98), and a question about meaning rings nothing.
+// 25.4 labels lahi and siʻi with both meanings (lines 221, 229), the plural forms as line 226 and 234 do.
+// Roles (Step 11, R1 and R3): green noun only for the subjects in 25.3; every other noun is quiet "noun";
+// the possessive ʻeku is a pronoun.
 // Exercise answers stay out, so haʻu and ō mai have no pair here.
 
 const face = (text, role, label) => ({ text, role, ...(label ? { label } : {}) })
 const marker = text => face(text, 'quiet', 'plural marker')
 
-function addScene(key, firstText, firstLabel, noun, say, en) {
+function addScene(key, firstText, firstRole, firstLabel, noun, say, en) {
   return {
     key,
     tiles: {
-      first: [face(firstText, 'quiet', firstLabel)],
+      first: [face(firstText, firstRole, firstLabel)],
       plural: [marker('ngaahi')],
-      noun: [face(noun, 'noun', 'noun')],
+      noun: [face(noun, 'quiet', 'noun')],
     },
     before: null,
     after: { say, en },
@@ -42,18 +46,18 @@ export const F25_1 = {
   title: 'Where the plural marker sits',
   after: { section: 'ngaahi-the-general-plural', block: b => b.type === 'p' && b.text.startsWith('The plural marker sits') },
   scenes: [
-    addScene('article', 'ha', 'article', 'fale', 'ha ngaahi fale', 'some houses'),
-    addScene('possessive', 'ʻeku', 'possessive', 'kató', 'ʻeku ngaahi kató', 'my baskets'),
+    addScene('article', 'ha', 'quiet', 'article', 'fale', 'ha ngaahi fale', 'some houses'),
+    addScene('possessive', 'ʻeku', 'pronoun', 'possessive', 'kató', 'ʻeku ngaahi kató', 'my baskets'),
   ],
 }
 
-function pluralCase(lane, article, form, asked, label, say, en) {
+function pluralCase(lane, article, form, asked, label, say, en, ring = true) {
   return {
     lane, say, en,
     row: [
       face(article, 'quiet', 'article'),
       { slot: true, form: face(form, 'quiet'), label: 'plural marker' },
-      { ...face(asked, 'noun', label), ring: true },
+      { ...face(asked, 'quiet', label), ...(ring ? { ring: true } : {}) },
     ],
   }
 }
@@ -65,7 +69,7 @@ function kiiCase(say, en, noun) {
       face('ha', 'quiet', 'article'),
       { slot: true, form: face('fanga', 'quiet'), label: 'plural marker' },
       { ...face('kiʻi', 'quiet', 'small'), ring: true },
-      face(noun, 'noun', 'noun'),
+      face(noun, 'quiet', 'noun'),
     ],
   }
 }
@@ -94,8 +98,8 @@ export const F25_2 = {
     {
       key: 'uu-ngaahi',
       cases: [
-        pluralCase(3, 'e', 'ʻū', 'tohí', 'noun', 'e ʻū tohí', 'the books'),
-        pluralCase(0, 'ha', 'ngaahi', 'fale', 'noun', 'ha ngaahi fale', 'some houses'),
+        pluralCase(3, 'e', 'ʻū', 'tohí', 'noun', 'e ʻū tohí', 'the books', false),
+        pluralCase(0, 'ha', 'ngaahi', 'fale', 'noun', 'ha ngaahi fale', 'some houses', false),
       ],
     },
     {
@@ -179,7 +183,7 @@ function adjectiveScene(key, single, singleMeans, plural, pluralMeans, singleEn,
     ],
     beats: [{ kind: 'swap', tile: 'adj', to: 1 }],
     alt: [
-      `*${say0}*: ${singleEn} (*${single}* = ${singleMeans}). *${say1}*: ${pluralEn} (*${plural}* = ${pluralMeans}, plural).`,
+      `*${say0}*: ${singleEn} (*${single}* = ${singleMeans}). *${say1}*: ${pluralEn} (*${plural}* = ${pluralMeans}).`,
     ],
   }
 }
@@ -192,13 +196,13 @@ export const F25_4 = {
   title: 'The plural form removes the ambiguity',
   after: { section: 'special-plural-forms-adjectives', block: b => b.type === 'examples' && JSON.stringify(b.pairs).includes('iiki') },
   scenes: [
-    adjectiveScene('lahi', 'lahi', 'many', 'lalahi', 'big', 'many things', 'some big things'),
-    adjectiveScene('sii', 'siʻi', 'few', 'iiki', 'small', 'a few things', 'some small things'),
+    adjectiveScene('lahi', 'lahi', 'big or many', 'lalahi', 'big, plural', 'many things', 'some big things'),
+    adjectiveScene('sii', 'siʻi', 'small or few', 'iiki', 'small, plural', 'a few things', 'some small things'),
   ],
 }
 
 export const OPENING = {
-  row: [face('ha', 'quiet', 'article'), marker('ngaahi'), face('fale', 'noun', 'noun')],
+  row: [face('ha', 'quiet', 'article'), marker('ngaahi'), face('fale', 'quiet', 'noun')],
   say: 'ha ngaahi fale',
   en: 'some houses',
 }

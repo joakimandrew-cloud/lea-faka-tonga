@@ -27,7 +27,7 @@ export const F44_1 = {
       tiles: {
         rest: [face('Naʻá ku faʻo ia ki', 'quiet')],
         art: [face('ha', 'quiet'), face('he', 'quiet')],
-        noun: [face('puha', 'noun', 'noun'), face('puhá', 'noun', 'noun')],
+        noun: [face('puha', 'quiet', 'noun'), face('puhá', 'quiet', 'noun')],
       },
       before: null,
       after: null,
@@ -59,7 +59,7 @@ function groupScene(key, head, headPlain, first, firstPlain, last, lines) {
     key,
     tiles: {
       he: [face('ʻi he', 'quiet')],
-      head: [face(head, 'noun', 'noun'), face(headPlain, 'noun', 'noun')],
+      head: [face(head, 'quiet', 'noun'), face(headPlain, 'quiet', 'noun')],
       first: [face(first, 'quiet'), face(firstPlain, 'quiet')],
       last: [face(last, 'quiet')],
     },
@@ -120,7 +120,7 @@ export const F44_3 = {
       key: 'fakataha',
       tiles: {
         rest: [face('Naʻá ke ʻalu ki he', 'quiet')],
-        noun: [face('fakatahá', 'noun', 'noun'), face('fakataha', 'noun', 'noun')],
+        noun: [face('fakatahá', 'quiet', 'noun'), face('fakataha', 'quiet', 'noun')],
         next: [face('ʻaneafi', 'quiet', 'adverb'), face('lahí', 'quiet', 'adjective'), face('naʻe fai ʻaneafí', 'quiet', 'adjectival clause')],
       },
       before: null,
@@ -159,7 +159,7 @@ export const F44_4 = {
     {
       key: 'faiako',
       tiles: {
-        ko: [face('Ko e hā', 'quiet')],
+        ko: [face('Ko e hā', 'question')],
         reason: [face('ʻa e ʻuhinga', 'noun', 'larger group')],
         clause: [face('naʻe ʻita ai', 'quiet')],
         noun: [face('ʻa e faiakó', 'noun', 'smaller group')],
@@ -198,22 +198,23 @@ export const F44_5 = {
       key: 'alu',
       tiles: {
         ko: [face('Ko', 'quiet')],
-        verb: [face('hoʻo ʻalu', 'verb', 'your going'), face('hoʻo ʻalú', 'verb', 'your going')],
-        rest: [face('ki fē', 'quiet')],
+        poss: [face('hoʻo', 'pronoun')],
+        verb: [face('ʻalu', 'quiet', 'verbal noun'), face('ʻalú', 'quiet', 'verbal noun')],
+        rest: [face('ki fē', 'question')],
       },
       before: null,
       after: null,
       lines: [
         { say: 'Ko hoʻo ʻalu ki fē?', note: 'a casual question' },
-        { say: 'Ko hoʻo ʻalú ki fē?', en: 'Where is it that you are going?' },
+        { say: 'Ko hoʻo ʻalú ki fē?', en: 'Where is it that you are going? (Lit. "Your going, to where?")' },
       ],
       states: [
-        [['ko', 0], ['verb', 0], ['rest', 0]],
-        [['ko', 0], ['verb', 1], ['rest', 0]],
+        [['ko', 0], ['poss', 0], ['verb', 0], ['rest', 0]],
+        [['ko', 0], ['poss', 0], ['verb', 1], ['rest', 0]],
       ],
       beats: [{ kind: 'swap', tile: 'verb', to: 1 }],
       alt: [
-        '*Ko hoʻo ʻalu ki fē?* would be a casual question. *Ko hoʻo ʻalú ki fē?* Where is it that you are going? With the accent, it becomes more deliberate.',
+        '*Ko hoʻo ʻalu ki fē?* would be a casual question. *Ko hoʻo ʻalú ki fē?* Where is it that you are going? (Lit. "Your going, to where?") With the accent, it becomes more deliberate.',
       ],
     },
   ],
@@ -253,7 +254,7 @@ export const F44_6 = {
       after: null,
       lines: [
         { say: 'poó ni', en: 'this night' },
-        { say: 'pō ní', note: 'with the accent carried to ni' },
+        { say: 'pō ní', note: 'with the accent carried to *ni*' },
       ],
       states: [[['word', 0], ['ni', 0]], [['word', 1], ['ni', 1]]],
       beats: [{ kind: 'swap', tile: ['word', 'ni'], to: 1 }],
@@ -264,7 +265,7 @@ export const F44_6 = {
 
 /** The opening row in the hero: a still, with labels. */
 export const OPENING = {
-  row: [face('ʻi he', 'quiet'), face('fale', 'noun', 'noun'), face('ako', 'quiet'), face('foʻoú', 'quiet')],
+  row: [face('ʻi he', 'quiet'), face('fale', 'quiet', 'noun'), face('ako', 'quiet'), face('foʻoú', 'quiet')],
   say: 'ʻi he fale ako foʻoú',
   en: 'in the new school building',
 }

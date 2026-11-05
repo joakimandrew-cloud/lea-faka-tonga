@@ -213,7 +213,8 @@ export const F36_5 = {
       key: 'ai',
       tiles: {
         ko: [face('Ko e meʻa ia', 'quiet')],
-        tp: [face('ʻoku ou', 'quiet'), face('naʻá ku', 'quiet'), face('ʻokú ne', 'quiet')],
+        // R11: a tile grouping a tense marker with its pronoun is `tense`, "tense + pronoun".
+        tp: [face('ʻoku ou', 'tense', 'tense + pronoun'), face('naʻá ku', 'tense', 'tense + pronoun'), face('ʻokú ne', 'tense', 'tense + pronoun')],
         verb: [face('loto mamahi', 'verb'), face('haʻu', 'verb'), face('ngāue', 'verb')],
         ai: [face('ai', 'particle', 'refers back')],
       },

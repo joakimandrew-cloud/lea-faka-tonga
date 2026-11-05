@@ -63,7 +63,9 @@ export const F17_2 = {
     { tense: 'your (sg.)', cells: [pair('hoʻo', ' tohi', 'your book'), pair('ho', ' hingoa', 'your name')] },
     { tense: 'his, her, its', cells: [pair('ʻene', ' kato', 'his/her basket'), pair('hono', ' kofu', 'his/her clothes')] },
     { tense: 'our (incl.)', cells: [pair('ʻetau', ' ngāue', 'our work'), pair('hotau', ' fonua', 'our country')] },
-    { tense: 'our (excl.)', cells: [pair('ʻemau', ' vaka', 'our boat'), pair('homau', ' loki', 'our room')] },
+    // H3: the book's 'emau vaka (our boat) waits for the book sync (boats are ho-class at Ch 17
+    // lines 24 and 115), so this cell shows the form alone, untappable, as 10.js's none cells do.
+    { tense: 'our (excl.)', cells: [{ none: true, form: 'ʻemau' }, pair('homau', ' loki', 'our room')] },
     { tense: 'your (pl.)', cells: [pair('hoʻomou', ' fala', 'your mat'), pair('homou', ' fale', 'your house')] },
     { tense: 'their', cells: [pair('ʻenau', ' meʻakai', 'their food'), pair('honau', ' ʻapi', 'their home')] },
   ],
@@ -95,7 +97,7 @@ export const F17_3 = {
         [['ki', 0], ['poss', 0], ['fale', 0]],
       ],
       beats: [
-        { kind: 'drop', tile: 'he', old: true, to: 1 },
+        { kind: 'drop', tile: 'he', to: 1 },
         { kind: 'add', tile: 'poss', to: 2 },
         { kind: 'en' },
       ],
@@ -239,11 +241,11 @@ export const F17_6 = {
   ],
 }
 
-/** The opening row in the hero: a still. The one stroked tile holds the possessive, labelled with
- *  the book's gloss. Grouped to three tiles: four wrapped on a phone, and "fale ʻa Sione" as a tile
- *  would read as the book's ʻa of possession, which this ʻa is not. */
+/** The opening row in the hero: a still. The one stroked tile is the possessive pronoun alone; its
+ *  noun is a quiet tile, as in 17.3 (a group is quiet). "fale ʻa Sione" stays apart, since as one
+ *  tile it would read as the book's ʻa of possession, which this ʻa is not. The row may wrap. */
 export const OPENING = {
-  row: [face('ʻOku ʻi', 'quiet'), face('hoku fale', 'pronoun', 'my house'), face('ʻa Sione', 'quiet')],
+  row: [face('ʻOku ʻi', 'quiet'), face('hoku', 'pronoun'), face('fale', 'quiet', 'noun'), face('ʻa Sione', 'quiet')],
   say: 'ʻOku ʻi hoku fale ʻa Sione.',
   en: 'Sione is at my house.',
 }

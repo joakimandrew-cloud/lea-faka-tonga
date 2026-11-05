@@ -10,8 +10,11 @@
 
 const face = (text, role, label) => ({ text, role, ...(label ? { label } : {}) })
 const article = text => face(text, 'quiet', 'article')
-const noun = text => face(text, 'noun', 'noun')
-const adjective = text => face(text, 'verb', 'adjective')
+// R1: no noun here is a noun subject (fale, meʻa, kato stand in phrases; sote is the object), so
+// every noun is quiet "noun". R2: every adjective here sits beside its noun or after fuʻu, never in
+// the verb slot, so it is quiet "adjective", kiʻi and siʻi included (Ch 35 line 9).
+const noun = text => face(text, 'quiet', 'noun')
+const adjective = text => face(text, 'quiet', 'adjective')
 const slot = text => ({ slot: true, form: adjective(text), label: 'adjective' })
 
 /** The same noun, an adjective either side of it: the standard position, and the few that go before. */
@@ -88,7 +91,7 @@ export const F35_2 = {
   ],
 }
 
-const fuu = () => face('fuʻu', 'particle')
+const fuu = lane => face('fuʻu', 'quiet', lane === 0 ? 'size intensifier' : 'tree classifier')
 
 /** Beyond "big", the book gives fuʻu two uses, and the word after it tells them apart. */
 export const F35_3 = {
@@ -105,8 +108,8 @@ export const F35_3 = {
     {
       key: 'lahi-mango',
       cases: [
-        { lane: 0, say: 'fuʻu lahi', en: 'really big, very much', row: [fuu(), { slot: true, form: adjective('lahi'), label: 'adjective' }] },
-        { lane: 1, say: 'fuʻu mango', en: 'a mango tree', row: [fuu(), { slot: true, form: face('mango', 'quiet'), label: 'plant name' }] },
+        { lane: 0, say: 'fuʻu lahi', en: 'really big, very much', row: [fuu(0), { slot: true, form: adjective('lahi'), label: 'adjective' }] },
+        { lane: 1, say: 'fuʻu mango', en: 'a mango tree', row: [fuu(1), { slot: true, form: face('mango', 'quiet'), label: 'plant name' }] },
       ],
       alt: [
         'Before an adjective or adverb, *fuʻu* intensifies the meaning: *fuʻu lahi*, really big, very much.',
@@ -116,8 +119,8 @@ export const F35_3 = {
     {
       key: 'lelei-niu',
       cases: [
-        { lane: 0, say: 'fuʻu lelei', en: 'really good', row: [fuu(), { slot: true, form: adjective('lelei'), label: 'adjective' }] },
-        { lane: 1, say: 'fuʻu niu', en: 'a coconut palm', row: [fuu(), { slot: true, form: face('niu', 'quiet'), label: 'plant name' }] },
+        { lane: 0, say: 'fuʻu lelei', en: 'really good', row: [fuu(0), { slot: true, form: adjective('lelei'), label: 'adjective' }] },
+        { lane: 1, say: 'fuʻu niu', en: 'a coconut palm', row: [fuu(1), { slot: true, form: face('niu', 'quiet'), label: 'plant name' }] },
       ],
       alt: [
         'Size intensifier: *fuʻu lelei*, really good.',

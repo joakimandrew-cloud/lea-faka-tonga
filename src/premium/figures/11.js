@@ -127,6 +127,7 @@ export const F11_3 = {
   ],
 }
 
+// tail is a place phrase in the only case that has one (ki Fisi, Ch 11 line 110), so it is `place` (R9).
 function howCase(lane, say, en, before, how, object, tail) {
   return {
     lane, say, en,
@@ -134,7 +135,7 @@ function howCase(lane, say, en, before, how, object, tail) {
       ...before,
       { slot: true, form: face(how, 'question') },
       ...(object ? [{ ...face(object, 'quiet'), ring: true, label: 'object' }] : []),
-      ...(tail ? [face(tail, 'quiet')] : []),
+      ...(tail ? [face(tail, 'place')] : []),
     ],
   }
 }

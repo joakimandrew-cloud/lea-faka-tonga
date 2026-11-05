@@ -67,7 +67,7 @@ export const F38_2 = {
       key: 'kuo',
       cases: [
         hopeCase(0, 'ke', 'quiet', null, [face('mou', 'pronoun'), face('fiefia', 'verb'), face('ʻi homau kiʻi motú', 'place')], 'ʻOfa pē ke mou fiefia ʻi homau kiʻi motú.', 'May you all be happy on our little island.'),
-        hopeCase(1, 'kuo', 'tense', 'tense', [face('nau', 'pronoun'), face('aʻu', 'verb'), face('ki ai', 'place')], 'ʻOfa pē kuo nau aʻu ki ai.', 'I hope they have arrived there.'),
+        hopeCase(1, 'kuo', 'tense', 'tense', [face('nau', 'pronoun'), face('aʻu', 'verb'), face('ki ai', 'quiet')], 'ʻOfa pē kuo nau aʻu ki ai.', 'I hope they have arrived there.'),
       ],
     },
     {
@@ -149,7 +149,7 @@ export const F38_4 = {
       cases: [
         {
           lane: 0, say: 'Tokanga ki hoʻo tohí teliá naʻa mole.', en: 'Take care of your book lest it be lost.',
-          row: [face('Tokanga ki hoʻo tohí', 'quiet'), { slot: true, form: face('teliá', 'quiet') }, { ...face('naʻa', 'quiet'), ring: true, label: 'warning word' }, face('mole', 'quiet')],
+          row: [face('Tokanga ki hoʻo tohí', 'quiet'), { slot: true, form: face('teliá', 'quiet') }, { ...face('naʻa', 'quiet'), ring: true, label: 'warning word' }, face('mole', 'verb')],
         },
         {
           lane: 1, say: 'ʻAi homou taʻovala telia ʻa Nuku.', en: 'Put on your taʻovalas out of respect for Nuku.',
@@ -162,7 +162,7 @@ export const F38_4 = {
       cases: [
         {
           lane: 0, say: 'Fakaleleiʻi ʻa e kaá telia naʻa maumau he halá.', en: 'Fix the car well lest it break down on the road.',
-          row: [face('Fakaleleiʻi ʻa e kaá', 'quiet'), { slot: true, form: face('telia', 'quiet') }, { ...face('naʻa', 'quiet'), ring: true, label: 'warning word' }, face('maumau he halá', 'quiet')],
+          row: [face('Fakaleleiʻi ʻa e kaá', 'quiet'), { slot: true, form: face('telia', 'quiet') }, { ...face('naʻa', 'quiet'), ring: true, label: 'warning word' }, face('maumau', 'verb'), face('he halá', 'place')],
         },
         {
           lane: 1, say: 'Kuo fai eni ʻe he tuʻí telia ʻa e fonuá.', en: 'The king has done this for the sake of the country.',
@@ -232,7 +232,7 @@ export const F38_6 = {
     {
       key: 'nai-ape',
       cases: [
-        adverbCase(0, [face('ʻOku', 'tense'), face('toko fiha', 'quiet'), adverb('nai'), face('hoʻo fānau', 'quiet')], 'ʻOku toko fiha nai hoʻo fānau?', 'How many children do you have? (polite, softened)'),
+        adverbCase(0, [face('ʻOku', 'tense'), face('toko fiha', 'question'), adverb('nai'), face('hoʻo fānau', 'quiet')], 'ʻOku toko fiha nai hoʻo fānau?', 'How many children do you have? (polite, softened)'),
         adverbCase(1, [face('ʻE', 'tense'), face('haʻu', 'verb'), adverb('ʻapē'), face('ʻa e vakapuná', 'quiet'), face('ʻapongipongi', 'quiet')], 'ʻE haʻu ʻapē ʻa e vakapuná ʻapongipongi?', 'Is the airplane coming tomorrow? (I guess it might)'),
       ],
     },

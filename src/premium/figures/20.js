@@ -54,7 +54,7 @@ export const F20_1 = {
 
 function particleScene(key, lead, noun, number, say, en) {
   const tiles = {
-    noun: [face(noun, 'noun', 'noun')],
+    noun: [face(noun, 'quiet', 'noun')],
     e: [face('ʻe', 'quiet', 'particle')],
     num: [num(number)],
   }
@@ -99,7 +99,7 @@ export const F20_3 = {
       key: 'kato',
       tiles: {
         lead: [face('ha', 'quiet')],
-        noun: [face('kato', 'noun', 'noun')],
+        noun: [face('kato', 'quiet', 'noun')],
         e: [face('ʻe', 'quiet')],
         slot: [num('ono'), face('fiha', 'question')],
       },
@@ -142,11 +142,11 @@ export const F20_4 = {
       cases: [
         {
           lane: 0, say: 'Ko e tamaiki ʻe toko tolu.', en: 'Three children.',
-          row: [face('Ko e', 'quiet'), { ...face('tamaiki', 'noun'), ring: true, label: 'noun' }, face('ʻe', 'quiet'), toko, num('tolu')],
+          row: [face('Ko e', 'quiet'), { ...face('tamaiki', 'quiet'), ring: true, label: 'noun' }, face('ʻe', 'quiet'), toko, num('tolu')],
         },
         {
           lane: 1, say: 'ha tohi ʻe tolu', en: 'three books',
-          row: [face('ha', 'quiet'), { ...face('tohi', 'noun'), ring: true, label: 'noun' }, eSlot, num('tolu')],
+          row: [face('ha', 'quiet'), { ...face('tohi', 'quiet'), ring: true, label: 'noun' }, eSlot, num('tolu')],
         },
       ],
     },
@@ -155,11 +155,11 @@ export const F20_4 = {
       cases: [
         {
           lane: 0, say: 'ʻOku toko fiha hoʻo kau akó?', en: 'How many pupils do you have?',
-          row: [face('ʻOku', 'tense'), toko, face('fiha', 'question'), face('hoʻo', 'quiet'), { ...face('kau akó', 'noun'), ring: true, label: 'noun' }],
+          row: [face('ʻOku', 'tense'), toko, face('fiha', 'question'), face('hoʻo', 'pronoun', 'possessive'), { ...face('kau akó', 'noun'), ring: true, label: 'noun' }],
         },
         {
           lane: 1, say: 'ha kato ʻe fiha?', en: 'how many baskets?',
-          row: [face('ha', 'quiet'), { ...face('kato', 'noun'), ring: true, label: 'noun' }, eSlot, face('fiha', 'question')],
+          row: [face('ha', 'quiet'), { ...face('kato', 'quiet'), ring: true, label: 'noun' }, eSlot, face('fiha', 'question')],
         },
       ],
     },
@@ -232,11 +232,11 @@ export const F20_6 = {
       cases: [
         {
           lane: 0, say: 'ʻOku toe ʻa e miniti ʻe nima ki he tolú.', en: 'Five minutes to three.',
-          row: [face('ʻOku', 'tense'), { slot: true, form: face('toe', 'quiet'), label: 'remaining' }, face('ʻa e miniti ʻe nima', 'quiet'), face('ki he tolú', 'quiet')],
+          row: [face('ʻOku', 'tense'), { slot: true, form: face('toe', 'verb'), label: 'remaining' }, face('ʻa e miniti ʻe nima', 'quiet'), face('ki he tolú', 'quiet')],
         },
         {
           lane: 1, say: 'Kuo ʻosi ʻa e valú, miniti ʻe hongofulu.', en: 'Ten minutes past eight.',
-          row: [face('Kuo', 'tense'), { slot: true, form: face('ʻosi', 'quiet'), label: 'finished' }, face('ʻa e valú,', 'quiet'), face('miniti ʻe hongofulu', 'quiet')],
+          row: [face('Kuo', 'tense'), { slot: true, form: face('ʻosi', 'verb'), label: 'finished' }, face('ʻa e valú,', 'quiet'), face('miniti ʻe hongofulu', 'quiet')],
         },
       ],
     },
@@ -252,7 +252,7 @@ function ordinalScene(key, plain, accented, say, en) {
     key,
     tiles: {
       ko: [face('ko', 'quiet')],
-      hono: [face('hono', 'quiet', 'possessive')],
+      hono: [face('hono', 'pronoun', 'possessive')],
       num: [num(plain), num(accented)],
     },
     before: null,
@@ -289,7 +289,7 @@ export const F20_7 = {
 
 /** The opening row in the hero: a still, with labels. */
 export const OPENING = {
-  row: [face('ha', 'quiet'), face('kato', 'noun', 'noun'), face('ʻe', 'quiet', 'particle'), num('ono')],
+  row: [face('ha', 'quiet'), face('kato', 'quiet', 'noun'), face('ʻe', 'quiet', 'particle'), num('ono')],
   say: 'ha kato ʻe ono',
   en: 'six baskets',
 }

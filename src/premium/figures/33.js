@@ -24,7 +24,7 @@ export const F33_1 = {
       key: 'fufulu',
       tiles: {
         verb: [face('Fufulu', 'verb')],
-        aki: [face('ʻaki', 'particle', 'preposition')],
+        aki: [face('ʻaki', 'quiet', 'preposition')],
         object: [face('ho falá', 'quiet', 'object')],
         means: [face('e vai māfaná', 'quiet', 'instrument')],
       },
@@ -48,8 +48,8 @@ export const F33_1 = {
 }
 
 // The marker tile holds ki or ʻa alone; an article travels on the last tile (he ngāué, e ngāué).
-// In the pule scene ki goes unlabelled: at 390 its label ran into INTRANSITIVE, and the
-// tokoni scene has just named it.
+// The tokoni ki Seini scene waits for the book sync (step 11 ruling H2: Lesson 7 gives kia
+// before a person), so 33.2 holds only the pule scene and ki carries its own label.
 function transitiveScene(key, tense, pron, verbA, verbB, restA, restB, sayA, enA, sayB, enB, altB) {
   const restMoves = restA !== restB
   return {
@@ -58,7 +58,7 @@ function transitiveScene(key, tense, pron, verbA, verbB, restA, restB, sayA, enA
       tense: [face(tense, 'tense')],
       pron: [face(pron, 'pronoun')],
       verb: [face(verbA, 'verb', 'intransitive'), face(verbB, 'verb', 'transitive')],
-      prep: [face('ki', 'quiet', restMoves ? undefined : 'preposition'), face('ʻa', 'focus')],
+      prep: [face('ki', 'quiet', 'preposition'), face('ʻa', 'focus')],
       rest: restMoves ? [face(restA, 'quiet'), face(restB, 'quiet')] : [face(restA, 'quiet')],
     },
     before: null,
@@ -79,11 +79,8 @@ export const F33_2 = {
   kind: 'row',
   types: ['swap'],
   title: 'Add *-ʻi*, and *ki* gives way to *ʻa*',
-  after: { section: 'making-verbs-transitive-the-suffix-i', block: b => b.type === 'p' && b.text.startsWith('Both sentences translate') },
+  after: { section: 'making-verbs-transitive-the-suffix-i', block: b => b.type === 'examples' && b.pairs.some(p => /pule.i/.test(p.tongan)) },
   scenes: [
-    transitiveScene('tokoni', 'Naʻá', 'ku', 'tokoni', 'tokoniʻi', 'Seini', 'Seini',
-      'Naʻá ku tokoni ki Seini.', 'I helped Seini.', 'Naʻá ku tokoniʻi ʻa Seini.', 'I helped Seini.',
-      'With *-ʻi*, *tokoniʻi* takes a direct object marked by *ʻa*.'),
     transitiveScene('pule', 'ʻOkú', 'ne', 'pule', 'puleʻi', 'he ngāué', 'e ngāué',
       'ʻOkú ne pule ki he ngāué.', 'He is in charge of the work.', 'ʻOkú ne puleʻi ʻa e ngāué.', 'He manages the work.',
       'With *-ʻi*, *puleʻi* takes a direct object marked by *ʻa*.'),
@@ -161,7 +158,7 @@ export const F33_4 = {
 
 /** The opening row in the hero: a still, with labels. */
 export const OPENING = {
-  row: [face('Fufulu', 'verb'), face('ʻaki', 'particle', 'preposition'), face('ho falá', 'quiet', 'object'), face('e vai māfaná', 'quiet', 'instrument')],
+  row: [face('Fufulu', 'verb'), face('ʻaki', 'quiet', 'preposition'), face('ho falá', 'quiet', 'object'), face('e vai māfaná', 'quiet', 'instrument')],
   say: 'Fufulu ʻaki ho falá e vai māfaná.',
   en: 'Wash your mat with warm water.',
 }

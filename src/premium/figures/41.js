@@ -12,7 +12,7 @@ function weatherScene(key, word, gloss, tense, say, en) {
     key,
     tiles: {
       tense: [face(tense, 'tense')],
-      word: [face(word, 'noun', 'noun'), face(word, 'verb', 'verb')],
+      word: [face(word, 'quiet', 'noun'), face(word, 'verb', 'verb')],
     },
     before: { say: word, en: gloss },
     after: { say, en },
@@ -68,7 +68,7 @@ export const F41_2 = {
         },
         {
           lane: 1, say: 'ko ha ʻeiki ia', en: 'he is a chief',
-          row: [face('ko', 'quiet'), { ...face('ha', 'quiet'), ring: true, label: 'article' }, { slot: true, form: face('ʻeiki', 'noun'), label: 'noun' }, face('ia', 'pronoun')],
+          row: [face('ko', 'quiet'), { ...face('ha', 'quiet'), ring: true, label: 'article' }, { slot: true, form: face('ʻeiki', 'quiet', 'noun'), label: 'noun' }, face('ia', 'pronoun')],
         },
       ],
     },

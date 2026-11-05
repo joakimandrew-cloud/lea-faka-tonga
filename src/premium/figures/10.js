@@ -18,7 +18,7 @@ export const F10_1 = {
       key: 'place',
       tiles: {
         tense: [face('ʻOku', 'tense')], pron: [face('ou', 'pronoun')], verb: [face('nofo', 'verb')],
-        place: [face('ʻi Vavaʻu', 'place')], mo: [face('mo Mele', 'quiet', 'mo phrase')],
+        place: [face('ʻi Vavaʻu', 'place')], mo: [face('mo Mele', 'quiet', '*mo* phrase')],
       },
       before: null,
       after: { say: 'ʻOku ou nofo ʻi Vavaʻu mo Mele.', en: 'I live in Vavaʻu with Mele.' },
@@ -33,7 +33,7 @@ export const F10_1 = {
       key: 'time',
       tiles: {
         rest: [quiet('Naʻá ku ʻalu')], place: [face('ki kolo', 'place')],
-        mo: [face('mo Sione', 'quiet', 'mo phrase')], time: [face('ʻaneafi', 'quiet', 'time word')],
+        mo: [face('mo Sione', 'quiet', '*mo* phrase')], time: [face('ʻaneafi', 'quiet', 'time word')],
       },
       before: null,
       after: { say: 'Naʻá ku ʻalu ki kolo mo Sione ʻaneafi.', en: 'I went to town with Sione yesterday.' },

@@ -67,7 +67,7 @@ export const F43_2 = {
         {
           lane: 0, say: 'Neʻineʻi hola ʻa Mele ia.', en: 'No wonder Mele ran away.',
           row: [
-            { slot: true, form: face('Neʻineʻi', 'tense', 'no wonder'), label: 'no wonder' },
+            { slot: true, form: face('Neʻineʻi', 'particle', 'no wonder'), label: 'no wonder' },
             face('hola', 'verb'), face('ʻa', 'focus'),
             { ...face('Mele', 'noun'), ring: true, label: 'noun' },
             face('ia', 'quiet', ''),
@@ -76,7 +76,7 @@ export const F43_2 = {
         {
           lane: 1, say: 'Neʻineʻi te nau fiefia', en: 'No wonder they were glad',
           row: [
-            { slot: true, form: face('Neʻineʻi te', 'tense', 'no wonder'), label: 'no wonder' },
+            { slot: true, form: face('Neʻineʻi te', 'particle', 'no wonder'), label: 'no wonder' },
             { ...face('nau', 'pronoun'), ring: true, label: 'pronoun' },
             face('fiefia', 'verb'),
           ],

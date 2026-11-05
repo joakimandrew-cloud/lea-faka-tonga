@@ -116,12 +116,12 @@ export const F4_3 = {
   ],
 }
 
-/** ʻAho + ni: ni arrives, the stress shifts forward, and he comes before it inside a sentence. */
+/** ʻAho + ni: ni arrives, the stress shifts forward, and as a time expression he comes before ʻahó ni. */
 export const F4_4 = {
   id: '4.4',
   kind: 'row',
   types: ['add', 'swap'],
-  title: '*ni* arrives, the stress shifts, *he* comes before it inside a sentence',
+  title: '*ni* arrives, the stress shifts, and as a time expression *he* comes before *ʻahó ni*',
   after: { section: 'today', block: b => b.type === 'p' && b.text.startsWith('When *') },
   scenes: [
     {
@@ -202,7 +202,7 @@ export const F4_6 = {
     {
       key: 'stack',
       tiles: {
-        start: [face('Naʻa mau', 'quiet', 'TM + pronoun')],
+        start: [face('Naʻa mau', 'tense', 'tense + pronoun')],
         faa: [face('faʻa', 'particle', 'modifier')],
         verb: [face('inu vai', 'verb', 'compound')],
         mod: [face('lahi ʻaupito', 'particle', 'modifier, intensifier')],

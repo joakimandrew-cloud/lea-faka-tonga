@@ -63,7 +63,7 @@ export const F30_2 = {
         },
         {
           lane: 1, say: 'ʻE nofo ai kaeʻoua kuo mālohi.', en: 'She will stay there until she is strong.',
-          row: [face('ʻE nofo ai', 'quiet'), face('kaeʻoua', 'quiet'), { slot: true, form: face('kuo', 'quiet') }, face('mālohi.', 'quiet')],
+          row: [face('ʻE nofo ai', 'quiet'), face('kaeʻoua', 'quiet'), { slot: true, form: face('kuo', 'tense') }, face('mālohi.', 'quiet')],
         },
       ],
     },
@@ -95,7 +95,7 @@ export const F30_3 = {
         },
         {
           lane: 1, say: 'Ko e haʻu pē ʻe Mele, peá u ʻave leva ʻene kato.', en: 'As soon as Mele came, I carried her basket right away.',
-          row: [{ slot: true, form: face('Ko e', 'quiet') }, face('haʻu pē ʻe Mele,', 'quiet'), face('peá u ʻave leva ʻene kato.', 'quiet')],
+          row: [{ slot: true, form: face('Ko e', 'quiet') }, face('haʻu', 'quiet'), { ...face('pē', 'quiet'), ring: true }, face('ʻe Mele,', 'quiet'), face('peá u ʻave leva ʻene kato.', 'quiet')],
         },
       ],
     },

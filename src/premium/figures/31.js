@@ -5,7 +5,7 @@
 
 const face = (text, role, label) => ({ text, role, ...(label ? { label } : {}) })
 const neg = text => face(text, 'quiet', 'negative')
-const group = text => face(text, 'quiet', 'ha + noun')
+const group = text => face(text, 'quiet', '*ha* + noun')
 const where = text => face(text, 'place', 'location')
 
 /** "The pattern": the pieces of an existential land one at a time, with ʻi ai in the verb slot. */
@@ -117,8 +117,8 @@ export const F31_4 = {
       key: 'meakai',
       tiles: {
         tense: [face('ʻOku', 'tense')],
-        neg: [neg('ʻikai')],
-        core: [face('ke ʻi ai', 'quiet', ' ')],
+        neg: [face('ʻikai', 'quiet', ' ')],
+        core: [face('ke ʻi ai', 'quiet', '*ke* + *ʻi ai*')],
         noun: [group('ha meʻakai')],
         place: [where('ʻi fale')],
       },

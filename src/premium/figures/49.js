@@ -30,7 +30,7 @@ export const F49_1 = {
       cases: [
         {
           lane: 0, say: 'Naʻe hae ʻe ia ʻa e kofú.', en: 'He tore the garment.',
-          row: [face('Naʻe', 'tense'), { slot: true, form: face('hae', 'verb'), label: true }, face('ʻe ia', 'quiet'), face('ʻa e kofú', 'quiet')],
+          row: [face('Naʻe', 'tense'), { slot: true, form: face('hae', 'verb'), label: true }, face('ʻe ia', 'pronoun'), face('ʻa e kofú', 'quiet')],
         },
         {
           lane: 1, say: 'Naʻe mahae ʻa e kofu ʻo Sialé.', en: "Siale's garment was torn. (Something tore it, or it tore on its own.)",

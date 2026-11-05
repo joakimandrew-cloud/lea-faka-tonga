@@ -44,7 +44,7 @@ export const F21_1 = {
         [['tense', 0], ['pron', 0], ['fie', 0], ['verb', 0], ['rest', 0]],
       ],
       beats: [{ kind: 'add', tile: 'fie', to: 1 }, { kind: 'en' }],
-      alt: ['*Naʻá ku fie mohe ʻanepō.* I wanted to sleep last night.', 'The same place with a different pronoun and tense.'],
+      alt: ['*Naʻá ku fie mohe ʻanepō.* I wanted to sleep last night.', 'The auxiliary takes the position right before the main verb.'],
     },
   ],
 }
@@ -200,10 +200,10 @@ function aiScene(key, subjA, subjB, phrase, before, after) {
   return {
     key,
     tiles: {
-      subj: [face(subjA, 'quiet'), face(subjB, 'quiet')],
+      subj: [face(subjA, 'tense', 'tense + pronoun'), face(subjB, 'quiet')],
       verb: [face('saiʻia', 'verb')],
-      lahi: [face('lahi', 'quiet')],
-      phrase: [face(phrase, 'quiet', 'ʻia phrase'), face('ai', 'quiet', 'substitute')],
+      lahi: [face('lahi', 'particle', 'modifier')],
+      phrase: [face(phrase, 'quiet', '*ʻia* phrase'), face('ai', 'particle', 'refers back')],
     },
     before,
     after,

@@ -10,7 +10,7 @@ const face = (text, role, label) => ({ text, role, ...(label ? { label } : {}) }
 function possCase(lane, lead, link, form, noun, say, en) {
   return {
     lane, say, en,
-    row: [face(lead, 'quiet'), face(link, 'quiet'), { slot: true, form: face(form, 'pronoun'), label: true }, { ...face(noun, 'quiet'), ring: true }],
+    row: [face(lead, 'quiet'), face(link, 'quiet'), { slot: true, form: face(form, 'pronoun'), label: true }, face(noun, 'quiet')],
   }
 }
 
@@ -19,7 +19,7 @@ export const F51_1 = {
   id: '51.1',
   kind: 'fork',
   types: ['fork'],
-  title: 'Which “one’s”? Look at what is owned',
+  title: 'Which “one’s”? Your relationship to the thing',
   after: { section: 'impersonal-possessive-forms', block: b => b.type === 'examples' },
   lanes: [
     { label: 'Things one controls', forms: ['ʻete'] },
@@ -56,7 +56,7 @@ export const F51_2 = {
   id: '51.2',
   kind: 'fork',
   types: ['fork'],
-  title: 'The pronoun counts everyone in the situation',
+  title: 'Tongan often prefers a pronoun that counts everyone in the situation',
   after: { section: 'dual-for-singular-idiom', block: b => b.type === 'p' && b.text.startsWith('Even if only two') },
   // Speaker, listener, him (the ia of mo ia), and two others.
   people: [S, L, T, T, T],

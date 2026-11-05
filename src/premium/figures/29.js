@@ -25,7 +25,7 @@ function forkCase(lane, before, form, after, say, en) {
 function verbalCase(lane, form, verb, say, en) {
   return {
     lane, say, en,
-    row: [{ slot: true, form: face(form, 'pronoun') }, face(verb, 'verb')],
+    row: [{ slot: true, form: face(form, 'pronoun') }, face(verb, 'quiet', 'verbal noun')],
   }
 }
 
@@ -252,7 +252,7 @@ export const F29_6 = {
 
 /** The opening row in the hero: the possessive class and the verbal noun. */
 export const OPENING = {
-  row: [face('ʻEku', 'pronoun', E), face('tokoni', 'verb', 'verbal noun')],
+  row: [face('ʻEku', 'pronoun', E), face('tokoni', 'quiet', 'verbal noun')],
   say: 'ʻEku tokoni.',
   en: 'my helping (I do the helping)',
 }

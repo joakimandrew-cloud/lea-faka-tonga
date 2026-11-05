@@ -86,7 +86,7 @@ export const F3_3 = {
   id: '3.3',
   kind: 'row',
   types: ['add'],
-  title: '*ʻAupito* comes last',
+  title: '*ʻAupito* comes last, after any other modifier',
   after: { section: 'modifiers', block: b => b.type === 'p' && b.text.startsWith('In the second sentence') },
   scenes: [
     {

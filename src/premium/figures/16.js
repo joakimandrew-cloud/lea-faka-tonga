@@ -19,7 +19,7 @@ export const F16_1 = {
       key: 'latu',
       tiles: {
         front: [face('ʻOku', 'tense'), face('Ko e', 'quiet')],
-        pred: [face('fiefia', 'quiet', 'adjective'), face('tamasiʻi fiefia', 'quiet', 'noun phrase')],
+        pred: [face('fiefia', 'verb', 'adjective'), face('tamasiʻi fiefia', 'quiet', 'noun phrase')],
         focus: [face('ʻa', 'focus')],
         noun: [face('Lātū', 'noun')],
       },
@@ -44,7 +44,7 @@ export const F16_1 = {
       key: 'ofa',
       tiles: {
         front: [face('ʻOku', 'tense'), face('Ko e', 'quiet')],
-        pred: [face('mālohi', 'quiet', 'adjective'), face('taʻahine mālohi', 'quiet', 'noun phrase')],
+        pred: [face('mālohi', 'verb', 'adjective'), face('taʻahine mālohi', 'quiet', 'noun phrase')],
         focus: [face('ʻa', 'focus')],
         noun: [face('ʻOfa', 'noun')],
       },

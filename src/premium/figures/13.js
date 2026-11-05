@@ -1,46 +1,18 @@
 // Lesson 13's figures, as data. Every Tongan and English string is copied from
 // book/Chapter-13.md at origin/main, as the site renders it (straight ' to U+02BB).
 // No figure for the answers (ko + the person is a definition with examples), the
-// Summary table, Words to Learn or Exercises.
+// Summary table, Words to Learn or Exercises. The ko hai fork (tense marker alone
+// against té ne) is held under ruling H1 until Ch 13 joins the app book sync.
+// The where fork (HELD_13_WHERE below) is held the same way: it copies live line 67,
+// which the root book has since corrected (the nuance belongs to ko e fē, and
+// Shumway treats ko fē as a plain alternative). Rebuild it from the synced text.
 
 const face = (text, role, label) => ({ text, role, ...(label !== undefined ? { label } : {}) })
 const what = () => face('Ko e hā', 'question', 'what')
 
-/** Ko hai: the tense marker stands alone, until the question reaches a specific thing. */
+/** The longer form: hā at the front, then the thing, then the clause describing it. */
 export const F13_1 = {
   id: '13.1',
-  kind: 'fork',
-  types: ['fork'],
-  title: 'After *ko hai*: when *ne* appears after the tense marker',
-  after: { section: 'ko-hai-who', block: b => b.type === 'examples' && b.pairs.some(p => p.tongan.includes('tokoni')) },
-  lanes: [
-    { label: 'No specific thing: the tense marker stands alone', forms: ['ʻe'] },
-    { label: 'Doing something to a specific thing: *ne* appears', forms: ['té ne'] },
-  ],
-  scenes: [
-    {
-      key: 'future',
-      cases: [
-        {
-          lane: 0, say: 'Ko hai ʻe lele?', en: 'Who will run?',
-          row: [face('Ko hai', 'question'), { slot: true, form: face('ʻe', 'tense'), label: true }, face('lele', 'verb')],
-        },
-        {
-          lane: 1, say: 'Ko hai té ne tokoni ki he faiako?', en: 'Who will help the teacher?',
-          row: [face('Ko hai', 'question'), { slot: true, form: face('té ne', 'tense'), label: 'tense + ne' }, face('tokoni', 'verb'), { ...face('ki he faiako', 'quiet'), ring: true }],
-        },
-      ],
-    },
-  ],
-  alt: [
-    '*Ko hai ʻe lele?* Who will run? The tense marker stands alone.',
-    '*Ko hai té ne tokoni ki he faiako?* Who will help the teacher? When the question asks about someone doing something to a specific thing, the pronoun *ne* does appear after the tense marker.',
-  ],
-}
-
-/** The longer form: hā at the front, then the thing, then the clause describing it. */
-export const F13_2 = {
-  id: '13.2',
   kind: 'row',
   types: ['add'],
   title: 'The question word at the front, the thing described after it',
@@ -66,9 +38,9 @@ export const F13_2 = {
   ],
 }
 
-/** Two ways to ask where: what you suppose about the thing picks the form. */
-export const F13_3 = {
-  id: '13.3',
+/** Held: two ways to ask where. Not in FIGURES until the book sync (see top). */
+export const HELD_13_WHERE = {
+  id: '13.held-where',
   kind: 'fork',
   types: ['fork'],
   title: 'Two ways to ask where',
@@ -112,8 +84,8 @@ function whyScene(key, tiles, order, say, en) {
 }
 
 /** Why: ai lands immediately after the verb. */
-export const F13_4 = {
-  id: '13.4',
+export const F13_2 = {
+  id: '13.2',
   kind: 'row',
   types: ['add'],
   title: 'Where *ai* sits',
@@ -121,7 +93,7 @@ export const F13_4 = {
   scenes: [
     whyScene(
       'nukualofa',
-      { q: [what()], tense: [face('naʻá ke', 'tense', 'tense + ke')], verb: [face('ʻalu', 'verb')], place: [face('ki Nukuʻalofa', 'place')] },
+      { q: [what()], tense: [face('naʻá ke', 'tense', 'tense + *ke*')], verb: [face('ʻalu', 'verb')], place: [face('ki Nukuʻalofa', 'place')] },
       ['q', 'tense', 'verb', 'ai', 'place'],
       'Ko e hā naʻá ke ʻalu ai ki Nukuʻalofa?',
       'Why did you go to Nukuʻalofa? (Lit. "What is [the thing] you went because-of-it to Nukuʻalofa?")',
@@ -149,4 +121,4 @@ export const RECALL = [
   { to: 'Ko Sione.', en: 'Sione.' },
 ]
 
-export const FIGURES = [F13_1, F13_2, F13_3, F13_4]
+export const FIGURES = [F13_1, F13_2]

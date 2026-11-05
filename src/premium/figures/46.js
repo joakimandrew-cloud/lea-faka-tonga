@@ -13,7 +13,7 @@ function localScene(key, prep, plain, accented, lines) {
     tiles: {
       prep: [face(prep, 'quiet')],
       he: [face('he', 'quiet', 'article')],
-      noun: [face(plain, 'noun', 'local noun'), face(accented, 'noun', 'common noun')],
+      noun: [face(plain, 'quiet', 'local noun'), face(accented, 'quiet', 'common noun')],
     },
     before: null,
     after: null,
@@ -49,19 +49,19 @@ export const F46_1 = {
   ],
 }
 
-function possScene(key, word, lines, altText) {
+function possScene(key, word, ledLabel, lines, altText) {
   return {
     key,
     tiles: {
-      poss: [face('ʻene', 'quiet', 'ʻe-class possessive'), face('hono', 'quiet', 'ho-class possessive')],
-      word: [{ text: word, role: 'verb', label: '' }],
+      poss: [face('ʻene', 'pronoun', 'ʻe-class possessive'), face('hono', 'pronoun', 'ho-class possessive')],
+      word: [face(word, 'quiet', 'verbal noun'), face(word, 'quiet', ledLabel)],
     },
     before: null,
     after: null,
     lines,
     states: [
       [['poss', 0], ['word', 0]],
-      [['poss', 1], ['word', 0]],
+      [['poss', 1], ['word', 1]],
     ],
     beats: [{ kind: 'swap', tile: 'poss', to: 1 }],
     alt: altText,
@@ -76,14 +76,14 @@ export const F46_2 = {
   title: 'The possessive class signals the difference',
   after: { section: 'verbal-nouns-as-a-noun-class', block: b => b.type === 'p' && b.text.startsWith('The possessive class') },
   scenes: [
-    possScene('taki', 'taki', [
+    possScene('taki', 'taki', 'verbal noun', [
       { say: 'ʻene taki', en: 'his leading' },
       { say: 'hono taki', en: 'his being led' },
     ], [
       '*ʻene taki*, his leading: he does the leading, an ʻe-class possessive.',
       '*hono taki*, his being led: the leading is done to him, a ho-class possessive.',
     ]),
-    possScene('malohi', 'mālohi', [
+    possScene('malohi', 'mālohi', 'abstract noun', [
       { say: 'ʻene mālohi', en: 'his being strong' },
       { say: 'hono mālohi', en: 'his strength' },
     ], [
@@ -98,7 +98,7 @@ export const F46_3 = {
   id: '46.3',
   kind: 'fork',
   types: ['fork'],
-  title: 'What type of noun follows ki?',
+  title: 'What type of noun follows *ki*?',
   after: { section: 'summary-of-the-classification-system', block: b => b.type === 'p' && b.text.startsWith('The classification determines') },
   lanes: [
     { label: 'Personal noun', forms: ['kia'] },
@@ -111,11 +111,11 @@ export const F46_3 = {
       cases: [
         {
           lane: 0, say: 'kia Mele', en: 'to Mele',
-          row: [{ slot: true, form: face('kia', 'quiet'), label: 'preposition' }, { ...face('Mele', 'noun', 'personal noun'), ring: true }],
+          row: [{ slot: true, form: face('kia', 'quiet'), label: 'preposition' }, { ...face('Mele', 'quiet', 'personal noun'), ring: true }],
         },
         {
           lane: 2, say: 'ki he fefiné', en: 'to the woman',
-          row: [{ slot: true, form: face('ki he', 'quiet'), label: 'preposition' }, { ...face('fefiné', 'noun', 'common noun'), ring: true }],
+          row: [{ slot: true, form: face('ki he', 'quiet'), label: 'preposition' }, { ...face('fefiné', 'quiet', 'common noun'), ring: true }],
         },
       ],
     },
@@ -124,11 +124,11 @@ export const F46_3 = {
       cases: [
         {
           lane: 1, say: 'ki Vavaʻu', en: 'to Vavaʻu',
-          row: [{ slot: true, form: face('ki', 'quiet'), label: 'preposition' }, { ...face('Vavaʻu', 'noun', 'local noun'), ring: true }],
+          row: [{ slot: true, form: face('ki', 'quiet'), label: 'preposition' }, { ...face('Vavaʻu', 'quiet', 'local noun'), ring: true }],
         },
         {
           lane: 2, say: 'ki he motú', en: 'to the island',
-          row: [{ slot: true, form: face('ki he', 'quiet'), label: 'preposition' }, { ...face('motú', 'noun', 'common noun'), ring: true }],
+          row: [{ slot: true, form: face('ki he', 'quiet'), label: 'preposition' }, { ...face('motú', 'quiet', 'common noun'), ring: true }],
         },
       ],
     },
@@ -143,7 +143,7 @@ export const F46_3 = {
 
 /** The opening row in the hero: a still, with labels. */
 export const OPENING = {
-  row: [face('ʻOkú', 'tense'), face('ne', 'pronoun'), face('ʻofa', 'verb'), face('ʻia', 'quiet'), face('Seini', 'noun', 'personal noun')],
+  row: [face('ʻOkú', 'tense'), face('ne', 'pronoun'), face('ʻofa', 'verb'), face('ʻia', 'quiet'), face('Seini', 'quiet', 'personal noun')],
   say: 'ʻOkú ne ʻofa ʻia Seini.',
   en: 'He loves Seini.',
 }

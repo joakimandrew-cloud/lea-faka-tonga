@@ -33,7 +33,7 @@ export const F6_1 = {
   id: '6.1',
   kind: 'row',
   types: ['add'],
-  title: 'The location phrase attaches to the end',
+  title: 'The location phrase attaches to the end of the sentence patterns you already know',
   after: { section: 'the-preposition-i', block: b => b.type === 'p' && b.text.startsWith('TM + pronoun + verb') },
   scenes: [
     placeScene('tonga', 'Té', 'u', 'nofo', 'ʻi Tonga', 'Té u nofo ʻi Tonga.', 'I will stay in Tonga.'),

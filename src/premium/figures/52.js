@@ -12,7 +12,7 @@ export const F52_1 = {
   id: '52.1',
   kind: 'fork',
   types: ['fork'],
-  title: 'Which siʻi? Look at where it stands',
+  title: 'Which *siʻi*? Look at where it stands',
   // After the Note that ends "Position tells you which function si'i is performing".
   after: { section: 'the-emotional-definite-article-sii', block: b => b.type === 'note' },
   lanes: [
@@ -45,12 +45,12 @@ export const F52_2 = {
   id: '52.2',
   kind: 'fork',
   types: ['fork'],
-  title: 'ʻe-class or ho-class? Look at the thing possessed',
+  title: 'Which class? Your relationship to the thing',
   // After the paragraph beginning "Both sentences use third-person singular".
   after: { section: 'emotional-indefinite-possessive-pronouns', block: b => b.type === 'p' && b.text.startsWith('Both sentences use') },
   lanes: [
-    { label: 'ho-class: faingamālie, something that comes to you', forms: ['siʻano'] },
-    { label: 'ʻe-class: ʻamanaki, something you hold', forms: ['siʻane'] },
+    { label: 'ho-class: *faingamālie*, something that comes to you', forms: ['siʻano'] },
+    { label: 'ʻe-class: *ʻamanaki*, something you hold', forms: ['siʻane'] },
   ],
   scenes: [
     {
@@ -58,11 +58,11 @@ export const F52_2 = {
       cases: [
         {
           lane: 0, say: 'Naʻe ʻikai siʻano faingamālie.', en: 'He never had a chance. (poor him)',
-          row: [face('Naʻe', 'tense'), face('ʻikai', 'quiet', 'negation'), { slot: true, form: face('siʻano', 'quiet', 'ho-class'), label: 'ho-class' }, { ...face('faingamālie', 'quiet', 'opportunity'), ring: true, label: 'opportunity' }],
+          row: [face('Naʻe', 'tense'), face('ʻikai', 'quiet', 'negation'), { slot: true, form: face('siʻano', 'pronoun', 'ho-class'), label: 'ho-class' }, face('faingamālie', 'quiet', 'opportunity')],
         },
         {
           lane: 1, say: 'Naʻe ʻikai siʻane ʻamanaki.', en: 'He had no idea. (poor him)',
-          row: [face('Naʻe', 'tense'), face('ʻikai', 'quiet', 'negation'), { slot: true, form: face('siʻane', 'quiet', 'ʻe-class'), label: 'ʻe-class' }, { ...face('ʻamanaki', 'quiet', 'expectation'), ring: true, label: 'expectation' }],
+          row: [face('Naʻe', 'tense'), face('ʻikai', 'quiet', 'negation'), { slot: true, form: face('siʻane', 'pronoun', 'ʻe-class'), label: 'ʻe-class' }, face('ʻamanaki', 'quiet', 'expectation')],
         },
       ],
     },
@@ -78,7 +78,7 @@ export const F52_3 = {
   id: '52.3',
   kind: 'row',
   types: ['swap'],
-  title: 'The same word twice: first with e, then with ha',
+  title: 'The same word twice: first with *e*, then with *ha*',
   // After the paragraph beginning "This idiom is common in spoken Tongan".
   after: { section: 'the-exclamatory-idiom-with-ka', block: b => b.type === 'p' && b.text.startsWith('This idiom is common') },
   chips: [

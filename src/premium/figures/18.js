@@ -26,7 +26,7 @@ export const F18_1 = {
       tiles: {
         rest: [face('Haʻu mo', 'quiet')],
         art: [face('ha', 'quiet', 'article'), face('e', 'quiet', 'article')],
-        noun: [face('kato', 'noun', 'noun'), face('kató', 'noun', 'noun')],
+        noun: [face('kato', 'quiet', 'noun'), face('kató', 'quiet', 'noun')],
       },
       before: null,
       after: null,
@@ -65,7 +65,7 @@ export const F18_2 = {
       key: 'fale',
       tiles: {
         he: [face('ʻi he', 'quiet')],
-        head: [face('fále', 'noun', 'noun'), face('falé', 'noun', 'noun'), face('fale', 'noun', 'noun')],
+        head: [face('fále', 'quiet', 'noun'), face('falé', 'quiet', 'noun'), face('fale', 'quiet', 'noun')],
         first: [face('akó', 'quiet', 'modifier'), face('ako', 'quiet', 'modifier')],
         last: [face('foʻoú', 'quiet', 'modifier')],
       },
@@ -98,7 +98,7 @@ export const F18_2 = {
       key: 'koloa',
       tiles: {
         e: [face('e', 'quiet', 'article')],
-        head: [face('koloá', 'noun', 'noun'), face('koloa', 'noun', 'noun')],
+        head: [face('koloá', 'quiet', 'noun'), face('koloa', 'quiet', 'noun')],
         next: [face('lahí', 'quiet')],
       },
       before: null,
@@ -122,7 +122,7 @@ function article(say, en, rest, before, form, noun) {
     lane: form === 'he' ? 0 : 1,
     say,
     en,
-    row: [face(rest, 'quiet'), { ...before, ring: true }, { slot: true, form: face(form, 'quiet') }, face(noun, 'noun', 'noun')],
+    row: [face(rest, 'quiet'), { ...before, ring: true }, { slot: true, form: face(form, 'quiet') }, face(noun, form === 'e' ? 'noun' : 'quiet', 'noun')],
   }
 }
 
@@ -162,7 +162,7 @@ export const F18_3 = {
 
 /** The opening row in the hero: a still, with labels. */
 export const OPENING = {
-  row: [face('Haʻu mo', 'quiet'), face('e', 'quiet', 'article'), face('kató', 'noun', 'noun')],
+  row: [face('Haʻu mo', 'quiet'), face('e', 'quiet', 'article'), face('kató', 'quiet', 'noun')],
   say: 'Haʻu mo e kató.',
   en: 'Bring the basket. (The one you know about.)',
 }

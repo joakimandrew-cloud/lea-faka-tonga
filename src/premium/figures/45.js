@@ -24,7 +24,7 @@ export const F45_1 = {
         tense: [face('Naʻa', 'tense')],
         ihe: [face('ʻI he', 'quiet')],
         pron: [face('mau', 'pronoun', 'pronoun'), face('ʻemau', 'pronoun', 'possessive')],
-        verb: [face('tā', 'verb'), face('tā', 'verb', 'verbal noun')],
+        verb: [face('tā', 'verb'), face('tā', 'quiet', 'verbal noun')],
         obj: [face('ʻa e falé', 'quiet', 'object')],
       },
       before: { say: 'Naʻa mau tā ʻa e falé.', en: 'We built the house.' },
@@ -57,7 +57,7 @@ function nounScene(key, verb, markText, name, rest, restRole, restLabel, lines) 
     key,
     tiles: {
       tense: [face('Naʻe', 'tense'), face('ʻI he', 'quiet')],
-      verb: [face(verb, 'verb'), face(verb, 'verb', 'verbal noun')],
+      verb: [face(verb, 'verb'), face(verb, 'quiet', 'verbal noun')],
       mark: [{ text: markText, role: markText === 'ʻa' ? 'focus' : 'quiet', label: '' }],
       name: [face(name, 'noun', 'subject')],
       rest: [face(rest, restRole, restLabel)],
@@ -106,7 +106,7 @@ export const F45_3 = {
   lanes: [
     { label: 'Possessive subject in front', forms: ['ʻa e'] },
     { label: 'Postposed or no subject: can switch', forms: ['ʻo e'] },
-    { label: 'Pronoun, postposed or no subject', forms: ['hoku'] },
+    { label: 'Pronoun *au*, postposed or no subject', forms: ['hoku'] },
   ],
   scenes: [
     {
@@ -114,7 +114,7 @@ export const F45_3 = {
       cases: [
         {
           lane: 0, say: 'ʻi heʻene lau ʻa e tohí', en: 'at his reading the book',
-          row: [face('ʻi', 'quiet'), face('heʻene', 'pronoun', 'possessive'), face('lau', 'verb', 'verbal noun'), { slot: true, form: face('ʻa e', 'quiet'), label: 'object' }, face('tohí', 'quiet')],
+          row: [face('ʻi', 'quiet'), face('heʻene', 'pronoun', 'possessive'), face('lau', 'quiet', 'verbal noun'), { slot: true, form: face('ʻa e', 'quiet'), label: 'object' }, face('tohí', 'quiet')],
         },
         {
           lane: 1, say: 'Té u tokoni ʻi he fufulu ʻo e valá.', en: 'I will help with the washing of the clothes.',
@@ -144,23 +144,27 @@ function subjectScene(key, verb, desc, doer, lines) {
     key,
     tiles: {
       oku: [face('ʻOku', 'tense')],
-      verb: [face(verb, 'verb'), face(verb, 'noun', 'verbal noun')],
-      desc: [face(desc, 'quiet', 'descriptive word')],
+      verb: [face(verb, 'verb'), face(verb, 'quiet', 'verbal noun')],
+      desc: [face(desc, 'particle', 'descriptive word'), face(desc, 'verb', 'adjective')],
       e: [face('e', 'quiet')],
-      doer: [face(doer, 'quiet', 'doer')],
+      doer: [face(doer, 'noun', 'subject'), face(doer, 'quiet', 'doer')],
     },
     before: lines[0],
     after: lines[1],
     states: [
       [['oku', 0], ['verb', 0], ['desc', 0], ['doer', 0]],
       [['oku', 0], ['desc', 0], ['verb', 0], ['doer', 0]],
-      [['oku', 0], ['desc', 0], ['e', 0], ['verb', 0], ['doer', 0]],
-      [['oku', 0], ['desc', 0], ['e', 0], ['verb', 1], ['doer', 0]],
+      [['oku', 0], ['desc', 1], ['verb', 0], ['doer', 0]],
+      [['oku', 0], ['desc', 1], ['e', 0], ['verb', 0], ['doer', 0]],
+      [['oku', 0], ['desc', 1], ['e', 0], ['verb', 1], ['doer', 0]],
+      [['oku', 0], ['desc', 1], ['e', 0], ['verb', 1], ['doer', 1]],
     ],
     beats: [
       { kind: 'move', tile: 'desc', to: 1 },
-      { kind: 'add', tile: 'e', to: 2 },
-      { kind: 'swap', tile: 'verb', to: 3 },
+      { kind: 'swap', tile: 'desc', to: 2 },
+      { kind: 'add', tile: 'e', to: 3 },
+      { kind: 'swap', tile: 'verb', to: 4 },
+      { kind: 'swap', tile: 'doer', to: 5 },
       { kind: 'en' },
     ],
     alt: [
@@ -191,7 +195,7 @@ export const F45_4 = {
 
 /** The opening row in the hero: a still, with labels. */
 export const OPENING = {
-  row: [face('Ko', 'quiet'), face('hoʻo', 'pronoun', 'possessive'), face('ʻalu', 'verb', 'verbal noun'), face('ki fē', 'question')],
+  row: [face('Ko', 'quiet'), face('hoʻo', 'pronoun', 'possessive'), face('ʻalu', 'quiet', 'verbal noun'), face('ki fē', 'question')],
   say: 'Ko hoʻo ʻalu ki fē?',
   en: 'Where are you going?',
 }

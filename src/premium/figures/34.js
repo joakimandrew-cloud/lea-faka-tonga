@@ -36,7 +36,7 @@ export const F34_1 = {
   id: '34.1',
   kind: 'row',
   types: ['add'],
-  title: 'No word for "that"',
+  title: 'No word for "that" between the two clauses',
   after: { section: 'reporting-what-you-hear-know-or-believe', block: b => b.type === 'p' && b.text.startsWith('There is no word for') },
   scenes: [
     noThatScene('fanongo', 'ʻOku', 'ou', 'fanongo', 'ko e kolō lelei ʻa Nukuʻalofa', 'ʻOku ou fanongo ko e kolō lelei ʻa Nukuʻalofa.', 'I hear that Nukuʻalofa is a good town.'),
@@ -144,11 +144,11 @@ export const F34_4 = {
       cases: [
         {
           lane: 0, say: 'Naʻe pehē ʻe Tēvita ʻe foki ʻa Mele.', en: 'Tēvita thought Mele would return.',
-          row: [face('Naʻe', 'tense'), { slot: true, form: face('pehē', 'verb'), label: 'verb' }, face('ʻe Tēvita', 'quiet'), face('ʻe foki ʻa Mele', 'quiet')],
+          row: [face('Naʻe', 'tense'), { slot: true, form: face('pehē', 'verb'), label: 'verb' }, face('ʻe', 'quiet'), face('Tēvita', 'noun'), face('ʻe foki ʻa Mele', 'quiet')],
         },
         {
           lane: 1, say: 'Naʻe pehē pē mei he kamataʻangá.', en: 'It was that way from the beginning.',
-          row: [face('Naʻe', 'tense'), { slot: true, form: face('pehē', 'quiet'), label: 'adverb' }, face('pē mei he kamataʻangá', 'quiet')],
+          row: [face('Naʻe', 'tense'), { slot: true, form: face('pehē', 'particle'), label: 'adverb' }, face('pē mei he kamataʻangá', 'quiet')],
         },
       ],
     },
@@ -157,7 +157,7 @@ export const F34_4 = {
       cases: [
         {
           lane: 1, say: 'ʻOua té ke lea pehē.', en: 'Do not talk like that.',
-          row: [face('ʻOua té ke', 'quiet'), face('lea', 'verb'), { slot: true, form: face('pehē', 'quiet'), label: 'adverb' }],
+          row: [face('ʻOua té ke', 'quiet'), face('lea', 'verb'), { slot: true, form: face('pehē', 'particle'), label: 'adverb' }],
         },
         {
           lane: 2, say: 'ʻOua té ke peheʻi ʻa e fefiné!', en: 'Do not treat the woman that way.',
@@ -167,15 +167,17 @@ export const F34_4 = {
     },
     {
       // Book line 105: peheʻi often appears in commands. A meaning question rings nothing.
+      // R10: each lane form keeps one role. Lane 1 pehē (adverb, line 73 'describes the manner of an action')
+      // is `particle` (R2, goes with the verb); lane 2 peheʻi is `verb` everywhere (line 93, 'to do in this way').
       key: 'commands',
       cases: [
         {
           lane: 2, say: 'Tō peheʻi!', en: 'Plant it this way.',
-          row: [face('Tō', 'verb'), { slot: true, form: face('peheʻi', 'quiet'), label: 'transitive form' }],
+          row: [face('Tō', 'verb'), { slot: true, form: face('peheʻi', 'verb'), label: 'transitive form' }],
         },
         {
           lane: 2, say: 'Tuku peheʻi pē ia!', en: 'Leave it the way it is.',
-          row: [face('Tuku', 'verb'), { slot: true, form: face('peheʻi', 'quiet'), label: 'transitive form' }, face('pē ia', 'quiet')],
+          row: [face('Tuku', 'verb'), { slot: true, form: face('peheʻi', 'verb'), label: 'transitive form' }, face('pē ia', 'quiet')],
         },
       ],
     },
@@ -220,7 +222,7 @@ export const F34_5 = {
 
 /** The opening row in the hero: a still, with labels. */
 export const OPENING = {
-  row: [face('Naʻe', 'tense'), face('pehē', 'verb'), face('ʻe Tēvita', 'quiet', 'ʻe phrase'), face('ʻe foki ʻa Mele', 'quiet', 'reported content')],
+  row: [face('Naʻe', 'tense'), face('pehē', 'verb'), face('ʻe', 'quiet', '*ʻe* phrase'), face('Tēvita', 'noun', 'speaker'), face('ʻe foki ʻa Mele', 'quiet', 'reported content')],
   say: 'Naʻe pehē ʻe Tēvita ʻe foki ʻa Mele.',
   en: 'Tēvita thought Mele would return.',
 }

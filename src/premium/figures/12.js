@@ -1,11 +1,13 @@
 // Lesson 12's figures, as data. Every Tongan and English string is copied from
 // book/Chapter-12.md at origin/main, as the site renders it (straight ' to U+02BB).
 // The labels "noun" and "demonstrative" are the book's: ko e + noun (+ demonstrative).
+// The noun after ko e is not the subject, so it is quiet, labelled "noun" (ruling R1; the green
+// noun tile means a noun subject). The subject ia in 12.4 stays pronoun.
 // No figure for the Summary table, the two Notes (ko fē and the definitive accent are
 // covered formally in later lessons), New Vocabulary, Words to Learn or Exercises.
 
 const face = (text, role, label) => ({ text, role, ...(label ? { label } : {}) })
-const noun = text => face(text, 'noun', 'noun')
+const noun = text => face(text, 'quiet', 'noun')
 const demonstrative = text => face(text, 'quiet', 'demonstrative')
 
 /** The basic pattern: ko e holds still while the noun, then the demonstrative, turns over. */
@@ -52,7 +54,9 @@ export const F12_1 = {
 function pointCase(lane, form, say, en, who) {
   return {
     lane, say, en,
-    ...(who == null ? { group: [] } : { ringPerson: who, group: [who] }),
+    // Near or far is distance (Ch 12 lines 37 and 38): the ring on the person alone, no group frame (R7).
+    group: [],
+    ...(who == null ? {} : { ringPerson: who }),
     // The book's own name for the ko phrase (Summary table): not the bare demonstrative of 12.1 and 12.4.
     row: [{ slot: true, form: face(form, 'quiet', 'short demonstrative'), label: 'short demonstrative' }],
   }
