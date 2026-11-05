@@ -64,7 +64,8 @@ export function StaticTile({ face, ring = false, showLabel = true, small = false
 /* ──────────── Row stage ──────────── */
 
 function beforeWidth(before) {
-  return 52 + 8 + textWidth(before.say, 17) + 8 + uiWidth(before.en, `400 14px 'Inter Variable', Inter, sans-serif`)
+  const en = before.en ? 8 + uiWidth(before.en, `400 14px 'Inter Variable', Inter, sans-serif`) : 0
+  return 52 + 8 + textWidth(before.say, 17) + en
 }
 
 /** Every English line a Row scene can show. */
@@ -72,16 +73,18 @@ function rowEnglish(scene) {
   return [scene.before?.en, scene.after?.en, ...(scene.lines ?? []).map(line => line.en ?? line.note)].filter(Boolean)
 }
 
-function RowStage({ scene, timeline, t, width, def, override }) {
-  const sizes = useMemo(() => rowSizes(def, width), [def, width])
+function RowStage({ scene, timeline, t, width, def, override, epoch }) {
+  // Every measure is taken again once the tile font has loaded (epoch), so no scene wraps on stale widths.
+  const sizes = useMemo(() => rowSizes(def, width), [def, width, epoch]) // eslint-disable-line react-hooks/exhaustive-deps
   const layout = useMemo(() => rowLayouts(scene, width, sizes), [scene, width, sizes])
   // On a phone a long sentence takes two lines, in every scene, so the stage never changes height.
-  const twoLineBefore = width < 480 && def.scenes.some(item => item.before && item.before.say.length + item.before.en.length > 40)
+  const twoLineBefore = width < 480 && def.scenes.some(item => item.before && item.before.say.length + (item.before.en ?? '').length > 40)
   const lines = useMemo(() => Math.max(...def.scenes.map(item => rowLayouts(item, width, sizes).lines)), [def, width, sizes])
   const reserveBefore = def.scenes.some(item => item.before)
   // A long English line wraps; the stage keeps room for it in every scene, so its height holds.
   const enLines = Math.max(1, ...def.scenes.flatMap(rowEnglish).map(text => enLineCount(text, width)))
-  const geometry = useMemo(() => rowGeometry(sizes, scene, twoLineBefore, lines, reserveBefore, enLines), [sizes, scene, twoLineBefore, lines, reserveBefore, enLines])
+  // One height for the figure: the headroom and the English gap of its tallest scene, in every scene.
+  const geometry = useMemo(() => rowGeometry(sizes, def.scenes, twoLineBefore, lines, reserveBefore, enLines), [sizes, def, twoLineBefore, lines, reserveBefore, enLines])
   const frame = rowFrame(scene, timeline, t, layout, geometry, override)
   const { s } = frame
   const vars = { '--fs': `${s.fs}px`, '--h': `${s.h}px`, '--pad': `${s.pad}px`, height: geometry.height }
@@ -97,7 +100,7 @@ function RowStage({ scene, timeline, t, width, def, override }) {
         <p className={`ft-before ${twoLineBefore ? 'is-two' : ''}`} style={{ opacity: frame.beforeOpacity, left: beforeLeft }}>
           <span className="ft-before-k">Before</span>
           <span className="fx-to" lang="to" data-tongan={scene.before.say}>{scene.before.say}</span>
-          <span className="ft-before-en" data-en={scene.before.en}>{scene.before.en}</span>
+          {scene.before.en && <span className="ft-before-en" data-en={scene.before.en}>{scene.before.en}</span>}
         </p>
       )}
       <svg className="ft-over" width={width} height={geometry.height} aria-hidden="true">
@@ -110,7 +113,7 @@ function RowStage({ scene, timeline, t, width, def, override }) {
         {frame.line > 0 && <AbsenceLine frame={frame} geometry={geometry} left={left} />}
       </svg>
       {frame.tiles.map(tile => (
-        <RowTile key={tile.id} tile={tile} frame={frame} geometry={geometry} s={s} />
+        <RowTile key={tile.id} tile={tile} frame={frame} geometry={geometry} s={s} slotLabel={scene.slotLabel} />
       ))}
       {frame.olds.map(old => (
         <span key={old.text} className="ft-old" lang="to" data-tongan={old.text} style={{ transform: `translate(${old.x}px, ${old.y}px)`, opacity: old.opacity }}>{old.text}</span>
@@ -163,7 +166,7 @@ function AbsenceLine({ frame, geometry, left }) {
   )
 }
 
-function RowTile({ tile, frame, geometry, s }) {
+function RowTile({ tile, frame, geometry, s, slotLabel = 'no subject' }) {
   const style = {
     width: tile.w,
     top: geometry.rowTop,
@@ -181,7 +184,7 @@ function RowTile({ tile, frame, geometry, s }) {
         <svg className="ft-slot-line" width={w} height={h} aria-hidden="true">
           {frame.slot > 0 && <rect x=".75" y=".75" width={w - 1.5} height={h - 1.5} rx="9.5" pathLength="1" className="ft-slot-rect" strokeDasharray={frame.slot >= 1 ? '0.018 0.012' : `${frame.slot} 1`} />}
         </svg>
-        <span className="ft-slot-label" style={{ opacity: ramp(frame.slot, 0.6, 1) }}>no subject</span>
+        <span className="ft-slot-label" style={{ opacity: ramp(frame.slot, 0.6, 1) }}>{slotLabel}</span>
       </span>
     )
   }
@@ -235,13 +238,14 @@ function ForkPeople({ people, frame, width }) {
   )
 }
 
-function ForkStage({ def, scene, timeline, t, width, onLane }) {
-  const sizes = useMemo(() => forkSizes(def, width), [def, width])
+function ForkStage({ def, scene, timeline, t, width, onLane, epoch }) {
+  // Measured again once the tile font has loaded (epoch): widths taken before it go stale.
+  const sizes = useMemo(() => forkSizes(def, width), [def, width, epoch]) // eslint-disable-line react-hooks/exhaustive-deps
   const layout = useMemo(() => forkLayouts(scene, width, sizes), [scene, width, sizes])
   const lines = useMemo(() => forkLines(def, width, sizes), [def, width, sizes])
   const enLines = Math.max(1, ...def.scenes.flatMap(item => item.cases.map(c => enLineCount(c.en, width))))
   const geometry = useMemo(() => forkGeometry(sizes, width, def, lines, enLines), [sizes, width, def, lines, enLines])
-  const frame = forkFrame(scene, timeline, t, layout, geometry)
+  const frame = forkFrame(scene, timeline, t, layout, geometry, width)
   const { s } = frame
   const vars = { '--fs': `${s.fs}px`, '--h': `${s.h}px`, '--pad': `${s.pad}px`, height: geometry.height }
   return (
@@ -343,7 +347,7 @@ function GridStage({ def, timeline, t, picked, onPick, width }) {
             return (
               <tr key={row.tense} style={{ '--lit': rowLit }} className="fg-row">
                 <th scope="row" className="fg-rowhead">
-                  <span className="fg-tense">{row.tense}</span>
+                  <span className="fg-tense"><Rich text={row.tense} /></span>
                   {row.tag && <span className={`fg-tag ${row.tag === 'Changes form' ? 'is-changes' : ''}`} style={{ opacity: tag, transform: `translateY(${(1 - tag) * 4}px)` }}>{row.tag}</span>}
                 </th>
                 {row.cells.map((cell, c) => {
@@ -371,11 +375,22 @@ function GridStage({ def, timeline, t, picked, onPick, width }) {
         </tbody>
       </table>
       <div className="fg-out">
-        <p className="fg-say" style={{ opacity: chosenCell ? sentenceP : 0 }}>
-          {chosenCell?.people && <GridPeople cell={chosenCell} phone={width < 480} />}
-          {chosenCell && <span className="fx-to" lang="to" data-tongan={chosenCell.say}>{chosenCell.say}</span>}
-          {chosenCell && <span className="fg-en" data-en={chosenCell.en}>{chosenCell.en}</span>}
-        </p>
+        {/* Every cell's sentence is laid in the same place, unseen, so the panel holds the tallest
+            one's height from the start and the figure never grows when a cell fills. */}
+        <div className="fg-says">
+          {def.rows.flatMap(row => row.cells).filter(cell => !cell.none && cell !== chosenCell).map((cell, i) => (
+            <p key={i} className="fg-say is-sizer" aria-hidden="true">
+              {cell.people && <GridPeople cell={cell} phone={width < 480} />}
+              <span className="fx-to">{cell.say}</span>
+              <span className="fg-en">{cell.en}</span>
+            </p>
+          ))}
+          <p className="fg-say" style={{ opacity: chosenCell ? sentenceP : 0 }}>
+            {chosenCell?.people && <GridPeople cell={chosenCell} phone={width < 480} />}
+            {chosenCell && <span className="fx-to" lang="to" data-tongan={chosenCell.say}>{chosenCell.say}</span>}
+            {chosenCell && <span className="fg-en" data-en={chosenCell.en}>{chosenCell.en}</span>}
+          </p>
+        </div>
         {def.caption && <p className="fg-caption"><Rich text={def.caption} /></p>}
       </div>
     </div>
@@ -424,14 +439,14 @@ function useListLink(def, rootRef) {
 }
 
 export default function Figure({ def, external = null, autoplay = true, compact = false }) {
-  useTileFont()
+  const epoch = useTileFont()
   const [stageRef, width] = useWidth()
   const headingId = useId()
   const [picked, setPicked] = useState(null)
   const [chipOverride, setChipOverride] = useState(null)
   const [pathPick, setPathPick] = useState(null)
   const timelines = useMemo(() => def.scenes.map(scene => (
-    def.kind === 'row' ? rowTimeline(scene) : def.kind === 'fork' ? forkTimeline(scene) : def.kind === 'path' ? pathTimeline(scene) : gridTimeline(def)
+    def.kind === 'row' ? rowTimeline(scene) : def.kind === 'fork' ? forkTimeline(scene, Boolean(def.limit)) : def.kind === 'path' ? pathTimeline(scene) : gridTimeline(def)
   )), [def])
   const rootRef = useRef(null)
   const onFrame = useListLink(def, rootRef)
@@ -496,9 +511,9 @@ export default function Figure({ def, external = null, autoplay = true, compact 
         <span className="fx-t"><Rich text={def.title} /></span>
       </figcaption>
       <div className="fx-stage" ref={stageRef} aria-hidden={def.kind === 'row' || def.kind === 'path' ? 'true' : undefined}>
-        {width > 0 && def.kind === 'row' && <RowStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} override={chipOverride} />}
+        {width > 0 && def.kind === 'row' && <RowStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} override={chipOverride} epoch={epoch} />}
         {width > 0 && def.kind === 'path' && <PathStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} picked={pathPick} />}
-        {width > 0 && def.kind === 'fork' && <ForkStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} onLane={onLane} />}
+        {width > 0 && def.kind === 'fork' && <ForkStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} onLane={onLane} epoch={epoch} />}
         {width > 0 && def.kind === 'grid' && <GridStage def={def} timeline={clock.timeline} t={clock.t} picked={picked} onPick={setPicked} width={width} />}
       </div>
       <Alt def={def} scene={scene} />

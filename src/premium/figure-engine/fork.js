@@ -12,7 +12,8 @@ const ORDER = ['enter', 'ring', 'lane', 'drop', 'en']
 /** A case with nothing to ring has no ring beat worth waiting through: the question is about meaning. */
 const hasRing = c => c.row.some(item => item.ring) || c.ringPerson != null
 
-export function forkTimeline(scene) {
+/** `withLimit`: the figure has a limit row, which rises after the last case as a Row's does. */
+export function forkTimeline(scene, withLimit = false) {
   let at = 150
   const beats = []
   const spans = []
@@ -26,6 +27,10 @@ export function forkTimeline(scene) {
     })
     spans.push({ lane: c.lane, start: spanStart, end: at })
   })
+  if (withLimit) {
+    beats.push({ kind: 'limit', start: at, travelEnd: at + 620, end: at + 920 })
+    at += 920
+  }
   return {
     beats,
     spans,
@@ -106,7 +111,32 @@ export function forkGeometry(s, width, def, lines = 1, enLines = 1) {
   return { count, peopleH, laneH, laneGap, laneW, laneX, branchH, laneBottom, rowTop, labelTop, enTop, height: enTop + 30 + (enLines - 1) * EN_WRAP_LINE }
 }
 
-export function forkFrame(scene, timeline, t, layout, geometry) {
+/** A branch from a lane's foot to the slot. A slot on a wrapped line is reached down the side of
+ *  the lines above it and along the gap over its own line, so the branch never runs behind a tile. */
+function branchPath(x0, y0, slot, row, geometry, width) {
+  const x1 = slot.x + slot.w / 2
+  const y1 = geometry.rowTop + slot.y - 2
+  const straight = () => {
+    const midY = (y0 + y1) / 2
+    return `M ${x0} ${y0} C ${x0} ${midY + 6}, ${x1} ${midY - 6}, ${x1} ${y1}`
+  }
+  const above = row.items.filter(item => item.y < slot.y)
+  if (!above.length) return straight()
+  const left = Math.min(...above.map(item => item.x)) - 7
+  const right = Math.max(...above.map(item => item.x + item.w)) + 7
+  const canLeft = left >= 3
+  const canRight = right <= width - 3
+  if (!canLeft && !canRight) return straight()
+  const cx = canLeft && (!canRight || Math.abs(x1 - left) <= Math.abs(x1 - right)) ? left : right
+  const top = geometry.rowTop - 6
+  const gapY = geometry.rowTop + slot.y - 10
+  const dir = x1 >= cx ? 1 : -1
+  const r = Math.min(8, Math.abs(x1 - cx) / 2)
+  const midY = (y0 + top) / 2
+  return `M ${x0} ${y0} C ${x0} ${midY + 6}, ${cx} ${midY - 6}, ${cx} ${top} L ${cx} ${gapY - r} Q ${cx} ${gapY}, ${cx + dir * r} ${gapY} L ${x1 - dir * r} ${gapY} Q ${x1} ${gapY}, ${x1} ${Math.min(y1, gapY + r)} L ${x1} ${y1}`
+}
+
+export function forkFrame(scene, timeline, t, layout, geometry, width = Infinity) {
   const { beats } = timeline
   const caseCount = scene.cases.length
   let caseIndex = 0
@@ -171,14 +201,9 @@ export function forkFrame(scene, timeline, t, layout, geometry) {
   } : null
 
   const branches = Array.from({ length: geometry.count }, (_, lane) => {
-    const x0 = geometry.laneX(lane)
-    const x1 = slot.x + slot.w / 2
-    const y0 = geometry.laneBottom
-    const y1 = geometry.rowTop + slot.y - 2
-    const midY = (y0 + y1) / 2
     return {
       lane,
-      d: `M ${x0} ${y0} C ${x0} ${midY + 6}, ${x1} ${midY - 6}, ${x1} ${y1}`,
+      d: branchPath(geometry.laneX(lane), geometry.laneBottom, slot, row, geometry, width),
       progress: lane === litNow ? travel(laneP) * (previous ? 1 - ramp(enter, 0, 0.4) : 1) : 0,
     }
   })

@@ -247,6 +247,8 @@ button.ps-rule:hover { background: var(--paper-soft); }
 .fg-row > :last-child { border-radius: 0 10px 10px 0; }
 .fg-rowhead { padding: 4px 8px; text-align: left; vertical-align: middle; }
 .fg-tense { display: block; color: var(--ink); font: 600 14px/20px var(--f-ui); }
+/* A Tongan row head (*ki*) is set as Tongan is everywhere: the cells' serif italic, at their size. */
+.fg-tense .fx-to { font-size: 18px; line-height: 24px; }
 .fg-tag { display: inline-block; margin-top: 2px; padding: 0 7px; border-radius: 999px; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line-strong); font: 500 11.5px/18px var(--f-ui); white-space: nowrap; }
 .fg-tag.is-changes { color: #fff; background: var(--ink); box-shadow: none; }
 .fg-t td { padding: 4px; vertical-align: middle; }
@@ -264,6 +266,9 @@ button.ps-rule:hover { background: var(--paper-soft); }
 .fg.is-people .fg-say { align-items: center; }
 .fg.is-people .fg-say .fx-to { line-height: 32px; }
 .fg-out { margin-top: 12px; }
+.fg-says { display: grid; }
+.fg-says > .fg-say { grid-area: 1 / 1; }
+.fg-say.is-sizer { visibility: hidden; }
 .fg-say { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; min-height: 36px; margin: 0; }
 .fg-say .fx-to { font-size: 25px; line-height: 32px; }
 .fg-en { color: var(--ink); font: 500 16px/24px var(--f-ui); }
@@ -407,6 +412,7 @@ html[data-band='line'][data-band-line='on'] .membership-notice summary { min-hei
   .fg-t thead th { padding-inline: 4px; font-size: 11px; letter-spacing: .08em; }
   .fg-rowhead { padding: 4px; }
   .fg-tense { font-size: 13px; line-height: 18px; }
+  .fg-tense .fx-to { font-size: 16px; line-height: 20px; }
   .fg-tag { padding: 0 6px; font-size: 10.5px; line-height: 16px; }
   .fg-t td { padding: 2px; }
   .fg-cell { padding: 6px 8px; font-size: 16px; line-height: 20px; }

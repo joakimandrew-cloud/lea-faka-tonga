@@ -90,16 +90,19 @@ export function rowLayouts(scene, width, s) {
   return { layouts, s, widest, x0, lines }
 }
 
-/** Geometry of the stage's rows, shared with the render. Headroom is only what the scene needs. */
-export function rowGeometry(s, scene, twoLineBefore = false, lines = 1, reserveBefore = false, enLines = 1) {
-  const beforeH = scene.before || reserveBefore ? (twoLineBefore ? 48 : 26) : 0
-  const hasArc = scene.beats.some(b => b.kind === 'move' && b.arc)
-  const hasLane = scene.beats.some(b => b.mark || b.old)
+/** Geometry of the stage's rows, shared with the render. `scenes` is one scene or all of a
+ *  figure's: given all, the headroom and English gap are the tallest scene's, so every scene of
+ *  the figure keeps one height and its row at one place. */
+export function rowGeometry(s, scenes, twoLineBefore = false, lines = 1, reserveBefore = false, enLines = 1) {
+  const all = [].concat(scenes)
+  const beforeH = all.some(scene => scene.before) || reserveBefore ? (twoLineBefore ? 48 : 26) : 0
+  const hasArc = all.some(scene => scene.beats.some(b => b.kind === 'move' && b.arc))
+  const hasLane = all.some(scene => scene.beats.some(b => b.mark || b.old))
   const headroom = hasArc ? s.arc + 16 : hasLane ? 34 : 4
   const rowTop = beforeH + headroom
   const lineH = lineHeightOfRow(s)
   const labelTop = rowTop + (lines - 1) * lineH + s.h + 7
-  const enTop = labelTop + s.label + (scene.enFirstWord ? 24 : 4)
+  const enTop = labelTop + s.label + (all.some(scene => scene.enFirstWord) ? 24 : 4)
   const enH = 30
   return { beforeH, rowTop, labelTop, enTop, lineH, height: enTop + enH + (enLines - 1) * EN_WRAP_LINE }
 }

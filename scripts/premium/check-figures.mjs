@@ -210,7 +210,8 @@ for (const name of wanted) {
           if (!Number.isInteger(c.lane) || c.lane < 0 || c.lane >= lanes.length) fail(here, `lane ${c.lane} is not one of the ${lanes.length} lanes`)
           const row = (c.row || []).map(tile => (tile.slot ? tile.form : tile))
           checkJoin(here, row, c.say, 'row')
-          if (c.en == null) fail(here, 'has no English')
+          // A sentence the book gives no English gets none: say so with en: null, never by leaving it out.
+          if (c.en === undefined) fail(here, 'has no English; write en: null where the book gives none')
         })
       } else if (def.kind === 'path') {
         ;(scene.cases || []).forEach((c, ci) => {
@@ -223,6 +224,8 @@ for (const name of wanted) {
         })
       } else if (def.kind === 'grid') {
         for (const row of def.rows || []) {
+          // A row head marked *like this* is Tongan, so it is copied from the book like any tile.
+          for (const piece of String(row.tense ?? '').match(/\*[^*]+\*/g) || []) inBook(where, piece.slice(1, -1), 'row head')
           for (const cell of row.cells || []) {
             if (cell.marker != null && cell.say !== `${cell.marker}${cell.rest}`) fail(where, `a grid cell says ${JSON.stringify(cell.say)} but its marker and rest read ${JSON.stringify(`${cell.marker}${cell.rest}`)}`)
           }
