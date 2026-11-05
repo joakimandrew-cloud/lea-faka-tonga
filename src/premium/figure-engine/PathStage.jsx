@@ -71,7 +71,7 @@ export function PathStage({ def, scene, timeline, t, width, picked }) {
           return (
             <span
               key={arrow.i}
-              className={`fp-tile ${arrow.isCurrent ? 'role-particle' : 'role-quiet is-off'}`}
+              className={`fp-tile ${arrow.isCurrent ? `role-${arrow.c.role || 'particle'}` : 'role-quiet is-off'}`}
               style={{ '--fs': `${geo.tile.fs}px`, height: geo.tile.h, padding: `0 ${geo.tile.pad}px`, opacity: arrow.isCurrent ? arrow.tile : 1, transform: `translate(${place.x}px, ${place.y}px) translate(-50%, -50%)` }}
             >
               <span className="ft-word" lang="to" data-tongan={arrow.c.particle}>{arrow.c.particle}</span>

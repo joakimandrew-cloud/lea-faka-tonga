@@ -12,7 +12,7 @@ export const F50_1 = {
   kind: 'row',
   types: ['add', 'swap'],
   title: 'Repeat the verb, with no word between',
-  after: { section: 'expressive-sound-devices', block: b => b.type === 'p' && b.text.startsWith('The pattern is') },
+  after: { section: 'vowel-lengthening-for-emphasis-in-repeated-verbs', block: b => b.type === 'p' && b.text.startsWith('The pattern is') },
   scenes: [
     {
       key: 'tuli',

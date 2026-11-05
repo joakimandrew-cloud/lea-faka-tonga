@@ -117,8 +117,8 @@ export const F10_3 = {
     {
       key: 'bring-take',
       cases: [
-        { particle: 'Haʻu', dirText: 'come', from: 'listener', to: 'speaker', say: 'Haʻu mo e tohí!', en: 'Bring the book (to me).' },
-        { particle: 'ʻAlu', dirText: 'go', from: 'listener', to: 'away', say: 'ʻAlu mo e valá!', en: 'Take the clothes (with you).' },
+        { particle: 'Haʻu', role: 'verb', dirText: 'come', from: 'listener', to: 'speaker', say: 'Haʻu mo e tohí!', en: 'Bring the book (to me).' },
+        { particle: 'ʻAlu', role: 'verb', dirText: 'go', from: 'listener', to: 'away', say: 'ʻAlu mo e valá!', en: 'Take the clothes (with you).' },
       ],
     },
   ],
@@ -180,6 +180,7 @@ export const F10_5 = {
     },
     {
       key: 'o',
+      laneForms: [['ʻAlu!'], null, null],
       cases: [
         two('ō!', 'Mo ō!', 'Go! (2 people)'),
         many('ō!', 'Mou ō!', 'Go! (3 or more people)'),
@@ -187,6 +188,7 @@ export const F10_5 = {
     },
     {
       key: 'nofo',
+      laneForms: [['Nofo!'], null, null],
       cases: [
         two('nofo!', 'Mo nofo!', null),
         many('nofo!', 'Mou nofo!', null),
@@ -194,6 +196,7 @@ export const F10_5 = {
     },
     {
       key: 'kai',
+      laneForms: [['Kai!'], null, null],
       cases: [
         two('kai!', 'Mo kai!', null),
         many('kai!', 'Mou kai!', null),

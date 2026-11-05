@@ -37,7 +37,7 @@ export const F45_1 = {
         [['ihe', 0], ['pron', 1], ['verb', 1], ['obj', 0]],
       ],
       beats: [
-        { kind: 'drop', tile: 'tense', to: 1, old: true },
+        { kind: 'drop', tile: 'tense', to: 1 },
         { kind: 'add', tile: 'ihe', to: 2 },
         { kind: 'swap', tile: 'verb', to: 3 },
         { kind: 'swap', tile: 'pron', to: 4 },
@@ -58,7 +58,7 @@ function nounScene(key, verb, markText, name, rest, restRole, restLabel, lines) 
     tiles: {
       tense: [face('Naʻe', 'tense'), face('ʻI he', 'quiet')],
       verb: [face(verb, 'verb'), face(verb, 'verb', 'verbal noun')],
-      mark: [{ text: markText, role: 'quiet', label: '' }],
+      mark: [{ text: markText, role: markText === 'ʻa' ? 'focus' : 'quiet', label: '' }],
       name: [face(name, 'noun', 'subject')],
       rest: [face(rest, restRole, restLabel)],
     },
@@ -114,7 +114,7 @@ export const F45_3 = {
       cases: [
         {
           lane: 0, say: 'ʻi heʻene lau ʻa e tohí', en: 'at his reading the book',
-          row: [face('ʻi heʻene', 'pronoun', 'possessive'), face('lau', 'verb', 'verbal noun'), { slot: true, form: face('ʻa e', 'quiet'), label: 'object' }, face('tohí', 'quiet')],
+          row: [face('ʻi', 'quiet'), face('heʻene', 'pronoun', 'possessive'), face('lau', 'verb', 'verbal noun'), { slot: true, form: face('ʻa e', 'quiet'), label: 'object' }, face('tohí', 'quiet')],
         },
         {
           lane: 1, say: 'Té u tokoni ʻi he fufulu ʻo e valá.', en: 'I will help with the washing of the clothes.',

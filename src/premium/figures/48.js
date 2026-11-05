@@ -120,11 +120,12 @@ export const F48_3 = {
 
 /**
  * Recall cards, by key rule. The first two rules are about forming a word and the book
- * prints no sentence for them, so their cards carry the book's own example word and gloss.
+ * prints no sentence with its English for them (the one -nga sentence is an Exercise 2
+ * prompt with no gloss), so they take null and get no card.
  */
 export const RECALL = [
-  { to: 'nofoʻanga', en: 'dwelling-place' },
-  { to: 'mohenga', en: 'bed (the thing you sleep on)' },
+  null,
+  null,
   { to: 'ʻOku kumāʻia e ngouē.', en: 'The garden is infested with rats.' },
 ]
 

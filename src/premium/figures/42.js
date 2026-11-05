@@ -85,11 +85,9 @@ export const OPENING = {
 }
 
 /** Recall cards, by key rule and in key-rule order: the page pairs card i with rule i. The first key rule
- *  (asking a name) has no sentence in this lesson, so index 0 is left as an array hole: the page skips it
- *  (recall?.[0] is undefined) and check-figures' forEach skips holes. */
-// eslint-disable-next-line no-sparse-arrays
+ *  (asking a name) has no sentence in this lesson, so index 0 is null and gets no card. */
 export const RECALL = [
-  ,
+  null,
   { to: 'Naʻá ku haʻu ʻi Maʻasi.', en: 'I came in March.' },
   { to: 'Talu hoʻo haʻú mo ʻene momoko.', en: 'Ever since you came, it has been cold.' },
   { to: 'Ko hono tolu ʻo e himí.', en: 'The third hymn.' },

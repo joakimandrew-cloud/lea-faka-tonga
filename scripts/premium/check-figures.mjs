@@ -143,7 +143,9 @@ for (const name of wanted) {
       if (Array.isArray(value)) return value.forEach((item, i) => walk(item, [...trail, i]))
       if (!value || typeof value !== 'object') return
       const here = trail.join('.')
-      if (typeof value.role === 'string') {
+      // A Path case names its travelling word in particle, and may give it a role; it is checked
+      // with the Path cases below, not as a tile.
+      if (typeof value.role === 'string' && typeof value.particle !== 'string') {
         checkRole(`${at} ${here}`, value)
         inBook(`${at} ${here}`, value.text, 'tile')
       }
@@ -225,6 +227,8 @@ for (const name of wanted) {
           for (const key of ['from', 'to']) {
             if (c[key] != null && !PEOPLE.has(c[key])) fail(here, `${key} is ${JSON.stringify(c[key])}; use speaker, listener, third or away`)
           }
+          // The travelling word is a direction particle unless the case names its role (a motion verb is a verb).
+          if (c.role != null && !ROLES.has(c.role)) fail(here, `role is ${JSON.stringify(c.role)}; use one of ${[...ROLES].join(', ')}`)
         })
       } else if (def.kind === 'grid') {
         for (const row of def.rows || []) {
