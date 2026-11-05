@@ -1,15 +1,14 @@
-// The prototype's figures as /scrub scenes (src/lib/scrub-registry.jsx holds the
-// contract). A figure is already a pure function of time, so its seek only hands the
-// time to the figure's own clock. One scene per lesson, one variant per figure.
+// Every lesson's figures as /scrub scenes (src/lib/scrub-registry.jsx holds the contract),
+// found from src/premium/figures/NN.js, so a new lesson's file adds its scene with no edit
+// here. The /scrub hub itself exists in a test build only (see App.jsx). A figure is already
+// a pure function of time, so its seek only hands the time to the figure's own clock. One
+// scene per lesson, one variant per figure.
 import { useEffect } from 'react'
 import Figure from './Figure.jsx'
 import { rowTimeline } from './row.js'
 import { forkTimeline } from './fork.js'
 import { gridTimeline } from './grid-timeline.js'
 import { pathTimeline } from './path.js'
-import { FIGURES_15 } from './lesson15.js'
-import { FIGURES_2 } from './lesson2.js'
-import { FIGURES_28 } from './lesson28.js'
 
 const COLOURS = ['#b92e0e', '#121212', '#0f5c63', '#8c867f', '#d98a3a', '#3a7ca5']
 
@@ -50,8 +49,10 @@ function sceneFor(id, label, figures) {
   }
 }
 
-export const PROTO_FIGURE_SCENES = [
-  sceneFor('lesson-15-figures', 'Lesson 15 figures (prototype)', FIGURES_15),
-  sceneFor('lesson-2-figures', 'Lesson 2 figures (prototype)', FIGURES_2),
-  sceneFor('lesson-28-figures', 'Lesson 28 figures (prototype)', FIGURES_28),
-]
+const FIGURE_FILES = import.meta.glob('../figures/[0-9][0-9].js', { eager: true })
+
+export const FIGURE_SCENES = Object.entries(FIGURE_FILES)
+  .map(([file, mod]) => ({ n: Number(file.match(/(\d\d)\.js$/)[1]), figures: mod.FIGURES || [] }))
+  .filter(({ figures }) => figures.length > 0)
+  .sort((a, b) => a.n - b.n)
+  .map(({ n, figures }) => sceneFor(`lesson-${n}-figures`, `Lesson ${n} figures`, figures))

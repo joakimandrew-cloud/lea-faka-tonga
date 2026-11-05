@@ -155,7 +155,7 @@ test('the actual premium App renders every generated route without the NotBuilt 
         assert.doesNotMatch(notice, /per year|annual|\/yr/i, 'lifetime access never becomes annual pricing')
         if (noticeMode === 'dictionary') assert.match(notice, /Free dictionary[\s\S]*Dictionary search and definitions stay free/)
         else assert.match(notice, /Free preview[\s\S]*All 52 lessons open/)
-        if (/^\/lessons\/\d+\/?$/.test(pathname)) assert.ok(html.indexOf('membership-notice-title') < html.indexOf('class="ls-hero"'), 'notice appears before lesson content')
+        if (/^\/lessons\/\d+\/?$/.test(pathname)) assert.ok(html.indexOf('membership-notice-title') < html.search(/class="ls-hero[" ]/), 'notice appears before lesson content')
       } else {
         assert.equal((html.match(/id="membership-notice-title"/g) || []).length, 0, `${pathname} stays outside notice scope`)
       }

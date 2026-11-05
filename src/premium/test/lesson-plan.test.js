@@ -213,6 +213,10 @@ test('no fakaua or macron vowel is typed as a literal in the new lesson-course f
     'src/premium/components/lesson/FigureEngine.jsx', 'src/premium/lib/figure-plan.js', 'src/premium/lib/lesson-plan.js',
     'src/premium/components/lesson/LessonPlan.jsx', 'src/premium/components/lesson/LessonPath.jsx',
     'src/premium/components/lesson/PromiseCheck.jsx', 'src/premium/components/lesson/CourseStrip.jsx',
+    // The calm lesson page (plan 2026-11-05-lesson-page-simplify): Tongan lives in src/premium/figures, never in these.
+    'src/premium/pages/Lesson.jsx', 'src/premium/components/lesson/Contents.jsx', 'src/premium/components/lesson/SteppedExercises.jsx',
+    'src/premium/components/lesson/MatchingItems.jsx', 'src/premium/figure-engine/row.js', 'src/premium/figure-engine/fork.js',
+    'src/premium/figure-engine/path.js', 'src/premium/figure-engine/PathStage.jsx', 'src/premium/figure-engine/Marks.jsx',
   ]
   for (const file of files) {
     const text = fs.readFileSync(path.join(app, file), 'utf8')

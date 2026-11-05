@@ -4,7 +4,7 @@ import { okinafy } from '@app/lib/okinafy.js'
  * lesson's own parsed blocks (its tables and example lines); only the English
  * past-tense glosses are composed here.
  */
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion as Motion } from 'motion/react'
 import T from '../T.jsx'
 
@@ -194,15 +194,30 @@ export function StressFigure() {
   const [pron, setPron] = useState('ku')
   const [step, setStep] = useState(0)
   const [run, setRun] = useState(0)
+  // The count starts when the figure is on screen, so it teaches and then rests where the student is looking
+  // (the calm lesson page runs nothing before it is seen). With reduced motion it simply starts at rest.
+  const rootRef = useRef(null)
+  const [seen, setSeen] = useState(false)
+  useEffect(() => {
+    const node = rootRef.current
+    if (!node || seen) return undefined
+    if (typeof IntersectionObserver === 'undefined') return undefined
+    const io = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) { setSeen(true); io.disconnect() } }, { threshold: 0.6 })
+    io.observe(node)
+    return () => io.disconnect()
+  }, [seen])
   const syl = ['na', "'a", pron]
   const vowelsFromEnd = [2, 1] // syllable indexes counted back: last (1st), second-to-last (2nd)
   useEffect(() => {
-    const ids = [setTimeout(() => setStep(1), 500), setTimeout(() => setStep(2), 1300), setTimeout(() => setStep(3), 2100)]
+    // Without IntersectionObserver the figure simply stays at its first step until the student presses Count it again.
+    if (!seen) return undefined
+    const pace = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 0 : 1
+    const ids = [setTimeout(() => setStep(1), 500 * pace), setTimeout(() => setStep(2), 1300 * pace), setTimeout(() => setStep(3), 2100 * pace)]
     return () => ids.forEach(clearTimeout)
-  }, [pron, run])
+  }, [pron, run, seen])
   return (
     <Frame k="Figure 1.4" title="Two words, said as one" caption={<>The pronoun leans on <T>naʻa</T>, so the pair is stressed as one word, on its second-to-last vowel. The book marks that stress with an accent: <T>Naʻá ku</T>, <T>Naʻá ke</T>.</>}>
-      <div className="st">
+      <div className="st" ref={rootRef}>
         <div className="st-sylls" lang="to">
           {syl.map((s, i) => {
             const counted = vowelsFromEnd.slice(0, step).includes(i)
@@ -218,10 +233,10 @@ export function StressFigure() {
         </div>
         <div className="st-foot">
           <div className="cb-toggle" role="radiogroup" aria-label="Pronoun">
-            <button role="radio" aria-checked={pron === 'ku'} className={pron === 'ku' ? 'is-on' : ''} onClick={() => { setStep(0); setPron('ku'); setRun(r => r + 1) }}><T>na'a + ku</T></button>
-            <button role="radio" aria-checked={pron === 'ke'} className={pron === 'ke' ? 'is-on' : ''} onClick={() => { setStep(0); setPron('ke'); setRun(r => r + 1) }}><T>na'a + ke</T></button>
+            <button role="radio" aria-checked={pron === 'ku'} className={pron === 'ku' ? 'is-on' : ''} onClick={() => { setSeen(true); setStep(0); setPron('ku'); setRun(r => r + 1) }}><T>na'a + ku</T></button>
+            <button role="radio" aria-checked={pron === 'ke'} className={pron === 'ke' ? 'is-on' : ''} onClick={() => { setSeen(true); setStep(0); setPron('ke'); setRun(r => r + 1) }}><T>na'a + ke</T></button>
           </div>
-          <button className="st-replay" onClick={() => { setStep(0); setRun(r => r + 1) }}>Count it again ↻</button>
+          <button className="st-replay" onClick={() => { setSeen(true); setStep(0); setRun(r => r + 1) }}>Count it again ↻</button>
         </div>
       </div>
     </Frame>

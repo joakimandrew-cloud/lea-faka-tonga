@@ -37,9 +37,10 @@ const WordRain = lazy(() => import('./pages/WordRain.jsx'))
 const SentenceTiles = lazy(() => import('./pages/SentenceTiles.jsx'))
 // Sentence Lock, the bike-lock sentence game (plan 2026-10-27-sentence-lock-game).
 const SentenceLock = lazy(() => import('./pages/SentenceLock.jsx'))
-// Private prototype, plan 2026-11-05-lesson-page-simplify. Branch proto/lesson-simplify only; never deployed.
-const ProtoLesson = lazy(() => import('./proto-simplify/ProtoLesson.jsx'))
-const ScrubPage = lazy(() => import('./proto-simplify/ScrubPage.jsx'))
+// The animation scrubber and the /__proto lesson route are test-build tools. A production build
+// (no LFT_TEST_BUILD) folds __TEST_BUILD__ to false and drops these imports, so /scrub stays
+// redirected as it was and nothing new is public (plan 2026-11-05-lesson-page-simplify).
+const ScrubPage = __TEST_BUILD__ ? lazy(() => import('./pages/ScrubPage.jsx')) : null
 
 const BESPOKE_DRILL_ROUTES = Object.entries(BESPOKE).filter(([id]) => id !== 'terminal-builder')
 
@@ -88,7 +89,7 @@ function Page({ children, still = false }) {
 export default function App() {
   const loc = useLocation()
   useEffect(() => { if (!loc.hash) window.scrollTo({ top: 0, behavior: 'instant' }) }, [loc.pathname, loc.hash])
-  const proto = /^\/__proto\/lesson\/\d+/.test(loc.pathname)
+  const proto = __TEST_BUILD__ && /^\/__proto\/lesson\/\d+/.test(loc.pathname)
   const reading = proto || /^\/lessons\/\d+/.test(loc.pathname)
   const focus = /^\/(quizzes|drill)\//.test(loc.pathname) || ['/cards', '/games/word-balloons', '/games/sentence-tiles', '/games/sentence-lock', '/sentence-builder', '/terminal-build', ...BESPOKE_DRILL_ROUTES.map(([, path]) => path)].includes(loc.pathname)
 
@@ -100,8 +101,8 @@ export default function App() {
         <Routes location={loc} key={loc.pathname}>
           <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/lessons" element={<Page><Lessons /></Page>} />
-          <Route path="/lessons/:num" element={<Page><Lesson /></Page>} />
-          <Route path="/__proto/lesson/:num" element={<Page still><ProtoLesson /></Page>} />
+          <Route path="/lessons/:num" element={<Page still><Lesson /></Page>} />
+          {__TEST_BUILD__ && <Route path="/__proto/lesson/:num" element={<Page still><Lesson /></Page>} />}
           <Route path="/chapters" element={<LegacyRedirect to="/lessons" />} />
           <Route path="/chapters/:num" element={<LegacyLessonRedirect />} />
           <Route path="/quizzes" element={<Page><Quizzes /></Page>} />
@@ -136,7 +137,9 @@ export default function App() {
           <Route path="/reciprocity" element={<LegacyRedirect to="/drill/reciprocity-picker" />} />
           <Route path="/emotional-article" element={<LegacyRedirect to="/drill/emotional-article-matrix" />} />
           <Route path="/definiteness-flip" element={<LegacyRedirect to="/drill/definiteness-flip" />} />
-          <Route path="/scrub" element={<Page still><ScrubPage /></Page>} />
+          {__TEST_BUILD__
+            ? <Route path="/scrub" element={<Page still><ScrubPage /></Page>} />
+            : <Route path="/scrub" element={<Navigate to="/" replace />} />}
           {['/hero-lab', '/hero-scrub'].map(path => <Route key={path} path={path} element={<Navigate to="/" replace />} />)}
           <Route path="*" element={<Page><NotBuilt /></Page>} />
         </Routes>

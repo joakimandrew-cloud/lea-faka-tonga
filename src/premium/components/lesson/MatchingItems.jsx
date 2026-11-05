@@ -1,6 +1,6 @@
 /** Tap-to-match, as Exercises.jsx has it (that copy is private to its file). */
 import { useMemo, useState } from 'react'
-import { Md } from '../components/lesson/Blocks.jsx'
+import { Md } from './Blocks.jsx'
 
 function shuffle(items) {
   const next = [...items]

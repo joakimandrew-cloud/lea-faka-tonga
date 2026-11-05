@@ -2,8 +2,8 @@
 // slot is empty, a ring moves to the word the question looks at, the answering
 // lane lights, the form travels down its branch into the slot, the English
 // arrives. forkFrame is a pure function of time, as rowFrame is.
-import { clamp01, land, lerp, ramp, travel } from '../lib/motion.js'
-import { fitSizes, textWidth, tileSizes } from '../lib/metrics.js'
+import { clamp01, land, lerp, ramp, travel } from './lib/motion.js'
+import { fitSizes, textWidth, tileSizes } from './lib/metrics.js'
 
 const FIRST = { enter: [500, 200], ring: [800, 300], lane: [500, 200], drop: [800, 200], en: [350, 500] }
 const SECOND = { enter: [400, 150], ring: [600, 200], lane: [350, 150], drop: [600, 150], en: [300, 300] }

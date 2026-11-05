@@ -10,10 +10,10 @@ import { KupesiTile } from '../components/Kupesi.jsx'
 import { lessonTile } from '../lib/lesson-colour.js'
 import { teachingSections } from '../lib/lesson-plan.js'
 import { RenderBlock } from '../pages/Lesson.jsx'
-import Figure, { Label, StaticTile } from './figures/Figure.jsx'
-import { rowTimeline } from './figures/row.js'
-import { Hero } from './ProtoLesson.jsx'
-import './proto.css'
+import Figure, { Label, StaticTile } from '../figure-engine/Figure.jsx'
+import { rowTimeline } from '../figure-engine/row.js'
+import { Hero } from '../pages/Lesson.jsx'
+import '../styles/lesson-page.css'
 
 function BlocksWithFigure({ section, n, figures }) {
   return section.blocks.map((block, i) => {
@@ -26,6 +26,8 @@ function BlocksWithFigure({ section, n, figures }) {
     )
   })
 }
+
+// Test builds only (plan 2026-11-05-lesson-page-simplify): the ruled-out structures and looks, kept for capture.
 
 /** B, One point at a time: the lesson paged into points. A Start screen, then a point with Next and Back. */
 export function StructureB({ n, meta, lesson, mins, exercises, vocabCount, sections, figures }) {
@@ -97,7 +99,7 @@ export function StructureC({ n, meta, lesson, mins, exercises, vocabCount, secti
   if (!lesson || !first) return null
   return (
     <>
-      <Hero n={n} meta={meta} lesson={lesson} mins={mins} exercises={exercises} vocabCount={vocabCount} figures={Boolean(opening)} />
+      <Hero n={n} meta={meta} lesson={lesson} mins={mins} exercises={exercises} vocabCount={vocabCount} opening={opening} />
       <div className="sc-grid">
         <div className="sc-text ls-body" ref={textRef}>
           <section className="ls-sec" id={first.id}>

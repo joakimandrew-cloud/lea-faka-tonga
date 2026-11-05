@@ -246,10 +246,10 @@ export function useFigureClock({ id, rootRef, timelines, external = null, autopl
       rests: sceneIndex => timelines[sceneIndex ?? clock.current.scene].rests,
     }
     node.__figure = api
-    window.__protoFigures = window.__protoFigures || {}
-    window.__protoFigures[id] = api
+    window.__lessonFigures = window.__lessonFigures || {}
+    window.__lessonFigures[id] = api
     return () => {
-      if (window.__protoFigures?.[id] === api) delete window.__protoFigures[id]
+      if (window.__lessonFigures?.[id] === api) delete window.__lessonFigures[id]
     }
   }, [id, rootRef, scenes, seek, timelines])
 

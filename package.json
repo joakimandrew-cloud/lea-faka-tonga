@@ -35,7 +35,8 @@
     "audit:all": "npm run check:style && npm run validate:drills && npm run audit:eva",
     "test:premium": "node --test --test-concurrency=1 src/premium/test/*.test.js",
     "check:premium-copy": "node scripts/premium/check-copy.mjs",
-    "check:motifs": "node scripts/premium/check-motifs.mjs"
+    "check:motifs": "node scripts/premium/check-motifs.mjs",
+    "check:figures": "node scripts/premium/check-figures.mjs"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.2.8",

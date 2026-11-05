@@ -23,6 +23,7 @@ const reveal = {
 
 // The prototype of plan 2026-11-05-lesson-page-simplify has no decorative
 // entrances, so its pages turn the block reveal off. The live page is unchanged.
+// eslint-disable-next-line react-refresh/only-export-components
 export const RevealOff = createContext(false)
 const useReveal = () => (useContext(RevealOff) ? null : reveal)
 

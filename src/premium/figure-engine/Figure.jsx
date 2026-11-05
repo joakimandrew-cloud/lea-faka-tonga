@@ -4,16 +4,16 @@
  * (scene, t). Nothing on a stage uses a CSS transition or animation.
  */
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
-import { useFigureClock } from '../lib/clock.js'
-import { textWidth, uiWidth, useTileFont, useWidth } from '../lib/metrics.js'
-import { land, ramp, travel } from '../lib/motion.js'
+import { useFigureClock } from './lib/clock.js'
+import { textWidth, uiWidth, useTileFont, useWidth } from './lib/metrics.js'
+import { land, ramp, travel } from './lib/motion.js'
 import { rowFrame, rowGeometry, rowLayouts, rowSizes, rowStateAt, rowTimeline } from './row.js'
 import { forkFrame, forkGeometry, forkLayouts, forkSizes, forkTimeline } from './fork.js'
 import { gridTimeline } from './grid-timeline.js'
 import { pathTimeline } from './path.js'
 import { PathChips, PathStage } from './PathStage.jsx'
 import { PersonMark } from './Marks.jsx'
-import '../proto.css'
+import '../styles/lesson-page.css'
 
 const ROLE_LABEL = {
   tense: 'tense',

@@ -24,10 +24,16 @@ function courseStyleBridge() {
   }
 }
 
-export default defineConfig({
+// A test build is the dev server, or a build made with LFT_TEST_BUILD=1. It carries the
+// capture flags (?structure, ?band, ?look, ?still, ?solo, ?view, ?tile), the /__proto/lesson
+// route and the /scrub hub. A production build leaves __TEST_BUILD__ false, so that code is
+// dropped and /scrub stays redirected to the home page (plan 2026-11-05-lesson-page-simplify).
+export default defineConfig(({ command }) => ({
   base: '/',
+  // eslint-disable-next-line no-undef
+  define: { __TEST_BUILD__: JSON.stringify(command === 'serve' || process.env.LFT_TEST_BUILD === '1') },
   plugins: [{ name: 'approved-motifs', buildStart() { checkMotifs() } }, courseStyleBridge(), react(), tailwindcss()],
   resolve: { alias: { '@app': src, '@book': path.join(root, 'book') }, dedupe: ['react', 'react-dom', 'react-router', 'react-router-dom'] },
   server: { host: '127.0.0.1' },
   test: { exclude: ['**/node_modules/**', '**/dist/**', 'src/premium/test/**'] },
-})
+}))

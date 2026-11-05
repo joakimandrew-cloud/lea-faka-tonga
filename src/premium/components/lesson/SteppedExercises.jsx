@@ -7,10 +7,10 @@
  * text stays identical to the live lesson.
  */
 import { useEffect, useMemo, useState } from 'react'
-import { Md } from '../components/lesson/Blocks.jsx'
-import { McqPresentation, Prompt } from '../components/lesson/Exercises.jsx'
-import { exerciseProgressFromSnapshot, initialExerciseSnapshot, writeExerciseSnapshot } from '../lib/exercise-progress.js'
-import { activeSourceFeedbackFor } from '../lib/exercise-feedback.js'
+import { Md } from './Blocks.jsx'
+import { McqPresentation, Prompt } from './Exercises.jsx'
+import { exerciseProgressFromSnapshot, initialExerciseSnapshot, writeExerciseSnapshot } from '../../lib/exercise-progress.js'
+import { activeSourceFeedbackFor } from '../../lib/exercise-feedback.js'
 import { MatchingItems } from './MatchingItems.jsx'
 
 function RevealRow({ item, n, record, current, onChange, onSkip }) {

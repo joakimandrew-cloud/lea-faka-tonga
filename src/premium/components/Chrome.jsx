@@ -48,9 +48,9 @@ export function Header({ progress = false, noticeMode = null }) {
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 8)
-      // Prototype lesson page: the header stays away until the top of the page, so a small
-      // scroll back up no longer adds to the chrome (Direction.md, E01). Live routes unchanged.
-      const stays = /^\/__proto\/lesson\//.test(window.location.pathname)
+      // Lesson page: the site header stays away until the top of the page, so a small
+      // scroll back up no longer adds to the chrome (Direction.md, E01). Other routes unchanged.
+      const stays = /^\/(?:__proto\/)?lessons?\/\d+/.test(window.location.pathname)
       if (!open && !headerRef.current?.contains(document.activeElement)) {
         setHidden(stays ? y > 240 : y > 240 && y > last + 2 ? true : y < last - 2 ? false : hidden)
       }

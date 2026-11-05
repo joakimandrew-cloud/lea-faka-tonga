@@ -2,8 +2,8 @@
 // beat runs; rowFrame says where everything is at time t. rowFrame is pure: the
 // same scene, time and layout always give the same frame, with no state and no
 // CSS animation, so any frame can be rendered exactly.
-import { HOLD_MS, OPEN_MS, ROLL_MS, TRAVEL_MS, clamp01, land, leave, lerp, ramp, travel } from '../lib/motion.js'
-import { fitSizes, textWidth, tileSizes } from '../lib/metrics.js'
+import { HOLD_MS, OPEN_MS, ROLL_MS, TRAVEL_MS, clamp01, land, leave, lerp, ramp, travel } from './lib/motion.js'
+import { fitSizes, textWidth, tileSizes } from './lib/metrics.js'
 
 const TRAVEL = { move: TRAVEL_MS, add: TRAVEL_MS, drop: TRAVEL_MS, swap: ROLL_MS, en: 420, limit: 620, slot: 620, line: TRAVEL_MS }
 const HOLD = { move: HOLD_MS, add: HOLD_MS, drop: HOLD_MS, swap: HOLD_MS, en: 380, limit: 300, slot: 300, line: 300 }

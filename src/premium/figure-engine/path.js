@@ -2,7 +2,7 @@
 // its start to its end, its particle lands on it, and the sentence and English land when it
 // arrives. Earlier arrows stay, quieter, so the rest state reads as the whole set. pathFrame
 // is a pure function of time, as rowFrame and forkFrame are.
-import { land, ramp, travel } from '../lib/motion.js'
+import { land, ramp, travel } from './lib/motion.js'
 
 const DRAW = 800
 const AFTER_DRAW = 200
@@ -35,8 +35,8 @@ export function peopleGeometry(width) {
   const top = phone ? 80 : 104
   const places = {
     speaker: { x: width * (phone ? 0.125 : 0.13), y: top },
-    listener: { x: width * (phone ? 0.59 : 0.6), y: top },
-    third: { x: width * (phone ? 0.875 : 0.87), y: 0 },
+    listener: { x: width * (phone ? 0.56 : 0.58), y: top },
+    third: { x: width * (phone ? 0.9 : 0.89), y: 0 },
   }
   return { phone, mw, mh, places, height: top + mh + (phone ? 40 : 44), tile: phone ? { h: 30, fs: 18, pad: 9 } : { h: 36, fs: 21, pad: 12 } }
 }
@@ -67,7 +67,11 @@ function peopleCurve(c, geo, width) {
     return curve({ x: S.x + mw / 2 + gap, y: S.y + mid - apart }, { x: (S.x + L.x) / 2, y: S.y + mid - apart - bow }, { x: L.x - mw / 2 - gap, y: L.y + mid - apart })
   }
   if (c.to === 'third') {
-    return curve({ x: L.x + mw * 0.1, y: L.y - gap }, { x: L.x + mw * 0.1, y: T.y + mh * 0.5 }, { x: T.x - mw / 2 - gap, y: T.y + mh * 0.5 })
+    // A bow of its own, up and to the right from the listener's shoulder to the third person, so its
+    // particle sits on it as mai and atu sit on theirs (the middle of the arc is clear of both marks).
+    const from = { x: L.x + mw / 2 + gap, y: L.y + mh * 0.1 }
+    const to = { x: T.x - mw / 2 - gap, y: T.y + mh * 0.7 }
+    return curve(from, { x: (from.x + to.x) / 2 - 4, y: (from.y + to.y) / 2 - (geo.phone ? 16 : 22) }, to)
   }
   // Away from the speaker, past the listener, with no mark at its end.
   const y = L.y + mid

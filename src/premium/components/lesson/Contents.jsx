@@ -8,10 +8,10 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import quickPractice from '@app/data/quick-practice.json'
 import { drillRegistry } from '@app/drills/registry.js'
-import { Md } from '../components/lesson/Blocks.jsx'
-import { Mixed } from '../components/lesson/FigureEngine.jsx'
-import { compassState } from '../components/lesson/MobileCompass.jsx'
-import { practiceBlocks } from '../lib/lesson-plan.js'
+import { Md } from './Blocks.jsx'
+import { Mixed } from './FigureEngine.jsx'
+import { compassState } from './MobileCompass.jsx'
+import { practiceBlocks } from '../../lib/lesson-plan.js'
 
 const nn = number => String(number).padStart(2, '0')
 const SITE = [

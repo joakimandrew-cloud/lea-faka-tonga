@@ -1,40 +1,88 @@
+/**
+ * The lesson page, /lessons/:n (plan 2026-11-05-lesson-page-simplify; the design is
+ * reviews/lesson-simplify-2026-11-05/Direction.md, the "Quiet page with stepped practice").
+ *
+ * One scroll for the reading, one Contents button in place of the rail, the plan card,
+ * the compass and both copies of the seven-step path, exercises one set at a time, and
+ * moving word-tile figures inside the sections that need them. Each lesson's figures,
+ * opening row and recall sentences are read from its own file in src/premium/figures
+ * (NN.js), loaded with the lesson; a lesson with no file shows its reading with none.
+ * Saved progress is unchanged: lft-premium-lesson-path-v1, exercise progress, quiz and
+ * done state, and every section anchor, #exercises, #ex-N and #finish.
+ *
+ * The capture flags (?structure, ?band, ?look, ?still, ?solo, ?view, ?tile) and the
+ * /__proto route exist only in a test build (see __TEST_BUILD__ in vite.config.js).
+ */
 import EntryMotif from '../components/EntryMotif.jsx'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { useTitle } from '../lib/title.js'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion as Motion } from 'motion/react'
 import chapters from '@app/data/chapters.json'
 import quizzes from '@app/data/quizzes.json'
 import bookExercises from '@app/data/book-exercises.json'
-import { LESSON_GROUPS, lessonLevel } from '@app/lib/lesson-browser.js'
+import quickPractice from '@app/data/quick-practice.json'
+import { lessonLevel } from '@app/lib/lesson-browser.js'
 import { loadLesson } from '../lib/book.js'
 import { markLessonDone, markLessonOpened, useProgress } from '../lib/progress.js'
-import { Examples, Pairs, Table, Note, Para, List, WordCards, Md } from '../components/lesson/Blocks.jsx'
-import { ExerciseSet } from '../components/lesson/Exercises.jsx'
-import MobileCompass from '../components/lesson/MobileCompass.jsx'
+import { Examples, Pairs, Table, Note, Para, List, WordCards, Md, RevealOff } from '../components/lesson/Blocks.jsx'
 import { MembershipFinishLine } from '../components/MembershipNotice.jsx'
 import { EmbeddedDrill, QuickPractice } from '../components/lesson/Practice.jsx'
 import { PatternFigure, CombinatorFigure, IntonationFigure, StressFigure } from '../components/lesson/Figures1.jsx'
 import { KupesiTile } from '../components/Kupesi.jsx'
 import { lessonColours, lessonTile } from '../lib/lesson-colour.js'
 import { readExerciseState } from '../lib/exercise-progress.js'
-import { figureAnchor, figureModel, groupSections, learnModel, stationsModel, teachingSections } from '../lib/lesson-plan.js'
-import { FIGURE_PLAN } from '../lib/figure-plan.js'
+import { groupSections, learnModel, teachingSections } from '../lib/lesson-plan.js'
 import { markPattern, markRead, markTried } from '../lib/lesson-path-store.js'
-import { lessonCards } from '../lib/card-progress.js'
-import { LessonFigure } from '../components/lesson/FigureEngine.jsx'
-import LessonPath, { useLessonDeck, useLessonPath } from '../components/lesson/LessonPath.jsx'
-import LessonPlan from '../components/lesson/LessonPlan.jsx'
+import { useLessonPath } from '../components/lesson/LessonPath.jsx'
 import CourseStrip from '../components/lesson/CourseStrip.jsx'
 import PromiseCheck from '../components/lesson/PromiseCheck.jsx'
+import Contents from '../components/lesson/Contents.jsx'
+import { SteppedExercises, SteppedQuick } from '../components/lesson/SteppedExercises.jsx'
+import Figure, { StaticTile } from '../figure-engine/Figure.jsx'
 import '../styles/lesson.css'
 import '../styles/lesson-experience.css'
 import '../styles/source-core.css'
 import '../styles/lesson-course.css'
+import '../styles/lesson-page.css'
 
 const COLOURS = lessonColours(chapters, lessonLevel)
 
-const LEVEL_NAME = { basic: 'Basic', intermediate: 'Intermediate', advanced: 'Advanced' }
+// One file per lesson: src/premium/figures/NN.js. Adding a lesson's file touches no shared file.
+const FIGURE_FILES = import.meta.glob('../figures/[0-9][0-9].js')
+
+// Capture tools, in a test build only. A production build drops this branch whole.
+const TestVariant = __TEST_BUILD__ ? lazy(() => import('../test-tools/Variants.jsx')) : null
+
+/** The lesson's figure file, or null when it has none yet. */
+async function loadFigureFile(n) {
+  const load = FIGURE_FILES[`../figures/${String(n).padStart(2, '0')}.js`]
+  if (!load) return null
+  const mod = await load()
+  return { figures: mod.FIGURES || [], opening: mod.OPENING || null, recall: mod.RECALL || null }
+}
+
+/**
+ * The recall cards read the lesson's own book sentences from its figure file. The rule text
+ * stays as it is; the example strings in chapters.json and the paradigm never reach the page,
+ * and a rule with no book sentence gets no card.
+ */
+// eslint-disable-next-line react-refresh/only-export-components
+export function withRecall(meta, recall) {
+  const rules = meta?.teaching?.key_rules
+  if (!rules) return meta
+  return {
+    ...meta,
+    teaching: {
+      ...meta.teaching,
+      paradigm: undefined,
+      key_rules: rules.map((rule, i) => {
+        const { example_tongan: _to, example_english: _en, ...rest } = rule
+        return recall?.[i] ? { ...rest, example_tongan: recall[i].to, example_english: recall[i].en } : rest
+      }),
+    },
+  }
+}
 
 function wordCount(lesson) {
   const txt = JSON.stringify(lesson.blocks) + JSON.stringify(lesson.intro)
@@ -94,7 +142,8 @@ export function RenderBlock({ block, n }) {
   return null
 }
 
-export function Section({ s, n, figureAt = null, figure = null }) {
+/** The Words to Learn section: the word table as flip-card groups. */
+export function Section({ s, n }) {
   const vocabulary = /^words-to-learn/.test(s.id)
   const vocabGroups = []
   const groupedIndexes = new Set()
@@ -113,9 +162,7 @@ export function Section({ s, n, figureAt = null, figure = null }) {
     const el = vocabulary && i === firstGroup
       ? <WordCards groups={vocabGroups} lesson={n} />
       : <RenderBlock block={b} n={n} />
-    const fig = figureAfter(n, s.id, b, i, s)
-    const engine = figureAt && figureAt.sectionId === s.id && figureAt.index === i ? <LessonFigure model={figure} n={n} /> : null
-    return <div key={i} className="blk">{el}{fig}{engine}</div>
+    return <div key={i} className="blk">{el}{figureAfter(n, s.id, b, i, s)}</div>
   })
 }
 
@@ -181,7 +228,104 @@ export function FinishActions({ n, next, hasQuiz, vocabCount, exStats, firstUnfi
   )
 }
 
-function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn, stations, path }) {
+/** The figures that sit after a block: each figure at its first matching block only. */
+// eslint-disable-next-line react-refresh/only-export-components
+export function figurePlaces(s, figures) {
+  const out = new Map()
+  for (const def of figures) {
+    if (!s.id.startsWith(def.after.section)) continue
+    const index = s.blocks.findIndex(def.after.block)
+    if (index < 0) continue
+    out.set(index, [...(out.get(index) || []), def])
+  }
+  return out
+}
+
+export function LessonBlocks({ s, n, figures, look }) {
+  const places = useMemo(() => figurePlaces(s, figures), [s, figures])
+  return s.blocks.map((block, i) => {
+    let el
+    if (block.type === 'quick-practice') {
+      const ex = quickPractice[String(n)]?.[block.index]
+      el = ex?.items?.length ? (
+        <Practised n={n} id={`practice-qp-${block.index}`} practiceKey={`qp:${block.index}`}>
+          <SteppedQuick ex={ex} />
+        </Practised>
+      ) : null
+    } else {
+      el = <RenderBlock block={block} n={n} />
+    }
+    const here = places.get(i) || []
+    return (
+      <div key={i} className="blk">
+        {el}
+        {figureAfter(n, s.id, block, i, s)}
+        {here.map(def => (TestVariant && look === '2' && def.id === '15.1'
+          ? <Suspense key={def.id} fallback={null}><TestVariant which="look2" /></Suspense>
+          : <Figure key={def.id} def={def} />))}
+      </div>
+    )
+  })
+}
+
+export function LessonSections({ sections, n, figures, exercises, onProgress, stored, look, from = 0, to }) {
+  return sections.slice(from, to).map((s, offset) => (
+    <section key={s.id} id={s.id} className={`ls-sec ${s.exercises ? 'is-ex' : ''}`}>
+      <div className="ls-sec-head">
+        <span className="ls-sec-n">{String(from + offset + 1).padStart(2, '0')}</span>
+        <h2 className="ls-h2 display" tabIndex={-1}><Md text={s.title} /></h2>
+      </div>
+      {s.exercises
+        ? <SteppedExercises exercises={exercises} onProgress={onProgress} stored={stored} />
+        : /^words-to-learn/.test(s.id)
+          ? <Section s={s} n={n} />
+          : <LessonBlocks s={s} n={n} figures={figures} look={look} />}
+    </section>
+  ))
+}
+
+export function OpeningRow({ opening }) {
+  if (!opening) return null
+  return (
+    <div className="pl-open" data-figure-still="">
+      <div className="pl-open-row" role="img" aria-label={`${opening.say} ${opening.en}`}>
+        {opening.row.map(face => <StaticTile key={face.text} face={face} />)}
+      </div>
+      <p className="pl-open-side">
+        <span className="pl-open-en" data-en={opening.en}>{opening.en}</span>
+        <span className="pl-open-cap">The shape this lesson teaches</span>
+      </p>
+    </div>
+  )
+}
+
+export function Hero({ n, meta, lesson, mins, exercises, vocabCount, opening }) {
+  const parts = [
+    mins && `${mins} min read`,
+    exercises.length > 0 && `${exercises.length} ${exercises.length === 1 ? 'exercise' : 'exercises'}`,
+    vocabCount > 0 && `${vocabCount} ${vocabCount === 1 ? 'new word' : 'new words'}`,
+  ].filter(Boolean)
+  return (
+    <header className="ls-hero pl-hero">
+      <div className="pl-col">
+        <nav className="crumbs pl-crumbs" aria-label="Breadcrumb">
+          <KupesiTile {...lessonTile(n, 0)} framed size={28} className="pl-crumb-tile" style={{ color: COLOURS[n] }} />
+          <Link to="/lessons" className="pl-crumb-a">Lessons</Link>
+          <span aria-hidden="true">/</span>
+          <span>{`Lesson ${n} of 52`}</span>
+        </nav>
+        <h1 className="ls-h1 display">{meta.title}</h1>
+        {lesson && lesson.intro.map((block, i) => (block.type === 'p'
+          ? <p key={i} className="ls-intro"><Md text={block.text} /></p>
+          : block.type === 'hr' ? null : <div key={i} className="ls-intro-block"><RenderBlock block={block} n={n} /></div>))}
+        <OpeningRow opening={opening} />
+        <p className="pl-length">{parts.join(', ')}</p>
+      </div>
+    </header>
+  )
+}
+
+function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn, path }) {
   const { done } = useProgress()
   const [celebrate, setCelebrate] = useState(false)
   const known = (path.known || []).filter(i => learn.items.some(item => item.i === i && item.to))
@@ -189,7 +333,6 @@ function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn
   const isDone = done.has(n)
   const hasQuiz = Boolean(quizzes[String(n)])
   const finish = () => { markLessonDone(n); setCelebrate(true) }
-
   return (
     <section className={`finish band grain ${isDone ? 'is-done' : ''}`} id="finish">
       <AnimatePresence mode="wait">
@@ -201,8 +344,7 @@ function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn
             {exStats.total > 0 && (
               <p className="finish-p">You have answered {exStats.answered} of {exStats.total} exercise items{exStats.answered < exStats.total ? '. You can finish now and come back to the rest.' : '.'}</p>
             )}
-            <LessonPath n={n} model={stations} density="finish" />
-            <button className="btn btn-primary finish-b" onClick={finish}>Finish Lesson {n} <span className="arr">✓</span></button>
+            <button type="button" className="btn btn-primary finish-b" onClick={finish}>Finish Lesson {n} <span className="arr">✓</span></button>
           </Motion.div>
         ) : (
           <Motion.div key="done" className="finish-done" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -212,13 +354,13 @@ function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn
                   key={i}
                   initial={celebrate ? { scale: 0, rotate: 0, opacity: 0 } : false}
                   animate={{ scale: 1, rotate: (i % 2 ? 1 : -1) * 90, opacity: 1 }}
-                  transition={{ delay: .05 * i, duration: .9, ease: [.16, 1, .3, 1] }}
+                  transition={{ delay: 0.05 * i, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                   style={{ '--a': `${i * 30}deg` }}
                 >
                   <KupesiTile {...lessonTile(n, i)} framed style={{ color: COLOURS[n] }} />
                 </Motion.span>
               ))}
-              <Motion.span className="finish-check" initial={celebrate ? { scale: 0 } : false} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 400, damping: 16, delay: .2 }}>✓</Motion.span>
+              <Motion.span className="finish-check" initial={celebrate ? { scale: 0 } : false} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 400, damping: 16, delay: 0.2 }}>✓</Motion.span>
             </div>
             <p className="finish-k">Lesson {n} complete</p>
             <h2 className="finish-h display">{meta.title}. Done.</h2>
@@ -228,14 +370,7 @@ function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn
             </p>
             <CourseStrip n={n} fill={celebrate} />
             {known.length > 0 && <p className="finish-p pc-done">{`You knew ${known.length} of ${points} points.`}</p>}
-            <FinishActions
-              n={n}
-              next={next}
-              hasQuiz={hasQuiz}
-              vocabCount={vocabCount}
-              exStats={exStats}
-              firstUnfinishedHref={firstUnfinishedHref}
-            />
+            <FinishActions n={n} next={next} hasQuiz={hasQuiz} vocabCount={vocabCount} exStats={exStats} firstUnfinishedHref={firstUnfinishedHref} />
             <MembershipFinishLine />
           </Motion.div>
         )}
@@ -244,33 +379,63 @@ function Finish({ n, meta, next, exStats, vocabCount, firstUnfinishedHref, learn
   )
 }
 
+/** The flags that sit on <html> for this page only: the lesson bar appears once the hero has passed. */
+function usePageFlags(band) {
+  useEffect(() => {
+    const root = document.documentElement
+    if (band) root.dataset.band = 'line'
+    const onScroll = () => {
+      root.dataset.pastHero = window.scrollY > (window.__lessonHeroBottom ?? 600) ? 'true' : 'false'
+      if (band) root.dataset.bandLine = window.scrollY > 40 ? 'on' : 'off'
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      delete root.dataset.band
+      delete root.dataset.bandLine
+      delete root.dataset.pastHero
+    }
+  }, [band])
+}
+
 export default function Lesson() {
   const { num } = useParams()
+  const [params] = useSearchParams()
   const n = Number(num)
   const meta = chapters.find(c => c.chapter === n)
   useTitle(meta ? `Lesson ${n}: ${meta.title}` : 'Lesson not found')
-  const [lesson, setLesson] = useState(null)
+  // Capture flags work in a test build only.
+  const flag = name => (__TEST_BUILD__ ? params.get(name) : null)
+  const structure = ['a', 'b', 'c'].includes(flag('structure')) ? flag('structure') : 'a'
+  const solo = flag('solo')
+  const view = flag('view')
+  const look = flag('look')
+  usePageFlags(flag('band') === 'line')
+
+  const [loaded, setLoaded] = useState(null)
   const [active, setActive] = useState(null)
   const [exerciseProgress, setExerciseProgress] = useState({})
-  const [activeStep, setActiveStep] = useState('learn')
-  const bodyRef = useRef(null)
   const path = useLessonPath(n)
-  const { done, quiz } = useProgress()
+  const { done } = useProgress()
+  const heroRef = useRef(null)
 
   useEffect(() => {
     let live = true
-    loadLesson(n).then(l => { if (live) setLesson(l) })
+    Promise.all([loadLesson(n), loadFigureFile(n)]).then(([lesson, file]) => { if (live) setLoaded({ n, lesson, file }) })
     if (meta) markLessonOpened(n)
     return () => { live = false }
   }, [n]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const currentLesson = lesson?.chapter === n ? lesson : null
+  const currentLesson = loaded?.n === n ? loaded.lesson : null
+  const file = loaded?.n === n ? loaded.file : null
+  const figures = useMemo(() => file?.figures || [], [file])
   const sections = useMemo(() => (currentLesson ? groupSections(currentLesson.blocks) : []), [currentLesson])
   const exercises = useMemo(() => bookExercises[String(n)] || [], [n])
-  const storedExerciseProgress = useMemo(() => readLessonExerciseProgress(bookExercises[String(n)] || []), [n])
+  const stored = useMemo(() => readLessonExerciseProgress(bookExercises[String(n)] || []), [n])
 
   useEffect(() => {
-    if (!sections.length) return
+    if (!sections.length) return undefined
     const els = [...sections.map(s => document.getElementById(s.id)), document.getElementById('finish')].filter(Boolean)
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id) })
@@ -279,7 +444,7 @@ export default function Lesson() {
     return () => io.disconnect()
   }, [sections])
 
-  // Learn: the highest teaching section reached and the last one read, for the path and the resume button.
+  // Learn: the highest teaching section reached and the last one read, for the sheet and the resume button.
   useEffect(() => {
     if (!active || active === 'finish') return undefined
     const index = teachingSections(sections).findIndex(s => s.id === active)
@@ -288,127 +453,59 @@ export default function Lesson() {
     return () => clearTimeout(id)
   }, [active, sections, n])
 
-  // The active step, in its own observer so the compass and the section highlight behave as before.
   useEffect(() => {
-    if (!sections.length) return undefined
-    const step = el => {
-      if (el.matches('[data-practice]')) return 'practise'
-      if (el.matches('[data-figure], [data-figure-fallback]')) return 'pattern'
-      if (el.id === 'exercises') return 'exercises'
-      if (el.id === 'finish') return 'finish'
-      return 'words'
-    }
-    const els = [
-      ...document.querySelectorAll('.ls-body [data-figure], .ls-body [data-figure-fallback], .ls-body [data-practice]'),
-      ...sections.filter(s => /^words-to-learn/.test(s.id)).map(s => document.getElementById(s.id)),
-      document.getElementById('exercises'), document.getElementById('finish'),
-    ].filter(Boolean)
-    const inBand = new Set()
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) inBand.add(e.target); else inBand.delete(e.target) })
-      const last = [...inBand].at(-1)
-      setActiveStep(last ? step(last) : 'learn')
-    }, { rootMargin: '-30% 0px -60% 0px' })
-    els.forEach(el => io.observe(el))
-    return () => io.disconnect()
-  }, [sections])
+    const hero = heroRef.current?.querySelector('.ls-hero')
+    if (!hero) return
+    window.__lessonHeroBottom = hero.offsetTop + hero.offsetHeight - 80
+  })
 
-  const ex = useMemo(() => ({ ...storedExerciseProgress, ...(exerciseProgress[n] || {}) }), [exerciseProgress, n, storedExerciseProgress])
-  const onProgress = (id, state, total) => setExerciseProgress(all => ({
-    ...all,
-    [n]: { ...(all[n] || {}), [id]: { state, total } },
-  }))
+  const ex = useMemo(() => ({ ...stored, ...(exerciseProgress[n] || {}) }), [exerciseProgress, n, stored])
+  const onProgress = (id, state, total) => setExerciseProgress(all => ({ ...all, [n]: { ...(all[n] || {}), [id]: { state, total } } }))
   const exStats = useMemo(() => {
     const total = exercises.reduce((a, e) => a + e.items.length, 0)
     const vals = Object.values(ex).flatMap(e => Object.values(e.state))
     return { total, answered: vals.length, right: vals.filter(Boolean).length }
   }, [ex, exercises])
   const firstUnfinishedHref = useMemo(() => firstUnfinishedExerciseHref(exercises, ex), [ex, exercises])
-  const wordTables = useMemo(() => sections.filter(s => /^words-to-learn/.test(s.id)).flatMap(s => s.blocks.filter(b => b.type === 'table')), [sections])
-  const cards = useMemo(() => lessonCards(wordTables, n), [wordTables, n])
-  const deck = useLessonDeck(n, cards)
-  const learn = useMemo(() => (meta && currentLesson ? learnModel({ n, meta, sections, plan: FIGURE_PLAN }) : null), [n, meta, sections, currentLesson])
-  const figure = useMemo(() => (meta && currentLesson ? figureModel({ n, meta, plan: FIGURE_PLAN }) : null), [n, meta, currentLesson])
-  const figureAt = useMemo(() => (meta && currentLesson ? figureAnchor({ n, sections, meta, plan: FIGURE_PLAN }) : null), [n, meta, sections, currentLesson])
-  const stations = useMemo(() => (meta && currentLesson ? stationsModel({
-    n, meta, sections, plan: FIGURE_PLAN, exercises, exStats, firstUnfinishedHref,
-    quizQuestions: quizzes[String(n)]?.questions?.length || 0, quizBest: quiz[n] || null,
-    deck, deckSize: cards.length, done: done.has(n), path,
-  }) : null), [n, meta, sections, currentLesson, exercises, exStats, firstUnfinishedHref, quiz, deck, cards.length, done, path])
+  const learn = useMemo(() => (meta && currentLesson ? learnModel({ n, meta: withRecall(meta, file?.recall), sections }) : null), [n, meta, sections, currentLesson, file])
 
   if (!meta) return <div className="wrap" style={{ padding: '160px 0' }}><h1 className="display">No Lesson {num}</h1><Link to="/lessons" className="link">All lessons</Link></div>
+  if (TestVariant && solo) return <Suspense fallback={null}><TestVariant which="solo" figures={figures} id={solo} /></Suspense>
+  if (TestVariant && view === 'tile-compare') return <Suspense fallback={null}><TestVariant which="tile-compare" /></Suspense>
 
   const prev = chapters.find(c => c.chapter === n - 1)
   const next = chapters.find(c => c.chapter === n + 1)
-  const group = LESSON_GROUPS.find(g => g.key === meta.group)
   const mins = currentLesson ? Math.max(3, Math.round(wordCount(currentLesson) / 200)) : null
   const vocabCount = currentLesson ? sections.filter(s => /^words-to-learn/.test(s.id)).flatMap(s => s.blocks.filter(b => b.type === 'table')).reduce((a, t) => a + t.body.length, 0) : 0
+  const hasQuiz = Boolean(quizzes[String(n)])
+  const tokens = __TEST_BUILD__ && params.get('tile') === 'v1' ? { '--tile-name': '#1f6b3a' } : undefined
+  const common = { n, meta, lesson: currentLesson, mins, exercises, vocabCount }
+
+  if (TestVariant && (structure === 'b' || structure === 'c')) {
+    return (
+      <RevealOff.Provider value>
+        <article className={`lesson pl pl-${structure}`} style={tokens} ref={heroRef}>
+          <Suspense fallback={null}>
+            <TestVariant which={structure} {...common} sections={sections} figures={figures} opening={file?.opening || null} />
+          </Suspense>
+        </article>
+      </RevealOff.Provider>
+    )
+  }
 
   return (
-    <article className="lesson">
-      <header className="ls-hero">
-        <div className="wrap ls-hero-grid">
-          <div className="ls-hero-copy">
-            <nav className="crumbs" aria-label="Breadcrumb">
-              <Link to="/lessons">Lessons</Link><span aria-hidden="true">/</span>
-              <span>{LEVEL_NAME[lessonLevel(meta)]}</span><span aria-hidden="true">/</span>
-              <span>{group?.name}</span>
-            </nav>
-            <Motion.p className="ls-num" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .6 }}>Lesson {String(n).padStart(2, '0')} of 52</Motion.p>
-            <h1 className="ls-h1 display">
-              <span className="ls-line"><Motion.span initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [.16, 1, .3, 1] }}>{meta.title}</Motion.span></span>
-            </h1>
-            {currentLesson && currentLesson.intro.map((block, i) => block.type === 'p' ? (
-              <Motion.p key={i} className="ls-intro" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .25, duration: .8 }}><Md text={block.text} /></Motion.p>
-            ) : block.type === 'hr' ? (
-              <hr key={i} className="ls-intro-rule" />
-            ) : (
-              <div key={i} className="ls-intro-block"><RenderBlock block={block} n={n} /></div>
-            ))}
-            <Motion.ul className="ls-meta" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .4 }}>
-              {mins && <li><strong>{mins} min</strong> read</li>}
-              {exercises.length > 0 && <li><strong>{exercises.length}</strong> exercises</li>}
-              {vocabCount > 0 && <li><strong>{vocabCount}</strong> {vocabCount === 1 ? 'new word' : 'new words'}</li>}
-            </Motion.ul>
-            {currentLesson && <CourseStrip n={n} />}
-          </div>
-          <Motion.div className="ls-hero-art" aria-hidden="true" initial={{ opacity: 0, scale: .9, rotate: -4 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.2, ease: [.16, 1, .3, 1] }}>
-            <div className="ls-art-tiles">
-              {/* The lesson's own square first, then the rhythm that follows it, in the lesson's shade. */}
-              {[...Array(9)].map((_, i) => <KupesiTile key={i} {...lessonTile(n, i)} framed style={{ '--i': i, color: COLOURS[n] }} />)}
-            </div>
-            <span className="ls-art-n display">{String(n).padStart(2, '0')}</span>
-          </Motion.div>
-        </div>
-      </header>
-
-      {currentLesson && <MobileCompass lessonNumber={n} sections={sections} active={active} />}
-
-      <div className="wrap ls-grid">
-        <aside className="ls-rail-wrap">
-          {currentLesson && stations && <LessonPath n={n} model={stations} sections={sections} density="rail" prev={prev} next={next} activeStep={activeStep} activeSection={active} />}
-        </aside>
-
-        <div className="ls-body" ref={bodyRef}>
+    <RevealOff.Provider value>
+      <article className="lesson pl" style={tokens} ref={heroRef} data-done={done.has(n) ? 'true' : 'false'}>
+        <Hero {...common} opening={file?.opening || null} />
+        {currentLesson && learn && (
+          <Contents n={n} sections={sections} active={active} learn={learn} path={path} exStats={exStats} hasQuiz={hasQuiz} prev={prev} next={next} />
+        )}
+        <div className="pl-col ls-body pl-body">
           {!currentLesson && <div className="ls-skel" aria-busy="true">{[...Array(6)].map((_, i) => <i key={i} />)}</div>}
-          {currentLesson && learn && stations && (
-            <LessonPlan n={n} learn={learn} sections={sections} path={path} stations={stations} prev={prev} next={next} activeStep={activeStep} activeSection={active} />
-          )}
-          {sections.map((s, si) => (
-            <section key={s.id} id={s.id} className={`ls-sec ${s.exercises ? 'is-ex' : ''}`}>
-              <div className="ls-sec-head">
-                <span className="ls-sec-n">{String(si + 1).padStart(2, '0')}</span>
-                <h2 className="ls-h2 display" tabIndex={-1}><Md text={s.title} /></h2>
-              </div>
-              {s.exercises
-                ? exercises.map(e => <ExerciseSet key={e.id} ex={e} onProgress={onProgress} />)
-                : <Section s={s} n={n} figureAt={figureAt} figure={figure} />}
-            </section>
-          ))}
+          <LessonSections sections={sections} n={n} figures={figures} exercises={exercises} onProgress={onProgress} stored={stored} look={look} />
         </div>
-      </div>
-
-      {currentLesson && learn && stations && <Finish n={n} meta={meta} next={next} exStats={exStats} vocabCount={vocabCount} firstUnfinishedHref={firstUnfinishedHref} learn={learn} stations={stations} path={path} />}
-    </article>
+        {currentLesson && learn && <Finish n={n} meta={meta} next={next} exStats={exStats} vocabCount={vocabCount} firstUnfinishedHref={firstUnfinishedHref} learn={learn} path={path} />}
+      </article>
+    </RevealOff.Provider>
   )
 }

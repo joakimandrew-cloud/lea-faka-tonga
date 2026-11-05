@@ -226,18 +226,18 @@ export const F2_5 = {
 }
 
 /** The opening row in the hero: a still, with labels. */
-export const OPENING_2 = {
+export const OPENING = {
   row: [face('Té', 'tense'), face('ke', 'pronoun'), face('kai', 'verb')],
   say: 'Té ke kai.',
   en: 'You will eat.',
 }
 
 /** Recall cards, by key rule: book sentences only (Direction.md part 5). */
-export const RECALL_2 = [
+export const RECALL = [
   { to: 'ʻOkú ke kai.', en: 'You eat.' },
   { to: 'Kuó u kai.', en: 'I have eaten.' },
   { to: 'ʻOku tau hiva.', en: 'We sing. (All of us, including you.)' },
   { to: 'Tau kai.', en: "Let's eat." },
 ]
 
-export const FIGURES_2 = [F2_1, F2_2, F2_3, F2_4, F2_5]
+export const FIGURES = [F2_1, F2_2, F2_3, F2_4, F2_5]

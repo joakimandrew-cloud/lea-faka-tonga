@@ -26,7 +26,8 @@ function tilePlace(arrow, frame) {
     return { x, y }
   }
   const mid = line.at(0.5)
-  if (c.to === 'third') return { x: mid.x - (geo.phone ? 36 : 44), y: mid.y - (geo.phone ? 6 : 4) }
+  // On its arc like mai and atu, so a student reads one picture; the arc is drawn in path.js so its middle is clear of both marks.
+  if (c.to === 'third') return line.at(geo.phone ? 0.44 : 0.5)
   if (c.to === 'away') return { x: mid.x + (geo.phone ? 4 : 0), y: mid.y - (geo.tile.h / 2 + (geo.phone ? 5 : 6)) }
   return mid
 }

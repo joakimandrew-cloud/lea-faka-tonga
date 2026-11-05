@@ -154,17 +154,17 @@ export const F28_4 = {
 }
 
 /** The opening row in the hero: a still, with labels. */
-export const OPENING_28 = {
+export const OPENING = {
   row: [face('Foki', 'verb'), face('mai', 'particle')],
   say: 'Foki mai!',
   en: 'Come back! (toward me)',
 }
 
 /** Recall cards, by key rule: book sentences only (Direction.md part 5). */
-export const RECALL_28 = [
+export const RECALL = [
   { to: 'ʻOkú ne ʻomai ʻa e tohí.', en: 'He is bringing the book (to me/us).' },
   { to: 'ʻOkú ne ʻave ange ʻa e kató ki he faiakó.', en: 'She is taking the basket to the teacher.' },
   { to: 'Naʻá ku ʻomai ʻa e valá mei he falé.', en: 'I brought the clothes from the house.' },
 ]
 
-export const FIGURES_28 = [F28_1, F28_2, F28_3, F28_4]
+export const FIGURES = [F28_1, F28_2, F28_3, F28_4]

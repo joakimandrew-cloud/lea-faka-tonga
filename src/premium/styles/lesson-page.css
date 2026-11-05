@@ -431,3 +431,9 @@ html[data-band='line'][data-band-line='on'] .membership-notice summary { min-hei
 @media (prefers-reduced-motion: reduce) {
   .ps-sheet::backdrop { transition: none; }
 }
+
+/* Lesson 1's own figures sit in the calm page: their one small control meets 44 px like the rest. */
+.pl .st-replay { min-height: 44px; min-width: 44px; padding: 0 12px; }
+
+/* The matching exercise's Reset, in the calm page, meets 44 px like every control the sweep checks. */
+.pl .match-head button { min-height: 44px; min-width: 44px; }
