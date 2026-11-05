@@ -92,13 +92,13 @@ export const F19_2 = {
       key: 'sione',
       cases: [
         doerCase(0, 'ʻe', 'Naʻe', 'lau', 'Sione', 'ʻa e tohí', 'Naʻe lau ʻe Sione ʻa e tohí.', 'Sione read the book.'),
-        doerCase(1, 'ʻe he', 'Kuo', 'kai', 'kulī', 'ʻa e moá', 'Kuo kai ʻe he kulī ʻa e moá.', 'The dog has eaten the chicken.'),
+        doerCase(1, 'ʻe he', 'Naʻe', 'tohi', 'tamasiʻí', 'ʻa e tohí', 'Naʻe tohi ʻe he tamasiʻí ʻa e tohí.', 'The boy wrote the book.'),
       ],
     },
   ],
   alt: [
     'A proper noun: *ʻe* stands alone. *Naʻe ʻave ʻe Pita ʻa Mele.* Pita took Mele. *Naʻe lau ʻe Sione ʻa e tohí.* Sione read the book.',
-    'A common noun: *ʻe he*. *Kuo fai ʻe he faiakó ʻa e lesoní?* Has the teacher given the lesson? *Kuo kai ʻe he kulī ʻa e moá.* The dog has eaten the chicken.',
+    'A common noun: *ʻe he*. *Kuo fai ʻe he faiakó ʻa e lesoní?* Has the teacher given the lesson? *Naʻe tohi ʻe he tamasiʻí ʻa e tohí.* The boy wrote the book.',
   ],
 }
 
@@ -202,7 +202,7 @@ export const F19_5 = {
   id: '19.5',
   kind: 'row',
   types: ['swap', 'move'],
-  title: 'Object is a pronoun: *ʻa* dropped',
+  title: 'A singular pronoun object drops *ʻa* and usually comes before the *ʻe* phrase',
   after: { section: 'postposed-pronouns-as-transitive-objects', block: b => b.type === 'p' && b.text.startsWith('The pronoun object usually follows') },
   scenes: [
     {
@@ -227,6 +227,7 @@ export const F19_5 = {
       ],
       alt: [
         '*Naʻe ui ʻe Pita ʻa Mele.* Pita called Mele. (Object is a proper noun: *ʻa* present.) becomes *Naʻe ui ia ʻe Pita.* Pita called her. (Object is a pronoun: *ʻa* dropped.)',
+        'The focus marker *ʻa* is dropped before the singular pronouns and is usually dropped before the dual and plural pronouns.',
         'The pronoun object usually follows the verb phrase and comes before the *ʻe* noun phrase.',
       ],
     },

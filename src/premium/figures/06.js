@@ -84,7 +84,7 @@ export const F6_3 = {
   id: '6.3',
   kind: 'row',
   types: ['drop'],
-  title: 'Sometimes *ʻi* is omitted',
+  title: 'With *heni*, *hena* and *hē*, *ʻi* is sometimes omitted',
   after: { section: 'here-there-over-there', block: b => b.type === 'examples' && b.pairs.some(p => p.tongan.includes('Tau nofo heni')) },
   scenes: [
     {

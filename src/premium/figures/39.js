@@ -57,13 +57,13 @@ export const F39_1 = {
   ],
 }
 
-function pointCase(lane, first, form, label, rest, say, en, who) {
+function pointCase(lane, first, form, role, label, rest, say, en, who) {
   return {
     lane, say, en,
     ...(who == null ? { group: [] } : { ringPerson: who, group: [who] }),
     row: [
       face(first, 'quiet'),
-      { slot: true, form: face(form, 'pronoun', label), label },
+      { slot: true, form: face(form, role, label), label },
       ...(rest ? [face(rest, 'quiet')] : []),
     ],
   }
@@ -87,15 +87,15 @@ export const F39_2 = {
     {
       key: 'near',
       cases: [
-        pointCase(0, 'ʻI he falé', 'ni', 'enclitic', 'ʻoku mau lotu ai', 'ʻI he falé ni ʻoku mau lotu ai.', 'In this house we pray.', 0),
-        pointCase(1, 'Ho valá', 'na', 'enclitic', 'ʻoku lelei ʻaupito', 'Ho valá na ʻoku lelei ʻaupito.', 'Those clothes of yours are very nice.', 1),
+        pointCase(0, 'ʻI he falé', 'ni', 'quiet', 'enclitic', 'ʻoku mau lotu ai', 'ʻI he falé ni ʻoku mau lotu ai.', 'In this house we pray.', 0),
+        pointCase(1, 'Ho valá', 'na', 'quiet', 'enclitic', 'ʻoku lelei ʻaupito', 'Ho valá na ʻoku lelei ʻaupito.', 'Those clothes of yours are very nice.', 1),
       ],
     },
     {
       key: 'neither',
       cases: [
-        pointCase(2, 'Ko e hā', 'ē', 'pronoun', null, 'Ko e hā ē?', 'What is that? (pointing)', null),
-        pointCase(3, 'Ko', 'ia', 'pronoun', 'pē', 'Ko ia pē.', 'That is all.', null),
+        pointCase(2, 'Ko e hā', 'ē', 'pronoun', 'pronoun', null, 'Ko e hā ē?', 'What is that? (pointing)', null),
+        pointCase(3, 'Ko', 'ia', 'pronoun', 'pronoun', 'pē', 'Ko ia pē.', 'That is all.', null),
       ],
     },
   ],
@@ -107,14 +107,14 @@ export const F39_2 = {
   ],
 }
 
-// The phrase alone: a Fork row does not wrap, and these sentences run past a phone's width.
-// The full sentences are the book's examples straight below the figure.
-function evenCase(lane, form, next, nextRole, en) {
+// The book's whole sentence and whole English: Fork rows wrap.
+function evenCase(lane, form, next, nextRole, rest, say, en) {
   return {
-    lane, en,
+    lane, say, en,
     row: [
       { slot: true, form: face(form, 'quiet') },
       { ...face(next, nextRole), ring: true },
+      face(rest, 'quiet'),
     ],
   }
 }
@@ -134,14 +134,14 @@ export const F39_3 = {
     {
       key: 'ia',
       cases: [
-        evenCase(0, 'Naʻa mo', 'ia', 'pronoun', 'Even he'),
-        evenCase(1, 'Naʻa mo e', 'ʻahó ni', 'quiet', 'Even today'),
+        evenCase(0, 'Naʻa mo', 'ia,', 'pronoun', 'he ʻikai té ne lava', 'Naʻa mo ia, he ʻikai té ne lava.', 'Even he cannot.'),
+        evenCase(1, 'Naʻa mo e', 'ʻahó ni', 'quiet', 'ʻoku kei puke pē ʻa Tēvitá', 'Naʻa mo e ʻahó ni ʻoku kei puke pē ʻa Tēvitá.', 'Even today Tēvita is still just sick.'),
       ],
     },
     {
       key: 'mele',
       cases: [
-        evenCase(0, 'Naʻa mo', 'Mele', 'quiet', 'Even Mele'),
+        evenCase(0, 'Naʻa mo', 'Mele,', 'quiet', 'naʻe ʻikai fie haʻu', 'Naʻa mo Mele, naʻe ʻikai fie haʻu.', 'Even Mele did not want to come.'),
       ],
     },
   ],

@@ -106,8 +106,7 @@ export const F7_3 = {
   after: { section: 'before-a-pronoun-the-ate-forms', block: b => b.type === 'p' && b.text.startsWith('With a person') },
   chips: [
     { state: 0, to: 'kiate au', en: 'to me' },
-    { state: 1, to: 'kiate koe', en: 'to you' },
-    { state: 2, to: 'kia Siale', en: 'to Siale' },
+    { state: 1, to: 'kia Siale', en: 'to Siale' },
   ],
   scenes: [
     {
@@ -116,36 +115,32 @@ export const F7_3 = {
         tense: [face('ʻOku', 'tense')],
         verb: [face('mahino', 'verb')],
         prep: [face('kiate', 'quiet'), face('kia', 'quiet')],
-        who: [face('au', 'pronoun'), face('koe', 'pronoun'), face('Siale', 'quiet', 'person')],
+        who: [face('au', 'pronoun'), face('Siale', 'quiet', 'person')],
       },
       before: null,
       after: null,
       lines: [
         { say: 'ʻOku mahino kiate au.', en: 'I understand. (Lit. "Is understandable to me.")' },
-        { say: 'ʻOku mahino kiate koe?', en: 'Do you understand? (Lit. "Is it understandable to you?")' },
         { say: 'ʻOku mahino kia Siale.', en: 'Siale understands. (Lit. "Is understandable to Siale.")' },
       ],
       states: [
         [['tense', 0], ['verb', 0], ['prep', 0], ['who', 0]],
-        [['tense', 0], ['verb', 0], ['prep', 0], ['who', 1]],
-        [['tense', 0], ['verb', 0], ['prep', 1], ['who', 2]],
+        [['tense', 0], ['verb', 0], ['prep', 1], ['who', 1]],
       ],
       beats: [
-        { kind: 'swap', tile: 'who', to: 1 },
-        { kind: 'swap', tile: ['prep', 'who'], to: 2 },
+        { kind: 'swap', tile: ['prep', 'who'], to: 1 },
       ],
       alt: [
         'The person who understands appears after *kiate*, or *kia* before a name.',
         '*ʻOku mahino kiate au.* I understand. (Lit. "Is understandable to me.")',
-        '*ʻOku mahino kiate koe?* Do you understand? (Lit. "Is it understandable to you?")',
         '*ʻOku mahino kia Siale.* Siale understands. (Lit. "Is understandable to Siale.")',
       ],
     },
   ],
 }
 
-/** The answer opens on ʻIo, so the tile is not only a tense marker: red stays, the label does not. */
-const answer = text => ({ text, role: 'tense', label: '' })
+/** The answer opens on ʻIo, so the grouped tile is not only a tense marker: it is drawn quiet, as in 21.js. */
+const answer = text => face(text, 'quiet')
 
 function aiScene(key, tiles, states, turning, lines, alt) {
   return {

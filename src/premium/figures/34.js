@@ -17,11 +17,14 @@ function noThatScene(key, tense, pron, verb, rest, say, en) {
     },
     before: null,
     after: { say, en },
+    // The gap between the clauses, named in the book's words ("There is no word for \"that\"").
+    slotLabel: 'no "that"',
     states: [
-      [['tense', 0], ['pron', 0], ['verb', 0], ['GHOST']],
-      [['tense', 0], ['pron', 0], ['verb', 0], ['GHOST'], ['rest', 0]],
+      [['tense', 0], ['pron', 0], ['verb', 0], ['SLOT']],
+      [['tense', 0], ['pron', 0], ['verb', 0], ['SLOT'], ['rest', 0]],
     ],
     beats: [
+      { kind: 'slot' },
       { kind: 'add', tile: 'rest', to: 1 },
       { kind: 'en' },
     ],
@@ -73,6 +76,7 @@ export const F34_2 = {
   after: { section: 'reporting-what-you-hear-know-or-believe', block: b => b.type === 'note' || (b.type === 'p' && b.text.includes('keeps its own tense marker')) },
   scenes: [
     ownTenseScene('mele', 'foki ʻa Mele', 'Naʻá ku ʻilo ʻe foki ʻa Mele.', 'I knew Mele would return.'),
+    ownTenseScene('seini', 'tōmui ʻa Seini', 'Naʻá ku ʻilo ʻe tōmui ʻa Seini.', 'I knew that Seini would be late.'),
   ],
 }
 
@@ -162,16 +166,16 @@ export const F34_4 = {
       ],
     },
     {
-      // Book line 105: peheʻi often appears in commands, straight after the verb.
+      // Book line 105: peheʻi often appears in commands. A meaning question rings nothing.
       key: 'commands',
       cases: [
         {
           lane: 2, say: 'Tō peheʻi!', en: 'Plant it this way.',
-          row: [{ ...face('Tō', 'verb'), ring: true, label: 'verb' }, { slot: true, form: face('peheʻi', 'quiet'), label: 'transitive form' }],
+          row: [face('Tō', 'verb'), { slot: true, form: face('peheʻi', 'quiet'), label: 'transitive form' }],
         },
         {
           lane: 2, say: 'Tuku peheʻi pē ia!', en: 'Leave it the way it is.',
-          row: [{ ...face('Tuku', 'verb'), ring: true, label: 'verb' }, { slot: true, form: face('peheʻi', 'quiet'), label: 'transitive form' }, face('pē ia', 'quiet')],
+          row: [face('Tuku', 'verb'), { slot: true, form: face('peheʻi', 'quiet'), label: 'transitive form' }, face('pē ia', 'quiet')],
         },
       ],
     },
@@ -179,7 +183,7 @@ export const F34_4 = {
   alt: [
     'To say, to think: *pehē*. *Naʻe pehē ʻe Tēvita ʻe foki ʻa Mele.* Tēvita thought Mele would return.',
     'Thus, like this, like that: *pehē*. *Naʻe pehē pē mei he kamataʻangá.* It was that way from the beginning. *ʻOua té ke lea pehē.* Do not talk like that.',
-    'To do or treat in this way: *peheʻi*. *ʻOua té ke peheʻi ʻa e fefiné!* Do not treat the woman that way. *Peheʻi* often appears in commands, after the verb: *Tō peheʻi!* Plant it this way. *Tuku peheʻi pē ia!* Leave it the way it is.',
+    'To do or treat in this way: *peheʻi*. *ʻOua té ke peheʻi ʻa e fefiné!* Do not treat the woman that way. *Peheʻi* often appears in commands, telling someone to do a task in a particular way: *Tō peheʻi!* Plant it this way. *Tuku peheʻi pē ia!* Leave it the way it is.',
   ],
 }
 

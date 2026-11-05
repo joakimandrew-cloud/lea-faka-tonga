@@ -27,6 +27,45 @@ export function textWidth(text, fs) {
   return w
 }
 
+/** A role's label under its tile, unless the face names its own (a blank one hides it). */
+export const ROLE_LABEL = {
+  tense: 'tense',
+  verb: 'verb',
+  pronoun: 'pronoun',
+  noun: 'noun subject',
+  question: 'question word',
+  place: 'place',
+  particle: 'direction',
+}
+
+let labelProbe = null
+/** Width of a face's label as .ft-label sets it at this viewport; 0 when the face shows none. */
+export function labelWidth(face) {
+  if (!face || typeof document === 'undefined') return 0
+  const text = face.role === 'focus' ? 'focus ʻa' : face.label ?? ROLE_LABEL[face.role]
+  if (!text) return 0
+  const phone = typeof window !== 'undefined' && window.matchMedia?.('(max-width: 640px)').matches
+  const key = `label:${face.role}:${text}@${phone ? 'phone' : 'wide'}`
+  if (cache.has(key)) return cache.get(key)
+  if (!labelProbe) {
+    labelProbe = document.createElement('span')
+    labelProbe.setAttribute('aria-hidden', 'true')
+    labelProbe.className = 'ft-label'
+    labelProbe.style.cssText = 'left:-9999px;top:-9999px;visibility:hidden;transform:none'
+    document.body.appendChild(labelProbe)
+  }
+  if (face.role === 'focus') {
+    labelProbe.textContent = 'focus '
+    const to = document.createElement('span')
+    to.className = 'fx-to'
+    to.textContent = 'ʻa'
+    labelProbe.appendChild(to)
+  } else labelProbe.textContent = text
+  const w = labelProbe.getBoundingClientRect().width
+  cache.set(key, w)
+  return w
+}
+
 /** Re-render once the tile face has loaded, since widths change with it. */
 export function useTileFont() {
   const [epoch, setEpoch] = useState(0)

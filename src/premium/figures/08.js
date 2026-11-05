@@ -62,7 +62,7 @@ export const F8_1 = {
   ],
 }
 
-/** The book's full contrast: verb and speaker hold still, ha arrives, then ʻa e takes its place and talo takes its accent. */
+/** The book's full contrast: verb and speaker hold still, ha arrives, then ʻa e takes its place; only the article changes (book line: 'Oku ou fiema'u 'a e talo). */
 export const F8_2 = {
   id: '8.2',
   kind: 'row',
@@ -72,7 +72,7 @@ export const F8_2 = {
   chips: [
     { state: 0, to: 'talo', en: 'Bare noun' },
     { state: 1, to: 'ha talo', en: 'Indefinite article' },
-    { state: 2, to: 'ʻa e talō', en: 'Definite article' },
+    { state: 2, to: 'ʻa e talo', en: 'Definite article' },
   ],
   scenes: [
     {
@@ -82,28 +82,28 @@ export const F8_2 = {
         pron: [face('ou', 'pronoun')],
         verb: [face('fiemaʻu', 'verb')],
         art: [face('ha', 'quiet', 'indefinite'), face('ʻa e', 'quiet', 'definite')],
-        noun: [face('talo', 'quiet', 'noun'), face('talō', 'quiet', 'noun')],
+        noun: [face('talo', 'quiet', 'noun')],
       },
       before: null,
       after: null,
       lines: [
         { say: 'ʻOku ou fiemaʻu talo.', en: 'I want taro.' },
         { say: 'ʻOku ou fiemaʻu ha talo.', en: 'I want some taro.' },
-        { say: 'ʻOku ou fiemaʻu ʻa e talō.', en: 'I want the taro.' },
+        { say: 'ʻOku ou fiemaʻu ʻa e talo.', en: 'I want the taro.' },
       ],
       states: [
         [['tense', 0], ['pron', 0], ['verb', 0], ['noun', 0]],
         [['tense', 0], ['pron', 0], ['verb', 0], ['art', 0], ['noun', 0]],
-        [['tense', 0], ['pron', 0], ['verb', 0], ['art', 1], ['noun', 1]],
+        [['tense', 0], ['pron', 0], ['verb', 0], ['art', 1], ['noun', 0]],
       ],
       beats: [
         { kind: 'add', tile: 'art', to: 1 },
-        { kind: 'swap', tile: ['art', 'noun'], to: 2 },
+        { kind: 'swap', tile: 'art', to: 2 },
       ],
       alt: [
         'Bare noun: *ʻOku ou fiemaʻu talo.* I want taro.',
         'Indefinite article: *ʻOku ou fiemaʻu ha talo.* I want some taro.',
-        'Definite article: *ʻOku ou fiemaʻu ʻa e talō.* I want the taro. Notice the stress on the last vowel of *talō*.',
+        'Definite article: *ʻOku ou fiemaʻu ʻa e talo.* I want the taro.',
       ],
     },
   ],
@@ -114,7 +114,7 @@ export const F8_3 = {
   id: '8.3',
   kind: 'row',
   types: ['drop'],
-  title: 'In speech, *ʻi* is dropped before *he*',
+  title: 'In speech, *ʻi* is regularly dropped before *he*',
   after: { section: 'dropping-i-before-he', block: b => b.type === 'p' && b.text.startsWith('Both forms are correct') },
   scenes: [
     {

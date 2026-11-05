@@ -40,6 +40,7 @@ import PromiseCheck from '../components/lesson/PromiseCheck.jsx'
 import Contents from '../components/lesson/Contents.jsx'
 import { SteppedExercises, SteppedQuick } from '../components/lesson/SteppedExercises.jsx'
 import Figure, { StaticTile } from '../figure-engine/Figure.jsx'
+import { anchorIndex } from '../figure-engine/anchor.js'
 import '../styles/lesson.css'
 import '../styles/lesson-experience.css'
 import '../styles/source-core.css'
@@ -233,8 +234,7 @@ export function FinishActions({ n, next, hasQuiz, vocabCount, exStats, firstUnfi
 export function figurePlaces(s, figures) {
   const out = new Map()
   for (const def of figures) {
-    if (!s.id.startsWith(def.after.section)) continue
-    const index = s.blocks.findIndex(def.after.block)
+    const index = anchorIndex(s, def.after)
     if (index < 0) continue
     out.set(index, [...(out.get(index) || []), def])
   }

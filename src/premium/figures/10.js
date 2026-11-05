@@ -105,7 +105,7 @@ export const F10_2 = {
   ],
 }
 
-/** The book's own gloss of each: what travels, and which way. */
+/** The motion verb sets the way (line 73: *ʻalu* (go), *haʻu* (come)); the book's own gloss of each. */
 export const F10_3 = {
   id: '10.3',
   kind: 'path',
@@ -117,8 +117,8 @@ export const F10_3 = {
     {
       key: 'bring-take',
       cases: [
-        { particle: 'mo e tohí', dirText: 'to me', from: 'listener', to: 'speaker', say: 'Haʻu mo e tohí!', en: 'Bring the book (to me).' },
-        { particle: 'mo e valá', dirText: 'with you', from: 'listener', to: 'away', say: 'ʻAlu mo e valá!', en: 'Take the clothes (with you).' },
+        { particle: 'Haʻu', dirText: 'come', from: 'listener', to: 'speaker', say: 'Haʻu mo e tohí!', en: 'Bring the book (to me).' },
+        { particle: 'ʻAlu', dirText: 'go', from: 'listener', to: 'away', say: 'ʻAlu mo e valá!', en: 'Take the clothes (with you).' },
       ],
     },
   ],
@@ -150,12 +150,14 @@ function command(lane, group, row, say, en) {
   return { lane, group, row, say, en }
 }
 
+const one = (verb, say, en) => command(0, [1], [{ slot: true, form: face(verb, 'verb') }], say, en)
 const two = (verb, say, en) => command(1, [1, 2], [{ slot: true, form: face('Mo', 'pronoun'), label: true }, face(verb, 'verb')], say, en)
+const many = (verb, say, en) => command(2, [1, 2, 3], [{ slot: true, form: face('Mou', 'pronoun'), label: true }, face(verb, 'verb')], say, en)
 
 /** The book's table headings as lanes, with the people it counts. Its table prints the forms;
- *  this shows who each one addresses. Only forms the reading prints, and English the book
- *  pairs with them (the reading for Mo hopo!, Exercise 6's prompts for the rest), so Mo nofo
- *  and Mou hopo, which have no English, stay out. */
+ *  this shows who each one addresses. Two cases a scene; the One person lane (*Hopo!*) fires only in the hopo scene, so the other scenes show the table's two-or-more forms. English only
+ *  where the book pairs it with the form (the reading for Mo hopo!, Exercise 6's prompts for
+ *  the rest); the table's other forms have none of their own and carry en: null. */
 export const F10_5 = {
   id: '10.5',
   kind: 'fork',
@@ -172,7 +174,7 @@ export const F10_5 = {
     {
       key: 'hopo',
       cases: [
-        command(0, [1], [{ slot: true, form: face('Hopo!', 'verb') }], 'Hopo!', 'Jump! (1 person)'),
+        one('Hopo!', 'Hopo!', 'Jump! (1 person)'),
         two('hopo!', 'Mo hopo!', 'Jump! (you two)'),
       ],
     },
@@ -180,14 +182,36 @@ export const F10_5 = {
       key: 'o',
       cases: [
         two('ō!', 'Mo ō!', 'Go! (2 people)'),
-        command(2, [1, 2, 3], [{ slot: true, form: face('Mou', 'pronoun'), label: true }, face('ō!', 'verb')], 'Mou ō!', 'Go! (3 or more people)'),
+        many('ō!', 'Mou ō!', 'Go! (3 or more people)'),
+      ],
+    },
+    {
+      key: 'nofo',
+      cases: [
+        two('nofo!', 'Mo nofo!', null),
+        many('nofo!', 'Mou nofo!', null),
+      ],
+    },
+    {
+      key: 'kai',
+      cases: [
+        two('kai!', 'Mo kai!', null),
+        many('kai!', 'Mou kai!', null),
+      ],
+    },
+    {
+      key: 'mou-hopo',
+      cases: [
+        many('hopo!', 'Mou hopo!', null),
       ],
     },
   ],
   alt: [
     'A bare verb makes a command to one person: *Hopo!*',
     'For exactly two people, *mo* before the verb: *Mo hopo!* Jump! (you two) *Mo ō!* Go! (2 people)',
-    'For a group of three or more, *mou* before the verb: *Mou ō!* Go! (3 or more people) *ʻAlu* becomes *ō* with two or more people.',
+    'For a group of three or more, *mou* before the verb: *Mou ō!* Go! (3 or more people) *Mou hopo!*',
+    'The same for *Mo nofo!* *Mou nofo!* and *Mo kai!* *Mou kai!*',
+    '*ʻAlu!* becomes *ō* with two or more people: *Mo ō!* *Mou ō!*',
   ],
 }
 

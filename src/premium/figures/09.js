@@ -70,13 +70,13 @@ export const F9_2 = {
   types: ['add', 'swap'],
   title: 'Past and future: *ʻikai* changes the marker',
   // After both paragraphs, the past and the future, so the two stay together. The book gives
-// naʻá ku fiefia and Té u fiefia no English, so these scenes open on the row with no before line.
+  // naʻá ku fiefia and Té u fiefia no English, so their before lines carry none.
   after: { section: 'negation-across-tenses', block: b => b.type === 'p' && b.text.startsWith('The same logic explains the future') },
   scenes: [
     {
       key: 'past',
       tiles: { tense: [face('naʻá', 'tense'), face('Naʻe', 'tense')], neg: [neg('ʻikai té')], pron: [face('ku', 'pronoun'), face('u', 'pronoun')], verb: [face('fiefia', 'verb')] },
-      before: null,
+      before: { say: 'naʻá ku fiefia' },
       after: { say: 'Naʻe ʻikai té u fiefia.', en: 'I was not happy.' },
       states: [
         [['tense', 0], ['pron', 0], ['verb', 0]],
@@ -93,7 +93,7 @@ export const F9_2 = {
     {
       key: 'future',
       tiles: { tense: [face('Té', 'tense'), face('ʻE', 'tense')], neg: [neg('ʻikai té')], pron: [face('u', 'pronoun')], verb: [face('fiefia', 'verb')] },
-      before: null,
+      before: { say: 'Té u fiefia.' },
       after: { say: 'ʻE ʻikai té u fiefia.', en: 'I will not be happy.' },
       states: [
         [['tense', 0], ['pron', 0], ['verb', 0]],

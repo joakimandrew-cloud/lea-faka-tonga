@@ -13,7 +13,7 @@ export const F16_1 = {
   types: ['swap'],
   title: 'In both, *ʻa* marks the subject',
   after: { section: 'noun-subjects-in-equational-sentences-the-focus-marker-a', block: b => b.type === 'p' && b.text.includes('In both cases') },
-  // One scene: the book's second row, with ʻOfa, wraps at 390 and its stage does not grow.
+  // Two scenes: the book's two rows, with Lātū and with ʻOfa.
   scenes: [
     {
       key: 'latu',
@@ -37,6 +37,31 @@ export const F16_1 = {
       alt: [
         '*ʻOku fiefia ʻa Lātū.* Lātū is happy.',
         '*Ko e tamasiʻi fiefia ʻa Lātū.* Lātū is a happy boy.',
+        'In both cases, *ʻa* marks the subject. The difference is the sentence type: one is verbal (using a tense marker), the other is equational (using *ko*).',
+      ],
+    },
+    {
+      key: 'ofa',
+      tiles: {
+        front: [face('ʻOku', 'tense'), face('Ko e', 'quiet')],
+        pred: [face('mālohi', 'quiet', 'adjective'), face('taʻahine mālohi', 'quiet', 'noun phrase')],
+        focus: [face('ʻa', 'focus')],
+        noun: [face('ʻOfa', 'noun')],
+      },
+      before: null,
+      after: null,
+      lines: [
+        { say: 'ʻOku mālohi ʻa ʻOfa.', en: 'ʻOfa is strong.' },
+        { say: 'Ko e taʻahine mālohi ʻa ʻOfa.', en: 'ʻOfa is a strong girl.' },
+      ],
+      states: [
+        [['front', 0], ['pred', 0], ['focus', 0], ['noun', 0]],
+        [['front', 1], ['pred', 1], ['focus', 0], ['noun', 0]],
+      ],
+      beats: [{ kind: 'swap', tile: ['front', 'pred'], to: 1 }],
+      alt: [
+        '*ʻOku mālohi ʻa ʻOfa.* ʻOfa is strong.',
+        '*Ko e taʻahine mālohi ʻa ʻOfa.* ʻOfa is a strong girl.',
         'In both cases, *ʻa* marks the subject. The difference is the sentence type: one is verbal (using a tense marker), the other is equational (using *ko*).',
       ],
     },

@@ -127,9 +127,19 @@ export const F29_3 = {
   ],
 }
 
-// The possessive lands with its noun in 29.4 and 29.5, one tile, so the long frame holds one line on a phone.
-// Split into slot plus quiet noun (Lesson 17's shape), the ʻOku ʻikai ke ʻi ai haʻaku hele row wraps at 390 and
-// the engine reserves no height for a wrapped row, so the noun lands on the English line (rendered 2026-11-06).
+// 29.4 and 29.5 split the possessive slot from a quiet noun tile, Lesson 17's shape. The engine now keeps
+// one stage height when the long ʻOku ʻikai ke ʻi ai row wraps at 390, so the noun no longer lands on the English.
+function possCase(lane, frame, form, noun, say, en, tail) {
+  return {
+    lane, say, en,
+    row: [
+      face(frame, 'quiet'),
+      { slot: true, form: face(form, 'pronoun'), label: true },
+      face(noun, 'quiet', 'noun'),
+      ...(tail ? [face(tail, 'quiet')] : []),
+    ],
+  }
+}
 const OKU = 'ʻOku ʻi ai'
 const IKAI = 'ʻOku ʻikai ke ʻi ai'
 
@@ -138,25 +148,25 @@ export const F29_4 = {
   id: '29.4',
   kind: 'fork',
   types: ['fork'],
-  title: 'Question or negative, or an affirmative answer?',
+  title: 'To have: not specific, or now specific?',
   after: { section: 'indefinite-possessives', block: b => b.type === 'p' && b.text.startsWith('The indefinite form appears') },
   lanes: [
-    { label: 'Indefinite: question or negative', forms: ['haʻo', 'haʻaku'] },
-    { label: 'Definite: affirmative answer', forms: ['ʻeku'] },
+    { label: 'Indefinite, not specific: question or negative', forms: ['haʻo', 'haʻaku'] },
+    { label: 'Definite, now specific: affirmative answer', forms: ['ʻeku'] },
   ],
   scenes: [
     {
       key: 'question-negative',
       cases: [
-        forkCase(0, OKU, 'haʻo kato', null, 'ʻOku ʻi ai haʻo kato?', 'Do you have a basket?'),
-        forkCase(0, IKAI, 'haʻaku hele', null, 'ʻOku ʻikai ke ʻi ai haʻaku hele.', 'I don\'t have a knife.'),
+        possCase(0, OKU, 'haʻo', 'kato', 'ʻOku ʻi ai haʻo kato?', 'Do you have a basket?'),
+        possCase(0, IKAI, 'haʻaku', 'hele', 'ʻOku ʻikai ke ʻi ai haʻaku hele.', 'I don\'t have a knife.'),
       ],
     },
     {
       key: 'negative-answer',
       cases: [
-        forkCase(0, IKAI, 'haʻaku hele', null, 'ʻOku ʻikai ke ʻi ai haʻaku hele.', 'I don\'t have a knife.'),
-        forkCase(1, OKU, 'ʻeku hele ʻe ua', null, 'ʻOku ʻi ai ʻeku hele ʻe ua.', 'I have two knives.'),
+        possCase(0, IKAI, 'haʻaku', 'hele', 'ʻOku ʻikai ke ʻi ai haʻaku hele.', 'I don\'t have a knife.'),
+        possCase(1, OKU, 'ʻeku', 'hele', 'ʻOku ʻi ai ʻeku hele ʻe ua.', 'I have two knives.', 'ʻe ua'),
       ],
     },
   ],
@@ -181,15 +191,15 @@ export const F29_5 = {
     {
       key: 'question',
       cases: [
-        forkCase(0, OKU, 'haʻo kato', null, 'ʻOku ʻi ai haʻo kato?', 'Do you have a basket?'),
-        forkCase(1, OKU, 'hao fale', null, 'ʻOku ʻi ai hao fale?', 'Do you have a house?'),
+        possCase(0, OKU, 'haʻo', 'kato', 'ʻOku ʻi ai haʻo kato?', 'Do you have a basket?'),
+        possCase(1, OKU, 'hao', 'fale', 'ʻOku ʻi ai hao fale?', 'Do you have a house?'),
       ],
     },
     {
       key: 'negative',
       cases: [
-        forkCase(0, IKAI, 'haʻaku hele', null, 'ʻOku ʻikai ke ʻi ai haʻaku hele.', 'I don\'t have a knife.'),
-        forkCase(1, IKAI, 'haku fale', null, 'ʻOku ʻikai ke ʻi ai haku fale.', 'I don\'t have a house.'),
+        possCase(0, IKAI, 'haʻaku', 'hele', 'ʻOku ʻikai ke ʻi ai haʻaku hele.', 'I don\'t have a knife.'),
+        possCase(1, IKAI, 'haku', 'fale', 'ʻOku ʻikai ke ʻi ai haku fale.', 'I don\'t have a house.'),
       ],
     },
   ],

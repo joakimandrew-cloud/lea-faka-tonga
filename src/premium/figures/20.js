@@ -44,8 +44,8 @@ export const F20_1 = {
       '*tolungofulu mā valu*. thirty-eight',
       '*mā* appears before the last part only.',
     ]),
-    // The first two parts share a tile, with no mā between them, so the row holds one line on a phone.
-    connectorScene('one-fifty-six', ['teau nimangofulu', 'ono'], 'teau nimangofulu mā ono', 'one hundred and fifty-six', [
+    // Three parts, each its own tile, with mā landing once, before the last.
+    connectorScene('one-fifty-six', ['teau', 'nimangofulu', 'ono'], 'teau nimangofulu mā ono', 'one hundred and fifty-six', [
       '*teau nimangofulu mā ono*. one hundred and fifty-six',
       '*mā* appears before the last part only.',
     ]),
@@ -247,7 +247,7 @@ export const F20_6 = {
   ],
 }
 
-function ordinalScene(key, plain, accented, enPlain, say, en) {
+function ordinalScene(key, plain, accented, say, en) {
   return {
     key,
     tiles: {
@@ -255,21 +255,21 @@ function ordinalScene(key, plain, accented, enPlain, say, en) {
       hono: [face('hono', 'quiet', 'possessive')],
       num: [num(plain), num(accented)],
     },
-    before: { say: plain, en: enPlain },
+    before: null,
     after: { say, en },
     states: [
-      [['num', 0]],
+      [['ko', 0], ['num', 0]],
       [['ko', 0], ['hono', 0], ['num', 0]],
       [['ko', 0], ['hono', 0], ['num', 1]],
     ],
     beats: [
-      { kind: 'add', tile: ['ko', 'hono'], to: 1 },
+      { kind: 'add', tile: 'hono', to: 1 },
       { kind: 'swap', tile: 'num', to: 2 },
       { kind: 'en' },
     ],
     alt: [
-      `*${plain}* ${enPlain} becomes *${say}*, ${en}.`,
-      'The possessive *hono* plus the number with the definitive accent.',
+      `*${say}*, ${en}.`,
+      'For second, third and higher: the possessive *hono* plus the number with the definitive accent.',
     ],
   }
 }
@@ -279,11 +279,11 @@ export const F20_7 = {
   id: '20.7',
   kind: 'row',
   types: ['add', 'swap'],
-  title: '*hono* plus the accented number',
+  title: 'Second, third and higher: *hono* plus the accented number',
   after: { section: 'ordinal-numbers', block: b => b.type === 'p' && b.text.startsWith('This is a natural extension') },
   scenes: [
-    ordinalScene('third', 'tolu', 'tolú', 'three', 'ko hono tolú', 'the third'),
-    ordinalScene('fifth', 'nima', 'nimá', 'five', 'ko hono nimá', 'the fifth'),
+    ordinalScene('third', 'tolu', 'tolú', 'ko hono tolú', 'the third'),
+    ordinalScene('fifth', 'nima', 'nimá', 'ko hono nimá', 'the fifth'),
   ],
 }
 

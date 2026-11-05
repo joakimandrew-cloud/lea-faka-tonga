@@ -127,18 +127,20 @@ export const F11_3 = {
   ],
 }
 
-function howCase(lane, say, en, before, how, object) {
+function howCase(lane, say, en, before, how, object, tail) {
   return {
     lane, say, en,
     row: [
       ...before,
       { slot: true, form: face(how, 'question') },
       ...(object ? [{ ...face(object, 'quiet'), ring: true, label: 'object' }] : []),
+      ...(tail ? [face(tail, 'quiet')] : []),
     ],
   }
 }
 
-/** The book's contrast: fēfē for a state or condition, fēfeeʻi for doing something to an object. */
+/** The book's contrast: fēfē for a state or the manner in general, fēfeeʻi for doing something to an object.
+ *  Scene two is the book's same-tense pair (both Té ke, a verb in both), so only the object differs. */
 export const F11_4 = {
   id: '11.4',
   kind: 'fork',
@@ -146,7 +148,7 @@ export const F11_4 = {
   title: '*fēfē* or *fēfeeʻi*?',
   after: { section: 'fefeei-how-transitive', block: b => b.type === 'p' && b.text.startsWith('The transitive form') },
   lanes: [
-    { label: 'A state or condition', forms: ['fēfē'] },
+    { label: 'A state, or the manner in general', forms: ['fēfē'] },
     { label: 'Doing something to an object', forms: ['fēfeeʻi'] },
   ],
   scenes: [
@@ -159,17 +161,18 @@ export const F11_4 = {
       ],
     },
     {
-      key: 'are-split',
+      key: 'go-divide',
       cases: [
-        howCase(0, 'ʻOkú ke fēfē?', 'How are you?', [face('ʻOkú', 'tense'), face('ke', 'pronoun')], 'fēfē'),
-        howCase(1, 'Naʻá ke fahi fēfeeʻi ʻa e laupapá?', 'How did you split the board?',
-          [face('Naʻá', 'tense'), face('ke', 'pronoun'), face('fahi', 'verb')], 'fēfeeʻi', 'ʻa e laupapá'),
+        howCase(0, 'Té ke ʻalu fēfē ki Fisi?', 'How will you get to Fiji?',
+          [face('Té', 'tense'), face('ke', 'pronoun'), face('ʻalu', 'verb')], 'fēfē', null, 'ki Fisi'),
+        howCase(1, 'Té ke vahe fēfeeʻi ʻa e kumalá?', 'How are you going to divide up the sweet potatoes?',
+          [face('Té', 'tense'), face('ke', 'pronoun'), face('vahe', 'verb')], 'fēfeeʻi', 'ʻa e kumalá'),
       ],
     },
   ],
   alt: [
-    '*fēfē* asks about a state or condition. *ʻOku fēfē?* How is it? *ʻOkú ke fēfē?* How are you?',
-    '*fēfeeʻi* asks about the manner of doing something to an object. *Naʻá ke langa fēfeeʻi ʻa e falé?* How did you build the house? *Naʻá ke fahi fēfeeʻi ʻa e laupapá?* How did you split the board?',
+    '*fēfē* asks about a state or condition, or the manner in general. *ʻOku fēfē?* How is it? *Té ke ʻalu fēfē ki Fisi?* How will you get to Fiji?',
+    '*fēfeeʻi* asks about the manner of doing something to an object. *Naʻá ke langa fēfeeʻi ʻa e falé?* How did you build the house? *Té ke vahe fēfeeʻi ʻa e kumalá?* How are you going to divide up the sweet potatoes?',
   ],
 }
 

@@ -11,7 +11,7 @@ export const F13_1 = {
   id: '13.1',
   kind: 'fork',
   types: ['fork'],
-  title: 'When *ne* appears after the tense marker',
+  title: 'After *ko hai*: when *ne* appears after the tense marker',
   after: { section: 'ko-hai-who', block: b => b.type === 'examples' && b.pairs.some(p => p.tongan.includes('tokoni')) },
   lanes: [
     { label: 'No specific thing: the tense marker stands alone', forms: ['ʻe'] },
@@ -121,7 +121,7 @@ export const F13_4 = {
   scenes: [
     whyScene(
       'nukualofa',
-      { q: [what()], tense: [face('naʻá ke', 'quiet', '')], verb: [face('ʻalu', 'verb')], place: [face('ki Nukuʻalofa', 'place')] },
+      { q: [what()], tense: [face('naʻá ke', 'tense', 'tense + ke')], verb: [face('ʻalu', 'verb')], place: [face('ki Nukuʻalofa', 'place')] },
       ['q', 'tense', 'verb', 'ai', 'place'],
       'Ko e hā naʻá ke ʻalu ai ki Nukuʻalofa?',
       'Why did you go to Nukuʻalofa? (Lit. "What is [the thing] you went because-of-it to Nukuʻalofa?")',

@@ -293,9 +293,10 @@ function emptyScene(key, head, tense, pron, verb, say, en) {
     },
     before: null,
     after: { say, en },
-    // A GHOST and not the SLOT tile: the engine prints "no subject" on SLOT, and this slot is the object's.
-    states: [[['head', 0], ['tense', 0], ['pron', 0], ['verb', 0], ['GHOST']]],
-    beats: [{ kind: 'en' }],
+    // The empty object slot, named in the book's word ("the slot where the object would normally go").
+    slotLabel: 'object',
+    states: [[['head', 0], ['tense', 0], ['pron', 0], ['verb', 0], ['SLOT']]],
+    beats: [{ kind: 'slot' }, { kind: 'en' }],
     alt: [`*${say}* ${en} The slot where the object would normally go stays empty. The definitive accent on *${verb}* marks where the description ends.`],
   }
 }

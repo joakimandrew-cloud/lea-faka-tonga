@@ -5,7 +5,7 @@
  */
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import { useFigureClock } from './lib/clock.js'
-import { enLineCount, enWidth, textWidth, uiWidth, useTileFont, useWidth } from './lib/metrics.js'
+import { ROLE_LABEL, enLineCount, enWidth, textWidth, uiWidth, useTileFont, useWidth } from './lib/metrics.js'
 import { land, ramp, travel } from './lib/motion.js'
 import { rowFrame, rowGeometry, rowLayouts, rowSizes, rowStateAt, rowTimeline } from './row.js'
 import { forkFrame, forkGeometry, forkLayouts, forkLines, forkSizes, forkTimeline } from './fork.js'
@@ -14,16 +14,6 @@ import { pathTimeline } from './path.js'
 import { PathChips, PathStage } from './PathStage.jsx'
 import { PersonMark } from './Marks.jsx'
 import '../styles/lesson-page.css'
-
-const ROLE_LABEL = {
-  tense: 'tense',
-  verb: 'verb',
-  pronoun: 'pronoun',
-  noun: 'noun subject',
-  question: 'question word',
-  place: 'place',
-  particle: 'direction',
-}
 
 /** Marks Tongan in a rich string; each piece carries data-tongan for the sweep. */
 export function Rich({ text }) {
@@ -202,7 +192,7 @@ function RowTile({ tile, frame, geometry, s, slotLabel = 'no subject' }) {
           <TileFace face={finalFace} />
         )}
       </span>
-      <span className={`ft-label label-${tile.labelFace.role}`} style={{ opacity: tile.labelOpacity, top: s.h + 7 }}>
+      <span className={`ft-label label-${tile.labelFace.role}`} style={{ opacity: tile.labelOpacity, top: s.h + 7, ...(tile.ldx ? { transform: `translateX(calc(-50% + ${tile.ldx.toFixed(1)}px))` } : null) }}>
         <Label role={tile.labelFace.role} label={tile.labelFace.label} />
       </span>
     </span>
@@ -256,7 +246,7 @@ function ForkStage({ def, scene, timeline, t, width, onLane, epoch }) {
           <button key={lane.label} type="button" className="ff-lane" style={{ '--lit': frame.lit[i] ?? 0 }} onClick={() => onLane(i)} aria-pressed={(frame.lit[i] ?? 0) > 0.5}>
             <span className="ff-lane-l"><Rich text={lane.label} /></span>
             <span className="ff-lane-f">
-              {lane.forms.map(form => <span key={form} className="ft-word" lang="to" data-tongan={form}>{form}</span>)}
+              {(scene.laneForms?.[i] ?? lane.forms).map(form => <span key={form} className="ft-word" lang="to" data-tongan={form}>{form}</span>)}
             </span>
           </button>
         ))}

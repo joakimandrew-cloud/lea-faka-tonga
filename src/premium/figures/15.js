@@ -155,12 +155,13 @@ function dropScene(key, a, b, verb, noun, sayA, enA, sayB, enB) {
     after: { say: sayB, en: enB },
     states: [
       [['tense', 0], ['pron', 0], ['verb', 0]],
-      [['tense', 0], ['GHOST'], ['verb', 0]],
+      [['tense', 1], ['GHOST'], ['verb', 0]],
       [['tense', 1], ['GHOST'], ['verb', 0], ['focus', 0], ['noun', 0]],
     ],
     beats: [
-      { kind: 'drop', tile: 'pron', old: true, to: 1 },
-      { kind: 'add', tile: ['focus', 'noun'], to: 2, roll: 'tense' },
+      // The accent belongs to the one-syllable pronoun (Lesson 2), so it leaves with ne.
+      { kind: 'drop', tile: 'pron', old: true, to: 1, roll: 'tense' },
+      { kind: 'add', tile: ['focus', 'noun'], to: 2 },
       { kind: 'en' },
       { kind: 'limit' },
     ],

@@ -3,7 +3,7 @@
 // same scene, time and layout always give the same frame, with no state and no
 // CSS animation, so any frame can be rendered exactly.
 import { HOLD_MS, OPEN_MS, ROLL_MS, TRAVEL_MS, clamp01, land, leave, lerp, ramp, travel } from './lib/motion.js'
-import { EN_WRAP_LINE, fitSizes, lineHeightOfRow, textWidth, tileSizes } from './lib/metrics.js'
+import { EN_WRAP_LINE, fitSizes, labelWidth, lineHeightOfRow, textWidth, tileSizes } from './lib/metrics.js'
 
 const TRAVEL = { move: TRAVEL_MS, add: TRAVEL_MS, drop: TRAVEL_MS, swap: ROLL_MS, en: 420, limit: 620, slot: 620, line: TRAVEL_MS }
 const HOLD = { move: HOLD_MS, add: HOLD_MS, drop: HOLD_MS, swap: HOLD_MS, en: 380, limit: 300, slot: 300, line: 300 }
@@ -86,8 +86,42 @@ export function rowLayouts(scene, width, s) {
   const x0 = Math.max(0, (width - widest) / 2)
   layouts.forEach(map => {
     Object.keys(map).forEach(id => { if (!id.startsWith('__')) map[id].x += x0 })
+    spreadLabels(map, width)
   })
   return { layouts, s, widest, x0, lines }
+}
+
+/** The gap kept between two neighbours' labels. */
+const LABEL_GAP = 8
+
+/** A label is centred under its tile and can be wider than it, so two narrow neighbours' labels
+ *  can meet. Where they would, each label slides sideways by half the overlap (ldx), inside the
+ *  stage; the tiles never move. */
+function spreadLabels(map, width) {
+  const byLine = new Map()
+  for (const [id, v] of Object.entries(map)) {
+    if (id.startsWith('__')) continue
+    v.ldx = 0
+    const L = v.face ? labelWidth(v.face) : 0
+    if (L > 0) byLine.set(v.y, [...(byLine.get(v.y) || []), { v, L, c: v.x + v.w / 2 }])
+  }
+  for (const items of byLine.values()) {
+    items.sort((a, b) => a.c - b.c)
+    for (let pass = 0; pass < 6; pass += 1) {
+      for (let k = 1; k < items.length; k += 1) {
+        const p = items[k - 1]
+        const q = items[k]
+        const over = p.c + p.v.ldx + p.L / 2 + LABEL_GAP - (q.c + q.v.ldx - q.L / 2)
+        if (over > 0.5) { p.v.ldx -= over / 2; q.v.ldx += over / 2 }
+      }
+      for (const item of items) {
+        // A slide never pushes a label further past the stage's edge than it already sat.
+        const lo = Math.min(0, item.L / 2 - item.c)
+        const hi = Math.max(0, width - item.L / 2 - item.c)
+        item.v.ldx = Math.min(hi, Math.max(lo, item.v.ldx))
+      }
+    }
+  }
 }
 
 /** Geometry of the stage's rows, shared with the render. `scenes` is one scene or all of a
@@ -97,7 +131,8 @@ export function rowGeometry(s, scenes, twoLineBefore = false, lines = 1, reserve
   const all = [].concat(scenes)
   const beforeH = all.some(scene => scene.before) || reserveBefore ? (twoLineBefore ? 48 : 26) : 0
   const hasArc = all.some(scene => scene.beats.some(b => b.kind === 'move' && b.arc))
-  const hasLane = all.some(scene => scene.beats.some(b => b.mark || b.old))
+  // A drop always shows its struck old form in the lane, so it takes the lane's headroom too.
+  const hasLane = all.some(scene => scene.beats.some(b => b.mark || b.old || b.kind === 'drop'))
   const headroom = hasArc ? s.arc + 16 : hasLane ? 34 : 4
   const rowTop = beforeH + headroom
   const lineH = lineHeightOfRow(s)
@@ -116,6 +151,12 @@ export function rowStateAt(timeline, t, override = null) {
   let state = 0
   for (const b of timeline.beats) if (t >= b.travelEnd && b.to != null) state = b.toState
   return state
+}
+
+/** Two faces that differ only in a capital letter, with the same role and label. */
+export function capitalOnly(a, b) {
+  return Boolean(a && b && a !== b && a.text !== b.text && a.text.toLowerCase() === b.text.toLowerCase()
+    && a.role === b.role && (a.label ?? null) === (b.label ?? null))
 }
 
 export function rowFrame(scene, timeline, t, layout, geometry, override = null) {
@@ -148,6 +189,7 @@ export function rowFrame(scene, timeline, t, layout, geometry, override = null) 
     let outline = 0
     let z = 1
     let w = lerp((a ?? b).w, (b ?? a).w, posE)
+    const ldx = lerp((a ?? b).ldx ?? 0, (b ?? a).ldx ?? 0, posE)
     let roll = 0
     let faceA = (a ?? b).face
     let faceB = (b ?? a).face
@@ -187,11 +229,15 @@ export function rowFrame(scene, timeline, t, layout, geometry, override = null) 
       opacity = cur?.kind === 'drop' ? ramp(p, 0.4, 0.75) : ramp(p, 0.12, 0.5)
     }
 
+    // A change of capital letter only (Nofo, nofo) is the same form: it changes in place at the
+    // beat's middle and never turns over, so it cannot read as a change of form. An accent change
+    // still turns over, since some figures teach a stress shift with it.
+    if (roll > 0 && roll < 1 && capitalOnly(faceA, faceB)) roll = roll >= 0.5 ? 1 : 0
     if (roll > 0 && roll < 1) labelOpacity *= 1 - Math.sin(Math.PI * roll)
     const face = roll >= 0.5 ? faceB : faceA
 
     frames[id] = { x, y, w, lineY }
-    tiles.push({ id, x, y: y + lineY, w, z, opacity, outline, roll, faceA, faceB, labelFace: face, labelOpacity: clamp01(labelOpacity), kind: id })
+    tiles.push({ id, x, y: y + lineY, w, z, opacity, outline, roll, faceA, faceB, labelFace: face, labelOpacity: clamp01(labelOpacity), ldx, kind: id })
   }
 
   // Arc from where the tile was to where it landed.

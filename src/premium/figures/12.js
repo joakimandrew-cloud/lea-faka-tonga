@@ -53,17 +53,19 @@ function pointCase(lane, form, say, en, who) {
   return {
     lane, say, en,
     ...(who == null ? { group: [] } : { ringPerson: who, group: [who] }),
-    row: [{ slot: true, form: face(form, 'quiet', 'demonstrative'), label: 'demonstrative' }],
+    // The book's own name for the ko phrase (Summary table): not the bare demonstrative of 12.1 and 12.4.
+    row: [{ slot: true, form: face(form, 'quiet', 'short demonstrative'), label: 'short demonstrative' }],
   }
 }
 
-/** The three-way system: where the thing is picks the form. A question about meaning, so no ring on a word. */
+/** The three-way system: where the thing is picks the form. A question about meaning, so no ring on a word.
+ *  Placed before the daily-speech paragraph, so the book widens ē right after the picture. */
 export const F12_2 = {
   id: '12.2',
   kind: 'fork',
   types: ['fork'],
   title: 'Where is the thing you point at?',
-  after: { section: 'pointing-and-identifying-koeni-ko-e-koena', block: b => b.type === 'p' && b.text.startsWith('In daily speech') },
+  after: { section: 'pointing-and-identifying-koeni-ko-e-koena', block: b => b.type === 'examples' && b.pairs.some(p => /Koʻena|Ko'ena/.test(p.tongan)) },
   people: ['speaker', 'listener'],
   lanes: [
     { label: 'Near me', forms: ['Koʻeni'] },
@@ -89,7 +91,6 @@ export const F12_2 = {
     'Near me: *Koʻeni.* Here it is.',
     'Near you: *Koʻena.* There it is (near you).',
     'Over there, or general pointing: *Ko ē!* There it is!',
-    'In daily speech, *ē* often covers the jobs of all three, especially in quick exchanges.',
   ],
 }
 
@@ -134,8 +135,8 @@ function negativeScene(key, form, endTile, say, en, sayNot, enNot) {
   return {
     key,
     tiles: {
-      // One tile, the book's "negation" label: as two tiles the faiako row wraps at 390.
-      neg: [face('ʻOku ʻikai', 'tense', 'negation')],
+      tense: [face('ʻOku', 'tense')],
+      neg: [face('ʻikai', 'quiet', 'negation')],
       ko: [face('Ko e', 'quiet'), face('ko e', 'quiet')],
       noun: [noun(form)],
       end: [endTile],
@@ -148,9 +149,9 @@ function negativeScene(key, form, endTile, say, en, sayNot, enNot) {
     ],
     states: [
       [['ko', 0], ['noun', 0], ['end', 0]],
-      [['neg', 0], ['ko', 1], ['noun', 0], ['end', 0]],
+      [['tense', 0], ['neg', 0], ['ko', 1], ['noun', 0], ['end', 0]],
     ],
-    beats: [{ kind: 'add', tile: 'neg', roll: 'ko', to: 1 }],
+    beats: [{ kind: 'add', tile: ['tense', 'neg'], roll: 'ko', to: 1 }],
     alt: [`*${say}* ${en}`, `The *ʻoku ʻikai* is placed immediately before the *ko*: *${sayNot}* ${enNot}`],
   }
 }

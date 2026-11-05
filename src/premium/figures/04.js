@@ -121,7 +121,7 @@ export const F4_4 = {
   id: '4.4',
   kind: 'row',
   types: ['add', 'swap'],
-  title: '*ni* arrives, the stress shifts, *he* comes before',
+  title: '*ni* arrives, the stress shifts, *he* comes before it inside a sentence',
   after: { section: 'today', block: b => b.type === 'p' && b.text.startsWith('When *') },
   scenes: [
     {

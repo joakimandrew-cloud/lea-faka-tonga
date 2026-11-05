@@ -179,7 +179,7 @@ export const F14_5 = {
   id: '14.5',
   kind: 'row',
   types: ['swap', 'add'],
-  title: '*ʻIo* where English would say “no”',
+  title: '*ʻIo* when answering negative questions where English would say “no”',
   after: { section: 'io-and-ikai', block: b => b.type === 'note' },
   scenes: [
     {
@@ -222,7 +222,7 @@ export const F14_6 = {
       key: 'age',
       tiles: {
         ko: [face('Ko', 'quiet')],
-        poss: [face('ho', 'pronoun'), face('hoku', 'pronoun')],
+        poss: [face('ho', 'pronoun', 'possessive pronoun'), face('hoku', 'pronoun', 'possessive pronoun')],
         tau: [face('taʻu', 'quiet')],
         num: [face('fiha', 'question'), face('uofulu', 'quiet')],
         eni: [face('eni', 'quiet')],

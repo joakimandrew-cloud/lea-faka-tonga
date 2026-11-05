@@ -13,9 +13,10 @@
 //   2. each state that has a sentence joins to it (tiles in order = the say);
 //   3. each beat names a tile the scene has, and goes to a state it has;
 //   4. every role is in the fixed colour key;
-//   5. each anchor block exists, in exactly one section;
+//   5. each anchor block exists, in exactly one section (a ### heading, or a #### inside one);
 //   6. in-between states carry no English: English comes after the changes;
-//   7. the opening row is at most five tiles; recall sentences do not outnumber the key rules.
+//   7. the opening row is at most five tiles; recall sentences do not outnumber the key rules,
+//      and a key rule with no book sentence is skipped with null (or a hole), never filled.
 // It exits 1 on any failure and prints each one. A figure cannot be seen moving the wrong
 // way by a script; a separate reader compares each figure with its section.
 //
@@ -29,6 +30,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { register } from 'node:module'
 import { parseLessonContent } from '../../src/premium/lib/lesson-content.js'
 import { groupSections } from '../../src/premium/lib/lesson-plan.js'
+import { anchorIndex } from '../../src/premium/figure-engine/anchor.js'
 
 const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const figuresDir = path.join(app, 'src/premium/figures')
@@ -131,7 +133,7 @@ for (const name of wanted) {
     if (!def.after || typeof def.after.section !== 'string' || typeof def.after.block !== 'function') {
       fail(at, 'after needs a section and a block function')
     } else {
-      const holders = sections.filter(s => s.id.startsWith(def.after.section) && s.blocks.findIndex(def.after.block) >= 0)
+      const holders = sections.filter(s => anchorIndex(s, def.after) >= 0)
       if (holders.length === 0) fail(at, `the anchor block in section ${JSON.stringify(def.after.section)} does not exist`)
       if (holders.length > 1) fail(at, `the anchor matches blocks in ${holders.length} sections (${holders.map(s => s.id).join(', ')}), so the figure would show more than once`)
     }
@@ -155,6 +157,8 @@ for (const name of wanted) {
           else if (key === 'dirText') inBook(place, item, 'direction wording')
         } else if (key === 'forms' && Array.isArray(item)) {
           item.forEach((form, i) => inBook(`${place}.${i}`, form, 'lane form'))
+        } else if (key === 'laneForms' && Array.isArray(item)) {
+          item.forEach((forms, li) => (forms || []).forEach((form, i) => inBook(`${place}.${li}.${i}`, form, 'lane form')))
         } else if (key === 'limit' && item && typeof item.en === 'string') {
           inBook(`${place}.en`, item.en, 'limit English')
         }
@@ -253,13 +257,14 @@ for (const name of wanted) {
     else {
       if (RECALL.length > rules.length) fail('recall', `has ${RECALL.length} sentences for ${rules.length} key rules`)
       RECALL.forEach((item, i) => {
+        if (item == null) return // a rule with no book sentence gets no card
         inBook(`recall ${i}`, item?.to, 'to')
         inBook(`recall ${i}`, item?.en, 'en')
       })
     }
   }
 
-  rows.push(`Lesson ${String(n).padStart(2)}: ${FIGURES.length} figures, ${OPENING ? 'opening row' : 'no opening row'}, ${RECALL ? `${RECALL.length} recall sentences` : 'no recall sentences'}`)
+  rows.push(`Lesson ${String(n).padStart(2)}: ${FIGURES.length} figures, ${OPENING ? 'opening row' : 'no opening row'}, ${RECALL ? `${RECALL.filter(item => item != null).length} recall sentences` : 'no recall sentences'}`)
 }
 
 for (const row of rows) console.log(row)

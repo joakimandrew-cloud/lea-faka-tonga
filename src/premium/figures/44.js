@@ -128,7 +128,7 @@ export const F44_3 = {
       lines: [
         { say: 'Naʻá ke ʻalu ki he fakatahá ʻaneafi?', en: 'Did you go to the meeting yesterday?' },
         { say: 'Naʻá ke ʻalu ki he fakataha lahí?', en: 'Did you go to the big meeting?' },
-        { say: 'Naʻá ke ʻalu ki he fakataha naʻe fai ʻaneafí?' },
+        { say: 'Naʻá ke ʻalu ki he fakataha naʻe fai ʻaneafí?', en: 'Did you go to the meeting that was held yesterday?' },
       ],
       states: [
         [['rest', 0], ['noun', 0], ['next', 0]],
@@ -159,9 +159,10 @@ export const F44_4 = {
     {
       key: 'faiako',
       tiles: {
-        why: [face('Ko e hā ʻa e ʻuhinga', 'quiet')],
+        ko: [face('Ko e hā', 'quiet')],
+        reason: [face('ʻa e ʻuhinga', 'noun', 'larger group')],
         clause: [face('naʻe ʻita ai', 'quiet')],
-        noun: [face('ʻa e faiakó', 'noun')],
+        noun: [face('ʻa e faiakó', 'noun', 'smaller group')],
         me: [face('kiate aú', 'quiet'), face('kiate au', 'quiet')],
       },
       before: null,
@@ -171,8 +172,8 @@ export const F44_4 = {
         { say: 'Ko e hā ʻa e ʻuhinga naʻe ʻita ai kiate au ʻa e faiakó?', en: '(Same meaning, different word order.)' },
       ],
       states: [
-        [['why', 0], ['clause', 0], ['noun', 0], ['me', 0]],
-        [['why', 0], ['clause', 0], ['me', 1], ['noun', 0]],
+        [['ko', 0], ['reason', 0], ['clause', 0], ['noun', 0], ['me', 0]],
+        [['ko', 0], ['reason', 0], ['clause', 0], ['me', 1], ['noun', 0]],
       ],
       beats: [
         { kind: 'move', tile: 'me', to: 1 },

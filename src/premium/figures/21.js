@@ -232,6 +232,9 @@ export const F21_6 = {
     aiScene('seini', 'ʻOkú ke', 'ʻIo, ʻoku ou', 'ʻia Seini',
       { say: 'ʻOkú ke saiʻia ʻia Seini?', en: 'Do you like Seini?' },
       { say: 'ʻIo, ʻoku ou saiʻia lahi ai.', en: 'Yes, I like her a lot.' }),
+    aiScene('latu', 'Naʻá ke', 'ʻIo, naʻá ku', 'ʻia Lātū',
+      { say: 'Naʻá ke saiʻia ʻia Lātū?', en: 'Did you like Lātū?' },
+      { say: 'ʻIo, naʻá ku saiʻia lahi ai.', en: 'Yes, I liked him a lot.' }),
   ],
 }
 

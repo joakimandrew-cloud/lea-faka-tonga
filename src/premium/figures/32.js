@@ -1,8 +1,8 @@
 // Lesson 32's figures, as data. Every Tongan and English string is copied from
 // book/Chapter-32.md at origin/main, as the site renders it (straight ' to U+02BB),
-// with its stress accents and macrons kept. The Fork in the reflexive section rings the base
-// word, because the book says the sort is learned verb by verb and no neighbouring word
-// predicts it. The tables, the Preview on fakapotopoto, the summary, Words to Learn and
+// with its stress accents and macrons kept. The Fork in the reflexive section rings nothing:
+// the book says the sort is learned verb by verb, so it pairs two adjective bases that differ
+// only in the point. The tables, the Preview on fakapotopoto, the summary, Words to Learn and
 // Exercises carry no figure.
 
 const face = (text, role, label) => ({ text, role, ...(label ? { label } : {}) })
@@ -22,8 +22,8 @@ export const F32_1 = {
     {
       key: 'book',
       cases: [
-        { lane: 0, en: 'Tongan, in the Tongan way', row: [{ ...face('Tonga', 'quiet'), ring: true }, { slot: true, form: face('faka-Tonga', 'particle') }] },
-        { lane: 1, en: 'human, in a human manner', row: [{ ...face('tangata', 'quiet'), ring: true }, { slot: true, form: face('fakatangata', 'particle') }] },
+        { lane: 0, en: 'Tongan, in the Tongan way', row: [{ ...face('Tonga', 'quiet'), ring: true }, { slot: true, form: face('faka-Tonga', 'quiet', 'adjective or adverb') }] },
+        { lane: 1, en: 'human, in a human manner', row: [{ ...face('tangata', 'quiet'), ring: true }, { slot: true, form: face('fakatangata', 'quiet', 'adjective or adverb') }] },
       ],
     },
   ],
@@ -73,12 +73,12 @@ export const F32_2 = {
   title: 'From doing it to making it happen',
   after: { section: 'causative-verbs', block: b => b.type === 'p' && b.text.startsWith('The pattern is consistent') },
   scenes: [
-    causeScene('verb', face('mohe', 'verb'), 'to sleep', 'fakamohe', 'to put to sleep', 'Naʻá', 'ne', 'ʻene tamasiʻí', 'Naʻá ne fakamohe ʻene tamasiʻí.', 'She put her child to sleep.'),
+    causeScene('verb', face('mohe', 'verb', 'intransitive verb'), 'to sleep', 'fakamohe', 'to put to sleep', 'Naʻá', 'ne', 'ʻene tamasiʻí', 'Naʻá ne fakamohe ʻene tamasiʻí.', 'She put her child to sleep.'),
     causeScene('adjective', face('lelei', 'quiet', 'adjective'), 'good', 'fakalelei', 'to mend, to make good', 'Kuó', 'ne', 'ʻa e vaká', 'Kuó ne fakalelei ʻa e vaká.', 'He has mended the boat.'),
   ],
 }
 
-/** The sort the book says is learned verb by verb, so the ring is on the word itself. */
+/** The sort the book says is learned verb by verb: two adjective bases, no ring. */
 export const F32_3 = {
   id: '32.3',
   kind: 'fork',
@@ -86,15 +86,15 @@ export const F32_3 = {
   title: 'Who the action lands on, word by word',
   after: { section: 'reflexive-causatives', block: b => b.type === 'p' && b.text.startsWith('Whether a') },
   lanes: [
-    { label: 'Someone or something else', forms: ['fakamohe'] },
-    { label: 'Themselves', forms: ['fakataha'] },
+    { label: 'Someone or something else', forms: ['fakalelei'] },
+    { label: 'Themselves', forms: ['fakamamaʻo'] },
   ],
   scenes: [
     {
       key: 'book',
       cases: [
-        { lane: 0, en: 'to put to sleep', row: [{ ...face('mohe', 'quiet'), ring: true }, { slot: true, form: face('fakamohe', 'verb') }] },
-        { lane: 1, en: 'to assemble, to gather together', row: [{ ...face('taha', 'quiet'), ring: true }, { slot: true, form: face('fakataha', 'verb') }] },
+        { lane: 0, en: 'to mend, to make good', row: [face('lelei', 'quiet', 'adjective'), { slot: true, form: face('fakalelei', 'verb') }] },
+        { lane: 1, en: 'to depart, to move oneself away', row: [face('mamaʻo', 'quiet', 'adjective'), { slot: true, form: face('fakamamaʻo', 'verb') }] },
       ],
     },
   ],
@@ -158,8 +158,8 @@ export const F32_5 = {
     {
       key: 'kolo',
       cases: [
-        { lane: 0, say: 'ha meʻa fakakolo', en: 'a village matter (relating to villages in general)', row: [face('ha meʻa', 'quiet'), { slot: true, form: face('fakakolo', 'particle') }] },
-        { lane: 1, say: 'ha meʻa fakaekolo', en: 'a matter pertaining to one particular village', row: [face('ha meʻa', 'quiet'), { slot: true, form: face('fakaekolo', 'particle') }] },
+        { lane: 0, say: 'ha meʻa fakakolo', en: 'a village matter (relating to villages in general)', row: [face('ha meʻa', 'quiet'), { slot: true, form: face('fakakolo', 'quiet', 'adjective or adverb') }] },
+        { lane: 1, say: 'ha meʻa fakaekolo', en: 'a matter pertaining to one particular village', row: [face('ha meʻa', 'quiet'), { slot: true, form: face('fakaekolo', 'quiet', 'adjective or adverb') }] },
       ],
     },
   ],

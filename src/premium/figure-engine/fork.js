@@ -81,11 +81,11 @@ export function forkLayouts(scene, width, s) {
 }
 
 /** How many lines a lane's forms take once they wrap inside the lane. */
-function laneFormLines(lane, laneW, fs, gap) {
+function laneFormLines(forms, laneW, fs, gap) {
   const room = laneW - 6 // forms may use the lane's padding, up to 3 px from its border
   let x = 0
   let lines = 1
-  lane.forms.forEach(form => {
+  forms.forEach(form => {
     const w = textWidth(form, fs)
     if (x > 0 && x + w > room) { lines += 1; x = 0 }
     x += w + gap
@@ -100,7 +100,9 @@ export function forkGeometry(s, width, def, lines = 1, enLines = 1) {
   const laneGap = phone ? 8 : 12
   const laneW = (width - laneGap * (count - 1)) / count
   const formFs = phone ? 21 : 25
-  const formLines = Math.max(...def.lanes.map(lane => laneFormLines(lane, laneW, formFs, phone ? 12 : 16)))
+  // A scene may give a lane its own forms (scene.laneForms[i]); the lanes keep the tallest scene's height.
+  const formSets = def.lanes.flatMap((lane, i) => [lane.forms, ...def.scenes.map(scene => scene.laneForms?.[i]).filter(Boolean)])
+  const formLines = Math.max(...formSets.map(forms => laneFormLines(forms, laneW, formFs, phone ? 12 : 16)))
   const laneH = (phone ? 76 : 84) + (formLines - 1) * (formFs + 8)
   const branchH = phone ? 44 : 56
   const laneBottom = peopleH + laneH
