@@ -7,16 +7,17 @@ import { okinafy } from '@app/lib/okinafy.js'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, MotionConfig, motion as Motion } from 'motion/react'
 import T from '../T.jsx'
+import { LOOP_HOLD_MS, stillPage, useAutoTurn } from '../../figure-engine/lib/clock.js'
 
 const strip = s => s.replace(/^\*|\*$/g, '').trim()
 const PAST = { eat: 'ate', drink: 'drank', go: 'went', come: 'came', sleep: 'slept', speak: 'spoke', sing: 'sang', stay: 'stayed', run: 'ran', study: 'studied', return: 'returned', cry: 'cried' }
 
 // No entrance: like the engine's figures, a Lesson 1 figure is simply there when the page loads,
 // and with reduced motion its own transitions keep only their fades (MotionConfig "user").
-function Frame({ k, title, children, caption }) {
+function Frame({ k, title, children, caption, onPointerDownCapture, onKeyDownCapture }) {
   return (
     <MotionConfig reducedMotion="user">
-      <figure className="fig">
+      <figure className="fig" onPointerDownCapture={onPointerDownCapture} onKeyDownCapture={onKeyDownCapture}>
         <div className="fig-head">
           <span className="fig-k">{k}</span>
           <span className="fig-t">{title}</span>
@@ -29,6 +30,8 @@ function Frame({ k, title, children, caption }) {
 }
 
 const prefersReduced = () => typeof window !== 'undefined' && Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
+// Lesson 1's moving figures loop like the engine's, in the same page-wide queue: one moving thing per screen.
+const loops = () => !prefersReduced() && !stillPage()
 
 /* 1 · The three parts. Tap a part to read what it does. */
 export function PatternFigure() {
@@ -38,29 +41,28 @@ export function PatternFigure() {
     { w: 'kai.', role: 'Verb', gloss: 'eat', what: 'Says what was done. It keeps the same form in every tense.' },
   ]
   const [on, setOn] = useState(0)
-  // One pass once half the figure is in view (each part in turn, then back to the first, where it
-  // rests), and none at all with reduced motion; a tap stops it for good.
-  const [auto, setAuto] = useState(() => !prefersReduced())
-  const [seen, setSeen] = useState(false)
+  // While half the figure is in view it goes round the parts (each in turn, then back to the
+  // first) and keeps going; none at all with reduced motion; a tap stops it for good.
+  const [auto, setAuto] = useState(loops)
   const rootRef = useRef(null)
-  useEffect(() => {
-    const node = rootRef.current
-    if (!auto || seen || !node || typeof IntersectionObserver === 'undefined') return undefined
-    const io = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) { setSeen(true); io.disconnect() } }, { threshold: 0.5 })
-    io.observe(node)
-    return () => io.disconnect()
-  }, [auto, seen])
-  useEffect(() => {
-    if (!auto || !seen) return undefined
-    const ids = [1, 2, 0].map((part, i) => setTimeout(() => setOn(part), 2400 * (i + 1)))
-    const end = setTimeout(() => setAuto(false), 2400 * 3)
-    return () => { ids.forEach(clearTimeout); clearTimeout(end) }
-  }, [auto, seen])
+  const stop = useAutoTurn({
+    id: 'bespoke-1.1',
+    rootRef,
+    enabled: auto,
+    play: turn => {
+      turn.later(() => setOn(1), 2400)
+      turn.later(() => setOn(2), 2400 * 2)
+      turn.later(() => setOn(0), 2400 * 3)
+      turn.later(turn.done, 2400 * 3 + 600)
+    },
+    away: () => setOn(0),
+  })
+  const takeOver = () => { stop(); setAuto(false) }
   return (
-    <Frame k="Figure 1.1" title="Three parts, always in this order" caption="Tap a word. The literal reading is “Past I eat”, which English says as “I ate.”">
+    <Frame k="Figure 1.1" title="Three parts, always in this order" caption="Tap a word. The literal reading is “Past I eat”, which English says as “I ate.”" onPointerDownCapture={takeOver} onKeyDownCapture={takeOver}>
       <div className="pf" ref={rootRef}>
         {parts.map((p, i) => (
-          <button key={i} className={`pf-part ${on === i ? 'is-on' : ''}`} onClick={() => { setOn(i); setAuto(false) }} aria-pressed={on === i}>
+          <button key={i} className={`pf-part ${on === i ? 'is-on' : ''}`} onClick={() => { takeOver(); setOn(i) }} aria-pressed={on === i}>
             <span className="pf-num">{i + 1}</span>
             <T className="pf-w">{p.w}</T>
             <span className="pf-g">{p.gloss}</span>
@@ -68,7 +70,8 @@ export function PatternFigure() {
           </button>
         ))}
       </div>
-      <div className="pf-what" aria-live="polite">
+      {/* Read out only when the student picks a part, never on every turn of the loop. */}
+      <div className="pf-what" aria-live={auto ? 'off' : 'polite'}>
         <AnimatePresence mode="wait">
           <Motion.p key={on} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: .25 }}>
             <strong>{parts[on].role}.</strong> {parts[on].what}
@@ -204,31 +207,42 @@ export function IntonationFigure({ pairs }) {
 /* 4 · Where the stress lands: count back two vowels in the combined unit. */
 export function StressFigure() {
   const [pron, setPron] = useState('ku')
-  const [step, setStep] = useState(0)
+  // With reduced motion the figure opens on its finished count, at rest.
+  const [step, setStep] = useState(() => (prefersReduced() ? 3 : 0))
   const [run, setRun] = useState(0)
-  // The count starts when the figure is on screen, so it teaches and then rests where the student is looking
-  // (the calm lesson page runs nothing before it is seen). With reduced motion it simply starts at rest.
+  // While the figure is on screen it counts, holds the stressed pair, then counts the other
+  // pronoun, and keeps going; a tap stops it for good and the student counts it from there.
+  const [auto, setAuto] = useState(loops)
   const rootRef = useRef(null)
-  const [seen, setSeen] = useState(false)
-  useEffect(() => {
-    const node = rootRef.current
-    if (!node || seen) return undefined
-    if (typeof IntersectionObserver === 'undefined') return undefined
-    const io = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) { setSeen(true); io.disconnect() } }, { threshold: 0.6 })
-    io.observe(node)
-    return () => io.disconnect()
-  }, [seen])
+  const turns = useRef(0)
+  const stop = useAutoTurn({
+    id: 'bespoke-1.4',
+    rootRef,
+    enabled: auto,
+    play: turn => {
+      if (turns.current > 0) setPron(p => (p === 'ku' ? 'ke' : 'ku'))
+      turns.current += 1
+      setStep(0)
+      turn.later(() => setStep(1), 500)
+      turn.later(() => setStep(2), 1300)
+      turn.later(() => setStep(3), 2100)
+      turn.later(turn.done, 2100 + LOOP_HOLD_MS)
+    },
+    away: () => setStep(3),
+  })
+  const takeOver = () => { stop(); setAuto(false) }
   const syl = ['na', "'a", pron]
   const vowelsFromEnd = [2, 1] // syllable indexes counted back: last (1st), second-to-last (2nd)
   useEffect(() => {
-    // Without IntersectionObserver the figure simply stays at its first step until the student presses Count it again.
-    if (!seen) return undefined
-    const pace = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 0 : 1
+    // The student's own count: a pronoun or Count it again.
+    if (!run) return undefined
+    const pace = prefersReduced() ? 0 : 1
     const ids = [setTimeout(() => setStep(1), 500 * pace), setTimeout(() => setStep(2), 1300 * pace), setTimeout(() => setStep(3), 2100 * pace)]
     return () => ids.forEach(clearTimeout)
-  }, [pron, run, seen])
+  }, [pron, run])
+  const count = p => { takeOver(); setStep(0); if (p) setPron(p); setRun(r => r + 1) }
   return (
-    <Frame k="Figure 1.4" title="Two words, said as one" caption={<>The pronoun leans on <T>naʻa</T>, so the pair is stressed as one word, on its second-to-last vowel. The book marks that stress with an accent: <T>Naʻá ku</T>, <T>Naʻá ke</T>.</>}>
+    <Frame k="Figure 1.4" title="Two words, said as one" caption={<>The pronoun leans on <T>naʻa</T>, so the pair is stressed as one word, on its second-to-last vowel. The book marks that stress with an accent: <T>Naʻá ku</T>, <T>Naʻá ke</T>.</>} onPointerDownCapture={takeOver} onKeyDownCapture={takeOver}>
       <div className="st" ref={rootRef}>
         <div className="st-sylls" lang="to">
           {syl.map((s, i) => {
@@ -245,10 +259,10 @@ export function StressFigure() {
         </div>
         <div className="st-foot">
           <div className="cb-toggle" role="radiogroup" aria-label="Pronoun">
-            <button role="radio" aria-checked={pron === 'ku'} className={pron === 'ku' ? 'is-on' : ''} onClick={() => { setSeen(true); setStep(0); setPron('ku'); setRun(r => r + 1) }}><T>na'a + ku</T></button>
-            <button role="radio" aria-checked={pron === 'ke'} className={pron === 'ke' ? 'is-on' : ''} onClick={() => { setSeen(true); setStep(0); setPron('ke'); setRun(r => r + 1) }}><T>na'a + ke</T></button>
+            <button role="radio" aria-checked={pron === 'ku'} className={pron === 'ku' ? 'is-on' : ''} onClick={() => count('ku')}><T>na'a + ku</T></button>
+            <button role="radio" aria-checked={pron === 'ke'} className={pron === 'ke' ? 'is-on' : ''} onClick={() => count('ke')}><T>na'a + ke</T></button>
           </div>
-          <button className="st-replay" onClick={() => { setSeen(true); setStep(0); setRun(r => r + 1) }}>Count it again ↻</button>
+          <button className="st-replay" onClick={() => count()}>Count it again ↻</button>
         </div>
       </div>
     </Frame>

@@ -310,11 +310,22 @@ function GridPeople({ cell, phone }) {
   )
 }
 
-function GridStage({ def, timeline, t, picked, onPick, width }) {
+/** The cell the loop fills on its nth pass: the figure's own rest cell first, then each
+ *  cell after it in reading order, so every pass shows a different sentence. */
+function gridRest(def, pass) {
+  const cells = def.rows.flatMap((row, r) => row.cells.map((cell, c) => ({ row: r, col: c, cell }))).filter(item => !item.cell.none)
+  if (!pass || !cells.length) return def.rest
+  const from = Math.max(0, cells.findIndex(item => item.row === def.rest.row && item.col === def.rest.col))
+  const { row, col } = cells[(from + pass) % cells.length]
+  return { row, col }
+}
+
+function GridStage({ def, timeline, t, picked, onPick, width, pass = 0 }) {
   const { beats } = timeline
   const selBeat = beats.at(-1)
   const selP = ramp(t, selBeat.start, selBeat.travelEnd)
-  const chosen = picked || (selP > 0 ? def.rest : null)
+  const rest = useMemo(() => gridRest(def, pass), [def, pass])
+  const chosen = picked || (selP > 0 ? rest : null)
   const chosenCell = chosen ? def.rows[chosen.row].cells[chosen.col] : null
   const sentenceP = picked ? 1 : ramp(selP, 0.35, 1)
   const litAt = b => (picked ? 0 : ramp(t, b.start, b.start + 220) * (1 - ramp(t, b.end - 40, b.end + 180)))
@@ -507,7 +518,7 @@ export default function Figure({ def, external = null, autoplay = true, compact 
         {width > 0 && def.kind === 'row' && <RowStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} override={chipOverride} epoch={epoch} />}
         {width > 0 && def.kind === 'path' && <PathStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} picked={pathPick} />}
         {width > 0 && def.kind === 'fork' && <ForkStage def={def} scene={scene} timeline={clock.timeline} t={clock.t} width={width} onLane={onLane} epoch={epoch} />}
-        {width > 0 && def.kind === 'grid' && <GridStage def={def} timeline={clock.timeline} t={clock.t} picked={picked} onPick={setPicked} width={width} />}
+        {width > 0 && def.kind === 'grid' && <GridStage def={def} timeline={clock.timeline} t={clock.t} picked={picked} onPick={setPicked} width={width} pass={clock.pass} />}
       </div>
       <Alt def={def} scene={scene} />
       {def.chips && (
@@ -523,7 +534,7 @@ export default function Figure({ def, external = null, autoplay = true, compact 
       {def.kind === 'path' && <PathChips scene={scene} current={pathCurrent} onPick={onPathChip} />}
       {(!def.chips && def.kind !== 'path') || def.scenes.length > 1 ? (
         <div className="fx-controls">
-          {!def.chips && def.kind !== 'path' && <button type="button" className="fx-b is-main" onClick={nextChange}>{atEnd ? 'Play again' : 'Next change'}</button>}
+          {!def.chips && def.kind !== 'path' && <button type="button" className="fx-b is-main" onClick={nextChange}>{clock.playAgain ? 'Play again' : 'Next change'}</button>}
           {def.scenes.length > 1 && <button type="button" className="fx-b" onClick={another}>Another example</button>}
         </div>
       ) : null}
