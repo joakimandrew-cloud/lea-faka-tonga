@@ -30,7 +30,7 @@ function Frame({ k, title, children, caption, onPointerDownCapture, onKeyDownCap
 }
 
 const prefersReduced = () => typeof window !== 'undefined' && Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
-// Lesson 1's moving figures loop like the engine's, in the same page-wide queue: one moving thing per screen.
+// All four Lesson 1 figures loop like the engine's, in the same page-wide queue: one moving thing per screen.
 const loops = () => !prefersReduced() && !stillPage()
 
 /* 1 · The three parts. Tap a part to read what it does. */
@@ -106,9 +106,37 @@ export function CombinatorFigure({ tables }) {
   const [pr, setPr] = useState(0)
   const [vb, setVb] = useState(0)
   const [q, setQ] = useState(false)
-  if (!grid.verbs.length || !grid.pronouns.length) return null
   // Lesson 1 only asks questions with ke ("you"), so question mode uses ke.
   const keIdx = grid.pronouns.findIndex(p => p.to === 'ke')
+  // While the figure is in view it builds one sentence after another, a verb at a time: each
+  // pronoun in turn, then the question with ke. A tap stops it for good.
+  const order = useMemo(() => grid.verbs.flatMap((_, v) => [
+    ...grid.pronouns.map((__, p) => ({ pr: p, vb: v, q: false })),
+    ...(keIdx >= 0 ? [{ pr: keIdx, vb: v, q: true }] : []),
+  ]), [grid, keIdx])
+  const [auto, setAuto] = useState(loops)
+  const rootRef = useRef(null)
+  const at = useRef(0)
+  const stop = useAutoTurn({
+    id: 'bespoke-1.2',
+    rootRef,
+    enabled: auto && order.length > 1,
+    play: turn => {
+      const steps = Math.max(1, grid.pronouns.length + (keIdx >= 0 ? 1 : 0))
+      for (let i = 1; i <= steps; i += 1) {
+        turn.later(() => {
+          at.current = (at.current + 1) % order.length
+          const next = order[at.current]
+          setPr(next.pr)
+          setVb(next.vb)
+          setQ(next.q)
+        }, 2400 * i)
+      }
+      turn.later(turn.done, 2400 * steps + 600)
+    },
+  })
+  const takeOver = () => { stop(); setAuto(false) }
+  if (!grid.verbs.length || !grid.pronouns.length) return null
   const askAs = (on) => { setQ(on); if (on && keIdx >= 0) setPr(keIdx) }
   const P = grid.pronouns[pr]
   const V = grid.verbs[vb]
@@ -118,8 +146,8 @@ export function CombinatorFigure({ tables }) {
   const english = q ? `Did ${subj === 'I' ? 'I' : 'you'} ${V.en}?` : `${subj} ${PAST[V.en] || V.en}.`
 
   return (
-    <Frame k="Figure 1.2" title="Build any sentence from this lesson" caption={`${grid.pronouns.length} pronouns × ${grid.verbs.length} verbs = ${grid.pronouns.length * grid.verbs.length} sentences, and every one follows the same pattern. Asking someone “Did you…?” is the same words with a rising voice.`}>
-      <div className="cb">
+    <Frame k="Figure 1.2" title="Build any sentence from this lesson" caption={`${grid.pronouns.length} pronouns × ${grid.verbs.length} verbs = ${grid.pronouns.length * grid.verbs.length} sentences, and every one follows the same pattern. Asking someone “Did you…?” is the same words with a rising voice.`} onPointerDownCapture={takeOver} onKeyDownCapture={takeOver}>
+      <div className="cb" ref={rootRef}>
         <div className="cb-out">
           <div className="cb-sentence">
             <AnimatePresence mode="popLayout" initial={false}>
@@ -128,7 +156,7 @@ export function CombinatorFigure({ tables }) {
               </Motion.span>
             </AnimatePresence>
           </div>
-          <div className="cb-en" aria-live="polite">{english}</div>
+          <div className="cb-en" aria-live={auto ? 'off' : 'polite'}>{english}</div>
         </div>
         <div className="cb-controls">
           <div className="cb-row">
@@ -169,13 +197,29 @@ export function IntonationFigure({ pairs }) {
   const statement = pairs.find(p => p.english.startsWith('↘'))
   const question = pairs.find(p => p.english.startsWith('↗'))
   const [q, setQ] = useState(false)
+  // While the figure is in view it says the sentence one way, then the other, and keeps going;
+  // a tap stops it for good.
+  const [auto, setAuto] = useState(loops)
+  const rootRef = useRef(null)
+  const stop = useAutoTurn({
+    id: 'bespoke-1.3',
+    rootRef,
+    enabled: auto && Boolean(statement && question),
+    play: turn => {
+      turn.later(() => setQ(true), 2800)
+      turn.later(() => setQ(false), 2800 * 2)
+      turn.later(turn.done, 2800 * 2 + 400)
+    },
+    away: () => setQ(false),
+  })
+  const takeOver = () => { stop(); setAuto(false) }
   if (!statement || !question) return null
   const cur = q ? question : statement
   const clean = s => s.replace(/^[↘↗]\s*=?\s*/, '')
   const words = okinafy(cur.tongan).split(' ')
   return (
-    <Frame k="Figure 1.3" title="Only the voice changes" caption="Same three words. A falling voice makes a statement; a rising voice at the end makes a question.">
-      <div className="into">
+    <Frame k="Figure 1.3" title="Only the voice changes" caption="Same three words. A falling voice makes a statement; a rising voice at the end makes a question." onPointerDownCapture={takeOver} onKeyDownCapture={takeOver}>
+      <div className="into" ref={rootRef}>
         <div className="into-toggle" role="radiogroup" aria-label="Sentence type">
           <button role="radio" aria-checked={!q} className={!q ? 'is-on' : ''} onClick={() => setQ(false)}>Statement</button>
           <button role="radio" aria-checked={q} className={q ? 'is-on' : ''} onClick={() => setQ(true)}>Question</button>
