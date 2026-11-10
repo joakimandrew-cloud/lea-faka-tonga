@@ -336,7 +336,7 @@ export function mount(el, options = {}) {
   // ---------- DOM ----------
   const root = h('div', 'sb')
   root.setAttribute('role', 'group')
-  root.setAttribute('aria-label', 'A preview of the course: one sentence changes and grows lesson by lesson, each sentence it leaves behind stays as a leaf on a vine through the 52 lessons, then the course map, each lesson open to preview')
+  root.setAttribute('aria-label', 'A preview of the course: one sentence changes and grows lesson by lesson, the sentences it leaves behind hang as leaves, a vine grows on through the 52 lessons with a sentence at each, then the course map, each lesson open to preview')
   const panel = h('div', 'sb-panel')
   const ground = h('div', 'sb-ground'); ground.setAttribute('aria-hidden', 'true')
   const top = h('div', 'sb-top')
@@ -659,7 +659,8 @@ export function mount(el, options = {}) {
   // Lessons 5 to 9 are buds on the close-up line until the stem draws back; after that they stand in their own places on the vine
   const nodeXY = (n, p, S) => { const q = regrown && n >= 5 ? 1 : p; return { x: lerp(geo.read[n].x + (n <= 9 ? panX : 0), geo.run[n].x, q), y: lerp(geo.read[n].y, geo.run[n].y, q) - S } }
   // in a list, what slides up under the sentence fades at the zone's edge
-  const edgeFade = (y, p) => (geo.plate ? 1 : smooth(span(lerp(geo.zoneH - 4, -40, p), lerp(geo.zoneH + 12, -24, p), y)))
+  // (close up the edge is the foot of the sentence's zone; pulled back it is the top of the stage, where a row is gone before it is cut)
+  const edgeFade = (y, p) => (geo.plate ? 1 : smooth(span(lerp(geo.zoneH - 4, -6, p), lerp(geo.zoneH + 12, 12, p), y)))
   function leafFrame(L, tt, p, S) {
     const g = geo
     let op, x, y, k = 1, enOp = 0, run = false, wash = 0, ws = 0
@@ -778,7 +779,7 @@ export function mount(el, options = {}) {
     // open: above the lesson on the map, below the tip's row in a list
     let X = g.plate ? clamp(nd.x - B.w / 2, 8, W - B.w - 8) : clamp(L.run.x - 8, 6, Math.max(6, W - B.w - 6))
     let Y = g.plate ? nd.y + g.chipR + 39 : nd.y + 18
-    if (g.plate && Y + B.h > g.H - 6) Y = nd.y - g.chipR - 18 - B.h
+    if (g.plate && Y + B.h > g.H - 6) Y = nd.y - g.chipR - 14 - B.h
     const above = Y < nd.y
     let x, y, k
     if (c > 0) { const kc = g.leafRun / B.fs; k = lerp(1, kc, c); x = lerp(X, L.run.x - B.tx * kc, c); y = lerp(Y, L.run.y - S - B.ty * kc, c) }
@@ -1186,22 +1187,25 @@ export function mount(el, options = {}) {
     renderCourse(t)
     pv.hidden = true
   }
-  // what is on screen now, for the capture and check tools: each sentence drawn at half strength or more and wholly inside the stage, with
+  // what is on screen now, for the capture and check tools: each sentence drawn at half strength or more, wholly inside the stage and not under the open card, with
   // 'read' when its Tongan is at or above the smallest size counted as readable at this width, 'far' when it is smaller
   function shown() {
     const out = new Map()
     if (mode === 'end' || destroyed) return []
     const sr = stage.getBoundingClientRect()
-    const add = (id, rowEl, toEl, op) => {
+    // the card that opens at a stop is drawn over the leaves behind it: a leaf it covers, even in part, is not reported
+    const card = bloomOp >= 0.5 ? bloom.getBoundingClientRect() : null
+    const add = (id, rowEl, toEl, op, under) => {
       if (!id || op < 0.5) return
       const b = rowEl.getBoundingClientRect(), r = toEl.getBoundingClientRect()
       if (r.width < 1 || r.height < 1 || b.top < sr.top - 0.5 || b.bottom > sr.bottom + 0.5 || b.left < sr.left - 0.5 || b.right > sr.right + 0.5) return
+      if (under && card && b.right > card.left && b.left < card.right && b.bottom > card.top && b.top < card.bottom) return
       const px = (parseFloat(getComputedStyle(toEl).fontSize) || 0) * (toEl.offsetHeight ? r.height / toEl.offsetHeight : 1)
       if (out.get(id) !== 'read') out.set(id, px >= geo.minPx ? 'read' : 'far')
     }
-    add(sent.dataset.row, sent, line, sentOp)
-    for (const L of leaves) add(L.id, L.el, L.tEl, L.op)
-    add(bloom.dataset.row, bloom, bloomTo, bloomOp)
+    add(sent.dataset.row, sent, line, sentOp, false)
+    for (const L of leaves) add(L.id, L.el, L.tEl, L.op, true)
+    add(bloom.dataset.row, bloom, bloomTo, bloomOp, false)
     return [...out].map(([id, state]) => ({ id, state }))
   }
 
