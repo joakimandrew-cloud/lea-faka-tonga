@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-// The homepage's "Every lesson adds a piece." piece. The module (src/premium/lib/blueprint/sentence-journey.js since 2026-10-24,
+// The homepage's "Every lesson adds a piece." piece. The module (src/premium/lib/blueprint/sentence-seed.js since 2026-11-10,
 // with its data in src/data/sentence-bloom-data.js) is loaded with a dynamic import only when this section is within one screen of the viewport,
 // mounted once, and destroyed on cleanup. React StrictMode runs effects twice in development (mount, cleanup, mount): each run
 // owns its own `cancelled` flag, so a module that arrives after its run was cleaned up never mounts, and only the live run does.
@@ -21,13 +21,13 @@ export default function HomeBlueprint() {
     let observer = null
 
     const load = () => {
-      import('../lib/blueprint/sentence-journey.js').then(mod => {
+      import('../lib/blueprint/sentence-seed.js').then(mod => {
         if (cancelled) return
         controller = mod.mount(host, {
           // Start Lesson N stays a client-side route (a modified click keeps the browser's own behaviour, in the module).
           onNavigate: href => navigateRef.current(href),
         })
-        // The live controller is reachable from the host element: the test-site check (reviews/sentence-bloom-web-2026-10-07/tools/check-test-site.mjs) drives it.
+        // The live controller is reachable from the host element: the test-site check (reviews/sentence-seed-2026-11-10/tools/check-site.mjs) drives it.
         host.__sentenceBloom = controller
       }).catch(() => { /* the section keeps its heading and the Start Lesson 1 button if the chunk fails to load */ })
     }
