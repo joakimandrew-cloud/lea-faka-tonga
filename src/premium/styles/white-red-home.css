@@ -137,6 +137,10 @@
 
 .wr-home__sentence { background: #fff; }
 .wr-home__sentence .wr-home__section-intro { max-width: 820px; margin-bottom: 46px; }
+/* The frame film (2026-11-13) runs edge to edge across the section's side padding and is as tall as the window, up to 940px; it is navy before its module arrives, so nothing jumps. The course map sits in the column under it. */
+.wr-home__film { margin-inline: calc(-1 * max(28px, (100vw - 1180px) / 2)); min-height: min(100vh, 940px); min-height: min(100svh, 940px); background: #0a1d2a; }
+.wr-home__coursemap { margin-top: 40px; }
+.wr-home__blueprint[data-fit="column"] .wr-home__film { margin-inline: 0; min-height: min(86vh, 720px); }
 
 .wr-home__practice { background: var(--wr-charcoal); }
 .wr-home__practice .wr-home__section-intro { margin-bottom: 58px; }
@@ -248,6 +252,8 @@
   .wr-home__practice,
   .wr-home__access { padding: 52px 20px; }
   .wr-home__sentence { display: block; }
+  .wr-home__film { margin-inline: -20px; }
+  .wr-home__coursemap { margin-top: 28px; }
   .wr-home__sentence .wr-home__section-intro h2,
   .wr-home__section-intro h2,
   .wr-home__closing h2 { font-size: clamp(44px, 14vw, 60px); }
