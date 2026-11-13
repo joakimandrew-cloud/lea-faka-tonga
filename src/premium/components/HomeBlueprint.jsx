@@ -10,15 +10,9 @@ import { useNavigate } from 'react-router-dom'
 // did at app commit fc75e93; the seed's files are kept beside the film's, unchanged.
 const NEAR = '200px 0px'
 
-// Until Andrew rules how the film starts (Step 3 of plans/2026-11-13-frame-film-homepage.md) the test site takes ?start=1, 2 or 3:
-// 1 starts it when half of it is in view and pauses it when it leaves, 2 waits for Play, 3 starts it and begins again each time it
-// comes back into view. Step 6 builds the one he rules and removes this.
-const START = { 1: 'view', 2: 'button', 3: 'restart' }
-const startSwitch = () => START[new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('start')] || 'view'
-// The same for the phone (Step 4): ?phone=1 draws the film smaller to fit a phone browser's window, 2 keeps it at its built size in a
-// taller box, 3 shows the film as text in its place. Step 6 builds the one he rules and removes this.
-const PHONE = { 1: 'fit', 2: 'full', 3: 'text' }
-const phoneSwitch = () => PHONE[new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('phone')] || 'fit'
+// Only in a build made with `vite build --mode frametest` (the check harness's flagged copy, which is never deployed) may the address
+// name a broken copy of the film, ?break=<name>. In the production build this is the empty string and the code behind it is dropped.
+const brokenCopy = () => (import.meta.env.MODE === 'frametest' ? new URLSearchParams(location.search).get('break') || '' : '')
 
 export default function HomeBlueprint() {
   const hostRef = useRef(null)
@@ -35,15 +29,14 @@ export default function HomeBlueprint() {
     let film = null
     let map = null
     let observer = null
-    const start = startSwitch()
-    const phone = phoneSwitch()
+    const broken = brokenCopy()
 
     const load = () => {
       Promise.all([import('../lib/blueprint/sentence-frame.js'), import('../lib/blueprint/course-map.js')]).then(([filmMod, mapMod]) => {
         if (cancelled) return
         // Start Lesson N stays a client-side route (a modified click keeps the browser's own behaviour, in the modules).
         const onNavigate = href => navigateRef.current(href)
-        film = filmMod.mount(filmHost, { onNavigate, start, phone })
+        film = filmMod.mount(filmHost, broken ? { onNavigate, break: broken } : { onNavigate })
         map = mapMod.mount(mapHost, { onNavigate })
         // The live controllers are reachable from the host element: the checks (reviews/frame-film-homepage-2026-11-13/tools/) drive them.
         host.__frameFilm = film

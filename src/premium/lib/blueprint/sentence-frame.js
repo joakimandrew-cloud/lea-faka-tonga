@@ -17,10 +17,13 @@
 // It has no top bar of its own (Andrew, 2026-11-13): the strip that bar took stays as empty navy at the film's top, as tall
 // as the site's bar (--hdr-h), so the site's bar can slide away and return over the film without covering its headline.
 // Under the film is the approved film's own link, "Read the film as text", which opens the film's content as tables on the page.
-// With reduced motion asked for, the film does not start by itself: it holds on the finished frame until Resume is pressed.
+// It starts by itself when at least half of it is in view, pauses when it leaves and carries on from the same place when it
+// returns (Andrew, 2026-11-13); a pause by the visitor is never undone by the page. With reduced motion asked for it does not
+// start by itself: it holds on the finished frame until Resume is pressed.
 // The approved film was laid out, and checked, for one room: 830 px tall and at least 1,120 px wide (782 px tall on a phone).
 // A browser window is often shorter, and a tablet narrower. So the film is always laid out in at least that room and, where
-// the box the page gives it is smaller, drawn smaller to fit, as a video would be. The controls keep their size.
+// the box the page gives it is smaller, drawn smaller to fit, as a video would be (ruled for the phone, 2026-11-14). The controls
+// keep their size. It plays whole, 80.65 s (ruled 2026-11-14).
 // Self-contained ES module, no dependencies. mount(element, options) returns a controller; unmount() removes it.
 // Contract for the check tools: controller.state() reads every text and opacity back from the page itself.
 import DATA from '@app/data/sentence-frame-data.js'
@@ -120,10 +123,6 @@ button{font:inherit;color:inherit}
 .rail .ticks b.now{height:16px}
 .rail .track{position:absolute;left:0;right:0;top:29px;height:1px;background:var(--rule)}
 .bar .where{min-width:112px;text-align:right;font-weight:700;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
-.bigplay{position:absolute;left:50%;top:50%;z-index:5;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:1px solid var(--rule);background:var(--ink);color:var(--flat);font-size:30px;line-height:1;padding-left:6px;cursor:pointer}
-.bigplay[hidden]{display:none}
-.bigplay:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-
 .under{display:flex;justify-content:flex-end;gap:24px;padding:14px clamp(18px,5.28vw,76px);font-size:13px;color:#55636c;border-bottom:1px solid #e7e9eb;background:#fff}
 .under button{border:0;background:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .under button:focus-visible{outline:2px solid #b92e0e;outline-offset:3px}
@@ -131,7 +130,6 @@ button{font:inherit;color:inherit}
 /* ---------- phone ---------- */
 @media (max-width:719px){
   .watch{min-height:675px;--bar:60px}
-  .ff.phone-full .watch{min-height:844px}      /* Step 4's second way, test site only: the film at its built size, taller than a phone browser's window */
   .hud{top:26px}
   .eyebrow{font-size:9.5px;letter-spacing:.17em}
   .hud h2{font-size:36px;margin-top:10px}
@@ -198,11 +196,7 @@ const instances = new Set()
 export function mount(el, options = {}) {
   if (!el) throw new Error('mount needs an element')
   for (const inst of instances) if (inst.el === el) inst.destroy()
-  // start: 'view' starts the film when at least half of it is in view, pauses it when it leaves and carries on when it returns;
-  // 'button' waits for Play; 'restart' is 'view' that begins again from the start each time the film comes back into view.
-  // phone (test site only, until Andrew rules at Step 4): 'fit' draws the film smaller to fit a phone browser's window (the default);
-  // 'full' keeps it at its built size in a box taller than that window; 'text' shows the film as text in its place on a phone.
-  const opt = { lessonHref: n => `/lessons/${n}`, onNavigate: null, start: 'view', phone: 'fit', ...options }
+  const opt = { lessonHref: n => `/lessons/${n}`, onNavigate: null, ...options }
 
   // ---------- the data, and (in a test build only) a broken copy of it ----------
   const BRK = {}
@@ -224,7 +218,7 @@ export function mount(el, options = {}) {
   shadow.textContent = ''
   const style = document.createElement('style'); style.textContent = CSS
   const root = document.createElement('div')
-  root.className = 'ff' + (opt.phone === 'full' ? ' phone-full' : '')
+  root.className = 'ff'
   root.innerHTML = `
     <section id="watch" class="watch navy">
       <div class="canvas" id="canvas">
@@ -244,7 +238,6 @@ export function mount(el, options = {}) {
         <div class="rail" id="rail" role="slider" tabindex="0" aria-valuemin="1" aria-valuemax="52" aria-valuenow="1"><div class="ticks" id="ticks"></div><div class="track"></div></div>
         <p class="where" id="where"></p>
       </div>
-      <button class="bigplay" id="bigplay" type="button" hidden><span aria-hidden="true">▶</span></button>
     </section>
     <div class="under" id="under"><button type="button" id="still-link" aria-expanded="false"></button></div>
     <section id="still" class="still navy" hidden></section>`
@@ -252,7 +245,6 @@ export function mount(el, options = {}) {
   const $ = id => root.querySelector('#' + id)
   const watch = $('watch'), canvas = $('canvas'), stage = $('stage'), hud = $('hud'), bar = $('bar'), eyebrowP = $('eyebrow'), eyebrowEl = $('eyebrow-text'), headEl = $('head'), subEl = $('sub')
   const side = $('side'), sideNum = $('side-num'), sideCap = $('side-cap'), ticksEl = $('ticks'), whereEl = $('where'), rail = $('rail')
-  const bigplay = $('bigplay')
   stage.setAttribute('aria-label', C['stage.aria'])
   rail.setAttribute('aria-label', C['rail.aria'])
   $('replay-label').textContent = C['ctl.replay']
@@ -803,7 +795,7 @@ export function mount(el, options = {}) {
   // ---------- the clock, the controls, the contract ----------
   let playing = false, last = 0, raf = 0, destroyed = false
   // userPaused: the visitor stopped it, so the page never starts it again; autoPaused: the page stopped it (out of view, a hidden tab)
-  let userPaused = false, autoPaused = false, inView = false, waiting = opt.start === 'button'
+  let userPaused = false, autoPaused = false, inView = false
   const atEnd = () => cur.t >= TL.total - .01
   function draw() { if (scene) scene.render(cur.t) }
   function setPlaying(p) {
@@ -822,18 +814,14 @@ export function mount(el, options = {}) {
     if (cur.t >= TL.total) setPlaying(false); else raf = requestAnimationFrame(tick)
   }
   function seek(t) { cur.t = clamp(+t || 0, 0, TL.total); draw() }
-  function userPlay() { if (waiting) { waiting = false; bigplay.hidden = true; seek(0) } else if (atEnd()) seek(0); userPaused = false; autoPaused = false; setPlaying(true) }
+  function userPlay() { if (atEnd()) seek(0); userPaused = false; autoPaused = false; setPlaying(true) }
   function userPause() { userPaused = true; autoPaused = false; setPlaying(false) }
   function toggle() { if (playing) userPause(); else userPlay() }
-  function replay() { waiting = false; bigplay.hidden = true; userPaused = false; autoPaused = false; seek(0); setPlaying(true) }
+  function replay() { userPaused = false; autoPaused = false; seek(0); setPlaying(true) }
   // the page starting and stopping the film: never against the visitor's own pause, never when reduced motion is asked for
-  function pageMay() { return !reduce && !userPaused && !waiting && !document.hidden && !destroyed }
+  function pageMay() { return !reduce && !userPaused && !document.hidden && !destroyed }
   function comeIntoView() { inView = true; if (pageMay() && !playing && !atEnd()) { autoPaused = false; setPlaying(true) } }
-  function leaveView() {
-    inView = false
-    if (playing) { autoPaused = true; setPlaying(false) }
-    if (opt.start === 'restart' && !reduce && !userPaused && !waiting) seek(0)
-  }
+  function leaveView() { inView = false; if (playing) { autoPaused = true; setPlaying(false) } }
   function toLesson(n) { const s = TL.stops.find(s => s.lesson === n); if (s) seek(s.t + .02) }
   function stepLesson(dir) {
     const i = TL.stops.findIndex(s => s.lesson === cur.lesson), j = clamp(i + dir, 0, TL.stops.length - 1)
@@ -941,7 +929,7 @@ export function mount(el, options = {}) {
     stillLink.textContent = open ? C['still.back'] : C['still.link']
     stillLink.setAttribute('aria-expanded', open ? 'true' : 'false')
     if (open && playing) userPause()
-    if (!open && watch.style.display !== 'none') window.scrollTo({ top: Math.round(window.scrollY + watch.getBoundingClientRect().top), behavior: 'instant' })   // the film's own top, where its strip takes the site's bar
+    if (!open) window.scrollTo({ top: Math.round(window.scrollY + watch.getBoundingClientRect().top), behavior: 'instant' })   // the film's own top, where its strip takes the site's bar
   }
   stillLink.textContent = C['still.link']
   on(stillLink, 'click', () => showPage(stillEl.hidden))
@@ -957,11 +945,9 @@ export function mount(el, options = {}) {
     }
     if (destroyed) return false
     scene = build()
-    if (opt.phone === 'text' && scene.PH) { watch.style.display = 'none'; $('under').style.display = 'none'; showPage(true); return true }
-    // what the film shows before anything starts it: its first instant; under reduced motion the finished frame; waiting for Play, the first sentence in its parts
-    seek(reduce ? TL.a4 - .4 : waiting ? TL.en1 + 1.2 : 0)
+    // what the film shows before anything starts it: its first instant, or, with reduced motion asked for, the finished frame of act 3
+    seek(reduce ? TL.a4 - .4 : 0)
     setPlaying(false)
-    if (waiting) { bigplay.hidden = false; bigplay.setAttribute('aria-label', C['ctl.resume']) }
     if (typeof IntersectionObserver === 'function') {
       io = new IntersectionObserver(entries => {
         for (const en of entries) {
@@ -981,7 +967,6 @@ export function mount(el, options = {}) {
 
   on($('pause'), 'click', toggle)
   on($('replay'), 'click', replay)
-  on(bigplay, 'click', () => { userPlay(); $('pause').focus({ preventScroll: true }) })
   on(document, 'visibilitychange', () => {
     if (document.hidden) { if (playing) { autoPaused = true; setPlaying(false) } }
     else if (autoPaused && inView && pageMay() && !atEnd()) { autoPaused = false; setPlaying(true) }
@@ -995,8 +980,8 @@ export function mount(el, options = {}) {
   on(rail, 'keydown', ev => { if (ev.key === 'ArrowRight' || ev.key === 'ArrowUp') { stepLesson(1); ev.preventDefault(); ev.stopPropagation() } if (ev.key === 'ArrowLeft' || ev.key === 'ArrowDown') { stepLesson(-1); ev.preventDefault(); ev.stopPropagation() } })
 
   const controller = {
-    version: 'home-2', el, root, box: watch, ready, total: TL.total, timeline: TL, start: opt.start,
-    get time() { return cur.t }, get playing() { return playing }, get reduced() { return reduce }, get waiting() { return waiting },
+    version: 'home-3', el, root, box: watch, ready, total: TL.total, timeline: TL,
+    get time() { return cur.t }, get playing() { return playing }, get reduced() { return reduce },
     get inView() { return inView }, get pageOpen() { return !stillEl.hidden },
     seek, play: userPlay, pause: userPause, replay, toLesson, state,
     openPage: () => showPage(true), closePage: () => showPage(false),
