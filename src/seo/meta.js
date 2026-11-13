@@ -75,7 +75,7 @@ export const STATIC_META = {
   '/start-here': {
     title: `Start here: a first road into Tongan | ${SITE_NAME}`,
     description:
-      'A suggested order for your first pass through the course: six sentences to learn whole, a daily routine, and stages that each end in a test.',
+      'A suggested order for your first pass through the course: six sentences to learn whole, a daily routine, and stages 0 to 4 that each end in a test.',
   },
   '/drill/tense-swap': {
     title: `Practise Tongan Tense Markers | ${SITE_NAME}`,

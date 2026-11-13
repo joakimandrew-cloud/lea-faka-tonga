@@ -12,7 +12,7 @@ export const START_HERE = {
   "heading": "Start here: a first road into Tongan",
   "meta": {
     "title": "Start here: a first road into Tongan",
-    "description": "A suggested order for your first pass through the course: six sentences to learn whole, a daily routine, and stages that each end in a test."
+    "description": "A suggested order for your first pass through the course: six sentences to learn whole, a daily routine, and stages 0 to 4 that each end in a test."
   },
   "sections": [
     {
@@ -33,7 +33,7 @@ export const START_HERE = {
           "parts": [
             {
               "t": "text",
-              "v": "Nobody has measured how long this road takes, so the stages carry no dates. Each ends in a test you run yourself, and you move on when you pass it."
+              "v": "Nobody has measured how long this road takes, so the stages carry no dates. Stages 0 to 4 each end in a test you run yourself, and you move on when you pass it."
             }
           ]
         }
@@ -48,7 +48,7 @@ export const START_HERE = {
           "parts": [
             {
               "t": "text",
-              "v": "Learn these whole at your first sitting, before the grammar inside them is taught, because they keep a speaker talking to a beginner."
+              "v": "Learn these whole first, before the grammar inside them is taught, because they keep a speaker talking to a beginner."
             }
           ]
         },
@@ -216,7 +216,7 @@ export const START_HERE = {
           "parts": [
             {
               "t": "text",
-              "v": "Give this one sitting, and start with the alphabet page: Tongan is spelled the way it sounds, so once you know the letters you can read any word aloud. A line over a vowel means it is held longer, which changes the word: "
+              "v": "Start with the alphabet page: Tongan is spelled the way it sounds, so once you know the letters you can read any word aloud. A line over a vowel means it is held longer, which changes the word: "
             },
             {
               "t": "to",
@@ -390,7 +390,7 @@ export const START_HERE = {
             },
             {
               "t": "text",
-              "v": ". Only the marker changes: "
+              "v": ". In these four, only the marker changes: "
             },
             {
               "t": "to",
@@ -423,6 +423,70 @@ export const START_HERE = {
             {
               "t": "text",
               "v": " (You will eat.) "
+            },
+            {
+              "t": "src",
+              "v": "Lesson 2"
+            },
+            {
+              "t": "text",
+              "v": ". The one word that changes with the marker is \"I\" ("
+            },
+            {
+              "t": "to",
+              "v": "ku"
+            },
+            {
+              "t": "text",
+              "v": " after "
+            },
+            {
+              "t": "to",
+              "v": "na'a"
+            },
+            {
+              "t": "text",
+              "v": ", "
+            },
+            {
+              "t": "to",
+              "v": "ou"
+            },
+            {
+              "t": "text",
+              "v": " after "
+            },
+            {
+              "t": "to",
+              "v": "'oku"
+            },
+            {
+              "t": "text",
+              "v": ", "
+            },
+            {
+              "t": "to",
+              "v": "u"
+            },
+            {
+              "t": "text",
+              "v": " after "
+            },
+            {
+              "t": "to",
+              "v": "kuo"
+            },
+            {
+              "t": "text",
+              "v": " and "
+            },
+            {
+              "t": "to",
+              "v": "te"
+            },
+            {
+              "t": "text",
+              "v": ") "
             },
             {
               "t": "src",
@@ -580,7 +644,7 @@ export const START_HERE = {
             },
             {
               "t": "text",
-              "v": " between the marker and the pronoun, and in the past the marker takes its second form: "
+              "v": " between the marker and the pronoun, and in the past and the future the marker takes its second form: "
             },
             {
               "t": "to",
@@ -779,7 +843,7 @@ export const START_HERE = {
     },
     {
       "id": "stage-3",
-      "heading": "Stage 3: Naming things and yourself (Lessons 12 to 14, 16 and 17)",
+      "heading": "Stage 3: Naming things and yourself (Lessons 12 to 14, the pronoun sentences of 16, a few phrases from 17)",
       "blocks": [
         {
           "type": "p",

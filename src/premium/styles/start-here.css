@@ -87,6 +87,11 @@
   white-space: nowrap;
 }
 
+/* A full stop or comma after a source sits against the pill, not a space away. */
+.start-here-keep > .start-here-src {
+  margin-right: 0;
+}
+
 .start-here-src a {
   color: var(--red);
   text-underline-offset: 3px;
