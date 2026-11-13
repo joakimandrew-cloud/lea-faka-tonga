@@ -57,6 +57,7 @@ import negationDoc from '../src/seo/pages/negation.js'
 import possessivesDoc from '../src/seo/pages/possessives.js'
 import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
 import questionsDoc from '../src/seo/pages/questions.js'
+import { START_HERE, sourceLessons } from '../src/premium/lib/start-here-content.js'
 import {
   renderChartsHub,
   renderHomeHub,
@@ -348,6 +349,77 @@ function supportRootHtml() {
     `<p style="${P_STYLE}">All 52 lessons are open during the free preview. ` +
     `${esc(LIFETIME_MEMBERSHIP_NOTICE)} ${esc(AUDIO_MEMBERSHIP_NOTICE)}</p>` +
     `<p style="${P_STYLE}">${link(esc(LIFETIME_MEMBERSHIP_URL), 'Secure Lifetime membership, US$35')}</p>` +
+    `</article>`
+  )
+}
+
+/* The static block on /start-here: the page's own words, read from the same
+   content module the React page renders (src/premium/lib/start-here-content.js),
+   so no string is typed twice. React replaces it on mount. */
+function startHereSourceHtml(source) {
+  const lessons = sourceLessons(source)
+  const inner = lessons.length
+    ? source.split(/(\d+)/).map((piece) => (/^\d+$/.test(piece) ? link(`/lessons/${piece}`, piece) : esc(piece))).join('')
+    : esc(source)
+  return `[${inner}]`
+}
+
+function startHerePartsHtml(parts) {
+  return parts
+    .map((part) =>
+      part.t === 'to'
+        ? `<em lang="to">${esc(okinafy(part.v))}</em>`
+        : part.t === 'src'
+          ? startHereSourceHtml(part.v)
+          : esc(part.v)
+    )
+    .join('')
+}
+
+function startHereBlockHtml(block) {
+  if (block.type === 'p') return `<p style="${P_STYLE}">${startHerePartsHtml(block.parts)}</p>`
+  if (block.type === 'test') return `<p style="${NOTE_STYLE}">${startHerePartsHtml(block.parts)}</p>`
+  if (block.type === 'ul' || block.type === 'ol') {
+    return (
+      `<${block.type} style="${UL_STYLE}">` +
+      block.items.map((parts) => `<li style="${LI_STYLE}">${startHerePartsHtml(parts)}</li>`).join('') +
+      `</${block.type}>`
+    )
+  }
+  if (block.type === 'examples') {
+    return (
+      `<ul style="${UL_STYLE}">` +
+      block.items
+        .map(
+          (it) =>
+            `<li style="${LI_STYLE}"><em lang="to">${esc(okinafy(it.to))}</em> (${esc(it.meaning)}) ${startHereSourceHtml(it.source)}</li>`
+        )
+        .join('') +
+      `</ul>`
+    )
+  }
+  if (block.type === 'links') {
+    return (
+      `<ul style="${UL_STYLE}">` +
+      block.items.map((it) => `<li style="${LI_STYLE}">${link(it.to, esc(it.label))}</li>`).join('') +
+      `</ul>`
+    )
+  }
+  return ''
+}
+
+function startHereRootHtml() {
+  return (
+    `<article style="${BLOCK_STYLE}">` +
+    `<p style="${P_STYLE}">${link('/', esc(SITE_NAME))} &middot; ${link('/lessons', 'Lessons')}</p>` +
+    `<h1 style="${H1_STYLE}">${esc(START_HERE.heading)}</h1>` +
+    START_HERE.sections
+      .map(
+        (section) =>
+          (section.heading ? `<h2 style="${H2_STYLE}">${esc(section.heading)}</h2>` : '') +
+          section.blocks.map(startHereBlockHtml).join('')
+      )
+      .join('') +
     `</article>`
   )
 }
@@ -771,7 +843,8 @@ async function main() {
         : urlPath === '/charts' ? renderChartsHub()
           : urlPath === '/topics' ? renderTopicsHub()
             : undefined
-    const rootHtml = docRoot || hubRoot || (urlPath === '/support' ? supportRootHtml() : undefined)
+    const rootHtml = docRoot || hubRoot || (urlPath === '/support' ? supportRootHtml()
+      : urlPath === '/start-here' ? startHereRootHtml() : undefined)
     await writeRoute(
       urlPath,
       renderPage(template, { ...meta, urlPath, jsonLd, rootHtml, ogType: docRoot ? 'article' : undefined })

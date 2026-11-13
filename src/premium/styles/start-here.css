@@ -1,0 +1,276 @@
+/* /start-here (plan 2026-11-13-start-here-page). Built from the Help page's hero and
+   cards, the charts page's jump row and the reading pages' example rows; only the
+   site's own tokens, fonts and motifs. No motion of its own. */
+
+.premium-reference-start .premium-reference-help-hero h1 {
+  max-width: 20ch;
+}
+
+.premium-reference-start .premium-reference-help-hero .wrap > .start-here-lead {
+  max-width: 62ch;
+  margin: 0 0 16px;
+  color: var(--muted);
+  font: 17px/1.65 var(--f-ui);
+}
+
+.premium-reference-start .premium-reference-help-hero .wrap > .start-here-lead:last-of-type {
+  margin-bottom: clamp(54px, 8vw, 90px);
+}
+
+.premium-reference-start :is(.start-here-card, .start-here-stage) {
+  scroll-margin-top: calc(var(--hdr-top) + 24px);
+}
+
+/* The six sentences and the routine, side by side under the jump row. */
+.start-here-firsts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+  padding-top: clamp(34px, 5vw, 58px);
+}
+
+.premium-reference-start .start-here-card p {
+  margin: 0 0 16px;
+}
+
+.premium-reference-start .start-here-card > p:last-child {
+  margin-bottom: 0;
+}
+
+.start-here-examples {
+  display: grid;
+  gap: 1px;
+  margin: 22px 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--line);
+  list-style: none;
+}
+
+.start-here-example {
+  display: grid;
+  gap: 4px;
+  background: var(--paper);
+  padding: 14px 18px;
+}
+
+.premium-reference .start-here-example-to {
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.start-here-example-en {
+  color: var(--muted);
+  font: 16px/1.5 var(--f-serif);
+}
+
+/* A source, set beside its example: quiet, and a lesson number opens that lesson. */
+.start-here-src {
+  display: inline-block;
+  margin: 0 2px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--paper-soft);
+  padding: 0 7px;
+  color: var(--muted);
+  font: 650 12px/1.6 var(--f-ui);
+  font-style: normal;
+  vertical-align: 1px;
+  white-space: nowrap;
+}
+
+.start-here-keep {
+  white-space: nowrap;
+}
+
+/* A full stop or comma after a source sits against the pill, not a space away. */
+.start-here-keep > .start-here-src {
+  margin-right: 0;
+}
+
+.start-here-src a {
+  color: var(--red);
+  text-underline-offset: 3px;
+}
+
+.premium-reference-start .start-here-list {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 0 0 0 22px;
+}
+
+.premium-reference-start .start-here-list li {
+  padding-left: 4px;
+  color: var(--ink);
+  font: 17px/1.65 var(--f-serif);
+}
+
+.premium-reference-start .start-here-list li::marker {
+  color: var(--red);
+  font: 800 17px var(--f-display);
+}
+
+.premium-reference-start .start-here-card .start-here-list li {
+  color: var(--muted);
+}
+
+/* The stages: one path, each stage a step marked with a kupesi tile. */
+.start-here-stages {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding-top: clamp(48px, 7vw, 86px);
+  padding-left: calc(var(--gutter) + 52px);
+}
+
+.start-here-stages::before {
+  content: '';
+  position: absolute;
+  top: clamp(48px, 7vw, 86px);
+  bottom: 0;
+  left: calc(var(--gutter) + 16px);
+  width: 2px;
+  background: var(--line-strong);
+}
+
+.start-here-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 18px clamp(28px, 4vw, 56px);
+  min-width: 0;
+  border: 1px solid var(--line-strong);
+  border-top: 4px solid var(--red);
+  border-radius: 6px;
+  background: var(--paper);
+  padding: clamp(24px, 3.4vw, 40px);
+}
+
+.start-here-stage-mark {
+  position: absolute;
+  top: 26px;
+  left: -53px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: var(--paper);
+  color: var(--red);
+}
+
+.start-here-stage-main,
+.start-here-stage-aside {
+  min-width: 0;
+}
+
+.premium-reference-start .start-here-stage-title {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font: 800 clamp(32px, 3.6vw, 46px)/.95 var(--f-display);
+  text-transform: uppercase;
+}
+
+.start-here-stage-n {
+  color: var(--red);
+}
+
+.start-here-stage-range {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font: 650 15px/1.4 var(--f-ui);
+  text-transform: none;
+}
+
+.premium-reference-start .start-here-stage-main p {
+  margin: 0 0 16px;
+  color: var(--ink);
+  font: 17px/1.65 var(--f-serif);
+}
+
+.premium-reference-start .start-here-stage-main > p:last-child {
+  margin-bottom: 0;
+}
+
+/* The test for moving on, set apart from the teaching beside it. */
+.premium-reference-start .start-here-test {
+  margin: 0 0 22px;
+  border-left: 3px solid var(--orange);
+  border-radius: 0 6px 6px 0;
+  background: var(--orange-soft);
+  padding: 16px 18px;
+  color: var(--ink);
+  font: 16px/1.6 var(--f-serif);
+}
+
+.start-here-test strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--red);
+  font: 800 13px/1.3 var(--f-ui);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.premium-reference-start .start-here-links {
+  margin-top: 0;
+}
+
+.premium-reference-start .start-here-links a {
+  min-height: 48px;
+  font-size: 15px;
+}
+
+.start-here-end {
+  padding-top: clamp(48px, 7vw, 86px);
+  padding-bottom: clamp(90px, 12vw, 154px);
+}
+
+.start-here-end .start-here-card {
+  max-width: 820px;
+  background: var(--paper-soft);
+}
+
+@media (max-width: 960px) {
+  .start-here-firsts,
+  .start-here-stage {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* On a phone the path line would take the reading width, so each stage keeps its
+   red top rule and carries its tile above the heading. */
+@media (max-width: 640px) {
+  .start-here-stages {
+    padding-left: var(--gutter);
+  }
+
+  .start-here-stages::before {
+    display: none;
+  }
+
+  .start-here-stage-mark {
+    position: static;
+    width: auto;
+    height: auto;
+    justify-items: start;
+    margin-bottom: -6px;
+  }
+
+  .start-here-stage {
+    padding: 22px 20px 26px;
+  }
+
+  .premium-reference .start-here-example-to {
+    font-size: 19px;
+  }
+
+  .start-here-src {
+    white-space: normal;
+  }
+}

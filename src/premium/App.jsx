@@ -23,6 +23,8 @@ const Reference = lazy(() => import('./pages/Reference.jsx'))
 const Topics = lazy(() => import('./pages/Topics.jsx'))
 const TopicArticle = lazy(() => import('./pages/TopicArticle.jsx'))
 const Help = lazy(() => import('./pages/Help.jsx'))
+// A suggested first pass through the course (plan 2026-11-13-start-here-page).
+const StartHere = lazy(() => import('./pages/StartHere.jsx'))
 const Dictionary = lazy(() => import('./pages/Dictionary.jsx'))
 const WordLists = lazy(() => import('./pages/WordLists.jsx'))
 const ReportIssue = lazy(() => import('./pages/ReportIssue.jsx'))
@@ -129,6 +131,7 @@ export default function App() {
           <Route path="/dictionary" element={<Page><Dictionary /></Page>} />
           <Route path="/word-lists" element={<Page><WordLists /></Page>} />
           <Route path="/help" element={<Page><Help /></Page>} />
+          <Route path="/start-here" element={<Page><StartHere /></Page>} />
           <Route path="/report" element={<Page><ReportIssue /></Page>} />
           <Route path="/support" element={<Page><Membership /></Page>} />
           <Route path="/keepers" element={<Page><Keepers /></Page>} />

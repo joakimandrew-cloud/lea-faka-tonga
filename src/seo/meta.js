@@ -70,6 +70,13 @@ export const STATIC_META = {
     title: `Help and Free Downloads | ${SITE_NAME}`,
     description: 'Download the free Tongan course, report a mistake or find help with lessons and practice.',
   },
+  // A suggested first pass through the course (plan 2026-11-13-start-here-page);
+  // the title and description are the page copy's own.
+  '/start-here': {
+    title: `Start here: a first road into Tongan | ${SITE_NAME}`,
+    description:
+      'A suggested order for your first pass through the course: six sentences to learn whole, a daily routine, and stages 0 to 4 that each end in a test.',
+  },
   '/drill/tense-swap': {
     title: `Practise Tongan Tense Markers | ${SITE_NAME}`,
     description: 'Practise choosing a tense marker using examples from the course.',
