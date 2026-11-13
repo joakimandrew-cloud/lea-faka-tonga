@@ -15,6 +15,10 @@ const NEAR = '200px 0px'
 // comes back into view. Step 6 builds the one he rules and removes this.
 const START = { 1: 'view', 2: 'button', 3: 'restart' }
 const startSwitch = () => START[new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('start')] || 'view'
+// The same for the phone (Step 4): ?phone=1 draws the film smaller to fit a phone browser's window, 2 keeps it at its built size in a
+// taller box, 3 shows the film as text in its place. Step 6 builds the one he rules and removes this.
+const PHONE = { 1: 'fit', 2: 'full', 3: 'text' }
+const phoneSwitch = () => PHONE[new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('phone')] || 'fit'
 
 export default function HomeBlueprint() {
   const hostRef = useRef(null)
@@ -32,13 +36,14 @@ export default function HomeBlueprint() {
     let map = null
     let observer = null
     const start = startSwitch()
+    const phone = phoneSwitch()
 
     const load = () => {
       Promise.all([import('../lib/blueprint/sentence-frame.js'), import('../lib/blueprint/course-map.js')]).then(([filmMod, mapMod]) => {
         if (cancelled) return
         // Start Lesson N stays a client-side route (a modified click keeps the browser's own behaviour, in the modules).
         const onNavigate = href => navigateRef.current(href)
-        film = filmMod.mount(filmHost, { onNavigate, start })
+        film = filmMod.mount(filmHost, { onNavigate, start, phone })
         map = mapMod.mount(mapHost, { onNavigate })
         // The live controllers are reachable from the host element: the checks (reviews/frame-film-homepage-2026-11-13/tools/) drive them.
         host.__frameFilm = film

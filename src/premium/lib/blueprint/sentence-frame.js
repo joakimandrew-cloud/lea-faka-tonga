@@ -131,6 +131,7 @@ button{font:inherit;color:inherit}
 /* ---------- phone ---------- */
 @media (max-width:719px){
   .watch{min-height:675px;--bar:60px}
+  .ff.phone-full .watch{min-height:844px}      /* Step 4's second way, test site only: the film at its built size, taller than a phone browser's window */
   .hud{top:26px}
   .eyebrow{font-size:9.5px;letter-spacing:.17em}
   .hud h2{font-size:36px;margin-top:10px}
@@ -199,7 +200,9 @@ export function mount(el, options = {}) {
   for (const inst of instances) if (inst.el === el) inst.destroy()
   // start: 'view' starts the film when at least half of it is in view, pauses it when it leaves and carries on when it returns;
   // 'button' waits for Play; 'restart' is 'view' that begins again from the start each time the film comes back into view.
-  const opt = { lessonHref: n => `/lessons/${n}`, onNavigate: null, start: 'view', ...options }
+  // phone (test site only, until Andrew rules at Step 4): 'fit' draws the film smaller to fit a phone browser's window (the default);
+  // 'full' keeps it at its built size in a box taller than that window; 'text' shows the film as text in its place on a phone.
+  const opt = { lessonHref: n => `/lessons/${n}`, onNavigate: null, start: 'view', phone: 'fit', ...options }
 
   // ---------- the data, and (in a test build only) a broken copy of it ----------
   const BRK = {}
@@ -221,7 +224,7 @@ export function mount(el, options = {}) {
   shadow.textContent = ''
   const style = document.createElement('style'); style.textContent = CSS
   const root = document.createElement('div')
-  root.className = 'ff'
+  root.className = 'ff' + (opt.phone === 'full' ? ' phone-full' : '')
   root.innerHTML = `
     <section id="watch" class="watch navy">
       <div class="canvas" id="canvas">
@@ -938,7 +941,7 @@ export function mount(el, options = {}) {
     stillLink.textContent = open ? C['still.back'] : C['still.link']
     stillLink.setAttribute('aria-expanded', open ? 'true' : 'false')
     if (open && playing) userPause()
-    if (!open) window.scrollTo({ top: Math.round(window.scrollY + watch.getBoundingClientRect().top), behavior: 'instant' })   // the film's own top, where its strip takes the site's bar
+    if (!open && watch.style.display !== 'none') window.scrollTo({ top: Math.round(window.scrollY + watch.getBoundingClientRect().top), behavior: 'instant' })   // the film's own top, where its strip takes the site's bar
   }
   stillLink.textContent = C['still.link']
   on(stillLink, 'click', () => showPage(stillEl.hidden))
@@ -954,6 +957,7 @@ export function mount(el, options = {}) {
     }
     if (destroyed) return false
     scene = build()
+    if (opt.phone === 'text' && scene.PH) { watch.style.display = 'none'; $('under').style.display = 'none'; showPage(true); return true }
     // what the film shows before anything starts it: its first instant; under reduced motion the finished frame; waiting for Play, the first sentence in its parts
     seek(reduce ? TL.a4 - .4 : waiting ? TL.en1 + 1.2 : 0)
     setPlaying(false)
