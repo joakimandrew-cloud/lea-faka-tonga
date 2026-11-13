@@ -14,13 +14,15 @@
 // with 1,041 as a floor; the road's 12.4 s.
 //
 // The film lives in a shadow root on its host, so the page's styles cannot reach its type and its own cannot reach the page.
-// It has no top bar of its own (Andrew, 2026-11-13): the strip that bar took stays as empty navy at the film's top, as tall
-// as the site's bar (--hdr-h), so the site's bar can slide away and return over the film without covering its headline.
+// It has no top bar of its own (Andrew, 2026-11-13): the strip that bar took stays as empty navy at the film's top, at the
+// height that bar was (64 px; 56 px on a phone), so the film keeps the room it was approved in and the site's bar (70 px; 62 px)
+// can slide away and return over the strip without reaching the film's headline.
 // Under the film is the approved film's own link, "Read the film as text", which opens the film's content as tables on the page.
 // It starts by itself when at least half of it is in view, pauses when it leaves and carries on from the same place when it
 // returns (Andrew, 2026-11-13); a pause by the visitor is never undone by the page. With reduced motion asked for it does not
 // start by itself: it holds on the finished frame until Resume is pressed.
-// The approved film was laid out, and checked, for one room: 830 px tall and at least 1,120 px wide (782 px tall on a phone).
+// The approved film was laid out, and checked, for one room: 836 px tall and at least 1,120 px wide (788 px tall on a phone),
+// its 1440x900 and 390x844 windows less its own top bar.
 // A browser window is often shorter, and a tablet narrower. So the film is always laid out in at least that room and, where
 // the box the page gives it is smaller, drawn smaller to fit, as a video would be (ruled for the phone, 2026-11-14). The controls
 // keep their size. It plays whole, 80.65 s (ruled 2026-11-14).
@@ -44,7 +46,7 @@ const bare = w => w.normalize('NFD').replace(/́/g, '').normalize('NFC').toLower
 
 // The approved film's film.css, line for line where the film is concerned. What differs: the page rules (html, body) sit on
 // the wrapper; the film's own top bar (.masthead) is gone; the film is as tall as the window, up to 940 px, with an empty
-// strip as tall as the site's bar at its top (--ff-inset) where the film's bar used to be.
+// strip at its top (--ff-inset) as tall as the film's bar was, 64 px (56 px on a phone).
 const CSS = `
 :host{all:initial;display:block;position:relative}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -62,8 +64,8 @@ button{font:inherit;color:inherit}
 .watch{position:relative;height:min(100vh,940px);height:min(100svh,940px);min-height:650px;overflow:hidden;background:var(--bg);color:var(--ink);isolation:isolate;--m:clamp(22px,5.28vw,76px);--bar:72px}
 /* everything but the controls: the film's room, under the strip kept for the site's bar; laid out at the film's own size and scaled to the box (see build()) */
 .canvas{position:absolute;left:0;top:var(--ff-inset);width:100%;height:calc(100% - var(--ff-inset));transform-origin:0 0}
-/* The film's own bar is gone; the room it took at the top stays empty, as tall as the site's bar, so that bar can come and go over the film without covering its headline. */
-.ff{--ff-inset:var(--hdr-h,70px)}
+/* The film's own bar is gone; the room it took at the top (64 px, 56 px on a phone) stays empty, so the film keeps the room it was approved in and the site's bar (70 px, 62 px) can come and go over that strip without reaching the headline. */
+.ff{--ff-inset:64px}
 .hud{position:absolute;left:var(--m);right:var(--m);top:40px;z-index:3;pointer-events:none}
 .hud>*,.side{will-change:opacity}   /* always their own layers, so a fade leaves the same pixels behind every time */
 .eyebrow{display:flex;align-items:center;gap:10px;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
@@ -129,6 +131,7 @@ button{font:inherit;color:inherit}
 
 /* ---------- phone ---------- */
 @media (max-width:719px){
+  .ff{--ff-inset:56px}
   .watch{min-height:675px;--bar:60px}
   .hud{top:26px}
   .eyebrow{font-size:9.5px;letter-spacing:.17em}
@@ -246,7 +249,7 @@ export function mount(el, options = {}) {
   const watch = $('watch'), canvas = $('canvas'), stage = $('stage'), hud = $('hud'), bar = $('bar'), eyebrowP = $('eyebrow'), eyebrowEl = $('eyebrow-text'), headEl = $('head'), subEl = $('sub')
   const side = $('side'), sideNum = $('side-num'), sideCap = $('side-cap'), ticksEl = $('ticks'), whereEl = $('where'), rail = $('rail')
   stage.setAttribute('aria-label', C['stage.aria'])
-  rail.setAttribute('aria-label', C['rail.aria'])
+  rail.setAttribute('aria-label', fmt(C['rail.aria'], { n: 1 }))
   $('replay-label').textContent = C['ctl.replay']
   $('replay').setAttribute('aria-label', C['ctl.replay'])
   const cleanups = []
@@ -333,7 +336,7 @@ export function mount(el, options = {}) {
     const inset = canvas.offsetTop
     const roomW = box.width, roomH = box.height - inset
     const PH = roomW < 720
-    const NEED_H = PH ? 782 : 830, NEED_W = PH ? 0 : 1120
+    const NEED_H = PH ? 788 : 836, NEED_W = PH ? 0 : 1120
     const fit = Math.min(roomH / NEED_H, NEED_W ? roomW / NEED_W : 1)
     const SC = fit >= .9995 ? 1 : fit
     canvas.style.width = (roomW / SC).toFixed(3) + 'px'; canvas.style.height = (roomH / SC).toFixed(3) + 'px'
@@ -784,7 +787,7 @@ export function mount(el, options = {}) {
         const lit = new Set(key.split(':')[1].split(',').filter(Boolean).map(Number))
         ;[...ticksEl.children].forEach((b, i) => { b.className = (lit.has(i + 1) ? 'on' : '') + (i + 1 === now ? ' now' : '') })
         whereEl.textContent = fmt(C['rail.label'], { n: now })
-        rail.setAttribute('aria-valuenow', now); rail.setAttribute('aria-valuetext', whereEl.textContent)
+        rail.setAttribute('aria-valuenow', now); rail.setAttribute('aria-valuetext', whereEl.textContent); rail.setAttribute('aria-label', fmt(C['rail.aria'], { n: now }))
       }
       cur.lesson = now
       cur.act = t < TL.a2 ? 1 : t < TL.a3 ? 2 : t < TL.a4 ? 3 : t < TL.a5 ? 4 : 5
