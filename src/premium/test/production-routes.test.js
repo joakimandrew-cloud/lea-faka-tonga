@@ -108,7 +108,7 @@ test('premium routes mechanically cover every clean production route and prerend
   assert.deepEqual(missingCanonical, [], `clean production routes missing from premium router: ${missingCanonical.join(', ')}`)
 
   const generated = distRoutes()
-  assert.equal(generated.length, 213, 'current production build generated all 213 routes (211 plus /word-lists and /questions)')
+  assert.equal(generated.length, 215, 'current production build generated all 215 routes (213 plus /games and /start-here)')
   const missingGenerated = generated.filter(pathname => !covered(pathname))
   assert.deepEqual(missingGenerated, [], `prerender routes missing from premium router: ${missingGenerated.join(', ')}`)
 
