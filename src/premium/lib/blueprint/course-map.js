@@ -391,9 +391,11 @@ export function mount(el, options = {}) {
       if (selected + d >= 1 && selected + d <= 52) select(selected + d, { focusPv: true, announce: true })
     }
   })
-  let ro = null
-  const relayout = () => { if (destroyed) return; const w = stage.clientWidth; if (Math.abs(w - W) < 1 && geo) return; classify(); if (pvOpen) renderPv(false) }
-  if (typeof ResizeObserver === 'function') { ro = new ResizeObserver(() => relayout()); ro.observe(root) }
+  let ro = null, roFrame = 0
+  const relayout = () => { roFrame = 0; if (destroyed) return; const w = stage.clientWidth; if (Math.abs(w - W) < 1 && geo) return; classify(); if (pvOpen) renderPv(false) }
+  // The watcher only asks for a relayout on the next frame. Reading the map's width inside the callback forced a layout there; when the
+  // web fonts arrived at that moment the map's height changed in the same frame, and WebKit reported a ResizeObserver loop (2026-11-14).
+  if (typeof ResizeObserver === 'function') { ro = new ResizeObserver(() => { if (!roFrame) roFrame = requestAnimationFrame(relayout) }); ro.observe(root) }
 
   // ---------- start ----------
   classify()
@@ -407,7 +409,7 @@ export function mount(el, options = {}) {
     destroy() {
       if (destroyed) return
       destroyed = true
-      cleanups.forEach(f => f()); if (ro) ro.disconnect()
+      cleanups.forEach(f => f()); if (ro) ro.disconnect(); if (roFrame) cancelAnimationFrame(roFrame)
       root.remove(); instances.delete(controller)
       if (--styleRefs <= 0 && styleEl) { styleEl.remove(); styleEl = null; styleRefs = 0 }
     },
