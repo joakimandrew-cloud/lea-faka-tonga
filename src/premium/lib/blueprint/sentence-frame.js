@@ -14,6 +14,13 @@
 // with 1,041 as a floor; the road's 12.4 s.
 //
 // The film lives in a shadow root on its host, so the page's styles cannot reach its type and its own cannot reach the page.
+// It has no top bar of its own (Andrew, 2026-11-13): the strip that bar took stays as empty navy at the film's top, as tall
+// as the site's bar (--hdr-h), so the site's bar can slide away and return over the film without covering its headline.
+// Under the film is the approved film's own link, "Read the film as text", which opens the film's content as tables on the page.
+// With reduced motion asked for, the film does not start by itself: it holds on the finished frame until Resume is pressed.
+// The approved film was laid out, and checked, for one room: 830 px tall and at least 1,120 px wide (782 px tall on a phone).
+// A browser window is often shorter, and a tablet narrower. So the film is always laid out in at least that room and, where
+// the box the page gives it is smaller, drawn smaller to fit, as a video would be. The controls keep their size.
 // Self-contained ES module, no dependencies. mount(element, options) returns a controller; unmount() removes it.
 // Contract for the check tools: controller.state() reads every text and opacity back from the page itself.
 import DATA from '@app/data/sentence-frame-data.js'
@@ -33,8 +40,8 @@ const nf = n => n.toLocaleString('en-US')
 const bare = w => w.normalize('NFD').replace(/́/g, '').normalize('NFC').toLowerCase()
 
 // The approved film's film.css, line for line where the film is concerned. What differs: the page rules (html, body) sit on
-// the wrapper; the film is as tall as the window up to 940 px instead of the window less its own bar; the film's own top bar
-// is drawn only when asked for.
+// the wrapper; the film's own top bar (.masthead) is gone; the film is as tall as the window, up to 940 px, with an empty
+// strip as tall as the site's bar at its top (--ff-inset) where the film's bar used to be.
 const CSS = `
 :host{all:initial;display:block;position:relative}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -44,30 +51,23 @@ const CSS = `
 a{color:inherit}
 button{font:inherit;color:inherit}
 
-.masthead{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5.28vw,76px);background:#fff;border-bottom:1px solid #e7e9eb}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:25px;letter-spacing:.01em;color:#171b1e}
-.brand img{width:36px;height:36px}
-.lesson-link{display:flex;align-items:center;gap:12px;font-weight:700;font-size:13px;text-decoration:none;color:#171b1e}
-.lesson-link .arrow{color:#b92e0e;font-size:22px;line-height:1}
-
 .navy{--bg:radial-gradient(120% 95% at 80% 22%,#143750 0%,#0c2434 44%,#081720 100%);--flat:#0a1d2a;--ink:#f4f7f9;--soft:#b3c5d0;--faint:#7890a0;--rule:rgba(190,210,222,.2);--slot:rgba(190,210,222,.3);--tint:18%;
   --tense:#e1b660;--pron:#55c8dd;--verb:#f4818d;--mark:#abaddf;--other:#72c8ae;--accent:#e1b660;--btn:rgba(255,255,255,.07)}
 .tense{--c:var(--tense)}.pron{--c:var(--pron)}.verb{--c:var(--verb)}.mark{--c:var(--mark)}.other{--c:var(--other)}
 
 /* ---------- the film ---------- */
-.watch{position:relative;height:min(100vh,940px);height:min(100svh,940px);min-height:540px;overflow:hidden;background:var(--bg);color:var(--ink);isolation:isolate;--m:clamp(22px,5.28vw,76px);--bar:72px}
-.ff.bar-full .watch{height:calc(min(100vh,940px) - 64px);height:calc(min(100svh,940px) - 64px)}
-.ff.fit-column .watch{height:min(86vh,720px)}
-/* With the film's own bar gone, the room it took at the top stays empty, as tall as the site's bar, so that bar can come and go over the film without covering its headline. */
-.ff{--ff-inset:0px}
-.ff.inset{--ff-inset:var(--hdr-h,70px)}
-.hud{position:absolute;left:var(--m);right:var(--m);top:calc(40px + var(--ff-inset));z-index:3;pointer-events:none}
+.watch{position:relative;height:min(100vh,940px);height:min(100svh,940px);min-height:650px;overflow:hidden;background:var(--bg);color:var(--ink);isolation:isolate;--m:clamp(22px,5.28vw,76px);--bar:72px}
+/* everything but the controls: the film's room, under the strip kept for the site's bar; laid out at the film's own size and scaled to the box (see build()) */
+.canvas{position:absolute;left:0;top:var(--ff-inset);width:100%;height:calc(100% - var(--ff-inset));transform-origin:0 0}
+/* The film's own bar is gone; the room it took at the top stays empty, as tall as the site's bar, so that bar can come and go over the film without covering its headline. */
+.ff{--ff-inset:var(--hdr-h,70px)}
+.hud{position:absolute;left:var(--m);right:var(--m);top:40px;z-index:3;pointer-events:none}
 .hud>*,.side{will-change:opacity}   /* always their own layers, so a fade leaves the same pixels behind every time */
 .eyebrow{display:flex;align-items:center;gap:10px;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
 .eyebrow i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .hud h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:62px;line-height:.93;text-transform:uppercase;margin-top:13px;text-wrap:balance}
 .hud .sub{margin-top:13px;font-size:15.5px;line-height:1.5;color:var(--soft);max-width:46em;min-height:1.5em;text-wrap:pretty}
-.side{position:absolute;right:var(--m);top:calc(44px + var(--ff-inset));z-index:3;text-align:right;pointer-events:none}
+.side{position:absolute;right:var(--m);top:44px;z-index:3;text-align:right;pointer-events:none}
 .side .num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:66px;line-height:.86;font-variant-numeric:tabular-nums}
 .side .cap{margin-top:9px;font-weight:700;font-size:9.5px;line-height:1.45;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
 
@@ -120,15 +120,18 @@ button{font:inherit;color:inherit}
 .rail .ticks b.now{height:16px}
 .rail .track{position:absolute;left:0;right:0;top:29px;height:1px;background:var(--rule)}
 .bar .where{min-width:112px;text-align:right;font-weight:700;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
-.bar .lesson-link{color:var(--ink);font-size:12px;gap:8px;white-space:nowrap}
-.bar .lesson-link .arrow{color:var(--accent);font-size:18px}
+.bigplay{position:absolute;left:50%;top:50%;z-index:5;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:1px solid var(--rule);background:var(--ink);color:var(--flat);font-size:30px;line-height:1;padding-left:6px;cursor:pointer}
+.bigplay[hidden]{display:none}
+.bigplay:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+.under{display:flex;justify-content:flex-end;gap:24px;padding:14px clamp(18px,5.28vw,76px);font-size:13px;color:#55636c;border-bottom:1px solid #e7e9eb;background:#fff}
+.under button{border:0;background:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.under button:focus-visible{outline:2px solid #b92e0e;outline-offset:3px}
 
 /* ---------- phone ---------- */
 @media (max-width:719px){
-  .masthead{height:56px}.brand{font-size:21px;gap:9px}.brand img{width:30px;height:30px}.lesson-link{font-size:11.5px;gap:8px}.lesson-link .arrow{font-size:18px}
-  .watch{min-height:520px;--bar:60px}
-  .ff.bar-full .watch{height:calc(min(100vh,940px) - 56px);height:calc(min(100svh,940px) - 56px)}
-  .hud{top:calc(26px + var(--ff-inset))}
+  .watch{min-height:675px;--bar:60px}
+  .hud{top:26px}
   .eyebrow{font-size:9.5px;letter-spacing:.17em}
   .hud h2{font-size:36px;margin-top:10px}
   .hud .sub{margin-top:9px;font-size:13.5px;line-height:1.42}
@@ -144,7 +147,48 @@ button{font:inherit;color:inherit}
   .side .num{line-height:1}
   .eyebrow{white-space:normal;align-items:baseline}
   .rrow{grid-template-columns:30px 1fr;column-gap:12px;row-gap:3px;padding:11px 0 10px}.rrow .rnum{grid-row:1/4}.rrow>*:not(.rnum){grid-column:2}
-  .bar .lesson-link{font-size:11px}.bar .lesson-link .arrow{font-size:15px}
+}
+
+/* ---------- the film as a page ---------- */
+.still{padding:64px clamp(18px,5.28vw,76px) 96px;background:var(--bg);color:var(--ink)}
+.still h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:54px;line-height:.95;text-transform:uppercase;text-wrap:balance}
+.still h3{margin:64px 0 6px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.still .lead{margin-top:14px;font-size:15.5px;line-height:1.5;color:var(--soft);max-width:34em;text-wrap:pretty}
+.still .w{position:relative;display:inline-block}
+.still .w.new .shade{opacity:1}
+.still .role{display:block;margin-top:8px;font-weight:700;font-size:9px;line-height:1.45;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.s-seed{display:flex;flex-wrap:wrap;gap:22px;margin-top:30px}
+.s-seed .w{font-size:54px}.s-seed .w .u{height:3px}
+.s-en{margin-top:14px;font-size:17px;color:var(--soft)}
+.s-swaps{display:grid;grid-template-columns:repeat(3,1fr);column-gap:44px;margin-top:14px}
+.s-swaps .ask{margin-top:18px}
+.s-swaps ul{list-style:none;margin-top:6px}
+.s-grid{display:grid;column-gap:22px;align-items:end;margin-top:20px;overflow-x:auto}
+.s-grid .fh{padding-bottom:11px;border-bottom:1px solid var(--rule);font-weight:700;font-size:9.5px;line-height:1.35;letter-spacing:.14em;text-transform:uppercase;color:var(--c);white-space:nowrap}
+.s-grid .fh small{display:block;margin-top:4px;font-weight:600;font-size:8.5px;letter-spacing:.12em;color:var(--faint)}
+.s-grid .fh.blank{border-bottom-color:transparent}
+.s-grid .lt{padding-top:16px}
+.s-grid .cell{display:flex;align-items:flex-end;gap:20px;padding-top:16px}
+.s-grid .cell.empty{height:0;padding:0;border-bottom:2px dotted var(--slot);min-width:28px}
+.s-grid .gen{grid-column:2/-1;margin-top:8px;font-size:14px;color:var(--soft)}
+.s-rows{display:none}
+.s-rows .prow{margin-top:24px;padding-top:15px;border-top:1px solid var(--rule)}
+.s-rows .parts{display:flex;flex-wrap:wrap;column-gap:19px;row-gap:14px;margin-top:13px}
+.s-rows .w{font-size:24px}
+.s-rows .pen{margin-top:11px;font-size:13.5px;color:var(--soft)}
+.s-two{display:grid;grid-template-columns:1fr 1fr;column-gap:64px}
+.s-two>div{min-width:0}
+.s-grid{max-width:100%}
+.s-road{margin-top:18px;display:grid;grid-template-columns:44px minmax(150px,250px) minmax(0,1.5fr) minmax(0,1fr);column-gap:22px;row-gap:0;align-items:baseline}
+.s-road .sen>*{padding:13px 0;border-bottom:1px solid var(--rule)}
+.s-end{margin-top:72px}
+.s-end .cta{margin-top:26px}
+@media (max-width:899px){
+  .still h2{font-size:40px}.still h3{font-size:24px;margin-top:52px}
+  .s-seed .w{font-size:40px}.s-swaps{grid-template-columns:1fr}.s-two{grid-template-columns:1fr}
+  .s-grid.wide{display:none}.s-rows{display:block}
+  .s-two .s-grid{column-gap:12px}.s-two .s-grid .w{font-size:21px}.s-two .s-grid .fh{white-space:normal;font-size:8px;letter-spacing:.1em}.s-two .s-grid .cell{gap:10px}
+  .s-road{grid-template-columns:34px 1fr}.s-road .rtitle{padding-bottom:0;border-bottom:0}.s-road .rs{grid-column:2;padding:4px 0 0;border-bottom:0}.s-road .ren{grid-column:2;padding-top:4px}.s-road .rnum{grid-row:span 3;border-bottom:0}
 }
 `
 
@@ -153,7 +197,9 @@ const instances = new Set()
 export function mount(el, options = {}) {
   if (!el) throw new Error('mount needs an element')
   for (const inst of instances) if (inst.el === el) inst.destroy()
-  const opt = { lessonHref: n => `/lessons/${n}`, homeHref: '/', onNavigate: null, bar: 'none', logo: '', holdAt: null, ...options }
+  // start: 'view' starts the film when at least half of it is in view, pauses it when it leaves and carries on when it returns;
+  // 'button' waits for Play; 'restart' is 'view' that begins again from the start each time the film comes back into view.
+  const opt = { lessonHref: n => `/lessons/${n}`, onNavigate: null, start: 'view', ...options }
 
   // ---------- the data, and (in a test build only) a broken copy of it ----------
   const BRK = {}
@@ -175,16 +221,18 @@ export function mount(el, options = {}) {
   shadow.textContent = ''
   const style = document.createElement('style'); style.textContent = CSS
   const root = document.createElement('div')
-  root.className = 'ff' + (opt.bar === 'full' ? ' bar-full' : opt.fit === 'column' ? '' : ' inset') + (opt.fit === 'column' ? ' fit-column' : '')
+  root.className = 'ff'
   root.innerHTML = `
     <section id="watch" class="watch navy">
-      <div class="hud" id="hud" aria-hidden="true">
-        <p class="eyebrow" id="eyebrow"><i></i><span id="eyebrow-text"></span></p>
-        <h2 id="head"></h2>
-        <p class="sub" id="sub"></p>
+      <div class="canvas" id="canvas">
+        <div class="hud" id="hud" aria-hidden="true">
+          <p class="eyebrow" id="eyebrow"><i></i><span id="eyebrow-text"></span></p>
+          <h2 id="head"></h2>
+          <p class="sub" id="sub"></p>
+        </div>
+        <div class="side" id="side" aria-hidden="true"><div class="num" id="side-num"></div><div class="cap" id="side-cap"></div></div>
+        <div class="stage" id="stage" role="img"></div>
       </div>
-      <div class="side" id="side" aria-hidden="true"><div class="num" id="side-num"></div><div class="cap" id="side-cap"></div></div>
-      <div class="stage" id="stage" role="img"></div>
       <div class="bar" id="bar">
         <div class="buttons">
           <button id="pause" type="button"><span class="glyph" id="pause-glyph" aria-hidden="true">Ⅱ</span><span class="txt" id="pause-label"></span></button>
@@ -193,11 +241,15 @@ export function mount(el, options = {}) {
         <div class="rail" id="rail" role="slider" tabindex="0" aria-valuemin="1" aria-valuemax="52" aria-valuenow="1"><div class="ticks" id="ticks"></div><div class="track"></div></div>
         <p class="where" id="where"></p>
       </div>
-    </section>`
+      <button class="bigplay" id="bigplay" type="button" hidden><span aria-hidden="true">▶</span></button>
+    </section>
+    <div class="under" id="under"><button type="button" id="still-link" aria-expanded="false"></button></div>
+    <section id="still" class="still navy" hidden></section>`
   shadow.append(style, root)
   const $ = id => root.querySelector('#' + id)
-  const watch = $('watch'), stage = $('stage'), hud = $('hud'), bar = $('bar'), eyebrowP = $('eyebrow'), eyebrowEl = $('eyebrow-text'), headEl = $('head'), subEl = $('sub')
+  const watch = $('watch'), canvas = $('canvas'), stage = $('stage'), hud = $('hud'), bar = $('bar'), eyebrowP = $('eyebrow'), eyebrowEl = $('eyebrow-text'), headEl = $('head'), subEl = $('sub')
   const side = $('side'), sideNum = $('side-num'), sideCap = $('side-cap'), ticksEl = $('ticks'), whereEl = $('where'), rail = $('rail')
+  const bigplay = $('bigplay')
   stage.setAttribute('aria-label', C['stage.aria'])
   rail.setAttribute('aria-label', C['rail.aria'])
   $('replay-label').textContent = C['ctl.replay']
@@ -205,20 +257,6 @@ export function mount(el, options = {}) {
   const cleanups = []
   const on = (target, type, fn, o) => { target.addEventListener(type, fn, o); cleanups.push(() => target.removeEventListener(type, fn, o)) }
   const go = (ev, href) => { if (opt.onNavigate && !(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button)) { ev.preventDefault(); opt.onNavigate(href, ev) } }
-  // the film's own top bar, as it was built, or a slim line beside the controls: drawn only when asked for
-  if (opt.bar === 'full') {
-    const m = document.createElement('header'); m.className = 'masthead'
-    m.innerHTML = `<a class="brand" href="${opt.homeHref}"><img src="${opt.logo}" width="36" height="36" alt=""><span></span></a><a class="lesson-link" href="${opt.lessonHref(1)}"><span></span> <span class="arrow" aria-hidden="true">↗</span></a>`
-    m.firstChild.setAttribute('aria-label', C['brand.aria']); m.firstChild.lastChild.textContent = C['brand.name']; m.lastChild.firstChild.textContent = C['mast.cta']
-    root.prepend(m)
-    on(m.firstChild, 'click', ev => go(ev, opt.homeHref)); on(m.lastChild, 'click', ev => go(ev, opt.lessonHref(1)))
-  }
-  if (opt.bar === 'slim') {
-    const a = document.createElement('a'); a.className = 'lesson-link'; a.href = opt.lessonHref(1)
-    a.innerHTML = '<span></span> <span class="arrow" aria-hidden="true">↗</span>'; a.firstChild.textContent = C['mast.cta']
-    bar.append(a)
-    on(a, 'click', ev => go(ev, opt.lessonHref(1)))
-  }
   const mq = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null
   const reduce = opt.reducedMotion ?? (mq ? mq.matches : false)
 
@@ -293,10 +331,23 @@ export function mount(el, options = {}) {
   let scene = null
   function build() {
     stage.textContent = ''
-    const R = watch.getBoundingClientRect()
-    const W = R.width, H = R.height, PH = W < 720
-    const M = hud.getBoundingClientRect().left - R.left
-    const bottom = H - bar.getBoundingClientRect().height - (PH ? 6 : 14)
+    // The box the page gives the film, and the film's room inside it: the box less the strip at its top. The film is laid out
+    // in a room at least as tall (and, off a phone, as wide) as the one it was built and checked for; where the box gives less,
+    // the whole canvas is scaled to fit. At a scale of 1 the room is the box's own, and the layout is the approved film's.
+    const box = watch.getBoundingClientRect()
+    const inset = canvas.offsetTop
+    const roomW = box.width, roomH = box.height - inset
+    const PH = roomW < 720
+    const NEED_H = PH ? 782 : 830, NEED_W = PH ? 0 : 1120
+    const fit = Math.min(roomH / NEED_H, NEED_W ? roomW / NEED_W : 1)
+    const SC = fit >= .9995 ? 1 : fit
+    canvas.style.width = (roomW / SC).toFixed(3) + 'px'; canvas.style.height = (roomH / SC).toFixed(3) + 'px'
+    canvas.style.transform = SC < 1 ? 'scale(' + SC + ')' : ''
+    canvas.style.setProperty('--m', ((parseFloat(getComputedStyle(bar).left) || 0) / SC) + 'px')      // the film's side margin meets the controls' own
+    const R = { left: box.left, top: box.top + inset }
+    const W = roomW / SC, H = roomH / SC
+    const M = (hud.getBoundingClientRect().left - R.left) / SC
+    const bottom = H - bar.getBoundingClientRect().height / SC - (PH ? 6 : 14)
     const availW = W - 2 * M
     const fams = D.seed.parts.map(p => p.family)
     const headOf = (cols, key) => cols.find(c => c.key === key).heading
@@ -312,10 +363,13 @@ export function mount(el, options = {}) {
     D.tables.forEach((tb, i) => add(i ? TL.tab[i] : TL.a4, lessonLine(tb.lesson), C['a4.head'], C['a4.sub'], 'eyebrow.lesson', 'a4.head', 'a4.sub', tb.lesson))
     add(TL.a5, C['eyebrow.road'], fmt(C['a5.head'], { total: nf(D.counts.sentences) }), fmt(C['a5.sub'], { total: nf(D.counts.sentences) }), 'eyebrow.road', 'a5.head', 'a5.sub')
     add(TL.end, C['end.eyebrow'], C['end.heading'], '', 'end.eyebrow', 'end.heading', '', 52)
-    const hb = HUDS.map(st => { eyebrowEl.textContent = st.eyebrow; headEl.textContent = st.head; subEl.textContent = st.sub || ' '; return hud.getBoundingClientRect().bottom - R.top })
+    const hb = HUDS.map(st => { eyebrowEl.textContent = st.eyebrow; headEl.textContent = st.head; subEl.textContent = st.sub || ' '; return (hud.getBoundingClientRect().bottom - R.top) / SC })
     eyebrowEl._s = headEl._s = subEl._s = null
     const topOf = (from, to) => Math.max(...HUDS.map((st, i) => (st.t >= from - 1e-6 && st.t < to ? hb[i] : 0))) + (PH ? 20 : 34)
-    const top12 = topOf(0, TL.a3), top3 = topOf(TL.a3, TL.a4), top4 = topOf(TL.a4, TL.a5), top5 = topOf(TL.a5, TL.end) + (PH ? 46 : 0), topE = topOf(TL.end, 1e9)
+    // An act never starts above where the next act's headline block ends: at each handover the old act's words are still in
+    // place, fading, while the new headline fades in, and a taller headline would land on them. At the sizes the approved film
+    // was checked at these blocks are the same height, so nothing moves there; at other widths the headlines wrap differently.
+    const top4 = topOf(TL.a4, TL.a5), top3 = Math.max(topOf(TL.a3, TL.a4), top4), top12 = Math.max(topOf(0, TL.a3), top3), top5 = topOf(TL.a5, TL.end) + (PH ? 46 : 0), topE = topOf(TL.end, 1e9)
     if (PH) side.style.top = (top5 - 46 - 8) + 'px'; else side.style.top = ''
 
     function renderHud(t) {
@@ -740,11 +794,14 @@ export function mount(el, options = {}) {
       cur.lesson = now
       cur.act = t < TL.a2 ? 1 : t < TL.a3 ? 2 : t < TL.a4 ? 3 : t < TL.a5 ? 4 : 5
     }
-    return { render, PH, W, H, frameFS: frame.FS }
+    return { render, PH, W, H, frameFS: frame.FS, scale: SC, boxW: box.width, boxH: box.height }
   }
 
   // ---------- the clock, the controls, the contract ----------
   let playing = false, last = 0, raf = 0, destroyed = false
+  // userPaused: the visitor stopped it, so the page never starts it again; autoPaused: the page stopped it (out of view, a hidden tab)
+  let userPaused = false, autoPaused = false, inView = false, waiting = opt.start === 'button'
+  const atEnd = () => cur.t >= TL.total - .01
   function draw() { if (scene) scene.render(cur.t) }
   function setPlaying(p) {
     if (destroyed) return
@@ -762,7 +819,18 @@ export function mount(el, options = {}) {
     if (cur.t >= TL.total) setPlaying(false); else raf = requestAnimationFrame(tick)
   }
   function seek(t) { cur.t = clamp(+t || 0, 0, TL.total); draw() }
-  function toggle() { if (!playing && cur.t >= TL.total - .01) seek(0); setPlaying(!playing) }
+  function userPlay() { if (waiting) { waiting = false; bigplay.hidden = true; seek(0) } else if (atEnd()) seek(0); userPaused = false; autoPaused = false; setPlaying(true) }
+  function userPause() { userPaused = true; autoPaused = false; setPlaying(false) }
+  function toggle() { if (playing) userPause(); else userPlay() }
+  function replay() { waiting = false; bigplay.hidden = true; userPaused = false; autoPaused = false; seek(0); setPlaying(true) }
+  // the page starting and stopping the film: never against the visitor's own pause, never when reduced motion is asked for
+  function pageMay() { return !reduce && !userPaused && !waiting && !document.hidden && !destroyed }
+  function comeIntoView() { inView = true; if (pageMay() && !playing && !atEnd()) { autoPaused = false; setPlaying(true) } }
+  function leaveView() {
+    inView = false
+    if (playing) { autoPaused = true; setPlaying(false) }
+    if (opt.start === 'restart' && !reduce && !userPaused && !waiting) seek(0)
+  }
   function toLesson(n) { const s = TL.stops.find(s => s.lesson === n); if (s) seek(s.t + .02) }
   function stepLesson(dir) {
     const i = TL.stops.findIndex(s => s.lesson === cur.lesson), j = clamp(i + dir, 0, TL.stops.length - 1)
@@ -796,9 +864,88 @@ export function mount(el, options = {}) {
     }
   }
 
+  // ---------- the film as a page (the link under the film) ----------
+  const stillEl = $('still'), stillLink = $('still-link')
+  let stillBuilt = false
+  function buildStill() {
+    const S = stillEl
+    const h = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e }
+    const w = (p, withRole, heading) => {
+      const o = h('span'), e = h('span', 'w ' + p.family + (p.shaded ? ' new' : ''))
+      e.innerHTML = '<i class="shade"></i><i class="u"></i><span class="t"></span>'; e.lastChild.textContent = p.text
+      o.append(e); if (withRole) { const r = h('span', 'role', heading); r.setAttribute('aria-hidden', 'true'); o.append(r) }
+      return o
+    }
+    const sen = (s, where) => { const e = h('div', 'sen'); e.dataset.sid = s.id; e.dataset.text = s.text; e.dataset.en = s.english; e.dataset.where = where; return e }
+    const grid = (cols, rows, tagged) => {
+      const g = h('div', 's-grid wide'); g.style.gridTemplateColumns = (tagged ? '172px ' : '') + cols.map(() => 'max-content').join(' ') + ' 1fr'
+      if (tagged) g.append(h('div', 'fh blank'))
+      for (const c of cols) { const f = h('div', 'fh ' + c.family, c.heading); if (c.first) f.append(h('small', '', fmt(C['col.from'], { n: c.first }))); g.append(f) }
+      g.append(h('div', 'fh blank'))
+      for (const r of rows) {
+        const mark = sen(r, 'page'); mark.style.display = 'contents'      // one sentence: its tag, its cells, its English
+        if (tagged) { const t = h('div', 'lt tag'); t.append(h('b', '', fmt(C['row.lesson'], { n: r.lesson })), h('span', '', D.titles[r.lesson])); mark.append(t) }
+        for (const c of cols) { const ps = r.parts.filter(p => p.col === c.key), cell = h('div', 'cell' + (ps.length ? '' : ' empty')); for (const p of ps) cell.append(w(p).firstChild); mark.append(cell) }
+        mark.append(h('div'))
+        const en = h('p', 'gen', r.english); if (!tagged) en.style.gridColumn = '1/-1'
+        mark.append(en); g.append(mark)
+      }
+      return g
+    }
+    const wrapped = (cols, rows) => {
+      const box = h('div', 's-rows')
+      for (const r of rows) {
+        const b = sen(r, 'page'), t = h('div', 'tag inline'); b.className = 'prow sen'; t.append(h('b', '', fmt(C['row.lesson'], { n: r.lesson })), h('span', '', D.titles[r.lesson]))
+        const ps = h('div', 'parts'); for (const p of r.parts) ps.append(w(p, true, cols.find(c => c.key === p.col).heading))
+        b.append(t, ps, h('p', 'pen', r.english)); box.append(b)
+      }
+      return box
+    }
+    S.append(h('p', 'eyebrow', fmt(C['eyebrow.lesson'], { n: 1, title: D.titles[1] })), h('h2', '', C['still.heading']))
+    S.firstChild.prepend(h('i'))
+    const seedBox = sen(D.seed, 'page'), sp = h('div', 's-seed')
+    for (const p of D.seed.parts) sp.append(w({ ...p, shaded: false }, true, D.frame.columns.find(c => c.key === p.col).heading))
+    seedBox.append(sp, h('p', 's-en', D.seed.english)); S.append(seedBox)
+    S.append(h('h3', '', C['still.swaps']), h('p', 'lead', fmt(C['a2.count'], { n: D.counts.neighbours }) + '. ' + C['a2.sub']))
+    const sw = h('div', 's-swaps')
+    for (const g of [...D.swaps].reverse()) {
+      const col = h('div', g.family); col.append(h('p', 'ask ' + g.family, C[g.ask]))
+      const ul = h('ul')
+      for (const s of g.items) {
+        const li = h('li', 'item ' + g.family), a = h('span', 's'), mark = sen(s, 'page'); mark.style.display = 'contents'
+        s.words.forEach((x, k) => { if (k) a.append(' '); if (k === g.at) a.append(h('b', '', x)); else a.append(x) })
+        mark.append(a, h('span', 'e', s.english)); li.append(mark); ul.append(li)
+      }
+      col.append(ul); sw.append(col)
+    }
+    S.append(sw)
+    S.append(h('h3', '', C['still.frame']), h('p', 'lead', C['a3.sub']), grid(D.frame.columns, D.frame.rows, true), wrapped(D.frame.columns, D.frame.rows))
+    const two = h('div', 's-two')
+    for (const tb of D.tables) { const d = h('div'); d.append(h('h3', '', fmt(C['row.lesson'], { n: tb.lesson }) + ' · ' + tb.title), grid(tb.columns, tb.rows, false).cloneNode(true)); d.lastChild.classList.remove('wide'); two.append(d) }
+    S.append(two)
+    S.append(h('h3', '', C['still.road']), h('p', 'lead', fmt(C['a5.sub'], { total: nf(D.counts.sentences) })))
+    const rd = h('div', 's-road')
+    for (const r of D.road) { const mark = sen(r.sentence, 'page'); mark.style.display = 'contents'; mark.append(h('div', 'rnum', r.lesson), h('div', 'rtitle', r.title), h('div', 'rs', r.sentence.text), h('div', 'ren', r.sentence.english)); rd.append(mark) }
+    S.append(rd)
+    const end = h('div', 's-end'); end.append(h('p', 'eyebrow', C['end.eyebrow']), h('h2', '', C['end.heading']))
+    end.firstChild.prepend(h('i'))
+    const a = h('a', 'cta'); a.href = opt.lessonHref(1); a.append(h('span', '', C['mast.cta']), h('span', 'arrow', '↗')); a.lastChild.setAttribute('aria-hidden', 'true'); end.append(a); S.append(end)
+    a.addEventListener('click', ev => go(ev, opt.lessonHref(1)))
+  }
+  function showPage(open) {
+    if (open && !stillBuilt) { buildStill(); stillBuilt = true }
+    stillEl.hidden = !open
+    stillLink.textContent = open ? C['still.back'] : C['still.link']
+    stillLink.setAttribute('aria-expanded', open ? 'true' : 'false')
+    if (open && playing) userPause()
+    if (!open) window.scrollTo({ top: Math.round(window.scrollY + watch.getBoundingClientRect().top), behavior: 'instant' })   // the film's own top, where its strip takes the site's bar
+  }
+  stillLink.textContent = C['still.link']
+  on(stillLink, 'click', () => showPage(stillEl.hidden))
+
   // ---------- start ----------
   for (let i = 1; i <= 52; i++) ticksEl.appendChild(document.createElement('b'))
-  let ro = null, rz = 0
+  let ro = null, rz = 0, io = null
   const ready = (async () => {
     const sample = 'Naʻá ʻOkú ōēāīū'
     if (document.fonts && document.fonts.load) {
@@ -807,16 +954,34 @@ export function mount(el, options = {}) {
     }
     if (destroyed) return false
     scene = build()
-    seek(opt.holdAt != null ? +opt.holdAt : 0)
+    // what the film shows before anything starts it: its first instant; under reduced motion the finished frame; waiting for Play, the first sentence in its parts
+    seek(reduce ? TL.a4 - .4 : waiting ? TL.en1 + 1.2 : 0)
     setPlaying(false)
-    const rebuildIfResized = () => { if (destroyed) return; const r = watch.getBoundingClientRect(); if (Math.abs(r.width - scene.W) > 1 || Math.abs(r.height - scene.H) > 1) { mcache.clear(); scene = build(); draw() } }
+    if (waiting) { bigplay.hidden = false; bigplay.setAttribute('aria-label', C['ctl.resume']) }
+    if (typeof IntersectionObserver === 'function') {
+      io = new IntersectionObserver(entries => {
+        for (const en of entries) {
+          const vh = window.innerHeight || 1
+          const mostly = en.intersectionRatio >= .5 || en.intersectionRect.height >= vh * .5
+          if (mostly) comeIntoView()
+          else if (en.intersectionRatio < .2 && inView) leaveView()
+        }
+      }, { threshold: [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1] })
+      io.observe(watch)
+    } else if (pageMay()) setPlaying(true)
+    const rebuildIfResized = () => { if (destroyed) return; const r = watch.getBoundingClientRect(); if (Math.abs(r.width - scene.boxW) > 1 || Math.abs(r.height - scene.boxH) > 1) { mcache.clear(); scene = build(); draw() } }
     if (typeof ResizeObserver === 'function') { ro = new ResizeObserver(() => { clearTimeout(rz); rz = setTimeout(rebuildIfResized, 120) }); ro.observe(watch) }
     else on(window, 'resize', () => { clearTimeout(rz); rz = setTimeout(rebuildIfResized, 120) })
     return true
   })()
 
   on($('pause'), 'click', toggle)
-  on($('replay'), 'click', () => { seek(0); setPlaying(true) })
+  on($('replay'), 'click', replay)
+  on(bigplay, 'click', () => { userPlay(); $('pause').focus({ preventScroll: true }) })
+  on(document, 'visibilitychange', () => {
+    if (document.hidden) { if (playing) { autoPaused = true; setPlaying(false) } }
+    else if (autoPaused && inView && pageMay() && !atEnd()) { autoPaused = false; setPlaying(true) }
+  })
   const railAt = ev => { const r = ticksEl.getBoundingClientRect(); return clamp(Math.round(1 + 51 * (ev.clientX - r.left) / r.width), 1, 52) }
   let dragging = false
   on(rail, 'pointerdown', ev => { dragging = true; rail.setPointerCapture(ev.pointerId); toLesson(railAt(ev)) })
@@ -826,15 +991,17 @@ export function mount(el, options = {}) {
   on(rail, 'keydown', ev => { if (ev.key === 'ArrowRight' || ev.key === 'ArrowUp') { stepLesson(1); ev.preventDefault(); ev.stopPropagation() } if (ev.key === 'ArrowLeft' || ev.key === 'ArrowDown') { stepLesson(-1); ev.preventDefault(); ev.stopPropagation() } })
 
   const controller = {
-    version: 'home-1', el, root, box: watch, ready, total: TL.total, timeline: TL,
-    get time() { return cur.t }, get playing() { return playing }, get reduced() { return reduce },
-    seek, play: () => setPlaying(true), pause: () => setPlaying(false), replay: () => { seek(0); setPlaying(true) }, toLesson, state,
+    version: 'home-2', el, root, box: watch, ready, total: TL.total, timeline: TL, start: opt.start,
+    get time() { return cur.t }, get playing() { return playing }, get reduced() { return reduce }, get waiting() { return waiting },
+    get inView() { return inView }, get pageOpen() { return !stillEl.hidden },
+    seek, play: userPlay, pause: userPause, replay, toLesson, state,
+    openPage: () => showPage(true), closePage: () => showPage(false),
     rebuild: () => { mcache.clear(); scene = build(); draw() },
-    scene: () => scene && { W: scene.W, H: scene.H, phone: scene.PH, frameFS: scene.frameFS },
+    scene: () => scene && { W: scene.W, H: scene.H, phone: scene.PH, frameFS: scene.frameFS, scale: scene.scale, boxW: scene.boxW, boxH: scene.boxH },
     destroy() {
       if (destroyed) return
       destroyed = true; playing = false; cancelAnimationFrame(raf); clearTimeout(rz)
-      cleanups.forEach(f => f()); if (ro) ro.disconnect()
+      cleanups.forEach(f => f()); if (ro) ro.disconnect(); if (io) io.disconnect()
       shadow.textContent = ''
       instances.delete(controller)
     },

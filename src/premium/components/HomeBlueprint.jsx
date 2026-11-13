@@ -10,12 +10,11 @@ import { useNavigate } from 'react-router-dom'
 // did at app commit fc75e93; the seed's files are kept beside the film's, unchanged.
 const NEAR = '200px 0px'
 
-// Step 1 of plans/2026-11-13-frame-film-homepage.md only: the first stills are taken by address (?bar=none|slim|full for the film's own
-// top bar, ?fit=edge|column for how it sits, ?t=<seconds> for the held frame). Step 2 removes this.
-const stillSwitches = () => {
-  const q = new URLSearchParams(typeof location === 'undefined' ? '' : location.search)
-  return { bar: q.get('bar') || 'none', fit: q.get('fit') || 'edge', holdAt: q.get('t') != null ? +q.get('t') : 47.6 }
-}
+// Until Andrew rules how the film starts (Step 3 of plans/2026-11-13-frame-film-homepage.md) the test site takes ?start=1, 2 or 3:
+// 1 starts it when half of it is in view and pauses it when it leaves, 2 waits for Play, 3 starts it and begins again each time it
+// comes back into view. Step 6 builds the one he rules and removes this.
+const START = { 1: 'view', 2: 'button', 3: 'restart' }
+const startSwitch = () => START[new URLSearchParams(typeof location === 'undefined' ? '' : location.search).get('start')] || 'view'
 
 export default function HomeBlueprint() {
   const hostRef = useRef(null)
@@ -32,15 +31,14 @@ export default function HomeBlueprint() {
     let film = null
     let map = null
     let observer = null
-    const sw = stillSwitches()
-    host.dataset.fit = sw.fit
+    const start = startSwitch()
 
     const load = () => {
       Promise.all([import('../lib/blueprint/sentence-frame.js'), import('../lib/blueprint/course-map.js')]).then(([filmMod, mapMod]) => {
         if (cancelled) return
         // Start Lesson N stays a client-side route (a modified click keeps the browser's own behaviour, in the modules).
         const onNavigate = href => navigateRef.current(href)
-        film = filmMod.mount(filmHost, { onNavigate, bar: sw.bar, fit: sw.fit, holdAt: sw.holdAt, logo: `${import.meta.env.BASE_URL}favicon.svg` })
+        film = filmMod.mount(filmHost, { onNavigate, start })
         map = mapMod.mount(mapHost, { onNavigate })
         // The live controllers are reachable from the host element: the checks (reviews/frame-film-homepage-2026-11-13/tools/) drive them.
         host.__frameFilm = film
