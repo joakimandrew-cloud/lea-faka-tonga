@@ -56,7 +56,17 @@
 .wr-home__button--primary:hover { background: var(--wr-red-deep); }
 .wr-home__button--onaccent { color: var(--wr-red); background: #fff; }
 .wr-home__button--onaccent:hover { color: var(--wr-red-deep); }
-.wr-home__button .entry-motif { display: inline-flex; }
+/* The Lesson 1 button (his pick of 2026-11-17, option D): taller, an arrow in a white disc, and in the opening a ring that
+   breathes out once and rests. The purchase button keeps the plain shape, so the two actions stay distinct. */
+.wr-home__button--go { min-height: 64px; gap: 20px; padding: 0 8px 0 32px; font-size: 18px; }
+.wr-home__go { width: 48px; height: 48px; display: grid; place-items: center; color: var(--wr-red); background: #fff; border-radius: 50%; font-size: 24px; line-height: 1; transition: transform .25s var(--ease-out); }
+.wr-home__button--go:hover .wr-home__go { transform: translateX(4px); }
+.wr-home__hero .wr-home__button--go { animation: wr-home-ring 1.8s ease-out .7s 1 both; }
+@keyframes wr-home-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--wr-red) 28%, transparent); }
+  55% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--wr-red) 14%, transparent); }
+  100% { box-shadow: 0 0 0 16px color-mix(in srgb, var(--wr-red) 0%, transparent); }
+}
 .wr-home__button:focus-visible { outline: 3px solid var(--home-focus, var(--wr-red-deep)); outline-offset: 4px; }
 
 /* One text link for every second action. */
@@ -143,7 +153,7 @@ a:hover > .wr-home__more { color: var(--wr-red-deep); text-decoration: underline
 .wr-home__lifetime-note { margin: 0; color: var(--wr-muted); font-size: 14px; line-height: 1.5; }
 
 /* The page ends on the same action it opens with. */
-.wr-home__closing { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 32px; }
+.wr-home__closing { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 24px; }
 
 @media (max-width: 900px) {
   .wr-home__split { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -170,5 +180,8 @@ a:hover > .wr-home__more { color: var(--wr-red-deep); text-decoration: underline
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wr-home__button { transition: none; }
+  .wr-home__button,
+  .wr-home__go { transition: none; }
+  .wr-home__hero .wr-home__button--go { animation: none; }
+  .wr-home__button--go:hover .wr-home__go { transform: none; }
 }

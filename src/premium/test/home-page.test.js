@@ -50,7 +50,7 @@ test('the page has no film, no moving preview and no em dash, and opens and ends
   await withHome(async html => {
     assert.doesNotMatch(html, /wr-home__film|wr-home__coursemap|practice-showcase|home-pattern-band/)
     assert.doesNotMatch(html, /—/)
-    const buttons = [...html.matchAll(/<a class="wr-home__button wr-home__button--primary" href="([^"]+)"/g)].map(match => match[1])
+    const buttons = [...html.matchAll(/<a class="wr-home__button wr-home__button--primary wr-home__button--go" href="([^"]+)"/g)].map(match => match[1])
     assert.deepEqual(buttons, ['/lessons/1', '/lessons/1'], 'two main buttons, both to Lesson 1')
     assert.equal((html.match(/name="home-colour"/g) || []).length, 4, 'the four colour choices remain')
   })

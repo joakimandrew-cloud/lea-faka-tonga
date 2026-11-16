@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import EntryMotif from '../components/EntryMotif.jsx'
 import { Link } from 'react-router-dom'
 import { PDF_URL, EPUB_URL } from '../components/Chrome.jsx'
 import { useTitle } from '../lib/title.js'
@@ -19,7 +18,7 @@ import '../styles/home-colours.css'
 // (HomeBlueprint.jsx) and the moving practice preview (HomePracticePreview.jsx) are kept in the app, unused. To put the film back,
 // mount <HomeBlueprint /> in the sentence section and restore the .wr-home__film rules from app commit 312696e.
 function StartLesson({ children = 'Start Lesson 1, free' }) {
-  return <Link className="wr-home__button wr-home__button--primary" to="/lessons/1">{children} <EntryMotif size={18} index={0} /></Link>
+  return <Link className="wr-home__button wr-home__button--primary wr-home__button--go" to="/lessons/1">{children} <span className="wr-home__go" aria-hidden="true">→</span></Link>
 }
 
 export default function Home() {
