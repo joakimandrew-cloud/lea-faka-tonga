@@ -21,7 +21,7 @@
 .home-slides__dot::after { content: ''; position: absolute; inset: 18px 12px; background: #c9c9c5; border-radius: 4px; transition: background-color .2s; }
 .home-slides__dot[aria-current='true'] { width: 64px; }
 .home-slides__dot[aria-current='true']::after { background: var(--wr-ink); }
-/* While the slides play, the current dot is a track that fills over the slide's two seconds. */
+/* While the slides play, the current dot is a track that fills while the slide is held. */
 .home-slides__dot[aria-current='true']:has(.home-slides__fill)::after { background: #c9c9c5; }
 .home-slides__fill { position: absolute; z-index: 1; inset: 18px 12px; background: var(--wr-ink); border-radius: 4px; transform-origin: left; animation: home-slides-fill linear both; }
 @keyframes home-slides-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
