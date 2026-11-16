@@ -4,16 +4,17 @@ import DATA from '@app/data/sentence-frame-data.js'
 
 // Four slides in place of the frame film (2026-11-17); they change by themselves every two and a half seconds (his rulings the same day). Every Tongan sentence, its English and its part names are read
 // from the film's own data file, src/data/sentence-frame-data.js; nothing Tongan is typed here. A slide names a lesson's row
-// and which of its parts to mark.
+// and which of its parts to mark. A slide is held for two and a half seconds, so it carries only what can be read in that time:
+// the lesson, the sentence, its English and a three-word title.
 const HEADING = Object.fromEntries(DATA.frame.columns.map(column => [column.key, column.heading]))
 const row = lesson => DATA.frame.rows.find(item => item.lesson === lesson)
 const BASE = new Set(['tense', 'pron', 'verb'])
 
 const SLIDES = [
-  { lesson: 1, title: 'One sentence, three parts.', note: 'A sentence from Lesson 1, and the three parts it is made of.', marked: () => true },
-  { lesson: 2, title: 'Change one part.', note: 'Lesson 2 changes the tense marker, and the time of the sentence changes with it.', marked: part => part.shaded },
-  { lesson: 4, title: 'Add detail.', note: 'By Lesson 4 the sentence also has an object, a modifier and a time word.', marked: part => !BASE.has(part.col) },
-  { lesson: 9, title: 'Say what did not happen.', note: 'Lesson 9 adds the negative.', marked: part => part.shaded },
+  { lesson: 1, title: 'One sentence, three parts.', marked: () => true },
+  { lesson: 2, title: 'Change one part.', marked: part => part.shaded },
+  { lesson: 4, title: 'Add detail.', marked: part => !BASE.has(part.col) },
+  { lesson: 9, title: 'Say what did not happen.', marked: part => part.shaded },
 ].map(slide => ({ ...slide, row: row(slide.lesson) }))
 
 // Each slide holds for HOLD_MS and the set loops. It plays only while the slides are on screen, the tab is showing, nothing is
@@ -67,7 +68,7 @@ export default function HomeSlides() {
         if (event.key === 'ArrowRight') { event.preventDefault(); pick(active + 1) }
         if (event.key === 'ArrowLeft') { event.preventDefault(); pick(active - 1) }
       }}>
-      <div className="home-slides__stage" onPointerDown={event => { if (event.pointerType !== 'mouse') setAuto(false) }}>
+      <div className="home-slides__stage" onClick={() => setAuto(false)}>
         {SLIDES.map((slide, index) => (
           <article key={slide.lesson} className="home-slides__slide" data-active={index === active} aria-hidden={index !== active}
             role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${count}`}>
@@ -81,10 +82,7 @@ export default function HomeSlides() {
               ))}
             </p>
             <p className="home-slides__english">{slide.row.english}</p>
-            <div className="home-slides__caption">
-              <h3>{slide.title}</h3>
-              <p>{slide.note}</p>
-            </div>
+            <h3 className="home-slides__caption">{slide.title}</h3>
           </article>
         ))}
       </div>

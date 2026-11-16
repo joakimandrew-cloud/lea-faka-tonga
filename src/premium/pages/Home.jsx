@@ -72,7 +72,7 @@ export default function Home() {
           <div className="wr-home__split">
             <div className="wr-home__section-intro">
               <p className="wr-home__eyebrow">The course</p>
-              <h2 id="wr-course-heading">Lessons 1 to 52, in order.</h2>
+              <h2 id="wr-course-heading">Lessons 1 to 52,<br />in order.</h2>
               <p>Six stages take you from the basic sentence to advanced patterns. Every lesson has worked examples, exercises and a 10-question quiz.</p>
             </div>
             <HomeStages />
