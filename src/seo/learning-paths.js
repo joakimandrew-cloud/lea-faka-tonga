@@ -1,7 +1,7 @@
 export const HOME_HUB = {
   eyebrow: 'A complete 52-lesson Tongan course',
   heading: ['Build your first', 'Tongan sentence.'],
-  lead: 'See how the words fit together, change one part, and understand what changed. Begin with the real pattern from Lesson 1.',
+  lead: 'Learn the Tongan language step by step, from your first sentence to advanced grammar. Every lesson has worked examples, exercises and a quiz.',
 }
 
 export const BEGINNER_PATH = {

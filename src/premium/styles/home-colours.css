@@ -111,8 +111,8 @@
 
 .wr-home[data-home-theme] .wr-home__hero { background: var(--home-hero); }
 .wr-home[data-home-theme] .wr-home__sentence { background: var(--home-sentence); }
-.wr-home[data-home-theme] .wr-home__practice { background: var(--home-practice); }
-.wr-home[data-home-theme] .wr-home__access { background: var(--home-access); }
+.wr-home[data-home-theme] .wr-home__access,
+.wr-home[data-home-theme] .wr-home__course { background: var(--home-sentence); }
 .wr-home[data-home-theme] .wr-home__eyebrow { color: var(--home-eyebrow); }
 .wr-home[data-home-theme] .wr-home__hero-lede { color: var(--home-muted); }
 .wr-home[data-home-theme] .wr-home__offer-member { background: var(--home-offer); }
@@ -159,94 +159,20 @@
   --wr-wash: #f2f2f0;
 }
 
-.wr-home .wr-home__hero-visual { min-width: 0; }
-.wr-home .wr-home__hero-book { margin-bottom: 8px; }
-
-.wr-home .wr-home-colour {
-  width: min(100%, 400px);
-  margin: 0 auto;
-  padding: 0;
-  border: 0;
-}
-.wr-home .wr-home-colour legend {
-  width: 100%;
-  margin: 0 0 8px;
-  padding: 0;
-  color: var(--home-muted);
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: .1em;
-  text-align: center;
-  text-transform: uppercase;
-}
-.wr-home .wr-home-colour__options {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 7px;
-}
-.wr-home .wr-home-colour__option { position: relative; min-width: 0; }
-.wr-home .wr-home-colour__option input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-.wr-home .wr-home-colour__choice {
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding: 6px 8px;
-  color: var(--home-muted);
-  background: color-mix(in srgb, var(--home-hero) 88%, white);
-  border: 1px solid color-mix(in srgb, var(--home-ink) 22%, transparent);
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 650;
-  cursor: pointer;
-  transition: color .18s, background-color .18s, border-color .18s, box-shadow .18s;
-}
-.wr-home .wr-home-colour__swatch {
-  position: relative;
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
-  border: 1px solid #17171740;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 2px #ffffff52;
-}
+.wr-home .wr-home-colour { width: fit-content; margin: 0 auto; padding: 0; border: 0; }
+.wr-home .wr-home-colour legend,
+.wr-home .wr-home-colour__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wr-home .wr-home-colour__options { display: flex; gap: 0; }
+.wr-home .wr-home-colour__option { position: relative; width: 44px; height: 44px; display: grid; place-items: center; cursor: pointer; }
+.wr-home .wr-home-colour__option input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.wr-home .wr-home-colour__swatch { width: 20px; height: 20px; border: 1px solid #17171733; border-radius: 50%; box-shadow: 0 0 0 3px var(--home-hero), 0 0 0 4px transparent; transition: box-shadow .18s; }
 .wr-home .wr-home-colour__swatch[data-colour='red'] { background: #b92e0e; }
 .wr-home .wr-home-colour__swatch[data-colour='black'] { background: #211b18; }
 .wr-home .wr-home-colour__swatch[data-colour='blue'] { background: #1746ae; }
-.wr-home .wr-home-colour__swatch[data-colour='white'] { background: #fff; border-color: #707070; }
-.wr-home .wr-home-colour__check {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 900;
-  line-height: 1;
-  opacity: 0;
-}
-.wr-home .wr-home-colour__swatch[data-colour='white'] .wr-home-colour__check { color: #171717; }
-.wr-home .wr-home-colour__option input:checked + .wr-home-colour__choice {
-  color: var(--home-ink);
-  background: var(--home-hero);
-  border-color: var(--home-ink);
-  box-shadow: 0 0 0 1px var(--home-ink);
-  font-weight: 800;
-}
-.wr-home .wr-home-colour__option input:checked + .wr-home-colour__choice .wr-home-colour__check { opacity: 1; }
-.wr-home .wr-home-colour__option input:focus-visible + .wr-home-colour__choice {
-  outline: 3px solid var(--home-focus);
-  outline-offset: 3px;
-}
-.wr-home .wr-home-colour__option:hover .wr-home-colour__choice { border-color: var(--home-ink); }
+.wr-home .wr-home-colour__swatch[data-colour='white'] { background: #fff; border-color: #8a8a8a; }
+.wr-home .wr-home-colour__option:hover .wr-home-colour__swatch { box-shadow: 0 0 0 3px var(--home-hero), 0 0 0 4px #17171766; }
+.wr-home .wr-home-colour__option input:checked + .wr-home-colour__swatch { box-shadow: 0 0 0 3px var(--home-hero), 0 0 0 5px var(--home-ink); }
+.wr-home .wr-home-colour__option input:focus-visible + .wr-home-colour__swatch { outline: 3px solid var(--home-focus); outline-offset: 6px; }
 
 .wr-home[data-home-theme] .wr-home__hero,
 .wr-home[data-home-theme] .wr-home__sentence,
@@ -259,30 +185,7 @@
   transition-duration: .22s;
   transition-timing-function: ease;
 }
-.wr-home[data-home-theme] .wr-home__button {
-  transition: background-color .22s, color .22s, border-color .22s, transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
-}
-
-@media (max-width: 760px) {
-  .wr-home .wr-home__hero-visual { display: contents; }
-  .wr-home .wr-home__hero-book { grid-column: 2; grid-row: 3; margin-bottom: 0; }
-  .wr-home .wr-home-colour {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    width: 100%;
-    margin-top: 22px;
-  }
-  .wr-home .wr-home__hero-action { grid-row: 5; }
-  .wr-home .wr-home__book-route { grid-row: 6; }
-  .wr-home .wr-home-colour legend { text-align: left; }
-  .wr-home .wr-home-colour__choice { padding-inline: 6px; }
-}
-
-@media (max-width: 350px) {
-  .wr-home .wr-home-colour__options { gap: 5px; }
-  .wr-home .wr-home-colour__choice { gap: 4px; padding-inline: 4px; font-size: 10px; }
-  .wr-home .wr-home-colour__swatch { width: 20px; height: 20px; flex-basis: 20px; }
-}
+.wr-home[data-home-theme] .wr-home__button { transition: background-color .22s, color .22s; }
 
 @media (prefers-reduced-motion: reduce) {
   .wr-home[data-home-theme] .wr-home__hero,
@@ -290,8 +193,6 @@
   .wr-home[data-home-theme] .wr-home__practice,
   .wr-home[data-home-theme] .wr-home__access,
   .wr-home[data-home-theme] .wr-home__offer-member,
-  .wr-home[data-home-theme] .home-pattern-band,
-  .wr-home[data-home-theme] .home-pattern-band .kp-tile,
   .wr-home[data-home-theme] .wr-home__button,
-  .wr-home .wr-home-colour__choice { transition: none; }
+  .wr-home .wr-home-colour__swatch { transition: none; }
 }

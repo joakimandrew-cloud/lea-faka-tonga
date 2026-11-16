@@ -1,0 +1,64 @@
+/* The four sentence slides, the six-stage list and the three practice cards (2026-11-17). Still pictures: nothing here moves by itself. */
+.home-slides__stage { display: grid; padding: clamp(32px, 3.4vw, 48px); background: var(--wr-wash); border-radius: 24px; }
+.home-slides__slide { grid-area: 1 / 1; min-width: 0; display: flex; flex-direction: column; visibility: hidden; opacity: 0; transition: opacity .25s ease, visibility 0s .25s; }
+.home-slides__slide[data-active='true'] { visibility: visible; opacity: 1; transition: opacity .25s ease; }
+.home-slides__lesson { margin: 0 0 32px; color: var(--wr-muted); font-size: 12px; font-weight: 750; letter-spacing: .14em; line-height: 1.4; text-transform: uppercase; }
+.home-slides__sentence { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 24px clamp(16px, 2vw, 28px); margin: 0 0 24px; }
+.home-slides__part { display: inline-flex; flex-direction: column; gap: 8px; padding-bottom: 8px; border-bottom: 3px solid transparent; }
+.home-slides__label { min-height: 14px; color: transparent; font: 750 11px/1.25 var(--f-ui); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.home-slides__word { color: #8b8b87; font: italic 500 clamp(34px, 4.4vw, 60px)/1 var(--f-serif); white-space: nowrap; }
+.home-slides__part[data-marked='true'] { border-bottom-color: var(--wr-red); }
+.home-slides__part[data-marked='true'] .home-slides__label { color: var(--wr-red); }
+.home-slides__part[data-marked='true'] .home-slides__word { color: var(--wr-ink); }
+.home-slides__english { margin: 0; color: var(--wr-muted); font-size: 20px; line-height: 1.5; }
+.home-slides__caption { margin-top: auto; padding-top: 32px; }
+.home-slides__caption h3 { margin: 0 0 8px; font-size: 32px; line-height: 1; }
+.home-slides__caption p { max-width: 600px; margin: 0; color: var(--wr-muted); font-size: 17px; line-height: 1.5; }
+
+.home-slides__controls { display: flex; align-items: center; gap: 24px; margin-top: 16px; }
+.home-slides__dots { display: flex; gap: 0; margin-left: -16px; }
+.home-slides__dot { position: relative; width: 44px; height: 44px; padding: 0; background: none; border: 0; cursor: pointer; }
+.home-slides__dot::after { content: ''; position: absolute; inset: 17px; background: #c9c9c5; border-radius: 50%; transition: background-color .2s; }
+.home-slides__dot[aria-current='true']::after { background: var(--wr-ink); }
+.home-slides__count { margin: 0; color: var(--wr-muted); font-size: 14px; }
+.home-slides__next { margin-left: auto; }
+.home-slides__arrows { display: flex; gap: 12px; }
+.home-slides__arrow { width: 48px; height: 48px; display: grid; place-items: center; padding: 0 0 4px; color: var(--wr-ink); background: var(--wr-wash); border: 0; border-radius: 50%; font-size: 28px; line-height: 1; cursor: pointer; transition: background-color .2s, color .2s; }
+.home-slides__arrow:hover:not(:disabled) { color: #fff; background: var(--wr-ink); }
+.home-slides__arrow:disabled { color: #b5b5b1; cursor: default; }
+
+.home-stages__list { list-style: none; margin: 0 0 16px; padding: 0; border-bottom: 1px solid #d9d9d5; }
+.home-stages__row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: baseline; gap: 16px; padding: 18px 0; border-top: 1px solid #d9d9d5; }
+.home-stages__number { color: var(--wr-red); font: 800 24px/1 var(--f-display); }
+.home-stages__name { font: 800 28px/1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; }
+.home-stages__range { color: var(--wr-muted); font-size: 14px; white-space: nowrap; }
+
+.home-practice { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.home-practice__card { height: 100%; display: flex; flex-direction: column; padding: 32px; color: #171717; background: var(--wr-wash); border-radius: 24px; text-decoration: none; transition: box-shadow .25s ease; }
+.home-practice__card:hover { box-shadow: inset 0 0 0 2px var(--wr-ink); }
+.home-practice__card h3 { margin: 0 0 8px; font-size: 32px; line-height: 1; }
+.home-practice__card p { margin: 0 0 8px; color: #5c5c5c; font-size: 17px; line-height: 1.5; }
+.home-practice__card .wr-home__more { margin-top: auto; }
+
+@media (max-width: 760px) {
+  .home-slides__stage { padding: 32px 24px; border-radius: 20px; }
+  .home-slides__lesson { margin-bottom: 24px; }
+  .home-slides__sentence { gap: 16px 14px; }
+  .home-slides__english { font-size: 17px; }
+  .home-slides__caption { padding-top: 32px; }
+  .home-slides__caption h3 { font-size: 28px; }
+  .home-slides__controls { flex-wrap: wrap; gap: 0 16px; }
+  .home-slides__next { order: 3; width: 100%; margin-left: 0; }
+  .home-slides__arrows { margin-left: auto; }
+  .home-stages__name { font-size: 24px; }
+  .home-practice { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .home-practice__card { padding: 24px; border-radius: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-slides__slide,
+  .home-slides__slide[data-active='true'],
+  .home-slides__dot::after,
+  .home-slides__arrow,
+  .home-practice__card { transition: none; }
+}
