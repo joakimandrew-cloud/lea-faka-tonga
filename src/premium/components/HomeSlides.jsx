@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import DATA from '@app/data/sentence-frame-data.js'
 
-// Four slides in place of the frame film (2026-11-17); they change by themselves every five seconds (his ruling the same day). Every Tongan sentence, its English and its part names are read
+// Four slides in place of the frame film (2026-11-17); they change by themselves every two seconds (his rulings the same day). Every Tongan sentence, its English and its part names are read
 // from the film's own data file, src/data/sentence-frame-data.js; nothing Tongan is typed here. A slide names a lesson's row
 // and which of its parts to mark.
 const HEADING = Object.fromEntries(DATA.frame.columns.map(column => [column.key, column.heading]))
@@ -19,7 +19,7 @@ const SLIDES = [
 // Each slide holds for HOLD_MS and the set loops. It plays only while the slides are on screen, the tab is showing, nothing is
 // hovering or focused inside, and the visitor has not taken over (a dot, an arrow or the pause button). Under reduced motion
 // it never plays by itself.
-export const HOLD_MS = 5000
+export const HOLD_MS = 2000
 
 export default function HomeSlides() {
   const [active, setActive] = useState(0)
