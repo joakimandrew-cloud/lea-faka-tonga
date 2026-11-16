@@ -15,7 +15,7 @@ import '../styles/white-red-home.css'
 import '../styles/home-slides.css'
 import '../styles/home-colours.css'
 
-// The homepage since 2026-11-17: still pictures only, one button shape, one column. The frame film and the course map
+// The homepage since 2026-11-17: one button shape, one column, and nothing moving by itself but the four slides. The frame film and the course map
 // (HomeBlueprint.jsx) and the moving practice preview (HomePracticePreview.jsx) are kept in the app, unused. To put the film back,
 // mount <HomeBlueprint /> in the sentence section and restore the .wr-home__film rules from app commit 312696e.
 function StartLesson({ children = 'Start Lesson 1, free' }) {

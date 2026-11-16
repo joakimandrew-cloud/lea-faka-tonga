@@ -1,4 +1,4 @@
-/* The four sentence slides, the six-stage list and the three practice cards (2026-11-17). Still pictures: nothing here moves by itself. */
+/* The four sentence slides, the six-stage list and the three practice cards (2026-11-17). Only the slides move by themselves. */
 .home-slides__stage { display: grid; padding: clamp(32px, 3.4vw, 48px); background: var(--wr-wash); border-radius: 24px; }
 .home-slides__slide { grid-area: 1 / 1; min-width: 0; display: flex; flex-direction: column; visibility: hidden; opacity: 0; transition: opacity .25s ease, visibility 0s .25s; }
 .home-slides__slide[data-active='true'] { visibility: visible; opacity: 1; transition: opacity .25s ease; }
@@ -16,16 +16,22 @@
 .home-slides__caption p { max-width: 600px; margin: 0; color: var(--wr-muted); font-size: 17px; line-height: 1.5; }
 
 .home-slides__controls { display: flex; align-items: center; gap: 24px; margin-top: 16px; }
-.home-slides__dots { display: flex; gap: 0; margin-left: -16px; }
-.home-slides__dot { position: relative; width: 44px; height: 44px; padding: 0; background: none; border: 0; cursor: pointer; }
-.home-slides__dot::after { content: ''; position: absolute; inset: 17px; background: #c9c9c5; border-radius: 50%; transition: background-color .2s; }
+.home-slides__dots { display: flex; gap: 0; margin-left: -12px; }
+.home-slides__dot { position: relative; width: 32px; height: 44px; padding: 0; background: none; border: 0; cursor: pointer; transition: width .3s ease; }
+.home-slides__dot::after { content: ''; position: absolute; inset: 18px 12px; background: #c9c9c5; border-radius: 4px; transition: background-color .2s; }
+.home-slides__dot[aria-current='true'] { width: 64px; }
 .home-slides__dot[aria-current='true']::after { background: var(--wr-ink); }
+/* While the slides play, the current dot is a track that fills over the slide's five seconds. */
+.home-slides__dot[aria-current='true']:has(.home-slides__fill)::after { background: #c9c9c5; }
+.home-slides__fill { position: absolute; z-index: 1; inset: 18px 12px; background: var(--wr-ink); border-radius: 4px; transform-origin: left; animation: home-slides-fill linear both; }
+@keyframes home-slides-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.home-slides__toggle { width: 44px; height: 44px; display: grid; place-items: center; margin-left: -12px; padding: 0; color: var(--wr-muted); background: none; border: 0; font-size: 14px; cursor: pointer; }
+.home-slides__toggle:hover { color: var(--wr-ink); }
 .home-slides__count { margin: 0; color: var(--wr-muted); font-size: 14px; }
 .home-slides__next { margin-left: auto; }
 .home-slides__arrows { display: flex; gap: 12px; }
 .home-slides__arrow { width: 48px; height: 48px; display: grid; place-items: center; padding: 0 0 4px; color: var(--wr-ink); background: var(--wr-wash); border: 0; border-radius: 50%; font-size: 28px; line-height: 1; cursor: pointer; transition: background-color .2s, color .2s; }
 .home-slides__arrow:hover:not(:disabled) { color: #fff; background: var(--wr-ink); }
-.home-slides__arrow:disabled { color: #b5b5b1; cursor: default; }
 
 .home-stages__list { list-style: none; margin: 0 0 16px; padding: 0; border-bottom: 1px solid #d9d9d5; }
 .home-stages__row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: baseline; gap: 16px; padding: 18px 0; border-top: 1px solid #d9d9d5; }
@@ -50,7 +56,9 @@
   .home-slides__controls { flex-wrap: wrap; gap: 0 16px; }
   .home-slides__next { order: 3; width: 100%; margin-left: 0; }
   .home-slides__arrows { margin-left: auto; }
-  .home-stages__name { font-size: 24px; }
+  .home-stages__row { grid-template-columns: 20px minmax(0, 1fr) auto; gap: 12px; }
+  .home-stages__name { font-size: 21px; }
+  .home-stages__range { font-size: 13px; }
   .home-practice { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .home-practice__card { padding: 24px; border-radius: 20px; }
 }
@@ -58,6 +66,7 @@
 @media (prefers-reduced-motion: reduce) {
   .home-slides__slide,
   .home-slides__slide[data-active='true'],
+  .home-slides__dot,
   .home-slides__dot::after,
   .home-slides__arrow,
   .home-practice__card { transition: none; }
