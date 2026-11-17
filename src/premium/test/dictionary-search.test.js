@@ -29,10 +29,10 @@ test('a marked word typed without macrons or fakauʻa is an exact match', () => 
   assert.equal(ulu.matches[0].id, 'book-v0003')
   assert.equal(ulu.matches[0].tongan, "'ulu")
   for (const typed of ["'ulu", 'ʻulu', '‘ulu', 'Ulu']) assert.equal(first(typed).id, 'book-v0003', `${typed} finds ʻulu`)
-  // book-v0025 mālō e lelei, book-v0510 tēpile, book-v0090 ʻaneafi: macrons and fakauʻa left off.
+  // book-v0025 mālō e lelei, book-v0510 tēpile, book-v0091 ʻaneafi: macrons and fakauʻa left off.
   assert.equal(first('malo e lelei').id, 'book-v0025')
   assert.equal(first('tepile').id, 'book-v0510')
-  assert.equal(first('aneafi').tongan, "'aneafi")
+  assert.equal(first('aneafi').id, 'book-v0091')
   // Typed with its marks, the marked word comes before its plain twin; typed plain, the plain word does.
   assert.deepEqual(searchDictionary(entries, 'pulū').slice(0, 2).map(entry => entry.tongan), ['pulū', 'pulu'])
   assert.deepEqual(searchDictionary(entries, 'pulu').slice(0, 2).map(entry => entry.tongan), ['pulu', 'pulū'])
@@ -54,7 +54,7 @@ test('English matches whole words before look-alikes, and ignores a leading "to"
   // book-v0058 kai "eat": "to eat" and "eat" are the same search.
   assert.equal(first('to eat').id, 'book-v0058')
   assert.deepEqual(ids(searchDictionary(entries, 'to eat')), ids(searchDictionary(entries, 'eat')))
-  // book-v0407 fakamamafaʻi "to make heavy, to emphasize": the "to" of the meaning is ignored too.
+  // book-v0407 fakamamafa "to make heavy, to emphasize": the "to" of the meaning is ignored too.
   assert.equal(first('make heavy').id, 'book-v0407')
   assert.equal(first('emphasize').id, 'book-v0407')
   // A sense that is the whole query comes before a meaning that only has the word in it:

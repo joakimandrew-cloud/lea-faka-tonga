@@ -194,38 +194,88 @@ test('the generated files are what the generator makes from the data and the boo
   }
 })
 
-test('no sentence beats a wrong one: the selection rules, on small made-up lessons', () => {
-  const lesson = lines => `# Lesson\n\n::: {.examples}\n${lines.join('\n\n')}\n:::\n\n### Words to Learn\n\n::: {.examples}\n*Kuo tō ʻa e ʻuha.* It has rained.\n:::\n`
-  const pick = (rows, lines) => selectExamples({ rows, lessons: { 3: lesson(lines) } })
+// The selection rules, tried on small lessons put together from lines the book
+// really prints (no Tongan is written for a test; the first assertion below
+// finds every line in book/). The rows are real rows of the data.
+const PRINTED = {
+  fale: "*'Oku 'i ai ha fo'i moli 'i fale?* Is there an orange in the house?",
+  faleAccent: "*Na'á ke langa fēfee'i 'a e falé?* How did you build the house? (Lit. You built how the house?)",
+  hiva: "*'Oku tau hiva.* We sing. (All of us, including you.)",
+  faleMohe: "*Na'á ku mohe 'i fale mohe.* I slept in the dormitory.",
+  faleMohePhrase: '*fale mohe*. dormitory (lit. "house sleep," a building for sleeping)',
+  koIaAll: '*Ko ia pē.* That is all.',
+  koIaTherefore: "*Ko ia, 'oku totonu ke ke nofo 'i 'api.* Therefore, you should stay at home.",
+  uha: "*'Oku 'ikai ke 'uha.* It is not raining.",
+  tone: "*Na'á ke kai?* ↗ Did you eat?",
+  inlineGloss: "*'Okú ke ngāue 'i ngoue* *(plantation)?* Do you work in the plantation?",
+  arrow: '*fále* → *falé na* ("that house, near you")',
+  ika1: "*Na'á ku kai ika pē.* I just ate fish.",
+  ika2: "*Na'a nau kai ika lahi.* They ate a lot of fish.",
+  ika3: "*'Oku ou fiema'u ha ika.* I want some fish.",
+  ika4: "*Na'e 'ikai te mau kai ika 'anepō.* We did not eat fish last night.",
+  toluPhrase: "*ha tohi 'e tolu*. three books",
+  toluSentence: "*Ko e tamaiki 'e toko tolu.* Three children.",
+  bareWord: "*tu'unga*. stand, ladder, or (figuratively) rank, status",
+}
+
+test('no sentence beats a wrong one: the selection rules, on lines the book prints', () => {
+  const book = Array.from({ length: 52 }, (unused, at) => read(chapterFile(at + 1))).join('\n').split('\n').map(line => line.trim())
+  for (const [name, line] of Object.entries(PRINTED)) assert.ok(book.includes(line), `the line "${name}" is printed in the book`)
+  const rowOf = (tongan, english, lesson = 3) => {
+    const row = vocabulary.find(item => item.tongan === tongan && item.english === english)
+    assert.ok(row, `${tongan} "${english}" is a row of the data`)
+    return { id: row.id, tongan: row.tongan, english: row.english, lesson }
+  }
+  const lesson = (lines, afterBody = []) => `# Lesson\n\n::: {.examples}\n${lines.join('\n\n')}\n:::\n\n### Words to Learn\n\n::: {.examples}\n${afterBody.join('\n\n')}\n:::\n`
+  const pick = (rows, lines, afterBody) => selectExamples({ rows, lessons: { 3: lesson(lines, afterBody) } })
+  const tonganOf = line => /^\*([^*]+)\*/.exec(line)[1]
+
   // Exactly the printed spelling: the accented form is another spelling.
-  const rows = [{ id: 'fale', tongan: 'fale', english: 'house', lesson: 3 }, { id: 'fale-accent', tongan: 'falé', english: 'house (accent example)', lesson: 3 }]
-  const drawn = pick(rows, ["*Ko e fale 'eni.* This is a house.", "*'Oku ou sio ki he falé.* I see the house.", '*Falekoloa lahi.* A big house of goods.'])
-  assert.deepEqual(drawn.fale.map(pair => pair.tongan), ["Ko e fale 'eni."])
-  assert.deepEqual(drawn['fale-accent'].map(pair => pair.tongan), ["'Oku ou sio ki he falé."])
-  // Two rows of one page spelled in the same line: nobody gets it.
-  const twins = [{ id: 'hiva-nine', tongan: 'hiva', english: 'nine', lesson: null }, { id: 'hiva-sing', tongan: 'hiva', english: 'sing', lesson: 3 }]
-  assert.deepEqual(pick(twins, ["*Na'á ku hiva.* I sang (sing)."]), {})
+  const fale = rowOf('fale', 'house, building')
+  const faleAccent = rowOf('falé', 'house (accent example)')
+  const spelled = pick([fale, faleAccent], [PRINTED.fale, PRINTED.faleAccent])
+  assert.deepEqual(spelled[fale.id].map(pair => pair.tongan), [tonganOf(PRINTED.fale)])
+  assert.deepEqual(spelled[faleAccent.id].map(pair => pair.tongan), [tonganOf(PRINTED.faleAccent)])
+  assert.equal(spelled[fale.id][0].tongan.slice(...spelled[fale.id][0].at), 'fale', 'the place of the word is recorded')
+
+  // Two rows of one page spelled in the same line: nobody gets it, even when one has no lesson.
+  const sing = rowOf('hiva', 'sing')
+  assert.deepEqual(pick([sing, rowOf('hiva', 'nine', null)], [PRINTED.hiva]), {})
+  assert.deepEqual(Object.keys(pick([sing], [PRINTED.hiva])), [sing.id], 'alone on its page, the row takes the line')
+
   // A word inside a longer entry belongs to the longer entry.
-  const compound = [{ id: 'fale', tongan: 'fale', english: 'house', lesson: 3 }, { id: 'fale-mohe', tongan: 'fale mohe', english: 'dormitory', lesson: 3 }]
-  const split = pick(compound, ['*Ko e fale mohe.* It is a dormitory, a house for sleeping.'])
-  assert.deepEqual(Object.keys(split), ['fale-mohe'])
+  const faleMohe = rowOf('fale mohe', 'dormitory')
+  assert.deepEqual(Object.keys(pick([fale], [PRINTED.faleMohePhrase])), [fale.id], 'with no longer entry, fale takes the phrase')
+  assert.deepEqual(pick([fale, faleMohe], [PRINTED.faleMohePhrase]), {}, 'the longer entry takes the word; the bare phrase is its own gloss')
+  assert.deepEqual(Object.keys(pick([fale, faleMohe], [PRINTED.faleMohe])), [faleMohe.id])
+  const sleep = rowOf('mohe', 'sleep')
+  assert.deepEqual(Object.keys(pick([sleep, faleMohe], [PRINTED.faleMohe])).sort(), [sleep.id, faleMohe.id].sort(), 'mohe also stands free in that line')
+
   // The meaning must stand in the printed English when the row has a plain sense.
-  const sense = [{ id: 'ko-ia', tongan: 'ko ia', english: 'therefore, that is why', lesson: 3 }]
-  assert.deepEqual(pick(sense, ['*Ko ia pē.* That is all.', "*Ko ia, té u 'alu.* Therefore, I will go."])['ko-ia'].map(pair => pair.english), ['Therefore, I will go.'])
-  // A row from another lesson, a pair outside an examples block, and a line that is not a plain pair are never drawn.
-  assert.deepEqual(selectExamples({ rows: [{ id: 'x', tongan: 'fale', english: 'house', lesson: 4 }], lessons: { 3: lesson(["*Ko e fale 'eni.* This is a house."]) } }), {})
-  assert.deepEqual(pick([{ id: 'uha', tongan: "'uha", english: 'rain', lesson: 3 }], ['*Sai.* Fine.']), {}, 'nothing after Words to Learn is read')
-  assert.equal(lessonExampleLines("*Ko e fale.* A house.\n").length, 0, 'a line outside an examples block is not a pair')
-  assert.equal(lessonExampleLines("::: {.examples}\n*Na'á ke kai?* ↗ Did you eat?\n*Sio ki he fale* *(house).* Look at the house.\n*fále* → *falé na*\n:::\n").length, 0)
-  // At most three, whole sentences before phrases.
-  const many = pick([{ id: 'ika', tongan: 'ika', english: 'fish', lesson: 3 }], ['*ha ika*. a fish', '*Ko e ika.* It is a fish.', '*Kai ika!* Eat fish!', '*Ika lahi.* Big fish.', '*Ko e ika lahi.* It is a big fish.'])
-  assert.deepEqual(many.ika.map(pair => pair.kind), ['sentence', 'sentence', 'sentence'])
+  const koIa = rowOf('ko ia', 'therefore, that is why')
+  assert.deepEqual(pick([koIa], [PRINTED.koIaAll, PRINTED.koIaTherefore])[koIa.id].map(pair => pair.english), ['Therefore, you should stay at home.'])
+
+  // Another lesson's row, a pair after Words to Learn and a line that is not a plain pair are never drawn.
+  assert.deepEqual(selectExamples({ rows: [{ ...fale, lesson: 4 }], lessons: { 3: lesson([PRINTED.fale]) } }), {})
+  const rain = rowOf("'uha", 'rain')
+  assert.deepEqual(Object.keys(pick([rain], [PRINTED.uha])), [rain.id])
+  assert.deepEqual(pick([rain], [PRINTED.hiva], [PRINTED.uha]), {}, 'nothing after Words to Learn is read')
+  assert.equal(lessonExampleLines(`${PRINTED.fale}\n`).length, 0, 'a line outside an examples block is not a pair')
+  assert.equal(lessonExampleLines(`::: {.examples}\n${PRINTED.tone}\n${PRINTED.inlineGloss}\n${PRINTED.arrow}\n:::\n`).length, 0)
+
+  // At most three, whole sentences before phrases, in the lesson's order.
+  const fish = rowOf('ika', 'fish')
+  assert.deepEqual(pick([fish], [PRINTED.ika1, PRINTED.ika2, PRINTED.ika3, PRINTED.ika4])[fish.id].map(pair => pair.tongan), [PRINTED.ika1, PRINTED.ika2, PRINTED.ika3].map(tonganOf))
+  const three = rowOf('tolu', 'three')
+  assert.deepEqual(pick([three], [PRINTED.toluPhrase, PRINTED.toluSentence])[three.id].map(pair => pair.kind), ['sentence', 'phrase'])
+
   // A phrase line that is only the word itself is a gloss, not a use.
-  assert.deepEqual(pick([{ id: 'ika', tongan: 'ika', english: 'fish', lesson: 3 }], ['*ika*. fish', '*ha ika*. a fish']).ika.map(pair => pair.tongan), ['ha ika'])
+  assert.deepEqual(pick([rowOf("tu'unga", 'stand, ladder; rank, status')], [PRINTED.bareWord]), {})
+
   assert.equal(rowWords("-'aki"), null, 'a bound form cannot stand as a whole word')
   assert.equal(rowWords("fe-...-'aki"), null)
   assert.deepEqual(plainSenses("'oku", 'marks a present action/state'), [], 'a meaning that describes a job has nothing to look for')
-  assert.equal(meaningShowsIn(['eat'], 'We ate fish.'), true)
+  assert.equal(meaningShowsIn(['eat'], 'You ate.'), true)
   assert.equal(meaningShowsIn(['therefore', 'that is why'], 'That is all.'), false)
 })
 
