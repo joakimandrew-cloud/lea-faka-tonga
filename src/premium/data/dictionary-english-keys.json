@@ -1,46 +1,16 @@
 {
-  "note": "English words people search for, tied to rows the dictionary already has (DECISIONS.md 2026-11-18, point 2). Search finds the row by the word, and the word gets its own 'How to say ... in Tongan' page. The row's displayed meaning never changes and book-vocabulary.json is not edited. Each row carries its support: the row's own meaning quoted from the data (a test fails if the data no longer says it), or a source and a place in it (a citation, never the source's wording). The same support is in audits/dictionary-search-2026-11-18/additions-evidence.tsv in the project folder.",
   "keys": [
     {
       "english": "hi",
-      "rows": [
-        {
-          "id": "book-v0025",
-          "support": {
-            "source": "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001)",
-            "location": "interjections, entry 9 counting from 1"
-          }
-        }
-      ]
+      "rows": ["book-v0025"]
     },
     {
       "english": "greeting",
-      "rows": [
-        {
-          "id": "book-v0025",
-          "support": {
-            "meaning": "hello, greetings",
-            "part_of_speech": "greeting phrase"
-          }
-        }
-      ]
+      "rows": ["book-v0025"]
     },
     {
       "english": "bye",
-      "rows": [
-        {
-          "id": "book-v0002",
-          "support": {
-            "meaning": "goodbye (to person leaving)"
-          }
-        },
-        {
-          "id": "book-v0035",
-          "support": {
-            "meaning": "goodbye (to person staying)"
-          }
-        }
-      ]
+      "rows": ["book-v0002", "book-v0035"]
     }
   ]
 }

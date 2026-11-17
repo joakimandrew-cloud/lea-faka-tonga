@@ -84,8 +84,8 @@ function wordListEntry(row, theme) {
 }
 
 // An added word (DECISIONS.md 2026-11-18): its own label, no lesson, no
-// sentence. `sources` is the citation the data file records, kept for the
-// checks; the pages do not print it.
+// sentence. The sources that attest it are not in the app's data; they are in
+// scripts/dictionary-evidence.json, which the browser never loads.
 function addedEntry(row) {
   return {
     id: row.id,
@@ -99,7 +99,7 @@ function addedEntry(row) {
     supplemental: false,
     register: '',
     wordList: null,
-    added: { note: ADDED_WORD_LABEL, sources: Array.isArray(row.sources) ? [...row.sources] : [] },
+    added: { note: ADDED_WORD_LABEL },
     alsoInWordLists: [],
     examples: [],
   }

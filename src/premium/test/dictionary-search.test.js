@@ -201,8 +201,11 @@ test('the added words are found, with their label and no lesson link', () => {
   assert.deepEqual(ids(searchDictionaryDetailed(entries, 'tiring').matches), ['add-0001'])
   const hard = ids(searchDictionaryDetailed(entries, 'hard').matches)
   assert.ok(hard.includes('add-0002') && hard.indexOf('book-v0079') < hard.indexOf('add-0002'), 'book-v0079 mālohi stays ahead of the added word')
-  // The bracketed note of a meaning is not searched: "touch" does not find fefeka.
-  assert.equal(ids(searchDictionary(entries, 'touch')).includes('add-0002'), false)
+  // The bracketed note of a meaning is not searched: "physically" finds nothing at all.
+  const bracket = searchDictionaryDetailed(entries, 'physically')
+  assert.deepEqual([bracket.matches.length, bracket.partial.length, bracket.containing.length, bracket.suggestions.length], [0, 0, 0, 0])
+  assert.equal(ids(searchDictionary(entries, 'physical')).includes('add-0002'), false)
+  assert.deepEqual(searchDictionaryDetailed(entries, 'hard physically').fallback, { words: ['hard'], phrase: '' }, 'beside a word that is found, the bracket\'s word still finds nothing')
   // One letter off, a near spelling is offered: never matched silently.
   assert.deepEqual(ids(searchDictionaryDetailed(entries, 'fakahele').suggestions), ['add-0001'])
 })

@@ -15,6 +15,10 @@ export const EXAMPLES_FILE = 'src/premium/data/dictionary-examples.json'
 export const ENGLISH_TSV_FILE = 'src/premium/data/dictionary-english.tsv'
 export const ADDITIONS_FILE = 'src/premium/data/dictionary-additions.json'
 export const ENGLISH_KEYS_FILE = 'src/premium/data/dictionary-english-keys.json'
+// Why each added word and each English search word is in the dictionary: the
+// sources and the support. Read by scripts and tests only; the app never
+// imports it, so none of it is in what a browser loads.
+export const EVIDENCE_FILE = 'scripts/dictionary-evidence.json'
 
 const readJson = (root, file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
 
@@ -31,6 +35,26 @@ export function readDictionarySources(root = APP_ROOT) {
     englishKeys: readJson(root, ENGLISH_KEYS_FILE),
     chapters: readJson(root, 'src/data/chapters.json'),
   }
+}
+
+export function readDictionaryEvidence(root = APP_ROOT) {
+  return readJson(root, EVIDENCE_FILE)
+}
+
+// Every string of the evidence file that names a source or a place in one, or
+// explains the file: the note, each citation of an added word, and the source
+// and location of an English search word's support. A support that quotes a
+// row's own meaning is the site's own data and is not in this list. None of
+// these may be in the built site (check-dictionary-pages.mjs).
+export function evidenceStrings(evidence) {
+  const strings = []
+  if (evidence?.note) strings.push(evidence.note)
+  for (const item of evidence?.additions || []) strings.push(...(item.sources || []))
+  for (const item of evidence?.englishKeys || []) {
+    if (item.support?.source) strings.push(item.support.source)
+    if (item.support?.location) strings.push(item.support.location)
+  }
+  return [...new Set(strings.map(text => String(text).trim()).filter(Boolean))]
 }
 
 export function readLessons(root = APP_ROOT) {

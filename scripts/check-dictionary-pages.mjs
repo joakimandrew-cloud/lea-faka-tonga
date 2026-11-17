@@ -28,6 +28,11 @@
 //     the app's book/Chapter-*.md
 //     (a plain typing is allowed when it is the plain form of such a string)
 //   - /dictionary's static body links to every word page
+//   - nothing about sources is in what a browser loads: no string of
+//     scripts/dictionary-evidence.json that names a source or a place in one
+//     (its note, each citation, each support's source and location) is in any
+//     text file under dist/, and the app's two data files hold only the
+//     fields a page shows
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -36,7 +41,7 @@ import { okinafy } from '../src/lib/okinafy.js'
 import { DICTIONARY_GROUPS, foldSearchKey } from '../src/premium/lib/course-dictionary.js'
 import { ADDED_WORD_LABEL, englishKeyList } from '../src/premium/lib/dictionary-additions.js'
 import { englishSlug } from '../src/premium/lib/dictionary-text.js'
-import { APP_ROOT, chapterFile, loadDictionaryIndex, readDictionarySources } from './lib/dictionary-data.mjs'
+import { ADDITIONS_FILE, APP_ROOT, ENGLISH_KEYS_FILE, chapterFile, evidenceStrings, loadDictionaryIndex, readDictionaryEvidence, readDictionarySources } from './lib/dictionary-data.mjs'
 
 const DIST = path.join(APP_ROOT, 'dist')
 const ROOT_OPEN = '<!-- prerender:root -->'
@@ -72,6 +77,7 @@ const escHtml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replac
 
 const index = loadDictionaryIndex()
 const { vocabulary, wordLists, additions, englishKeys } = readDictionarySources()
+const evidence = readDictionaryEvidence()
 
 if (!fs.existsSync(DIST)) {
   console.log('FAIL  dist/ does not exist: run npm run build first')
@@ -167,12 +173,12 @@ for (const row of additions.entries) {
   if (!entry) { addedProblems.push(`${row.id}: no entry`); continue }
   if (entry.kind !== 'added' || entry.lesson || entry.examples.length || entry.wordList) addedProblems.push(`${row.id}: not a plain added entry`)
   if (entry.tongan !== row.tongan || entry.english !== row.english || entry.partOfSpeech !== row.part_of_speech) addedProblems.push(`${row.id}: the entry is not the data's own`)
-  if (!Array.isArray(row.sources) || row.sources.length < 2) addedProblems.push(`${row.id}: fewer than two sources cited`)
+  const cited = (evidence.additions || []).filter((item) => item.id === row.id)
+  if (cited.length !== 1 || !Array.isArray(cited[0].sources) || cited[0].sources.length < 2) addedProblems.push(`${row.id}: the evidence file does not cite two sources for it`)
   const body = bodyOf(read(path.join(DIST, `${page.path}.html`)))
   if (!body.includes(`>${escHtml(ADDED_WORD_LABEL)}</dd>`)) addedProblems.push(`${row.id}: ${page.path} does not carry the label`)
   if (!body.includes(escHtml(row.english))) addedProblems.push(`${row.id}: ${page.path} does not show the meaning`)
   if (page.entries.every((e) => e.kind === 'added') && body.includes('href="/lessons/')) addedProblems.push(`${row.id}: ${page.path} links to a lesson`)
-  for (const cite of row.sources || []) if (body.includes(escHtml(cite))) addedProblems.push(`${row.id}: ${page.path} prints a source citation`)
 }
 none('each added word\'s page carries its label, its meaning, no lesson link and no sentence', additions.entries.length, addedProblems)
 const keyList = englishKeyList(englishKeys)
@@ -297,6 +303,50 @@ const hubLinks = new Set([...hubBody.matchAll(/href="([^"]+)"/g)].map((m) => m[1
 none('/dictionary\'s static body links to every word page', index.pages.length, index.pages.filter((p) => !hubLinks.has(p.path)).map((p) => p.path))
 none('/dictionary\'s static body has exactly one <h1>', 1, (hubBody.match(/<h1\b/g) || []).length === 1 ? [] : ['not one'])
 none('/dictionary links to /word-lists', 1, hubLinks.has('/word-lists') ? [] : ['missing'])
+
+// ---- 8. nothing about sources in what a browser loads -------------------------
+// The app's two data files hold only what a page shows or search needs.
+const shape = []
+const sameKeys = (object, keys) => JSON.stringify(Object.keys(object).sort()) === JSON.stringify([...keys].sort())
+const rawAdditions = JSON.parse(read(path.join(APP_ROOT, ADDITIONS_FILE)))
+const rawKeys = JSON.parse(read(path.join(APP_ROOT, ENGLISH_KEYS_FILE)))
+if (!sameKeys(rawAdditions, ['entries'])) shape.push(`${ADDITIONS_FILE}: top-level fields ${Object.keys(rawAdditions).join(', ')}`)
+for (const row of rawAdditions.entries || []) if (!sameKeys(row, ['id', 'tongan', 'english', 'part_of_speech'])) shape.push(`${ADDITIONS_FILE}: ${row.id} has fields ${Object.keys(row).join(', ')}`)
+if (!sameKeys(rawKeys, ['keys'])) shape.push(`${ENGLISH_KEYS_FILE}: top-level fields ${Object.keys(rawKeys).join(', ')}`)
+for (const key of rawKeys.keys || []) {
+  if (!sameKeys(key, ['english', 'rows']) || !Array.isArray(key.rows) || key.rows.some((id) => typeof id !== 'string')) shape.push(`${ENGLISH_KEYS_FILE}: "${key.english}" holds more than the word and its row ids`)
+}
+none('the app\'s two data files hold only the fields a page shows', (rawAdditions.entries || []).length + (rawKeys.keys || []).length + 2, shape)
+// Every tie of the app's file has its support in the evidence file, and no other is recorded.
+const tiesInApp = keyList.map((key) => `${key.english} ${key.rowId}`).sort()
+const tiesInEvidence = (evidence.englishKeys || []).map((item) => `${item.english} ${item.row}`).sort()
+none('every English search word has its support in the evidence file, and only those', tiesInApp.length, JSON.stringify(tiesInApp) === JSON.stringify(tiesInEvidence) ? [] : [`app: ${tiesInApp.join(' | ')}; evidence: ${tiesInEvidence.join(' | ')}`])
+// The strings to look for, and every text file of the built site.
+const needles = evidenceStrings(evidence)
+counted('evidence strings to look for in dist/ (the note, citations, support sources and places)', needles.length)
+none('each evidence string is long enough to be told from ordinary text', needles.length, needles.filter((text) => text.length < 20))
+const TEXT_FILE = /\.(?:html|js|mjs|css|json|xml|txt|svg|map|tsv|csv|md|webmanifest)$/
+const textFiles = []
+const walkText = (dir) => {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name)
+    if (entry.isDirectory()) walkText(full)
+    else if (TEXT_FILE.test(entry.name)) textFiles.push(full)
+  }
+}
+walkText(DIST)
+// A string may be in a file as it is, as HTML, or as a JSON or JavaScript string.
+const forms = (text) => [...new Set([text, escHtml(text), JSON.stringify(text).slice(1, -1), text.replaceAll("'", "\\'")])]
+const needleForms = needles.map((text) => ({ text, forms: forms(text) }))
+const leaks = []
+for (const file of textFiles) {
+  const body = read(file)
+  for (const needle of needleForms) {
+    if (needle.forms.some((form) => body.includes(form))) leaks.push(`${path.relative(DIST, file)} holds "${needle.text.slice(0, 60)}${needle.text.length > 60 ? '...' : ''}"`)
+  }
+}
+counted('text files read under dist/', textFiles.length)
+none('no evidence string (note, citation, support source or place) is in any file under dist/', textFiles.length, leaks)
 
 console.log(failures ? `\n${failures} check(s) failed` : `\nall checks passed (${total} dictionary pages: ${index.pages.length} word, ${index.english.length} English)`)
 process.exit(failures ? 1 : 0)

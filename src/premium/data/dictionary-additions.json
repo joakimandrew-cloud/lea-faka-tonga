@@ -1,26 +1,16 @@
 {
-  "note": "Words added to the website dictionary because people search for them (DECISIONS.md 2026-11-18, point 1). A word comes in only when at least two sources attest its spelling and its sense; the meaning is written in our own words and covers only the sense two sources share. The sources field is a citation (source and place), never a source's wording. One row per source for each word is in audits/dictionary-search-2026-11-18/additions-evidence.tsv in the project folder. These words are never in book-vocabulary.json.",
   "entries": [
     {
       "id": "add-0001",
       "tongan": "fakahela",
       "english": "tiring, wearying",
-      "part_of_speech": "adjective",
-      "sources": [
-        "Churchward, Tongan Dictionary (1959), p. 43, headword fakahela",
-        "Shumway, Intensive Course in Tongan, Glossary, p. 654, fakahela"
-      ]
+      "part_of_speech": "adjective"
     },
     {
       "id": "add-0002",
       "tongan": "fefeka",
-      "english": "hard, stiff (firm to the touch)",
-      "part_of_speech": "adjective",
-      "sources": [
-        "Churchward, Tongan Dictionary (1959), p. 151, headword fefeka",
-        "Shumway, Intensive Course in Tongan, Glossary, p. 660, fefeka",
-        "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001), adjectives, entries 171 and 385 counting from 1"
-      ]
+      "english": "hard (physically), stiff",
+      "part_of_speech": "adjective"
     }
   ]
 }

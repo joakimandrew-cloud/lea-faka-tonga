@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import {
-  APP_ROOT, ENGLISH_TSV_FILE, EXAMPLES_FILE, chapterFile, drawExamples, englishTsvText, examplesFileText, loadDictionaryIndex, readDictionarySources,
+  ADDITIONS_FILE, APP_ROOT, ENGLISH_KEYS_FILE, ENGLISH_TSV_FILE, EVIDENCE_FILE, EXAMPLES_FILE, chapterFile, drawExamples, englishTsvText, evidenceStrings, examplesFileText, loadDictionaryIndex, readDictionaryEvidence, readDictionarySources,
 } from '../../../scripts/lib/dictionary-data.mjs'
 import { lessonExampleLines, meaningShowsIn, plainSenses, rowWords, selectExamples } from '../lib/dictionary-examples.js'
 import { ADDED_WORD_LABEL, englishKeyList } from '../lib/dictionary-additions.js'
@@ -17,6 +17,9 @@ import { DICTIONARY_PAGE_PATH, DICTIONARY_TITLE_MAX, dictionaryPageMeta, metaFor
 
 const read = file => fs.readFileSync(path.join(APP_ROOT, file), 'utf8')
 const { vocabulary, wordLists, additions, englishKeys } = readDictionarySources()
+// Why each added word and each English search word is there: read by scripts
+// and tests only, never by the app.
+const evidence = readDictionaryEvidence()
 const index = loadDictionaryIndex()
 const storedExamples = JSON.parse(read(EXAMPLES_FILE)).examples
 const courseById = new Map(vocabulary.map(row => [row.id, row]))
@@ -374,7 +377,8 @@ test('titles and descriptions come from one function, hold the word, and are uni
   assert.equal(metaForPath('/dictionary').title, STATIC_META['/dictionary'].title)
 })
 
-// DECISIONS.md 2026-11-18, point 1: fakahela and fefeka. Evidence for each is in
+// DECISIONS.md 2026-11-18, point 1: fakahela and fefeka. The sources of each are
+// cited in scripts/dictionary-evidence.json; one row per source is in
 // audits/dictionary-search-2026-11-18/additions-evidence.tsv in the project folder.
 test('the added words: their own data file, their own pages, a label, no lesson and no sentence', () => {
   assert.deepEqual(additions.entries.map(row => [row.id, row.tongan]), [['add-0001', 'fakahela'], ['add-0002', 'fefeka']])
@@ -387,8 +391,13 @@ test('the added words: their own data file, their own pages, a label, no lesson 
     assert.equal(spelled.has(row.tongan.toLowerCase()), false, `${row.tongan} is not already a row of the course list or a word list`)
     assert.ok(labels.has(row.part_of_speech), `${row.id}: "${row.part_of_speech}" is a label the course data already uses`)
     assert.ok(row.english && row.english.length <= 40, `${row.id} has a short meaning`)
-    assert.ok(Array.isArray(row.sources) && row.sources.length >= 2, `${row.id} cites at least two sources`)
-    for (const cite of row.sources) assert.match(cite, /^(?:Churchward, Tongan Dictionary \(1959\), p\. \d+|Shumway, Intensive Course in Tongan, Glossary, p\. \d+|EALD Bilingual Dictionary for ESL Beginners \(NSW Dept of Education, 2001\), )/, `${row.id}: a citation names the source and the place`)
+    assert.deepEqual(Object.keys(row).sort(), ['english', 'id', 'part_of_speech', 'tongan'], `${row.id} holds only what its page shows`)
+    const cited = evidence.additions.filter(item => item.id === row.id)
+    assert.equal(cited.length, 1, `${row.id} has one record in the evidence file`)
+    const { sources } = cited[0]
+    assert.ok(Array.isArray(sources) && sources.length >= 2, `${row.id} cites at least two sources`)
+    for (const cite of sources) assert.ok(cite.endsWith(` ${row.tongan}`) || cite.includes(', adjectives, entries '), `${row.id}: "${cite}" names the word or the entries`)
+    for (const cite of sources) assert.match(cite, /^(?:Churchward, Tongan Dictionary \(1959\), p\. \d+|Shumway, Intensive Course in Tongan, Glossary, p\. \d+|EALD Bilingual Dictionary for ESL Beginners \(NSW Dept of Education, 2001\), )/, `${row.id}: a citation names the source and the place`)
     assert.equal(vocabulary.some(item => item.id === row.id || item.tongan === row.tongan), false, 'an added word is never in book-vocabulary.json')
   }
   const fakahela = index.pageBySlug.get('fakahela')
@@ -396,12 +405,17 @@ test('the added words: their own data file, their own pages, a label, no lesson 
   assert.deepEqual([fakahela.entries[0].kind, fakahela.entries[0].english, fakahela.entries[0].partOfSpeech], ['added', 'tiring, wearying', 'adjective'])
   assert.deepEqual([fakahela.sameLesson, fakahela.sameWordList], [[], []])
   const fefeka = index.pageBySlug.get('fefeka')
-  assert.deepEqual([fefeka.entries[0].kind, fefeka.entries[0].english, fefeka.entries[0].alsoTyped], ['added', 'hard, stiff (firm to the touch)', ''])
+  assert.deepEqual([fefeka.entries[0].kind, fefeka.entries[0].english, fefeka.entries[0].alsoTyped], ['added', 'hard (physically), stiff', ''])
+  assert.equal(dictionaryPageMeta(fefeka).title, 'fefeka meaning: hard (physically), stiff | Tongan Dictionary')
+  assert.deepEqual(evidence.additions.map(item => item.id), additions.entries.map(row => row.id), 'the evidence file has a record for every added word and no other')
   // Their English pages, from the meanings as written: the bracketed note gives none.
   assert.deepEqual(fakahela.entries[0].englishPages.map(page => page.headword), ['tiring', 'wearying'])
   assert.deepEqual(fefeka.entries[0].englishPages.map(page => page.headword), ['hard', 'stiff'])
   assert.deepEqual(index.englishBySlug.get('hard').entries.map(entry => entry.id), ['book-v0079', 'add-0002'], 'fefeka joins the page mālohi already gave')
-  assert.equal(index.englishBySlug.has('firm-to-the-touch'), false)
+  // Nothing indexes the bracket: no English page of its own, alone or with a word beside it.
+  assert.equal(index.english.some(page => page.entries.some(entry => entry.id === 'add-0002') && !['hard', 'stiff'].includes(page.slug)), false)
+  assert.equal(index.english.some(page => /physical/i.test(page.headword)), false)
+  assert.equal(fefeka.entries[0].added.sources, undefined, 'an entry of the index carries no citation')
   // The label is in the description, and the page sits in dictionary order.
   assert.equal(dictionaryPageMeta(fakahela).title, 'fakahela meaning: tiring, wearying | Tongan Dictionary')
   assert.equal(dictionaryPageMeta(fakahela).description, 'fakahela in Tongan: tiring, wearying. Part of speech: adjective. Added word, not taught in the lessons.')
@@ -423,7 +437,12 @@ test('the added words: their own data file, their own pages, a label, no lesson 
 test('English search words are tied to rows the dictionary already has, each with its support, and change no meaning', () => {
   const list = englishKeyList(englishKeys)
   assert.deepEqual(list.map(key => `${key.english} ${key.rowId}`), ['hi book-v0025', 'greeting book-v0025', 'bye book-v0002', 'bye book-v0035'])
-  for (const { english, rowId, support } of list) {
+  // The app's file holds the word and its row ids; the support of each tie is in the evidence file.
+  assert.deepEqual(Object.keys(englishKeys), ['keys'])
+  for (const key of englishKeys.keys) assert.deepEqual([Object.keys(key).sort(), key.rows.every(id => typeof id === 'string')], [['english', 'rows'], true])
+  assert.deepEqual(evidence.englishKeys.map(item => `${item.english} ${item.row}`), list.map(key => `${key.english} ${key.rowId}`), 'every tie has its support recorded, and no other tie is recorded')
+  for (const { english, rowId } of list) {
+    const { support } = evidence.englishKeys.find(item => item.english === english && item.row === rowId)
     const row = courseById.get(rowId)
     assert.ok(row, `${english}: ${rowId} is a row of the course list`)
     assert.match(english, /^[a-z]+(?: [a-z]+){0,2}$/, `${english} is one to three plain words`)
@@ -460,8 +479,31 @@ test('English search words are tied to rows the dictionary already has, each wit
   assert.deepEqual(['hi', 'greeting', 'bye'].map(word => without.englishBySlug.has(word)), [false, false, false])
   assert.equal(index.english.length - without.english.length, 3)
   // A tie to a row that is not there is refused.
-  assert.throws(() => buildDictionaryIndex({ ...rest, englishKeys: { keys: [{ english: 'hi', rows: [{ id: 'book-v9999' }] }] }, examples: storedExamples }), /not an entry/)
+  assert.throws(() => buildDictionaryIndex({ ...rest, englishKeys: { keys: [{ english: 'hi', rows: ['book-v9999'] }] }, examples: storedExamples }), /not an entry/)
   assert.equal(vocabulary.some(row => /\bhi\b|\bbye\b/i.test(row.english)), false, 'book-vocabulary.json is not edited: no row has "hi" or "bye" as a word')
+})
+
+test('nothing about sources is in the files the app loads; it is in a file only scripts and tests read', () => {
+  // The strings that name a source or a place in one: the note, each citation, each support's source and location.
+  const strings = evidenceStrings(evidence)
+  assert.ok(strings.length >= 8, `there are strings to look for (${strings.length})`)
+  assert.ok(strings.includes(evidence.note) && strings.some(text => text.startsWith('Churchward, Tongan Dictionary (1959), p. 43')) && strings.includes('interjections, entry 9 counting from 1'))
+  assert.equal(strings.includes('hello, greetings'), false, 'a row\'s own meaning is the site\'s data, not evidence to keep out')
+  // The two data files the app imports, as they are on disk.
+  for (const file of [ADDITIONS_FILE, ENGLISH_KEYS_FILE]) {
+    const text = read(file)
+    for (const needle of strings) assert.equal(text.includes(needle), false, `${file} holds "${needle.slice(0, 50)}"`)
+    assert.doesNotMatch(text, /Churchward|Shumway|EALD|audits\/|"note"|"sources"|"support"|"source"|"location"/, `${file} names no source and carries no note`)
+  }
+  assert.deepEqual(Object.keys(additions), ['entries'])
+  // No file under src/ reads the evidence file: only scripts/ and the tests do.
+  const srcFiles = fs.readdirSync(path.join(APP_ROOT, 'src'), { recursive: true }).filter(name => /\.(?:jsx?|mjs|tsx?)$/.test(name) && !/\.test\.js$/.test(name))
+  assert.ok(srcFiles.length > 100)
+  const readers = srcFiles.filter(name => read(path.join('src', name)).split('\n').some(line => line.includes('dictionary-evidence') && !/^\s*(?:\/\/|\*|\/\*)/.test(line)))
+  assert.deepEqual(readers, [], 'the app never imports the evidence file')
+  assert.equal(EVIDENCE_FILE, 'scripts/dictionary-evidence.json')
+  // The check can fail: a citation put back into the app's data would be found.
+  assert.equal(JSON.stringify({ ...additions.entries[0], sources: evidence.additions[0].sources }).includes(strings[1]), true)
 })
 
 test('the index is the same whether a script or the site builds it, and changes no data', () => {

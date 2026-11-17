@@ -9,6 +9,12 @@
 //     never changes; the word only helps search find the row and gives the
 //     word its own "How to say ... in Tongan" page.
 //
+// Both files hold only what a page shows or search needs: id, tongan, english
+// and part_of_speech for an added word; the English word and its row ids for a
+// search word. Why each one is there (the sources, the support) is kept out of
+// what the browser loads, in scripts/dictionary-evidence.json, which only node
+// scripts and tests read.
+//
 // Pure, like word-lists.js: no React and no data imports.
 
 import { foldSearchKey } from './course-dictionary.js'
@@ -41,14 +47,14 @@ export function buildAdditionSearchEntries(data) {
     .sort((a, b) => a.tonganKey.localeCompare(b.tonganKey) || String(a.id).localeCompare(String(b.id)))
 }
 
-// The English search words as a flat list: [{ english, rowId, support }].
+// The English search words as a flat list: [{ english, rowId }].
 export function englishKeyList(data) {
   const list = []
   for (const key of Array.isArray(data?.keys) ? data.keys : []) {
     const english = String(key?.english || '').replace(/\s+/g, ' ').trim()
     if (!english) continue
-    for (const row of Array.isArray(key.rows) ? key.rows : []) {
-      if (row?.id) list.push({ english, rowId: row.id, support: row.support || {} })
+    for (const rowId of Array.isArray(key.rows) ? key.rows : []) {
+      if (typeof rowId === 'string' && rowId) list.push({ english, rowId })
     }
   }
   return list

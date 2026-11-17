@@ -1,0 +1,52 @@
+{
+  "note": "Read by node scripts and tests only; never imported by the app, so nothing here is in what a browser loads (check:dictionary proves it against dist). It records why each added word and each English search word is in the dictionary (DECISIONS.md 2026-11-18): for an added word, the sources that attest it, as a citation and never a source's wording; for an English search word, the row's own meaning quoted from the data, or a source and a place in it. One row per source for each item is in audits/dictionary-search-2026-11-18/additions-evidence.tsv in the project folder.",
+  "additions": [
+    {
+      "id": "add-0001",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 43, headword fakahela",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 654, fakahela"
+      ]
+    },
+    {
+      "id": "add-0002",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 151, headword fefeka",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 660, fefeka",
+        "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001), adjectives, entries 171 and 385 counting from 1"
+      ]
+    }
+  ],
+  "englishKeys": [
+    {
+      "english": "hi",
+      "row": "book-v0025",
+      "support": {
+        "source": "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001)",
+        "location": "interjections, entry 9 counting from 1"
+      }
+    },
+    {
+      "english": "greeting",
+      "row": "book-v0025",
+      "support": {
+        "meaning": "hello, greetings",
+        "part_of_speech": "greeting phrase"
+      }
+    },
+    {
+      "english": "bye",
+      "row": "book-v0002",
+      "support": {
+        "meaning": "goodbye (to person leaving)"
+      }
+    },
+    {
+      "english": "bye",
+      "row": "book-v0035",
+      "support": {
+        "meaning": "goodbye (to person staying)"
+      }
+    }
+  ]
+}
