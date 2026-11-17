@@ -1,5 +1,6 @@
 import { okinafy } from '@app/lib/okinafy.js'
 import { Link } from 'react-router-dom'
+import { searchAddress } from '../lib/dictionary-address.js'
 
 // Pieces shared by /dictionary, the word pages and the English pages
 // (plan 2026-11-18-dictionary-search-and-word-pages). Every Tongan string and
@@ -79,7 +80,7 @@ export function DictionaryMissing({ typed }) {
         </div>
       </header>
       <div className="wrap catalog-body">
-        <Link className="btn btn-primary" to={typed ? `/dictionary?q=${encodeURIComponent(typed.replace(/-/g, ' '))}` : '/dictionary'}>Search the dictionary</Link>
+        <Link className="btn btn-primary" to={typed ? searchAddress(typed.replace(/-/g, ' ')) : '/dictionary'}>Search the dictionary</Link>
       </div>
     </div>
   )

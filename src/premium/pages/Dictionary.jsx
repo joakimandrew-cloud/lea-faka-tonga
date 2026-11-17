@@ -1,7 +1,8 @@
 import { useDeferredValue, useMemo, useRef, useState } from 'react'
-import { Link, useNavigationType, useSearchParams } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { SearchRow } from '../components/DictionaryBits.jsx'
 import { DICTIONARY_GROUPS, browseDictionary, searchDictionaryDetailed } from '../lib/course-dictionary.js'
+import { readSearchAddress, searchAddressHash } from '../lib/dictionary-address.js'
 import { COURSE_ENTRIES as ENTRIES, DICTIONARY, SEARCH_ENTRIES } from '../lib/dictionary-data.js'
 import { englishSlug, normaliseSense } from '../lib/dictionary-text.js'
 import { useTitle } from '../lib/title.js'
@@ -19,44 +20,42 @@ import '../styles/dictionary.css'
 //
 // Since plan 2026-11-18-dictionary-search-and-word-pages the search forgives
 // typing (see course-dictionary.js), every result opens its own word page, and
-// the search lives in the address (?q=, or ?letter= for the letters) so it can
-// be linked and Back returns to it.
+// the search lives in the address so it can be linked and Back returns to it.
+// It lives in the fragment (#q=faifekau, #letter=ng) and never in the query
+// string: the analytics script sends the query string with every count, and a
+// fragment is sent nowhere. See ../lib/dictionary-address.js.
 const letterLabel = letter => letter === 'ng' ? 'Ng' : letter.toUpperCase()
 const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`
 const quoted = (words, joiner) => words.map(word => `“${word}”`).join(` ${joiner} `)
 
-function readAddress(params) {
-  const q = params.get('q') || ''
-  const letter = !q.trim() && DICTIONARY_GROUPS.includes(params.get('letter')) ? params.get('letter') : ''
-  return { q, letter, key: `${q}|${letter}` }
-}
-
 export default function Dictionary() {
   useTitle('Dictionary')
   const searchRef = useRef(null)
-  const [params, setParams] = useSearchParams()
-  const navigationType = useNavigationType()
-  const address = readAddress(params)
+  const location = useLocation()
+  const address = readSearchAddress(location.hash, DICTIONARY_GROUPS)
   const [query, setQuery] = useState(address.q)
   const [letter, setLetter] = useState(address.letter)
-  // The address this page last wrote or took up. When Back, Forward or a link
-  // changes the address, the page follows it; its own writes (REPLACE) never
+  // The router's location changes only when something navigates: Back,
+  // Forward, a link, a fragment pasted or edited in the address bar. Then the
+  // page follows the address. (The key alone is not enough: a fragment changed
+  // in the address bar keeps the entry's key.) Its own writes below go straight
+  // to the history entry and never pass through the router, so they cannot
   // feed back into the box while someone is typing.
-  const [adopted, setAdopted] = useState(address.key)
-  if (navigationType !== 'REPLACE' && adopted !== address.key) {
-    setAdopted(address.key)
+  const arrival = `${location.key} ${location.hash}`
+  const [followed, setFollowed] = useState(arrival)
+  if (followed !== arrival) {
+    setFollowed(arrival)
     setQuery(address.q)
     setLetter(address.letter)
   }
 
+  // Shows a search or a letter and writes it into the fragment of the current
+  // history entry. The path is written without any query string, so nothing
+  // typed here is ever in location.search.
   const show = (nextQuery, nextLetter) => {
     setQuery(nextQuery)
     setLetter(nextLetter)
-    const next = new URLSearchParams()
-    if (nextQuery.trim()) next.set('q', nextQuery)
-    else if (nextLetter) next.set('letter', nextLetter)
-    setAdopted(`${nextQuery.trim() ? nextQuery : ''}|${nextQuery.trim() ? '' : nextLetter}`)
-    setParams(next, { replace: true, preventScrollReset: true })
+    window.history.replaceState(window.history.state, '', `${window.location.pathname}${searchAddressHash(nextQuery, nextLetter)}`)
   }
 
   const deferredQuery = useDeferredValue(query)
