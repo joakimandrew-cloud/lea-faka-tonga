@@ -265,15 +265,83 @@ export function drillDescription(catalogTitle, blurb) {
   return DEFAULT_DESCRIPTION
 }
 
+// ---------------------------------------------------------------------------
+// The dictionary's word pages (/dictionary/<slug>) and English pages
+// (/dictionary/english/<slug>), plan 2026-11-18-dictionary-search-and-word-pages.
+//
+// One function, dictionaryPageMeta(page), used by the React pages and by the
+// prerenderer. `page` is a page object from buildDictionaryIndex() in
+// src/premium/lib/dictionary-pages.js. Every string below is built from the
+// page's own fields (the word as displayed, the meaning and part of speech as
+// the data has them, the lesson title); nothing is written about a word here.
+
+export const DICTIONARY_PAGE_PATH = /^\/dictionary\/(?:english\/)?[a-z0-9-]+$/
+export const DICTIONARY_TITLE_MAX = 60
+const DICTIONARY_TITLE_TAIL = ' | Tongan Dictionary'
+
+// The word with its marks and the word "meaning"; the meaning itself when the
+// whole title still fits in about 60 characters.
+export function dictionaryWordTitle(page) {
+  const word = page.words.join(', ')
+  if (page.words.length === 1) {
+    const meanings = [...new Set(page.entries.map(entry => entry.english))].join('; ')
+    const full = `${word} meaning: ${meanings}${DICTIONARY_TITLE_TAIL}`
+    if (meanings && full.length <= DICTIONARY_TITLE_MAX) return full
+  }
+  return `${word} meaning${DICTIONARY_TITLE_TAIL}`
+}
+
+function dictionaryEntryPlace(entry) {
+  if (entry.lesson) return `Taught in ${entry.lesson.label}.`
+  if (entry.wordList) return `${entry.wordList.note}.`
+  return 'In the course word list, not tied to one lesson.'
+}
+
+export function dictionaryWordDescription(page) {
+  if (page.entries.length === 1) {
+    const [entry] = page.entries
+    const parts = [`${entry.display} in Tongan: ${entry.english}.`]
+    if (entry.partOfSpeech) parts.push(`Part of speech: ${entry.partOfSpeech}.`)
+    if (entry.register) parts.push(`Label: ${entry.register}.`)
+    parts.push(dictionaryEntryPlace(entry))
+    return clamp(parts.join(' '), 220)
+  }
+  const list = page.entries.map(entry => `${entry.display}: ${entry.english}`).join('; ')
+  return clamp(`Tongan words typed “${page.typed}”, ${page.entries.length} entries. ${list}.`, 220)
+}
+
+export function dictionaryEnglishTitle(page) {
+  return `How to say ${page.headword} in Tongan | ${SITE_NAME}`
+}
+
+export function dictionaryEnglishDescription(page) {
+  const words = [...new Set(page.entries.map(entry => entry.display))]
+  const shown = words.slice(0, 5).join(', ')
+  const more = words.length > 5 ? `, and ${words.length - 5} more` : ''
+  return clamp(`How to say “${page.headword}” in Tongan: ${shown}${more}. Each word shows its full meaning, its part of speech and the lesson that teaches it.`, 220)
+}
+
+export function dictionaryPageMeta(page) {
+  return page.kind === 'english'
+    ? { title: dictionaryEnglishTitle(page), description: dictionaryEnglishDescription(page) }
+    : { title: dictionaryWordTitle(page), description: dictionaryWordDescription(page) }
+}
+
 // Normalise a pathname the way both the router and the prerenderer see it.
 export function normalisePath(pathname) {
   return (pathname || '/').replace(/\/+$/, '') || '/'
 }
 
-// Resolve a pathname to { title, description }. `tables` supplies the two
+// Resolve a pathname to { title, description }. `tables` supplies the
 // lookups this module deliberately does not import:
-//   chapters: { [num]: { title, summary } }
-//   drills:   { [id]: { title, blurb } }
+//   chapters:   { [num]: { title, summary } }
+//   drills:     { [id]: { title, blurb } }
+//   dictionary: (path) => a dictionary page object, or null. The prerenderer
+//               passes it. The browser does not (the word data is not in the
+//               first bundle): there the answer carries pageOwned: true, and
+//               the page sets its own title once its data has loaded
+//               (usePageMeta in src/premium/lib/title.js), so RouteChrome
+//               leaves the prerendered title alone.
 export function metaForPath(pathname, tables = {}) {
   const path = normalisePath(pathname)
   const chapters = tables.chapters || {}
@@ -282,6 +350,13 @@ export function metaForPath(pathname, tables = {}) {
   if (STATIC_META[path]) {
     const { title, description } = STATIC_META[path]
     return { title, description }
+  }
+
+  if (DICTIONARY_PAGE_PATH.test(path)) {
+    const page = tables.dictionary ? tables.dictionary(path) : null
+    if (page) return dictionaryPageMeta(page)
+    const { title, description } = STATIC_META['/dictionary']
+    return { title, description, pageOwned: true }
   }
 
   let m = path.match(/^\/lessons\/(\d+)$/)

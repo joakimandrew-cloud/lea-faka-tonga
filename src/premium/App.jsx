@@ -26,6 +26,9 @@ const Help = lazy(() => import('./pages/Help.jsx'))
 // A suggested first pass through the course (plan 2026-11-13-start-here-page).
 const StartHere = lazy(() => import('./pages/StartHere.jsx'))
 const Dictionary = lazy(() => import('./pages/Dictionary.jsx'))
+// A page for every word and for every English headword (plan 2026-11-18-dictionary-search-and-word-pages).
+const DictionaryWord = lazy(() => import('./pages/DictionaryWord.jsx'))
+const DictionaryEnglish = lazy(() => import('./pages/DictionaryEnglish.jsx'))
 const WordLists = lazy(() => import('./pages/WordLists.jsx'))
 const ReportIssue = lazy(() => import('./pages/ReportIssue.jsx'))
 const Keepers = lazy(() => import('./pages/Keepers.jsx'))
@@ -129,6 +132,8 @@ export default function App() {
           <Route path="/questions" element={<Page><TopicArticle /></Page>} />
           <Route path="/grammar/*" element={<Page><TopicArticle /></Page>} />
           <Route path="/dictionary" element={<Page><Dictionary /></Page>} />
+          <Route path="/dictionary/english/:slug" element={<Page><DictionaryEnglish /></Page>} />
+          <Route path="/dictionary/:slug" element={<Page><DictionaryWord /></Page>} />
           <Route path="/word-lists" element={<Page><WordLists /></Page>} />
           <Route path="/help" element={<Page><Help /></Page>} />
           <Route path="/start-here" element={<Page><StartHere /></Page>} />

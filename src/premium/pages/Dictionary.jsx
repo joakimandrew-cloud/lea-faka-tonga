@@ -1,10 +1,9 @@
-import { okinafy } from '@app/lib/okinafy.js'
 import { useDeferredValue, useMemo, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
-import vocabulary from '@app/data/book-vocabulary.json'
-import wordListData from '../data/word-lists.json'
-import { DICTIONARY_GROUPS, browseDictionary, buildDictionary, searchDictionary } from '../lib/course-dictionary.js'
-import { buildWordListSearchEntries } from '../lib/word-lists.js'
+import { Link, useNavigationType, useSearchParams } from 'react-router-dom'
+import { SearchRow } from '../components/DictionaryBits.jsx'
+import { DICTIONARY_GROUPS, browseDictionary, searchDictionaryDetailed } from '../lib/course-dictionary.js'
+import { COURSE_ENTRIES as ENTRIES, DICTIONARY, SEARCH_ENTRIES } from '../lib/dictionary-data.js'
+import { englishSlug, normaliseSense } from '../lib/dictionary-text.js'
 import { useTitle } from '../lib/title.js'
 import '../styles/catalog.css'
 import '../styles/dictionary.css'
@@ -13,22 +12,64 @@ import '../styles/dictionary.css'
 // the parked paid-access page (private/practice-access/app, commit daae4af) under
 // the 2026-09-27 ruling "B reached through A": course list only, glosses as the
 // list has them, no EALD or Churchward text.
-const ENTRIES = buildDictionary(vocabulary)
+//
 // Word-list words (DECISIONS.md 2026-09-29) join the search only, after the
 // course words and with their own label; browsing and the full list stay the
 // course's own 649 words.
-const SEARCH_ENTRIES = [...ENTRIES, ...buildWordListSearchEntries(wordListData)]
+//
+// Since plan 2026-11-18-dictionary-search-and-word-pages the search forgives
+// typing (see course-dictionary.js), every result opens its own word page, and
+// the search lives in the address (?q=, or ?letter= for the letters) so it can
+// be linked and Back returns to it.
 const letterLabel = letter => letter === 'ng' ? 'Ng' : letter.toUpperCase()
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`
+
+function readAddress(params) {
+  const q = params.get('q') || ''
+  const letter = !q.trim() && DICTIONARY_GROUPS.includes(params.get('letter')) ? params.get('letter') : ''
+  return { q, letter, key: `${q}|${letter}` }
+}
 
 export default function Dictionary() {
   useTitle('Dictionary')
   const searchRef = useRef(null)
-  const [query, setQuery] = useState('')
-  const [letter, setLetter] = useState('')
+  const [params, setParams] = useSearchParams()
+  const navigationType = useNavigationType()
+  const address = readAddress(params)
+  const [query, setQuery] = useState(address.q)
+  const [letter, setLetter] = useState(address.letter)
+  // The address this page last wrote or took up. When Back, Forward or a link
+  // changes the address, the page follows it; its own writes (REPLACE) never
+  // feed back into the box while someone is typing.
+  const [adopted, setAdopted] = useState(address.key)
+  if (navigationType !== 'REPLACE' && adopted !== address.key) {
+    setAdopted(address.key)
+    setQuery(address.q)
+    setLetter(address.letter)
+  }
+
+  const show = (nextQuery, nextLetter) => {
+    setQuery(nextQuery)
+    setLetter(nextLetter)
+    const next = new URLSearchParams()
+    if (nextQuery.trim()) next.set('q', nextQuery)
+    else if (nextLetter) next.set('letter', nextLetter)
+    setAdopted(`${nextQuery.trim() ? nextQuery : ''}|${nextQuery.trim() ? '' : nextLetter}`)
+    setParams(next, { replace: true, preventScrollReset: true })
+  }
+
   const deferredQuery = useDeferredValue(query)
-  const results = useMemo(() => letter ? browseDictionary(ENTRIES, letter) : searchDictionary(deferredQuery.trim() ? SEARCH_ENTRIES : ENTRIES, deferredQuery), [deferredQuery, letter])
-  const searching = !letter && deferredQuery.trim().length > 0
-  const chooseLetter = next => { setLetter(next); setQuery('') }
+  const typed = deferredQuery.trim()
+  const searching = !letter && typed.length > 0
+  const found = useMemo(() => searchDictionaryDetailed(SEARCH_ENTRIES, typed), [typed])
+  const browsed = useMemo(() => letter ? browseDictionary(ENTRIES, letter) : ENTRIES, [letter])
+  const matches = searching ? found.matches : browsed
+  const partial = searching ? found.partial : []
+  const suggestions = searching ? found.suggestions : []
+  const fallback = searching ? found.fallback : null
+  const nothing = matches.length === 0 && partial.length === 0
+  const englishPage = searching && matches.length > 0 ? DICTIONARY.englishBySlug.get(englishSlug(normaliseSense(typed))) : null
+  const clear = () => { show('', ''); requestAnimationFrame(() => searchRef.current?.focus()) }
 
   return (
     <div className="catalog-page dictionary-catalog">
@@ -36,7 +77,7 @@ export default function Dictionary() {
         <div className="wrap">
           <p className="eyebrow">Dictionary · The course word list</p>
           <h1 className="display">Look up<br />a word.</h1>
-          <p>Search in Tongan or English, or browse by the first Tongan letter. Each word shows its meaning, its part of speech and the lesson that teaches it.</p>
+          <p>Search in Tongan or English, or browse by the first Tongan letter. You can type a word without its macrons or fakauʻa. Each word opens its own page, with its meaning, its part of speech and the lesson that teaches it.</p>
         </div>
       </header>
       <div className="wrap catalog-body">
@@ -48,9 +89,10 @@ export default function Dictionary() {
               ref={searchRef}
               type="search"
               value={query}
-              onChange={event => { setQuery(event.target.value); setLetter('') }}
+              onChange={event => show(event.target.value, '')}
               placeholder="Tongan or English word"
               autoComplete="off"
+              autoCapitalize="none"
               spellCheck="false"
             />
           </label>
@@ -58,43 +100,59 @@ export default function Dictionary() {
         <div className="dictionary-browse">
           <p id="dictionary-alphabet-label">Browse by letter</p>
           <div className="dictionary-alphabet" role="group" aria-labelledby="dictionary-alphabet-label" aria-describedby="dictionary-alphabet-help">
-            <button type="button" aria-pressed={!letter} aria-controls="dictionary-results" onClick={() => chooseLetter('')}>All</button>
+            <button type="button" aria-pressed={!letter} aria-controls="dictionary-results" onClick={() => show('', '')}>All</button>
             {DICTIONARY_GROUPS.map(initial => (
-              <button key={initial} type="button" lang="to" aria-pressed={letter === initial} aria-controls="dictionary-results" onClick={() => chooseLetter(initial)}>{letterLabel(initial)}</button>
+              <button key={initial} type="button" lang="to" aria-pressed={letter === initial} aria-controls="dictionary-results" onClick={() => show('', initial)}>{letterLabel(initial)}</button>
             ))}
           </div>
           <p id="dictionary-alphabet-help" className="dictionary-browse-help">Each vowel has a separate group for words beginning with ʻ (fakauʻa).</p>
         </div>
         <p className="catalog-count" role="status" aria-live="polite">
           {letter
-            ? `${results.length} ${results.length === 1 ? 'entry' : 'entries'} under ${letterLabel(letter)}`
-            : searching
-            ? `${results.length} ${results.length === 1 ? 'word matches' : 'words match'}`
-            : `${results.length} words`}
+            ? `${plural(matches.length, 'entry', 'entries')} under ${letterLabel(letter)}`
+            : !searching
+            ? `${matches.length} words`
+            : fallback
+            ? `No entry has all of “${typed}”. ${fallback.phrase
+              ? `${plural(matches.length, 'entry matches', 'entries match')} “${fallback.phrase}”.`
+              : `${plural(matches.length, 'entry has', 'entries have')} ${fallback.words.map(word => `“${word}”`).join(' or ')}.`}`
+            : matches.length
+            ? `${plural(matches.length, 'word matches', 'words match')}${partial.length ? `, and ${plural(partial.length, 'more begins', 'more begin')} with or ${partial.length === 1 ? 'contains' : 'contain'} “${typed}”` : ''}`
+            : partial.length
+            ? `No word is exactly “${typed}”. ${plural(partial.length, 'word begins', 'words begin')} with or ${partial.length === 1 ? 'contains' : 'contain'} it.`
+            : suggestions.length
+            ? `Nothing in the dictionary is spelled “${typed}”.`
+            : 'No words match.'}
         </p>
-        <div id="dictionary-results">
-        {results.length === 0 ? (
-          <div className="catalog-empty">
-            <h2>No words match.</h2>
-            <p>{letter ? 'Choose another letter, or search in Tongan or English.' : 'Try another spelling, or search in English.'}</p>
-            <button type="button" className="btn btn-primary" onClick={() => { chooseLetter(''); requestAnimationFrame(() => searchRef.current?.focus()) }}>{letter ? 'Show all words' : 'Clear search'}</button>
-          </div>
-        ) : (
-          <ul className="dictionary-list">
-            {results.map(entry => (
-              <li key={entry.id} className="dictionary-entry">
-                <span className="dictionary-tongan to" lang="to">{okinafy(entry.tongan)}</span>
-                <span className="dictionary-english">{entry.english}</span>
-                <span className="dictionary-meta">
-                  {entry.partOfSpeech && <span className="dictionary-pos">{entry.partOfSpeech}</span>}
-                  {entry.href
-                    ? <Link className={entry.wordList ? 'dictionary-lesson is-word-list' : 'dictionary-lesson'} to={entry.href}>{entry.label}</Link>
-                    : <span className="dictionary-lesson is-supplemental">{entry.label}</span>}
-                </span>
-              </li>
-            ))}
-          </ul>
+        {englishPage && (
+          <p className="dictionary-pointer">Every word with this meaning is on one page: <Link to={englishPage.path}>How to say {englishPage.headword} in Tongan</Link>.</p>
         )}
+        <div id="dictionary-results">
+          {nothing && suggestions.length > 0 ? (
+            <section className="dictionary-group is-suggestions" aria-labelledby="dictionary-suggestions-title">
+              <h2 id="dictionary-suggestions-title" className="dictionary-group-title">Did you mean</h2>
+              <ul className="dictionary-list">{suggestions.map(entry => <SearchRow key={entry.id} entry={entry} />)}</ul>
+              <button type="button" className="btn btn-ghost btn-sm" onClick={clear}>Clear search</button>
+            </section>
+          ) : nothing ? (
+            <div className="catalog-empty">
+              <h2>No words match.</h2>
+              <p>{letter
+                ? 'Choose another letter, or search in Tongan or English.'
+                : 'Try another spelling, or search in English. The dictionary holds the words the course teaches and the words of the word lists.'}</p>
+              <button type="button" className="btn btn-primary" onClick={clear}>{letter ? 'Show all words' : 'Clear search'}</button>
+            </div>
+          ) : (
+            <>
+              {matches.length > 0 && <ul className="dictionary-list">{matches.map(entry => <SearchRow key={entry.id} entry={entry} />)}</ul>}
+              {partial.length > 0 && (
+                <section className="dictionary-group" aria-labelledby="dictionary-partial-title">
+                  <h2 id="dictionary-partial-title" className="dictionary-group-title">Words that begin with or contain “{typed}”</h2>
+                  <ul className="dictionary-list">{partial.map(entry => <SearchRow key={entry.id} entry={entry} />)}</ul>
+                </section>
+              )}
+            </>
+          )}
         </div>
         <p className="dictionary-note">Supplemental words are in the course word list but not tied to one lesson. Word-list words come from the <Link to="/word-lists">word lists</Link> and are not taught in the lessons.</p>
       </div>

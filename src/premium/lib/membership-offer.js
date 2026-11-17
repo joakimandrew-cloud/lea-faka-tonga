@@ -25,7 +25,8 @@ const PREVIEW_SECTIONS = new Set(['/lessons', '/quizzes', '/drills', '/games', '
 
 export function previewNoticeMode(pathname, bespokePaths = []) {
   const path = pathname.replace(/\/$/, '') || '/'
-  if (path === '/dictionary' || path === '/word-lists') return 'dictionary'
+  // The dictionary, its word pages and its English pages, and the word lists.
+  if (path === '/dictionary' || path.startsWith('/dictionary/') || path === '/word-lists') return 'dictionary'
   if (PREVIEW_SECTIONS.has(path) || bespokePaths.includes(path)) return 'course'
   const lesson = path.match(/^\/(?:lessons|quizzes)\/(\d+)$/)
   if (lesson && Number(lesson[1]) >= 1 && Number(lesson[1]) <= 52) return 'course'

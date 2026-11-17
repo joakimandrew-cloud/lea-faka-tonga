@@ -43,9 +43,15 @@ export default function RouteChrome() {
   const firstLoad = useRef(true)
 
   useEffect(() => {
-    const { title, description } = metaForPath(location.pathname, { chapters: chapterMeta, drills })
-    document.title = title
-    setDescription(description)
+    const { title, description, pageOwned } = metaForPath(location.pathname, { chapters: chapterMeta, drills })
+    // A dictionary word page sets its own title once its word data has loaded
+    // (usePageMeta). On a first load the prerendered title is already right, so
+    // it is left alone; on a later navigation the dictionary's own title stands
+    // in until the page takes over.
+    if (!pageOwned || !firstLoad.current) {
+      document.title = title
+      setDescription(description)
+    }
 
     if (firstLoad.current) {
       firstLoad.current = false

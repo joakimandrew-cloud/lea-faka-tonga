@@ -11,6 +11,7 @@
 // under the same id.
 
 import { entryLesson, foldSearchKey } from './course-dictionary.js'
+import { wordPagePath, wordSlug } from './dictionary-text.js'
 
 export const WORD_LISTS_PATH = '/word-lists'
 
@@ -72,6 +73,7 @@ export function buildWordListSearchEntries(data) {
       lesson: null,
       label: wordListSearchLabel(labels.get(row.theme)),
       href: themeHref(row.theme),
+      wordHref: wordPagePath(wordSlug(row.tongan)),
       wordList: true,
       tonganKey: foldSearchKey(row.tongan),
       englishKey: foldSearchKey(row.english),
