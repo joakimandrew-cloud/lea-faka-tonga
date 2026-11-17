@@ -58,6 +58,18 @@ export const STATIC_META = {
     title: `Tongan Word Games, Free Online Practice | ${SITE_NAME}`,
     description: 'Short games over the Tongan course words and the book’s own sentences. Pick a game and play a round.',
   },
+  '/games/word-balloons': {
+    title: `Word Balloons: A Tongan Vocabulary Game | ${SITE_NAME}`,
+    description: 'Tap the meaning before the word gets away. A free game over the Tongan course words, played in your browser.',
+  },
+  '/games/sentence-tiles': {
+    title: `Sentence Tiles: Put Tongan Sentences in Order | ${SITE_NAME}`,
+    description: 'Put the words of a sentence from the Tongan course book in order, lesson by lesson from Lesson 1. A free game, played in your browser.',
+  },
+  '/games/sentence-lock': {
+    title: `Sentence Lock: Build Tongan Sentences Word by Word | ${SITE_NAME}`,
+    description: 'Turn each dial to the right Tongan word and lock it in, like a bike lock. A free game over sentences from the course, played in your browser.',
+  },
   '/dictionary': {
     title: `Tongan Dictionary, Browse and Search | ${SITE_NAME}`,
     description: 'Browse the course vocabulary by letter, including vowels beginning with fakauʻa, or search in Tongan and English.',
@@ -101,14 +113,14 @@ export const STATIC_META = {
   // Standalone topic pages. Content lives in src/seo/pages/<name>.js and is
   // rendered both by the React route and by the prerenderer.
   '/alphabet': {
-    title: `The Tongan Alphabet and Pronunciation | Learn Tongan Free`,
+    title: `Tongan Alphabet: The 17 Letters and How Each One Sounds | Learn Tongan Free`,
     description:
       'Tongan has 17 letters: five vowels, eleven consonants, and the fakauʻa. How each one sounds, why a macron or a glottal stop changes the word, and where the stress falls.',
   },
   '/greetings': {
-    title: `How to Say Hello in Tongan: Mālō e lelei | Learn Tongan`,
+    title: `Hello in Tongan: Mālō e lelei, Its Meaning and the Reply | Learn Tongan`,
     description:
-      'The everyday Tongan hello is Mālō e lelei, and the reply is the same words back. What the greeting means word for word, how to ask how someone is, how to say thank you, and which of the two goodbyes to use.',
+      'Mālō e lelei is the everyday Tongan hello. What it means word for word, the reply to give, how to ask how someone is, thank you, please and sorry, and both goodbyes, with the whole exchange to practise at the end.',
   },
   '/grammar/tense-markers': {
     title: `Tongan Tense Markers Explained: naʻa, ʻoku, kuo, te | Learn Tongan`,
@@ -233,7 +245,13 @@ export const STATIC_META = {
   },
 }
 
+// Per-lesson <title> overrides, kept for search wording (traffic report 2026-11, row 7).
+export const LESSON_TITLES = {
+  20: 'Tongan Numbers 1 to 10, Counting and Telling Time | Lesson 20',
+}
+
 export function lessonTitle(num, chapterTitle) {
+  if (LESSON_TITLES[num]) return LESSON_TITLES[num]
   return chapterTitle ? `Lesson ${num}: ${chapterTitle} | Learn Tongan` : `Lesson ${num} | Learn Tongan`
 }
 
