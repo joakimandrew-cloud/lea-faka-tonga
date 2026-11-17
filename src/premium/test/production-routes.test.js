@@ -11,6 +11,7 @@ import { createServer } from 'vite'
 import { BESPOKE } from '../../lib/drill-routes.js'
 import { STATIC_META } from '../../seo/meta.js'
 import { FREE_PREVIEW_AUDIO_NOTICE, previewNoticeMode } from '../lib/membership-offer.js'
+import { loadDictionaryIndex } from '../../../scripts/lib/dictionary-data.mjs'
 
 const root = cwd()
 const documentDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'document')
@@ -52,6 +53,22 @@ function sample(pattern) {
     .replace(':slug', 'kulisi')
     .replace(':id', 'aspect-picker')
 }
+
+// The dictionary's pages (a word page per plain spelling, an English page per
+// English word) are built from the index the site itself reads, so the route
+// count below is exact and moves only when the data does.
+const dictionary = loadDictionaryIndex(root)
+const dictionaryPaths = new Set([...dictionary.pages, ...dictionary.english].map(page => page.path))
+const NON_DICTIONARY_ROUTES = 215
+// The render test below renders every non-dictionary route and a fixed sample
+// of the dictionary's pages: every 15th word page and every 30th English page,
+// in index order (about 46 and 28), so the sample is the same on every run.
+const WORD_PAGE_STEP = 15
+const ENGLISH_PAGE_STEP = 30
+const sampledDictionaryPaths = new Set([
+  ...dictionary.pages.filter((_, at) => at % WORD_PAGE_STEP === 0),
+  ...dictionary.english.filter((_, at) => at % ENGLISH_PAGE_STEP === 0),
+].map(page => page.path))
 
 function distRoutes() {
   const dist = path.join(root, 'dist')
@@ -108,7 +125,13 @@ test('premium routes mechanically cover every clean production route and prerend
   assert.deepEqual(missingCanonical, [], `clean production routes missing from premium router: ${missingCanonical.join(', ')}`)
 
   const generated = distRoutes()
-  assert.equal(generated.length, 215, 'current production build generated all 215 routes (213 plus /games and /start-here)')
+  assert.equal(
+    generated.length,
+    NON_DICTIONARY_ROUTES + dictionary.pages.length + dictionary.english.length,
+    `current production build generated the ${NON_DICTIONARY_ROUTES} site routes (213 plus /games and /start-here) plus ${dictionary.pages.length} dictionary word pages and ${dictionary.english.length} English pages`,
+  )
+  assert.equal(generated.filter(pathname => dictionaryPaths.has(pathname)).length, dictionaryPaths.size, 'every dictionary page in the index was generated')
+  assert.ok(dictionary.pages.length > 0 && dictionary.english.length > 0, 'the dictionary index is not empty')
   const missingGenerated = generated.filter(pathname => !covered(pathname))
   assert.deepEqual(missingGenerated, [], `prerender routes missing from premium router: ${missingGenerated.join(', ')}`)
 
@@ -135,7 +158,9 @@ test('the actual premium App renders every generated route without the NotBuilt 
   })
   try {
     const { default: App } = await server.ssrLoadModule('/src/premium/App.jsx')
-    const baseRoutes = [...distRoutes(), ...canonicalPatterns.map(sample)]
+    const baseRoutes = [...distRoutes().filter(pathname => !dictionaryPaths.has(pathname) || sampledDictionaryPaths.has(pathname)), ...canonicalPatterns.map(sample)]
+    assert.ok([...sampledDictionaryPaths].filter(pathname => pathname.startsWith('/dictionary/english/')).length >= 20, 'the sample holds at least 20 English pages')
+    assert.ok([...sampledDictionaryPaths].filter(pathname => !pathname.startsWith('/dictionary/english/')).length >= 40, 'the sample holds at least 40 word pages')
     const routes = [...new Set(baseRoutes.flatMap(route => route === '/' ? [route] : [route, `${route}/`]))].sort()
     for (const pathname of routes) {
       const html = await renderRoute(App, pathname)

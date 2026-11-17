@@ -35,6 +35,7 @@
     "audit:all": "npm run check:style && npm run validate:drills && npm run audit:eva",
     "test:premium": "node --test --test-concurrency=1 src/premium/test/*.test.js",
     "build:dictionary-data": "node scripts/build-dictionary-data.mjs",
+    "check:dictionary": "node scripts/check-dictionary-pages.mjs",
     "check:premium-copy": "node scripts/premium/check-copy.mjs",
     "check:motifs": "node scripts/premium/check-motifs.mjs",
     "check:figures": "node scripts/premium/check-figures.mjs"

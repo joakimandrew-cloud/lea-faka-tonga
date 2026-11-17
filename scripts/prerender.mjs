@@ -39,6 +39,7 @@ import {
   quizDescription,
   drillTitle,
   drillDescription,
+  dictionaryPageMeta,
 } from '../src/seo/meta.js'
 import {
   AUDIO_MEMBERSHIP_NOTICE,
@@ -58,6 +59,8 @@ import possessivesDoc from '../src/seo/pages/possessives.js'
 import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
 import questionsDoc from '../src/seo/pages/questions.js'
 import { START_HERE, sourceLessons } from '../src/premium/lib/start-here-content.js'
+import { loadDictionaryIndex } from './lib/dictionary-data.mjs'
+import { DICTIONARY_GROUPS, dictionaryBrowseKey } from '../src/premium/lib/course-dictionary.js'
 import {
   renderChartsHub,
   renderHomeHub,
@@ -143,6 +146,7 @@ function introParagraphs(md, count = 2) {
 const ORG_ID = `${SITE_URL}/#organization`
 const SITE_ID = `${SITE_URL}/#website`
 const COURSE_ID = `${SITE_URL}/#course`
+const DICTIONARY_SET_ID = `${SITE_URL}/dictionary#termset`
 
 const organization = {
   '@type': 'Organization',
@@ -177,6 +181,17 @@ const course = {
   provider: { '@id': ORG_ID },
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', category: 'Free' },
   hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online' },
+}
+
+// The dictionary as a defined term set; every word page's DefinedTerm points here.
+const dictionarySet = {
+  '@type': 'DefinedTermSet',
+  '@id': DICTIONARY_SET_ID,
+  name: `${SITE_NAME} Dictionary`,
+  url: `${SITE_URL}/dictionary`,
+  inLanguage: 'en',
+  isAccessibleForFree: true,
+  isPartOf: { '@id': SITE_ID },
 }
 
 function breadcrumb(trail) {
@@ -293,7 +308,7 @@ const BLOCK_STYLE =
 // renders outside the app's own stylesheet scope, so it carries its own.
 const H1_STYLE = 'font-size:2rem;line-height:1.2;margin:0 0 1.25rem;font-weight:700'
 const P_STYLE = 'margin:0 0 1rem'
-const link = (href, text) => `<a href="${href}" style="color:#c24a1f;text-decoration:underline">${text}</a>`
+const link = (href, text, attrs = '') => `<a href="${href}"${attrs} style="color:#c24a1f;text-decoration:underline">${text}</a>`
 
 // The standalone topic pages, linked from the bottom of every static block.
 // The app footer carries the first two, but that footer is rendered by React,
@@ -335,6 +350,160 @@ function lessonRootHtml({ num, title, intro, total }) {
     `<p style="${P_STYLE}">${link(`/quizzes/${num}`, `Take the lesson ${num} quiz`)}</p>` +
     `<p style="${P_STYLE}">${nav}</p>` +
     topicLinks() +
+    `</article>`
+  )
+}
+
+/* The static blocks on the dictionary pages (plan 2026-11-18-dictionary-
+   search-and-word-pages, Step 3). Every string comes from a field of the page
+   index that loadDictionaryIndex() returns (the same index the React pages
+   read); nothing is written here about a word. Tongan is marked lang="to". */
+
+const DL_STYLE = 'margin:0 0 1rem'
+const DT_STYLE = 'font-weight:700;margin:0.5rem 0 0'
+const DD_STYLE = 'margin:0'
+const to = (text) => `<span lang="to">${esc(text)}</span>`
+const toLink = (href, text) => link(href, esc(text), ' lang="to"')
+const linkList = (items) => items.join(' &middot; ')
+const dictionaryCrumbs = (last) =>
+  `<p style="${P_STYLE}">${link('/', esc(SITE_NAME))} &middot; ${link('/dictionary', 'Dictionary')}${last ? ` &middot; ${last}` : ''}</p>`
+
+// The printed sentence with the row's word picked out.
+function sentenceHtml(pair) {
+  const [start, end] = pair.at
+  const d = pair.display
+  return `<span lang="to">${esc(d.slice(0, start))}<b>${esc(d.slice(start, end))}</b>${esc(d.slice(end))}</span>`
+}
+
+function dictionaryEntryHtml(entry, several) {
+  const facts = []
+  const add = (term, html) => facts.push(`<dt style="${DT_STYLE}">${term}</dt><dd style="${DD_STYLE}">${html}</dd>`)
+  if (entry.partOfSpeech) add('Part of speech', esc(entry.partOfSpeech))
+  if (entry.register) add('Label', esc(entry.register))
+  if (entry.lesson) add('Taught in', link(entry.lesson.href, esc(entry.lesson.label)))
+  if (entry.supplemental) add('Found in', 'Supplemental: in the course word list, not tied to one lesson.')
+  if (entry.wordList) add('Found in', link(entry.wordList.href, esc(entry.wordList.note)))
+  if (entry.alsoInWordLists.length) add('Word list', linkList(entry.alsoInWordLists.map((list) => link(list.href, esc(list.label)))))
+  if (entry.alsoTyped) add('Also typed', to(entry.alsoTyped))
+  if (entry.englishPages.length) add('English to Tongan', linkList(entry.englishPages.map((p) => link(p.path, esc(p.headword)))))
+  const examples = entry.examples.length
+    ? `<h3 style="${H3_STYLE}">From ${esc(entry.lesson.label)}</h3>` +
+      `<ul style="${UL_STYLE}">${entry.examples
+        .map((pair) => `<li style="${LI_STYLE}">${sentenceHtml(pair)}<br>${esc(pair.englishDisplay)}</li>`)
+        .join('')}</ul>` +
+      `<p style="${P_STYLE}">Printed in the lesson. ${link(entry.lesson.href, `Open ${esc(entry.lesson.label)}`)}</p>`
+    : ''
+  return (
+    (several ? `<h2 style="${H2_STYLE}">${to(entry.display)}</h2><p style="${P_STYLE}">${esc(entry.english)}</p>` : '') +
+    `<dl style="${DL_STYLE}">${facts.join('')}</dl>` +
+    examples
+  )
+}
+
+function dictionaryWordRootHtml(page) {
+  const several = page.entries.length > 1
+  const lead = several
+    ? `${page.entries.length} entries are typed “${to(page.typed)}”. Each is shown with its own marks, meaning and lesson.`
+    : esc(page.entries[0].english)
+  const related =
+    page.sameLesson
+      .map(
+        (g) =>
+          `<p style="${P_STYLE}">Taught in the same lesson</p><h2 style="${H2_STYLE}">${esc(g.lesson.label)}</h2>` +
+          `<p style="${P_STYLE}">${linkList(g.words.map((w) => toLink(w.path, w.display)))}</p>` +
+          `<p style="${P_STYLE}">${link(g.lesson.href, `Open Lesson ${g.lesson.number}`)}</p>`
+      )
+      .join('') +
+    page.sameWordList
+      .map(
+        (g) =>
+          `<p style="${P_STYLE}">In the same word list</p><h2 style="${H2_STYLE}">${esc(g.label)}</h2>` +
+          `<p style="${P_STYLE}">${linkList(g.words.map((w) => toLink(w.path, w.display)))}</p>` +
+          `<p style="${P_STYLE}">${link(g.href, 'Open the word list')}</p>`
+      )
+      .join('')
+  const nav = [
+    page.previous ? `Before: ${toLink(page.previous.path, page.previous.display)}` : '',
+    link('/dictionary', 'Search the dictionary'),
+    page.next ? `After: ${toLink(page.next.path, page.next.display)}` : '',
+  ]
+    .filter(Boolean)
+    .join(' &middot; ')
+  return (
+    `<article style="${BLOCK_STYLE}">` +
+    dictionaryCrumbs('') +
+    `<h1 style="${H1_STYLE}">${page.words.map(to).join(' &middot; ')}</h1>` +
+    `<p style="${P_STYLE}">${lead}</p>` +
+    page.entries.map((e) => dictionaryEntryHtml(e, several)).join('') +
+    related +
+    `<p style="${P_STYLE}">${nav}</p>` +
+    `</article>`
+  )
+}
+
+function dictionaryEnglishRootHtml(page, before, after) {
+  const count = page.entries.length
+  const lead =
+    count === 1
+      ? `One word in the dictionary has “${esc(page.headword)}” in its meaning.`
+      : `${count} words in the dictionary have “${esc(page.headword)}” in their meaning. Each meaning is shown in full, so you can pick the word that fits.`
+  const items = page.entries
+    .map((entry) => {
+      const place = entry.lesson
+        ? link(entry.lesson.href, esc(entry.lesson.label))
+        : entry.wordList
+          ? link(entry.wordList.href, esc(entry.wordList.note))
+          : 'Supplemental: in the course word list, not tied to one lesson.'
+      return (
+        `<li style="${LI_STYLE}">${toLink(entry.path, entry.display)}: ${esc(entry.english)}${entry.register ? ` (${esc(entry.register)})` : ''}` +
+        `${entry.partOfSpeech ? `, ${esc(entry.partOfSpeech)}` : ''}. ${place}</li>`
+      )
+    })
+    .join('')
+  const nav = [
+    before ? `Before: ${link(before.path, esc(before.headword))}` : '',
+    link('/dictionary', 'Search the dictionary'),
+    after ? `After: ${link(after.path, esc(after.headword))}` : '',
+  ]
+    .filter(Boolean)
+    .join(' &middot; ')
+  return (
+    `<article style="${BLOCK_STYLE}">` +
+    dictionaryCrumbs('English to Tongan') +
+    `<h1 style="${H1_STYLE}">How to say ${esc(page.headword)} in Tongan</h1>` +
+    `<p style="${P_STYLE}">${lead}</p>` +
+    `<ul style="${UL_STYLE}">${items}</ul>` +
+    `<p style="${P_STYLE}">Open a word for its own page: its part of speech, the lesson that teaches it and sentences from that lesson. Supplemental words are in the course word list but not tied to one lesson.</p>` +
+    `<p style="${P_STYLE}">${nav}</p>` +
+    `</article>`
+  )
+}
+
+// /dictionary: its heading and intro as the page has them, then a link to every
+// word page under the browse letters (a page with entries under two letters
+// stands under both), then the word lists.
+function dictionaryHubRootHtml(index) {
+  const groups = new Map(DICTIONARY_GROUPS.map((g) => [g, []]))
+  for (const page of index.pages) {
+    const shown = new Map()
+    for (const entry of page.entries) {
+      const key = dictionaryBrowseKey(entry.tongan)
+      if (!groups.has(key)) throw new Error(`dictionary page ${page.slug} has a word under "${key}", which is not a browse letter`)
+      shown.set(key, [...(shown.get(key) || []), entry.display])
+    }
+    for (const [key, words] of shown) groups.get(key).push(toLink(page.path, words.join(', ')))
+  }
+  const label = (g) => (g === 'ng' ? 'Ng' : g.toUpperCase())
+  return (
+    `<article style="${BLOCK_STYLE}">` +
+    `<p style="${P_STYLE}">${link('/', esc(SITE_NAME))}</p>` +
+    `<h1 style="${H1_STYLE}">Look up a word.</h1>` +
+    `<p style="${P_STYLE}">Search in Tongan or English, or browse by the first Tongan letter. You can type a word without its macrons or fakauʻa. Each word opens its own page, with its meaning, its part of speech and the lesson that teaches it.</p>` +
+    `<p style="${P_STYLE}">Looking for everyday words the lessons do not teach, such as parts of the body? ${link('/word-lists', 'See the word lists')}.</p>` +
+    [...groups]
+      .filter(([, links]) => links.length)
+      .map(([g, links]) => `<h2 style="${H2_STYLE}">${to(label(g))}</h2><p style="${P_STYLE}">${linkList(links)}</p>`)
+      .join('') +
     `</article>`
   )
 }
@@ -774,6 +943,9 @@ async function main() {
     drillCore[id] = { engine: coreEngine(src), question: coreQuestion(src) }
   }
 
+  // The dictionary's pages, exactly as the site builds them (see lib/dictionary-data.mjs).
+  const dictionary = loadDictionaryIndex(ROOT)
+
   const sitemapPaths = []
   let pages = 0
 
@@ -822,6 +994,22 @@ async function main() {
         },
         breadcrumb([{ name: 'Home', path: '/' }, { name: DOCS[urlPath].h1, path: urlPath }]),
       ])
+    } else if (urlPath === '/dictionary') {
+      jsonLd = graph([
+        organization,
+        website,
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}${urlPath}#webpage`,
+          name: meta.title,
+          description: meta.description,
+          url: `${SITE_URL}${urlPath}`,
+          inLanguage: 'en',
+          isPartOf: { '@id': SITE_ID },
+        },
+        dictionarySet,
+        breadcrumb([{ name: 'Home', path: '/' }, { name: 'Dictionary', path: urlPath }]),
+      ])
     } else {
       jsonLd = graph([
         organization,
@@ -844,7 +1032,8 @@ async function main() {
           : urlPath === '/topics' ? renderTopicsHub()
             : undefined
     const rootHtml = docRoot || hubRoot || (urlPath === '/support' ? supportRootHtml()
-      : urlPath === '/start-here' ? startHereRootHtml() : undefined)
+      : urlPath === '/start-here' ? startHereRootHtml()
+        : urlPath === '/dictionary' ? dictionaryHubRootHtml(dictionary) : undefined)
     await writeRoute(
       urlPath,
       renderPage(template, { ...meta, urlPath, jsonLd, rootHtml, ogType: docRoot ? 'article' : undefined })
@@ -994,6 +1183,53 @@ async function main() {
     pages += 1
   }
 
+  /* Dictionary pages: one per plain spelling, and one per English word the
+     meanings give. Titles and descriptions come from dictionaryPageMeta(), the
+     function the React pages use, so a page and its prerender never disagree. */
+  for (const page of dictionary.pages) {
+    const { title, description } = dictionaryPageMeta(page)
+    const jsonLd = graph([
+      organization,
+      website,
+      dictionarySet,
+      ...page.entries.map((entry) => ({
+        '@type': 'DefinedTerm',
+        '@id': `${SITE_URL}${page.path}#${entry.id}`,
+        name: entry.display,
+        description: entry.english,
+        url: `${SITE_URL}${page.path}`,
+        inDefinedTermSet: { '@id': DICTIONARY_SET_ID },
+      })),
+      breadcrumb([
+        { name: 'Home', path: '/' },
+        { name: 'Dictionary', path: '/dictionary' },
+        { name: page.words.join(', '), path: page.path },
+      ]),
+    ])
+    await writeRoute(
+      page.path,
+      renderPage(template, { title, description, urlPath: page.path, jsonLd, rootHtml: dictionaryWordRootHtml(page) })
+    )
+    sitemapPaths.push(page.path)
+    pages += 1
+  }
+  for (const [at, page] of dictionary.english.entries()) {
+    const { title, description } = dictionaryPageMeta(page)
+    const jsonLd = graph([
+      organization,
+      website,
+      breadcrumb([
+        { name: 'Home', path: '/' },
+        { name: 'Dictionary', path: '/dictionary' },
+        { name: `How to say ${page.headword} in Tongan`, path: page.path },
+      ]),
+    ])
+    const rootHtml = dictionaryEnglishRootHtml(page, dictionary.english[at - 1], dictionary.english[at + 1])
+    await writeRoute(page.path, renderPage(template, { title, description, urlPath: page.path, jsonLd, rootHtml }))
+    sitemapPaths.push(page.path)
+    pages += 1
+  }
+
   /* sitemap.xml */
   const today = new Date().toISOString().slice(0, 10)
   const sitemap =
@@ -1007,7 +1243,8 @@ async function main() {
 
   console.log(
     `prerender: ${pages} routes (${Object.keys(STATIC_META).length} static, ${total} lessons, ` +
-      `${quizCount} quizzes, ${drillIds.length} drills), sitemap.xml with ${sitemapPaths.length} URLs`
+      `${quizCount} quizzes, ${drillIds.length} drills, ${dictionary.pages.length} dictionary word pages, ` +
+      `${dictionary.english.length} dictionary English pages), sitemap.xml with ${sitemapPaths.length} URLs`
   )
 }
 

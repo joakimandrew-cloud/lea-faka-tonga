@@ -1,0 +1,259 @@
+#!/usr/bin/env node
+// check-dictionary-pages.mjs: the check behind plan 2026-11-18-dictionary-
+// search-and-word-pages, Step 3. Run after `npm run build`; it reads dist/ and
+// the dictionary index and exits 1 on any failure (and on any count of zero).
+//
+//   npm run check:dictionary
+//
+// What it asserts, with each count printed:
+//   - one built page per index word page and per English page, in both file
+//     forms (<slug>.html and <slug>/index.html), and no extra files
+//   - every row of src/data/book-vocabulary.json and
+//     src/premium/data/word-lists.json lands on exactly one word page, and
+//     that page's static body shows the row's entry
+//   - every <title> in dist/ is unique once the two file forms of a route
+//     are counted as one
+//   - on every dictionary page: canonical = its own address; exactly one <h1>
+//     in the static body; every JSON-LD block parses; a word page has as many
+//     DefinedTerm nodes as entries; title and description = dictionaryPageMeta
+//     (page); no "Page not found" and no U+2014 dash
+//   - every dictionary address (and /dictionary) is in sitemap.xml, once
+//   - every lang="to" string in the static bodies is found, through okinafy,
+//     in book-vocabulary.json, word-lists.json or the app's book/Chapter-*.md
+//     (a plain typing is allowed when it is the plain form of such a string)
+//   - /dictionary's static body links to every word page
+
+import fs from 'node:fs'
+import path from 'node:path'
+import { SITE_URL, dictionaryPageMeta } from '../src/seo/meta.js'
+import { okinafy } from '../src/lib/okinafy.js'
+import { DICTIONARY_GROUPS, foldSearchKey } from '../src/premium/lib/course-dictionary.js'
+import { APP_ROOT, chapterFile, loadDictionaryIndex, readDictionarySources } from './lib/dictionary-data.mjs'
+
+const DIST = path.join(APP_ROOT, 'dist')
+const ROOT_OPEN = '<!-- prerender:root -->'
+const ROOT_CLOSE = '<!-- /prerender:root -->'
+const EM_DASH = '—'
+
+let failures = 0
+const fail = (name, detail) => {
+  failures += 1
+  console.log(`FAIL  ${name}${detail ? `: ${detail}` : ''}`)
+}
+const pass = (name, detail) => console.log(`ok    ${name}${detail ? `: ${detail}` : ''}`)
+const sample = (list) => list.slice(0, 5).join(' | ') + (list.length > 5 ? ` (and ${list.length - 5} more)` : '')
+
+// A count that must equal what the index says and must not be zero.
+function counted(name, got, want) {
+  if (got === 0) return fail(name, 'count is zero')
+  if (want !== undefined && got !== want) return fail(name, `${got} found, ${want} expected`)
+  pass(name, String(got))
+}
+// A list of problems: empty is a pass, and `seen` (how many things were looked at) must not be zero.
+function none(name, seen, problems) {
+  if (seen === 0) return fail(name, 'nothing was checked (count is zero)')
+  if (problems.length) return fail(name, `${problems.length} of ${seen}: ${sample(problems)}`)
+  pass(name, `${seen} checked`)
+}
+
+const decode = (s) =>
+  s.replaceAll('&lt;', '<').replaceAll('&gt;', '>').replaceAll('&quot;', '"').replaceAll('&#39;', "'").replaceAll('&amp;', '&')
+const stripTags = (s) => s.replace(/<[^>]*>/g, '')
+const read = (file) => fs.readFileSync(file, 'utf8')
+const escHtml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
+
+const index = loadDictionaryIndex()
+const { vocabulary, wordLists } = readDictionarySources()
+
+if (!fs.existsSync(DIST)) {
+  console.log('FAIL  dist/ does not exist: run npm run build first')
+  process.exit(1)
+}
+
+// ---- every html file in dist/, one record per route ------------------------
+const files = []
+const walk = (dir) => {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name)
+    if (entry.isDirectory()) walk(full)
+    else if (entry.name.endsWith('.html')) files.push(full)
+  }
+}
+walk(DIST)
+const routeOf = (file) => {
+  const rel = path.relative(DIST, file).split(path.sep).join('/')
+  if (rel === 'index.html') return '/'
+  return `/${rel.replace(/\/index\.html$/, '').replace(/\.html$/, '')}`
+}
+const byRoute = new Map()
+for (const file of files) {
+  const route = routeOf(file)
+  if (!byRoute.has(route)) byRoute.set(route, [])
+  byRoute.get(route).push(file)
+}
+
+const titleOf = (html) => decode(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '')
+const descriptionOf = (html) => decode(html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '')
+const canonicalOf = (html) => decode(html.match(/<link rel="canonical" href="([^"]*)"/)?.[1] ?? '')
+const bodyOf = (html) => {
+  const from = html.indexOf(ROOT_OPEN)
+  const to = html.indexOf(ROOT_CLOSE)
+  return from === -1 || to === -1 ? '' : html.slice(from + ROOT_OPEN.length, to)
+}
+
+// ---- 1. the files ------------------------------------------------------------
+const dictDir = path.join(DIST, 'dictionary')
+const englishDir = path.join(dictDir, 'english')
+const listHtml = (dir) => fs.existsSync(dir) ? fs.readdirSync(dir).filter((n) => n.endsWith('.html') && n !== 'index.html') : []
+const listIndexDirs = (dir, skip = []) => fs.existsSync(dir)
+  ? fs.readdirSync(dir, { withFileTypes: true }).filter((e) => e.isDirectory() && !skip.includes(e.name) && fs.existsSync(path.join(dir, e.name, 'index.html'))).map((e) => e.name)
+  : []
+
+const wordFlat = listHtml(dictDir)
+const wordDirs = listIndexDirs(dictDir, ['english'])
+const englishFlat = listHtml(englishDir)
+const englishDirs = listIndexDirs(englishDir)
+counted('word pages, <slug>.html files', wordFlat.length, index.pages.length)
+counted('word pages, <slug>/index.html files', wordDirs.length, index.pages.length)
+counted('English pages, <slug>.html files', englishFlat.length, index.english.length)
+counted('English pages, <slug>/index.html files', englishDirs.length, index.english.length)
+none('every index word page has both files', index.pages.length, index.pages.filter((p) => !fs.existsSync(path.join(DIST, `${p.path}.html`)) || !fs.existsSync(path.join(DIST, p.path, 'index.html'))).map((p) => p.path))
+none('every index English page has both files', index.english.length, index.english.filter((p) => !fs.existsSync(path.join(DIST, `${p.path}.html`)) || !fs.existsSync(path.join(DIST, p.path, 'index.html'))).map((p) => p.path))
+none('the two files of each dictionary route are identical', index.pages.length + index.english.length, [...index.pages, ...index.english].filter((p) => read(path.join(DIST, `${p.path}.html`)) !== read(path.join(DIST, p.path, 'index.html'))).map((p) => p.path))
+none('no word or English file without an index page', wordFlat.length + englishFlat.length, [
+  ...wordFlat.filter((n) => !index.pageBySlug.has(n.slice(0, -5))),
+  ...englishFlat.filter((n) => !index.englishBySlug.has(n.slice(0, -5))),
+])
+
+// ---- 2. the data rows --------------------------------------------------------
+const courseIds = vocabulary.map((row) => row.id)
+const listIds = wordLists.entries.map((row) => row.id)
+counted('data rows in book-vocabulary.json', courseIds.length, 649)
+counted('data rows in word-lists.json', listIds.length, 92)
+const allIds = [...courseIds, ...listIds]
+counted('data rows in all', allIds.length, 741)
+const pagesOfRow = new Map()
+for (const page of index.pages) for (const id of page.rowIds) pagesOfRow.set(id, [...(pagesOfRow.get(id) || []), page])
+none('every data row is on exactly one word page', allIds.length, allIds.filter((id) => (pagesOfRow.get(id) || []).length !== 1))
+none('no page holds a row the data does not have', index.pages.length, index.pages.flatMap((p) => p.rowIds).filter((id) => !allIds.includes(id)))
+// The built page shows the row: its own entry, or the course entry it folds into.
+const rowShown = []
+for (const id of allIds) {
+  const page = (pagesOfRow.get(id) || [])[0]
+  if (!page) continue
+  const entry = page.entries.find((e) => e.id === id || e.alsoInWordLists.some((l) => l.id === id))
+  if (!entry) { rowShown.push(`${id}: no entry on ${page.path}`); continue }
+  const body = bodyOf(read(path.join(DIST, `${page.path}.html`)))
+  if (!body.includes(`>${escHtml(entry.display)}</`)) rowShown.push(`${id}: ${entry.display} not in ${page.path}`)
+}
+none('the static body of each row\'s page shows the row\'s word', allIds.length, rowShown)
+
+// ---- 3. titles unique across dist/ -------------------------------------------
+const titles = new Map()
+const splitTitles = []
+for (const [route, group] of byRoute) {
+  const own = [...new Set(group.map((f) => titleOf(read(f))))]
+  if (own.length > 1) splitTitles.push(route)
+  const title = own[0]
+  if (!titles.has(title)) titles.set(title, [])
+  titles.get(title).push(route)
+}
+counted('routes in dist/ (two file forms of a route counted once)', byRoute.size)
+none('the two files of every route carry the same title', byRoute.size, splitTitles)
+const duplicates = [...titles].filter(([, routes]) => routes.length > 1).map(([title, routes]) => `"${title}" on ${routes.join(', ')}`)
+none('every <title> in dist/ is unique', titles.size, duplicates)
+
+// ---- 4. per page: canonical, h1, JSON-LD, meta, forbidden text ----------------
+const dictionaryPages = [...index.pages, ...index.english]
+const problems = { canonical: [], h1: [], jsonld: [], terms: [], title: [], description: [], notFound: [], dash: [], noRoot: [], noindex: [] }
+let jsonBlocks = 0
+for (const page of dictionaryPages) {
+  const html = read(path.join(DIST, `${page.path}.html`))
+  const body = bodyOf(html)
+  if (!body) problems.noRoot.push(page.path)
+  if (canonicalOf(html) !== `${SITE_URL}${page.path}`) problems.canonical.push(page.path)
+  if ((body.match(/<h1\b/g) || []).length !== 1) problems.h1.push(page.path)
+  if (/<meta name="robots"[^>]*noindex/.test(html)) problems.noindex.push(page.path)
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1])
+  if (!blocks.length) problems.jsonld.push(`${page.path} has none`)
+  let terms = 0
+  for (const block of blocks) {
+    jsonBlocks += 1
+    try {
+      const parsed = JSON.parse(block)
+      terms += (parsed['@graph'] || []).filter((n) => n['@type'] === 'DefinedTerm').length
+    } catch {
+      problems.jsonld.push(`${page.path} does not parse`)
+    }
+  }
+  if (page.kind === 'word' && terms !== page.entries.length) problems.terms.push(`${page.path}: ${terms} terms, ${page.entries.length} entries`)
+  const meta = dictionaryPageMeta(page)
+  if (titleOf(html) !== meta.title) problems.title.push(page.path)
+  if (descriptionOf(html) !== meta.description) problems.description.push(page.path)
+  if (html.includes('Page not found')) problems.notFound.push(page.path)
+  if (html.includes(EM_DASH)) problems.dash.push(page.path)
+}
+const total = dictionaryPages.length
+none('every dictionary page has a static body', total, problems.noRoot)
+none('every dictionary canonical equals the page\'s own address', total, problems.canonical)
+none('every dictionary page has exactly one <h1> in its static body', total, problems.h1)
+none('no dictionary page is noindex', total, problems.noindex)
+none('every JSON-LD block on a dictionary page parses (and each page has one)', total, problems.jsonld)
+counted('JSON-LD blocks read', jsonBlocks)
+none('each word page has as many DefinedTerm nodes as entries', index.pages.length, problems.terms)
+none('each page title equals dictionaryPageMeta(page).title', total, problems.title)
+none('each page description equals dictionaryPageMeta(page).description', total, problems.description)
+none('no dictionary page says "Page not found"', total, problems.notFound)
+none('no dictionary page holds a U+2014 dash', total, problems.dash)
+
+// ---- 5. the sitemap ----------------------------------------------------------
+const sitemap = fs.existsSync(path.join(DIST, 'sitemap.xml')) ? read(path.join(DIST, 'sitemap.xml')) : ''
+const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1])
+counted('URLs in sitemap.xml', locs.length)
+const seenLocs = new Set()
+const repeated = []
+for (const loc of locs) { if (seenLocs.has(loc)) repeated.push(loc); seenLocs.add(loc) }
+none('sitemap.xml has no duplicate', locs.length, repeated)
+none('every dictionary address is in sitemap.xml', total + 1, [`/dictionary`, ...dictionaryPages.map((p) => p.path)].filter((p) => !seenLocs.has(`${SITE_URL}${p}`)))
+
+// ---- 6. every lang="to" string is the data's own -----------------------------
+const known = new Set()
+const addKnown = (text) => { if (text) known.add(okinafy(text)) }
+for (const row of vocabulary) addKnown(row.tongan)
+for (const row of wordLists.entries) addKnown(row.tongan)
+const plain = (text) => foldSearchKey(text).replaceAll("'", '')
+const knownPlain = new Set([...known].map(plain))
+for (const g of DICTIONARY_GROUPS) { known.add(g); known.add(g === 'ng' ? 'Ng' : g.toUpperCase()); known.add(okinafy(g)); known.add(okinafy(g === 'ng' ? 'Ng' : g.toUpperCase())) }
+let book = ''
+for (let n = 1; n <= 52; n += 1) book += `${okinafy(read(path.join(APP_ROOT, chapterFile(n))))}\n`
+const traced = new Map()
+const isTraceable = (text) => {
+  if (traced.has(text)) return traced.get(text)
+  const parts = text.split(', ')
+  const ok = known.has(text) || book.includes(text) || knownPlain.has(text) || knownPlain.has(plain(text))
+    || (parts.length > 1 && parts.every((part) => known.has(part) || book.includes(part) || knownPlain.has(plain(part))))
+  traced.set(text, ok)
+  return ok
+}
+const untraced = []
+let toStrings = 0
+for (const page of [{ path: '/dictionary' }, ...dictionaryPages]) {
+  const html = read(path.join(DIST, `${page.path}.html`))
+  for (const m of bodyOf(html).matchAll(/<(span|a|h2)\b[^>]*\blang="to"[^>]*>([\s\S]*?)<\/\1>/g)) {
+    toStrings += 1
+    const text = decode(stripTags(m[2])).trim()
+    if (!isTraceable(text)) untraced.push(`${page.path}: ${text}`)
+  }
+}
+counted('lang="to" strings in the static bodies', toStrings)
+none('every lang="to" string is found in the data or the book copy', toStrings, untraced)
+
+// ---- 7. /dictionary links to every word page --------------------------------
+const hubBody = bodyOf(read(path.join(DIST, 'dictionary.html')))
+const hubLinks = new Set([...hubBody.matchAll(/href="([^"]+)"/g)].map((m) => m[1]))
+none('/dictionary\'s static body links to every word page', index.pages.length, index.pages.filter((p) => !hubLinks.has(p.path)).map((p) => p.path))
+none('/dictionary\'s static body has exactly one <h1>', 1, (hubBody.match(/<h1\b/g) || []).length === 1 ? [] : ['not one'])
+none('/dictionary links to /word-lists', 1, hubLinks.has('/word-lists') ? [] : ['missing'])
+
+console.log(failures ? `\n${failures} check(s) failed` : `\nall checks passed (${total} dictionary pages: ${index.pages.length} word, ${index.english.length} English)`)
+process.exit(failures ? 1 : 0)
