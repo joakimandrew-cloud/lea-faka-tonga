@@ -132,7 +132,9 @@ test('the built /support page is a real page for readers without JavaScript, sti
   assert.ok(page.includes('Secure Lifetime membership, US$35'), 'static body names the product')
   assert.doesNotMatch(page, /or more now secures|never\slose|first\s250/i)
   const sitemap = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8')
-  assert.doesNotMatch(sitemap, /\/support</, '/support stays out of the sitemap')
+  // The page itself, not any address that ends in the word: the dictionary has an
+  // English page at /dictionary/english/support (the course word poupou).
+  assert.doesNotMatch(sitemap, /leafakatonga\.org\/support</, '/support stays out of the sitemap')
 })
 
 test('the Roll of Keepers keeps its acknowledgements and drops the first-250 invitation', async () => {

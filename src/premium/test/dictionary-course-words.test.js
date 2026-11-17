@@ -65,7 +65,7 @@ test('each course word has sources in the evidence file, and the evidence names 
   for (const item of records) {
     assert.deepEqual(Object.keys(item).sort(), ['id', 'sources'])
     assert.ok(item.sources.length >= 1, `${item.id} has a source`)
-    for (const cite of item.sources) assert.match(cite, /^(?:Churchward, Tongan Dictionary \(1959\), p\. \d+|Shumway, Intensive Course in Tongan, Glossary, p\. \d+|EALD Bilingual Dictionary for ESL Beginners \(NSW Dept of Education, 2001\), |Churchward, Tongan Grammar)/, `${item.id}: a citation names the source and the place`)
+    for (const cite of item.sources) assert.match(cite, /^(?:Churchward, Tongan Dictionary \(1959\), p\. \d+|Shumway, Intensive Course in Tongan, Glossary, p\. \d+|EALD Bilingual Dictionary for ESL Beginners \(NSW Dept of Education, 2001\), |Churchward, Tongan Grammar|Shumway, Intensive Course in Tongan, source-materials\/Shumway\/[\w.-]+\.md:\d+)/, `${item.id}: a citation names the source and the place`)
   }
   // The evidence file's strings include the course words' citations, so the proof that none is in dist/ covers them.
   const strings = evidenceStrings(evidence)
