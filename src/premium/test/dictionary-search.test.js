@@ -136,3 +136,47 @@ test('results keep their labels and links, and each opens its word page', () => 
   assert.equal(searchDictionary(entries, ''), entries, 'no query shows the list as it is')
   assert.equal(searchDictionaryDetailed(entries, '   ').matches, entries)
 })
+
+test('a several-word query that is a longer entry with a word left out is offered that entry first', () => {
+  // book-v0025 mālō e lelei "hello, greetings". "malo lelei" was the most-searched
+  // thing the site did not answer; book-v0078 lelei and book-v0217 mālō still follow.
+  const hello = searchDictionaryDetailed(entries, 'malo lelei')
+  assert.deepEqual(ids(hello.containing), ['book-v0025'])
+  assert.deepEqual(hello.containingWords, ['malo', 'lelei'])
+  assert.deepEqual(ids(hello.matches), ['book-v0078', 'book-v0217'], 'the single-word rows still follow')
+  assert.equal(ids(hello.matches).includes('book-v0025'), false, 'the longer entry is offered, not presented as a match')
+  assert.deepEqual(hello.fallback, { words: ['malo', 'lelei'], phrase: '' })
+  assert.deepEqual(hello.suggestions, [])
+  assert.deepEqual(ids(searchDictionary(entries, 'malo lelei')), ['book-v0025', 'book-v0078', 'book-v0217'], 'offered first in the flat list')
+  // The words a question wraps around it are dropped; marks and capitals do not matter.
+  for (const typed of ['malo lelei meaning', 'malo lelei translation', 'malo lelei pronunciation', 'malo lelei in english', 'mālō lelei', 'Malo Lelei']) {
+    const asked = searchDictionaryDetailed(entries, typed)
+    assert.deepEqual(ids(asked.containing), ['book-v0025'], typed)
+    assert.deepEqual(asked.containingWords, ['malo', 'lelei'], typed)
+    assert.deepEqual(ids(asked.matches), ['book-v0078', 'book-v0217'], typed)
+  }
+  // book-v0537 mole ke mamaʻo "far from it, not at all" for "mole mamao"; book-v0411 mamaʻo follows.
+  const far = searchDictionaryDetailed(entries, 'mole mamao')
+  assert.deepEqual(ids(far.containing), ['book-v0537'])
+  assert.deepEqual(ids(far.matches), ['book-v0411'])
+  assert.equal(first('mole mamao').id, 'book-v0537')
+  // Words that are not all in one entry: unchanged. book-v0126 fale, book-v0545 falé, book-v0217 mālō.
+  const apart = searchDictionaryDetailed(entries, 'malo fale')
+  assert.deepEqual(apart.containing, [])
+  assert.deepEqual(apart.containingWords, [])
+  assert.deepEqual(ids(apart.matches), ['book-v0126', 'book-v0545', 'book-v0217'])
+  assert.deepEqual(apart.fallback, { words: ['malo', 'fale'], phrase: '' })
+  // The same words in another order are not that entry.
+  assert.deepEqual(searchDictionaryDetailed(entries, 'lelei malo').containing, [])
+  // No spelling is guessed: "malo lei lei" stays as it was, the one row for "malo".
+  const split = searchDictionaryDetailed(entries, 'malo lei lei')
+  assert.deepEqual([ids(split.containing), ids(split.matches), split.suggestions], [[], ['book-v0217'], []])
+  // Typed in full the entry is a match, and a match is never also offered as a longer entry.
+  const whole = searchDictionaryDetailed(entries, 'malo e lelei')
+  assert.deepEqual([whole.matches[0].id, whole.containing.length], ['book-v0025', 0])
+  // One word finds mālō and mālō e lelei as matches, as before.
+  assert.deepEqual(ids(searchDictionaryDetailed(entries, 'malo').matches), ['book-v0217', 'book-v0025'])
+  // Content words that are an entry as a phrase (book-v0432 ko ia) are answered by it alone.
+  const therefore = searchDictionaryDetailed(entries, 'ko ia meaning')
+  assert.deepEqual([ids(therefore.matches), therefore.containing.length, therefore.fallback.phrase], [['book-v0432'], 0, 'ko ia'])
+})

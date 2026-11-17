@@ -79,7 +79,7 @@ a.dictionary-word-link:hover { color: var(--red); text-decoration-color: var(--r
 .dictionary-group { margin-top: 46px; }
 .dictionary-group-title { margin: 0; color: var(--muted); font: 700 12px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; }
 .dictionary-group .dictionary-list { margin-top: 14px; }
-.dictionary-group.is-suggestions { margin-top: 30px; }
+.dictionary-group.is-suggestions, .dictionary-group.is-containing { margin-top: 30px; }
 .dictionary-group.is-suggestions .btn { margin-top: 26px; }
 
 .wr-inner .catalog-hero h1.dictionary-word-title { font-size: clamp(46px, 6vw, 84px); line-height: 1.08; text-transform: none; overflow-wrap: anywhere; }

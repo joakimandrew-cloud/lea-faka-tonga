@@ -7,7 +7,7 @@
 // search key; it never changes what is displayed. No other dictionary source is
 // read.
 
-import { compactKey, looksLikeTongan, markedKey, normaliseSense, plainKey, splitSenses, withinOneLetter, withoutNotes, wordPagePath, wordSlug } from './dictionary-text.js'
+import { compactKey, looksLikeTongan, markedKey, normaliseSense, plainKey, splitSenses, stripMarks, withinOneLetter, withoutNotes, wordPagePath, wordSlug } from './dictionary-text.js'
 
 // Every character the data or a keyboard may use for the glottal stop.
 const GLOTTAL_VARIANTS = /['‘’ʼ`ʻ]/g
@@ -85,12 +85,19 @@ export function buildDictionary(rows) {
 //            heading, never as a match.
 // An English word that merely has the letters inside it ("white" for "hit")
 // is not returned at all.
+//
+// One more kind, for a query of several words that is no entry as it stands:
+//   containing  a longer Tongan entry that has every word typed, as whole
+//               words in the same order, with other words between them
+//               ("malo lelei" for mālō e lelei). Offered first under its own
+//               heading, never as a match. Nothing is matched on a word that
+//               was not typed, and no spelling is guessed.
 
 const wordsOf = text => String(text || '').toLowerCase().split(/[^a-z0-9']+/).filter(Boolean)
 const tonganPlain = text => plainKey(withoutNotes(text)).replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim()
 
 // Words a question wraps around the word it is asking for.
-const QUESTION_WORDS = new Set(['a', 'an', 'the', 'to', 'in', 'of', 'for', 'and', 'how', 'do', 'does', 'you', 'say', 'what', 'is', 'mean', 'means', 'meaning', 'word', 'tongan', 'tonga'])
+const QUESTION_WORDS = new Set(['a', 'an', 'the', 'to', 'in', 'of', 'for', 'and', 'how', 'do', 'does', 'you', 'say', 'what', 'is', 'mean', 'means', 'meaning', 'translation', 'pronunciation', 'english', 'word', 'tongan', 'tonga'])
 
 const SEARCH_KEYS = new WeakMap()
 function searchKeys(entry) {
@@ -115,7 +122,9 @@ function searchKeys(entry) {
 function readQuery(query) {
   const raw = String(query == null ? '' : query).trim()
   const plain = tonganPlain(raw)
-  const english = normaliseSense(raw.toLowerCase().replace(/[^a-z0-9' -]+/g, ' ')).toLowerCase()
+  // Macrons are dropped before the words are split, so a query typed with its
+  // marks has the same words as one typed plain.
+  const english = normaliseSense(stripMarks(raw).toLowerCase().replace(/[^a-z0-9' -]+/g, ' ')).toLowerCase()
   return {
     raw,
     marked: markedKey(raw),
@@ -211,6 +220,32 @@ function contentWordResults(entries, q) {
   return { words, phrase: '', matches: scored.map(item => item.entry) }
 }
 
+// The words of `needle` in order inside `hay`, with other words allowed between.
+function hasInOrder(hay, needle) {
+  let at = 0
+  for (const word of hay) if (word === needle[at]) at += 1
+  return at === needle.length
+}
+
+// Longer Tongan entries that hold every word typed, in the same order. The
+// words as typed are tried first; if no entry holds them all, the words left
+// once the question words are dropped ("malo lelei meaning" is "malo lelei").
+// A query whose words sit side by side in an entry is already a match and
+// never comes here.
+function containingEntries(entries, q) {
+  const typed = q.tonganWords
+  const content = typed.filter(word => !QUESTION_WORDS.has(word))
+  for (const words of content.length < typed.length ? [typed, content] : [typed]) {
+    if (words.length < 2) continue
+    const found = entries
+      .map((entry, index) => ({ entry, index, length: searchKeys(entry).tonganWords.length }))
+      .filter(item => item.length > words.length && hasInOrder(searchKeys(item.entry).tonganWords, words))
+      .sort((a, b) => a.length - b.length || a.index - b.index)
+    if (found.length) return { entries: found.map(item => item.entry), words }
+  }
+  return { entries: [], words: [] }
+}
+
 // Near spellings for a Tongan-looking query of five letters or more that
 // matched nothing: entries one letter away. Offered, never substituted.
 export const SUGGESTION_MIN_LETTERS = 5
@@ -225,19 +260,30 @@ function nearSpellings(entries, q) {
 //   fallback     null, or { words, phrase } when the query matched nothing as a
 //                whole and `matches` holds entries for its content words
 //                instead: as one phrase (phrase is set) or one by one
-//   suggestions  near spellings, only when matches and partial are both empty
+//   containing   longer Tongan entries that hold every word of a several-word
+//                query that matched nothing as it stands; shown first.
+//                containingWords are the typed words they hold.
+//   suggestions  near spellings, only when everything above is empty
 export function searchDictionaryDetailed(entries, query) {
   const q = readQuery(query)
-  if (!q.raw) return { query: '', matches: entries, partial: [], fallback: null, suggestions: [] }
+  const none = { containing: [], containingWords: [] }
+  if (!q.raw) return { query: '', matches: entries, partial: [], ...none, fallback: null, suggestions: [] }
   const { matches, partial } = rankAll(entries, q)
-  if (matches.length || partial.length) return { query: q.raw, matches, partial, fallback: null, suggestions: [] }
-  const content = contentWordResults(entries, q)
-  if (content) return { query: q.raw, matches: content.matches, partial: [], fallback: { words: content.words, phrase: content.phrase }, suggestions: [] }
-  return { query: q.raw, matches: [], partial: [], fallback: null, suggestions: nearSpellings(entries, q) }
+  if (matches.length) return { query: q.raw, matches, partial, ...none, fallback: null, suggestions: [] }
+  const content = partial.length ? null : contentWordResults(entries, q)
+  // The content words matched as a phrase: that is the answer, nothing longer is offered.
+  if (content?.phrase) return { query: q.raw, matches: content.matches, partial: [], ...none, fallback: { words: content.words, phrase: content.phrase }, suggestions: [] }
+  const { entries: containing, words: containingWords } = containingEntries(entries, q)
+  const others = list => containing.length ? list.filter(entry => !containing.includes(entry)) : list
+  if (partial.length) return { query: q.raw, matches: [], partial: others(partial), containing, containingWords, fallback: null, suggestions: [] }
+  if (content) return { query: q.raw, matches: others(content.matches), partial: [], containing, containingWords, fallback: { words: content.words, phrase: '' }, suggestions: [] }
+  if (containing.length) return { query: q.raw, matches: [], partial: [], containing, containingWords, fallback: null, suggestions: [] }
+  return { query: q.raw, matches: [], partial: [], ...none, fallback: null, suggestions: nearSpellings(entries, q) }
 }
 
-// The flat list: matches first, then partials. A near spelling is never in it.
+// The flat list: a longer entry that holds the words typed, then matches, then
+// partials. A near spelling is never in it.
 export function searchDictionary(entries, query) {
   const found = searchDictionaryDetailed(entries, query)
-  return found.partial.length ? [...found.matches, ...found.partial] : found.matches
+  return found.partial.length || found.containing.length ? [...found.containing, ...found.matches, ...found.partial] : found.matches
 }

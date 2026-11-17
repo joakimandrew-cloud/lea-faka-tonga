@@ -23,6 +23,7 @@ import '../styles/dictionary.css'
 // be linked and Back returns to it.
 const letterLabel = letter => letter === 'ng' ? 'Ng' : letter.toUpperCase()
 const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`
+const quoted = (words, joiner) => words.map(word => `“${word}”`).join(` ${joiner} `)
 
 function readAddress(params) {
   const q = params.get('q') || ''
@@ -67,7 +68,11 @@ export default function Dictionary() {
   const partial = searching ? found.partial : []
   const suggestions = searching ? found.suggestions : []
   const fallback = searching ? found.fallback : null
-  const nothing = matches.length === 0 && partial.length === 0
+  // Longer entries that hold every word typed ("malo lelei" for mālō e lelei):
+  // offered first under their own heading, never as a match.
+  const containing = searching ? found.containing : []
+  const containingWords = searching ? found.containingWords : []
+  const nothing = matches.length === 0 && partial.length === 0 && containing.length === 0
   const englishPage = searching && matches.length > 0 ? DICTIONARY.englishBySlug.get(englishSlug(normaliseSense(typed))) : null
   const clear = () => { show('', ''); requestAnimationFrame(() => searchRef.current?.focus()) }
 
@@ -112,10 +117,14 @@ export default function Dictionary() {
             ? `${plural(matches.length, 'entry', 'entries')} under ${letterLabel(letter)}`
             : !searching
             ? `${matches.length} words`
+            : containing.length
+            ? `No entry is exactly “${typed}”. ${plural(containing.length, 'longer entry has', 'longer entries have')} ${quoted(containingWords, 'and')} in it, in that order.${fallback && matches.length
+              ? ` ${plural(matches.length, 'entry has', 'entries have')} ${quoted(fallback.words, 'or')} alone.`
+              : partial.length ? ` ${plural(partial.length, 'word begins', 'words begin')} with or ${partial.length === 1 ? 'contains' : 'contain'} what you typed.` : ''}`
             : fallback
             ? `No entry has all of “${typed}”. ${fallback.phrase
               ? `${plural(matches.length, 'entry matches', 'entries match')} “${fallback.phrase}”.`
-              : `${plural(matches.length, 'entry has', 'entries have')} ${fallback.words.map(word => `“${word}”`).join(' or ')}.`}`
+              : `${plural(matches.length, 'entry has', 'entries have')} ${quoted(fallback.words, 'or')}.`}`
             : matches.length
             ? `${plural(matches.length, 'word matches', 'words match')}${partial.length ? `, and ${plural(partial.length, 'more begins', 'more begin')} with or ${partial.length === 1 ? 'contains' : 'contain'} “${typed}”` : ''}`
             : partial.length
@@ -144,7 +153,19 @@ export default function Dictionary() {
             </div>
           ) : (
             <>
-              {matches.length > 0 && <ul className="dictionary-list">{matches.map(entry => <SearchRow key={entry.id} entry={entry} />)}</ul>}
+              {containing.length > 0 && (
+                <section className="dictionary-group is-containing" aria-labelledby="dictionary-containing-title">
+                  <h2 id="dictionary-containing-title" className="dictionary-group-title">{containing.length === 1 ? 'A longer entry' : 'Longer entries'} with {quoted(containingWords, 'and')}</h2>
+                  <ul className="dictionary-list">{containing.map(entry => <SearchRow key={entry.id} entry={entry} />)}</ul>
+                </section>
+              )}
+              {matches.length > 0 && containing.length > 0 && (
+                <section className="dictionary-group" aria-labelledby="dictionary-single-title">
+                  <h2 id="dictionary-single-title" className="dictionary-group-title">Entries with {quoted(fallback ? fallback.words : containingWords, 'or')} alone</h2>
+                  <ul className="dictionary-list">{matches.map(entry => <SearchRow key={entry.id} entry={entry} />)}</ul>
+                </section>
+              )}
+              {matches.length > 0 && containing.length === 0 && <ul className="dictionary-list">{matches.map(entry => <SearchRow key={entry.id} entry={entry} />)}</ul>}
               {partial.length > 0 && (
                 <section className="dictionary-group" aria-labelledby="dictionary-partial-title">
                   <h2 id="dictionary-partial-title" className="dictionary-group-title">Words that begin with or contain “{typed}”</h2>
