@@ -5043,6 +5043,194 @@
   ],
   "cw-0001": [
    {
+    "tongan": "Na'á ku kai.",
+    "english": "I ate.",
+    "line": 12,
+    "kind": "sentence",
+    "at": [
+     5,
+     7
+    ]
+   },
+   {
+    "tongan": "Na'á ku inu.",
+    "english": "I drank.",
+    "line": 92,
+    "kind": "sentence",
+    "at": [
+     5,
+     7
+    ]
+   },
+   {
+    "tongan": "Na'á ku nofo.",
+    "english": "I stayed.",
+    "line": 112,
+    "kind": "sentence",
+    "at": [
+     5,
+     7
+    ]
+   }
+  ],
+  "cw-0002": [
+   {
+    "tongan": "Na'a mau kai.",
+    "english": "We ate. (You were not part of it.)",
+    "line": 156,
+    "kind": "sentence",
+    "at": [
+     5,
+     8
+    ]
+   }
+  ],
+  "cw-0003": [
+   {
+    "tongan": "Té na mohe.",
+    "english": "They two will sleep.",
+    "line": 223,
+    "kind": "sentence",
+    "at": [
+     3,
+     5
+    ]
+   }
+  ],
+  "cw-0004": [
+   {
+    "tongan": "Na'a nau mohe.",
+    "english": "They slept. (Reports a past event.)",
+    "line": 64,
+    "kind": "sentence",
+    "at": [
+     5,
+     8
+    ]
+   },
+   {
+    "tongan": "Kuo nau mohe.",
+    "english": "They have fallen asleep. (They were awake before. Now they are asleep.)",
+    "line": 66,
+    "kind": "sentence",
+    "at": [
+     4,
+     7
+    ]
+   },
+   {
+    "tongan": "Na'a nau kai.",
+    "english": "They ate.",
+    "line": 136,
+    "kind": "sentence",
+    "at": [
+     5,
+     8
+    ]
+   }
+  ],
+  "cw-0005": [
+   {
+    "tongan": "'Oku ou kai.",
+    "english": "I eat. (Something I do regularly, not \"I am eating right now.\")",
+    "line": 22,
+    "kind": "sentence",
+    "at": [
+     5,
+     7
+    ]
+   }
+  ],
+  "cw-0007": [
+   {
+    "tongan": "Na'a mau kai kimautolu.",
+    "english": "We ate. (we ourselves ate)",
+    "line": 205,
+    "kind": "sentence",
+    "at": [
+     13,
+     22
+    ]
+   },
+   {
+    "tongan": "Te mau lele kimautolu!",
+    "english": "We will run! (emphatic)",
+    "line": 217,
+    "kind": "sentence",
+    "at": [
+     12,
+     21
+    ]
+   }
+  ],
+  "cw-0009": [
+   {
+    "tongan": "Mou ō kimoutolu!",
+    "english": "Go! (all of you, I mean it!)",
+    "line": 257,
+    "kind": "sentence",
+    "at": [
+     6,
+     15
+    ]
+   },
+   {
+    "tongan": "Mou kai kimoutolu!",
+    "english": "Eat! (all of you!)",
+    "line": 259,
+    "kind": "sentence",
+    "at": [
+     8,
+     17
+    ]
+   }
+  ],
+  "cw-0014": [
+   {
+    "tongan": "Té ke mohe koe.",
+    "english": "You will sleep. (you yourself will sleep)",
+    "line": 207,
+    "kind": "sentence",
+    "at": [
+     11,
+     14
+    ]
+   },
+   {
+    "tongan": "'Alu koe!",
+    "english": "Go! (I mean you!)",
+    "line": 241,
+    "kind": "sentence",
+    "at": [
+     5,
+     8
+    ]
+   },
+   {
+    "tongan": "Ha'u koe!",
+    "english": "Come! (yes, you!)",
+    "line": 247,
+    "kind": "sentence",
+    "at": [
+     5,
+     8
+    ]
+   }
+  ],
+  "cw-0015": [
+   {
+    "tongan": "Na'e 'ikai ke loko lelei 'emau ngāué.",
+    "english": "Our work was not too good.",
+    "line": 148,
+    "kind": "sentence",
+    "at": [
+     25,
+     30
+    ]
+   }
+  ],
+  "cw-0016": [
+   {
     "tongan": "'Oku 'ikai ke loko lelei 'a e ika.",
     "english": "The fish is not too good.",
     "line": 144,
@@ -5073,31 +5261,347 @@
     ]
    }
   ],
-  "cw-0005": [
+  "cw-0017": [
    {
-    "tongan": "'Oku ou kai.",
-    "english": "I eat. (Something I do regularly, not \"I am eating right now.\")",
-    "line": 22,
+    "tongan": "'Oku 'ikai té u teitei ngāue.",
+    "english": "I absolutely do not work.",
+    "line": 162,
+    "kind": "sentence",
+    "at": [
+     16,
+     22
+    ]
+   },
+   {
+    "tongan": "Na'e 'ikai té u teitei kai.",
+    "english": "I absolutely did not eat.",
+    "line": 164,
+    "kind": "sentence",
+    "at": [
+     16,
+     22
+    ]
+   }
+  ],
+  "cw-0020": [
+   {
+    "tongan": "Mālō 'etau lava ki he pongipongi ni.",
+    "english": "Good morning. (Lit. \"Congratulations on our surviving to this morning.\")",
+    "line": 67,
     "kind": "sentence",
     "at": [
      5,
+     10
+    ]
+   }
+  ],
+  "cw-0021": [
+   {
+    "tongan": "Ko hai ho hingoa?",
+    "english": "What is your name? (Lit. \"Who is your name?\")",
+    "line": 198,
+    "kind": "sentence",
+    "at": [
+     7,
+     9
+    ]
+   },
+   {
+    "tongan": "Ko ho ta'u fiha eni?",
+    "english": "How old are you? (Lit. \"Is your year how-many this?\")",
+    "line": 220,
+    "kind": "sentence",
+    "at": [
+     3,
+     5
+    ]
+   }
+  ],
+  "cw-0022": [
+   {
+    "tongan": "Ko hoku ta'u uofulu eni.",
+    "english": "I am twenty years old. (Lit. \"Is my year twenty this.\")",
+    "line": 228,
+    "kind": "sentence",
+    "at": [
+     3,
      7
     ]
    }
   ],
-  "cw-0006": [
+  "cw-0023": [
    {
-    "tongan": "Talu 'eku ha'ú 'oku te'eki té u ongo'i ta'elata.",
-    "english": "Since I came, I have never felt homesick.",
-    "line": 61,
+    "tongan": "Ko 'eku 'alu ki Nukunuku.",
+    "english": "I am going to Nukunuku. (Lit. \"It is my going to Nukunuku.\")",
+    "line": 132,
     "kind": "sentence",
     "at": [
-     39,
-     47
+     3,
+     7
+    ]
+   },
+   {
+    "tongan": "Ko 'eku 'alu ki Nuku'alofa.",
+    "english": "I am going to Nuku'alofa. (Lit. \"It is my going to Nuku'alofa.\")",
+    "line": 133,
+    "kind": "sentence",
+    "at": [
+     3,
+     7
+    ]
+   },
+   {
+    "tongan": "Ko e fai 'eku tō manioke.",
+    "english": "I am planting cassava. (Lit. \"It is the doing of my planting cassava.\")",
+    "line": 138,
+    "kind": "sentence",
+    "at": [
+     9,
+     13
     ]
    }
   ],
-  "cw-0013": [
+  "cw-0026": [
+   {
+    "tongan": "Ko e hā 'ene me'a 'oku fai?",
+    "english": "What is he/she doing? (Lit. \"What is his/her thing that is doing?\")",
+    "line": 136,
+    "kind": "sentence",
+    "at": [
+     8,
+     12
+    ]
+   }
+  ],
+  "cw-0028": [
+   {
+    "tongan": "Kuo ngalo homa kote.",
+    "english": "We (he and I) have forgotten our coats.",
+    "line": 101,
+    "kind": "sentence",
+    "at": [
+     10,
+     14
+    ]
+   }
+  ],
+  "cw-0032": [
+   {
+    "tongan": "Ko fē hona kote?",
+    "english": "Where are their coats (the two of them)?",
+    "line": 99,
+    "kind": "sentence",
+    "at": [
+     6,
+     10
+    ]
+   }
+  ],
+  "cw-0035": [
+   {
+    "tongan": "Ko ho'o huo?",
+    "english": "Are you hoeing? (Lit. \"It is your hoeing?\")",
+    "line": 129,
+    "kind": "sentence",
+    "at": [
+     3,
+     7
+    ]
+   },
+   {
+    "tongan": "Ko ho'o ako?",
+    "english": "Are you studying? (Lit. \"It is your studying?\")",
+    "line": 130,
+    "kind": "sentence",
+    "at": [
+     3,
+     7
+    ]
+   },
+   {
+    "tongan": "Ko e hā ho'o me'a 'oku fai?",
+    "english": "What are you doing? (Lit. \"What is your thing that is doing?\")",
+    "line": 135,
+    "kind": "sentence",
+    "at": [
+     8,
+     12
+    ]
+   }
+  ],
+  "cw-0041": [
+   {
+    "tongan": "ua afe mā tolungeau",
+    "english": "two thousand three hundred",
+    "line": 68,
+    "kind": "phrase",
+    "at": [
+     10,
+     19
+    ]
+   }
+  ],
+  "cw-0043": [
+   {
+    "tongan": "'Oku fakalaka ai pē 'a Tonga ki mu'a.",
+    "english": "Tonga is continuing to go forward.",
+    "line": 242,
+    "kind": "sentence",
+    "at": [
+     5,
+     13
+    ]
+   }
+  ],
+  "cw-0044": [
+   {
+    "tongan": "'Oku ou lolotonga lau ha tohi.",
+    "english": "I am currently reading a book.",
+    "line": 97,
+    "kind": "sentence",
+    "at": [
+     8,
+     17
+    ]
+   },
+   {
+    "tongan": "Lolotonga pē 'emau kaí, kuo ha'u 'a Sione.",
+    "english": "Right while we were eating, Sione arrived.",
+    "line": 101,
+    "kind": "sentence",
+    "at": [
+     0,
+     9
+    ]
+   }
+  ],
+  "cw-0045": [
+   {
+    "tongan": "'Oku tau taki taha ma'ana.",
+    "english": "We are each man for himself.",
+    "line": 324,
+    "kind": "sentence",
+    "at": [
+     19,
+     25
+    ]
+   }
+  ],
+  "cw-0046": [
+   {
+    "tongan": "Na'a nau 'omi taki tolu 'a e kato.",
+    "english": "They brought three baskets each.",
+    "line": 330,
+    "kind": "sentence",
+    "at": [
+     9,
+     13
+    ]
+   }
+  ],
+  "cw-0050": [
+   {
+    "tongan": "Ko e kato ika eni ma'aku.",
+    "english": "This basket of fish is for me.",
+    "line": 163,
+    "kind": "sentence",
+    "at": [
+     18,
+     24
+    ]
+   }
+  ],
+  "cw-0054": [
+   {
+    "tongan": "'Oku langa e vaká mo'ou?",
+    "english": "Is the boat being built for you?",
+    "line": 123,
+    "kind": "sentence",
+    "at": [
+     18,
+     23
+    ]
+   }
+  ],
+  "cw-0055": [
+   {
+    "tongan": "'Oku 'ange'ange 'a e momoko 'i heni he momoko 'i Ha'amoá.",
+    "english": "The cold here is surpassed by the cold in Samoa. (Samoa is colder.)",
+    "line": 275,
+    "kind": "sentence",
+    "at": [
+     5,
+     15
+    ]
+   },
+   {
+    "tongan": "'Oku 'ange'ange ho'o potó he'eku potó.",
+    "english": "My skill surpasses yours. (Lit. Your skill is surpassed by my skill.)",
+    "line": 281,
+    "kind": "sentence",
+    "at": [
+     5,
+     15
+    ]
+   },
+   {
+    "tongan": "'Oku 'ange'ange 'a e vela 'i heni he vela 'i 'Ameliká.",
+    "english": "The heat here is surpassed by the heat in America. (America is hotter.)",
+    "line": 287,
+    "kind": "sentence",
+    "at": [
+     5,
+     15
+    ]
+   }
+  ],
+  "cw-0056": [
+   {
+    "tongan": "'Oku 'ange'ange ho'o potó he'eku potó.",
+    "english": "My skill surpasses yours. (Lit. Your skill is surpassed by my skill.)",
+    "line": 281,
+    "kind": "sentence",
+    "at": [
+     26,
+     32
+    ]
+   }
+  ],
+  "cw-0059": [
+   {
+    "tongan": "'Okú ne 'omai 'a e tohí.",
+    "english": "He is bringing the book (to me/us). (Lit. \"He brings-hither the book\")",
+    "line": 28,
+    "kind": "sentence",
+    "at": [
+     8,
+     13
+    ]
+   },
+   {
+    "tongan": "Na'á ku 'omai 'a e valá mei he falé.",
+    "english": "I brought the clothes from the house. (Lit. \"I brought-hither the clothes from the house\")",
+    "line": 143,
+    "kind": "sentence",
+    "at": [
+     8,
+     13
+    ]
+   }
+  ],
+  "cw-0071": [
+   {
+    "tongan": "'Oku 'i ai ha'o kato?",
+    "english": "Do you have a basket? (Lit. \"Is there a-your basket?\")",
+    "line": 117,
+    "kind": "sentence",
+    "at": [
+     11,
+     15
+    ]
+   }
+  ],
+  "cw-0079": [
    {
     "tongan": "ha me'a fakaekolo",
     "english": "a matter pertaining to one particular village",
@@ -5109,7 +5613,249 @@
     ]
    }
   ],
-  "cw-0016": [
+  "cw-0081": [
+   {
+    "tongan": "ha me'a fakakolo",
+    "english": "a village matter (relating to villages in general)",
+    "line": 118,
+    "kind": "phrase",
+    "at": [
+     8,
+     16
+    ]
+   }
+  ],
+  "cw-0082": [
+   {
+    "tongan": "Na'á ne fakamohe 'ene tamasi'í.",
+    "english": "She put her child to sleep.",
+    "line": 42,
+    "kind": "sentence",
+    "at": [
+     8,
+     16
+    ]
+   }
+  ],
+  "cw-0089": [
+   {
+    "tongan": "'Okú ne pule'i 'a e ngāué.",
+    "english": "He manages the work.",
+    "line": 94,
+    "kind": "sentence",
+    "at": [
+     8,
+     14
+    ]
+   }
+  ],
+  "cw-0093": [
+   {
+    "tongan": "Kuo teuteu'i 'a e vaká.",
+    "english": "The boat has been decorated. (prepared elaborately, fitted out)",
+    "line": 132,
+    "kind": "sentence",
+    "at": [
+     4,
+     12
+    ]
+   }
+  ],
+  "cw-0094": [
+   {
+    "tongan": "Na'á ne vahe'i 'a e iká.",
+    "english": "She divided up the fish. (into portions, completely)",
+    "line": 164,
+    "kind": "sentence",
+    "at": [
+     8,
+     14
+    ]
+   }
+  ],
+  "cw-0097": [
+   {
+    "tongan": "Ko e kato ia 'a'aku.",
+    "english": "That basket is mine.",
+    "line": 12,
+    "kind": "sentence",
+    "at": [
+     13,
+     19
+    ]
+   },
+   {
+    "tongan": "'Oku 'a'aku 'a e kató.",
+    "english": "The basket is mine.",
+    "line": 157,
+    "kind": "sentence",
+    "at": [
+     5,
+     11
+    ]
+   }
+  ],
+  "cw-0098": [
+   {
+    "tongan": "Ko e me'a ia 'a'ana.",
+    "english": "That thing is his.",
+    "line": 28,
+    "kind": "sentence",
+    "at": [
+     13,
+     19
+    ]
+   },
+   {
+    "tongan": "'Oku 'a'ana eni.",
+    "english": "This is his. (lit. \"Is his this\")",
+    "line": 147,
+    "kind": "sentence",
+    "at": [
+     5,
+     11
+    ]
+   }
+  ],
+  "cw-0099": [
+   {
+    "tongan": "Ko e hele ia 'a'au.",
+    "english": "That knife is yours.",
+    "line": 26,
+    "kind": "sentence",
+    "at": [
+     13,
+     18
+    ]
+   }
+  ],
+  "cw-0100": [
+   {
+    "tongan": "'Eku pa'angá 'aku.",
+    "english": "MY money (emphasizing that it is mine).",
+    "line": 135,
+    "kind": "sentence",
+    "at": [
+     13,
+     17
+    ]
+   }
+  ],
+  "cw-0102": [
+   {
+    "tongan": "Ko e fala ia 'amautolu.",
+    "english": "That mat is ours (exclusive).",
+    "line": 45,
+    "kind": "sentence",
+    "at": [
+     13,
+     22
+    ]
+   }
+  ],
+  "cw-0104": [
+   {
+    "tongan": "Ko e me'a ia 'amoutolu.",
+    "english": "That thing is yours (plural).",
+    "line": 47,
+    "kind": "sentence",
+    "at": [
+     13,
+     22
+    ]
+   }
+  ],
+  "cw-0105": [
+   {
+    "tongan": "'Oku 'ana eni.",
+    "english": "This is his.",
+    "line": 165,
+    "kind": "sentence",
+    "at": [
+     5,
+     9
+    ]
+   }
+  ],
+  "cw-0111": [
+   {
+    "tongan": "Ko e fatongia ia 'omautolu.",
+    "english": "That responsibility is ours (exclusive).",
+    "line": 86,
+    "kind": "sentence",
+    "at": [
+     17,
+     26
+    ]
+   }
+  ],
+  "cw-0114": [
+   {
+    "tongan": "Hono soté 'ona.",
+    "english": "HIS shirt (not anyone else's).",
+    "line": 127,
+    "kind": "sentence",
+    "at": [
+     10,
+     14
+    ]
+   },
+   {
+    "tongan": "'Oku 'ona eni.",
+    "english": "This is his. (ho-class)",
+    "line": 167,
+    "kind": "sentence",
+    "at": [
+     5,
+     9
+    ]
+   }
+  ],
+  "cw-0117": [
+   {
+    "tongan": "Ko e fale ia 'o'oku.",
+    "english": "That house is mine.",
+    "line": 65,
+    "kind": "sentence",
+    "at": [
+     13,
+     19
+    ]
+   },
+   {
+    "tongan": "'Oku 'o'oku 'a e falé.",
+    "english": "The house is mine.",
+    "line": 159,
+    "kind": "sentence",
+    "at": [
+     5,
+     11
+    ]
+   }
+  ],
+  "cw-0118": [
+   {
+    "tongan": "Ko e kofu ia 'o'ona.",
+    "english": "That dress is hers.",
+    "line": 69,
+    "kind": "sentence",
+    "at": [
+     13,
+     19
+    ]
+   },
+   {
+    "tongan": "'Oku 'o'ona eni.",
+    "english": "This is his. (ho-class)",
+    "line": 149,
+    "kind": "sentence",
+    "at": [
+     5,
+     11
+    ]
+   }
+  ],
+  "cw-0119": [
    {
     "tongan": "Ko e vala ia 'o'ou.",
     "english": "Those clothes are yours.",
@@ -5121,7 +5867,577 @@
     ]
    }
   ],
-  "cw-0022": [
+  "cw-0125": [
+   {
+    "tongan": "Fakalelei'i 'a e valá na'a maumau he halá.",
+    "english": "Fix the clothes lest they get ruined on the road.",
+    "line": 78,
+    "kind": "sentence",
+    "at": [
+     0,
+     11
+    ]
+   },
+   {
+    "tongan": "Fakalelei'i 'a e kaá telia na'a maumau he halá.",
+    "english": "Fix the car well lest it break down on the road.",
+    "line": 119,
+    "kind": "sentence",
+    "at": [
+     0,
+     11
+    ]
+   }
+  ],
+  "cw-0126": [
+   {
+    "tongan": "Tuku ké u fakamahino atu.",
+    "english": "Let me explain it to you.",
+    "line": 18,
+    "kind": "sentence",
+    "at": [
+     10,
+     20
+    ]
+   }
+  ],
+  "cw-0127": [
+   {
+    "tongan": "Mou tokanga lelei na'a hoko ha fakatu'utāmaki.",
+    "english": "You all be very careful lest some disaster occur.",
+    "line": 80,
+    "kind": "sentence",
+    "at": [
+     31,
+     45
+    ]
+   }
+  ],
+  "cw-0129": [
+   {
+    "tongan": "Hola na'á ke lavea.",
+    "english": "Run away lest you get hurt.",
+    "line": 82,
+    "kind": "sentence",
+    "at": [
+     0,
+     4
+    ]
+   }
+  ],
+  "cw-0130": [
+   {
+    "tongan": "Hola na'á ke lavea.",
+    "english": "Run away lest you get hurt.",
+    "line": 82,
+    "kind": "sentence",
+    "at": [
+     13,
+     18
+    ]
+   }
+  ],
+  "cw-0131": [
+   {
+    "tongan": "'Oua té ke mohe, teliá na'a li'aki koe.",
+    "english": "Do not sleep, lest you be left behind.",
+    "line": 121,
+    "kind": "sentence",
+    "at": [
+     28,
+     34
+    ]
+   }
+  ],
+  "cw-0134": [
+   {
+    "tongan": "Na'á ku fua talanoa mo Tēvita, peá ma toki alea mo e pulé.",
+    "english": "I talked with Tēvita first, and then we discussed with the boss.",
+    "line": 135,
+    "kind": "sentence",
+    "at": [
+     43,
+     47
+    ]
+   }
+  ],
+  "cw-0135": [
+   {
+    "tongan": "Ko 'emau fuofua fakataha eni.",
+    "english": "This is our first meeting.",
+    "line": 131,
+    "kind": "sentence",
+    "at": [
+     9,
+     15
+    ]
+   },
+   {
+    "tongan": "Ko e fuofua tohi eni na'á ku lau.",
+    "english": "This is the first book I read.",
+    "line": 133,
+    "kind": "sentence",
+    "at": [
+     5,
+     11
+    ]
+   }
+  ],
+  "cw-0136": [
+   {
+    "tongan": "Na'e mapuni 'a e māketí he uike kuo 'osí, pea talu mei ai 'oku tokolahi 'a e kakaí 'oku si'isi'i 'enau me'akaí.",
+    "english": "The market was closed last week, and ever since then many people have had little food.",
+    "line": 77,
+    "kind": "sentence",
+    "at": [
+     5,
+     11
+    ]
+   }
+  ],
+  "cw-0137": [
+   {
+    "tongan": "Talu 'eku ha'ú 'oku te'eki té u ongo'i ta'elata.",
+    "english": "Since I came, I have never felt homesick.",
+    "line": 61,
+    "kind": "sentence",
+    "at": [
+     32,
+     38
+    ]
+   }
+  ],
+  "cw-0139": [
+   {
+    "tongan": "Talu 'eku ha'ú 'oku te'eki té u ongo'i ta'elata.",
+    "english": "Since I came, I have never felt homesick.",
+    "line": 61,
+    "kind": "sentence",
+    "at": [
+     39,
+     47
+    ]
+   }
+  ],
+  "cw-0140": [
+   {
+    "tongan": "Tau tōmu'a tokanga'i 'a 'apí.",
+    "english": "Before anything else, we should take care of home.",
+    "line": 224,
+    "kind": "sentence",
+    "at": [
+     11,
+     20
+    ]
+   }
+  ],
+  "cw-0144": [
+   {
+    "tongan": "Ko e lahí 'ene ta'etokanga.",
+    "english": "His carelessness is great. (Lit. \"The greatness of his not-paying-attention\")",
+    "line": 50,
+    "kind": "sentence",
+    "at": [
+     15,
+     26
+    ]
+   },
+   {
+    "tongan": "Ne'ine'i mole hono tohí ko e lahí 'ene ta'etokanga.",
+    "english": "No wonder he lost his book, he was very careless. (Lit. \"No wonder lost his book, the greatness of his carelessness\")",
+    "line": 122,
+    "kind": "sentence",
+    "at": [
+     39,
+     50
+    ]
+   }
+  ],
+  "cw-0146": [
+   {
+    "tongan": "Na'á ku fa'o ia ki ha puha.",
+    "english": "I put it into a box. (Some box or other.)",
+    "line": 14,
+    "kind": "sentence",
+    "at": [
+     8,
+     12
+    ]
+   },
+   {
+    "tongan": "Na'á ku fa'o ia ki he puha.",
+    "english": "I put it into a box. (One particular box.)",
+    "line": 16,
+    "kind": "sentence",
+    "at": [
+     8,
+     12
+    ]
+   },
+   {
+    "tongan": "Na'á ku fa'o ia ki he puhá.",
+    "english": "I put it into the box.",
+    "line": 18,
+    "kind": "sentence",
+    "at": [
+     8,
+     12
+    ]
+   }
+  ],
+  "cw-0151": [
+   {
+    "tongan": "Na'á ku ofo 'i he'ene lau 'a e tohí.",
+    "english": "I was surprised at his reading the book. (I was surprised when he read the book.)",
+    "line": 12,
+    "kind": "sentence",
+    "at": [
+     15,
+     21
+    ]
+   },
+   {
+    "tongan": "Na'á ku ofo 'i he'ene tō 'a e 'akaú.",
+    "english": "I was surprised at his planting the tree.",
+    "line": 32,
+    "kind": "sentence",
+    "at": [
+     15,
+     21
+    ]
+   },
+   {
+    "tongan": "'i he'ene lau 'a e tohí",
+    "english": "at his reading the book",
+    "line": 80,
+    "kind": "phrase",
+    "at": [
+     3,
+     9
+    ]
+   }
+  ],
+  "cw-0152": [
+   {
+    "tongan": "Na'á ke fakafonu 'a e la'i foomú?",
+    "english": "Did you fill out the form?",
+    "line": 129,
+    "kind": "sentence",
+    "at": [
+     8,
+     16
+    ]
+   }
+  ],
+  "cw-0154": [
+   {
+    "tongan": "Ka ne ta'e'oua ia, kuó u tō.",
+    "english": "If it had not been for him, I would have fallen.",
+    "line": 136,
+    "kind": "sentence",
+    "at": [
+     6,
+     14
+    ]
+   },
+   {
+    "tongan": "Ka ne ta'e'oua 'ene tokoni lelei, 'oku mau kei vaivai pē.",
+    "english": "If it were not for her good help, we would still be weak.",
+    "line": 138,
+    "kind": "sentence",
+    "at": [
+     6,
+     14
+    ]
+   },
+   {
+    "tongan": "Na'e 'ikai mei lava 'eku ha'ú ka ne ta'e'oua 'a e vaká.",
+    "english": "I would not have been able to come if it had not been for the boat.",
+    "line": 160,
+    "kind": "sentence",
+    "at": [
+     36,
+     44
+    ]
+   }
+  ],
+  "cw-0157": [
+   {
+    "tongan": "'Oku fu'u efua 'aupito 'a e halá.",
+    "english": "The road is very dusty.",
+    "line": 117,
+    "kind": "sentence",
+    "at": [
+     10,
+     14
+    ]
+   }
+  ],
+  "cw-0159": [
+   {
+    "tongan": "Na'á ku faka'ofa'ia 'ia Siale.",
+    "english": "I felt sorry for Siale.",
+    "line": 178,
+    "kind": "sentence",
+    "at": [
+     8,
+     19
+    ]
+   }
+  ],
+  "cw-0165": [
+   {
+    "tongan": "'Oku 'ikai'ia ko ia pē.",
+    "english": "It is not only that. (Emphasizing: truly not just that.)",
+    "line": 190,
+    "kind": "sentence",
+    "at": [
+     5,
+     13
+    ]
+   }
+  ],
+  "cw-0166": [
+   {
+    "tongan": "'Oku 'iloa 'a Sēmisí.",
+    "english": "Sēmisi is well known. (Lit. \"Is known Sēmisi\")",
+    "line": 94,
+    "kind": "sentence",
+    "at": [
+     5,
+     10
+    ]
+   }
+  ],
+  "cw-0169": [
+   {
+    "tongan": "Ko e fonua kakai'ia 'a 'Amelika.",
+    "english": "America is a densely populated land.",
+    "line": 158,
+    "kind": "sentence",
+    "at": [
+     11,
+     19
+    ]
+   }
+  ],
+  "cw-0171": [
+   {
+    "tongan": "'Oku kumā'ia e ngouē.",
+    "english": "The garden is infested with rats. (Lit. \"Is rat-abounding the garden\")",
+    "line": 160,
+    "kind": "sentence",
+    "at": [
+     5,
+     12
+    ]
+   }
+  ],
+  "cw-0174": [
+   {
+    "tongan": "'Oku ou lelei'ia ai.",
+    "english": "I regard it as good. I am pleased with it.",
+    "line": 176,
+    "kind": "sentence",
+    "at": [
+     8,
+     16
+    ]
+   }
+  ],
+  "cw-0177": [
+   {
+    "tongan": "Na'á ke mālie'ia he hivá?",
+    "english": "Did you enjoy the song?",
+    "line": 180,
+    "kind": "sentence",
+    "at": [
+     8,
+     16
+    ]
+   }
+  ],
+  "cw-0180": [
+   {
+    "tongan": "'Oku ma'ungata'a 'aupito 'a e me'akái 'i he taimi ení.",
+    "english": "Food is very hard to get right now.",
+    "line": 248,
+    "kind": "sentence",
+    "at": [
+     5,
+     16
+    ]
+   }
+  ],
+  "cw-0212": [
+   {
+    "tongan": "Kātaki'i 'eku tōmui, na'á ku mo'umohea.",
+    "english": "Forgive my lateness, I overslept.",
+    "line": 179,
+    "kind": "sentence",
+    "at": [
+     0,
+     8
+    ]
+   }
+  ],
+  "cw-0214": [
+   {
+    "tongan": "Ako ke maako.",
+    "english": "To learn thoroughly. (Lit. \"Study so-as-to ma-study\")",
+    "line": 148,
+    "kind": "sentence",
+    "at": [
+     7,
+     12
+    ]
+   }
+  ],
+  "cw-0220": [
+   {
+    "tongan": "Tu'u ke matu'u.",
+    "english": "To stand firm.",
+    "line": 150,
+    "kind": "sentence",
+    "at": [
+     8,
+     14
+    ]
+   }
+  ],
+  "cw-0221": [
+   {
+    "tongan": "Kuo mo'unofoa 'a e vaká 'i he motú.",
+    "english": "The boat has stayed too long at the island.",
+    "line": 181,
+    "kind": "sentence",
+    "at": [
+     4,
+     13
+    ]
+   }
+  ],
+  "cw-0224": [
+   {
+    "tongan": "Kuó ne mo'utu'ua 'i he māketí.",
+    "english": "He has been standing too long at the market.",
+    "line": 183,
+    "kind": "sentence",
+    "at": [
+     7,
+     16
+    ]
+   }
+  ],
+  "cw-0226": [
+   {
+    "tongan": "Mou omi ke tau kaungā ngāue hení.",
+    "english": "Come so we can be fellow workers here.",
+    "line": 223,
+    "kind": "sentence",
+    "at": [
+     4,
+     7
+    ]
+   }
+  ],
+  "cw-0233": [
+   {
+    "tongan": "Na'á ne fakafuofua 'a e mamafá.",
+    "english": "He estimated the weight.",
+    "line": 186,
+    "kind": "sentence",
+    "at": [
+     8,
+     18
+    ]
+   }
+  ],
+  "cw-0248": [
+   {
+    "tongan": "Na'e katokatoa 'a e kau akó.",
+    "english": "Absolutely all the students were there.",
+    "line": 89,
+    "kind": "sentence",
+    "at": [
+     5,
+     14
+    ]
+   }
+  ],
+  "cw-0254": [
+   {
+    "tongan": "'Oku luoluo 'a e halá.",
+    "english": "The road is full of holes.",
+    "line": 144,
+    "kind": "sentence",
+    "at": [
+     5,
+     11
+    ]
+   }
+  ],
+  "cw-0257": [
+   {
+    "tongan": "'Oku māmāfana 'a e vaí.",
+    "english": "The water is lukewarm.",
+    "line": 105,
+    "kind": "sentence",
+    "at": [
+     5,
+     13
+    ]
+   }
+  ],
+  "cw-0259": [
+   {
+    "tongan": "Na'e mokomoko 'a e efiafí.",
+    "english": "The evening was cool.",
+    "line": 107,
+    "kind": "sentence",
+    "at": [
+     5,
+     13
+    ]
+   }
+  ],
+  "cw-0272": [
+   {
+    "tongan": "'Oku totototo 'a e langi 'i he efiafí.",
+    "english": "The sky is red in the evening.",
+    "line": 146,
+    "kind": "sentence",
+    "at": [
+     5,
+     13
+    ]
+   }
+  ],
+  "cw-0280": [
+   {
+    "tongan": "'Oku totonu ke tauhi 'e te 'ete ngāué.",
+    "english": "One should take care of one's work.",
+    "line": 51,
+    "kind": "sentence",
+    "at": [
+     27,
+     31
+    ]
+   }
+  ],
+  "cw-0283": [
+   {
+    "tongan": "'Oku totonu ke tokanga ki hoto fāmilí.",
+    "english": "One should care for one's family.",
+    "line": 53,
+    "kind": "sentence",
+    "at": [
+     26,
+     30
+    ]
+   }
+  ],
+  "cw-0284": [
    {
     "tongan": "'Oku 'ikai totonu ke te tokanga pē kiate kita.",
     "english": "One should not attend only to oneself.",
@@ -5140,6 +6456,64 @@
     "at": [
      11,
      15
+    ]
+   }
+  ],
+  "cw-0289": [
+   {
+    "tongan": "'Oku fakamamahi 'aupito si'i mate 'a e fa'ē mo si'i fānaú.",
+    "english": "The unfortunate death of the mother and the poor children is very sad.",
+    "line": 31,
+    "kind": "sentence",
+    "at": [
+     5,
+     15
+    ]
+   }
+  ],
+  "cw-0293": [
+   {
+    "tongan": "Kuó ne lavea si'a tamasi'í?",
+    "english": "Has a child been hurt? (poor thing)",
+    "line": 43,
+    "kind": "sentence",
+    "at": [
+     13,
+     17
+    ]
+   },
+   {
+    "tongan": "Na'a nau 'omi ia ki 'api ke ne ma'u si'a me'atokoní.",
+    "english": "They brought him home so he could have some food. (the poor fellow)",
+    "line": 49,
+    "kind": "sentence",
+    "at": [
+     36,
+     40
+    ]
+   }
+  ],
+  "cw-0306": [
+   {
+    "tongan": "'Oku tangi si'eku ki'i pēpē.",
+    "english": "My poor little baby is crying.",
+    "line": 92,
+    "kind": "sentence",
+    "at": [
+     11,
+     17
+    ]
+   }
+  ],
+  "cw-0311": [
+   {
+    "tongan": "'Oku nofo si'ene ta'ahine 'e taha 'iate au, ka kuó ne mālōlō si'ono foha 'e taha.",
+    "english": "One of his poor little girls is staying with me, but one of his boys has passed away.",
+    "line": 86,
+    "kind": "sentence",
+    "at": [
+     10,
+     16
     ]
    }
   ]

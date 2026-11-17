@@ -1,159 +1,2266 @@
 {
- "note": "Words the lessons use that the course word list leaves out. The dictionary shows each as a course word, with a link to its lesson. Read by the dictionary only: the flash cards, the games, the practice and the lessons do not read this file.",
- "entries": [
-  {
-   "id": "cw-0001",
-   "tongan": "loko",
-   "english": "not too (softens a negative)",
-   "part_of_speech": "adverb",
-   "lesson": 9
-  },
-  {
-   "id": "cw-0002",
-   "tongan": "fe'iloaki",
-   "english": "meet",
-   "part_of_speech": "verb",
-   "lesson": 38
-  },
-  {
-   "id": "cw-0003",
-   "tongan": "si'ena",
-   "english": "their two (poor, dear)",
-   "part_of_speech": "possessive pronoun",
-   "lesson": 52
-  },
-  {
-   "id": "cw-0004",
-   "tongan": "fakataha",
-   "english": "assemble, gather; together; meeting",
-   "part_of_speech": "verb",
-   "lesson": 10
-  },
-  {
-   "id": "cw-0005",
-   "tongan": "ou",
-   "english": "I (before a verb)",
-   "part_of_speech": "pronoun",
-   "lesson": 2
-  },
-  {
-   "id": "cw-0006",
-   "tongan": "ta'elata",
-   "english": "homesick",
-   "part_of_speech": "adjective",
-   "lesson": 42
-  },
-  {
-   "id": "cw-0007",
-   "tongan": "tositosi",
-   "english": "peck repeatedly",
-   "part_of_speech": "verb",
-   "lesson": 50
-  },
-  {
-   "id": "cw-0008",
-   "tongan": "si'ao",
-   "english": "your (poor, dear)",
-   "part_of_speech": "possessive pronoun",
-   "lesson": 52
-  },
-  {
-   "id": "cw-0009",
-   "tongan": "mafusi",
-   "english": "pulled a little out of place",
-   "part_of_speech": "verb",
-   "lesson": 49
-  },
-  {
-   "id": "cw-0010",
-   "tongan": "tākoto",
-   "english": "lie down (two or more)",
-   "part_of_speech": "verb",
-   "lesson": 25
-  },
-  {
-   "id": "cw-0011",
-   "tongan": "si'ano",
-   "english": "his or her (poor, dear)",
-   "part_of_speech": "possessive pronoun",
-   "lesson": 52
-  },
-  {
-   "id": "cw-0012",
-   "tongan": "'onautolu",
-   "english": "theirs (plural)",
-   "part_of_speech": "possessive pronoun",
-   "lesson": 37
-  },
-  {
-   "id": "cw-0013",
-   "tongan": "fakaekolo",
-   "english": "of one particular village (not villages in general)",
-   "part_of_speech": "adjective",
-   "lesson": 32
-  },
-  {
-   "id": "cw-0014",
-   "tongan": "pupuha",
-   "english": "sweat",
-   "part_of_speech": "noun",
-   "lesson": 48
-  },
-  {
-   "id": "cw-0015",
-   "tongan": "ha'atau",
-   "english": "a ... of ours (inclusive)",
-   "part_of_speech": "possessive pronoun",
-   "lesson": 29
-  },
-  {
-   "id": "cw-0016",
-   "tongan": "'o'ou",
-   "english": "yours (singular)",
-   "part_of_speech": "possessive pronoun",
-   "lesson": 37
-  },
-  {
-   "id": "cw-0017",
-   "tongan": "fusi",
-   "english": "pull",
-   "part_of_speech": "verb",
-   "lesson": 49
-  },
-  {
-   "id": "cw-0018",
-   "tongan": "fotu",
-   "english": "appear",
-   "part_of_speech": "verb",
-   "lesson": 48
-  },
-  {
-   "id": "cw-0019",
-   "tongan": "faingata'a'ia",
-   "english": "have difficulty, find it difficult",
-   "part_of_speech": "verb",
-   "lesson": 48
-  },
-  {
-   "id": "cw-0020",
-   "tongan": "mingimingi'i",
-   "english": "details, fine points (in mingimingi'i me'a)",
-   "part_of_speech": "noun",
-   "lesson": 48
-  },
-  {
-   "id": "cw-0021",
-   "tongan": "hamou",
-   "english": "a ... of yours (plural)",
-   "part_of_speech": "possessive pronoun",
-   "lesson": 29
-  },
-  {
-   "id": "cw-0022",
-   "tongan": "kita",
-   "english": "one, oneself (impersonal)",
-   "part_of_speech": "pronoun",
-   "lesson": 51
-  }
- ]
+  "note": "Words the lessons use that the course word list leaves out. The dictionary shows each as a course word, with a link to its lesson. Read by the dictionary only: the flash cards, the games, the practice and the lessons do not read this file.",
+  "entries": [
+    {
+      "id": "cw-0001",
+      "tongan": "ku",
+      "english": "I (after na'a, before the verb)",
+      "part_of_speech": "pronoun",
+      "lesson": 1
+    },
+    {
+      "id": "cw-0002",
+      "tongan": "mau",
+      "english": "we (exclusive; before a verb)",
+      "part_of_speech": "pronoun",
+      "lesson": 2
+    },
+    {
+      "id": "cw-0003",
+      "tongan": "na",
+      "english": "they two (preposed pronoun); that, near you (enclitic demonstrative)",
+      "part_of_speech": "pronoun/demonstrative",
+      "lesson": 2
+    },
+    {
+      "id": "cw-0004",
+      "tongan": "nau",
+      "english": "they (three or more; before the verb)",
+      "part_of_speech": "pronoun",
+      "lesson": 2
+    },
+    {
+      "id": "cw-0005",
+      "tongan": "ou",
+      "english": "I (after 'oku)",
+      "part_of_speech": "pronoun",
+      "lesson": 2
+    },
+    {
+      "id": "cw-0006",
+      "tongan": "kimaua",
+      "english": "we two, us two (exclusive; postposed, emphatic)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0007",
+      "tongan": "kimautolu",
+      "english": "we, us (excluding you, three or more; postposed, for emphasis or after a preposition)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0008",
+      "tongan": "kimoua",
+      "english": "you two (postposed, emphatic)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0009",
+      "tongan": "kimoutolu",
+      "english": "you all (the long, emphatic form)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0010",
+      "tongan": "kinaua",
+      "english": "they two, them two (postposed, emphatic)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0011",
+      "tongan": "kinautolu",
+      "english": "they, them (3+ people; postposed, emphatic)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0012",
+      "tongan": "kitaua",
+      "english": "we two, inclusive (postposed, emphatic)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0013",
+      "tongan": "kitautolu",
+      "english": "we, us (three or more people, you included; the long, emphatic form)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0014",
+      "tongan": "koe",
+      "english": "you (one person; postposed, emphatic)",
+      "part_of_speech": "pronoun",
+      "lesson": 5
+    },
+    {
+      "id": "cw-0015",
+      "tongan": "'emau",
+      "english": "our (three or more of us, you not included; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 9
+    },
+    {
+      "id": "cw-0016",
+      "tongan": "loko",
+      "english": "not too (softens a negative)",
+      "part_of_speech": "adverb",
+      "lesson": 9
+    },
+    {
+      "id": "cw-0017",
+      "tongan": "teitei",
+      "english": "at all, absolutely (strengthens a negative)",
+      "part_of_speech": "adverb",
+      "lesson": 9
+    },
+    {
+      "id": "cw-0018",
+      "tongan": "fakataha",
+      "english": "assemble, gather; together; meeting",
+      "part_of_speech": "verb/adverb/noun",
+      "lesson": 10
+    },
+    {
+      "id": "cw-0019",
+      "tongan": "fakakū",
+      "english": "when (at any time, past or future)",
+      "part_of_speech": "question word",
+      "lesson": 11
+    },
+    {
+      "id": "cw-0020",
+      "tongan": "'etau",
+      "english": "our (inclusive; 'e-class, before the noun)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 14
+    },
+    {
+      "id": "cw-0021",
+      "tongan": "ho",
+      "english": "your (one person; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 14
+    },
+    {
+      "id": "cw-0022",
+      "tongan": "hoku",
+      "english": "my (ho-class: things that shelter or define you, as in hoku fale, my house)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 14
+    },
+    {
+      "id": "cw-0023",
+      "tongan": "'eku",
+      "english": "my ('e-class, preposed)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0024",
+      "tongan": "'ema",
+      "english": "our (he or she and me, two people; 'e-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0025",
+      "tongan": "'enau",
+      "english": "their (more than two people; 'e-class, before the noun)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0026",
+      "tongan": "'ene",
+      "english": "his, her, its (preposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0027",
+      "tongan": "'eta",
+      "english": "our (you and me, two people; 'e-class, preposed)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0028",
+      "tongan": "homa",
+      "english": "our (two, exclusive; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0029",
+      "tongan": "homau",
+      "english": "our (exclusive, three or more people; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0030",
+      "tongan": "homo",
+      "english": "your (two; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0031",
+      "tongan": "homou",
+      "english": "your (several people; definite, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0032",
+      "tongan": "hona",
+      "english": "their (two people; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0033",
+      "tongan": "honau",
+      "english": "their (three or more; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0034",
+      "tongan": "hono",
+      "english": "his or her, its (definite; ho-class, before the noun)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0035",
+      "tongan": "ho'o",
+      "english": "your (singular; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0036",
+      "tongan": "ho'omo",
+      "english": "your (two people; 'e-class, preposed)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0037",
+      "tongan": "ho'omou",
+      "english": "your (more than two people; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0038",
+      "tongan": "hota",
+      "english": "our (you and me, two people; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0039",
+      "tongan": "hotau",
+      "english": "our, with the listener included (ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 17
+    },
+    {
+      "id": "cw-0040",
+      "tongan": "toe",
+      "english": "again, more, other; remaining",
+      "part_of_speech": "adverb/adjective/verb",
+      "lesson": 20
+    },
+    {
+      "id": "cw-0041",
+      "tongan": "tolungeau",
+      "english": "three hundred",
+      "part_of_speech": "number",
+      "lesson": 20
+    },
+    {
+      "id": "cw-0042",
+      "tongan": "ala",
+      "english": "can, may (it is practicable)",
+      "part_of_speech": "verb",
+      "lesson": 21
+    },
+    {
+      "id": "cw-0043",
+      "tongan": "fakalaka",
+      "english": "go forward, make progress",
+      "part_of_speech": "verb",
+      "lesson": 22
+    },
+    {
+      "id": "cw-0044",
+      "tongan": "lolotonga",
+      "english": "currently, in the act of (before a verb); while (between two clauses)",
+      "part_of_speech": "aspect marker/conjunction",
+      "lesson": 22
+    },
+    {
+      "id": "cw-0045",
+      "tongan": "ma'ana",
+      "english": "for him/her (beneficiary, 'e-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 22
+    },
+    {
+      "id": "cw-0046",
+      "tongan": "'omi",
+      "english": "bring, give (toward me or us); another form of 'omai",
+      "part_of_speech": "verb",
+      "lesson": 22
+    },
+    {
+      "id": "cw-0047",
+      "tongan": "tautau",
+      "english": "in groups of (in tautau toko + number)",
+      "part_of_speech": "adverb",
+      "lesson": 22
+    },
+    {
+      "id": "cw-0048",
+      "tongan": "tākoto",
+      "english": "lie down (two or more)",
+      "part_of_speech": "verb",
+      "lesson": 25
+    },
+    {
+      "id": "cw-0049",
+      "tongan": "tukui",
+      "english": "plural marker for places (tukui fonua, various countries)",
+      "part_of_speech": "plural marker",
+      "lesson": 25
+    },
+    {
+      "id": "cw-0050",
+      "tongan": "ma'aku",
+      "english": "for me (beneficiary; 'e-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26
+    },
+    {
+      "id": "cw-0051",
+      "tongan": "ma'au",
+      "english": "for you (one person; 'e-class benefactive)",
+      "part_of_speech": "pronoun",
+      "lesson": 26
+    },
+    {
+      "id": "cw-0052",
+      "tongan": "mo'oku",
+      "english": "for me (beneficiary, ho-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26
+    },
+    {
+      "id": "cw-0053",
+      "tongan": "mo'ona",
+      "english": "for him, for her, for it (ho-class)",
+      "part_of_speech": "beneficiary pronoun",
+      "lesson": 26
+    },
+    {
+      "id": "cw-0054",
+      "tongan": "mo'ou",
+      "english": "for you (one person; ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 26
+    },
+    {
+      "id": "cw-0055",
+      "tongan": "'ange'ange",
+      "english": "be surpassed by, be exceeded by",
+      "part_of_speech": "verb",
+      "lesson": 27
+    },
+    {
+      "id": "cw-0056",
+      "tongan": "he'eku",
+      "english": "my (the 'e-class form after he: by my, from my, in my)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 27
+    },
+    {
+      "id": "cw-0057",
+      "tongan": "laione",
+      "english": "lion",
+      "part_of_speech": "noun",
+      "lesson": 27
+    },
+    {
+      "id": "cw-0058",
+      "tongan": "'oatu",
+      "english": "give, take, send (toward you)",
+      "part_of_speech": "verb",
+      "lesson": 28
+    },
+    {
+      "id": "cw-0059",
+      "tongan": "'omai",
+      "english": "bring, give (toward me or us)",
+      "part_of_speech": "verb",
+      "lesson": 28
+    },
+    {
+      "id": "cw-0060",
+      "tongan": "ha'aku",
+      "english": "my, a ... of mine (indefinite; 'e-class, before the noun)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0061",
+      "tongan": "ha'amau",
+      "english": "our, a ... of ours (exclusive, three or more people; indefinite, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0062",
+      "tongan": "ha'amou",
+      "english": "your (plural; indefinite, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0063",
+      "tongan": "ha'anau",
+      "english": "their, a ... of theirs (indefinite; 'e-class, before the noun)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0064",
+      "tongan": "ha'ane",
+      "english": "his or her, a ... of his or hers (indefinite; 'e-class, before the noun)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0065",
+      "tongan": "ha'atau",
+      "english": "a ... of ours (inclusive)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0066",
+      "tongan": "haku",
+      "english": "my (a ... of mine; indefinite, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0067",
+      "tongan": "hamau",
+      "english": "our (not including you; more than two people; ho-class, indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0068",
+      "tongan": "hamou",
+      "english": "a ... of yours (plural)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0069",
+      "tongan": "hanau",
+      "english": "their (indefinite, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0070",
+      "tongan": "hano",
+      "english": "his/her (indefinite, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0071",
+      "tongan": "ha'o",
+      "english": "your (one person; 'e-class, indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0072",
+      "tongan": "hao",
+      "english": "your (one person; ho-class, indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0073",
+      "tongan": "hatau",
+      "english": "our (including you; more than two people; ho-class, indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0074",
+      "tongan": "tonu",
+      "english": "right, correct, just",
+      "part_of_speech": "verb/adjective",
+      "lesson": 29
+    },
+    {
+      "id": "cw-0075",
+      "tongan": "fetukutuku",
+      "english": "remove or evacuate (many people or things)",
+      "part_of_speech": "verb",
+      "lesson": 30
+    },
+    {
+      "id": "cw-0076",
+      "tongan": "ma'u",
+      "english": "get, receive, have; firm, constant",
+      "part_of_speech": "verb/adjective",
+      "lesson": 30
+    },
+    {
+      "id": "cw-0077",
+      "tongan": "'Otua",
+      "english": "God",
+      "part_of_speech": "noun",
+      "lesson": 30
+    },
+    {
+      "id": "cw-0078",
+      "tongan": "fakaako",
+      "english": "educational, to do with school",
+      "part_of_speech": "adjective",
+      "lesson": 32
+    },
+    {
+      "id": "cw-0079",
+      "tongan": "fakaekolo",
+      "english": "of one particular village (not villages in general)",
+      "part_of_speech": "adjective",
+      "lesson": 32
+    },
+    {
+      "id": "cw-0080",
+      "tongan": "fakafoki",
+      "english": "send back, return (something)",
+      "part_of_speech": "verb",
+      "lesson": 32
+    },
+    {
+      "id": "cw-0081",
+      "tongan": "fakakolo",
+      "english": "relating to villages in general",
+      "part_of_speech": "adjective",
+      "lesson": 32
+    },
+    {
+      "id": "cw-0082",
+      "tongan": "fakamohe",
+      "english": "put to sleep",
+      "part_of_speech": "verb",
+      "lesson": 32
+    },
+    {
+      "id": "cw-0083",
+      "tongan": "Pālangi",
+      "english": "European",
+      "part_of_speech": "noun",
+      "lesson": 32
+    },
+    {
+      "id": "cw-0084",
+      "tongan": "folaua",
+      "english": "voyage toward, voyage to (a place)",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0085",
+      "tongan": "kole'i",
+      "english": "ask for a particular thing",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0086",
+      "tongan": "lotua",
+      "english": "pray for",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0087",
+      "tongan": "maumau'i",
+      "english": "break, waste or spoil (something)",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0088",
+      "tongan": "ngāue'aki",
+      "english": "use, make use of",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0089",
+      "tongan": "pule'i",
+      "english": "govern, manage",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0090",
+      "tongan": "sipinga'aki",
+      "english": "take as a model, use as an example",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0091",
+      "tongan": "tā'i",
+      "english": "hit (something or someone; the -'i form of tā)",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0092",
+      "tongan": "tāpuni'i",
+      "english": "close firmly and completely, shut in",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0093",
+      "tongan": "teuteu'i",
+      "english": "decorate",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0094",
+      "tongan": "vahe'i",
+      "english": "divide up completely (into portions)",
+      "part_of_speech": "verb",
+      "lesson": 33
+    },
+    {
+      "id": "cw-0095",
+      "tongan": "kamata'anga",
+      "english": "beginning",
+      "part_of_speech": "noun",
+      "lesson": 34
+    },
+    {
+      "id": "cw-0096",
+      "tongan": "kalasi",
+      "english": "class (a group of students)",
+      "part_of_speech": "noun",
+      "lesson": 35
+    },
+    {
+      "id": "cw-0097",
+      "tongan": "'a'aku",
+      "english": "mine (postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0098",
+      "tongan": "'a'ana",
+      "english": "his, hers, its (postposed; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0099",
+      "tongan": "'a'au",
+      "english": "yours (one person; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0100",
+      "tongan": "'aku",
+      "english": "my, mine (postposed, 'e-class); short form of 'a'aku",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0101",
+      "tongan": "'amaua",
+      "english": "ours (two, exclusive; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0102",
+      "tongan": "'amautolu",
+      "english": "ours (plural, exclusive; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0103",
+      "tongan": "'amoua",
+      "english": "yours (you two; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0104",
+      "tongan": "'amoutolu",
+      "english": "yours, plural (postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0105",
+      "tongan": "'ana",
+      "english": "his, hers, its (postposed, 'e-class); short form of 'a'ana",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0106",
+      "tongan": "'anaua",
+      "english": "theirs (two people; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0107",
+      "tongan": "'anautolu",
+      "english": "theirs (three or more people; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0108",
+      "tongan": "'ataua",
+      "english": "ours (two people, you and I included; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0109",
+      "tongan": "'atautolu",
+      "english": "ours (plural inclusive; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0110",
+      "tongan": "'omaua",
+      "english": "ours (two people, you not included; postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0111",
+      "tongan": "'omautolu",
+      "english": "ours (three or more people, you left out; postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0112",
+      "tongan": "'omoua",
+      "english": "yours (you two; postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0113",
+      "tongan": "'omoutolu",
+      "english": "yours, plural (ho-class, after the noun)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0114",
+      "tongan": "'ona",
+      "english": "his, hers (postposed, ho-class); short form of 'o'ona",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0115",
+      "tongan": "'onaua",
+      "english": "theirs (two people; postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0116",
+      "tongan": "'onautolu",
+      "english": "theirs (plural)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0117",
+      "tongan": "'o'oku",
+      "english": "my, mine (postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0118",
+      "tongan": "'o'ona",
+      "english": "his, hers, its (postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0119",
+      "tongan": "'o'ou",
+      "english": "yours (singular)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0120",
+      "tongan": "'otaua",
+      "english": "ours (two people, you included; postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0121",
+      "tongan": "'otautolu",
+      "english": "ours (plural inclusive; postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0122",
+      "tongan": "'ou",
+      "english": "yours (singular); short form of 'o'ou",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 37
+    },
+    {
+      "id": "cw-0123",
+      "tongan": "'aonga",
+      "english": "useful, of value, of service",
+      "part_of_speech": "adjective",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0124",
+      "tongan": "a'usia",
+      "english": "reach, live to see (a time or a goal)",
+      "part_of_speech": "verb",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0125",
+      "tongan": "fakalelei'i",
+      "english": "fix, repair",
+      "part_of_speech": "verb",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0126",
+      "tongan": "fakamahino",
+      "english": "explain",
+      "part_of_speech": "verb",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0127",
+      "tongan": "fakatu'utāmaki",
+      "english": "disaster, danger; dangerous",
+      "part_of_speech": "noun/adjective",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0128",
+      "tongan": "fe'iloaki",
+      "english": "meet",
+      "part_of_speech": "verb",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0129",
+      "tongan": "hola",
+      "english": "run away, flee",
+      "part_of_speech": "verb",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0130",
+      "tongan": "lavea",
+      "english": "hurt, injured, wounded",
+      "part_of_speech": "verb",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0131",
+      "tongan": "li'aki",
+      "english": "leave behind, abandon",
+      "part_of_speech": "verb",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0132",
+      "tongan": "noa'ia",
+      "english": "aimless, loose; utterly worthless",
+      "part_of_speech": "adverb/adjective",
+      "lesson": 38
+    },
+    {
+      "id": "cw-0133",
+      "tongan": "lolo",
+      "english": "underneath (variant of lalo, before a tree noun)",
+      "part_of_speech": "noun",
+      "lesson": 40
+    },
+    {
+      "id": "cw-0134",
+      "tongan": "alea",
+      "english": "discuss, talk a matter over",
+      "part_of_speech": "verb",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0135",
+      "tongan": "fuofua",
+      "english": "first, initial (placed before the word; stresses the first time)",
+      "part_of_speech": "adverb/adjective",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0136",
+      "tongan": "mapuni",
+      "english": "closed, shut",
+      "part_of_speech": "adjective/verb",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0137",
+      "tongan": "ongo'i",
+      "english": "feel (a sensation or emotion)",
+      "part_of_speech": "verb",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0138",
+      "tongan": "pekia",
+      "english": "die; death (respectful word)",
+      "part_of_speech": "verb/noun",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0139",
+      "tongan": "ta'elata",
+      "english": "homesick",
+      "part_of_speech": "adjective",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0140",
+      "tongan": "tokanga'i",
+      "english": "take care of, look after",
+      "part_of_speech": "verb",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0141",
+      "tongan": "vahetolu",
+      "english": "a third, one third",
+      "part_of_speech": "noun",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0142",
+      "tongan": "vaheua",
+      "english": "half",
+      "part_of_speech": "noun",
+      "lesson": 42
+    },
+    {
+      "id": "cw-0143",
+      "tongan": "fakalao",
+      "english": "legal, lawful",
+      "part_of_speech": "adjective",
+      "lesson": 43
+    },
+    {
+      "id": "cw-0144",
+      "tongan": "ta'etokanga",
+      "english": "carelessness; careless",
+      "part_of_speech": "noun/adjective",
+      "lesson": 43
+    },
+    {
+      "id": "cw-0145",
+      "tongan": "ava",
+      "english": "open (in fakaava, to open)",
+      "part_of_speech": "verb/adjective",
+      "lesson": 44
+    },
+    {
+      "id": "cw-0146",
+      "tongan": "fa'o",
+      "english": "put in, pack, store",
+      "part_of_speech": "verb",
+      "lesson": 44
+    },
+    {
+      "id": "cw-0147",
+      "tongan": "fei",
+      "english": "do; be quick (taught in the phrase fei mo 'alu, go at once)",
+      "part_of_speech": "verb",
+      "lesson": 44
+    },
+    {
+      "id": "cw-0148",
+      "tongan": "fekau",
+      "english": "order, command",
+      "part_of_speech": "verb",
+      "lesson": 44
+    },
+    {
+      "id": "cw-0149",
+      "tongan": "huufi",
+      "english": "open officially",
+      "part_of_speech": "verb",
+      "lesson": 44
+    },
+    {
+      "id": "cw-0150",
+      "tongan": "vakai",
+      "english": "look, look at",
+      "part_of_speech": "verb",
+      "lesson": 44
+    },
+    {
+      "id": "cw-0151",
+      "tongan": "he'ene",
+      "english": "his, her, its (the possessive 'ene after 'i he)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 45
+    },
+    {
+      "id": "cw-0152",
+      "tongan": "fakafonu",
+      "english": "fill out (a form)",
+      "part_of_speech": "verb",
+      "lesson": 46
+    },
+    {
+      "id": "cw-0153",
+      "tongan": "lau'i",
+      "english": "the leaf of; a leaf or flat sheet of something",
+      "part_of_speech": "noun",
+      "lesson": 46
+    },
+    {
+      "id": "cw-0154",
+      "tongan": "ta'e'oua",
+      "english": "were it not for (after ka ne or kapau na'e)",
+      "part_of_speech": "conjunction",
+      "lesson": 47
+    },
+    {
+      "id": "cw-0155",
+      "tongan": "'alungata'a",
+      "english": "hard going, rough",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0156",
+      "tongan": "efu",
+      "english": "dust",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0157",
+      "tongan": "efua",
+      "english": "dusty",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0158",
+      "tongan": "faingata'a'ia",
+      "english": "have difficulty, find it difficult",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0159",
+      "tongan": "faka'ofa'ia",
+      "english": "feel sorry for, pity",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0160",
+      "tongan": "fiefia'anga",
+      "english": "source of happiness, cause for joy",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0161",
+      "tongan": "foa'i",
+      "english": "break (something such as a cup)",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0162",
+      "tongan": "fotu",
+      "english": "appear",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0163",
+      "tongan": "fōtunga",
+      "english": "appearance",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0164",
+      "tongan": "fou",
+      "english": "go by a route",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0165",
+      "tongan": "'ikai'ia",
+      "english": "emphatic 'ikai, truly not (as in 'oku 'ikai'ia)",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0166",
+      "tongan": "'iloa",
+      "english": "be well known",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0167",
+      "tongan": "'itangofua",
+      "english": "quick to anger",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0168",
+      "tongan": "kai'anga",
+      "english": "eating-place",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0169",
+      "tongan": "kakai'ia",
+      "english": "densely populated, full of people",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0170",
+      "tongan": "kili'anga",
+      "english": "place for sawing (in kili'anga papa, a sawmill)",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0171",
+      "tongan": "kumā'ia",
+      "english": "infested with rats",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0172",
+      "tongan": "lango",
+      "english": "fly (insect)",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0173",
+      "tongan": "langoa",
+      "english": "infested with flies",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0174",
+      "tongan": "lelei'ia",
+      "english": "be pleased with, regard as good",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0175",
+      "tongan": "mafoa",
+      "english": "break, be broken (no one named as the cause)",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0176",
+      "tongan": "mahaengofua",
+      "english": "tears easily",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0177",
+      "tongan": "mālie'ia",
+      "english": "enjoy, be pleased with",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0178",
+      "tongan": "mālohi'anga",
+      "english": "a source of strength, a stronghold",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0179",
+      "tongan": "mālohinga",
+      "english": "that which strengthens",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0180",
+      "tongan": "ma'ungata'a",
+      "english": "hard to get, hard to obtain",
+      "part_of_speech": "compound adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0181",
+      "tongan": "ma'ungofua",
+      "english": "easy to obtain",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0182",
+      "tongan": "mingimingi'i",
+      "english": "details, fine points (in mingimingi'i me'a)",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0183",
+      "tongan": "mohe'anga",
+      "english": "sleeping-place (where you sleep)",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0184",
+      "tongan": "mo'oni'i",
+      "english": "truth-of (in mo'oni'i me'a, fact)",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0185",
+      "tongan": "namua",
+      "english": "full of mosquitoes, mosquito-ridden",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0186",
+      "tongan": "niua",
+      "english": "full of coconut trees (from niu, coconut)",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0187",
+      "tongan": "pupuha",
+      "english": "sweat",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0188",
+      "tongan": "pupuha'ia",
+      "english": "covered in sweat",
+      "part_of_speech": "adjective",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0189",
+      "tongan": "-si",
+      "english": "suffix that makes a verb transitive (first type, as in -hi, -'i)",
+      "part_of_speech": "suffix",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0190",
+      "tongan": "tefito",
+      "english": "main part, root (as in tefito 'o e me'a, principal thing)",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0191",
+      "tongan": "tuku'anga",
+      "english": "storage place (from tuku, put)",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0192",
+      "tongan": "tu'u'anga",
+      "english": "standing-place, site",
+      "part_of_speech": "noun",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0193",
+      "tongan": "'uheina",
+      "english": "be rained on, get caught in rain",
+      "part_of_speech": "verb",
+      "lesson": 48
+    },
+    {
+      "id": "cw-0194",
+      "tongan": "fe'āveaki",
+      "english": "carry back and forth",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0195",
+      "tongan": "fefolau'aki",
+      "english": "travel to and fro (between two places)",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0196",
+      "tongan": "fehuufi",
+      "english": "enter together",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0197",
+      "tongan": "fe'ita'aki",
+      "english": "be angry at one another",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0198",
+      "tongan": "fe'ite'itani",
+      "english": "harbour mutual ill-will, bicker",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0199",
+      "tongan": "fekata'i",
+      "english": "laugh together",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0200",
+      "tongan": "felea'aki",
+      "english": "speak to one another",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0201",
+      "tongan": "felelei",
+      "english": "run together (two or more runners)",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0202",
+      "tongan": "felotoi",
+      "english": "agree with one another",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0203",
+      "tongan": "fe'ofo'ofani",
+      "english": "be friendly towards each other",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0204",
+      "tongan": "fepaki",
+      "english": "collide",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0205",
+      "tongan": "fetali'aki",
+      "english": "wait for one another",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0206",
+      "tongan": "fetāngihi",
+      "english": "weep together",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0207",
+      "tongan": "fetohi'aki",
+      "english": "write to one another, correspond",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0208",
+      "tongan": "fetuku",
+      "english": "shift or carry something to another place",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0209",
+      "tongan": "fusi",
+      "english": "pull",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0210",
+      "tongan": "hae",
+      "english": "tear",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0211",
+      "tongan": "hiki",
+      "english": "lift, raise",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0212",
+      "tongan": "kātaki'i",
+      "english": "bear with, excuse, forgive",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0213",
+      "tongan": "kohi",
+      "english": "scratch",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0214",
+      "tongan": "maako",
+      "english": "learn thoroughly (in ako ke maako)",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0215",
+      "tongan": "mafusi",
+      "english": "pulled a little out of place",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0216",
+      "tongan": "makohi",
+      "english": "to be scratched",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0217",
+      "tongan": "mapuke",
+      "english": "hold fast, grip firmly (in puke ke mapuke)",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0218",
+      "tongan": "mateke",
+      "english": "be pushed a little out of place",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0219",
+      "tongan": "mato'o",
+      "english": "come off, come loose",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0220",
+      "tongan": "matu'u",
+      "english": "stand firm (in tu'u ke matu'u)",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0221",
+      "tongan": "mo'unofoa",
+      "english": "overstay, stay too long",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0222",
+      "tongan": "mo'usioa",
+      "english": "stay too long watching",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0223",
+      "tongan": "mo'utalia",
+      "english": "wait too long (from tali, wait)",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0224",
+      "tongan": "mo'utu'ua",
+      "english": "remain standing too long",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0225",
+      "tongan": "'ofo'ofa",
+      "english": "friendly, kindly",
+      "part_of_speech": "adjective",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0226",
+      "tongan": "omi",
+      "english": "come (two or more people; plural of ha'u)",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0227",
+      "tongan": "pā",
+      "english": "touch",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0228",
+      "tongan": "teke",
+      "english": "push",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0229",
+      "tongan": "tongi",
+      "english": "pay, pay for; a rarer form of totongi",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0230",
+      "tongan": "vete",
+      "english": "take apart",
+      "part_of_speech": "verb",
+      "lesson": 49
+    },
+    {
+      "id": "cw-0231",
+      "tongan": "ala",
+      "english": "touch",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0232",
+      "tongan": "fakafeta'i",
+      "english": "thank (respectful, formal; in place of mālō)",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0233",
+      "tongan": "fakafuofua",
+      "english": "estimate",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0234",
+      "tongan": "fakahangahanga",
+      "english": "intend",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0235",
+      "tongan": "fakamu'omu'a",
+      "english": "put in front, give preference to",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0236",
+      "tongan": "fakasio",
+      "english": "watch, stare at",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0237",
+      "tongan": "fakasiosio",
+      "english": "peep, look closely",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0238",
+      "tongan": "fesiofaki",
+      "english": "look at each other, eye each other",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0239",
+      "tongan": "fesiosiofaki",
+      "english": "keep eyeing one another",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0240",
+      "tongan": "filo",
+      "english": "thread",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0241",
+      "tongan": "filofilo",
+      "english": "spin, make thread",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0242",
+      "tongan": "fo'ofo'ou",
+      "english": "somewhat new, unfamiliar",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0243",
+      "tongan": "hahake",
+      "english": "the east",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0244",
+      "tongan": "havili",
+      "english": "strong wind",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0245",
+      "tongan": "havilivili",
+      "english": "breeze, gentle wind",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0246",
+      "tongan": "hihifo",
+      "english": "the west",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0247",
+      "tongan": "kātoa",
+      "english": "all, whole",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0248",
+      "tongan": "katokatoa",
+      "english": "absolutely all",
+      "part_of_speech": "adjective/adverb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0249",
+      "tongan": "kofukofu",
+      "english": "bundle, parcel, something wrapped up",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0250",
+      "tongan": "kupu",
+      "english": "segment, section",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0251",
+      "tongan": "kupukupu",
+      "english": "segments, sections (more than two)",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0252",
+      "tongan": "lahilahi",
+      "english": "quite big, moderately big",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0253",
+      "tongan": "luo",
+      "english": "hole, pit",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0254",
+      "tongan": "luoluo",
+      "english": "full of holes",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0255",
+      "tongan": "mafi",
+      "english": "powerful",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0256",
+      "tongan": "māfimafi",
+      "english": "almighty, all-powerful",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0257",
+      "tongan": "māmāfana",
+      "english": "lukewarm",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0258",
+      "tongan": "moho",
+      "english": "cooked",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0259",
+      "tongan": "mokomoko",
+      "english": "cool",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0260",
+      "tongan": "paki",
+      "english": "break (as in paki ua, break into two)",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0261",
+      "tongan": "paki'i",
+      "english": "break (off)",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0262",
+      "tongan": "pakipaki'i",
+      "english": "break into many bits (like pakipaki)",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0263",
+      "tongan": "pōpō'uli",
+      "english": "somewhat dark, overcast",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0264",
+      "tongan": "pou",
+      "english": "post, pillar",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0265",
+      "tongan": "poupou",
+      "english": "support, hold up",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0266",
+      "tongan": "talinga",
+      "english": "ear (older spelling; now telinga)",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0267",
+      "tongan": "talingelinga",
+      "english": "fungus",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0268",
+      "tongan": "tapu",
+      "english": "forbidden, sacred",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0269",
+      "tongan": "toka",
+      "english": "ceremonial wording in thanks for a gift of kava (in toka kava; the everyday wording is ma'u kava)",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0270",
+      "tongan": "tosi",
+      "english": "peck once",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0271",
+      "tongan": "tositosi",
+      "english": "peck repeatedly",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0272",
+      "tongan": "totototo",
+      "english": "red, blood-coloured (from toto, blood)",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0273",
+      "tongan": "tuē",
+      "english": "hooray! (a shout of joy)",
+      "part_of_speech": "exclamation",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0274",
+      "tongan": "tuli",
+      "english": "chase",
+      "part_of_speech": "verb",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0275",
+      "tongan": "'uli",
+      "english": "dirty",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0276",
+      "tongan": "va'a",
+      "english": "branch",
+      "part_of_speech": "noun",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0277",
+      "tongan": "va'ava'a",
+      "english": "branched, branching (from va'a, branch)",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0278",
+      "tongan": "vale",
+      "english": "foolish",
+      "part_of_speech": "adjective",
+      "lesson": 50
+    },
+    {
+      "id": "cw-0279",
+      "tongan": "'a'ata",
+      "english": "mine, one's own (said humbly; postposed, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0280",
+      "tongan": "'ete",
+      "english": "one's (impersonal; 'e-class, things one controls)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0281",
+      "tongan": "ha'ate",
+      "english": "one's, a ... of one's (impersonal; indefinite, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0282",
+      "tongan": "hato",
+      "english": "one's (a ... of one's; indefinite, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0283",
+      "tongan": "hoto",
+      "english": "one's (ho-class; things that characterise one; preposed, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0284",
+      "tongan": "kita",
+      "english": "one, oneself (impersonal)",
+      "part_of_speech": "pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0285",
+      "tongan": "ma'ata",
+      "english": "for one, on one's behalf (impersonal; 'e-class benefactive)",
+      "part_of_speech": "pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0286",
+      "tongan": "mahu'inga",
+      "english": "important",
+      "part_of_speech": "adjective",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0287",
+      "tongan": "mo'ota",
+      "english": "for one, or humbly for me (a ho-class form)",
+      "part_of_speech": "pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0288",
+      "tongan": "'o'ota",
+      "english": "of one's, of mine (humble; impersonal, postposed, ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 51
+    },
+    {
+      "id": "cw-0289",
+      "tongan": "fakamamahi",
+      "english": "sad, sorrowful (causing grief)",
+      "part_of_speech": "verb/adjective",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0290",
+      "tongan": "konga",
+      "english": "part, piece",
+      "part_of_speech": "noun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0291",
+      "tongan": "me'atokoni",
+      "english": "food (polite word)",
+      "part_of_speech": "noun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0292",
+      "tongan": "si'",
+      "english": "prefix that makes a possessive tender or pitying (poor, dear)",
+      "part_of_speech": "prefix",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0293",
+      "tongan": "si'a",
+      "english": "a, some (emotional indefinite article: poor, dear)",
+      "part_of_speech": "article",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0294",
+      "tongan": "si'aku",
+      "english": "my (poor, dear; indefinite, either class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0295",
+      "tongan": "si'ama",
+      "english": "our two (exclusive; poor, dear; indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0296",
+      "tongan": "si'amau",
+      "english": "our (plural, exclusive; poor/dear, indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0297",
+      "tongan": "si'amo",
+      "english": "your (two people; poor, dear; indefinite, either class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0298",
+      "tongan": "si'amou",
+      "english": "your (plural; poor/dear, indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0299",
+      "tongan": "si'ana",
+      "english": "their (two people; poor, dear; indefinite; same form in both classes)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0300",
+      "tongan": "si'anau",
+      "english": "their (three or more people; poor, dear; indefinite, used for both 'e-class and ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0301",
+      "tongan": "si'ane",
+      "english": "his, her (poor, dear; indefinite, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0302",
+      "tongan": "si'ano",
+      "english": "his or her (poor, dear)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0303",
+      "tongan": "si'ao",
+      "english": "your (poor, dear)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0304",
+      "tongan": "si'ata",
+      "english": "our (two people, you included; poor, dear; indefinite, used for both 'e-class and ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0305",
+      "tongan": "si'atau",
+      "english": "our (inclusive; poor, dear; indefinite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0306",
+      "tongan": "si'eku",
+      "english": "my (poor/dear; 'e-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0307",
+      "tongan": "si'ema",
+      "english": "our (two of us, you not included; poor, dear; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0308",
+      "tongan": "si'emau",
+      "english": "our (exclusive, three or more; poor, dear; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0309",
+      "tongan": "si'ena",
+      "english": "their two (poor, dear)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0310",
+      "tongan": "si'enau",
+      "english": "their (three or more people; poor, dear; definite, 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0311",
+      "tongan": "si'ene",
+      "english": "his, her (poor, dear; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0312",
+      "tongan": "si'eta",
+      "english": "our two (inclusive; poor, dear; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0313",
+      "tongan": "si'etau",
+      "english": "our (three or more people, you included; poor, dear; 'e-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0314",
+      "tongan": "si'oku",
+      "english": "my (poor/dear; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0315",
+      "tongan": "si'oma",
+      "english": "our (two of us, you not included; poor, dear; ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0316",
+      "tongan": "si'omau",
+      "english": "our, exclusive (poor, dear; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0317",
+      "tongan": "si'omo",
+      "english": "your (two people; poor, dear; used for both 'e-class and ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0318",
+      "tongan": "si'omou",
+      "english": "your (plural; poor/dear, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0319",
+      "tongan": "si'ona",
+      "english": "their (two; poor/dear, ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0320",
+      "tongan": "si'onau",
+      "english": "their (three or more; poor, dear; ho-class)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0321",
+      "tongan": "si'ono",
+      "english": "his or her (poor, dear; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0322",
+      "tongan": "si'ota",
+      "english": "our (you and me, two people; poor, dear; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    },
+    {
+      "id": "cw-0323",
+      "tongan": "si'otau",
+      "english": "our (inclusive; poor, dear; ho-class, definite)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 52
+    }
+  ]
 }
