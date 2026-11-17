@@ -1,9 +1,10 @@
-import { useDeferredValue, useMemo, useRef, useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { SearchRow } from '../components/DictionaryBits.jsx'
 import { DICTIONARY_GROUPS, browseDictionary, searchDictionaryDetailed } from '../lib/course-dictionary.js'
 import { readSearchAddress, searchAddressHash } from '../lib/dictionary-address.js'
-import { COURSE_ENTRIES as ENTRIES, DICTIONARY, SEARCH_ENTRIES } from '../lib/dictionary-data.js'
+import { BROWSE_ENTRIES as ENTRIES, DICTIONARY, SEARCH_ENTRIES } from '../lib/dictionary-data.js'
+import { FAILED_SEARCH_NOTICE, FAILED_SEARCH_SETTLE_MS, countFailedSearch } from '../lib/dictionary-failed-search.js'
 import { englishSlug, normaliseSense } from '../lib/dictionary-text.js'
 import { useTitle } from '../lib/title.js'
 import '../styles/catalog.css'
@@ -15,8 +16,13 @@ import '../styles/dictionary.css'
 // list has them, no EALD or Churchward text.
 //
 // Word-list words (DECISIONS.md 2026-09-29) join the search only, after the
-// course words and with their own label; browsing and the full list stay the
-// course's own 649 words.
+// course words and with their own label. Added words (DECISIONS.md 2026-11-18)
+// are in the search, the letters and the full list, each with its own label;
+// browsing and the full list are otherwise the course's own 649 words.
+//
+// A search that has settled and found nothing at all is counted once, through
+// ../lib/dictionary-failed-search.js (same ruling, point 5); the sentence under
+// the search box says so.
 //
 // Since plan 2026-11-18-dictionary-search-and-word-pages the search forgives
 // typing (see course-dictionary.js), every result opens its own word page, and
@@ -75,6 +81,18 @@ export default function Dictionary() {
   const englishPage = searching && matches.length > 0 ? DICTIONARY.englishBySlug.get(englishSlug(normaliseSense(typed))) : null
   const clear = () => { show('', ''); requestAnimationFrame(() => searchRef.current?.focus()) }
 
+  // A search has settled when the box has been still for a second and a half,
+  // when it loses focus, or on Enter. The text in the box is searched afresh
+  // here, so a count never rests on a result that is a keystroke behind.
+  const settle = text => {
+    if (!letter && text.trim()) countFailedSearch(text, searchDictionaryDetailed(SEARCH_ENTRIES, text.trim()))
+  }
+  useEffect(() => {
+    if (letter || !query.trim()) return undefined
+    const timer = window.setTimeout(() => countFailedSearch(query, searchDictionaryDetailed(SEARCH_ENTRIES, query.trim())), FAILED_SEARCH_SETTLE_MS)
+    return () => window.clearTimeout(timer)
+  }, [query, letter])
+
   return (
     <div className="catalog-page dictionary-catalog">
       <header className="catalog-hero band grain">
@@ -94,13 +112,17 @@ export default function Dictionary() {
               type="search"
               value={query}
               onChange={event => show(event.target.value, '')}
+              onBlur={() => settle(query)}
+              onKeyDown={event => { if (event.key === 'Enter') settle(query) }}
               placeholder="Tongan or English word"
               autoComplete="off"
               autoCapitalize="none"
               spellCheck="false"
+              aria-describedby="dictionary-search-note"
             />
           </label>
         </div>
+        <p id="dictionary-search-note" className="dictionary-search-note">{FAILED_SEARCH_NOTICE}</p>
         <div className="dictionary-browse">
           <p id="dictionary-alphabet-label">Browse by letter</p>
           <div className="dictionary-alphabet" role="group" aria-labelledby="dictionary-alphabet-label" aria-describedby="dictionary-alphabet-help">

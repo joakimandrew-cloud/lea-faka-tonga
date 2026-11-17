@@ -8,9 +8,14 @@
 // What it asserts, with each count printed:
 //   - one built page per index word page and per English page, in both file
 //     forms (<slug>.html and <slug>/index.html), and no extra files
-//   - every row of src/data/book-vocabulary.json and
-//     src/premium/data/word-lists.json lands on exactly one word page, and
-//     that page's static body shows the row's entry
+//   - every row of src/data/book-vocabulary.json,
+//     src/premium/data/word-lists.json and
+//     src/premium/data/dictionary-additions.json (the added words, DECISIONS.md
+//     2026-11-18) lands on exactly one word page, and that page's static body
+//     shows the row's entry
+//   - an added word's page carries its label, links to no lesson and shows no
+//     sentence; every English search word of dictionary-english-keys.json has
+//     its English page, and that page lists each row the word is tied to
 //   - every <title> in dist/ is unique once the two file forms of a route
 //     are counted as one
 //   - on every dictionary page: canonical = its own address; exactly one <h1>
@@ -19,7 +24,8 @@
 //     (page); no "Page not found" and no U+2014 dash
 //   - every dictionary address (and /dictionary) is in sitemap.xml, once
 //   - every lang="to" string in the static bodies is found, through okinafy,
-//     in book-vocabulary.json, word-lists.json or the app's book/Chapter-*.md
+//     in book-vocabulary.json, word-lists.json, dictionary-additions.json or
+//     the app's book/Chapter-*.md
 //     (a plain typing is allowed when it is the plain form of such a string)
 //   - /dictionary's static body links to every word page
 
@@ -28,6 +34,8 @@ import path from 'node:path'
 import { SITE_URL, dictionaryPageMeta } from '../src/seo/meta.js'
 import { okinafy } from '../src/lib/okinafy.js'
 import { DICTIONARY_GROUPS, foldSearchKey } from '../src/premium/lib/course-dictionary.js'
+import { ADDED_WORD_LABEL, englishKeyList } from '../src/premium/lib/dictionary-additions.js'
+import { englishSlug } from '../src/premium/lib/dictionary-text.js'
 import { APP_ROOT, chapterFile, loadDictionaryIndex, readDictionarySources } from './lib/dictionary-data.mjs'
 
 const DIST = path.join(APP_ROOT, 'dist')
@@ -63,7 +71,7 @@ const read = (file) => fs.readFileSync(file, 'utf8')
 const escHtml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
 
 const index = loadDictionaryIndex()
-const { vocabulary, wordLists } = readDictionarySources()
+const { vocabulary, wordLists, additions, englishKeys } = readDictionarySources()
 
 if (!fs.existsSync(DIST)) {
   console.log('FAIL  dist/ does not exist: run npm run build first')
@@ -130,8 +138,11 @@ const courseIds = vocabulary.map((row) => row.id)
 const listIds = wordLists.entries.map((row) => row.id)
 counted('data rows in book-vocabulary.json', courseIds.length, 649)
 counted('data rows in word-lists.json', listIds.length, 92)
-const allIds = [...courseIds, ...listIds]
-counted('data rows in all', allIds.length, 741)
+// The added words (DECISIONS.md 2026-11-18): 2 today, fakahela and fefeka.
+const addedIds = additions.entries.map((row) => row.id)
+counted('data rows in dictionary-additions.json', addedIds.length, 2)
+const allIds = [...courseIds, ...listIds, ...addedIds]
+counted('data rows in all', allIds.length, 649 + 92 + 2)
 const pagesOfRow = new Map()
 for (const page of index.pages) for (const id of page.rowIds) pagesOfRow.set(id, [...(pagesOfRow.get(id) || []), page])
 none('every data row is on exactly one word page', allIds.length, allIds.filter((id) => (pagesOfRow.get(id) || []).length !== 1))
@@ -147,6 +158,37 @@ for (const id of allIds) {
   if (!body.includes(`>${escHtml(entry.display)}</`)) rowShown.push(`${id}: ${entry.display} not in ${page.path}`)
 }
 none('the static body of each row\'s page shows the row\'s word', allIds.length, rowShown)
+
+// ---- 2b. added words and English search words --------------------------------
+const addedProblems = []
+for (const row of additions.entries) {
+  const page = (pagesOfRow.get(row.id) || [])[0]
+  const entry = page?.entries.find((e) => e.id === row.id)
+  if (!entry) { addedProblems.push(`${row.id}: no entry`); continue }
+  if (entry.kind !== 'added' || entry.lesson || entry.examples.length || entry.wordList) addedProblems.push(`${row.id}: not a plain added entry`)
+  if (entry.tongan !== row.tongan || entry.english !== row.english || entry.partOfSpeech !== row.part_of_speech) addedProblems.push(`${row.id}: the entry is not the data's own`)
+  if (!Array.isArray(row.sources) || row.sources.length < 2) addedProblems.push(`${row.id}: fewer than two sources cited`)
+  const body = bodyOf(read(path.join(DIST, `${page.path}.html`)))
+  if (!body.includes(`>${escHtml(ADDED_WORD_LABEL)}</dd>`)) addedProblems.push(`${row.id}: ${page.path} does not carry the label`)
+  if (!body.includes(escHtml(row.english))) addedProblems.push(`${row.id}: ${page.path} does not show the meaning`)
+  if (page.entries.every((e) => e.kind === 'added') && body.includes('href="/lessons/')) addedProblems.push(`${row.id}: ${page.path} links to a lesson`)
+  for (const cite of row.sources || []) if (body.includes(escHtml(cite))) addedProblems.push(`${row.id}: ${page.path} prints a source citation`)
+}
+none('each added word\'s page carries its label, its meaning, no lesson link and no sentence', additions.entries.length, addedProblems)
+const keyList = englishKeyList(englishKeys)
+const keyProblems = []
+for (const { english, rowId } of keyList) {
+  const page = index.englishBySlug.get(englishSlug(english))
+  const entry = page?.entries.find((e) => e.id === rowId)
+  if (!page || !entry) { keyProblems.push(`${english}: no English page lists ${rowId}`); continue }
+  const body = bodyOf(read(path.join(DIST, `${page.path}.html`)))
+  if (!body.includes(`href="${entry.path}"`)) keyProblems.push(`${english}: ${page.path} does not link to ${entry.path}`)
+  if (!body.includes(escHtml(entry.english))) keyProblems.push(`${english}: ${page.path} does not show the meaning of ${rowId} as the data has it`)
+  const wordBody = bodyOf(read(path.join(DIST, `${entry.path}.html`)))
+  if (!wordBody.includes(`href="${page.path}"`)) keyProblems.push(`${english}: ${entry.path} does not link back to ${page.path}`)
+}
+counted('English search words tied to rows (word and row pairs)', keyList.length, 4)
+none('each English search word has its page, listing the row with its meaning as the data has it', keyList.length, keyProblems)
 
 // ---- 3. titles unique across dist/ -------------------------------------------
 const titles = new Map()
@@ -221,6 +263,7 @@ const known = new Set()
 const addKnown = (text) => { if (text) known.add(okinafy(text)) }
 for (const row of vocabulary) addKnown(row.tongan)
 for (const row of wordLists.entries) addKnown(row.tongan)
+for (const row of additions.entries) addKnown(row.tongan)
 const plain = (text) => foldSearchKey(text).replaceAll("'", '')
 const knownPlain = new Set([...known].map(plain))
 for (const g of DICTIONARY_GROUPS) { known.add(g); known.add(g === 'ng' ? 'Ng' : g.toUpperCase()); known.add(okinafy(g)); known.add(okinafy(g === 'ng' ? 'Ng' : g.toUpperCase())) }

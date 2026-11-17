@@ -13,6 +13,8 @@ import { entryLesson, FIRST_LESSON, LAST_LESSON } from '../../src/premium/lib/co
 export const APP_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 export const EXAMPLES_FILE = 'src/premium/data/dictionary-examples.json'
 export const ENGLISH_TSV_FILE = 'src/premium/data/dictionary-english.tsv'
+export const ADDITIONS_FILE = 'src/premium/data/dictionary-additions.json'
+export const ENGLISH_KEYS_FILE = 'src/premium/data/dictionary-english-keys.json'
 
 const readJson = (root, file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
 
@@ -24,6 +26,9 @@ export function readDictionarySources(root = APP_ROOT) {
   return {
     vocabulary: readJson(root, 'src/data/book-vocabulary.json'),
     wordLists: readJson(root, 'src/premium/data/word-lists.json'),
+    // Added words and English search words (DECISIONS.md 2026-11-18).
+    additions: readJson(root, ADDITIONS_FILE),
+    englishKeys: readJson(root, ENGLISH_KEYS_FILE),
     chapters: readJson(root, 'src/data/chapters.json'),
   }
 }
@@ -42,8 +47,10 @@ export function drawExamples(root = APP_ROOT) {
   const rows = vocabulary.map(row => ({ id: row.id, tongan: row.tongan, english: row.english, lesson: entryLesson(row) }))
   // Word-list rows take no sentence (no lesson teaches them), but a word-list
   // row that shares a page with a course row can still block a sentence.
-  const { wordLists } = readDictionarySources(root)
+  // The same holds for an added word.
+  const { wordLists, additions } = readDictionarySources(root)
   for (const row of wordLists.entries) if (!row.course_id) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: null })
+  for (const row of additions.entries) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: null })
   return selectExamples({ rows, lessons: readLessons(root) })
 }
 
@@ -60,11 +67,21 @@ export function examplesFileText(examples) {
   }, null, 1)}\n`
 }
 
-// headword, the rows it came from, the sense text of each row.
+// headword, the rows it came from, the sense text of each row, and where the
+// headword came from for each row: "meaning" (a sense of the row's own
+// meaning; sense_text is that sense) or "search word" (an English search word
+// tied to the row in dictionary-english-keys.json; sense_text is then the
+// row's meaning in full, which does not hold the word).
 export function englishTsvText(index) {
-  const lines = ['headword\tslug\trows\tsense_text']
+  const lines = ['headword\tslug\trows\tsense_text\torigin']
   for (const page of index.english) {
-    lines.push([page.headword, page.slug, page.sources.map(source => source.rowId).join(' | '), page.sources.map(source => source.senseText).join(' | ')].join('\t'))
+    lines.push([
+      page.headword,
+      page.slug,
+      page.sources.map(source => source.rowId).join(' | '),
+      page.sources.map(source => source.senseText).join(' | '),
+      page.sources.map(source => source.origin).join(' | '),
+    ].join('\t'))
   }
   return `${lines.join('\n')}\n`
 }

@@ -3,8 +3,9 @@
 //   src/premium/data/dictionary-examples.json  printed lesson pairs per row
 //   src/premium/data/dictionary-english.tsv    the English headwords, for review
 //
-// Run it after any change to book/Chapter-NN.md, src/data/book-vocabulary.json
-// or src/premium/data/word-lists.json: `npm run build:dictionary-data`.
+// Run it after any change to book/Chapter-NN.md, src/data/book-vocabulary.json,
+// src/premium/data/word-lists.json, dictionary-additions.json or
+// dictionary-english-keys.json: `npm run build:dictionary-data`.
 // `npm run test:premium` fails while either file is stale. `--check` writes
 // nothing and exits 1 when a file would change.
 
@@ -37,6 +38,8 @@ console.log(JSON.stringify({
   mode: check ? 'check' : 'write',
   changedFiles: stale,
   rows: index.rowPage.size,
+  addedWords: index.entries.filter(entry => entry.kind === 'added').length,
+  englishSearchWords: index.english.filter(page => page.sources.some(source => source.origin === 'search word')).map(page => page.headword),
   wordPages: index.pages.length,
   pagesWithSeveralRows: index.pages.filter(page => page.entries.length > 1).length,
   englishPages: index.english.length,

@@ -6,7 +6,8 @@ import {
   APP_ROOT, ENGLISH_TSV_FILE, EXAMPLES_FILE, chapterFile, drawExamples, englishTsvText, examplesFileText, loadDictionaryIndex, readDictionarySources,
 } from '../../../scripts/lib/dictionary-data.mjs'
 import { lessonExampleLines, meaningShowsIn, plainSenses, rowWords, selectExamples } from '../lib/dictionary-examples.js'
-import { buildDictionaryIndex, deriveEnglishHeadwords, dictionaryPageForPath } from '../lib/dictionary-pages.js'
+import { ADDED_WORD_LABEL, englishKeyList } from '../lib/dictionary-additions.js'
+import { buildDictionaryIndex, deriveEnglishHeadwords, dictionaryPageForPath, ENGLISH_FROM_MEANING, ENGLISH_FROM_SEARCH_WORD, englishPageLead } from '../lib/dictionary-pages.js'
 import { normaliseSense, RESERVED_SLUGS, splitSenses, wordSlug } from '../lib/dictionary-text.js'
 import { DICTIONARY_PAGE_PATH, DICTIONARY_TITLE_MAX, dictionaryPageMeta, metaForPath, STATIC_META } from '../../seo/meta.js'
 
@@ -15,26 +16,27 @@ import { DICTIONARY_PAGE_PATH, DICTIONARY_TITLE_MAX, dictionaryPageMeta, metaFor
 // own copy of the book.
 
 const read = file => fs.readFileSync(path.join(APP_ROOT, file), 'utf8')
-const { vocabulary, wordLists } = readDictionarySources()
+const { vocabulary, wordLists, additions, englishKeys } = readDictionarySources()
 const index = loadDictionaryIndex()
 const storedExamples = JSON.parse(read(EXAMPLES_FILE)).examples
 const courseById = new Map(vocabulary.map(row => [row.id, row]))
 
-test('all 649 course rows and all 92 word-list rows land on exactly one word page', () => {
+test('all 649 course rows, all 92 word-list rows and the 2 added words land on exactly one word page', () => {
   assert.equal(vocabulary.length, 649)
   assert.equal(wordLists.entries.length, 92)
   assert.equal(wordLists.entries.filter(row => !row.course_id).length, 71)
+  assert.equal(additions.entries.length, 2)
   const landings = new Map()
   for (const page of index.pages) for (const id of page.rowIds) landings.set(id, [...(landings.get(id) || []), page.slug])
-  for (const row of [...vocabulary, ...wordLists.entries]) {
+  for (const row of [...vocabulary, ...wordLists.entries, ...additions.entries]) {
     assert.deepEqual(landings.get(row.id)?.length, 1, `${row.id} (${row.tongan}) lands on exactly one page`)
     assert.equal(landings.get(row.id)[0], wordSlug(row.tongan), `${row.id} lands on the page of its own plain spelling`)
     assert.equal(index.rowPage.get(row.id), landings.get(row.id)[0])
   }
-  assert.equal(landings.size, 741, 'no page holds a row the data does not have')
-  // Shown entries: every course row, and every word-list row that is not a course word.
+  assert.equal(landings.size, 649 + 92 + 2, 'no page holds a row the data does not have')
+  // Shown entries: every course row, every word-list row that is not a course word, every added word.
   const shown = index.pages.flatMap(page => page.entries)
-  assert.equal(shown.length, 649 + 71)
+  assert.equal(shown.length, 649 + 71 + 2)
   assert.equal(new Set(shown.map(entry => entry.id)).size, shown.length)
   // The 21 word-list rows that are course words are a note on the course row.
   const notes = shown.flatMap(entry => entry.alsoInWordLists.map(list => list.id))
@@ -90,6 +92,16 @@ test('a word page shows only what the data has: marks, meaning, part of speech, 
           assert.equal(entry.lesson, null, `${entry.id} is supplemental and links nowhere`)
           assert.equal(entry.supplemental, true)
         }
+      } else if (entry.kind === 'added') {
+        const row = additions.entries.find(item => item.id === entry.id)
+        assert.equal(entry.tongan, row.tongan)
+        assert.equal(entry.english, row.english)
+        assert.equal(entry.partOfSpeech, row.part_of_speech)
+        assert.equal(entry.added.note, ADDED_WORD_LABEL)
+        assert.equal(entry.lesson, null, 'an added word links to no lesson')
+        assert.equal(entry.supplemental, false)
+        assert.equal(entry.wordList, null)
+        assert.equal(entry.examples.length, 0, 'an added word shows no sentence')
       } else {
         const row = wordLists.entries.find(item => item.id === entry.id)
         assert.equal(entry.tongan, row.tongan)
@@ -281,20 +293,33 @@ test('no sentence beats a wrong one: the selection rules, on lines the book prin
 
 test('English headwords come only from the meanings in the data, and the TSV lists every one', () => {
   const lines = read(ENGLISH_TSV_FILE).trim().split('\n')
-  assert.equal(lines[0], 'headword\tslug\trows\tsense_text')
+  assert.equal(lines[0], 'headword\tslug\trows\tsense_text\torigin')
+  const tied = new Set(englishKeyList(englishKeys).map(key => `${key.english.toLowerCase()} ${key.rowId}`))
+  let fromSearchWords = 0
   const rows = lines.slice(1).map(line => line.split('\t'))
   assert.ok(rows.length > 500, `the TSV holds headwords to check (${rows.length})`)
   assert.equal(rows.length, index.english.length)
-  const meaningOf = id => (courseById.get(id) || wordLists.entries.find(row => row.id === id))?.english
-  for (const [headword, slug, ids, senses] of rows) {
+  const meaningOf = id => (courseById.get(id) || wordLists.entries.find(row => row.id === id) || additions.entries.find(row => row.id === id))?.english
+  for (const [headword, slug, ids, senses, origins] of rows) {
     assert.match(slug, /^[a-z0-9-]+$/)
     assert.match(headword, /^[A-Za-z]+(?:['-][A-Za-z]+)*(?: [A-Za-z]+(?:['-][A-Za-z]+)*){0,2}$/, `${headword} is one to three plain words`)
     const idList = ids.split(' | ')
     const senseList = senses.split(' | ')
-    assert.ok(idList.length > 0 && idList.length === senseList.length)
+    const originList = origins.split(' | ')
+    assert.ok(idList.length > 0 && idList.length === senseList.length && idList.length === originList.length)
     idList.forEach((id, at) => {
       const meaning = meaningOf(id)
       assert.ok(meaning, `${headword}: ${id} is a row of the data`)
+      if (originList[at] === ENGLISH_FROM_SEARCH_WORD) {
+        // An English search word: tied to the row in dictionary-english-keys.json,
+        // and shown beside the row's meaning in full, which does not hold the word.
+        fromSearchWords += 1
+        assert.ok(tied.has(`${headword.toLowerCase()} ${id}`), `${headword}: ${id} is tied to it in the search-words file`)
+        assert.equal(senseList[at], meaning, `${headword}: the row's meaning is given in full`)
+        assert.equal(splitSenses(meaning).some(item => item.sense.toLowerCase() === headword.toLowerCase()), false, `${headword}: a word the meaning already has needs no tie`)
+        return
+      }
+      assert.equal(originList[at], ENGLISH_FROM_MEANING)
       assert.ok(splitSenses(meaning).some(item => item.text === senseList[at]), `${headword}: "${senseList[at]}" is a sense of ${id} ("${meaning}")`)
       assert.equal(normaliseSense(senseList[at]).toLowerCase(), headword.toLowerCase(), `${headword} is the sense "${senseList[at]}" without "to", article or note`)
       assert.ok(meaning.includes(senseList[at]), `${headword}: the sense text is in the meaning as the data has it`)
@@ -304,6 +329,7 @@ test('English headwords come only from the meanings in the data, and the TSV lis
     assert.equal(page.path, `/dictionary/english/${slug}`)
     for (const entry of page.entries) assert.ok(index.pageBySlug.get(entry.slug), `${headword} links to a real word page`)
   }
+  assert.equal(fromSearchWords, tied.size, 'every tie of the search-words file is in the TSV, marked as one')
   // Real rows: house is fale; "to box" and "box, chest" meet on one page; a
   // bracketed note, a grammatical note and a bound form give no headword.
   assert.deepEqual(index.englishBySlug.get('house').entries.map(entry => entry.tongan), ['fale', 'falé'])
@@ -348,10 +374,100 @@ test('titles and descriptions come from one function, hold the word, and are uni
   assert.equal(metaForPath('/dictionary').title, STATIC_META['/dictionary'].title)
 })
 
+// DECISIONS.md 2026-11-18, point 1: fakahela and fefeka. Evidence for each is in
+// audits/dictionary-search-2026-11-18/additions-evidence.tsv in the project folder.
+test('the added words: their own data file, their own pages, a label, no lesson and no sentence', () => {
+  assert.deepEqual(additions.entries.map(row => [row.id, row.tongan]), [['add-0001', 'fakahela'], ['add-0002', 'fefeka']])
+  const labels = new Set(vocabulary.map(row => row.part_of_speech))
+  const taken = new Set([...vocabulary, ...wordLists.entries].map(row => row.id))
+  const spelled = new Set([...vocabulary, ...wordLists.entries].map(row => row.tongan.replace(/['‘’ʼ`ʻ]/g, "'").toLowerCase()))
+  for (const row of additions.entries) {
+    assert.match(row.id, /^add-\d{4}$/)
+    assert.equal(taken.has(row.id), false)
+    assert.equal(spelled.has(row.tongan.toLowerCase()), false, `${row.tongan} is not already a row of the course list or a word list`)
+    assert.ok(labels.has(row.part_of_speech), `${row.id}: "${row.part_of_speech}" is a label the course data already uses`)
+    assert.ok(row.english && row.english.length <= 40, `${row.id} has a short meaning`)
+    assert.ok(Array.isArray(row.sources) && row.sources.length >= 2, `${row.id} cites at least two sources`)
+    for (const cite of row.sources) assert.match(cite, /^(?:Churchward, Tongan Dictionary \(1959\), p\. \d+|Shumway, Intensive Course in Tongan, Glossary, p\. \d+|EALD Bilingual Dictionary for ESL Beginners \(NSW Dept of Education, 2001\), )/, `${row.id}: a citation names the source and the place`)
+    assert.equal(vocabulary.some(item => item.id === row.id || item.tongan === row.tongan), false, 'an added word is never in book-vocabulary.json')
+  }
+  const fakahela = index.pageBySlug.get('fakahela')
+  assert.deepEqual([fakahela.path, fakahela.words, fakahela.entries.length, fakahela.rowIds], ['/dictionary/fakahela', ['fakahela'], 1, ['add-0001']])
+  assert.deepEqual([fakahela.entries[0].kind, fakahela.entries[0].english, fakahela.entries[0].partOfSpeech], ['added', 'tiring, wearying', 'adjective'])
+  assert.deepEqual([fakahela.sameLesson, fakahela.sameWordList], [[], []])
+  const fefeka = index.pageBySlug.get('fefeka')
+  assert.deepEqual([fefeka.entries[0].kind, fefeka.entries[0].english, fefeka.entries[0].alsoTyped], ['added', 'hard, stiff (firm to the touch)', ''])
+  // Their English pages, from the meanings as written: the bracketed note gives none.
+  assert.deepEqual(fakahela.entries[0].englishPages.map(page => page.headword), ['tiring', 'wearying'])
+  assert.deepEqual(fefeka.entries[0].englishPages.map(page => page.headword), ['hard', 'stiff'])
+  assert.deepEqual(index.englishBySlug.get('hard').entries.map(entry => entry.id), ['book-v0079', 'add-0002'], 'fefeka joins the page mālohi already gave')
+  assert.equal(index.englishBySlug.has('firm-to-the-touch'), false)
+  // The label is in the description, and the page sits in dictionary order.
+  assert.equal(dictionaryPageMeta(fakahela).title, 'fakahela meaning: tiring, wearying | Tongan Dictionary')
+  assert.equal(dictionaryPageMeta(fakahela).description, 'fakahela in Tongan: tiring, wearying. Part of speech: adjective. Added word, not taught in the lessons.')
+  assert.equal(ADDED_WORD_LABEL, 'Added word, not taught in the lessons')
+  assert.doesNotMatch(ADDED_WORD_LABEL, /\u2014/)
+  assert.ok(fakahela.previous && fakahela.next && fefeka.previous && fefeka.next)
+  // Without the file the index is the dictionary as it was: 741 rows, 683 pages.
+  const { additions: unused, ...rest } = readDictionarySources()
+  assert.ok(unused)
+  const without = buildDictionaryIndex({ ...rest, examples: storedExamples })
+  assert.deepEqual([without.rowPage.size, without.pages.length], [741, 683])
+  assert.deepEqual([index.rowPage.size, index.pages.length], [743, 685])
+  // An id the dictionary already has is refused.
+  assert.throws(() => buildDictionaryIndex({ ...rest, additions: { entries: [{ id: 'book-v0003', tongan: 'fakahela', english: 'x', part_of_speech: 'adjective' }] }, examples: storedExamples }), /already has/)
+})
+
+// DECISIONS.md 2026-11-18, point 2: "hi" and "greeting" for book-v0025, "bye"
+// for book-v0002 and book-v0035.
+test('English search words are tied to rows the dictionary already has, each with its support, and change no meaning', () => {
+  const list = englishKeyList(englishKeys)
+  assert.deepEqual(list.map(key => `${key.english} ${key.rowId}`), ['hi book-v0025', 'greeting book-v0025', 'bye book-v0002', 'bye book-v0035'])
+  for (const { english, rowId, support } of list) {
+    const row = courseById.get(rowId)
+    assert.ok(row, `${english}: ${rowId} is a row of the course list`)
+    assert.match(english, /^[a-z]+(?: [a-z]+){0,2}$/, `${english} is one to three plain words`)
+    // The support: the row's own meaning, quoted exactly from the data, or a source and a place in it.
+    if (support.meaning !== undefined) {
+      assert.equal(support.meaning, row.english, `${english}: the quoted meaning of ${rowId} is the data's own`)
+      if (support.part_of_speech !== undefined) assert.equal(support.part_of_speech, row.part_of_speech)
+    } else {
+      assert.ok(support.source && support.location, `${english}: ${rowId} has a source and a place`)
+    }
+    const page = index.englishBySlug.get(english)
+    assert.equal(page.headword, english)
+    const entry = page.entries.find(item => item.id === rowId)
+    assert.ok(entry, `${english} lists ${rowId}`)
+    assert.equal(entry.english, row.english, 'the row shows its meaning as the data has it')
+    assert.ok(entry.englishPages.some(item => item.path === page.path), `${rowId} links to the page for ${english}`)
+    assert.equal(page.sources.find(source => source.rowId === rowId).origin, ENGLISH_FROM_SEARCH_WORD)
+  }
+  // "greeting" and "bye" stand on the row's own printed meaning: the plural, and the long form.
+  assert.match(courseById.get('book-v0025').english, /\bgreetings\b/)
+  assert.equal(courseById.get('book-v0025').part_of_speech, 'greeting phrase')
+  for (const id of ['book-v0002', 'book-v0035']) assert.match(courseById.get(id).english, /^goodbye\b/)
+  assert.deepEqual(index.englishBySlug.get('bye').entries.map(entry => entry.tongan), ["'alu ā", 'nofo ā'])
+  assert.deepEqual(index.englishBySlug.get('hi').entries.map(entry => entry.tongan), ['mālō e lelei'])
+  // A page that lists a row by a search word does not say the word is in the meaning.
+  assert.equal(englishPageLead(index.englishBySlug.get('hi')), 'One word in the dictionary is given for “hi”. Its meaning is shown in full.')
+  assert.equal(englishPageLead(index.englishBySlug.get('bye')), '2 words in the dictionary are given for “bye”. Each meaning is shown in full, so you can pick the word that fits.')
+  assert.equal(englishPageLead(index.englishBySlug.get('hello')), 'One word in the dictionary has “hello” in its meaning.')
+  assert.equal(dictionaryPageMeta(index.englishBySlug.get('hi')).title, 'How to say hi in Tongan | Lea Faka-Tonga')
+  // Without the file: no such pages, and six fewer than with the additions too.
+  const { englishKeys: unused, ...rest } = readDictionarySources()
+  assert.ok(unused)
+  const without = buildDictionaryIndex({ ...rest, examples: storedExamples })
+  assert.deepEqual(['hi', 'greeting', 'bye'].map(word => without.englishBySlug.has(word)), [false, false, false])
+  assert.equal(index.english.length - without.english.length, 3)
+  // A tie to a row that is not there is refused.
+  assert.throws(() => buildDictionaryIndex({ ...rest, englishKeys: { keys: [{ english: 'hi', rows: [{ id: 'book-v9999' }] }] }, examples: storedExamples }), /not an entry/)
+  assert.equal(vocabulary.some(row => /\bhi\b|\bbye\b/i.test(row.english)), false, 'book-vocabulary.json is not edited: no row has "hi" or "bye" as a word')
+})
+
 test('the index is the same whether a script or the site builds it, and changes no data', () => {
-  const before = JSON.stringify([vocabulary, wordLists])
+  const before = JSON.stringify([vocabulary, wordLists, additions, englishKeys])
   const again = buildDictionaryIndex({ ...readDictionarySources(), examples: storedExamples })
-  assert.equal(JSON.stringify([vocabulary, wordLists]), before)
+  assert.equal(JSON.stringify([vocabulary, wordLists, additions, englishKeys]), before)
   assert.deepEqual(again.pages.map(page => page.slug), index.pages.map(page => page.slug))
   assert.equal(dictionaryPageForPath(index, '/dictionary/ulu/').slug, 'ulu')
   assert.equal(dictionaryPageForPath(index, '/dictionary/english/house').headword, 'house')

@@ -6,9 +6,10 @@ import { searchAddress } from '../lib/dictionary-address.js'
 // (plan 2026-11-18-dictionary-search-and-word-pages). Every Tongan string and
 // meaning shown is the data's own; the Tongan passes through okinafy.
 
-// One search result: a row of the course list or of a word list, as
-// buildDictionary() and buildWordListSearchEntries() make it. The word opens
-// its own page; the lesson or word-list link stays.
+// One search result: a row of the course list, of a word list or of the added
+// words, as buildDictionary(), buildWordListSearchEntries() and
+// buildAdditionSearchEntries() make it. The word opens its own page; the
+// lesson or word-list link stays. An added word has a label and no link.
 export function SearchRow({ entry }) {
   return (
     <li className="dictionary-entry">
@@ -18,7 +19,7 @@ export function SearchRow({ entry }) {
         {entry.partOfSpeech && <span className="dictionary-pos">{entry.partOfSpeech}</span>}
         {entry.href
           ? <Link className={entry.wordList ? 'dictionary-lesson is-word-list' : 'dictionary-lesson'} to={entry.href}>{entry.label}</Link>
-          : <span className="dictionary-lesson is-supplemental">{entry.label}</span>}
+          : <span className={entry.added ? 'dictionary-lesson is-supplemental is-added' : 'dictionary-lesson is-supplemental'}>{entry.label}</span>}
       </span>
     </li>
   )
@@ -36,6 +37,7 @@ export function EntryRow({ entry }) {
         {entry.lesson && <Link className="dictionary-lesson" to={entry.lesson.href}>Lesson {entry.lesson.number}</Link>}
         {entry.wordList && <Link className="dictionary-lesson is-word-list" to={entry.wordList.href}>{entry.wordList.note}</Link>}
         {entry.supplemental && <span className="dictionary-lesson is-supplemental">Supplemental</span>}
+        {entry.added && <span className="dictionary-lesson is-supplemental is-added">{entry.added.note}</span>}
       </span>
     </li>
   )

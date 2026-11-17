@@ -6,16 +6,22 @@
 // script and the prerender all build the same pages from the same files:
 //   vocabulary  src/data/book-vocabulary.json            (the 649 course rows)
 //   wordLists   src/premium/data/word-lists.json         (the 92 word-list rows)
+//   additions   src/premium/data/dictionary-additions.json (added words)
+//   englishKeys src/premium/data/dictionary-english-keys.json (English search
+//               words tied to rows the dictionary already has)
 //   chapters    src/data/chapters.json                   (lesson titles)
 //   examples    src/premium/data/dictionary-examples.json (printed lesson pairs)
 //
-// Rules that bind (DECISIONS.md 2026-09-27 and 2026-09-29): every Tongan string
-// and every meaning is the data's own, shown as the data has it. Nothing is
-// written here: no gloss, no example, no pronunciation. `display` is the
-// stored Tongan passed through okinafy and nothing else.
+// Rules that bind (DECISIONS.md 2026-09-27, 2026-09-29 and 2026-11-18): every
+// Tongan string and every meaning is the data's own, shown as the data has it.
+// Nothing is written here: no gloss, no example, no pronunciation. `display`
+// is the stored Tongan passed through okinafy and nothing else. An added word
+// carries its label, links to no lesson and shows no sentence. An English
+// search word never changes the meaning a row displays.
 
 import { okinafy } from '../../lib/okinafy.js'
 import { entryLesson } from './course-dictionary.js'
+import { ADDED_WORD_LABEL, additionRows, englishKeyList } from './dictionary-additions.js'
 import { ENGLISH_HEADWORD_MAX_WORDS, englishPagePath, englishSlug, plainKey, plainTyping, RESERVED_SLUGS, senseDropReason, splitSenses, withoutNotes, wordPagePath, wordSlug } from './dictionary-text.js'
 import { themeHref, wordListSearchLabel } from './word-lists.js'
 
@@ -50,6 +56,7 @@ function courseEntry(row, titles, examples) {
     supplemental: !lesson,
     register: '',
     wordList: null,
+    added: null,
     alsoInWordLists: [],
     // display: the printed Tongan through okinafy. englishDisplay: the printed
     // English with straight double quotes made curly, as the lesson page shows it.
@@ -70,10 +77,40 @@ function wordListEntry(row, theme) {
     supplemental: false,
     register: row.register || '',
     wordList: { themeId: theme.id, label: theme.label, href: themeHref(theme.id), note: wordListSearchLabel(theme.label) },
+    added: null,
     alsoInWordLists: [],
     examples: [],
   }
 }
+
+// An added word (DECISIONS.md 2026-11-18): its own label, no lesson, no
+// sentence. `sources` is the citation the data file records, kept for the
+// checks; the pages do not print it.
+function addedEntry(row) {
+  return {
+    id: row.id,
+    kind: 'added',
+    tongan: row.tongan,
+    display: okinafy(row.tongan),
+    alsoTyped: alsoTyped(row.tongan),
+    english: row.english || '',
+    partOfSpeech: row.part_of_speech || '',
+    lesson: null,
+    supplemental: false,
+    register: '',
+    wordList: null,
+    added: { note: ADDED_WORD_LABEL, sources: Array.isArray(row.sources) ? [...row.sources] : [] },
+    alsoInWordLists: [],
+    examples: [],
+  }
+}
+
+const KIND_ORDER = { course: 0, 'word-list': 1, added: 2 }
+
+// Where an English headword's row came from: a sense of the row's own meaning,
+// or an English search word tied to the row in dictionary-english-keys.json.
+export const ENGLISH_FROM_MEANING = 'meaning'
+export const ENGLISH_FROM_SEARCH_WORD = 'search word'
 
 // Why a sense is not an English headword, or '' when it is one.
 export function englishDropReason(entry, sense) {
@@ -95,15 +132,49 @@ export function deriveEnglishHeadwords(entries) {
       const slug = englishSlug(sense)
       if (!kept.has(slug)) kept.set(slug, { slug, headword: sense, sources: [] })
       const page = kept.get(slug)
-      if (!page.sources.some(source => source.rowId === entry.id)) page.sources.push({ rowId: entry.id, senseText: text })
+      if (!page.sources.some(source => source.rowId === entry.id)) page.sources.push({ rowId: entry.id, senseText: text, origin: ENGLISH_FROM_MEANING })
     }
   }
   const headwords = [...kept.values()].sort((a, b) => a.slug.localeCompare(b.slug))
   return { headwords, dropped }
 }
 
+// The English search words, joined to the headwords the meanings gave. A word
+// gets its own headword, or joins the headword that is already there. For such
+// a row `senseText` is the row's meaning in full, as the data has it: the word
+// itself is not in the meaning, which is why it had to be tied.
+export function addEnglishKeys(headwords, englishKeys, byId) {
+  const bySlug = new Map(headwords.map(item => [item.slug, item]))
+  for (const { english, rowId } of englishKeyList(englishKeys)) {
+    const entry = byId.get(rowId)
+    if (!entry) throw new Error(`The English search word "${english}" names ${rowId}, which is not an entry of the dictionary`)
+    const slug = englishSlug(english)
+    if (!slug) throw new Error(`No web address can be made for the English search word "${english}"`)
+    if (!bySlug.has(slug)) bySlug.set(slug, { slug, headword: english, sources: [] })
+    const page = bySlug.get(slug)
+    if (!page.sources.some(source => source.rowId === rowId)) page.sources.push({ rowId, senseText: entry.english, origin: ENGLISH_FROM_SEARCH_WORD })
+  }
+  return [...bySlug.values()].sort((a, b) => a.slug.localeCompare(b.slug))
+}
+
+// The line under an English page's heading. A page that lists a row by an
+// English search word cannot say the word is "in its meaning", so it says the
+// row is given for the word.
+export function englishPageLead(page) {
+  const count = page.entries.length
+  const word = `“${page.headword}”`
+  if (page.sources.some(source => source.origin === ENGLISH_FROM_SEARCH_WORD)) {
+    return count === 1
+      ? `One word in the dictionary is given for ${word}. Its meaning is shown in full.`
+      : `${count} words in the dictionary are given for ${word}. Each meaning is shown in full, so you can pick the word that fits.`
+  }
+  return count === 1
+    ? `One word in the dictionary has ${word} in its meaning.`
+    : `${count} words in the dictionary have ${word} in their meaning. Each meaning is shown in full, so you can pick the word that fits.`
+}
+
 // Everything the dictionary shows, built once from the data files.
-export function buildDictionaryIndex({ vocabulary, wordLists, chapters = [], examples = {} }) {
+export function buildDictionaryIndex({ vocabulary, wordLists, additions = null, englishKeys = null, chapters = [], examples = {} }) {
   const titles = new Map((Array.isArray(chapters) ? chapters : []).map(chapter => [Number(chapter.chapter), chapter.title || '']))
   const themes = new Map((Array.isArray(wordLists?.themes) ? wordLists.themes : []).map(theme => [theme.id, theme]))
   const course = (Array.isArray(vocabulary) ? vocabulary : []).filter(row => row && typeof row.tongan === 'string' && row.tongan.trim())
@@ -126,6 +197,13 @@ export function buildDictionaryIndex({ vocabulary, wordLists, chapters = [], exa
       byId.set(entry.id, entry)
     }
   }
+  // Added words, after the course's and the word lists' own.
+  for (const row of additionRows(additions)) {
+    if (byId.has(row.id) || rowPage.has(row.id)) throw new Error(`The added word ${row.id} uses an id the dictionary already has`)
+    const entry = addedEntry(row)
+    entries.push(entry)
+    byId.set(entry.id, entry)
+  }
 
   const pageMap = new Map()
   for (const entry of entries) {
@@ -143,8 +221,8 @@ export function buildDictionaryIndex({ vocabulary, wordLists, chapters = [], exa
   const lessonWords = new Map()
   const themeWords = new Map()
   for (const page of pages) {
-    // Course rows in lesson order, supplemental rows after them, word-list rows last.
-    page.entries.sort((a, b) => (a.kind === 'course' ? 0 : 1) - (b.kind === 'course' ? 0 : 1)
+    // Course rows in lesson order, supplemental rows after them, then word-list rows, added words last.
+    page.entries.sort((a, b) => KIND_ORDER[a.kind] - KIND_ORDER[b.kind]
       || (a.lesson?.number || 99) - (b.lesson?.number || 99) || String(a.id).localeCompare(String(b.id)))
     page.words = [...new Set(page.entries.map(entry => entry.display))]
     page.typed = plainTyping(withoutNotes(page.entries[0].tongan)).toLowerCase()
@@ -188,7 +266,7 @@ export function buildDictionaryIndex({ vocabulary, wordLists, chapters = [], exa
   })
 
   const derived = deriveEnglishHeadwords(entries)
-  const english = derived.headwords.map(item => ({
+  const english = addEnglishKeys(derived.headwords, englishKeys, byId).map(item => ({
     kind: 'english',
     slug: item.slug,
     path: englishPagePath(item.slug),

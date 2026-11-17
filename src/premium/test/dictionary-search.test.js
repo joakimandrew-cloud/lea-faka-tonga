@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { buildDictionary, searchDictionary, searchDictionaryDetailed, SUGGESTION_MIN_LETTERS } from '../lib/course-dictionary.js'
 import { compactKey, plainKey, withinOneLetter } from '../lib/dictionary-text.js'
+import { ADDED_WORD_LABEL, buildAdditionSearchEntries, withEnglishKeys } from '../lib/dictionary-additions.js'
 import { buildWordListSearchEntries } from '../lib/word-lists.js'
 
 // The dictionary search forgives how people type (plan 2026-11-18-dictionary-
@@ -10,7 +11,12 @@ import { buildWordListSearchEntries } from '../lib/word-lists.js'
 
 const vocabulary = JSON.parse(fs.readFileSync(new URL('../../data/book-vocabulary.json', import.meta.url), 'utf8'))
 const wordLists = JSON.parse(fs.readFileSync(new URL('../data/word-lists.json', import.meta.url), 'utf8'))
-const entries = [...buildDictionary(vocabulary), ...buildWordListSearchEntries(wordLists)]
+const additions = JSON.parse(fs.readFileSync(new URL('../data/dictionary-additions.json', import.meta.url), 'utf8'))
+const englishKeys = JSON.parse(fs.readFileSync(new URL('../data/dictionary-english-keys.json', import.meta.url), 'utf8'))
+// The list the site searches (dictionary-data.js): course words, word-list
+// words, added words, with the English search words attached.
+const plainEntries = [...buildDictionary(vocabulary), ...buildWordListSearchEntries(wordLists), ...buildAdditionSearchEntries(additions)]
+const entries = withEnglishKeys(plainEntries, englishKeys)
 const first = query => searchDictionary(entries, query)[0]
 const ids = list => list.map(entry => entry.id)
 
@@ -114,7 +120,8 @@ test('a one-letter miss of a long word is offered as a near spelling, never matc
   assert.deepEqual(searchDictionaryDetailed(entries, 'ulx').suggestions, [])
   assert.deepEqual(searchDictionaryDetailed(entries, 'qwerty').suggestions, [])
   // Words the dictionary does not hold stay unfound: nothing is invented for them.
-  for (const typed of ['fakahela', 'kasele', 'leimatua', 'fefeka']) {
+  // (fakahela and fefeka were unfound too until they were added on 2026-11-18; see below.)
+  for (const typed of ['kasele', 'leimatua']) {
     const none = searchDictionaryDetailed(entries, typed)
     assert.deepEqual([none.matches.length, none.partial.length], [0, 0], `${typed} is not in the dictionary`)
   }
@@ -179,4 +186,53 @@ test('a several-word query that is a longer entry with a word left out is offere
   // Content words that are an entry as a phrase (book-v0432 ko ia) are answered by it alone.
   const therefore = searchDictionaryDetailed(entries, 'ko ia meaning')
   assert.deepEqual([ids(therefore.matches), therefore.containing.length, therefore.fallback.phrase], [['book-v0432'], 0, 'ko ia'])
+})
+
+test('the added words are found, with their label and no lesson link', () => {
+  // add-0001 fakahela and add-0002 fefeka (DECISIONS.md 2026-11-18): searched for, in no lesson.
+  const fakahela = searchDictionaryDetailed(entries, 'fakahela')
+  assert.deepEqual(ids(fakahela.matches), ['add-0001'])
+  assert.deepEqual([fakahela.matches[0].label, fakahela.matches[0].href, fakahela.matches[0].wordHref, fakahela.matches[0].lesson], [ADDED_WORD_LABEL, null, '/dictionary/fakahela', null])
+  assert.equal(first('fefeka').id, 'add-0002')
+  assert.equal(first('FEFEKA').id, 'add-0002')
+  assert.equal(first('fefeka in tongan').id, 'add-0002', 'as it was searched')
+  // By meaning: "stiff" and "tiring" find them; for "hard" the course word comes first.
+  assert.deepEqual(ids(searchDictionaryDetailed(entries, 'stiff').matches), ['add-0002'])
+  assert.deepEqual(ids(searchDictionaryDetailed(entries, 'tiring').matches), ['add-0001'])
+  const hard = ids(searchDictionaryDetailed(entries, 'hard').matches)
+  assert.ok(hard.includes('add-0002') && hard.indexOf('book-v0079') < hard.indexOf('add-0002'), 'book-v0079 mālohi stays ahead of the added word')
+  // The bracketed note of a meaning is not searched: "touch" does not find fefeka.
+  assert.equal(ids(searchDictionary(entries, 'touch')).includes('add-0002'), false)
+  // One letter off, a near spelling is offered: never matched silently.
+  assert.deepEqual(ids(searchDictionaryDetailed(entries, 'fakahele').suggestions), ['add-0001'])
+})
+
+test('an English search word finds its row as a whole-word match, and the row shows its own meaning', () => {
+  // "hi" and "greeting" for book-v0025 mālō e lelei "hello, greetings".
+  for (const typed of ['hi', 'Hi', 'hi in tongan', 'how to say hi in tongan', 'how do you say hi in tongan']) {
+    const found = searchDictionaryDetailed(entries, typed)
+    assert.deepEqual(ids(found.matches), ['book-v0025'], typed)
+    assert.equal(found.matches[0].english, 'hello, greetings', 'the displayed meaning is the data\'s own')
+    assert.equal(found.matches[0].href, null, 'book-v0025 is a supplemental row, as before')
+  }
+  // Words that only begin with the letters are still partials, below the match.
+  const hi = searchDictionaryDetailed(entries, 'hi')
+  assert.ok(hi.partial.length > 0)
+  assert.equal(ids(hi.partial).includes('book-v0025'), false)
+  assert.deepEqual(ids(searchDictionaryDetailed(entries, 'greeting').matches), ['book-v0025'])
+  assert.deepEqual(ids(searchDictionaryDetailed(entries, 'greetings').matches), ['book-v0025'], 'the meaning\'s own word still matches')
+  // "bye" for book-v0002 ʻalu ā "goodbye (to person leaving)" and book-v0035 nofo ā "goodbye (to person staying)".
+  const bye = searchDictionaryDetailed(entries, 'bye')
+  assert.deepEqual(ids(bye.matches), ['book-v0002', 'book-v0035'])
+  assert.deepEqual(bye.matches.map(entry => entry.english), ['goodbye (to person leaving)', 'goodbye (to person staying)'])
+  assert.deepEqual(ids(searchDictionaryDetailed(entries, 'goodbye').matches), ['book-v0002', 'book-v0035'])
+  // Without the ties these searches find nothing: the case can fail.
+  for (const typed of ['hi in tongan', 'bye']) assert.deepEqual(searchDictionaryDetailed(plainEntries, typed).matches, [], typed)
+  // Attaching the words copies the rows it touches and changes nothing a row displays.
+  const untouched = plainEntries.find(entry => entry.id === 'book-v0025')
+  assert.equal(untouched.searchWords, undefined)
+  const tiedRow = entries.find(entry => entry.id === 'book-v0025')
+  assert.deepEqual(tiedRow.searchWords, ['hi', 'greeting'])
+  assert.deepEqual({ ...tiedRow, searchWords: undefined }, { ...untouched, searchWords: undefined })
+  assert.equal(entries.filter(entry => entry.searchWords).length, 3)
 })

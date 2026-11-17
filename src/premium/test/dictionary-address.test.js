@@ -62,7 +62,7 @@ test('no dictionary page reads or writes the query string', () => {
   assert.match('to={`/dictionary?q=${typed}`}', /[`'"][^`'"\n]*\?(?:q|letter)=/)
 })
 
-test('counts are fired in three places, and none is given any search text', () => {
+test('page counts are fired in three places and are given no search text; the one event is the failed search', () => {
   // 1. The script tag: count.js counts the first load by itself, from
   //    location.pathname + location.search (or the canonical link) and q: location.search.
   const shell = source('../../../index.html')
@@ -76,10 +76,19 @@ test('counts are fired in three places, and none is given any search text', () =
   assert.deepEqual(calls, ['goatcounter?.count?.({ path: location.pathname })'])
   assert.match(chrome, /\}, \[location\.pathname\]\)/, 'a change of fragment or query string alone fires no count')
   // 3. The partner redirect at /r/:slug, which counts its own click and is no dictionary route.
-  // Nothing else in the app's source calls the counter, so no event can carry what was typed.
+  // 4. The one event: a dictionary search that settled and found nothing at all
+  //    (DECISIONS.md 2026-11-18, point 5), sent from dictionary-failed-search.js
+  //    with a fixed event name, a filtered text and a fixed title. Its rules are
+  //    tested in dictionary-failed-search.test.js.
+  // Nothing else in the app's source calls the counter.
   const callers = fs.readdirSync(new URL('../..', import.meta.url), { recursive: true })
     .filter(name => /\.(?:jsx?|mjs)$/.test(name) && !/(?:^|\/)test(?:-tools)?\/|\.test\.js$/.test(name))
     .filter(name => /goatcounter/i.test(code(`../../${name}`)))
     .sort()
-  assert.deepEqual(callers, ['components/RouteChrome.jsx', 'pages/PartnerRedirect.jsx'])
+  assert.deepEqual(callers, ['components/RouteChrome.jsx', 'pages/PartnerRedirect.jsx', 'premium/lib/dictionary-failed-search.js'])
+  const event = code('../lib/dictionary-failed-search.js')
+  assert.deepEqual(event.match(/counter\.count\([^\n]*\)/g), ['counter.count(event)'], 'one call, with the event failedSearchEvent() built')
+  assert.match(event, /return text \? \{ path: `\$\{FAILED_SEARCH_EVENT\}\/\$\{text\}`, title: FAILED_SEARCH_TITLE, event: true \} : null/)
+  // The page hands the counter nothing itself: it calls countFailedSearch and no more.
+  assert.doesNotMatch(code('../pages/Dictionary.jsx'), /goatcounter/i)
 })

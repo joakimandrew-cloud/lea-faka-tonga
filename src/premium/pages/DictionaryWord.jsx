@@ -14,7 +14,8 @@ import '../styles/dictionary.css'
 // and every meaning is the data's own. The sentences are lines printed in the
 // lesson that teaches the row, with the English printed beside them; nothing
 // is written for this page. A word-list word keeps its label and links to its
-// section of /word-lists.
+// section of /word-lists. An added word (DECISIONS.md 2026-11-18) shows its
+// label, links to no lesson and has no sentences.
 
 // The printed sentence with the row's word picked out.
 function Sentence({ pair }) {
@@ -43,6 +44,7 @@ function Entry({ entry, heading }) {
         {entry.wordList && (
           <div><dt>Found in</dt><dd><Link to={entry.wordList.href}>{entry.wordList.note}</Link></dd></div>
         )}
+        {entry.added && <div><dt>Label</dt><dd>{entry.added.note}</dd></div>}
         {entry.alsoInWordLists.length > 0 && (
           <div><dt>Word list</dt><dd>{entry.alsoInWordLists.map((list, index) => <span key={list.id}>{index > 0 && ', '}<Link to={list.href}>{list.label}</Link></span>)}</dd></div>
         )}
@@ -78,12 +80,13 @@ export default function DictionaryWord() {
   if (!page) return <DictionaryMissing typed={slug} />
   const several = page.entries.length > 1
   const onlyWordList = page.entries.every(entry => entry.kind === 'word-list')
+  const onlyAdded = page.entries.every(entry => entry.kind === 'added')
 
   return (
     <div className="catalog-page dictionary-catalog dictionary-word-page">
       <header className="catalog-hero band grain">
         <div className="wrap">
-          <p className="eyebrow"><Link to="/dictionary">Dictionary</Link><span aria-hidden="true">·</span><span>{onlyWordList ? 'Word list word' : 'Tongan word'}</span></p>
+          <p className="eyebrow"><Link to="/dictionary">Dictionary</Link><span aria-hidden="true">·</span><span>{onlyWordList ? 'Word list word' : onlyAdded ? 'Added word' : 'Tongan word'}</span></p>
           <h1 className="display dictionary-word-title">
             {page.words.map((word, index) => (
               <span key={word}>{index > 0 && <span className="dictionary-word-sep" aria-hidden="true"> · </span>}<span className="to" lang="to">{word}</span></span>

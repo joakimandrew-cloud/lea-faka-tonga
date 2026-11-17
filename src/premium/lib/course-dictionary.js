@@ -104,7 +104,13 @@ function searchKeys(entry) {
   let keys = SEARCH_KEYS.get(entry)
   if (!keys) {
     const plain = tonganPlain(entry.tongan)
-    const senses = splitSenses(entry.english).map(item => item.sense.toLowerCase())
+    // A row's own senses, then any English search words tied to it
+    // (dictionary-english-keys.json, attached by withEnglishKeys). A search
+    // word matches as a sense does; it is never displayed.
+    const senses = [
+      ...splitSenses(entry.english).map(item => item.sense.toLowerCase()),
+      ...(Array.isArray(entry.searchWords) ? entry.searchWords : []).map(word => String(word).toLowerCase()),
+    ]
     keys = {
       marked: markedKey(withoutNotes(entry.tongan)),
       fold: foldSearchKey(withoutNotes(entry.tongan)),

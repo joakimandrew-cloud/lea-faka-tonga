@@ -23,7 +23,9 @@ a.dictionary-lesson:hover { text-decoration: underline; text-underline-offset: 4
 .dictionary-wordlists { margin: 0 0 26px; color: var(--muted); font: 15px/1.5 var(--f-ui); }
 .dictionary-wordlists a { color: var(--red); font-weight: 750; text-decoration: none; }
 .dictionary-wordlists a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.dictionary-lesson.is-word-list { max-width: 24ch; white-space: normal; text-align: right; }
+.dictionary-lesson.is-word-list, .dictionary-lesson.is-added { max-width: 24ch; white-space: normal; text-align: right; }
+/* The sentence under the search box that says what is counted (the browse help's type). */
+.dictionary-search-note { margin: 10px 0 0; color: var(--muted); font: 13px/1.5 var(--f-ui); }
 
 /* /word-lists. Built from the dictionary rows and catalog groups above. */
 .word-list-index { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; }
@@ -59,7 +61,7 @@ a.dictionary-lesson:hover { text-decoration: underline; text-underline-offset: 4
 }
 
 @media (max-width: 620px) {
-  .dictionary-lesson.is-word-list { max-width: none; text-align: left; }
+  .dictionary-lesson.is-word-list, .dictionary-lesson.is-added { max-width: none; text-align: left; }
   .word-list-group > header { align-items: flex-start; }
 }
 

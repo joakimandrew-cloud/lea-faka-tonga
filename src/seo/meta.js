@@ -294,6 +294,7 @@ export function dictionaryWordTitle(page) {
 function dictionaryEntryPlace(entry) {
   if (entry.lesson) return `Taught in ${entry.lesson.label}.`
   if (entry.wordList) return `${entry.wordList.note}.`
+  if (entry.added) return `${entry.added.note}.`
   return 'In the course word list, not tied to one lesson.'
 }
 

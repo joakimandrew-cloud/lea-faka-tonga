@@ -60,6 +60,7 @@ import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
 import questionsDoc from '../src/seo/pages/questions.js'
 import { START_HERE, sourceLessons } from '../src/premium/lib/start-here-content.js'
 import { loadDictionaryIndex } from './lib/dictionary-data.mjs'
+import { englishPageLead } from '../src/premium/lib/dictionary-pages.js'
 import { DICTIONARY_GROUPS, dictionaryBrowseKey } from '../src/premium/lib/course-dictionary.js'
 import {
   renderChartsHub,
@@ -383,6 +384,7 @@ function dictionaryEntryHtml(entry, several) {
   if (entry.lesson) add('Taught in', link(entry.lesson.href, esc(entry.lesson.label)))
   if (entry.supplemental) add('Found in', 'Supplemental: in the course word list, not tied to one lesson.')
   if (entry.wordList) add('Found in', link(entry.wordList.href, esc(entry.wordList.note)))
+  if (entry.added) add('Label', esc(entry.added.note))
   if (entry.alsoInWordLists.length) add('Word list', linkList(entry.alsoInWordLists.map((list) => link(list.href, esc(list.label)))))
   if (entry.alsoTyped) add('Also typed', to(entry.alsoTyped))
   if (entry.englishPages.length) add('English to Tongan', linkList(entry.englishPages.map((p) => link(p.path, esc(p.headword)))))
@@ -442,18 +444,16 @@ function dictionaryWordRootHtml(page) {
 }
 
 function dictionaryEnglishRootHtml(page, before, after) {
-  const count = page.entries.length
-  const lead =
-    count === 1
-      ? `One word in the dictionary has “${esc(page.headword)}” in its meaning.`
-      : `${count} words in the dictionary have “${esc(page.headword)}” in their meaning. Each meaning is shown in full, so you can pick the word that fits.`
+  const lead = esc(englishPageLead(page))
   const items = page.entries
     .map((entry) => {
       const place = entry.lesson
         ? link(entry.lesson.href, esc(entry.lesson.label))
         : entry.wordList
           ? link(entry.wordList.href, esc(entry.wordList.note))
-          : 'Supplemental: in the course word list, not tied to one lesson.'
+          : entry.added
+            ? `${esc(entry.added.note)}.`
+            : 'Supplemental: in the course word list, not tied to one lesson.'
       return (
         `<li style="${LI_STYLE}">${toLink(entry.path, entry.display)}: ${esc(entry.english)}${entry.register ? ` (${esc(entry.register)})` : ''}` +
         `${entry.partOfSpeech ? `, ${esc(entry.partOfSpeech)}` : ''}. ${place}</li>`
