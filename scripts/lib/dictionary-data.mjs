@@ -6,17 +6,26 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { okinafy } from '../../src/lib/okinafy.js'
 import { buildDictionaryIndex } from '../../src/premium/lib/dictionary-pages.js'
 import { selectExamples } from '../../src/premium/lib/dictionary-examples.js'
+import { courseWordRows } from '../../src/premium/lib/dictionary-course-words.js'
 import { entryLesson, FIRST_LESSON, LAST_LESSON } from '../../src/premium/lib/course-dictionary.js'
 
-export const APP_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
+// DICTIONARY_APP_ROOT points the data, the book copy and dist/ at another folder
+// with the same layout (used to prove check:dictionary fails on broken data).
+export const APP_ROOT = process.env.DICTIONARY_APP_ROOT
+  ? path.resolve(process.env.DICTIONARY_APP_ROOT)
+  : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 export const EXAMPLES_FILE = 'src/premium/data/dictionary-examples.json'
 export const ENGLISH_TSV_FILE = 'src/premium/data/dictionary-english.tsv'
 export const ADDITIONS_FILE = 'src/premium/data/dictionary-additions.json'
+// Words the lessons use that the course word list leaves out (plan
+// 2026-11-18-dictionary-course-words). Read by the dictionary only.
+export const COURSE_WORDS_FILE = 'src/premium/data/dictionary-course-words.json'
 export const ENGLISH_KEYS_FILE = 'src/premium/data/dictionary-english-keys.json'
-// Why each added word and each English search word is in the dictionary: the
-// sources and the support. Read by scripts and tests only; the app never
+// Why each added word, each course word and each English search word is in the
+// dictionary: the sources and the support. Read by scripts and tests only; the app never
 // imports it, so none of it is in what a browser loads.
 export const EVIDENCE_FILE = 'scripts/dictionary-evidence.json'
 
@@ -30,6 +39,7 @@ export function readDictionarySources(root = APP_ROOT) {
   return {
     vocabulary: readJson(root, 'src/data/book-vocabulary.json'),
     wordLists: readJson(root, 'src/premium/data/word-lists.json'),
+    courseWords: readJson(root, COURSE_WORDS_FILE),
     // Added words and English search words (DECISIONS.md 2026-11-18).
     additions: readJson(root, ADDITIONS_FILE),
     englishKeys: readJson(root, ENGLISH_KEYS_FILE),
@@ -42,7 +52,7 @@ export function readDictionaryEvidence(root = APP_ROOT) {
 }
 
 // Every string of the evidence file that names a source or a place in one, or
-// explains the file: the note, each citation of an added word, and the source
+// explains the file: the note, each citation of an added word or a course word, and the source
 // and location of an English search word's support. A support that quotes a
 // row's own meaning is the site's own data and is not in this list. None of
 // these may be in the built site (check-dictionary-pages.mjs).
@@ -50,11 +60,25 @@ export function evidenceStrings(evidence) {
   const strings = []
   if (evidence?.note) strings.push(evidence.note)
   for (const item of evidence?.additions || []) strings.push(...(item.sources || []))
+  for (const item of evidence?.courseWords || []) strings.push(...(item.sources || []))
   for (const item of evidence?.englishKeys || []) {
     if (item.support?.source) strings.push(item.support.source)
     if (item.support?.location) strings.push(item.support.location)
   }
   return [...new Set(strings.map(text => String(text).trim()).filter(Boolean))]
+}
+
+// A word as it can be looked for in a lesson: marks as the site shows them
+// (okinafy), lowercase, the acute stress accent set aside (a lesson prints one
+// inside a sentence and the data stores the word without it). A macron stays.
+const lessonForm = text => okinafy(String(text)).normalize('NFD').replace(/\u0301/g, '').normalize('NFC').toLowerCase()
+
+// Does the lesson's markdown hold the word, as a whole word? Used by the check
+// that every course word stands in the lesson its page links to.
+export function lessonHoldsWord(markdown, tongan) {
+  const word = lessonForm(tongan).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  if (!word) return false
+  return new RegExp(`(?<![\\p{L}\\p{M}ʻ'])${word}(?![\\p{L}\\p{M}ʻ'])`, 'u').test(lessonForm(markdown))
 }
 
 export function readLessons(root = APP_ROOT) {
@@ -71,9 +95,11 @@ export function drawExamples(root = APP_ROOT) {
   const rows = vocabulary.map(row => ({ id: row.id, tongan: row.tongan, english: row.english, lesson: entryLesson(row) }))
   // Word-list rows take no sentence (no lesson teaches them), but a word-list
   // row that shares a page with a course row can still block a sentence.
-  // The same holds for an added word.
-  const { wordLists, additions } = readDictionarySources(root)
+  // The same holds for an added word. A course word carries its lesson, so it
+  // takes sentences exactly as a course row does.
+  const { wordLists, additions, courseWords } = readDictionarySources(root)
   for (const row of wordLists.entries) if (!row.course_id) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: null })
+  for (const row of courseWordRows(courseWords)) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: entryLesson({ chapter: row.lesson }) })
   for (const row of additions.entries) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: null })
   return selectExamples({ rows, lessons: readLessons(root) })
 }

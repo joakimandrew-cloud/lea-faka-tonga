@@ -6,6 +6,8 @@
 // script and the prerender all build the same pages from the same files:
 //   vocabulary  src/data/book-vocabulary.json            (the 649 course rows)
 //   wordLists   src/premium/data/word-lists.json         (the 92 word-list rows)
+//   courseWords src/premium/data/dictionary-course-words.json (words the
+//               lessons use that the course word list leaves out)
 //   additions   src/premium/data/dictionary-additions.json (added words)
 //   englishKeys src/premium/data/dictionary-english-keys.json (English search
 //               words tied to rows the dictionary already has)
@@ -22,6 +24,7 @@
 import { okinafy } from '../../lib/okinafy.js'
 import { entryLesson } from './course-dictionary.js'
 import { ADDED_WORD_LABEL, additionRows, englishKeyList } from './dictionary-additions.js'
+import { courseWordRows } from './dictionary-course-words.js'
 import { ENGLISH_HEADWORD_MAX_WORDS, englishPagePath, englishSlug, plainKey, plainTyping, RESERVED_SLUGS, senseDropReason, splitSenses, withoutNotes, wordPagePath, wordSlug } from './dictionary-text.js'
 import { themeHref, wordListSearchLabel } from './word-lists.js'
 
@@ -83,6 +86,14 @@ function wordListEntry(row, theme) {
   }
 }
 
+// A course word (plan 2026-11-18-dictionary-course-words): a word the lessons
+// use that the course word list leaves out. It is built as a course row is,
+// with its lesson, its link and the lesson's printed sentences, and has a kind
+// of its own so that its page says "Used in" where a course row says "Taught in".
+function courseWordEntry(row, titles, examples) {
+  return { ...courseEntry({ ...row, chapter: row.lesson }, titles, examples), kind: 'course-word' }
+}
+
 // An added word (DECISIONS.md 2026-11-18): its own label, no lesson, no
 // sentence. The sources that attest it are not in the app's data; they are in
 // scripts/dictionary-evidence.json, which the browser never loads.
@@ -105,7 +116,7 @@ function addedEntry(row) {
   }
 }
 
-const KIND_ORDER = { course: 0, 'word-list': 1, added: 2 }
+const KIND_ORDER = { course: 0, 'course-word': 1, 'word-list': 2, added: 3 }
 
 // Where an English headword's row came from: a sense of the row's own meaning,
 // or an English search word tied to the row in dictionary-english-keys.json.
@@ -174,7 +185,7 @@ export function englishPageLead(page) {
 }
 
 // Everything the dictionary shows, built once from the data files.
-export function buildDictionaryIndex({ vocabulary, wordLists, additions = null, englishKeys = null, chapters = [], examples = {} }) {
+export function buildDictionaryIndex({ vocabulary, wordLists, courseWords = null, additions = null, englishKeys = null, chapters = [], examples = {} }) {
   const titles = new Map((Array.isArray(chapters) ? chapters : []).map(chapter => [Number(chapter.chapter), chapter.title || '']))
   const themes = new Map((Array.isArray(wordLists?.themes) ? wordLists.themes : []).map(theme => [theme.id, theme]))
   const course = (Array.isArray(vocabulary) ? vocabulary : []).filter(row => row && typeof row.tongan === 'string' && row.tongan.trim())
@@ -182,6 +193,15 @@ export function buildDictionaryIndex({ vocabulary, wordLists, additions = null, 
 
   const entries = course.map(row => courseEntry(row, titles, examples))
   const byId = new Map(entries.map(entry => [entry.id, entry]))
+  // Course words come straight after the course's own rows, so they list and
+  // sort next to them (and before the word lists' rows) wherever they meet.
+  const listIds = new Set((Array.isArray(wordLists?.entries) ? wordLists.entries : []).map(row => row?.id))
+  for (const row of courseWordRows(courseWords)) {
+    if (byId.has(row.id) || listIds.has(row.id)) throw new Error(`The course word ${row.id} uses an id the dictionary already has`)
+    const entry = courseWordEntry(row, titles, examples)
+    entries.push(entry)
+    byId.set(entry.id, entry)
+  }
   // rowPage: where each of the data's rows lands. A word-list row that is a
   // course word lands on its course row's page and is shown there as a note.
   const rowPage = new Map()
@@ -221,7 +241,7 @@ export function buildDictionaryIndex({ vocabulary, wordLists, additions = null, 
   const lessonWords = new Map()
   const themeWords = new Map()
   for (const page of pages) {
-    // Course rows in lesson order, supplemental rows after them, then word-list rows, added words last.
+    // Course rows in lesson order, supplemental rows after them, then course words, then word-list rows, added words last.
     page.entries.sort((a, b) => KIND_ORDER[a.kind] - KIND_ORDER[b.kind]
       || (a.lesson?.number || 99) - (b.lesson?.number || 99) || String(a.id).localeCompare(String(b.id)))
     page.words = [...new Set(page.entries.map(entry => entry.display))]

@@ -5040,6 +5040,108 @@
      35
     ]
    }
+  ],
+  "cw-0001": [
+   {
+    "tongan": "'Oku 'ikai ke loko lelei 'a e ika.",
+    "english": "The fish is not too good.",
+    "line": 144,
+    "kind": "sentence",
+    "at": [
+     14,
+     18
+    ]
+   },
+   {
+    "tongan": "'Oku 'ikai ke loko momoko.",
+    "english": "It is not too cold.",
+    "line": 146,
+    "kind": "sentence",
+    "at": [
+     14,
+     18
+    ]
+   },
+   {
+    "tongan": "Na'e 'ikai ke loko lelei 'emau ngāué.",
+    "english": "Our work was not too good.",
+    "line": 148,
+    "kind": "sentence",
+    "at": [
+     14,
+     18
+    ]
+   }
+  ],
+  "cw-0005": [
+   {
+    "tongan": "'Oku ou kai.",
+    "english": "I eat. (Something I do regularly, not \"I am eating right now.\")",
+    "line": 22,
+    "kind": "sentence",
+    "at": [
+     5,
+     7
+    ]
+   }
+  ],
+  "cw-0006": [
+   {
+    "tongan": "Talu 'eku ha'ú 'oku te'eki té u ongo'i ta'elata.",
+    "english": "Since I came, I have never felt homesick.",
+    "line": 61,
+    "kind": "sentence",
+    "at": [
+     39,
+     47
+    ]
+   }
+  ],
+  "cw-0013": [
+   {
+    "tongan": "ha me'a fakaekolo",
+    "english": "a matter pertaining to one particular village",
+    "line": 120,
+    "kind": "phrase",
+    "at": [
+     8,
+     17
+    ]
+   }
+  ],
+  "cw-0016": [
+   {
+    "tongan": "Ko e vala ia 'o'ou.",
+    "english": "Those clothes are yours.",
+    "line": 67,
+    "kind": "sentence",
+    "at": [
+     13,
+     18
+    ]
+   }
+  ],
+  "cw-0022": [
+   {
+    "tongan": "'Oku 'ikai totonu ke te tokanga pē kiate kita.",
+    "english": "One should not attend only to oneself.",
+    "line": 14,
+    "kind": "sentence",
+    "at": [
+     41,
+     45
+    ]
+   },
+   {
+    "tongan": "'Okú te mā kita.",
+    "english": "One is ashamed. (Or: I am ashamed, said humbly.)",
+    "line": 22,
+    "kind": "sentence",
+    "at": [
+     11,
+     15
+    ]
+   }
   ]
  }
 }

@@ -61,6 +61,7 @@ import questionsDoc from '../src/seo/pages/questions.js'
 import { START_HERE, sourceLessons } from '../src/premium/lib/start-here-content.js'
 import { loadDictionaryIndex } from './lib/dictionary-data.mjs'
 import { englishPageLead } from '../src/premium/lib/dictionary-pages.js'
+import { COURSE_WORD_LABEL } from '../src/premium/lib/dictionary-course-words.js'
 import { DICTIONARY_GROUPS, dictionaryBrowseKey } from '../src/premium/lib/course-dictionary.js'
 import {
   renderChartsHub,
@@ -381,7 +382,7 @@ function dictionaryEntryHtml(entry, several) {
   const add = (term, html) => facts.push(`<dt style="${DT_STYLE}">${term}</dt><dd style="${DD_STYLE}">${html}</dd>`)
   if (entry.partOfSpeech) add('Part of speech', esc(entry.partOfSpeech))
   if (entry.register) add('Label', esc(entry.register))
-  if (entry.lesson) add('Taught in', link(entry.lesson.href, esc(entry.lesson.label)))
+  if (entry.lesson) add(entry.kind === 'course-word' ? COURSE_WORD_LABEL : 'Taught in', link(entry.lesson.href, esc(entry.lesson.label)))
   if (entry.supplemental) add('Found in', 'Supplemental: in the course word list, not tied to one lesson.')
   if (entry.wordList) add('Found in', link(entry.wordList.href, esc(entry.wordList.note)))
   if (entry.added) add('Label', esc(entry.added.note))

@@ -16,30 +16,33 @@ import { DICTIONARY_PAGE_PATH, DICTIONARY_TITLE_MAX, dictionaryPageMeta, metaFor
 // own copy of the book.
 
 const read = file => fs.readFileSync(path.join(APP_ROOT, file), 'utf8')
-const { vocabulary, wordLists, additions, englishKeys } = readDictionarySources()
+const { vocabulary, wordLists, courseWords, additions, englishKeys } = readDictionarySources()
 // Why each added word and each English search word is there: read by scripts
 // and tests only, never by the app.
 const evidence = readDictionaryEvidence()
 const index = loadDictionaryIndex()
 const storedExamples = JSON.parse(read(EXAMPLES_FILE)).examples
 const courseById = new Map(vocabulary.map(row => [row.id, row]))
+// Rows that stand in a lesson: the course rows, and the course words (whose lesson is `lesson`).
+const lessonRowById = new Map([...vocabulary, ...courseWords.entries.map(row => ({ ...row, chapter: row.lesson }))].map(row => [row.id, row]))
 
-test('all 649 course rows, all 92 word-list rows and the 2 added words land on exactly one word page', () => {
+test('all 649 course rows, all 92 word-list rows, every course word and every added word land on exactly one word page', () => {
   assert.equal(vocabulary.length, 649)
   assert.equal(wordLists.entries.length, 92)
   assert.equal(wordLists.entries.filter(row => !row.course_id).length, 71)
   assert.equal(additions.entries.length, 2)
+  assert.ok(courseWords.entries.length > 0)
   const landings = new Map()
   for (const page of index.pages) for (const id of page.rowIds) landings.set(id, [...(landings.get(id) || []), page.slug])
-  for (const row of [...vocabulary, ...wordLists.entries, ...additions.entries]) {
+  for (const row of [...vocabulary, ...wordLists.entries, ...courseWords.entries, ...additions.entries]) {
     assert.deepEqual(landings.get(row.id)?.length, 1, `${row.id} (${row.tongan}) lands on exactly one page`)
     assert.equal(landings.get(row.id)[0], wordSlug(row.tongan), `${row.id} lands on the page of its own plain spelling`)
     assert.equal(index.rowPage.get(row.id), landings.get(row.id)[0])
   }
-  assert.equal(landings.size, 649 + 92 + 2, 'no page holds a row the data does not have')
+  assert.equal(landings.size, 649 + 92 + courseWords.entries.length + 2, 'no page holds a row the data does not have')
   // Shown entries: every course row, every word-list row that is not a course word, every added word.
   const shown = index.pages.flatMap(page => page.entries)
-  assert.equal(shown.length, 649 + 71 + 2)
+  assert.equal(shown.length, 649 + 71 + courseWords.entries.length + 2)
   assert.equal(new Set(shown.map(entry => entry.id)).size, shown.length)
   // The 21 word-list rows that are course words are a note on the course row.
   const notes = shown.flatMap(entry => entry.alsoInWordLists.map(list => list.id))
@@ -95,6 +98,17 @@ test('a word page shows only what the data has: marks, meaning, part of speech, 
           assert.equal(entry.lesson, null, `${entry.id} is supplemental and links nowhere`)
           assert.equal(entry.supplemental, true)
         }
+      } else if (entry.kind === 'course-word') {
+        const row = courseWords.entries.find(item => item.id === entry.id)
+        assert.equal(entry.tongan, row.tongan)
+        assert.equal(entry.english, row.english)
+        assert.equal(entry.partOfSpeech, row.part_of_speech)
+        assert.equal(entry.lesson.number, row.lesson)
+        assert.equal(entry.lesson.href, `/lessons/${row.lesson}`)
+        assert.match(entry.lesson.label, new RegExp(`^Lesson ${row.lesson}: .+`))
+        assert.equal(entry.supplemental, false)
+        assert.equal(entry.wordList, null)
+        assert.equal(entry.added, null)
       } else if (entry.kind === 'added') {
         const row = additions.entries.find(item => item.id === entry.id)
         assert.equal(entry.tongan, row.tongan)
@@ -153,7 +167,7 @@ function exampleFailures(examples, readChapter) {
   const failures = []
   let pairs = 0
   for (const [id, list] of Object.entries(examples)) {
-    const row = courseById.get(id)
+    const row = lessonRowById.get(id)
     if (!row) { failures.push(`${id}: not a course row`); continue }
     if (!(row.chapter >= 1 && row.chapter <= 52)) { failures.push(`${id}: has no teaching lesson`); continue }
     if (!list.length || list.length > 3) failures.push(`${id}: ${list.length} pairs`)
@@ -192,7 +206,7 @@ test('every example sentence is printed, with its English, in the lesson that te
   const tamper = change => exampleFailures({ [someId]: [change(structuredClone(someList[0]))] }, readChapter).failures
   assert.ok(tamper(pair => ({ ...pair, tongan: pair.tongan.replace(/a/, 'e') })).length > 0)
   assert.ok(tamper(pair => ({ ...pair, english: `${pair.english} Indeed.` })).length > 0)
-  const otherId = Object.keys(storedExamples).find(id => courseById.get(id).chapter !== courseById.get(someId).chapter)
+  const otherId = Object.keys(storedExamples).find(id => lessonRowById.get(id).chapter !== lessonRowById.get(someId).chapter)
   assert.ok(exampleFailures({ [otherId]: someList }, readChapter).failures.length > 0)
 })
 
@@ -302,7 +316,7 @@ test('English headwords come only from the meanings in the data, and the TSV lis
   const rows = lines.slice(1).map(line => line.split('\t'))
   assert.ok(rows.length > 500, `the TSV holds headwords to check (${rows.length})`)
   assert.equal(rows.length, index.english.length)
-  const meaningOf = id => (courseById.get(id) || wordLists.entries.find(row => row.id === id) || additions.entries.find(row => row.id === id))?.english
+  const meaningOf = id => (courseById.get(id) || wordLists.entries.find(row => row.id === id) || courseWords.entries.find(row => row.id === id) || additions.entries.find(row => row.id === id))?.english
   for (const [headword, slug, ids, senses, origins] of rows) {
     assert.match(slug, /^[a-z0-9-]+$/)
     assert.match(headword, /^[A-Za-z]+(?:['-][A-Za-z]+)*(?: [A-Za-z]+(?:['-][A-Za-z]+)*){0,2}$/, `${headword} is one to three plain words`)
@@ -422,12 +436,11 @@ test('the added words: their own data file, their own pages, a label, no lesson 
   assert.equal(ADDED_WORD_LABEL, 'Added word, not taught in the lessons')
   assert.doesNotMatch(ADDED_WORD_LABEL, /\u2014/)
   assert.ok(fakahela.previous && fakahela.next && fefeka.previous && fefeka.next)
-  // Without the file the index is the dictionary as it was: 741 rows, 683 pages.
+  // Without the file the index is the dictionary without the added words: each is a row and a page of its own.
   const { additions: unused, ...rest } = readDictionarySources()
   assert.ok(unused)
   const without = buildDictionaryIndex({ ...rest, examples: storedExamples })
-  assert.deepEqual([without.rowPage.size, without.pages.length], [741, 683])
-  assert.deepEqual([index.rowPage.size, index.pages.length], [743, 685])
+  assert.deepEqual([index.rowPage.size - without.rowPage.size, index.pages.length - without.pages.length], [additions.entries.length, additions.entries.length])
   // An id the dictionary already has is refused.
   assert.throws(() => buildDictionaryIndex({ ...rest, additions: { entries: [{ id: 'book-v0003', tongan: 'fakahela', english: 'x', part_of_speech: 'adjective' }] }, examples: storedExamples }), /already has/)
 })
@@ -507,9 +520,9 @@ test('nothing about sources is in the files the app loads; it is in a file only 
 })
 
 test('the index is the same whether a script or the site builds it, and changes no data', () => {
-  const before = JSON.stringify([vocabulary, wordLists, additions, englishKeys])
+  const before = JSON.stringify([vocabulary, wordLists, courseWords, additions, englishKeys])
   const again = buildDictionaryIndex({ ...readDictionarySources(), examples: storedExamples })
-  assert.equal(JSON.stringify([vocabulary, wordLists, additions, englishKeys]), before)
+  assert.equal(JSON.stringify([vocabulary, wordLists, courseWords, additions, englishKeys]), before)
   assert.deepEqual(again.pages.map(page => page.slug), index.pages.map(page => page.slug))
   assert.equal(dictionaryPageForPath(index, '/dictionary/ulu/').slug, 'ulu')
   assert.equal(dictionaryPageForPath(index, '/dictionary/english/house').headword, 'house')

@@ -1,0 +1,159 @@
+{
+ "note": "Words the lessons use that the course word list leaves out. The dictionary shows each as a course word, with a link to its lesson. Read by the dictionary only: the flash cards, the games, the practice and the lessons do not read this file.",
+ "entries": [
+  {
+   "id": "cw-0001",
+   "tongan": "loko",
+   "english": "not too (softens a negative)",
+   "part_of_speech": "adverb",
+   "lesson": 9
+  },
+  {
+   "id": "cw-0002",
+   "tongan": "fe'iloaki",
+   "english": "meet",
+   "part_of_speech": "verb",
+   "lesson": 38
+  },
+  {
+   "id": "cw-0003",
+   "tongan": "si'ena",
+   "english": "their two (poor, dear)",
+   "part_of_speech": "possessive pronoun",
+   "lesson": 52
+  },
+  {
+   "id": "cw-0004",
+   "tongan": "fakataha",
+   "english": "assemble, gather; together; meeting",
+   "part_of_speech": "verb",
+   "lesson": 10
+  },
+  {
+   "id": "cw-0005",
+   "tongan": "ou",
+   "english": "I (before a verb)",
+   "part_of_speech": "pronoun",
+   "lesson": 2
+  },
+  {
+   "id": "cw-0006",
+   "tongan": "ta'elata",
+   "english": "homesick",
+   "part_of_speech": "adjective",
+   "lesson": 42
+  },
+  {
+   "id": "cw-0007",
+   "tongan": "tositosi",
+   "english": "peck repeatedly",
+   "part_of_speech": "verb",
+   "lesson": 50
+  },
+  {
+   "id": "cw-0008",
+   "tongan": "si'ao",
+   "english": "your (poor, dear)",
+   "part_of_speech": "possessive pronoun",
+   "lesson": 52
+  },
+  {
+   "id": "cw-0009",
+   "tongan": "mafusi",
+   "english": "pulled a little out of place",
+   "part_of_speech": "verb",
+   "lesson": 49
+  },
+  {
+   "id": "cw-0010",
+   "tongan": "tākoto",
+   "english": "lie down (two or more)",
+   "part_of_speech": "verb",
+   "lesson": 25
+  },
+  {
+   "id": "cw-0011",
+   "tongan": "si'ano",
+   "english": "his or her (poor, dear)",
+   "part_of_speech": "possessive pronoun",
+   "lesson": 52
+  },
+  {
+   "id": "cw-0012",
+   "tongan": "'onautolu",
+   "english": "theirs (plural)",
+   "part_of_speech": "possessive pronoun",
+   "lesson": 37
+  },
+  {
+   "id": "cw-0013",
+   "tongan": "fakaekolo",
+   "english": "of one particular village (not villages in general)",
+   "part_of_speech": "adjective",
+   "lesson": 32
+  },
+  {
+   "id": "cw-0014",
+   "tongan": "pupuha",
+   "english": "sweat",
+   "part_of_speech": "noun",
+   "lesson": 48
+  },
+  {
+   "id": "cw-0015",
+   "tongan": "ha'atau",
+   "english": "a ... of ours (inclusive)",
+   "part_of_speech": "possessive pronoun",
+   "lesson": 29
+  },
+  {
+   "id": "cw-0016",
+   "tongan": "'o'ou",
+   "english": "yours (singular)",
+   "part_of_speech": "possessive pronoun",
+   "lesson": 37
+  },
+  {
+   "id": "cw-0017",
+   "tongan": "fusi",
+   "english": "pull",
+   "part_of_speech": "verb",
+   "lesson": 49
+  },
+  {
+   "id": "cw-0018",
+   "tongan": "fotu",
+   "english": "appear",
+   "part_of_speech": "verb",
+   "lesson": 48
+  },
+  {
+   "id": "cw-0019",
+   "tongan": "faingata'a'ia",
+   "english": "have difficulty, find it difficult",
+   "part_of_speech": "verb",
+   "lesson": 48
+  },
+  {
+   "id": "cw-0020",
+   "tongan": "mingimingi'i",
+   "english": "details, fine points (in mingimingi'i me'a)",
+   "part_of_speech": "noun",
+   "lesson": 48
+  },
+  {
+   "id": "cw-0021",
+   "tongan": "hamou",
+   "english": "a ... of yours (plural)",
+   "part_of_speech": "possessive pronoun",
+   "lesson": 29
+  },
+  {
+   "id": "cw-0022",
+   "tongan": "kita",
+   "english": "one, oneself (impersonal)",
+   "part_of_speech": "pronoun",
+   "lesson": 51
+  }
+ ]
+}

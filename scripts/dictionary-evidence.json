@@ -1,5 +1,5 @@
 {
-  "note": "Read by node scripts and tests only; never imported by the app, so nothing here is in what a browser loads (check:dictionary proves it against dist). It records why each added word and each English search word is in the dictionary (DECISIONS.md 2026-11-18): for an added word, the sources that attest it, as a citation and never a source's wording; for an English search word, the row's own meaning quoted from the data, or a source and a place in it. One row per source for each item is in audits/dictionary-search-2026-11-18/additions-evidence.tsv in the project folder.",
+  "note": "Read by node scripts and tests only; never imported by the app, so nothing here is in what a browser loads (check:dictionary proves it against dist). It records why each added word, each course word and each English search word is in the dictionary (DECISIONS.md 2026-11-18): for an added word or a course word, the sources that attest it, as a citation and never a source's wording; for an English search word, the row's own meaning quoted from the data, or a source and a place in it. One row per source for each item is in audits/dictionary-search-2026-11-18/additions-evidence.tsv in the project folder.",
   "additions": [
     {
       "id": "add-0001",
@@ -14,6 +14,158 @@
         "Churchward, Tongan Dictionary (1959), p. 151, headword fefeka",
         "Shumway, Intensive Course in Tongan, Glossary, p. 660, fefeka",
         "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001), adjectives, entries 171 and 385 counting from 1"
+      ]
+    }
+  ],
+  "courseWords": [
+    {
+      "id": "cw-0001",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 298, headword loko",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 684, loko"
+      ]
+    },
+    {
+      "id": "cw-0002",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 185, headword feʻiloaki",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 662, fe'iloaki",
+        "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001), verbs, entry 333 counting from 1"
+      ]
+    },
+    {
+      "id": "cw-0003",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 434, headword siʻena",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 702, si'ena"
+      ]
+    },
+    {
+      "id": "cw-0004",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 100, headword fakataha",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 657, fakataha",
+        "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001), adverbs, entry 86 counting from 1",
+        "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001), nouns, entry 43 counting from 1"
+      ]
+    },
+    {
+      "id": "cw-0005",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 395, headword ou",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 697, ou"
+      ]
+    },
+    {
+      "id": "cw-0006",
+      "sources": [
+        "EALD Bilingual Dictionary for ESL Beginners (NSW Dept of Education, 2001), adjectives, entry 179 counting from 1"
+      ]
+    },
+    {
+      "id": "cw-0007",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 497, headword tositosi (r.c. of tosi)",
+        "Churchward, Tongan Dictionary (1959), p. 497, headword tosi"
+      ]
+    },
+    {
+      "id": "cw-0008",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 434, headword siʻao",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 702, si'ao"
+      ]
+    },
+    {
+      "id": "cw-0009",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 314, headword mafusi²"
+      ]
+    },
+    {
+      "id": "cw-0010",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 446, headword tākoto",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 704, tākoto"
+      ]
+    },
+    {
+      "id": "cw-0011",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 434, headword siʻano"
+      ]
+    },
+    {
+      "id": "cw-0012",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 565, headword ʻonautolu",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 721, 'onautolu"
+      ]
+    },
+    {
+      "id": "cw-0013",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 26, headword fakaefaiako (names fakaekolo; own entry fakaekolo, s.u. fakaefaiako, at p. 27)"
+      ]
+    },
+    {
+      "id": "cw-0014",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 423, headword pupuha",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 700, pupuha"
+      ]
+    },
+    {
+      "id": "cw-0015",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 216, headword haʻatau",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 669, ha'atau"
+      ]
+    },
+    {
+      "id": "cw-0016",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 568, headword ʻoʻou",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 722, 'o'ou"
+      ]
+    },
+    {
+      "id": "cw-0017",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 203, headword fusi¹"
+      ]
+    },
+    {
+      "id": "cw-0018",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 196, headword fotu¹"
+      ]
+    },
+    {
+      "id": "cw-0019",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 22, headword faingataʻaʻia",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 653, faingata'a'ia"
+      ]
+    },
+    {
+      "id": "cw-0020",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 358, headword mingimingiʻi"
+      ]
+    },
+    {
+      "id": "cw-0021",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 211, headword hamou",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 668, hamou"
+      ]
+    },
+    {
+      "id": "cw-0022",
+      "sources": [
+        "Churchward, Tongan Dictionary (1959), p. 266, headword kita¹",
+        "Shumway, Intensive Course in Tongan, Glossary, p. 678, kita"
       ]
     }
   ],

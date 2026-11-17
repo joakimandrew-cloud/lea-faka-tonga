@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { dictionaryPageMeta, STATIC_META } from '@app/seo/meta.js'
 import { DictionaryMissing, Neighbours, WordLinks } from '../components/DictionaryBits.jsx'
+import { COURSE_WORD_LABEL } from '../lib/dictionary-course-words.js'
 import { DICTIONARY } from '../lib/dictionary-data.js'
 import { usePageMeta } from '../lib/title.js'
 import '../styles/catalog.css'
@@ -14,8 +15,10 @@ import '../styles/dictionary.css'
 // and every meaning is the data's own. The sentences are lines printed in the
 // lesson that teaches the row, with the English printed beside them; nothing
 // is written for this page. A word-list word keeps its label and links to its
-// section of /word-lists. An added word (DECISIONS.md 2026-11-18) shows its
-// label, links to no lesson and has no sentences.
+// section of /word-lists. A course word (plan 2026-11-18-dictionary-course-words)
+// looks as a course row does, with "Used in" where a course row says "Taught in".
+// An added word (DECISIONS.md 2026-11-18) shows its label, links to no lesson
+// and has no sentences.
 
 // The printed sentence with the row's word picked out.
 function Sentence({ pair }) {
@@ -36,7 +39,7 @@ function Entry({ entry, heading }) {
         {entry.partOfSpeech && <div><dt>Part of speech</dt><dd>{entry.partOfSpeech}</dd></div>}
         {entry.register && <div><dt>Label</dt><dd>{entry.register}</dd></div>}
         {entry.lesson && (
-          <div><dt>Taught in</dt><dd><Link to={entry.lesson.href}>{entry.lesson.label}</Link></dd></div>
+          <div><dt>{entry.kind === 'course-word' ? COURSE_WORD_LABEL : 'Taught in'}</dt><dd><Link to={entry.lesson.href}>{entry.lesson.label}</Link></dd></div>
         )}
         {entry.supplemental && (
           <div><dt>Found in</dt><dd>Supplemental: in the course word list, not tied to one lesson.</dd></div>

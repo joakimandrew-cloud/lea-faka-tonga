@@ -26,6 +26,7 @@ announcement	announcement	book-v0647	announcement	meaning
 answer	answer	book-v0044	answer	meaning
 ant	ant	wl-animal-006	ant	meaning
 any	any	book-v0156	any	meaning
+appear	appear	cw-0018	appear	meaning
 April	april	book-v0522	April	meaning
 area	area	book-v0389	area	meaning
 armpit	armpit	wl-body-024	armpit	meaning
@@ -36,6 +37,7 @@ as if	as-if	book-v0342	as if	meaning
 as one pleases	as-one-pleases	book-v0638	as one pleases	meaning
 as usual	as-usual	book-v0301	as usual	meaning
 ask	ask	book-v0010 | book-v0340	ask | ask	meaning | meaning
+assemble	assemble	cw-0004	assemble	meaning
 at	at	book-v0120 | book-v0134 | book-v0135	at | at | at	meaning | meaning | meaning
 at what time	at-what-time	book-v0183	at what time	meaning
 at will	at-will	book-v0638	at will	meaning
@@ -185,6 +187,7 @@ day	day	book-v0089	day	meaning
 December	december	book-v0534	December	meaning
 decide upon	decide-upon	book-v0417	to decide upon	meaning
 desire	desire	book-v0470	desire	meaning
+details	details	cw-0020	details	meaning
 did	did	book-v0164	did	meaning
 die	die	book-v0028	die	meaning
 different	different	book-v0347 | book-v0383	different | different	meaning | meaning
@@ -255,7 +258,9 @@ few	few	book-v0289 | book-v0388	few | few	meaning | meaning
 field	field	book-v0129	field	meaning
 fifty	fifty	book-v0277	fifty	meaning
 fight	fight	book-v0653	a fight	meaning
+find it difficult	find-it-difficult	cw-0019	find it difficult	meaning
 fine	fine	book-v0165 | book-v0218	fine | fine	meaning | meaning
+fine points	fine-points	cw-0020	fine points	meaning
 finger	finger	wl-body-043	finger	meaning
 fingernail	fingernail	wl-body-051	fingernail	meaning
 finish	finish	book-v0252	finish	meaning
@@ -286,7 +291,7 @@ future	future	book-v0525	future	meaning
 game	game	book-v0176	game	meaning
 garden	garden	book-v0130	garden	meaning
 garment	garment	book-v0233	garment	meaning
-gather	gather	book-v0640	gather	meaning
+gather	gather	book-v0640 | cw-0004	gather | gather	meaning | meaning
 girl	girl	book-v0210	girl	meaning
 give	give	book-v0013	give	meaning
 give thanks	give-thanks	book-v0006	give thanks	meaning
@@ -314,6 +319,7 @@ happen	happen	book-v0639	happen	meaning
 happy	happy	book-v0072	happy	meaning
 hard	hard	book-v0079 | add-0002	hard | hard	meaning | meaning
 hat	hat	book-v0242	hat	meaning
+have difficulty	have-difficulty	cw-0019	have difficulty	meaning
 head	head	book-v0003	head	meaning
 hear	hear	book-v0146	hear	meaning
 heart	heart	wl-body-047	heart	meaning
@@ -328,10 +334,12 @@ heron	heron	wl-animal-003	heron	meaning
 hesitate	hesitate	book-v0609	hesitate	meaning
 hi	hi	book-v0025	hello, greetings	search word
 hinder	hinder	book-v0654	to hinder	meaning
+his or her	his-or-her	cw-0011	his or her	meaning
 history	history	book-v0171	history	meaning
 hoe	hoe	book-v0232	hoe	meaning
 holy	holy	book-v0616	holy	meaning
 home	home	book-v0125	home	meaning
+homesick	homesick	cw-0006	homesick	meaning
 hope	hope	book-v0437	hope	meaning
 horse	horse	wl-animal-011	horse	meaning
 hospital	hospital	book-v0007	hospital	meaning
@@ -345,6 +353,7 @@ hungry	hungry	book-v0074	hungry	meaning
 hurry up	hurry-up	book-v0474	hurry up and	meaning
 husband	husband	book-v0015	husband	meaning
 hymn	hymn	book-v0656	hymn	meaning
+I	i	cw-0005	I	meaning
 I guess	i-guess	book-v0472	I guess	meaning
 I hope that	i-hope-that	book-v0473	I hope that	meaning
 I wonder	i-wonder	book-v0476	I wonder	meaning
@@ -407,7 +416,7 @@ lest	lest	book-v0478	lest	meaning
 let	let	book-v0479	let	meaning
 let alone	let-alone	book-v0488	let alone	meaning
 lie	lie	book-v0664	lie	meaning
-lie down	lie-down	book-v0336	lie down	meaning
+lie down	lie-down	book-v0336 | cw-0010	lie down | lie down	meaning | meaning
 light	light	book-v0410	light	meaning
 lighten	lighten	book-v0405	to lighten	meaning
 like	like	book-v0299	like	meaning
@@ -450,7 +459,8 @@ March	march	book-v0527	March	meaning
 market	market	book-v0493	market	meaning
 mat	mat	book-v0158	mat	meaning
 may	may	book-v0473 | book-v0485 | book-v0528	may | may | May	meaning | meaning | meaning
-meet	meet	book-v0504	meet	meaning
+meet	meet	book-v0504 | cw-0002	meet | meet	meaning | meaning
+meeting	meeting	cw-0004	meeting	meaning
 method	method	book-v0569	method	meaning
 midday	midday	book-v0273	midday	meaning
 minister	minister	book-v0326	minister	meaning
@@ -493,6 +503,7 @@ nose	nose	book-v0016	nose	meaning
 nostril	nostril	wl-body-023	nostril	meaning
 not at all	not-at-all	book-v0536 | book-v0537	not at all | not at all	meaning | meaning
 not to mention	not-to-mention	book-v0488	not to mention	meaning
+not too	not-too	cw-0001	not too	meaning
 not until	not-until	book-v0306	not until	meaning
 not yet	not-yet	book-v0305	not yet	meaning
 November	november	book-v0529	November	meaning
@@ -504,11 +515,12 @@ October	october	book-v0523	October	meaning
 often	often	book-v0069	often	meaning
 old	old	book-v0031	old	meaning
 on	on	book-v0120	on	meaning
-one	one	book-v0042	one	meaning
+one	one	book-v0042 | cw-0022	one | one	meaning | meaning
 one by one	one-by-one	book-v0308 | book-v0309	one by one | one by one	meaning | meaning
 one hundred	one-hundred	book-v0287	one hundred	meaning
 one says	one-says	book-v0431	one says	meaning
 one thousand	one-thousand	book-v0268	one thousand	meaning
+oneself	oneself	cw-0022	oneself	meaning
 only	only	book-v0070	only	meaning
 open	open	book-v0112 | book-v0399	open | to open	meaning | meaning
 opportunity	opportunity	book-v0666	opportunity	meaning
@@ -527,6 +539,7 @@ path	path	book-v0127	path	meaning
 pattern	pattern	book-v0428	pattern	meaning
 pay	pay	book-v0046	pay	meaning
 pay attention	pay-attention	book-v0494	pay attention	meaning
+peck repeatedly	peck-repeatedly	cw-0007	peck repeatedly	meaning
 people	people	book-v0390	people	meaning
 perhaps	perhaps	book-v0472 | book-v0476 | book-v0554	perhaps | perhaps | perhaps	meaning | meaning | meaning
 piece	piece	book-v0272	piece	meaning
@@ -549,6 +562,7 @@ problem	problem	book-v0393	problem	meaning
 prosperous	prosperous	book-v0466	prosperous	meaning
 provided that	provided-that	book-v0383	provided that	meaning
 publish	publish	book-v0608	publish	meaning
+pull	pull	cw-0017	pull	meaning
 pupil	pupil	book-v0568	pupil	meaning
 put	put	book-v0358	put	meaning
 put down	put-down	book-v0371	put down	meaning
@@ -677,6 +691,7 @@ superb	superb	book-v0658	superb	meaning
 suppose	suppose	book-v0440	suppose	meaning
 surface	surface	book-v0495	surface	meaning
 surpass	surpass	book-v0349	surpass	meaning
+sweat	sweat	cw-0014	sweat	meaning
 sweet potato	sweet-potato	book-v0190	sweet potato	meaning
 swim	swim	book-v0298	swim	meaning
 table	table	book-v0510 | book-v0549	table | table	meaning | meaning
@@ -696,6 +711,8 @@ thank	thank	book-v0006	thank	meaning
 that	that	book-v0197 | book-v0199	that | that	meaning | meaning
 that is why	that-is-why	book-v0432	that is why	meaning
 the	the	book-v0087 | book-v0110 | book-v0319 | book-v0320 | book-v0322	the | the | the | the | the	meaning | meaning | meaning | meaning | meaning
+their two	their-two	cw-0003	their two	meaning
+theirs	theirs	cw-0012	theirs	meaning
 there	there	book-v0123 | book-v0136	there | there	meaning | meaning
 there are	there-are	book-v0384	there are	meaning
 there is	there-is	book-v0384	there is	meaning
@@ -725,6 +742,7 @@ toad	toad	wl-animal-015	toad	meaning
 today	today	book-v0001	today	meaning
 toe	toe	wl-body-044	toe	meaning
 toenail	toenail	wl-body-052	toenail	meaning
+together	together	cw-0004	together	meaning
 tomorrow	tomorrow	book-v0095	tomorrow	meaning
 tongue	tongue	wl-body-020	tongue	meaning
 tonight	tonight	book-v0094	tonight	meaning
@@ -822,4 +840,6 @@ yellow	yellow	book-v0450	yellow	meaning
 yes	yes	book-v0050	yes	meaning
 yesterday	yesterday	book-v0091	yesterday	meaning
 young man	young-man	book-v0250	young man	meaning
+your	your	cw-0008	your	meaning
+yours	yours	cw-0016	yours	meaning
 zero	zero	book-v0278	zero	meaning
