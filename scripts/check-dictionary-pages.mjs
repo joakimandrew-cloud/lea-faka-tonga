@@ -33,7 +33,7 @@ import { APP_ROOT, chapterFile, loadDictionaryIndex, readDictionarySources } fro
 const DIST = path.join(APP_ROOT, 'dist')
 const ROOT_OPEN = '<!-- prerender:root -->'
 const ROOT_CLOSE = '<!-- /prerender:root -->'
-const EM_DASH = '—'
+const EM_DASH = String.fromCharCode(0x2014)
 
 let failures = 0
 const fail = (name, detail) => {
