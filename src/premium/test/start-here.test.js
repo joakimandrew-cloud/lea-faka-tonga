@@ -31,11 +31,14 @@ function allParts() {
   return out
 }
 
-test('/start-here is a route of the premium app with its own title and description', () => {
-  assert.ok(routePaths.includes('/start-here'))
-  assert.match(premiumApp, /<Route path="\/start-here" element={<Page><StartHere \/><\/Page>} \/>/)
-  assert.ok(STATIC_META['/start-here'].title.includes(START_HERE.meta.title))
-  assert.equal(STATIC_META['/start-here'].description, START_HERE.meta.description)
+// Taken down 2026-11-19 on Andrew's word while the page is reviewed. Until it is
+// brought back, nothing may route to it, link to it or prerender it.
+test('/start-here is taken down: no route, no meta entry, no link', () => {
+  assert.equal(routePaths.includes('/start-here'), false)
+  assert.equal(STATIC_META['/start-here'], undefined)
+  for (const file of ['src/premium/components/Chrome.jsx', 'src/seo/learning-paths.js']) {
+    assert.equal(source(file).includes("'/start-here'") || source(file).includes('"/start-here"'), false, `${file} links to /start-here`)
+  }
 })
 
 test('the content holds stages 0 to 5, six first sentences and four routine items', () => {
