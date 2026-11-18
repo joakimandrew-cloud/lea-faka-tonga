@@ -84,10 +84,12 @@ const decode = (s) =>
     .replaceAll('&amp;', '&')
 const text = (html) => decode(html.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim()
 const words = (s) => s.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length
-// Apostrophe forms, case and spacing levelled, so a match cannot be dodged by
-// a curly quote or a capital.
+// Apostrophe forms, case and spacing levelled, and the *emphasis* marks the
+// quiz data puts round Tongan words removed, so a match cannot be dodged by a
+// curly quote, a capital or a pair of asterisks.
 const norm = (s) =>
   String(s)
+    .replace(/[*_]+/g, '')
     .toLowerCase()
     .replace(/['‘’ʼ`ʻ]/g, 'ʻ')
     .replace(/\s+/g, ' ')
