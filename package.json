@@ -36,6 +36,7 @@
     "test:premium": "node --test --test-concurrency=1 src/premium/test/*.test.js",
     "build:dictionary-data": "node scripts/build-dictionary-data.mjs",
     "check:dictionary": "node scripts/check-dictionary-pages.mjs",
+    "check:served": "node scripts/check-served-paragraphs.mjs",
     "check:premium-copy": "node scripts/premium/check-copy.mjs",
     "check:motifs": "node scripts/premium/check-motifs.mjs",
     "check:figures": "node scripts/premium/check-figures.mjs"

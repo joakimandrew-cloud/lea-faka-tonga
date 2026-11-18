@@ -69,6 +69,12 @@ import {
   renderLessonsHub,
   renderTopicsHub,
 } from './lib/seo-hubs.mjs'
+import {
+  renderCardsBlock,
+  renderQuizBlock,
+  renderSandboxBlock,
+  renderSentenceBuilderBlock,
+} from './lib/served-paragraphs.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = path.join(ROOT, 'dist')
@@ -947,6 +953,33 @@ async function main() {
   // The dictionary's pages, exactly as the site builds them (see lib/dictionary-data.mjs).
   const dictionary = loadDictionaryIndex(ROOT)
 
+  // One drill's static block, built from the same inputs wherever it is
+  // served: on /drill/<id>, and on the bespoke route that is its canonical.
+  const drillBlock = (id) =>
+    drillRootHtml({
+      id,
+      meta: registryMeta[id],
+      card: cards.get(id),
+      lessons: drillLessons[id] || [],
+      titles: chapterTitles,
+      question: drillCore[id]?.question,
+      engine: drillCore[id]?.engine,
+    })
+
+  // Served paragraphs for the practice tools and /cards (SEO plan FIX-01 and
+  // FIX-02). A bespoke route whose drill has a /drill/<id> page serves that
+  // page's block word for word, so the canonical page and its twin agree. The
+  // two sentence builders and the card deck have no twin and get their own.
+  const vocabulary = JSON.parse(await readFile(path.join(ROOT, 'src/data/book-vocabulary.json'), 'utf-8'))
+  const bespokeDrill = {}
+  for (const [id, route] of Object.entries(BESPOKE)) if (drillIds.includes(id)) bespokeDrill[route] = id
+  const servedRootHtml = (urlPath) =>
+    bespokeDrill[urlPath] ? drillBlock(bespokeDrill[urlPath])
+      : urlPath === '/sentence-builder' ? renderSentenceBuilderBlock({ lessonCount: total })
+        : urlPath === '/terminal-build' ? renderSandboxBlock({ lessonCount: total })
+          : urlPath === '/cards' ? renderCardsBlock({ vocabulary, lessonCount: total })
+            : undefined
+
   const sitemapPaths = []
   let pages = 0
 
@@ -1034,7 +1067,7 @@ async function main() {
             : undefined
     const rootHtml = docRoot || hubRoot || (urlPath === '/support' ? supportRootHtml()
       : urlPath === '/start-here' ? startHereRootHtml()
-        : urlPath === '/dictionary' ? dictionaryHubRootHtml(dictionary) : undefined)
+        : urlPath === '/dictionary' ? dictionaryHubRootHtml(dictionary) : servedRootHtml(urlPath))
     await writeRoute(
       urlPath,
       renderPage(template, { ...meta, urlPath, jsonLd, rootHtml, ogType: docRoot ? 'article' : undefined })
@@ -1094,8 +1127,9 @@ async function main() {
     pages += 1
   }
 
-  /* Quiz pages. The questions themselves stay interactive, so these carry
-     metadata only. */
+  /* Quiz pages. The questions themselves stay interactive. The static block
+     names the lesson and its topics from chapters.json and takes one thing
+     from the quiz, how many questions it has (SEO plan FIX-03). */
   let quizCount = 0
   for (const ch of chapters) {
     const num = ch.chapter
@@ -1129,7 +1163,14 @@ async function main() {
         { name: `Lesson ${num} quiz`, path: urlPath },
       ]),
     ])
-    await writeRoute(urlPath, renderPage(template, { title, description, urlPath, jsonLd }))
+    const rootHtml = renderQuizBlock({
+      num,
+      title: ch.title,
+      topics: ch.topics,
+      questionCount: quizzes[String(num)].questions.length,
+      lessonCount: total,
+    })
+    await writeRoute(urlPath, renderPage(template, { title, description, urlPath, jsonLd, rootHtml }))
     sitemapPaths.push(urlPath)
     pages += 1
     quizCount += 1
@@ -1163,15 +1204,7 @@ async function main() {
         { name: d.title, path: urlPath },
       ]),
     ])
-    const rootHtml = drillRootHtml({
-      id,
-      meta: registryMeta[id],
-      card: cards.get(id),
-      lessons: drillLessons[id] || [],
-      titles: chapterTitles,
-      question: drillCore[id]?.question,
-      engine: drillCore[id]?.engine,
-    })
+    const rootHtml = drillBlock(id)
     // Eleven drills also answer at a bespoke route, which is the one the drills
     // menu links to. Those /drill/:id pages point their canonical there and stay
     // out of the sitemap, so the pair reads as one page instead of two.
