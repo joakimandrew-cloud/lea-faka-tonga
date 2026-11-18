@@ -90,8 +90,13 @@ function wordListEntry(row, theme) {
 // use that the course word list leaves out. It is built as a course row is,
 // with its lesson, its link and the lesson's printed sentences, and has a kind
 // of its own so that its page says "Used in" where a course row says "Taught in".
+//
+// A word with found_in ("workbook" or "quiz") is one no lesson page prints. It
+// takes no printed sentence and carries foundIn, which its page shows after the
+// lesson link; it stays out of the same-lesson groups (see buildDictionaryIndex).
 function courseWordEntry(row, titles, examples) {
-  return { ...courseEntry({ ...row, chapter: row.lesson }, titles, examples), kind: 'course-word' }
+  const foundIn = row.found_in || null
+  return { ...courseEntry({ ...row, chapter: row.lesson }, titles, foundIn ? {} : examples), kind: 'course-word', foundIn }
 }
 
 // An added word (DECISIONS.md 2026-11-18): its own label, no lesson, no
@@ -249,7 +254,7 @@ export function buildDictionaryIndex({ vocabulary, wordLists, courseWords = null
     page.rowIds = []
     for (const entry of page.entries) {
       const link = { display: entry.display, path: page.path, slug: page.slug }
-      if (entry.lesson) lessonWords.set(entry.lesson.number, [...(lessonWords.get(entry.lesson.number) || []), link])
+      if (entry.lesson && !entry.foundIn) lessonWords.set(entry.lesson.number, [...(lessonWords.get(entry.lesson.number) || []), link])
       if (entry.wordList) themeWords.set(entry.wordList.themeId, [...(themeWords.get(entry.wordList.themeId) || []), link])
       for (const also of entry.alsoInWordLists) themeWords.set(also.themeId, [...(themeWords.get(also.themeId) || []), link])
     }
@@ -268,7 +273,7 @@ export function buildDictionaryIndex({ vocabulary, wordLists, courseWords = null
     // Other words of the same lesson, one group per lesson on the page.
     page.sameLesson = []
     for (const entry of page.entries) {
-      if (!entry.lesson || page.sameLesson.some(group => group.lesson.number === entry.lesson.number)) continue
+      if (!entry.lesson || entry.foundIn || page.sameLesson.some(group => group.lesson.number === entry.lesson.number)) continue
       const words = others(lessonWords.get(entry.lesson.number), page)
       if (words.length) page.sameLesson.push({ lesson: entry.lesson, words })
     }

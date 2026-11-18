@@ -99,7 +99,8 @@ export function drawExamples(root = APP_ROOT) {
   // takes sentences exactly as a course row does.
   const { wordLists, additions, courseWords } = readDictionarySources(root)
   for (const row of wordLists.entries) if (!row.course_id) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: null })
-  for (const row of courseWordRows(courseWords)) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: entryLesson({ chapter: row.lesson }) })
+  // A word with found_in is printed by no lesson page, so it takes no sentence (lesson null) and can only block one.
+  for (const row of courseWordRows(courseWords)) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: row.found_in ? null : entryLesson({ chapter: row.lesson }) })
   for (const row of additions.entries) rows.push({ id: row.id, tongan: row.tongan, english: row.english, lesson: null })
   return selectExamples({ rows, lessons: readLessons(root) })
 }

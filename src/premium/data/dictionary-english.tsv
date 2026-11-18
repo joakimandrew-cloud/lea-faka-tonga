@@ -22,8 +22,10 @@ allow	allow	book-v0479	allow	meaning
 almighty	almighty	cw-0256	almighty	meaning
 almost	almost	book-v0351	almost	meaning
 although	although	book-v0380	although	meaning
+American	american	cw-0343	American	meaning
 and	and	book-v0107 | book-v0222 | book-v0265	and | and | and	meaning | meaning | meaning
 and then	and-then	book-v0222	and then	meaning
+angle	angle	cw-0341	angle	meaning
 angry	angry	book-v0071	angry	meaning
 animal	animal	book-v0026	animal	meaning
 ankle	ankle	wl-body-062	ankle	meaning
@@ -57,6 +59,7 @@ bad	bad	book-v0454	bad	meaning
 bake	bake	book-v0040	bake	meaning
 banana	banana	book-v0283	banana	meaning
 basket	basket	book-v0161	basket	meaning
+bathe	bathe	cw-0327	bathe	meaning
 be able	be-able	book-v0422	be able	meaning
 be able to	be-able-to	book-v0294	be able to	meaning
 be alert	be-alert	book-v0605	be alert	meaning
@@ -142,6 +145,7 @@ burden	burden	book-v0546	burden	meaning
 bury	bury	book-v0550	bury	meaning
 bus	bus	book-v0151	bus	meaning
 bush	bush	book-v0553 | book-v0663	bush | bush	meaning | meaning
+busy	busy	cw-0339	busy	meaning
 but	but	book-v0314 | book-v0315	but | but	meaning | meaning
 buttocks	buttocks	wl-body-057	buttocks	meaning
 buy	buy	book-v0296	buy	meaning
@@ -152,6 +156,7 @@ bye	bye	book-v0002 | book-v0035	goodbye (to person leaving) | goodbye (to person
 calf	calf	wl-body-018	calf	meaning
 call	call	book-v0262	call	meaning
 can	can	cw-0042	can	meaning
+can carry	can-carry	cw-0351	can carry	meaning
 car	car	book-v0482	car	meaning
 care for	care-for	book-v0211	care for	meaning
 careless	careless	cw-0144	careless	meaning
@@ -197,7 +202,7 @@ come loose	come-loose	cw-0219	come loose	meaning
 come off	come-off	cw-0219	come off	meaning
 coming	coming	book-v0525	coming	meaning
 command	command	cw-0148	command	meaning
-communicate	communicate	book-v0594	communicate	meaning
+communicate	communicate	book-v0594 | cw-0348	communicate | communicate	meaning | meaning
 companion	companion	book-v0596	companion	meaning
 concerning	concerning	book-v0170	concerning	meaning
 confirm	confirm	book-v0439	confirm	meaning
@@ -205,9 +210,11 @@ confused	confused	book-v0618	confused	meaning
 congratulations	congratulations	book-v0217	congratulations	meaning
 consider	consider	book-v0481	consider	meaning
 constant	constant	cw-0076	constant	meaning
+content	content	cw-0349	content	meaning
 continuing	continuing	book-v0302	continuing	meaning
 continuously	continuously	book-v0307	continuously	meaning
 converse	converse	book-v0441	converse	meaning
+convey	convey	cw-0348	convey	meaning
 cook	cook	book-v0040 | book-v0636	cook | cook	meaning | meaning
 cooked	cooked	cw-0258	cooked	meaning
 cool	cool	cw-0259	cool	meaning
@@ -219,6 +226,7 @@ covered in sweat	covered-in-sweat	cw-0188	covered in sweat	meaning
 cow	cow	book-v0333	cow	meaning
 cowardly	cowardly	book-v0458	cowardly	meaning
 create	create	book-v0426	create	meaning
+crown	crown	cw-0355	crown	meaning
 cry	cry	book-v0063	cry	meaning
 cup	cup	book-v0116	cup	meaning
 currently	currently	cw-0044	currently	meaning
@@ -232,6 +240,7 @@ death	death	cw-0138	death	meaning
 December	december	book-v0534	December	meaning
 decide upon	decide-upon	book-v0417	to decide upon	meaning
 decorate	decorate	cw-0093	decorate	meaning
+deliver	deliver	cw-0348	deliver	meaning
 densely populated	densely-populated	cw-0169	densely populated	meaning
 desire	desire	book-v0470	desire	meaning
 details	details	cw-0182	details	meaning
@@ -259,6 +268,7 @@ dormitory	dormitory	book-v0145	dormitory	meaning
 downward	downward	book-v0355	downward	meaning
 dream	dream	book-v0657	dream	meaning
 drink	drink	book-v0057	drink	meaning
+drink kava together	drink-kava-together	cw-0346	drink kava together	meaning
 duck	duck	wl-animal-005	duck	meaning
 dust	dust	cw-0156	dust	meaning
 dusty	dusty	cw-0157	dusty	meaning
@@ -277,6 +287,7 @@ eating-place	eating-place	cw-0168	eating-place	meaning
 educational	educational	cw-0078	educational	meaning
 egg	egg	book-v0012	egg	meaning
 eight	eight	book-v0196	eight	meaning
+eighty	eighty	cw-0326	eighty	meaning
 elbow	elbow	wl-body-059	elbow	meaning
 elderly	elderly	book-v0031	elderly	meaning
 elders	elders	book-v0492	elders	meaning
@@ -328,7 +339,7 @@ fifty	fifty	book-v0277	fifty	meaning
 fight	fight	book-v0653	a fight	meaning
 fill out	fill-out	cw-0152	fill out	meaning
 find it difficult	find-it-difficult	cw-0158	find it difficult	meaning
-fine	fine	book-v0165 | book-v0218	fine | fine	meaning | meaning
+fine	fine	book-v0165 | book-v0218 | cw-0352	fine | fine | fine	meaning | meaning | meaning
 fine points	fine-points	cw-0182	fine points	meaning
 finger	finger	wl-body-043	finger	meaning
 fingernail	fingernail	wl-body-051	fingernail	meaning
@@ -344,6 +355,7 @@ fix	fix	book-v0401 | cw-0125	to fix | fix	meaning | meaning
 flee	flee	cw-0129	flee	meaning
 flesh	flesh	wl-body-034	flesh	meaning
 fly	fly	book-v0368 | cw-0172	fly | fly	meaning | meaning
+follow	follow	cw-0353	follow	meaning
 food	food	book-v0238 | cw-0291	food | food	meaning | meaning
 foolish	foolish	book-v0618 | cw-0278	foolish | foolish	meaning | meaning
 foot	foot	book-v0511	foot	meaning
@@ -353,7 +365,9 @@ for him	for-him	cw-0053	for him	meaning
 for it	for-it	cw-0053	for it	meaning
 for me	for-me	cw-0050 | cw-0052	for me | for me	meaning | meaning
 for one	for-one	cw-0285 | cw-0287	for one | for one	meaning | meaning
-for you	for-you	cw-0051 | cw-0054	for you | for you	meaning | meaning
+for them	for-them	cw-0333 | cw-0337	for them | for them	meaning | meaning
+for us	for-us	cw-0331 | cw-0334 | cw-0335 | cw-0338	for us | for us | for us | for us	meaning | meaning | meaning | meaning
+for you	for-you	cw-0051 | cw-0054 | cw-0332 | cw-0336	for you | for you | for you | for you	meaning | meaning | meaning | meaning
 forbidden	forbidden	cw-0268	forbidden	meaning
 forgive	forgive	cw-0212	forgive	meaning
 form	form	book-v0660	form	meaning
@@ -367,6 +381,8 @@ friendly	friendly	cw-0225	friendly	meaning
 frog	frog	wl-animal-015	frog	meaning
 from	from	book-v0141 | book-v0142 | book-v0143	from | from | from	meaning | meaning | meaning
 front	front	book-v0498	front	meaning
+full	full	cw-0328	full	meaning
+full effort	full-effort	cw-0342	full effort	meaning
 full of holes	full-of-holes	cw-0254	full of holes	meaning
 full of mosquitoes	full-of-mosquitoes	cw-0185	full of mosquitoes	meaning
 full of people	full-of-people	cw-0169	full of people	meaning
@@ -378,7 +394,7 @@ garment	garment	book-v0233	garment	meaning
 gather	gather	book-v0640 | cw-0018	gather | gather	meaning | meaning
 gentle wind	gentle-wind	cw-0245	gentle wind	meaning
 get	get	cw-0076	get	meaning
-girl	girl	book-v0210	girl	meaning
+girl	girl	book-v0210 | cw-0354	girl | girl	meaning | meaning
 give	give	book-v0013 | cw-0046 | cw-0058 | cw-0059	give | give | give | give	meaning | meaning | meaning | meaning
 give preference to	give-preference-to	cw-0235	give preference to	meaning
 give thanks	give-thanks	book-v0006	give thanks	meaning
@@ -509,6 +525,7 @@ kin	kin	book-v0373	kin	meaning
 kind	kind	book-v0457	kind	meaning
 kindly	kindly	cw-0225	kindly	meaning
 king	king	book-v0516	king	meaning
+kingly	kingly	cw-0344	kingly	meaning
 knee	knee	wl-body-058	knee	meaning
 knife	knife	book-v0160	knife	meaning
 know	know	book-v0317	know	meaning
@@ -633,6 +650,7 @@ next	next	book-v0525	next	meaning
 night	night	book-v0100	night	meaning
 nighttime	nighttime	book-v0280	nighttime	meaning
 nine	nine	book-v0014	nine	meaning
+ninety	ninety	cw-0324	ninety	meaning
 no	no	book-v0049	no	meaning
 no wonder	no-wonder	book-v0538	no wonder	meaning
 nose	nose	book-v0016	nose	meaning
@@ -663,6 +681,7 @@ one says	one-says	book-v0431	one says	meaning
 one third	one-third	cw-0141	one third	meaning
 one thousand	one-thousand	book-v0268	one thousand	meaning
 one's	ones	cw-0280 | cw-0281 | cw-0282 | cw-0283	one's | one's | one's | one's	meaning | meaning | meaning | meaning
+one's best	ones-best	cw-0342	one's best	meaning
 one's own	ones-own	cw-0279	one's own	meaning
 oneself	oneself	cw-0284	oneself	meaning
 only	only	book-v0070	only	meaning
@@ -673,7 +692,7 @@ or	or	book-v0316	or	meaning
 orange	orange	book-v0392	orange	meaning
 order	order	cw-0148	order	meaning
 other	other	cw-0040	other	meaning
-our	our	cw-0015 | cw-0020 | cw-0024 | cw-0027 | cw-0028 | cw-0029 | cw-0038 | cw-0039 | cw-0061 | cw-0067 | cw-0073 | cw-0296 | cw-0304 | cw-0305 | cw-0307 | cw-0308 | cw-0313 | cw-0315 | cw-0316 | cw-0322 | cw-0323	our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our	meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning
+our	our	cw-0015 | cw-0020 | cw-0024 | cw-0027 | cw-0028 | cw-0029 | cw-0038 | cw-0039 | cw-0061 | cw-0067 | cw-0073 | cw-0296 | cw-0304 | cw-0305 | cw-0307 | cw-0308 | cw-0313 | cw-0315 | cw-0316 | cw-0322 | cw-0323 | cw-0350	our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our | our	meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning
 our two	our-two	cw-0295 | cw-0312	our two | our two	meaning | meaning
 ours	ours	cw-0101 | cw-0102 | cw-0108 | cw-0109 | cw-0110 | cw-0111 | cw-0120 | cw-0121	ours | ours | ours | ours | ours | ours | ours | ours	meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning
 outback	outback	book-v0663	outback	meaning
@@ -759,13 +778,15 @@ repair	repair	cw-0125	repair	meaning
 repeatedly	repeatedly	book-v0307	repeatedly	meaning
 reply	reply	book-v0044	reply	meaning
 request	request	book-v0340	request	meaning
+respect	respect	cw-0345	respect	meaning
+respectful	respectful	cw-0345	respectful	meaning
 responsibility	responsibility	book-v0471 | book-v0546	responsibility | responsibility	meaning | meaning
 rest	rest	book-v0659	rest	meaning
 return	return	book-v0054 | cw-0080	return | return	meaning | meaning
 reveal	reveal	book-v0438	reveal	meaning
 rib	rib	wl-body-033	rib	meaning
 ribs	ribs	wl-body-033	ribs	meaning
-rice	rice	book-v0021	rice	meaning
+rice	rice	book-v0021 | cw-0330	rice | rice	meaning | meaning
 ride	ride	book-v0361	ride	meaning
 right	right	cw-0074	right	meaning
 righteous	righteous	book-v0579	righteous	meaning
@@ -777,6 +798,7 @@ room	room	book-v0236	room	meaning
 root	root	cw-0190	root	meaning
 rope	rope	book-v0641	rope	meaning
 rough	rough	cw-0155	rough	meaning
+royal	royal	cw-0344	royal	meaning
 run	run	book-v0060	run	meaning
 run away	run-away	cw-0129	run away	meaning
 run together	run-together	cw-0201	run together	meaning
@@ -786,6 +808,7 @@ sail	sail	book-v0147	sail	meaning
 salary	salary	book-v0581	salary	meaning
 salt	salt	book-v0027	salt	meaning
 same	same	book-v0345	same	meaning
+satisfied	satisfied	cw-0328 | cw-0349	satisfied | satisfied	meaning | meaning
 Saturday	saturday	book-v0103	Saturday	meaning
 say	say	book-v0369 | book-v0433	say | say	meaning | meaning
 say to	say-to	book-v0434	say to	meaning
@@ -818,6 +841,7 @@ shop	shop	book-v0503 | book-v0644	shop | shop	meaning | meaning
 should	should	book-v0312	should	meaning
 should not	should-not	book-v0310	should not	meaning
 shoulder	shoulder	wl-body-063	shoulder	meaning
+show respect	show-respect	cw-0345	show respect	meaning
 shut	shut	book-v0119 | cw-0136	shut | shut	meaning | meaning
 shut in	shut-in	cw-0092	shut in	meaning
 sibling	sibling	book-v0244	sibling	meaning
@@ -831,6 +855,7 @@ sit	sit	book-v0062	sit	meaning
 sit down	sit-down	book-v0133	sit down	meaning
 site	site	cw-0192	site	meaning
 six	six	book-v0279	six	meaning
+sixty	sixty	cw-0325	sixty	meaning
 skilled	skilled	book-v0224	skilled	meaning
 skin	skin	wl-body-039	skin	meaning
 skull	skull	wl-body-050	skull	meaning
@@ -907,6 +932,7 @@ take care of	take-care-of	cw-0140	take care of	meaning
 take turns	take-turns	book-v0593	take turns	meaning
 tall	tall	book-v0330	tall	meaning
 taro	taro	book-v0082	taro	meaning
+tasty	tasty	cw-0347	tasty	meaning
 tea	tea	book-v0083	tea	meaning
 teach	teach	book-v0005 | book-v0637	teach | teach	meaning | meaning
 teacher	teacher	book-v0157	teacher	meaning
@@ -936,6 +962,7 @@ they	they	cw-0004 | cw-0011	they | they	meaning | meaning
 they say	they-say	book-v0436	they say	meaning
 they two	they-two	cw-0003 | cw-0010	they two | they two	meaning | meaning
 thigh	thigh	wl-body-022 | wl-body-054	thigh | thigh	meaning | meaning
+thin	thin	cw-0352	thin	meaning
 thing	thing	book-v0209	thing	meaning
 think	think	book-v0433 | book-v0440 | book-v0481	think | think | think	meaning | meaning | meaning
 think of	think-of	book-v0366	think of	meaning
@@ -1019,7 +1046,8 @@ want	want	book-v0159	want	meaning
 want to	want-to	book-v0113	want to	meaning
 warm	warm	book-v0650	warm	meaning
 was	was	book-v0164	was	meaning
-wash	wash	book-v0114 | book-v0420	wash | wash	meaning | meaning
+wash	wash	book-v0114 | book-v0420 | cw-0329	wash | wash | wash	meaning | meaning | meaning
+wash oneself	wash-oneself	cw-0327	wash oneself	meaning
 waste or spoil	waste-or-spoil	cw-0087	waste or spoil	meaning
 wasted	wasted	book-v0425	wasted	meaning
 watch	watch	book-v0424 | book-v0611 | cw-0236	watch | watch | watch	meaning | meaning | meaning
@@ -1061,7 +1089,7 @@ will	will	book-v0163	will	meaning
 windy	windy	book-v0167	windy	meaning
 wish for	wish-for	book-v0470	wish for	meaning
 with	with	book-v0416	with	meaning
-woman	woman	book-v0247	woman	meaning
+woman	woman	book-v0247 | cw-0354	woman | woman	meaning | meaning
 woman's breast	womans-breast	wl-body-031	a woman's breast	meaning
 women	women	book-v0325	women	meaning
 work	work	book-v0081	work	meaning
@@ -1079,6 +1107,8 @@ yes	yes	book-v0050	yes	meaning
 yesterday	yesterday	book-v0091	yesterday	meaning
 you	you	cw-0014	you	meaning
 you all	you-all	cw-0009	you all	meaning
+you included	you-included	cw-0334 | cw-0338	you included | you included	meaning | meaning
+you not included	you-not-included	cw-0331 | cw-0335	you not included | you not included	meaning | meaning
 you two	you-two	cw-0008	you two	meaning
 young man	young-man	book-v0250	young man	meaning
 your	your	cw-0021 | cw-0030 | cw-0031 | cw-0035 | cw-0036 | cw-0037 | cw-0062 | cw-0071 | cw-0072 | cw-0297 | cw-0298 | cw-0303 | cw-0317 | cw-0318	your | your | your | your | your | your | your | your | your | your | your | your | your | your	meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning | meaning

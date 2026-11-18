@@ -310,6 +310,8 @@ export function dictionaryWordTitle(page) {
 }
 
 function dictionaryEntryPlace(entry) {
+  // A word only a workbook or a quiz prints says so.
+  if (entry.lesson && entry.foundIn) return `Used in the ${entry.foundIn} for ${entry.lesson.label}.`
   if (entry.lesson) return `${entry.kind === 'course-word' ? 'Used in' : 'Taught in'} ${entry.lesson.label}.`
   if (entry.wordList) return `${entry.wordList.note}.`
   if (entry.added) return `${entry.added.note}.`

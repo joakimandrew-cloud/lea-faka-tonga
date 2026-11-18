@@ -47,7 +47,7 @@ import { SITE_URL, dictionaryPageMeta } from '../src/seo/meta.js'
 import { okinafy } from '../src/lib/okinafy.js'
 import { DICTIONARY_GROUPS, foldSearchKey } from '../src/premium/lib/course-dictionary.js'
 import { ADDED_WORD_LABEL, englishKeyList } from '../src/premium/lib/dictionary-additions.js'
-import { COURSE_WORD_LABEL } from '../src/premium/lib/dictionary-course-words.js'
+import { COURSE_WORD_FOUND_IN, COURSE_WORD_LABEL, courseWordFoundInNote } from '../src/premium/lib/dictionary-course-words.js'
 import { englishSlug } from '../src/premium/lib/dictionary-text.js'
 import { ADDITIONS_FILE, APP_ROOT, COURSE_WORDS_FILE, ENGLISH_KEYS_FILE, chapterFile, evidenceStrings, lessonHoldsWord, loadDictionaryIndex, readDictionaryEvidence, readDictionarySources } from './lib/dictionary-data.mjs'
 
@@ -211,8 +211,12 @@ none('each English search word has its page, listing the row with its meaning as
 
 // ---- 2c. course words --------------------------------------------------------
 // Words the lessons use that the course word list leaves out: a page like a
-// course word's, with "Used in" where a course row says "Taught in".
+// course word's, with "Used in" where a course row says "Taught in". A row with
+// found_in ("workbook" or "quiz") is a word no lesson page prints: its page says so
+// after the lesson link, its description says so, and it has no sentence and no
+// same-lesson group.
 const courseWordProblems = []
+const foundInRows = courseWords.entries.filter((row) => row.found_in)
 const courseWordPage = (row) => (pagesOfRow.get(row.id) || [])[0]
 for (const row of courseWords.entries) {
   const page = courseWordPage(row)
@@ -220,9 +224,26 @@ for (const row of courseWords.entries) {
   if (!entry) { courseWordProblems.push(`${row.id} (${row.tongan}): no entry`); continue }
   if (entry.kind !== 'course-word' || entry.lesson?.number !== row.lesson || entry.supplemental || entry.wordList || entry.added) courseWordProblems.push(`${row.id}: not a course-word entry of lesson ${row.lesson}`)
   if (entry.tongan !== row.tongan || entry.english !== row.english || entry.partOfSpeech !== row.part_of_speech) courseWordProblems.push(`${row.id}: the entry is not the data's own`)
+  if ((entry.foundIn || null) !== (row.found_in || null)) courseWordProblems.push(`${row.id}: the entry's found_in is ${entry.foundIn}, the data's is ${row.found_in}`)
   const body = bodyOf(read(path.join(DIST, `${page.path}.html`)))
   if (!body.includes(escHtml(row.english))) courseWordProblems.push(`${row.id}: ${page.path} does not show the meaning`)
   if (!new RegExp(`${escRegExp(COURSE_WORD_LABEL)}</dt><dd[^>]*><a href="/lessons/${row.lesson}"`).test(body)) courseWordProblems.push(`${row.id}: ${page.path} has no "${COURSE_WORD_LABEL}" line linking to /lessons/${row.lesson}`)
+  if (row.found_in) {
+    // The words after the lesson link, and no sentences, and (for a page of this word alone) no same-lesson group.
+    if (!new RegExp(`${escRegExp(COURSE_WORD_LABEL)}</dt><dd[^>]*><a href="/lessons/${row.lesson}"[^>]*>[^<]*</a>${escRegExp(escHtml(courseWordFoundInNote(row.found_in)))}</dd>`).test(body)) courseWordProblems.push(`${row.id}: ${page.path} does not say "${courseWordFoundInNote(row.found_in).trim()}" after the lesson link`)
+    if (entry.examples.length) courseWordProblems.push(`${row.id}: a ${row.found_in} word has printed sentences`)
+    const own = page.entries.length === 1
+    if (own && page.sameLesson.length) courseWordProblems.push(`${row.id}: its page has a same-lesson group`)
+    if (own && body.includes('Taught in the same lesson')) courseWordProblems.push(`${row.id}: ${page.path} shows a same-lesson group`)
+    const meta = dictionaryPageMeta(page)
+    if (own && !meta.description.includes(`Used in the ${row.found_in} for Lesson ${row.lesson}`)) courseWordProblems.push(`${row.id}: the description does not say "Used in the ${row.found_in} for Lesson ${row.lesson}"`)
+    for (const other of index.pages) {
+      if (other === page) continue
+      for (const group of other.sameLesson) if (group.words.some((w) => w.path === page.path) && page.entries.length === 1) courseWordProblems.push(`${row.id}: listed in the same-lesson group of ${other.path}`)
+    }
+  } else if (!new RegExp(`${escRegExp(COURSE_WORD_LABEL)}</dt><dd[^>]*><a href="/lessons/${row.lesson}"[^>]*>[^<]*</a>(?! \\()`).test(body)) {
+    courseWordProblems.push(`${row.id}: a lesson word's "${COURSE_WORD_LABEL}" line carries words after the lesson link`)
+  }
 }
 none('each course word\'s page carries its meaning, "Used in" and a link to /lessons/<its lesson>', courseWords.entries.length, courseWordProblems)
 const sourceProblems = []
@@ -237,8 +258,11 @@ const lessonText = (n) => {
   if (!lessonFiles.has(n)) lessonFiles.set(n, fs.existsSync(path.join(APP_ROOT, chapterFile(n))) ? read(path.join(APP_ROOT, chapterFile(n))) : '')
   return lessonFiles.get(n)
 }
-none('every course word stands in the file of the lesson its page links to (an acute set aside)', courseWords.entries.length,
-  courseWords.entries.filter((row) => !Number.isInteger(row.lesson) || row.lesson < 1 || row.lesson > 52 || !lessonHoldsWord(lessonText(row.lesson), row.tongan)).map((row) => `${row.id} ${row.tongan} not in lesson ${row.lesson}`))
+none('every course word without found_in stands in the file of the lesson its page links to (an acute set aside)', courseWords.entries.length - foundInRows.length,
+  courseWords.entries.filter((row) => !row.found_in).filter((row) => !Number.isInteger(row.lesson) || row.lesson < 1 || row.lesson > 52 || !lessonHoldsWord(lessonText(row.lesson), row.tongan)).map((row) => `${row.id} ${row.tongan} not in lesson ${row.lesson}`))
+none('no course word with found_in stands in the file of its lesson (a lesson that prints it makes it a lesson word)', foundInRows.length,
+  foundInRows.filter((row) => COURSE_WORD_FOUND_IN.includes(row.found_in) && Number.isInteger(row.lesson) && lessonHoldsWord(lessonText(row.lesson), row.tongan)).map((row) => `${row.id} ${row.tongan} stands in lesson ${row.lesson}`))
+none('found_in is "workbook" or "quiz" when it is there at all', courseWords.entries.length, courseWords.entries.filter((row) => 'found_in' in row && !COURSE_WORD_FOUND_IN.includes(row.found_in)).map((row) => `${row.id}: found_in is ${JSON.stringify(row.found_in)}`))
 const spellKey = (text) => `${String(text).replace(/['‘’ʼ`ʻ]/g, "'").toLowerCase().trim()}`
 const senseKey = (text) => String(text).toLowerCase().replace(/\s+/g, ' ').trim()
 const others = [...vocabulary, ...wordLists.entries, ...additions.entries].map((row) => `${spellKey(row.tongan)} | ${senseKey(row.english)}`)
@@ -371,7 +395,7 @@ const rawKeys = JSON.parse(read(path.join(APP_ROOT, ENGLISH_KEYS_FILE)))
 if (!sameKeys(rawAdditions, ['entries'])) shape.push(`${ADDITIONS_FILE}: top-level fields ${Object.keys(rawAdditions).join(', ')}`)
 for (const row of rawAdditions.entries || []) if (!sameKeys(row, ['id', 'tongan', 'english', 'part_of_speech'])) shape.push(`${ADDITIONS_FILE}: ${row.id} has fields ${Object.keys(row).join(', ')}`)
 if (!sameKeys(rawCourseWords, ['note', 'entries'])) shape.push(`${COURSE_WORDS_FILE}: top-level fields ${Object.keys(rawCourseWords).join(', ')}`)
-for (const row of rawCourseWords.entries || []) if (!sameKeys(row, ['id', 'tongan', 'english', 'part_of_speech', 'lesson'])) shape.push(`${COURSE_WORDS_FILE}: ${row.id} has fields ${Object.keys(row).join(', ')}`)
+for (const row of rawCourseWords.entries || []) if (!sameKeys(row, ['id', 'tongan', 'english', 'part_of_speech', 'lesson', ...('found_in' in row ? ['found_in'] : [])])) shape.push(`${COURSE_WORDS_FILE}: ${row.id} has fields ${Object.keys(row).join(', ')}`)
 if (!sameKeys(rawKeys, ['keys'])) shape.push(`${ENGLISH_KEYS_FILE}: top-level fields ${Object.keys(rawKeys).join(', ')}`)
 for (const key of rawKeys.keys || []) {
   if (!sameKeys(key, ['english', 'rows']) || !Array.isArray(key.rows) || key.rows.some((id) => typeof id !== 'string')) shape.push(`${ENGLISH_KEYS_FILE}: "${key.english}" holds more than the word and its row ids`)

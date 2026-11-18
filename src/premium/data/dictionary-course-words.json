@@ -1,5 +1,5 @@
 {
-  "note": "Words the lessons use that the course word list leaves out. The dictionary shows each as a course word, with a link to its lesson. Read by the dictionary only: the flash cards, the games, the practice and the lessons do not read this file.",
+  "note": "Words the lessons use that the course word list leaves out. The dictionary shows each as a course word, with a link to its lesson. Read by the dictionary only: the flash cards, the games, the practice and the lessons do not read this file. An entry with found_in (\"workbook\" or \"quiz\") is a word that no lesson page prints and that lesson's workbook or quiz does.",
   "entries": [
     {
       "id": "cw-0001",
@@ -2261,6 +2261,262 @@
       "english": "our (inclusive; poor, dear; ho-class, definite)",
       "part_of_speech": "possessive pronoun",
       "lesson": 52
+    },
+    {
+      "id": "cw-0324",
+      "tongan": "hivangofulu",
+      "english": "ninety",
+      "part_of_speech": "number",
+      "lesson": 20,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0325",
+      "tongan": "onongofulu",
+      "english": "sixty",
+      "part_of_speech": "number",
+      "lesson": 20,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0326",
+      "tongan": "valungofulu",
+      "english": "eighty",
+      "part_of_speech": "number",
+      "lesson": 20,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0327",
+      "tongan": "kaukau",
+      "english": "bathe, wash oneself",
+      "part_of_speech": "verb",
+      "lesson": 21,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0328",
+      "tongan": "mākona",
+      "english": "full, satisfied (after eating)",
+      "part_of_speech": "verb/adjective",
+      "lesson": 24,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0329",
+      "tongan": "fō",
+      "english": "wash (clothes)",
+      "part_of_speech": "verb",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0330",
+      "tongan": "laise",
+      "english": "rice",
+      "part_of_speech": "noun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0331",
+      "tongan": "ma'amautolu",
+      "english": "for us, you not included (plural; beneficiary, 'e-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0332",
+      "tongan": "ma'amoutolu",
+      "english": "for you (plural; beneficiary, 'e-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0333",
+      "tongan": "ma'anautolu",
+      "english": "for them (plural; beneficiary, 'e-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0334",
+      "tongan": "ma'atautolu",
+      "english": "for us, you included (plural; beneficiary, 'e-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0335",
+      "tongan": "mo'omautolu",
+      "english": "for us, you not included (plural; beneficiary, ho-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0336",
+      "tongan": "mo'omoutolu",
+      "english": "for you (plural; beneficiary, ho-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0337",
+      "tongan": "mo'onautolu",
+      "english": "for them (plural; beneficiary, ho-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0338",
+      "tongan": "mo'otautolu",
+      "english": "for us, you included (plural; beneficiary, ho-class)",
+      "part_of_speech": "pronoun",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0339",
+      "tongan": "mo'ua",
+      "english": "busy",
+      "part_of_speech": "adjective/verb",
+      "lesson": 26,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0340",
+      "tongan": "'oange",
+      "english": "give or take toward a third person (him, her, them)",
+      "part_of_speech": "verb",
+      "lesson": 28,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0341",
+      "tongan": "taumāta'u",
+      "english": "fish with a line, angle",
+      "part_of_speech": "verb",
+      "lesson": 30,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0342",
+      "tongan": "tūkuingata",
+      "english": "one's best, full effort (in hotau tūkuingata, our best)",
+      "part_of_speech": "noun",
+      "lesson": 30,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0343",
+      "tongan": "faka-'Amelika",
+      "english": "American; in the American manner",
+      "part_of_speech": "adjective/adverb",
+      "lesson": 32,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0344",
+      "tongan": "fakatu'i",
+      "english": "kingly, royal; in a kingly manner",
+      "part_of_speech": "adjective/adverb",
+      "lesson": 32,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0345",
+      "tongan": "faka'apa'apa",
+      "english": "respect; show respect; respectful",
+      "part_of_speech": "noun/verb/adjective",
+      "lesson": 37,
+      "found_in": "quiz"
+    },
+    {
+      "id": "cw-0346",
+      "tongan": "faikava",
+      "english": "drink kava together, have a kava gathering",
+      "part_of_speech": "verb",
+      "lesson": 40,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0347",
+      "tongan": "ifo",
+      "english": "tasty",
+      "part_of_speech": "adjective",
+      "lesson": 41,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0348",
+      "tongan": "fakahoko",
+      "english": "communicate, convey, deliver",
+      "part_of_speech": "verb",
+      "lesson": 43,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0349",
+      "tongan": "fiemālie",
+      "english": "satisfied, content",
+      "part_of_speech": "adjective",
+      "lesson": 43,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0350",
+      "tongan": "he'emau",
+      "english": "our (exclusive, three or more; 'e-class form after he: in our, by our, from our)",
+      "part_of_speech": "possessive pronoun",
+      "lesson": 45,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0351",
+      "tongan": "mafua",
+      "english": "can carry, be capable of carrying",
+      "part_of_speech": "verb",
+      "lesson": 49,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0352",
+      "tongan": "manifi",
+      "english": "thin, fine",
+      "part_of_speech": "adjective/verb",
+      "lesson": 50,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0353",
+      "tongan": "muimui",
+      "english": "follow",
+      "part_of_speech": "verb",
+      "lesson": 51,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0354",
+      "tongan": "fine",
+      "english": "woman, girl (in fine motu'a, old woman)",
+      "part_of_speech": "noun",
+      "lesson": 52,
+      "found_in": "workbook"
+    },
+    {
+      "id": "cw-0355",
+      "tongan": "kalauni",
+      "english": "crown (in hilifaki kalauni, coronation)",
+      "part_of_speech": "noun",
+      "lesson": 52,
+      "found_in": "workbook"
     }
   ]
 }
