@@ -82,6 +82,13 @@ export const STATIC_META = {
     title: `Help and Free Downloads | ${SITE_NAME}`,
     description: 'Download the free Tongan course, report a mistake or find help with lessons and practice.',
   },
+  // How to study the course (plan 2026-11-19-start-here-rewrite); the title and
+  // description are the page copy's own, checked by start-here.test.js.
+  '/start-here': {
+    title: `Start here: how to study Tongan with this course | ${SITE_NAME}`,
+    description:
+      'How to work through the 52 lessons: take them in order, practise out loud for about thirty minutes a day, and build a few sentences about yourself.',
+  },
   '/drill/tense-swap': {
     title: `Practise Tongan Tense Markers | ${SITE_NAME}`,
     description: 'Practise choosing a tense marker using examples from the course.',

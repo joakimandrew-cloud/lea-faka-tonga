@@ -58,7 +58,7 @@ import negationDoc from '../src/seo/pages/negation.js'
 import possessivesDoc from '../src/seo/pages/possessives.js'
 import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
 import questionsDoc from '../src/seo/pages/questions.js'
-import { START_HERE, sourceLessons } from '../src/premium/lib/start-here-content.js'
+import { START_HERE } from '../src/premium/lib/start-here-content.js'
 import { loadDictionaryIndex } from './lib/dictionary-data.mjs'
 import { englishPageLead } from '../src/premium/lib/dictionary-pages.js'
 import { COURSE_WORD_LABEL, courseWordFoundInNote } from '../src/premium/lib/dictionary-course-words.js'
@@ -532,21 +532,13 @@ function supportRootHtml() {
 /* The static block on /start-here: the page's own words, read from the same
    content module the React page renders (src/premium/lib/start-here-content.js),
    so no string is typed twice. React replaces it on mount. */
-function startHereSourceHtml(source) {
-  const lessons = sourceLessons(source)
-  const inner = lessons.length
-    ? source.split(/(\d+)/).map((piece) => (/^\d+$/.test(piece) ? link(`/lessons/${piece}`, piece) : esc(piece))).join('')
-    : esc(source)
-  return `[${inner}]`
-}
-
 function startHerePartsHtml(parts) {
   return parts
     .map((part) =>
       part.t === 'to'
         ? `<em lang="to">${esc(okinafy(part.v))}</em>`
-        : part.t === 'src'
-          ? startHereSourceHtml(part.v)
+        : part.t === 'lesson'
+          ? `${link(`/lessons/${part.v}`, `Lesson ${part.v}`)}: `
           : esc(part.v)
     )
     .join('')
@@ -554,24 +546,11 @@ function startHerePartsHtml(parts) {
 
 function startHereBlockHtml(block) {
   if (block.type === 'p') return `<p style="${P_STYLE}">${startHerePartsHtml(block.parts)}</p>`
-  if (block.type === 'test') return `<p style="${NOTE_STYLE}">${startHerePartsHtml(block.parts)}</p>`
   if (block.type === 'ul' || block.type === 'ol') {
     return (
       `<${block.type} style="${UL_STYLE}">` +
       block.items.map((parts) => `<li style="${LI_STYLE}">${startHerePartsHtml(parts)}</li>`).join('') +
       `</${block.type}>`
-    )
-  }
-  if (block.type === 'examples') {
-    return (
-      `<ul style="${UL_STYLE}">` +
-      block.items
-        .map(
-          (it) =>
-            `<li style="${LI_STYLE}"><em lang="to">${esc(okinafy(it.to))}</em> (${esc(it.meaning)}) ${startHereSourceHtml(it.source)}</li>`
-        )
-        .join('') +
-      `</ul>`
     )
   }
   if (block.type === 'links') {

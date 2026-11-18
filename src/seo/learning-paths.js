@@ -14,6 +14,7 @@ export const BEGINNER_PATH = {
       title: 'Learn the sounds and greetings',
       text: 'Read the alphabet guide, then see the words used when you meet someone.',
       links: [
+        { to: '/start-here', label: 'Start here' },
         { to: '/alphabet', label: 'Alphabet & pronunciation' },
         { to: '/greetings', label: 'Greetings' },
       ],
