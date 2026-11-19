@@ -58,7 +58,6 @@ import negationDoc from '../src/seo/pages/negation.js'
 import possessivesDoc from '../src/seo/pages/possessives.js'
 import koSentencesDoc from '../src/seo/pages/ko-sentences.js'
 import questionsDoc from '../src/seo/pages/questions.js'
-import { START_HERE } from '../src/premium/lib/start-here-content.js'
 import { loadDictionaryIndex } from './lib/dictionary-data.mjs'
 import { englishPageLead } from '../src/premium/lib/dictionary-pages.js'
 import { COURSE_WORD_LABEL, courseWordFoundInNote } from '../src/premium/lib/dictionary-course-words.js'
@@ -529,56 +528,6 @@ function supportRootHtml() {
   )
 }
 
-/* The static block on /start-here: the page's own words, read from the same
-   content module the React page renders (src/premium/lib/start-here-content.js),
-   so no string is typed twice. React replaces it on mount. */
-function startHerePartsHtml(parts) {
-  return parts
-    .map((part) =>
-      part.t === 'to'
-        ? `<em lang="to">${esc(okinafy(part.v))}</em>`
-        : part.t === 'lesson'
-          ? `${link(`/lessons/${part.v}`, `Lesson ${part.v}`)}: `
-          : esc(part.v)
-    )
-    .join('')
-}
-
-function startHereBlockHtml(block) {
-  if (block.type === 'p') return `<p style="${P_STYLE}">${startHerePartsHtml(block.parts)}</p>`
-  if (block.type === 'ul' || block.type === 'ol') {
-    return (
-      `<${block.type} style="${UL_STYLE}">` +
-      block.items.map((parts) => `<li style="${LI_STYLE}">${startHerePartsHtml(parts)}</li>`).join('') +
-      `</${block.type}>`
-    )
-  }
-  if (block.type === 'links') {
-    return (
-      `<ul style="${UL_STYLE}">` +
-      block.items.map((it) => `<li style="${LI_STYLE}">${link(it.to, esc(it.label))}</li>`).join('') +
-      `</ul>`
-    )
-  }
-  return ''
-}
-
-function startHereRootHtml() {
-  return (
-    `<article style="${BLOCK_STYLE}">` +
-    `<p style="${P_STYLE}">${link('/', esc(SITE_NAME))} &middot; ${link('/lessons', 'Lessons')}</p>` +
-    `<h1 style="${H1_STYLE}">${esc(START_HERE.heading)}</h1>` +
-    START_HERE.sections
-      .map(
-        (section) =>
-          (section.heading ? `<h2 style="${H2_STYLE}">${esc(section.heading)}</h2>` : '') +
-          section.blocks.map(startHereBlockHtml).join('')
-      )
-      .join('') +
-    `</article>`
-  )
-}
-
 /* The static block a non-JS crawler reads on a topic page
    ==================================================================
    Same self-contained styling as the lesson block above: this HTML is read
@@ -1045,8 +994,7 @@ async function main() {
           : urlPath === '/topics' ? renderTopicsHub()
             : undefined
     const rootHtml = docRoot || hubRoot || (urlPath === '/support' ? supportRootHtml()
-      : urlPath === '/start-here' ? startHereRootHtml()
-        : urlPath === '/dictionary' ? dictionaryHubRootHtml(dictionary) : servedRootHtml(urlPath))
+      : urlPath === '/dictionary' ? dictionaryHubRootHtml(dictionary) : servedRootHtml(urlPath))
     await writeRoute(
       urlPath,
       renderPage(template, { ...meta, urlPath, jsonLd, rootHtml, ogType: docRoot ? 'article' : undefined })
