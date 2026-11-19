@@ -786,7 +786,7 @@ return	return	book-v0054 | cw-0080	return | return	meaning | meaning
 reveal	reveal	book-v0438	reveal	meaning
 rib	rib	wl-body-033	rib	meaning
 ribs	ribs	wl-body-033	ribs	meaning
-rice	rice	book-v0021 | cw-0330	rice | rice	meaning | meaning
+rice	rice	book-v0021	rice	meaning
 ride	ride	book-v0361	ride	meaning
 right	right	cw-0074	right	meaning
 righteous	righteous	book-v0579	righteous	meaning
@@ -1075,6 +1075,7 @@ when	when	book-v0178 | book-v0179 | cw-0019	when | when | when	meaning | meaning
 where	where	book-v0121 | book-v0487	where | where	meaning | meaning
 where from	where-from	book-v0186	where from	meaning
 whether	whether	book-v0316	whether	meaning
+which	which	book-v0121	which	meaning
 whichever	whichever	book-v0381	whichever	meaning
 while	while	book-v0315 | cw-0044	while | while	meaning | meaning
 while ago	while-ago	book-v0092	a while ago	meaning

@@ -241,7 +241,7 @@
   },
   {
     "id": "book-v0021",
-    "tongan": "laisí",
+    "tongan": "laise",
     "english": "rice",
     "part_of_speech": "noun",
     "category": "nouns",
@@ -1442,7 +1442,7 @@
   {
     "id": "book-v0121",
     "tongan": "fē",
-    "english": "where",
+    "english": "where, which",
     "part_of_speech": "question word",
     "category": "grammar",
     "notes": "",
@@ -2629,7 +2629,7 @@
   },
   {
     "id": "book-v0223",
-    "tongan": "fāma",
+    "tongan": "faama",
     "english": "farm",
     "part_of_speech": "noun",
     "category": "nouns",

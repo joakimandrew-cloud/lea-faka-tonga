@@ -90,7 +90,9 @@ const drillMap = JSON.parse(fs.readFileSync(path.join(app, 'src/data/drill-map.j
 // approve only the Lesson 39 pointing pilot added on September 30.
 const approvedPracticeHashes = {
   'src/data/drill-map.json': '8e49fa842b937b09d19194fee1c1f8a4c999d7152f016307519646e852f09ae4',
-  'src/drills/registry.js': '7258b27368ce76bfa4a67e1b3f872b4f113705aed4f6f37aac99ddbf16658a30'
+  'src/drills/registry.js': '7258b27368ce76bfa4a67e1b3f872b4f113705aed4f6f37aac99ddbf16658a30',
+  // 2026-11-19 dictionary repairs (Andrew's ruling, plans/2026-11-19-dictionary-repairs.md): faama, where/which, laise.
+  'src/data/book-vocabulary.json': '7fc530f7fdfe0774484ea3c6114c4dfd19fba44592372776a131f81577d855fe'
 }
 const productionExamples = unified().use(remarkParse).use(remarkGfm).use(remarkDirective).use(remarkExamples)
 const sha256 = file => createHash('sha256').update(fs.readFileSync(path.join(app, file))).digest('hex')

@@ -50,7 +50,7 @@ test('the chart adapter renders the live eight-group source with intact represen
   assert.deepEqual(Array.from(charts[0].tables[0].rows[0]), ['1st excl.', 'ku / ou / u', 'ma', 'mau'])
   assert.equal(charts.find(chart => chart.id === 'definite').tables[0].rows[2][3], 'hoʻomou')
   assert.equal(charts.find(chart => chart.id === 'postposed-poss').tables[0].rows[2][1], 'ʻaʻau')
-  assert.equal(charts.find(chart => chart.id === 'beneficiary').tables[1].rows[3][2], 'moʻonau')
+  assert.equal(charts.find(chart => chart.id === 'beneficiary').tables[1].rows[3][2], 'moʻonautolu')
   assert.ok(charts.find(chart => chart.id === 'emotional').notes.includes('siʻa: emotional indefinite article ("a poor/dear ...")'))
   assert.deepEqual(Array.from(charts.find(chart => chart.id === 'impersonal').tables[0].rows[4]), ['Beneficiary', 'maʻata', 'moʻota'])
 })
