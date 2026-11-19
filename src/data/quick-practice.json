@@ -335,7 +335,7 @@
         },
         {
           "id": "ch27-qp-quick-practice-a-ange-taha-modifiers-and-tatau-2",
-          "prompt": "*'Oku vave ___ 'a e hōsi 'a Sione.* Sione's horse is the fastest.",
+          "prompt": "*'Oku vave ___ 'a e hoosi 'a Sione.* Sione's horse is the fastest.",
           "answer": "*taha*"
         },
         {
@@ -435,7 +435,7 @@
       "items": [
         {
           "id": "ch27-qp-quick-practice-c-hange-like-as-if-1",
-          "prompt": "*Na'e lele 'a e kulī 'o hangē ha hōsi.* ___",
+          "prompt": "*Na'e lele 'a e kulī 'o hangē ha hoosi.* ___",
           "answer": "The dog ran like a horse."
         },
         {

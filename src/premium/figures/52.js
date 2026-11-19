@@ -24,8 +24,8 @@ export const F52_1 = {
       key: 'position',
       cases: [
         {
-          lane: 0, say: 'ʻOku hela ʻa siʻi hōsí.', en: 'The poor horse is tired.',
-          row: [face('ʻOku', 'tense'), face('hela', 'verb'), face('ʻa', 'focus'), { slot: true, form: face('siʻi', 'quiet', 'emotional article'), label: 'emotional article' }, { ...face('hōsí', 'noun'), ring: true, label: 'noun' }],
+          lane: 0, say: 'ʻOku hela ʻa siʻi hoosí.', en: 'The poor horse is tired.',
+          row: [face('ʻOku', 'tense'), face('hela', 'verb'), face('ʻa', 'focus'), { slot: true, form: face('siʻi', 'quiet', 'emotional article'), label: 'emotional article' }, { ...face('hoosí', 'noun'), ring: true, label: 'noun' }],
         },
         {
           lane: 1, say: 'ha konga siʻi', en: 'a small piece',
@@ -35,7 +35,7 @@ export const F52_1 = {
     },
   ],
   alt: [
-    'Before the noun, *siʻi* is the emotional article: *ʻOku hela ʻa siʻi hōsí.* The poor horse is tired.',
+    'Before the noun, *siʻi* is the emotional article: *ʻOku hela ʻa siʻi hoosí.* The poor horse is tired.',
     'After the noun, *siʻi* is an adjective meaning "small": *ha konga siʻi*, a small piece.',
   ],
 }
@@ -124,14 +124,14 @@ export const F52_3 = {
 
 /** Opening row: the lesson's first example. */
 export const OPENING = {
-  row: [face('ʻOku', 'tense'), face('hela', 'verb'), face('ʻa', 'focus'), face('siʻi', 'quiet', 'emotional article'), face('hōsí', 'noun')],
-  say: 'ʻOku hela ʻa siʻi hōsí.',
+  row: [face('ʻOku', 'tense'), face('hela', 'verb'), face('ʻa', 'focus'), face('siʻi', 'quiet', 'emotional article'), face('hoosí', 'noun')],
+  say: 'ʻOku hela ʻa siʻi hoosí.',
   en: 'The poor horse is tired.',
 }
 
 /** Recall cards, by key rule: book sentences only. */
 export const RECALL = [
-  { to: 'ʻOku hela ʻa siʻi hōsí.', en: 'The poor horse is tired.' },
+  { to: 'ʻOku hela ʻa siʻi hoosí.', en: 'The poor horse is tired.' },
   { to: 'Kuó ne lavea siʻa tamasiʻí?', en: 'Has a child been hurt? (poor thing)' },
   { to: 'ʻOku tangi siʻeku kiʻi pēpē.', en: 'My poor little baby is crying.' },
 ]

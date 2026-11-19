@@ -4255,7 +4255,7 @@
         {
           "id": "ch16-ex2-1",
           "prompt": "I am a farmer.",
-          "answer": "*Ko e tangata fāma au.*"
+          "answer": "*Ko e tangata faama au.*"
         },
         {
           "id": "ch16-ex2-2",
@@ -7126,7 +7126,7 @@
         {
           "id": "ch26-ex4-6",
           "prompt": "This basket of fish is for them.",
-          "answer": "*Ko e kato ika eni ma'anau.*"
+          "answer": "*Ko e kato ika eni ma'anautolu.*"
         },
         {
           "id": "ch26-ex4-7",
@@ -7166,7 +7166,7 @@
         },
         {
           "id": "ch27-ex1-4",
-          "prompt": "*Na'e lele 'a Siaosi 'o hangē ha fu'u hōsí.*",
+          "prompt": "*Na'e lele 'a Siaosi 'o hangē ha fu'u hoosí.*",
           "answer": "Siaosi ran like a great horse."
         },
         {
@@ -7425,7 +7425,7 @@
         },
         {
           "id": "ch27-ex6-5",
-          "prompt": "*Na'á ne ngāue 'o hangē ha fu'u hōsí.*",
+          "prompt": "*Na'á ne ngāue 'o hangē ha fu'u hoosí.*",
           "answer": "He worked like a big horse."
         }
       ]
@@ -14064,7 +14064,7 @@
         },
         {
           "id": "ch52-ex3-5",
-          "prompt": "'Oku hele'i ___ hōsí. (The poor horse is limping.)",
+          "prompt": "'Oku hele'i ___ hoosí. (The poor horse is limping.)",
           "answer": "*si'i* (emotional definite article: the specific horse)",
           "accept": [
             "*si'i*"
@@ -14121,7 +14121,7 @@
       "items": [
         {
           "id": "ch52-ex5-1",
-          "prompt": "*'Oku hela si'i hōsí.*",
+          "prompt": "*'Oku hela si'i hoosí.*",
           "answer": "**Pity.** The speaker feels sorry for the tired horse.",
           "options": [
             "Pity",

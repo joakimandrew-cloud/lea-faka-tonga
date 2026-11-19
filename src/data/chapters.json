@@ -1805,8 +1805,8 @@
             "for him/her"
           ],
           [
-            "maʻanau",
-            "moʻonau",
+            "maʻanautolu",
+            "moʻonautolu",
             "for them"
           ]
         ]
@@ -3442,7 +3442,7 @@
       "key_rules": [
         {
           "rule": "Siʻi replaces e/he to add pity, affection, or sympathy",
-          "example_tongan": "ʻOku hela ʻa siʻi hōsī.",
+          "example_tongan": "ʻOku hela ʻa siʻi hoosí.",
           "example_english": "The poor horse is tired."
         },
         {

@@ -9,7 +9,7 @@ You already know the three neutral articles: indefinite *ha* and semi-definite/d
 ### The emotional definite article: *si'i*
 
 ::: {.examples}
-*'Oku hela 'a si'i hōsí.* The poor horse is tired.
+*'Oku hela 'a si'i hoosí.* The poor horse is tired.
 :::
 
 The word *si'i* replaces the ordinary definite article *e* and adds a feeling of pity, affection, or sympathy. The horse is not just "the horse." It is "the poor horse," the one the speaker feels sorry for.
@@ -31,7 +31,7 @@ The emotion *si'i* carries depends on context. It may suggest:
 *'Oku fakamamahi 'aupito si'i mate 'a e fa'ē mo si'i fānaú.* The unfortunate death of the mother and the poor children is very sad.
 :::
 
-*Si'i* stands in the same position as any article: before the noun it modifies. It carries the definitive accent just as *e* does (note *hōsí* and *fānaú* with accent on the final vowel in the examples above).
+*Si'i* stands in the same position as any article: before the noun it modifies. It carries the definitive accent just as *e* does (note *hoosí* and *fānaú* with accent on the final vowel in the examples above).
 
 > *Note:* The word *si'i* has other uses in Tongan. As a postposed adjective, it means "small" or "little" (*ha konga si'i* = a small piece). As a postposed adverb, it means "for a short time." As a preposed article, which is the use taught here, it carries emotional colouring. Position tells you which function *si'i* is performing: before the noun = emotional article, after the noun = adjective.
 
@@ -230,7 +230,7 @@ Select the appropriate emotional article or possessive for each blank.
 2. Na'e 'ikai ___ faingamālie ke ha'u. (She never had a chance to come.) (*si'ane* / *si'eno* / *si'ano*)
 3. 'Oku fiefia ___ fānau 'a 'Ana. ('Ana's dear children are happy.) (*si'a* / *si'i* / *si'ene*)
 4. Na'e 'ikai ___ me'atokoni ke kai. (They had no food to eat, poor them.) (*si'anau* / *si'enau* / *si'a*)
-5. 'Oku hele'i ___ hōsí. (The poor horse is limping.) (*si'a* / *si'i* / *si'eno*)
+5. 'Oku hele'i ___ hoosí. (The poor horse is limping.) (*si'a* / *si'i* / *si'eno*)
 
 #### Exercise 4: Transform neutral sentences to emotional
 
@@ -246,7 +246,7 @@ Rewrite each sentence replacing the ordinary article or possessive with the emot
 
 For each sentence, explain whether the emotional form expresses pity, affection, humility, or endearment.
 
-1. *'Oku hela si'i hōsí.*
+1. *'Oku hela si'i hoosí.*
 2. *Ko e fē si'i fānau 'a Pita?*
 3. *Na'e 'ikai si'aku tohi ke lau.*
 4. *'Oku tangi si'eku ki'i pēpē.*

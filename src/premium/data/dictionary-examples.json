@@ -2905,7 +2905,7 @@
   ],
   "book-v0342": [
    {
-    "tongan": "Na'e ngāue 'a Sēmisi 'o hangē ha fu'u hōsí.",
+    "tongan": "Na'e ngāue 'a Sēmisi 'o hangē ha fu'u hoosí.",
     "english": "Sēmisi worked like a big horse.",
     "line": 216,
     "kind": "sentence",
@@ -6514,6 +6514,18 @@
     "at": [
      10,
      16
+    ]
+   }
+  ],
+  "cw-0337": [
+   {
+    "tongan": "Na'a nau langa 'a e falé mo'onautolu.",
+    "english": "They built the house for them.",
+    "line": 165,
+    "kind": "sentence",
+    "at": [
+     25,
+     36
     ]
    }
   ]

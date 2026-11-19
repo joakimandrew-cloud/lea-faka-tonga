@@ -197,7 +197,7 @@ Some equational sentences use *pea* to connect two statements:
 | *si'i* | adjective | small |
 | *poto* | adjective | clever, skilled |
 | *tamasi'i* | noun | boy, child |
-| *fāma* | noun | farm |
+| *faama* | noun | farm |
 | *motu'a* | adjective | old |
 
 ---
@@ -259,7 +259,7 @@ Some equational sentences use *pea* to connect two statements:
 
 #### Exercise 2
 
-1. *Ko e tangata fāma au.*
+1. *Ko e tangata faama au.*
 2. *Ko e faiako 'a Siale?*
 3. *Ko e tamasi'i fiefia 'a Lātū.*
 4. *Ko e ki'i kato.*

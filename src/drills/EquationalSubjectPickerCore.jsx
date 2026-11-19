@@ -21,7 +21,7 @@ const PROMPTS = [
   { tongan: 'Ko e tamasiʻi fiefia ___ Lātū.',       english: 'Lātū is a happy boy.',                    answer: 'with-a', why: 'Lātū is a proper noun → ʻa appears.' },
   { tongan: 'Ko e taʻahine mālohi ___ ia.',         english: 'She is a strong girl.',                   answer: 'no-a',   why: 'ia is a postposed pronoun → ʻa drops.' },
   { tongan: 'Ko fē ___ Sione?',                     english: 'Where is Sione?',                         answer: 'with-a', why: 'Sione is a proper noun → ʻa appears, even with ko fē.' },
-  { tongan: 'Ko e tangata fāma ___ au.',            english: 'I am a farmer.',                          answer: 'no-a',   why: 'au pronoun → no ʻa.' },
+  { tongan: 'Ko e tangata faama ___ au.',            english: 'I am a farmer.',                          answer: 'no-a',   why: 'au pronoun → no ʻa.' },
 ]
 
 export default function EquationalSubjectPickerCore() {

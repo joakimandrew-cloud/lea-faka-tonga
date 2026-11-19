@@ -32506,7 +32506,7 @@
               "boy, child"
             ],
             [
-              "fāma",
+              "faama",
               "noun",
               "farm"
             ],
@@ -53031,23 +53031,23 @@
               "for him/her"
             ],
             [
-              "ma'atau",
-              "mo'otau",
+              "ma'atautolu",
+              "mo'otautolu",
               "for us (incl.)"
             ],
             [
-              "ma'amau",
-              "mo'omau",
+              "ma'amautolu",
+              "mo'omautolu",
               "for us (excl.)"
             ],
             [
-              "ma'amou",
-              "mo'omou",
+              "ma'amoutolu",
+              "mo'omoutolu",
               "for you (pl.)"
             ],
             [
-              "ma'anau",
-              "mo'onau",
+              "ma'anautolu",
+              "mo'onautolu",
               "for them"
             ]
           ]
@@ -53074,7 +53074,7 @@
         {
           "order": 60,
           "kind": "paragraph",
-          "text": "Na'a nau langa 'a e falé mo'onau. They built the house for them.\n:::",
+          "text": "Na'a nau langa 'a e falé mo'onautolu. They built the house for them.\n:::",
           "position": {
             "start": 6081,
             "end": 6151
@@ -53159,22 +53159,22 @@
               "for him/her"
             ],
             [
-              "ma'atau",
+              "ma'atautolu",
               "beneficiary pronoun ('e-class)",
               "for us (inclusive)"
             ],
             [
-              "ma'amau",
+              "ma'amautolu",
               "beneficiary pronoun ('e-class)",
               "for us (exclusive)"
             ],
             [
-              "ma'amou",
+              "ma'amoutolu",
               "beneficiary pronoun ('e-class)",
               "for you (plural)"
             ],
             [
-              "ma'anau",
+              "ma'anautolu",
               "beneficiary pronoun ('e-class)",
               "for them"
             ],
@@ -53194,12 +53194,12 @@
               "for him/her"
             ],
             [
-              "mo'otau",
+              "mo'otautolu",
               "beneficiary pronoun (ho-class)",
               "for us (inclusive)"
             ],
             [
-              "mo'onau",
+              "mo'onautolu",
               "beneficiary pronoun (ho-class)",
               "for them"
             ]
@@ -55184,7 +55184,7 @@
         {
           "order": 80,
           "kind": "examples",
-          "text": "::: {.examples}\nNa'e ngāue 'a Sēmisi 'o hangē ha fu'u hōsí. Sēmisi worked like a big horse.",
+          "text": "::: {.examples}\nNa'e ngāue 'a Sēmisi 'o hangē ha fu'u hoosí. Sēmisi worked like a big horse.",
           "position": {
             "start": 7182,
             "end": 7275
@@ -57055,7 +57055,7 @@
               },
               {
                 "id": "ch27-qp-quick-practice-a-ange-taha-modifiers-and-tatau-2",
-                "prompt": "*'Oku vave ___ 'a e hōsi 'a Sione.* Sione's horse is the fastest.",
+                "prompt": "*'Oku vave ___ 'a e hoosi 'a Sione.* Sione's horse is the fastest.",
                 "answer": "*taha*"
               },
               {
@@ -57175,7 +57175,7 @@
             "items": [
               {
                 "id": "ch27-qp-quick-practice-c-hange-like-as-if-1",
-                "prompt": "*Na'e lele 'a e kulī 'o hangē ha hōsi.* ___",
+                "prompt": "*Na'e lele 'a e kulī 'o hangē ha hoosi.* ___",
                 "answer": "The dog ran like a horse."
               },
               {
@@ -106281,7 +106281,7 @@
         {
           "order": 5,
           "kind": "examples",
-          "text": "::: {.examples}\n'Oku hela 'a si'i hōsí. The poor horse is tired.\n:::",
+          "text": "::: {.examples}\n'Oku hela 'a si'i hoosí. The poor horse is tired.\n:::",
           "position": {
             "start": 413,
             "end": 483
@@ -106382,7 +106382,7 @@
         {
           "order": 12,
           "kind": "paragraph",
-          "text": "Si'i stands in the same position as any article: before the noun it modifies. It carries the definitive accent just as e does (note hōsí and fānaú with accent on the final vowel in the examples above).",
+          "text": "Si'i stands in the same position as any article: before the noun it modifies. It carries the definitive accent just as e does (note hoosí and fānaú with accent on the final vowel in the examples above).",
           "position": {
             "start": 1377,
             "end": 1586

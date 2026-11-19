@@ -4607,7 +4607,7 @@
             "label": "B",
             "text": "Farmer",
             "correct": false,
-            "explanation": "The word for \"farmer\" is *tangata fāma*, built from *fāma* (\"farm\"). *Tōketā* names a profession that requires different training."
+            "explanation": "The word for \"farmer\" is *tangata faama*, built from *faama* (\"farm\"). *Tōketā* names a profession that requires different training."
           },
           {
             "label": "C",
@@ -15881,7 +15881,7 @@
       },
       {
         "id": "q10",
-        "prompt": "The emotional article *si'i* carries the definitive accent just like ordinary *e*. In the sentence *'Oku hela 'a si'i hōsí*, where does the definitive accent fall?",
+        "prompt": "The emotional article *si'i* carries the definitive accent just like ordinary *e*. In the sentence *'Oku hela 'a si'i hoosí*, where does the definitive accent fall?",
         "options": [
           {
             "label": "A",
@@ -15891,15 +15891,15 @@
           },
           {
             "label": "B",
-            "text": "On the final syllable of *hōsi*, giving *hōsí*",
+            "text": "On the final syllable of *hoosi*, giving *hoosí*",
             "correct": true,
-            "explanation": "The definitive accent shifts the main stress to the last syllable of the definite noun phrase, as shown by *hōsí* and *fānaú* in the lesson's examples."
+            "explanation": "The definitive accent shifts the main stress to the last syllable of the definite noun phrase, as shown by *hoosí* and *fānaú* in the lesson's examples."
           },
           {
             "label": "C",
-            "text": "On the first syllable of *hōsi* (as *hṓsi*)",
+            "text": "On the first syllable of *hoosi* (as *hóosi*)",
             "correct": false,
-            "explanation": "The definitive accent lands on the final syllable, not the first. The long vowel in the middle of *hōsi* is a lexical feature, not the definitive accent."
+            "explanation": "The definitive accent lands on the final syllable, not the first. The double *o* in *hoosi* is part of how the word is spelled, not the definitive accent."
           },
           {
             "label": "D",

@@ -2931,7 +2931,7 @@
       ]
     },
     {
-      "tongan": "maʻatau",
+      "tongan": "maʻatautolu",
       "english": "for us incl. (ʻe-class)",
       "min_chapter": 26,
       "person": 1,
@@ -2941,7 +2941,7 @@
       ]
     },
     {
-      "tongan": "maʻamau",
+      "tongan": "maʻamautolu",
       "english": "for us excl. (ʻe-class)",
       "min_chapter": 26,
       "person": 1,
@@ -2951,7 +2951,7 @@
       ]
     },
     {
-      "tongan": "maʻamou",
+      "tongan": "maʻamoutolu",
       "english": "for you pl. (ʻe-class)",
       "min_chapter": 26,
       "person": 2,
@@ -2961,7 +2961,7 @@
       ]
     },
     {
-      "tongan": "maʻanau",
+      "tongan": "maʻanautolu",
       "english": "for them (ʻe-class)",
       "min_chapter": 26,
       "person": 3,
@@ -3001,7 +3001,7 @@
       ]
     },
     {
-      "tongan": "moʻotau",
+      "tongan": "moʻotautolu",
       "english": "for us incl. (ho-class)",
       "min_chapter": 26,
       "person": 1,
@@ -3011,7 +3011,7 @@
       ]
     },
     {
-      "tongan": "moʻomau",
+      "tongan": "moʻomautolu",
       "english": "for us excl. (ho-class)",
       "min_chapter": 26,
       "person": 1,
@@ -3021,7 +3021,7 @@
       ]
     },
     {
-      "tongan": "moʻomou",
+      "tongan": "moʻomoutolu",
       "english": "for you pl. (ho-class)",
       "min_chapter": 26,
       "person": 2,
@@ -3031,7 +3031,7 @@
       ]
     },
     {
-      "tongan": "moʻonau",
+      "tongan": "moʻonautolu",
       "english": "for them (ho-class)",
       "min_chapter": 26,
       "person": 3,

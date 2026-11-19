@@ -1834,10 +1834,10 @@
         { "tongan": "maʻaku",  "english": "for me",          "min_chapter": 26, "person": 1, "number": "singular", "possessive_forms": { "e_class": "maʻaku",  "ho_class": "moʻoku" } },
         { "tongan": "maʻau",   "english": "for you (sg)",    "min_chapter": 26, "person": 2, "number": "singular", "possessive_forms": { "e_class": "maʻau",   "ho_class": "moʻou" } },
         { "tongan": "maʻana",  "english": "for him/her",     "min_chapter": 26, "person": 3, "number": "singular", "possessive_forms": { "e_class": "maʻana",  "ho_class": "moʻona" } },
-        { "tongan": "maʻatau", "english": "for us (incl)",   "min_chapter": 26, "person": 1, "number": "plural",   "possessive_forms": { "e_class": "maʻatau", "ho_class": "moʻotau" } },
-        { "tongan": "maʻamau", "english": "for us (excl)",   "min_chapter": 26, "person": 1, "number": "plural",   "possessive_forms": { "e_class": "maʻamau", "ho_class": "moʻomau" } },
-        { "tongan": "maʻamou", "english": "for you (pl)",    "min_chapter": 26, "person": 2, "number": "plural",   "possessive_forms": { "e_class": "maʻamou", "ho_class": "moʻomou" } },
-        { "tongan": "maʻanau", "english": "for them",        "min_chapter": 26, "person": 3, "number": "plural",   "possessive_forms": { "e_class": "maʻanau", "ho_class": "moʻonau" } }
+        { "tongan": "maʻatautolu", "english": "for us (incl)",   "min_chapter": 26, "person": 1, "number": "plural",   "possessive_forms": { "e_class": "maʻatautolu", "ho_class": "moʻotautolu" } },
+        { "tongan": "maʻamautolu", "english": "for us (excl)",   "min_chapter": 26, "person": 1, "number": "plural",   "possessive_forms": { "e_class": "maʻamautolu", "ho_class": "moʻomautolu" } },
+        { "tongan": "maʻamoutolu", "english": "for you (pl)",    "min_chapter": 26, "person": 2, "number": "plural",   "possessive_forms": { "e_class": "maʻamoutolu", "ho_class": "moʻomoutolu" } },
+        { "tongan": "maʻanautolu", "english": "for them",        "min_chapter": 26, "person": 3, "number": "plural",   "possessive_forms": { "e_class": "maʻanautolu", "ho_class": "moʻonautolu" } }
       ],
       "next": []
     },

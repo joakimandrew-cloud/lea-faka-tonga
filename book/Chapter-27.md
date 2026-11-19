@@ -119,7 +119,7 @@ With a dual pronoun subject:
 Choose the right word for each blank.
 
 1. *'Oku lōloa \_\_\_ 'a Mele 'ia 'Ana.* Mele is taller than 'Ana.
-2. *'Oku vave \_\_\_ 'a e hōsi 'a Sione.* Sione's horse is the fastest.
+2. *'Oku vave \_\_\_ 'a e hoosi 'a Sione.* Sione's horse is the fastest.
 3. *'Oku \_\_\_ 'a e ongo kató.* The two baskets are the same.
 4. *'Oku \_\_\_ talavou ange 'a Peni 'ia Sione.* Peni is a little better-looking than Sione.
 5. *'Oku fu'u si'i \_\_\_ 'a e fale ko iá 'i he falé ni.* That house is much smaller than this house.
@@ -213,7 +213,7 @@ Fill in the blank with the correct word.
 The word *hangē* means "to be like" or "to seem like." When it modifies a verb, it is preceded by the conjunction *'o*.
 
 ::: {.examples}
-*Na'e ngāue 'a Sēmisi 'o hangē ha fu'u hōsí.* Sēmisi worked like a big horse.
+*Na'e ngāue 'a Sēmisi 'o hangē ha fu'u hoosí.* Sēmisi worked like a big horse.
 
 *'Oku lea 'a e tamasi'í 'o hangē kuo 'ita.* The boy talks as though he is angry.
 :::
@@ -260,7 +260,7 @@ The *'o* links *hangē* to the preceding verb, creating a comparison within the 
 
 Translate each Tongan sentence to English.
 
-1. *Na'e lele 'a e kulī 'o hangē ha hōsi.* ___
+1. *Na'e lele 'a e kulī 'o hangē ha hoosi.* ___
 2. *'Okú ne lea 'o hangē kuo helaʻia.* ___
 3. *Na'e fai 'e Mele 'a e ngāué 'o hangē ko e faiako.* ___
 4. *Na'á ne kai 'o hangē kuo fiekaia.* ___
@@ -379,7 +379,7 @@ The expression *tautefito ki* means "especially," "particularly," or "mainly." I
 1. *'Oku lahi ange 'a e vaká 'i he kató.*
 2. *'Oku mālohi taha 'a Tēvita.*
 3. *'Okú na tatau.*
-4. *Na'e lele 'a Siaosi 'o hangē ha fu'u hōsí.*
+4. *Na'e lele 'a Siaosi 'o hangē ha fu'u hoosí.*
 5. *'Oku ki'i sai ange 'a e me'akaí 'a Mele 'i he me'akaí 'a 'Ana.*
 6. *'Oku fai kehekehe 'a e lea faka-Tongá mo e lea faka-Pālangi.*
 7. *'Oku meinei tatau 'a e ongo falé.*
@@ -430,7 +430,7 @@ Change each sentence from comparative to superlative, or from superlative to com
 2. *Kapau na'e lava ia 'e 'Ana, huanoa 'a Sione.*
 3. *'Oku 'ange'ange ho'o ngāué he'eku ngāué.*
 4. *Kapau 'oku mālohi 'a Simi, huanoa 'a Lōpeti.*
-5. *Na'á ne ngāue 'o hangē ha fu'u hōsí.*
+5. *Na'á ne ngāue 'o hangē ha fu'u hoosí.*
 
 #### Exercise 7: Fill in the blank with *'ange'ange*, *huanoa*, or *hangē*
 

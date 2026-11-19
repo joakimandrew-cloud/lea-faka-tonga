@@ -134,8 +134,8 @@ export const F27_4 = {
           row: [face('Naʻe hiva ʻa Neomai', 'quiet'), face('ʻo hangē', 'quiet'), { slot: true, form: face('ko', 'quiet') }, { ...face('e taʻahine', 'quiet', 'noun'), ring: true }],
         },
         {
-          lane: 1, say: 'Naʻe ngāue ʻa Sēmisi ʻo hangē ha fuʻu hōsí.', en: 'Sēmisi worked like a big horse.',
-          row: [face('Naʻe ngāue ʻa Sēmisi', 'quiet'), face('ʻo hangē', 'quiet'), { slot: true, form: face('ha', 'quiet') }, { ...face('fuʻu hōsí', 'quiet', 'noun'), ring: true }],
+          lane: 1, say: 'Naʻe ngāue ʻa Sēmisi ʻo hangē ha fuʻu hoosí.', en: 'Sēmisi worked like a big horse.',
+          row: [face('Naʻe ngāue ʻa Sēmisi', 'quiet'), face('ʻo hangē', 'quiet'), { slot: true, form: face('ha', 'quiet') }, { ...face('fuʻu hoosí', 'quiet', 'noun'), ring: true }],
         },
       ],
     },
@@ -151,7 +151,7 @@ export const F27_4 = {
   ],
   alt: [
     'Like + noun: *ʻo hangē* + *ko* + noun. *Naʻe hiva ʻa Neomai ʻo hangē ko e taʻahine.* Neomai sang like a young woman.',
-    'Like + noun (indefinite): *ʻo hangē* + *ha* + noun. *Naʻe ngāue ʻa Sēmisi ʻo hangē ha fuʻu hōsí.* Sēmisi worked like a big horse.',
+    'Like + noun (indefinite): *ʻo hangē* + *ha* + noun. *Naʻe ngāue ʻa Sēmisi ʻo hangē ha fuʻu hoosí.* Sēmisi worked like a big horse.',
     'As though + clause: *ʻo hangē* + clause. *ʻOku lea ʻa e tamasiʻí ʻo hangē kuo ʻita.* The boy talks as though he is angry.',
   ],
 }

@@ -152,17 +152,17 @@ When the beneficiary is a pronoun rather than a name or noun, *ma'a* and *mo'o* 
 | *ma'aku* | *mo'oku* | for me |
 | *ma'au* | *mo'ou* | for you (sg.) |
 | *ma'ana* | *mo'ona* | for him/her |
-| *ma'atau* | *mo'otau* | for us (incl.) |
-| *ma'amau* | *mo'omau* | for us (excl.) |
-| *ma'amou* | *mo'omou* | for you (pl.) |
-| *ma'anau* | *mo'onau* | for them |
+| *ma'atautolu* | *mo'otautolu* | for us (incl.) |
+| *ma'amautolu* | *mo'omautolu* | for us (excl.) |
+| *ma'amoutolu* | *mo'omoutolu* | for you (pl.) |
+| *ma'anautolu* | *mo'onautolu* | for them |
 
 The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and the *'o* with *mo'o*.
 
 ::: {.examples}
 *Ko e kato ika eni ma'aku.* This basket of fish is for me.
 
-*Na'a nau langa 'a e falé mo'onau.* They built the house for them.
+*Na'a nau langa 'a e falé mo'onautolu.* They built the house for them.
 :::
 
 ---
@@ -180,15 +180,15 @@ The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and t
 | *ma'aku* | beneficiary pronoun ('e-class) | for me |
 | *ma'au* | beneficiary pronoun ('e-class) | for you |
 | *ma'ana* | beneficiary pronoun ('e-class) | for him/her |
-| *ma'atau* | beneficiary pronoun ('e-class) | for us (inclusive) |
-| *ma'amau* | beneficiary pronoun ('e-class) | for us (exclusive) |
-| *ma'amou* | beneficiary pronoun ('e-class) | for you (plural) |
-| *ma'anau* | beneficiary pronoun ('e-class) | for them |
+| *ma'atautolu* | beneficiary pronoun ('e-class) | for us (inclusive) |
+| *ma'amautolu* | beneficiary pronoun ('e-class) | for us (exclusive) |
+| *ma'amoutolu* | beneficiary pronoun ('e-class) | for you (plural) |
+| *ma'anautolu* | beneficiary pronoun ('e-class) | for them |
 | *mo'oku* | beneficiary pronoun (ho-class) | for me |
 | *mo'ou* | beneficiary pronoun (ho-class) | for you |
 | *mo'ona* | beneficiary pronoun (ho-class) | for him/her |
-| *mo'otau* | beneficiary pronoun (ho-class) | for us (inclusive) |
-| *mo'onau* | beneficiary pronoun (ho-class) | for them |
+| *mo'otautolu* | beneficiary pronoun (ho-class) | for us (inclusive) |
+| *mo'onautolu* | beneficiary pronoun (ho-class) | for them |
 
 **New vocabulary** (memorize these meanings):
 
@@ -283,6 +283,6 @@ The pattern is consistent: replace the *'a* of the possessive with *ma'a*, and t
 3. *'Oku langa e vaká mo'ou?*
 4. *'Oua té ke hiva, he 'okú ne mohe.*
 5. *'Oku totonu ke ke ako.*
-6. *Ko e kato ika eni ma'anau.*
+6. *Ko e kato ika eni ma'anautolu.*
 7. *'Okú ne lele, he 'okú ne tōmui.*
 8. *Kuo nau ō mai ke kai 'a e iká.*
