@@ -23,9 +23,6 @@ const Reference = lazy(() => import('./pages/Reference.jsx'))
 const Topics = lazy(() => import('./pages/Topics.jsx'))
 const TopicArticle = lazy(() => import('./pages/TopicArticle.jsx'))
 const Help = lazy(() => import('./pages/Help.jsx'))
-// How to study the course (plan 2026-11-19-start-here-rewrite; the first version of
-// 2026-11-13 was taken down and rewritten).
-const StartHere = lazy(() => import('./pages/StartHere.jsx'))
 const Dictionary = lazy(() => import('./pages/Dictionary.jsx'))
 // A page for every word and for every English headword (plan 2026-11-18-dictionary-search-and-word-pages).
 const DictionaryWord = lazy(() => import('./pages/DictionaryWord.jsx'))
@@ -137,7 +134,8 @@ export default function App() {
           <Route path="/dictionary/:slug" element={<Page><DictionaryWord /></Page>} />
           <Route path="/word-lists" element={<Page><WordLists /></Page>} />
           <Route path="/help" element={<Page><Help /></Page>} />
-          <Route path="/start-here" element={<Page><StartHere /></Page>} />
+          {/* /start-here was retired on 2026-11-19; anyone who kept the address starts at Lesson 1. */}
+          <Route path="/start-here" element={<LegacyRedirect to="/lessons/1" />} />
           <Route path="/report" element={<Page><ReportIssue /></Page>} />
           <Route path="/support" element={<Page><Membership /></Page>} />
           <Route path="/keepers" element={<Page><Keepers /></Page>} />

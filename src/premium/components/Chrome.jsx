@@ -215,7 +215,6 @@ export function Footer() {
         </div>
         <div className="ftr-col">
           <h2>Learn</h2>
-          <Link to="/start-here">Start here</Link>
           <Link to="/lessons">All 52 lessons</Link>
           <Link to="/lessons/1">Lesson 1</Link>
           <Link to="/drills">Drills</Link>
