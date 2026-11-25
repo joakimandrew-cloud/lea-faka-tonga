@@ -49,7 +49,7 @@ import {
 import { okinafy } from '../src/lib/okinafy.js'
 import { BESPOKE } from '../src/lib/drill-routes.js'
 import { tokenizeInline } from '../src/seo/inline.js'
-import { GROUPS, LEVELS } from '../src/data/drills-catalog.js'
+import { GROUPS, LESSON_DRILLS, LEVELS } from '../src/data/drills-catalog.js'
 import alphabetDoc from '../src/seo/pages/alphabet.js'
 import tenseMarkersDoc from '../src/seo/pages/tense-markers.js'
 import greetingsDoc from '../src/seo/pages/greetings.js'
@@ -849,10 +849,10 @@ async function main() {
       if (!drills.has(d.id)) drills.set(d.id, { title: d.title, blurb: d.blurb })
       if (!cards.has(d.id)) cards.set(d.id, d)
     }
-    for (const d of g.inChapters || []) {
-      if (!drills.has(d.id)) drills.set(d.id, { title: d.label })
-      if (!cards.has(d.id)) cards.set(d.id, d)
-    }
+  }
+  for (const d of LESSON_DRILLS) {
+    if (!drills.has(d.id)) drills.set(d.id, d.title ? { title: d.title, blurb: d.blurb } : { title: d.label })
+    if (!cards.has(d.id)) cards.set(d.id, d)
   }
   const drillIds = [...drills.keys()].filter((id) => registryIds.has(id))
 

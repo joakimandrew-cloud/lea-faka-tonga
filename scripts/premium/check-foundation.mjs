@@ -6,27 +6,27 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const here = path.dirname(fileURLToPath(import.meta.url))
 const appRoot = path.resolve(here, '../..')
 const premiumRoot = path.join(appRoot, 'src/premium')
-const { GROUPS, LEVELS } = await import(pathToFileURL(path.join(appRoot, 'src/data/drills-catalog.js')))
+const { GROUPS, LESSON_DRILLS, LEVELS } = await import(pathToFileURL(path.join(appRoot, 'src/data/drills-catalog.js')))
 const registrySource = fs.readFileSync(path.join(appRoot, 'src/drills/registry.js'), 'utf8')
 const registryIds = [...registrySource.matchAll(/^  '([^']+)': \{/gm)].map(match => match[1])
 const registrySet = new Set(registryIds)
 const cards = GROUPS.flatMap(group => group.drills)
-const lessonRows = GROUPS.flatMap(group => group.inChapters)
+const lessonRows = LESSON_DRILLS
 const catalogIds = [...cards, ...lessonRows].map(drill => drill.id)
 const catalogSet = new Set(catalogIds)
 const quizzes = JSON.parse(fs.readFileSync(path.join(appRoot, 'src/data/quizzes.json'), 'utf8'))
 const chapters = JSON.parse(fs.readFileSync(path.join(appRoot, 'src/data/chapters.json'), 'utf8'))
 
-assert.equal(registrySet.size, 75, 'registered drill count')
-assert.equal(catalogSet.size, 75, 'catalogued drill count')
-assert.equal(cards.length, 30, 'featured drill count')
-assert.equal(lessonRows.length, 45, 'in-lesson drill count')
+assert.equal(registrySet.size, 76, 'registered drill count')
+assert.equal(catalogSet.size, 77, 'catalogued drill count (76 registered plus terminal-builder, which has no registry entry)')
+assert.equal(cards.length, 18, 'menu drill count')
+assert.equal(lessonRows.length, 59, 'lesson-only drill count')
 assert.deepEqual([...catalogSet].filter(id => !registrySet.has(id)), ['terminal-builder'])
-assert.deepEqual([...registrySet].filter(id => !catalogSet.has(id)), ['sentence-lab'])
+assert.deepEqual([...registrySet].filter(id => !catalogSet.has(id)), [])
 assert.deepEqual(Object.fromEntries(Object.keys(LEVELS).map(level => [level, cards.filter(card => card.level === level).length])), {
-  beginner: 11,
-  intermediate: 10,
-  advanced: 9,
+  beginner: 9,
+  intermediate: 6,
+  advanced: 3,
 })
 
 const quizIds = Object.values(quizzes).filter(quiz => quiz?.questions?.length).map(quiz => quiz.chapter).sort((a, b) => a - b)
@@ -50,8 +50,8 @@ assert.doesNotMatch(viteSource, /premiumLocalStorage|premiumSessionStorage|sourc
 console.log(JSON.stringify({
   registered: registrySet.size,
   catalogued: catalogSet.size,
-  featured: cards.length,
-  inLessons: lessonRows.length,
+  menu: cards.length,
+  lessonOnly: lessonRows.length,
   union: new Set([...registrySet, ...catalogSet]).size,
   quizzes: quizIds.length,
   lessons: chapters.length,

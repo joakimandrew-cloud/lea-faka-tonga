@@ -59,7 +59,8 @@ function sample(pattern) {
 // count below is exact and moves only when the data does.
 const dictionary = loadDictionaryIndex(root)
 const dictionaryPaths = new Set([...dictionary.pages, ...dictionary.english].map(page => page.path))
-const NON_DICTIONARY_ROUTES = 217
+// 2026-11-26: 219 = 217 plus the /drill/ pages for sentence-lab and pointing-scene, which the catalogue now names.
+const NON_DICTIONARY_ROUTES = 219
 // The render test below renders every non-dictionary route and a fixed sample
 // of the dictionary's pages: every 15th word page and every 30th English page,
 // in index order (about 46 and 28), so the sample is the same on every run.
@@ -128,7 +129,7 @@ test('premium routes mechanically cover every clean production route and prerend
   assert.equal(
     generated.length,
     NON_DICTIONARY_ROUTES + dictionary.pages.length + dictionary.english.length,
-    `current production build generated the ${NON_DICTIONARY_ROUTES} site routes (213 plus /games and the three game pages) plus ${dictionary.pages.length} dictionary word pages and ${dictionary.english.length} English pages`,
+    `current production build generated the ${NON_DICTIONARY_ROUTES} site routes (213 plus /games, the three game pages and the sentence-lab and pointing-scene drill pages) plus ${dictionary.pages.length} dictionary word pages and ${dictionary.english.length} English pages`,
   )
   assert.equal(generated.filter(pathname => dictionaryPaths.has(pathname)).length, dictionaryPaths.size, 'every dictionary page in the index was generated')
   assert.ok(dictionary.pages.length > 0 && dictionary.english.length > 0, 'the dictionary index is not empty')

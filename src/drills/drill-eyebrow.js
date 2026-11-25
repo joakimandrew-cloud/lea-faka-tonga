@@ -1,28 +1,30 @@
 /**
  * drillEyebrow: the single source for a drill's "Ch N · Level" eyebrow.
  *
- * The curated chapter + level for every drill already lives in the menu's
- * GROUPS array (cards carry both ch and level; in-chapter rows carry ch).
+ * The curated chapter + level for every drill lives in the catalogue: the
+ * menu's GROUPS (cards carry both ch and level) and LESSON_DRILLS, the drills
+ * that live only inside their lesson (cards keep ch and level; rows carry ch).
  * Rather than restate that data, this derives a flat { id → {ch, level} }
- * lookup from GROUPS so DrillFrame can render one consistent eyebrow on
+ * lookup from both so DrillFrame can render one consistent eyebrow on
  * every door (bespoke page, /drill/:id, and, implicitly, the chapter
  * anchor strip). One source, no drift.
  */
 
-import { GROUPS, LEVELS } from '../data/drills-catalog'
+import { GROUPS, LESSON_DRILLS, LEVELS } from '../data/drills-catalog'
 
 const FRAME_META = {}
 for (const g of GROUPS) {
   for (const d of g.drills) FRAME_META[d.id] = { ch: d.ch, level: d.level }
-  for (const r of g.inChapters) {
-    if (!(r.id in FRAME_META)) FRAME_META[r.id] = { ch: r.ch }
-  }
+}
+for (const d of LESSON_DRILLS) {
+  if (!(d.id in FRAME_META)) FRAME_META[d.id] = d.level ? { ch: d.ch, level: d.level } : { ch: d.ch }
 }
 
-// A few drills have a bespoke page but only appear as an in-chapter row in
-// the menu (no level on a card), plus vocab-cloze which isn't on the menu at
-// all. Give them a level so their standalone eyebrow reads "Ch N · Level"
-// like every other door. (Level is pedagogical difficulty, not sequence.)
+// A few lesson drills were rows with no level on the old menu (no level on a
+// card), plus vocab-cloze which was never on it. Give them a level so their
+// standalone eyebrow reads "Lesson N · Level" like every other door. (Level
+// is pedagogical difficulty, not sequence.) sentence-lab is on the menu now;
+// its override stays so the eyebrow cannot change.
 const LEVEL_OVERRIDES = {
   'skeleton-filler': 'beginner',
   'clusivity-corner': 'beginner',

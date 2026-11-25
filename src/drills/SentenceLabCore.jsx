@@ -12,7 +12,7 @@
  * (assembleSentence + getOptionsForSlot) with ZERO engine changes. Graded
  * targets are ENGINE-GENERATED (graded-lab.js) — no hand-authored Tongan — and
  * every round is verified solvable before it is shown. The toggle lives INSIDE
- * the Lab (no new route, no 29th menu card — honours the 28-card ruling).
+ * the Lab (no new route). It is one of the 18 menu drills (DECISIONS 2026-11-26).
  */
 
 import { useMemo, useState, useRef, useEffect } from 'react'

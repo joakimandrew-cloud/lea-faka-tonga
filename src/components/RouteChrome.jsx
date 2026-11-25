@@ -14,7 +14,7 @@
 import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import chapters from '../data/chapters.json'
-import { GROUPS } from '../data/drills-catalog'
+import { GROUPS, LESSON_DRILLS } from '../data/drills-catalog'
 import { metaForPath } from '../seo/meta'
 
 const chapterMeta = {}
@@ -25,7 +25,9 @@ for (const ch of chapters) {
 const drills = {}
 for (const g of GROUPS) {
   for (const d of g.drills) drills[d.id] = { title: d.title, blurb: d.blurb }
-  for (const d of g.inChapters || []) if (!drills[d.id]) drills[d.id] = { title: d.label }
+}
+for (const d of LESSON_DRILLS) {
+  if (!drills[d.id]) drills[d.id] = d.title ? { title: d.title, blurb: d.blurb } : { title: d.label }
 }
 
 function setDescription(text) {

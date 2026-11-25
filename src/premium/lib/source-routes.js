@@ -1,13 +1,16 @@
-import { GROUPS, LEVELS } from '@app/data/drills-catalog.js'
+import { GROUPS, LESSON_DRILLS, LEVELS } from '@app/data/drills-catalog.js'
 import { drillRegistry } from '@app/drills/registry.js'
 import { BESPOKE, routeFor } from '@app/lib/drill-routes.js'
 import { filterDrillGroups } from './catalog-query.js'
 
-export { GROUPS, LEVELS }
+export { GROUPS, LESSON_DRILLS, LEVELS }
 
 export const REGISTERED_DRILL_IDS = Object.freeze(Object.keys(drillRegistry))
 export const REGISTERED_DRILL_ID_SET = new Set(REGISTERED_DRILL_IDS)
-export const CATALOG_DRILL_ID_SET = new Set(GROUPS.flatMap(group => [...group.drills, ...group.inChapters]).map(drill => drill.id))
+// On the menu, or living in its lesson only (LESSON_DRILLS). The "More practice"
+// list below is whatever is in neither, and is empty: every registered drill is
+// one or the other (drills-place.test.js).
+export const CATALOG_DRILL_ID_SET = new Set([...GROUPS.flatMap(group => group.drills), ...LESSON_DRILLS].map(drill => drill.id))
 export const UNCATALOGUED_DRILLS = Object.freeze(REGISTERED_DRILL_IDS
   .filter(id => !CATALOG_DRILL_ID_SET.has(id))
   .map(id => ({ id, ...drillRegistry[id].meta })))

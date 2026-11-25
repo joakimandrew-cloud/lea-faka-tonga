@@ -11,8 +11,8 @@ export const COURSE_FIGURES = [
   { key: 'exercises', value: 1605, label: 'exercise items, each with its answer', to: '/lessons/1#exercises' },
   // src/data/quizzes.json: 52 quizzes of 10 questions; 2,080 of 2,080 answer options carry an explanation.
   { key: 'quiz-questions', value: 520, label: 'quiz questions, every answer explained', to: '/quizzes' },
-  // src/data/drills-catalog.js: 30 featured drills in 7 skill groups.
-  { key: 'drills', value: 30, label: 'drills, grouped by skill', to: '/drills' },
+  // src/data/drills-catalog.js: 18 menu drills in 4 groups (2026-11-26: the rest live in their lessons).
+  { key: 'drills', value: 18, label: 'drills, grouped by skill', to: '/drills' },
   // src/data/book-vocabulary.json: 649 vocabulary entries (cards), the /cards deck and the /dictionary list.
   // Entries, not distinct headwords: phrases and separate senses count one each (645 distinct Tongan
   // forms). 601 entries belong to 51 lessons (1 to 52, none for 15); 48 are supplemental (chapter 0).

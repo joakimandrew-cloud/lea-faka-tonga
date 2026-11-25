@@ -107,7 +107,7 @@
     },
     {
       "drillId": "introduce-yourself",
-      "after": "farewells"
+      "after": "asking-someones-age"
     }
   ],
   "15": [
@@ -169,7 +169,7 @@
   "21": [
     {
       "drillId": "auxiliary-picker",
-      "after": "lava-to-be-able-to"
+      "after": "saiia-to-like"
     }
   ],
   "22": [
@@ -185,7 +185,7 @@
     },
     {
       "drillId": "negative-obligation",
-      "after": "kuo-pau-ke-must-certainly"
+      "after": "all-obligation-patterns"
     }
   ],
   "24": [
@@ -197,7 +197,7 @@
   "25": [
     {
       "drillId": "plural-marker-picker",
-      "after": "choosing-the-right-plural-marker"
+      "after": "ongo-the-dual-marker-exactly-two"
     }
   ],
   "26": [
@@ -217,7 +217,7 @@
     },
     {
       "drillId": "same-as-like",
-      "after": "modifying-the-comparison"
+      "after": "hange-to-be-like-seem-like"
     }
   ],
   "28": [
@@ -271,13 +271,13 @@
     },
     {
       "drillId": "reporting-picker",
-      "after": "pehei-to-do-or-treat-in-this-way"
+      "after": "ko-ia-that-is-it-therefore"
     }
   ],
   "35": [
     {
       "drillId": "adjective-flip",
-      "after": "adjectives-before-the-noun"
+      "after": "double-adjectives-preposed-and-postposed-together"
     }
   ],
   "36": [
@@ -299,7 +299,7 @@
     },
     {
       "drillId": "permission-hope",
-      "after": "uncertainty-naa-as-perhaps"
+      "after": "fai-mo-ke-hurry-up-and"
     }
   ],
   "39": [
@@ -325,7 +325,7 @@
     },
     {
       "drillId": "seem-look",
-      "after": "nouns-used-as-adverbs"
+      "after": "ngalingali-to-look-as-if-to-seem"
     }
   ],
   "42": [
@@ -365,7 +365,7 @@
   "47": [
     {
       "drillId": "conditional-picker",
-      "after": "ka-versus-kapau"
+      "after": "present-counterfactuals-with-ka-ne"
     }
   ],
   "48": [
