@@ -1,20 +1,57 @@
 import EntryMotif from '../components/EntryMotif.jsx'
-import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import T from '../components/T.jsx'
-import { filteredDrillGroups, GROUPS, LEVELS, premiumRouteFor, UNCATALOGUED_DRILLS } from '../lib/source-routes.js'
+import { GROUPS, LEVELS, premiumRouteFor } from '../lib/source-routes.js'
 import { useTitle } from '../lib/title.js'
 import { GAMES } from '@app/games/registry.js'
 import '../styles/catalog.css'
 
+// The drills page holds only drills that practise the language as a whole
+// (Andrew's ruling, DECISIONS.md 2026-11-26). Practice for one lesson lives
+// inside that lesson, so this page has no "in the lessons" rows and no
+// "More practice" list. With 18 drills and 3 games there is no search or
+// level filter: the four groups, the jump bar and the start-here steps do
+// that job.
+//
 // Games come from the registry (src/games/registry.js); a game is not a
-// one-pattern drill, so it stays out of the drill catalogue and its count.
-// Each card's sample is built from the game's own deck, so no Tongan is typed here.
+// one-pattern drill, so it stays out of the drill count. Each card's sample is
+// built from the game's own deck, so no Tongan is typed here.
 const GAME_SAMPLES = GAMES.map(game => game.sample())
-const gameMatches = (game, query) => {
-  const q = query.trim().toLowerCase()
-  return !q || `${game.title} ${game.blurb} game vocabulary ${game.unit ?? 'words'}`.toLowerCase().includes(q)
+const gameByRoute = route => GAMES.find(game => game.route === route)
+
+// Page copy per group, written to the student. The group's name and drills
+// come from src/data/drills-catalog.js.
+const GROUP_COPY = {
+  start: {
+    what: 'The opening of a Tongan sentence: the pronoun, the tense marker, and the first word that tells you what kind of sentence is coming.',
+    when: 'Use these whenever starting a sentence still takes you a moment.',
+  },
+  nouns: {
+    what: 'The small words that travel with a noun: at, to or from; "a" or "the"; plurals; which kind of "my"; who did it; and where the accent falls.',
+    when: 'Use these when you catch yourself guessing at one of them.',
+  },
+  sentences: {
+    what: 'Questions, joining words, and whole sentences to build, read and correct.',
+    when: 'Use these once you have a few lessons behind you, to check that the pieces work together.',
+  },
+  words: {
+    name: 'Words and games',
+    what: 'Vocabulary and quick games.',
+    when: 'Use these on any day, at any lesson.',
+  },
 }
+
+const SENTENCE_TILES = gameByRoute('/games/sentence-tiles')
+const WORD_BALLOONS = gameByRoute('/games/word-balloons')
+
+const START_STEPS = [
+  SENTENCE_TILES && { to: SENTENCE_TILES.route, name: SENTENCE_TILES.title, when: 'From Lesson 1', why: 'Put the words of a sentence from the book in order. It starts at Lesson 1 and moves on with you.' },
+  { to: premiumRouteFor('pronoun-paradigm'), name: 'Name the pronoun', when: 'After Lesson 2', why: 'Every sentence needs a pronoun or a name, so this is the first drill worth repeating.' },
+  WORD_BALLOONS && { to: WORD_BALLOONS.route, name: WORD_BALLOONS.title, when: 'Any day', why: 'A quick game for the words you are learning.' },
+  { name: 'Then one drill per lesson', when: 'As you go', why: 'Each card below shows the lesson that teaches its pattern. When you finish that lesson, the drill is ready for you.' },
+].filter(Boolean)
+
+const byLesson = (a, b) => a.ch - b.ch
 
 function GameCard({ game, sample }) {
   return (
@@ -34,13 +71,12 @@ function GameCard({ game, sample }) {
   )
 }
 
-const LEVEL_FILTERS = [['all', 'All'], ...Object.entries(LEVELS)]
-
 function DrillCard({ drill }) {
+  const anyLesson = drill.ch <= 1
   return (
     <Link className="catalog-card" to={premiumRouteFor(drill.id)}>
       <span className="catalog-card-top">
-        <span>Lesson {drill.ch}</span>
+        <span>{anyLesson ? 'Any lesson' : `After Lesson ${drill.ch}`}</span>
         <span>{LEVELS[drill.level]}</span>
       </span>
       <span className="catalog-sample" aria-hidden="true">
@@ -54,61 +90,35 @@ function DrillCard({ drill }) {
   )
 }
 
-function DrillGroup({ section, filtering, open, onToggle }) {
-  const { visible } = section
-  if (filtering && visible.length === 0) return null
+function DrillGroup({ group, number, count }) {
+  const copy = GROUP_COPY[group.key] ?? { what: group.note, when: '' }
+  const drills = [...group.drills].sort(byLesson)
+  const games = group.key === 'words' ? GAMES : []
+  const tally = [
+    drills.length && `${drills.length} ${drills.length === 1 ? 'drill' : 'drills'}`,
+    games.length && `${games.length} ${games.length === 1 ? 'game' : 'games'}`,
+  ].filter(Boolean).join(' · ')
   return (
-    <section className="catalog-group" aria-labelledby={`drill-group-${section.key}`}>
+    <section className="catalog-group" id={`drills-${group.key}`} aria-labelledby={`drill-group-${group.key}`}>
       <header>
         <div>
-          <p className="catalog-kicker">{visible.length} {visible.length === 1 ? 'drill' : 'drills'}</p>
-          <h2 id={`drill-group-${section.key}`}>{section.name}</h2>
-          <p>{section.note}</p>
+          <p className="catalog-kicker">Group {number} of {count} · {tally}</p>
+          <h2 id={`drill-group-${group.key}`}>{copy.name ?? group.name}</h2>
+          <p className="catalog-group-what">{copy.what}</p>
+          {copy.when && <p className="catalog-group-when">{copy.when}</p>}
         </div>
       </header>
       <div className="catalog-grid">
-        {visible.map(drill => <DrillCard key={drill.id} drill={drill} />)}
+        {drills.map(drill => <DrillCard key={drill.id} drill={drill} />)}
+        {games.map(game => <GameCard key={game.key} game={game} sample={GAME_SAMPLES[GAMES.indexOf(game)]} />)}
       </div>
-      {!filtering && section.inChapters.length > 0 && (
-        <div className="catalog-more">
-          <button type="button" onClick={onToggle} aria-expanded={open}>
-            {open ? 'Hide lesson drills' : `In the lessons · ${section.inChapters.length} more`}
-          </button>
-          {open && (
-            <ul>
-              {section.inChapters.map(row => (
-                <li key={row.id}>
-                  <Link to={premiumRouteFor(row.id)}>
-                    <span>{row.label}</span>
-                    <span>Lesson {row.ch} <EntryMotif size={18} index={row.ch - 1} /></span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      )}
     </section>
   )
 }
 
 export default function Drills() {
   useTitle('Practice drills')
-  const searchRef = useRef(null)
-  const [query, setQuery] = useState('')
-  const [level, setLevel] = useState('all')
-  const [openGroups, setOpenGroups] = useState({})
-  const sections = useMemo(() => filteredDrillGroups(query, level), [query, level])
   const total = GROUPS.reduce((sum, group) => sum + group.drills.length, 0)
-  const shown = sections.reduce((sum, group) => sum + group.visible.length, 0)
-  const filtering = query.trim() !== '' || level !== 'all'
-  const games = level === 'all' ? GAMES.filter(game => gameMatches(game, query)) : []
-
-  const clear = () => {
-    setQuery('')
-    setLevel('all')
-    requestAnimationFrame(() => searchRef.current?.focus())
-  }
 
   return (
     <div className="catalog-page">
@@ -116,65 +126,36 @@ export default function Drills() {
         <div className="wrap">
           <p className="eyebrow">Drills · Practice at your pace</p>
           <h1 className="display">Practice one<br />pattern.</h1>
-          <p><T>Ngāue Fakaʻilo.</T> {total} featured drills, grouped by skill, plus the practice placed inside lessons.</p>
+          <p><T>Ngāue Fakaʻilo.</T> Each drill is a short set of questions on one pattern you will use in Tongan sentences on any subject. Every card names the lesson that teaches it. Practice that belongs to a single lesson stays inside that lesson.</p>
         </div>
       </header>
       <div className="wrap catalog-body">
-        <div className="catalog-tools">
-          <label className="catalog-search">
-            <span>Search drills</span>
-            <input ref={searchRef} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Try tense, possessive, counting" />
-          </label>
-          <div className="catalog-filters" role="group" aria-label="Filter drills by level">
-            {LEVEL_FILTERS.map(([key, label]) => (
-              <button key={key} type="button" aria-pressed={level === key} onClick={() => setLevel(key)}>{label}</button>
+        <section className="catalog-start" aria-labelledby="drills-start">
+          <p className="catalog-kicker">New here?</p>
+          <h2 id="drills-start">Start here</h2>
+          <ol>
+            {START_STEPS.map(step => (
+              <li key={step.name}>
+                <span className="catalog-start-when">{step.when}</span>
+                {step.to
+                  ? <Link to={step.to}><strong>{step.name}</strong></Link>
+                  : <strong>{step.name}</strong>}
+                <span className="catalog-start-why">{step.why}</span>
+              </li>
             ))}
+          </ol>
+        </section>
+
+        <nav className="catalog-jump" aria-label="Drill groups">
+          <span>{total} drills and {GAMES.length} games in {GROUPS.length} groups</span>
+          <div>
+            {GROUPS.map(group => <a key={group.key} href={`#drills-${group.key}`}>{GROUP_COPY[group.key]?.name ?? group.name}</a>)}
           </div>
-        </div>
-        <p className="catalog-count" role="status" aria-live="polite">{shown} of {total} featured drills{filtering ? ' match your filters' : ''}</p>
-        {games.length > 0 && (
-          <section className="catalog-group" aria-labelledby="drill-group-games">
-            <header>
-              <div>
-                <p className="catalog-kicker">{games.length} {games.length === 1 ? 'game' : 'games'}</p>
-                <h2 id="drill-group-games">Games</h2>
-                <p>Quick play with the course vocabulary.</p>
-              </div>
-            </header>
-            <div className="catalog-grid">
-              {games.map(game => <GameCard key={game.key} game={game} sample={GAME_SAMPLES[GAMES.indexOf(game)]} />)}
-            </div>
-          </section>
-        )}
-        {shown === 0 && games.length === 0 ? (
-          <div className="catalog-empty">
-            <h2>No drills match.</h2>
-            <p>Try a different word or clear the level filter.</p>
-            <button type="button" className="btn btn-primary" onClick={clear}>Clear search and filters</button>
-          </div>
-        ) : (
-          <>
-            {sections.map(section => (
-              <DrillGroup
-                key={section.key}
-                section={section}
-                filtering={filtering}
-                open={Boolean(openGroups[section.key])}
-                onToggle={() => setOpenGroups(previous => ({ ...previous, [section.key]: !previous[section.key] }))}
-              />
-            ))}
-            {!filtering && UNCATALOGUED_DRILLS.length > 0 && (
-              <section className="catalog-group catalog-registry" aria-labelledby="registry-practice">
-                <header><div><p className="catalog-kicker">Keep practising</p><h2 id="registry-practice">More practice</h2></div></header>
-                <ul>
-                  {UNCATALOGUED_DRILLS.map(drill => (
-                    <li key={drill.id}><Link to={premiumRouteFor(drill.id)}><strong>{drill.title}</strong><span>{drill.blurb}</span><EntryMotif size={22} index={drill.id.length} /></Link></li>
-                  ))}
-                </ul>
-              </section>
-            )}
-          </>
-        )}
+        </nav>
+
+        {GROUPS.map((group, index) => (
+          <DrillGroup key={group.key} group={group} number={index + 1} count={GROUPS.length} />
+        ))}
       </div>
     </div>
   )
