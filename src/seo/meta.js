@@ -52,7 +52,7 @@ export const STATIC_META = {
   '/drills': {
     title: `Tongan Grammar Drills, Free Online Practice | ${SITE_NAME}`,
     description:
-      'Thirty tap-only Tongan practice drills grouped by skill: tense markers, pronouns, possessives, articles, prepositions, question words, and more. Each one is tied to the lesson that teaches it.',
+      'Eighteen tap-only Tongan practice drills for patterns you use in every sentence: tense markers, pronouns, possessives, articles, prepositions, question words, and more, plus three word games. Each card names the lesson that teaches it.',
   },
   '/games': {
     title: `Tongan Word Games, Free Online Practice | ${SITE_NAME}`,
